@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { PullToRefresh } from "@/components/PullToRefresh";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -21,7 +22,16 @@ import {
   type Sphaere,
   type Tool,
 } from "@/lib/npoAssistant";
-import { ShieldCheck, Copy, Download, AlertTriangle, CheckCircle2, AlertCircle } from "lucide-react";
+import { ShieldCheck, Copy, Download, AlertTriangle, CheckCircle2, AlertCircle, RefreshCw } from "lucide-react";
+
+function inputSignature(tool: Tool, i: NpoInput): string {
+  return JSON.stringify([tool, i]);
+}
+function formatTime(d: Date): string {
+  const diff = Date.now() - d.getTime();
+  if (diff < 60_000) return "gerade eben";
+  return d.toLocaleTimeString("de-DE", { hour: "2-digit", minute: "2-digit" });
+}
 
 export const Route = createFileRoute("/npo-pruefassistent")({
   component: Page,

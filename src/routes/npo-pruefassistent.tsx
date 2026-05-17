@@ -115,6 +115,7 @@ function Page() {
   }, [tool, input, loading]);
 
   const onRefresh = useCallback(async () => {
+    setError(null);
     if (result && input.beschreibung.trim()) {
       const r = pruefe(tool, input);
       setResult(r);
@@ -124,6 +125,14 @@ function Page() {
       setNowTick((n) => n + 1);
     }
   }, [tool, input, result]);
+
+  useEffect(() => {
+    const handler = () => {
+      void onRefresh();
+    };
+    window.addEventListener("steuerstoff:refresh", handler);
+    return () => window.removeEventListener("steuerstoff:refresh", handler);
+  }, [onRefresh]);
 
   const exportText = useMemo(
     () => (result ? ergebnisAlsText(result, input) : ""),

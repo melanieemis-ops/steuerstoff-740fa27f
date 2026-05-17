@@ -399,7 +399,7 @@ function StepRuecklagen({ state, update }: { state: MvrState; update: <K extends
       </Card>
 
       {/* B. Betriebsmittel */}
-      <Card title="B. Betriebsmittelrücklage" accent="var(--violet)">
+      <Card title={<>B. <Term name="Betriebsmittelrücklage" /></>} accent="var(--violet)">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <NumField label="Personalkosten / Monat (€)" value={state.betriebsmittel.personal} onChange={(v) => update("betriebsmittel", { ...state.betriebsmittel, personal: v })} />
           <NumField label="Miete / Monat (€)" value={state.betriebsmittel.miete} onChange={(v) => update("betriebsmittel", { ...state.betriebsmittel, miete: v })} />

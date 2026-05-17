@@ -894,7 +894,7 @@ function Wissensdatenbank() {
                       Öffnen
                     </Button>
                   </article>
-                  {inlineOpenId === a.id && !open && (
+                  {inlineOpenId === a.id && (!open || !canUsePortal) && (
                     <div className="mt-3 flex max-h-[75vh] flex-col overflow-hidden rounded-2xl border border-border bg-card text-card-foreground shadow-card-soft sm:col-span-2 lg:col-span-3">
                       <ArticleDetails
                         article={a}

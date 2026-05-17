@@ -20,6 +20,7 @@ import {
 import {
   COMPLIANCE_NOTE,
   SKR_MAPPINGS,
+  OFFICIAL_MAPPINGS,
   type SkrMapping,
   type Sicherheit,
   findBySkr03,
@@ -32,6 +33,8 @@ import {
   sicherheitLabel,
   type UserMapping,
 } from "@/lib/skrMapping";
+
+const OFFICIAL_COUNT = OFFICIAL_MAPPINGS.length;
 
 export const Route = createFileRoute("/skr-konverter")({
   component: SkrKonverter,

@@ -57,14 +57,15 @@ const quickstart = [
   },
 ];
 
-const recent = [
-  { title: "Bewirtungsbeleg Geschäftsessen 03/2025", tag: "USt", when: "vor 2 Std." },
-  { title: "Mittelverwendungsrechnung Verein 2024", tag: "NPO", when: "gestern" },
-  { title: "ARAP Hostingkosten 2025", tag: "Abgrenzung", when: "vor 2 Tagen" },
-  { title: "Zuschussabgrenzung NPO", tag: "NPO", when: "letzte Woche" },
-];
-
 function Home() {
+  const [recent, setRecent] = useState<CaseRecord[]>([]);
+  useEffect(() => {
+    const update = () => setRecent(listCases().slice(0, 4));
+    update();
+    window.addEventListener("steuerstoff:cases", update);
+    return () => window.removeEventListener("steuerstoff:cases", update);
+  }, []);
+
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <SiteHeader />

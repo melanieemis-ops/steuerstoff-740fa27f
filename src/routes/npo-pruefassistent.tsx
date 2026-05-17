@@ -400,10 +400,18 @@ function ResultCard({
   r,
   onCopy,
   onDownload,
+  onRefresh,
+  loading,
+  isStale,
+  lastChecked,
 }: {
   r: NpoErgebnis;
   onCopy: () => void;
   onDownload: () => void;
+  onRefresh: () => void;
+  loading: boolean;
+  isStale: boolean;
+  lastChecked: string | null;
 }) {
   const a = ampelStyle(r.ampel);
   const A = a.Icon;
@@ -415,12 +423,31 @@ function ResultCard({
         ? "bg-amber-50 text-amber-800 border-amber-200"
         : "bg-muted text-muted-foreground border-border";
   return (
-    <div className="rounded-2xl border border-border bg-card shadow-card-soft">
+    <div className={`rounded-2xl border bg-card shadow-card-soft ${isStale ? "border-amber-300/70" : "border-border"}`}>
       <div className={`flex flex-wrap items-center gap-2 rounded-t-2xl border-b ${a.border} ${a.bg} px-4 py-3`}>
         <A className={`h-4 w-4 ${a.text}`} />
         <div className={`text-sm font-semibold ${a.text}`}>{a.label}</div>
         <span className={`rounded-full border px-2 py-0.5 text-[10px] ${sicherheitClass}`}>{sicherheitLabel}</span>
-        <div className="ml-auto text-xs text-muted-foreground">{r.titel}</div>
+        <button
+          type="button"
+          onClick={onRefresh}
+          disabled={loading}
+          className="ml-auto inline-flex items-center gap-1 rounded-full border border-border bg-background/80 px-2 py-0.5 text-[10px] text-foreground hover:bg-accent disabled:opacity-60"
+          title="Aktualisieren"
+        >
+          <RefreshCw className={`h-3 w-3 ${loading ? "animate-spin" : ""}`} />
+          Aktualisieren
+        </button>
+      </div>
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border/60 bg-background/50 px-4 py-2 text-[11px] text-muted-foreground">
+        <div>{r.titel}</div>
+        <div>
+          {isStale ? (
+            <span className="text-amber-700">Dieses Ergebnis basiert auf früheren Eingaben.</span>
+          ) : lastChecked ? (
+            <span>Zuletzt geprüft: {lastChecked}</span>
+          ) : null}
+        </div>
       </div>
       <div className="space-y-4 p-4 sm:p-5">
         {r.modus === "wissen" ? (

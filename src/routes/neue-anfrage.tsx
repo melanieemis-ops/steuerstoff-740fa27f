@@ -61,12 +61,19 @@ function NeueAnfrage() {
     e.preventDefault();
     setError(null);
     if (!canSubmit) {
-      setError("Bitte gib einen aussagekräftigen Titel (≥ 3 Zeichen) und eine Beschreibung (≥ 10 Zeichen) an.");
+      setError("Bitte beschreibe deine Frage oder den Sachverhalt (mindestens 5 Zeichen).");
       return;
     }
     setSubmitting(true);
     try {
-      const rec = createCase({ title: title.trim(), topic, description: description.trim() });
+      const desc = description.trim();
+      const derivedTitle =
+        title.trim().length >= 3
+          ? title.trim()
+          : desc.length > 80
+            ? desc.slice(0, 77).trimEnd() + "…"
+            : desc;
+      const rec = createCase({ title: derivedTitle, topic, description: desc });
       navigate({ to: "/fall/$caseId", params: { caseId: rec.id } });
     } catch (err) {
       setSubmitting(false);

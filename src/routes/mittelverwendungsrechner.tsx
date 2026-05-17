@@ -16,6 +16,7 @@ import {
   type RuecklageArt,
 } from "@/lib/mvrStore";
 import { Term } from "@/components/MvrGlossary";
+import { MvrImport } from "@/components/MvrImport";
 
 export const Route = createFileRoute("/mittelverwendungsrechner")({
   component: Page,
@@ -32,7 +33,7 @@ export const Route = createFileRoute("/mittelverwendungsrechner")({
 });
 
 const STEPS = [
-  "Stammdaten", "45.000-€-Schwelle", "Mittelzuflüsse", "Mittelverwendung",
+  "Daten importieren", "Stammdaten", "45.000-€-Schwelle", "Mittelzuflüsse", "Mittelverwendung",
   "Vermögen", "Rücklagen § 62 AO", "Mittelvortrag", "Rücklagenspiegel", "Ergebnis", "Export",
 ] as const;
 
@@ -167,16 +168,17 @@ function Page() {
           </nav>
 
           <div className="space-y-5">
-            {step === 0 && <StepStamm state={state} update={update} />}
-            {step === 1 && <StepSchwelle state={state} update={update} />}
-            {step === 2 && <StepZufluesse state={state} update={update} />}
-            {step === 3 && <StepVerwendung state={state} update={update} />}
-            {step === 4 && <StepVermoegen state={state} update={update} />}
-            {step === 5 && <StepRuecklagen state={state} update={update} />}
-            {step === 6 && <StepMittelvortrag state={state} update={update} />}
-            {step === 7 && <StepSpiegel state={state} update={update} />}
-            {step === 8 && <StepErgebnis state={state} />}
-            {step === 9 && <StepExport state={state} />}
+            {step === 0 && <MvrImport state={state} onApply={setState} />}
+            {step === 1 && <StepStamm state={state} update={update} />}
+            {step === 2 && <StepSchwelle state={state} update={update} />}
+            {step === 3 && <StepZufluesse state={state} update={update} />}
+            {step === 4 && <StepVerwendung state={state} update={update} />}
+            {step === 5 && <StepVermoegen state={state} update={update} />}
+            {step === 6 && <StepRuecklagen state={state} update={update} />}
+            {step === 7 && <StepMittelvortrag state={state} update={update} />}
+            {step === 8 && <StepSpiegel state={state} update={update} />}
+            {step === 9 && <StepErgebnis state={state} />}
+            {step === 10 && <StepExport state={state} />}
           </div>
 
           <div className="mt-6 flex items-center justify-between">

@@ -11,6 +11,7 @@ export const SECTIONS = [
   { to: "/wissensdatenbank", label: "Wissen", short: "Wissen" },
   { to: "/skr-konverter", label: "SKR", short: "SKR" },
   { to: "/mittelverwendungsrechner", label: "MVR", short: "MVR" },
+  { to: "/kfz-wertabgabe", label: "Kfz", short: "Kfz" },
   { to: "/npo-pruefassistent", label: "NPO", short: "NPO" },
   { to: "/einstellungen", label: "Einstellungen", short: "Mehr" },
 ] as const;

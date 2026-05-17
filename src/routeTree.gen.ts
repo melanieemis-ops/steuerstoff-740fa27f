@@ -16,6 +16,7 @@ import { Route as NeueAnfrageRouteImport } from './routes/neue-anfrage'
 import { Route as MittelverwendungsrechnerRouteImport } from './routes/mittelverwendungsrechner'
 import { Route as FallverlaufRouteImport } from './routes/fallverlauf'
 import { Route as EinstellungenRouteImport } from './routes/einstellungen'
+import { Route as ChatRouteImport } from './routes/chat'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as FallCaseIdRouteImport } from './routes/fall.$caseId'
 
@@ -55,6 +56,11 @@ const EinstellungenRoute = EinstellungenRouteImport.update({
   path: '/einstellungen',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ChatRoute = ChatRouteImport.update({
+  id: '/chat',
+  path: '/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -68,6 +74,7 @@ const FallCaseIdRoute = FallCaseIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/chat': typeof ChatRoute
   '/einstellungen': typeof EinstellungenRoute
   '/fallverlauf': typeof FallverlaufRoute
   '/mittelverwendungsrechner': typeof MittelverwendungsrechnerRoute
@@ -79,6 +86,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/chat': typeof ChatRoute
   '/einstellungen': typeof EinstellungenRoute
   '/fallverlauf': typeof FallverlaufRoute
   '/mittelverwendungsrechner': typeof MittelverwendungsrechnerRoute
@@ -91,6 +99,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/chat': typeof ChatRoute
   '/einstellungen': typeof EinstellungenRoute
   '/fallverlauf': typeof FallverlaufRoute
   '/mittelverwendungsrechner': typeof MittelverwendungsrechnerRoute
@@ -104,6 +113,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/chat'
     | '/einstellungen'
     | '/fallverlauf'
     | '/mittelverwendungsrechner'
@@ -115,6 +125,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/chat'
     | '/einstellungen'
     | '/fallverlauf'
     | '/mittelverwendungsrechner'
@@ -126,6 +137,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/chat'
     | '/einstellungen'
     | '/fallverlauf'
     | '/mittelverwendungsrechner'
@@ -138,6 +150,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ChatRoute: typeof ChatRoute
   EinstellungenRoute: typeof EinstellungenRoute
   FallverlaufRoute: typeof FallverlaufRoute
   MittelverwendungsrechnerRoute: typeof MittelverwendungsrechnerRoute
@@ -199,6 +212,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EinstellungenRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/chat': {
+      id: '/chat'
+      path: '/chat'
+      fullPath: '/chat'
+      preLoaderRoute: typeof ChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -218,6 +238,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ChatRoute: ChatRoute,
   EinstellungenRoute: EinstellungenRoute,
   FallverlaufRoute: FallverlaufRoute,
   MittelverwendungsrechnerRoute: MittelverwendungsrechnerRoute,

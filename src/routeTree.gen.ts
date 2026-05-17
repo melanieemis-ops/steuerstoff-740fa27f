@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WissensdatenbankRouteImport } from './routes/wissensdatenbank'
 import { Route as SkrKonverterRouteImport } from './routes/skr-konverter'
+import { Route as NpoPruefassistentRouteImport } from './routes/npo-pruefassistent'
 import { Route as NeueAnfrageRouteImport } from './routes/neue-anfrage'
 import { Route as MittelverwendungsrechnerRouteImport } from './routes/mittelverwendungsrechner'
 import { Route as FallverlaufRouteImport } from './routes/fallverlauf'
@@ -26,6 +27,11 @@ const WissensdatenbankRoute = WissensdatenbankRouteImport.update({
 const SkrKonverterRoute = SkrKonverterRouteImport.update({
   id: '/skr-konverter',
   path: '/skr-konverter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NpoPruefassistentRoute = NpoPruefassistentRouteImport.update({
+  id: '/npo-pruefassistent',
+  path: '/npo-pruefassistent',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NeueAnfrageRoute = NeueAnfrageRouteImport.update({
@@ -66,6 +72,7 @@ export interface FileRoutesByFullPath {
   '/fallverlauf': typeof FallverlaufRoute
   '/mittelverwendungsrechner': typeof MittelverwendungsrechnerRoute
   '/neue-anfrage': typeof NeueAnfrageRoute
+  '/npo-pruefassistent': typeof NpoPruefassistentRoute
   '/skr-konverter': typeof SkrKonverterRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
   '/fall/$caseId': typeof FallCaseIdRoute
@@ -76,6 +83,7 @@ export interface FileRoutesByTo {
   '/fallverlauf': typeof FallverlaufRoute
   '/mittelverwendungsrechner': typeof MittelverwendungsrechnerRoute
   '/neue-anfrage': typeof NeueAnfrageRoute
+  '/npo-pruefassistent': typeof NpoPruefassistentRoute
   '/skr-konverter': typeof SkrKonverterRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
   '/fall/$caseId': typeof FallCaseIdRoute
@@ -87,6 +95,7 @@ export interface FileRoutesById {
   '/fallverlauf': typeof FallverlaufRoute
   '/mittelverwendungsrechner': typeof MittelverwendungsrechnerRoute
   '/neue-anfrage': typeof NeueAnfrageRoute
+  '/npo-pruefassistent': typeof NpoPruefassistentRoute
   '/skr-konverter': typeof SkrKonverterRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
   '/fall/$caseId': typeof FallCaseIdRoute
@@ -99,6 +108,7 @@ export interface FileRouteTypes {
     | '/fallverlauf'
     | '/mittelverwendungsrechner'
     | '/neue-anfrage'
+    | '/npo-pruefassistent'
     | '/skr-konverter'
     | '/wissensdatenbank'
     | '/fall/$caseId'
@@ -109,6 +119,7 @@ export interface FileRouteTypes {
     | '/fallverlauf'
     | '/mittelverwendungsrechner'
     | '/neue-anfrage'
+    | '/npo-pruefassistent'
     | '/skr-konverter'
     | '/wissensdatenbank'
     | '/fall/$caseId'
@@ -119,6 +130,7 @@ export interface FileRouteTypes {
     | '/fallverlauf'
     | '/mittelverwendungsrechner'
     | '/neue-anfrage'
+    | '/npo-pruefassistent'
     | '/skr-konverter'
     | '/wissensdatenbank'
     | '/fall/$caseId'
@@ -130,6 +142,7 @@ export interface RootRouteChildren {
   FallverlaufRoute: typeof FallverlaufRoute
   MittelverwendungsrechnerRoute: typeof MittelverwendungsrechnerRoute
   NeueAnfrageRoute: typeof NeueAnfrageRoute
+  NpoPruefassistentRoute: typeof NpoPruefassistentRoute
   SkrKonverterRoute: typeof SkrKonverterRoute
   WissensdatenbankRoute: typeof WissensdatenbankRoute
   FallCaseIdRoute: typeof FallCaseIdRoute
@@ -149,6 +162,13 @@ declare module '@tanstack/react-router' {
       path: '/skr-konverter'
       fullPath: '/skr-konverter'
       preLoaderRoute: typeof SkrKonverterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/npo-pruefassistent': {
+      id: '/npo-pruefassistent'
+      path: '/npo-pruefassistent'
+      fullPath: '/npo-pruefassistent'
+      preLoaderRoute: typeof NpoPruefassistentRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/neue-anfrage': {
@@ -202,6 +222,7 @@ const rootRouteChildren: RootRouteChildren = {
   FallverlaufRoute: FallverlaufRoute,
   MittelverwendungsrechnerRoute: MittelverwendungsrechnerRoute,
   NeueAnfrageRoute: NeueAnfrageRoute,
+  NpoPruefassistentRoute: NpoPruefassistentRoute,
   SkrKonverterRoute: SkrKonverterRoute,
   WissensdatenbankRoute: WissensdatenbankRoute,
   FallCaseIdRoute: FallCaseIdRoute,
@@ -209,3 +230,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

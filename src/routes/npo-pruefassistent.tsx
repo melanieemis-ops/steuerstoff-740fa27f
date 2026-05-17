@@ -394,6 +394,7 @@ function Page() {
       </main>
       <SiteFooter />
     </div>
+    </PullToRefresh>
   );
 }
 

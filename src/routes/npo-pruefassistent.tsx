@@ -57,7 +57,13 @@ function Page() {
   const [tool, setTool] = useState<Tool>("sphaere");
   const [input, setInput] = useState<NpoInput>(emptyInput());
   const [result, setResult] = useState<NpoErgebnis | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [lastChecked, setLastChecked] = useState<Date | null>(null);
+  const [checkedSignature, setCheckedSignature] = useState<string | null>(null);
+  const [, setNowTick] = useState(0);
   const toolsRef = useRef<HTMLDivElement>(null);
+  const resultRef = useRef<HTMLDivElement>(null);
   const toolIdx = TOOLS.findIndex((t) => t.id === tool);
   useSwipeNavigation(toolsRef, {
     onSwipeLeft: () => {
@@ -70,10 +76,54 @@ function Page() {
     },
   });
 
+  useEffect(() => {
+    const id = window.setInterval(() => setNowTick((n) => n + 1), 30_000);
+    return () => window.clearInterval(id);
+  }, []);
+
   const update = <K extends keyof NpoInput>(k: K, v: NpoInput[K]) =>
     setInput((s) => ({ ...s, [k]: v }));
 
-  const run = () => setResult(pruefe(tool, input));
+  const currentSig = inputSignature(tool, input);
+  const isStale = result !== null && checkedSignature !== null && checkedSignature !== currentSig;
+
+  const run = useCallback(async () => {
+    if (!input.beschreibung.trim() || loading) return;
+    setLoading(true);
+    setError(null);
+    try {
+      await new Promise<void>((r) => requestAnimationFrame(() => r()));
+      const r = pruefe(tool, input);
+      setResult(r);
+      setCheckedSignature(inputSignature(tool, input));
+      setLastChecked(new Date());
+      requestAnimationFrame(() => {
+        const el = resultRef.current;
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const vh = window.innerHeight || 0;
+        const inView = rect.top >= 0 && rect.top < vh * 0.8;
+        if (!inView && window.innerWidth < 768) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    } catch {
+      setError("Die Prüfung konnte nicht erstellt werden. Bitte erneut versuchen.");
+    } finally {
+      setLoading(false);
+    }
+  }, [tool, input, loading]);
+
+  const onRefresh = useCallback(async () => {
+    if (result && input.beschreibung.trim()) {
+      const r = pruefe(tool, input);
+      setResult(r);
+      setCheckedSignature(inputSignature(tool, input));
+      setLastChecked(new Date());
+    } else {
+      setNowTick((n) => n + 1);
+    }
+  }, [tool, input, result]);
 
   const exportText = useMemo(
     () => (result ? ergebnisAlsText(result, input) : ""),
@@ -92,6 +142,9 @@ function Page() {
     a.click();
     URL.revokeObjectURL(url);
   };
+
+  const buttonLabel = loading ? "Prüfung läuft …" : result ? "Erneut prüfen" : "NPO-Prüfung starten";
+  const lastCheckedLabel = lastChecked ? formatTime(lastChecked) : null;
 
   return (
     <div className="flex min-h-screen flex-col bg-background">

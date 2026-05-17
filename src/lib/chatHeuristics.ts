@@ -1,6 +1,8 @@
 // Lightweight heuristic "AI" answer engine for the steuerstoff Chat MVP.
 // Replace generateAnswer() with a real API call later.
 
+import { lookupLexicon } from "./taxLexicon";
+
 export type ChatLink = { label: string; to: string };
 
 export interface ChatAnswer {

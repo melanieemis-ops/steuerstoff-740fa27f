@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { GlobalSwipeArea, SectionDots, MobileBottomNav } from "@/components/MobileNav";
 
 function NotFoundComponent() {
   return (
@@ -117,7 +118,12 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <GlobalSwipeArea>
+        <SectionDots />
+        <Outlet />
+        <div aria-hidden className="md:hidden h-16" />
+        <MobileBottomNav />
+      </GlobalSwipeArea>
     </QueryClientProvider>
   );
 }

@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Input } from "@/components/ui/input";
@@ -122,11 +123,34 @@ function Note({ tone = "info", children }: { tone?: "info" | "warn" | "danger" |
 function Page() {
   const [state, setState] = useState<MvrState>(() => loadState());
   const [step, setStep] = useState(0);
+  const [hint, setHint] = useState<string | null>(null);
+  const swipeRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => { saveState(state); }, [state]);
 
   const update = <K extends keyof MvrState>(key: K, value: MvrState[K]) =>
     setState((s) => ({ ...s, [key]: value }));
+
+  // Step 1 (Stammdaten) hat ein Pflichtfeld: Trägername
+  const missingRequired = (s: MvrState, idx: number): boolean => {
+    if (idx === 1) return !s.stamm?.name?.trim();
+    return false;
+  };
+
+  const goNext = (force = false) => {
+    if (!force && missingRequired(state, step)) {
+      setHint("Bitte fehlende Pflichtangaben ergänzen oder Schritt bewusst überspringen.");
+      window.setTimeout(() => setHint(null), 3500);
+      return;
+    }
+    setStep((s) => Math.min(STEPS.length - 1, s + 1));
+  };
+  const goPrev = () => setStep((s) => Math.max(0, s - 1));
+
+  useSwipeNavigation(swipeRef, {
+    onSwipeLeft: () => goNext(false),
+    onSwipeRight: () => goPrev(),
+  });
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
@@ -152,12 +176,12 @@ function Page() {
 
         <div className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6">
           {/* Stepper */}
-          <nav className="mb-6 flex flex-wrap gap-1.5">
+          <nav className="mb-4 flex gap-1.5 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {STEPS.map((s, i) => (
               <button
                 key={s}
                 onClick={() => setStep(i)}
-                className={`rounded-full border px-3 py-1 text-xs transition ${
+                className={`shrink-0 rounded-full border px-3 py-1 text-xs transition ${
                   i === step
                     ? "border-foreground/30 bg-foreground text-background"
                     : "border-border bg-card text-muted-foreground hover:text-foreground"
@@ -168,7 +192,13 @@ function Page() {
             ))}
           </nav>
 
-          <div className="space-y-5">
+          {hint && (
+            <div className="mb-3 rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-800">
+              {hint}
+            </div>
+          )}
+
+          <div ref={swipeRef} className="space-y-5 touch-pan-y">
             {step === 0 && <MvrImport state={state} onApply={setState} />}
             {step === 1 && <StepStamm state={state} update={update} />}
             {step === 2 && <StepSchwelle state={state} update={update} />}
@@ -182,12 +212,19 @@ function Page() {
             {step === 10 && <StepExport state={state} />}
           </div>
 
-          <div className="mt-6 flex items-center justify-between">
-            <Button variant="outline" onClick={() => setStep((s) => Math.max(0, s - 1))} disabled={step === 0}>
+          <div className="mt-6 flex flex-wrap items-center justify-between gap-2">
+            <Button variant="outline" onClick={goPrev} disabled={step === 0}>
               <ChevronLeft className="mr-1 h-4 w-4" /> Zurück
             </Button>
-            <span className="text-xs text-muted-foreground">Schritt {step + 1} / {STEPS.length}</span>
-            <Button onClick={() => setStep((s) => Math.min(STEPS.length - 1, s + 1))} disabled={step === STEPS.length - 1}>
+            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+              <span>Schritt {step + 1} / {STEPS.length}</span>
+              {missingRequired(state, step) && (
+                <Button variant="ghost" size="sm" className="h-8 px-2 text-xs" onClick={() => goNext(true)}>
+                  Überspringen
+                </Button>
+              )}
+            </div>
+            <Button onClick={() => goNext(false)} disabled={step === STEPS.length - 1}>
               Weiter <ChevronRight className="ml-1 h-4 w-4" />
             </Button>
           </div>

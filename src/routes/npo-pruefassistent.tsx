@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
+import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Button } from "@/components/ui/button";
@@ -44,6 +45,18 @@ function Page() {
   const [tool, setTool] = useState<Tool>("sphaere");
   const [input, setInput] = useState<NpoInput>(emptyInput());
   const [result, setResult] = useState<NpoErgebnis | null>(null);
+  const toolsRef = useRef<HTMLDivElement>(null);
+  const toolIdx = TOOLS.findIndex((t) => t.id === tool);
+  useSwipeNavigation(toolsRef, {
+    onSwipeLeft: () => {
+      const next = TOOLS[Math.min(TOOLS.length - 1, toolIdx + 1)];
+      if (next) setTool(next.id);
+    },
+    onSwipeRight: () => {
+      const prev = TOOLS[Math.max(0, toolIdx - 1)];
+      if (prev) setTool(prev.id);
+    },
+  });
 
   const update = <K extends keyof NpoInput>(k: K, v: NpoInput[K]) =>
     setInput((s) => ({ ...s, [k]: v }));
@@ -207,8 +220,23 @@ function Page() {
                 </div>
               </div>
 
-              <div className="rounded-2xl border border-border bg-card p-4 shadow-card-soft sm:p-5">
-                <h2 className="text-sm font-semibold text-foreground">2. Prüfungstool</h2>
+              <div ref={toolsRef} className="rounded-2xl border border-border bg-card p-4 shadow-card-soft sm:p-5 touch-pan-y">
+                <div className="flex items-center justify-between gap-2">
+                  <h2 className="text-sm font-semibold text-foreground">2. Prüfungstool</h2>
+                  <div className="flex items-center gap-1">
+                    {TOOLS.map((t, i) => (
+                      <span
+                        key={t.id}
+                        className={`h-1.5 w-1.5 rounded-full ${
+                          i === toolIdx ? "bg-foreground" : "bg-muted-foreground/30"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </div>
+                <p className="mt-1 text-[11px] text-muted-foreground sm:hidden">
+                  Tipp: nach links/rechts swipen, um Tools zu wechseln.
+                </p>
                 <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
                   {TOOLS.map((t) => {
                     const active = tool === t.id;

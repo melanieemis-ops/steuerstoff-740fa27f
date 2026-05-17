@@ -132,3 +132,12 @@
     box-shadow: var(--shadow-card);
   }
 }
+
+@keyframes slidein-l {
+  from { transform: translateX(24px); opacity: 0.6; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+@keyframes slidein-r {
+  from { transform: translateX(-24px); opacity: 0.6; }
+  to   { transform: translateX(0); opacity: 1; }
+}

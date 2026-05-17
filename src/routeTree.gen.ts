@@ -9,10 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WissensdatenbankRouteImport } from './routes/wissensdatenbank'
 import { Route as NeueAnfrageRouteImport } from './routes/neue-anfrage'
 import { Route as FallverlaufRouteImport } from './routes/fallverlauf'
 import { Route as IndexRouteImport } from './routes/index'
 
+const WissensdatenbankRoute = WissensdatenbankRouteImport.update({
+  id: '/wissensdatenbank',
+  path: '/wissensdatenbank',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NeueAnfrageRoute = NeueAnfrageRouteImport.update({
   id: '/neue-anfrage',
   path: '/neue-anfrage',
@@ -33,34 +39,45 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/fallverlauf': typeof FallverlaufRoute
   '/neue-anfrage': typeof NeueAnfrageRoute
+  '/wissensdatenbank': typeof WissensdatenbankRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/fallverlauf': typeof FallverlaufRoute
   '/neue-anfrage': typeof NeueAnfrageRoute
+  '/wissensdatenbank': typeof WissensdatenbankRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/fallverlauf': typeof FallverlaufRoute
   '/neue-anfrage': typeof NeueAnfrageRoute
+  '/wissensdatenbank': typeof WissensdatenbankRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/fallverlauf' | '/neue-anfrage'
+  fullPaths: '/' | '/fallverlauf' | '/neue-anfrage' | '/wissensdatenbank'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/fallverlauf' | '/neue-anfrage'
-  id: '__root__' | '/' | '/fallverlauf' | '/neue-anfrage'
+  to: '/' | '/fallverlauf' | '/neue-anfrage' | '/wissensdatenbank'
+  id: '__root__' | '/' | '/fallverlauf' | '/neue-anfrage' | '/wissensdatenbank'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   FallverlaufRoute: typeof FallverlaufRoute
   NeueAnfrageRoute: typeof NeueAnfrageRoute
+  WissensdatenbankRoute: typeof WissensdatenbankRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/wissensdatenbank': {
+      id: '/wissensdatenbank'
+      path: '/wissensdatenbank'
+      fullPath: '/wissensdatenbank'
+      preLoaderRoute: typeof WissensdatenbankRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/neue-anfrage': {
       id: '/neue-anfrage'
       path: '/neue-anfrage'
@@ -89,6 +106,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   FallverlaufRoute: FallverlaufRoute,
   NeueAnfrageRoute: NeueAnfrageRoute,
+  WissensdatenbankRoute: WissensdatenbankRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

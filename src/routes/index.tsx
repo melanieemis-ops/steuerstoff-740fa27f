@@ -17,6 +17,7 @@ import {
   FileText,
   BookOpen,
   ShieldCheck,
+  Car,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({

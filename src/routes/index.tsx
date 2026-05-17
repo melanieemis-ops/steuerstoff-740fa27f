@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { listCases, relativeTime, type CaseRecord } from "@/lib/casesStore";
 import {
   ArrowRight,
+  ArrowRightLeft,
   FileSearch,
   Building2,
   Calculator,
@@ -54,6 +55,13 @@ const quickstart = [
     title: "Rückfragebrief vorbereiten",
     desc: "Fehlende Angaben erkennen und Mandantenanfrage formulieren.",
     accent: "var(--deep-blue)",
+  },
+  {
+    icon: ArrowRightLeft,
+    title: "SKR-Konverter",
+    desc: "SKR03 → SKR42 zuordnen, Textanalyse und eigene Mappings.",
+    accent: "var(--magenta)",
+    to: "/skr-konverter" as const,
   },
 ];
 
@@ -157,11 +165,11 @@ function Home() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {quickstart.map(({ icon: Icon, title, desc, accent }) => (
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
+            {quickstart.map(({ icon: Icon, title, desc, accent, to }) => (
               <Link
                 key={title}
-                to="/neue-anfrage"
+                to={to ?? "/neue-anfrage"}
                 className="group rounded-2xl border border-border bg-card p-4 shadow-card-soft transition-all hover:-translate-y-0.5 hover:border-foreground/20"
               >
                 <span
@@ -173,7 +181,7 @@ function Home() {
                 <h3 className="mt-3 text-sm font-medium text-foreground">{title}</h3>
                 <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{desc}</p>
                 <span className="mt-3 inline-flex items-center gap-1 text-xs text-muted-foreground group-hover:text-foreground">
-                  Starten <ArrowRight className="h-3 w-3" />
+                  Öffnen <ArrowRight className="h-3 w-3" />
                 </span>
               </Link>
             ))}

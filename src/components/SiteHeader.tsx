@@ -6,6 +6,7 @@ const nav = [
   { to: "/neue-anfrage", label: "Neue Anfrage" },
   { to: "/fallverlauf", label: "Fallverlauf" },
   { to: "/wissensdatenbank", label: "Wissensdatenbank" },
+  { to: "/skr-konverter", label: "SKR-Konverter" },
   { to: "/einstellungen", label: "Einstellungen" },
 ] as const;
 

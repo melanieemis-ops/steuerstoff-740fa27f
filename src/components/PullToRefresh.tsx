@@ -185,11 +185,13 @@ export function PullToRefresh({
     window.addEventListener("touchmove", onTouchMove, { passive: true });
     window.addEventListener("touchend", onTouchEnd, { passive: true });
     window.addEventListener("touchcancel", onCancel, { passive: true });
+    window.addEventListener("steuerstoff:menu-open", onMenuOpen);
     return () => {
       window.removeEventListener("touchstart", onTouchStart);
       window.removeEventListener("touchmove", onTouchMove);
       window.removeEventListener("touchend", onTouchEnd);
       window.removeEventListener("touchcancel", onCancel);
+      window.removeEventListener("steuerstoff:menu-open", onMenuOpen);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
   }, []);

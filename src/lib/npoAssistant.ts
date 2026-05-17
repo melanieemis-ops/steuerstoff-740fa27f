@@ -459,27 +459,19 @@ const RUNNER = {
   ust: bewerteUst,
 } as Record<Tool, (i: NpoInput) => RunnerOut>;
 
-export function pruefe(tool: Tool, input: NpoInput){
-  const raw = RUNNER[tool](input as NpoInput);
+export function pruefe(tool: Tool, input: NpoInput): NpoErgebnis {
+  const raw = RUNNER[tool](input);
   return enrich(raw, input);
 }
 
-function enrich(e: Partial<NpoErgebnis> & Pick<NpoErgebnis, "tool" | "toolLabel" | "ampel" | "einschaetzung" | "risiken" | "fehlendeAngaben" | "unterlagen" | "rueckfragen" | "buchungshinweis" | "reviewHinweis" | "textbaustein">, i: NpoInput){
+function enrich(e: RunnerOut, i: NpoInput): NpoErgebnis {
   const sicherheit = bewerteSicherheit(i);
   const annahmen = ableiteAnnahmen(i);
   const alternativen = e.alternativen ?? [];
   const ustHinweis = e.ustHinweis ?? defaultUstHinweis(i);
-  // bei nur Kurzbeschreibung: Ampel max. gelb (vorsichtig)
   let ampel = e.ampel;
   if (sicherheit === "niedrig" && ampel === "gruen") ampel = "gelb";
-  return {
-    ...e,
-    ampel,
-    sicherheit,
-    annahmen,
-    alternativen,
-    ustHinweis,
-  };
+  return { ...e, ampel, sicherheit, annahmen, alternativen, ustHinweis };
 }
 
 function bewerteSicherheit(i: NpoInput): Sicherheit {

@@ -526,7 +526,7 @@ function StepRuecklagen({ state, update }: { state: MvrState; update: <K extends
 function StepMittelvortrag({ state, update }: { state: MvrState; update: <K extends keyof MvrState>(k: K, v: MvrState[K]) => void }) {
   const curYear = Number(state.stamm.jahr) || new Date().getFullYear();
   return (
-    <Card title="Mittelvortrag · Zwei-Jahres-Frist" accent="var(--cyan)">
+    <Card title={<><Term name="Mittelvortrag" /> · Zwei-Jahres-Frist</>} accent="var(--cyan)">
       <Note tone="info">
         Mittel müssen spätestens in den beiden auf das Jahr des Zuflusses folgenden Kalender- oder
         Wirtschaftsjahren verwendet werden. Beispiel: Zufluss 2024 → Verwendung bis Ende 2026.

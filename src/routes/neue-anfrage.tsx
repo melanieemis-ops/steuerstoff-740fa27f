@@ -17,16 +17,20 @@ const TOPICS = ["USt", "NPO", "SKR03", "SKR42", "DATEV", "Abgrenzung", "Buchhalt
 
 const EXAMPLES = [
   {
+    title: "Wie viel Umsatzsteuer bezahlt man auf Strom?",
+    topic: "USt",
+    description: "Wie viel Umsatzsteuer bezahlt man auf Strom?",
+  },
+  {
+    title: "Was bedeutet Reverse Charge?",
+    topic: "USt",
+    description: "Was bedeutet Reverse Charge?",
+  },
+  {
     title: "Bewirtungsbeleg ohne Teilnehmerangaben",
     topic: "USt",
     description:
       "Restaurantrechnung 184,50 € brutto vom 14.03.2025. Auf dem Beleg fehlen Teilnehmernamen und konkreter Anlass. Frage: Vorsteuerabzug und 70-%-Regel.",
-  },
-  {
-    title: "Rücklage nach § 62 AO bilden",
-    topic: "NPO",
-    description:
-      "Gemeinnütziger Verein möchte eine freie Rücklage nach § 62 Abs. 1 Nr. 3 AO bilden. Mittelverwendungsfrist und Beschlussfassung zu klären.",
   },
   {
     title: "Hostingrechnung über Jahreswechsel",
@@ -44,7 +48,7 @@ function NeueAnfrage() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const canSubmit = title.trim().length >= 3 && description.trim().length >= 10;
+  const canSubmit = description.trim().length >= 5;
 
   function loadExample(i: number) {
     const ex = EXAMPLES[i];
@@ -57,12 +61,19 @@ function NeueAnfrage() {
     e.preventDefault();
     setError(null);
     if (!canSubmit) {
-      setError("Bitte gib einen aussagekräftigen Titel (≥ 3 Zeichen) und eine Beschreibung (≥ 10 Zeichen) an.");
+      setError("Bitte beschreibe deine Frage oder den Sachverhalt (mindestens 5 Zeichen).");
       return;
     }
     setSubmitting(true);
     try {
-      const rec = createCase({ title: title.trim(), topic, description: description.trim() });
+      const desc = description.trim();
+      const derivedTitle =
+        title.trim().length >= 3
+          ? title.trim()
+          : desc.length > 80
+            ? desc.slice(0, 77).trimEnd() + "…"
+            : desc;
+      const rec = createCase({ title: derivedTitle, topic, description: desc });
       navigate({ to: "/fall/$caseId", params: { caseId: rec.id } });
     } catch (err) {
       setSubmitting(false);
@@ -76,11 +87,12 @@ function NeueAnfrage() {
       <main className="flex-1">
         <div className="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6 sm:py-14">
           <h1 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-            Neue steuerliche Anfrage
+            Neue Anfrage
           </h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            Beschreibe den Sachverhalt — steuerstoff strukturiert ihn, erkennt fehlende Angaben und
-            schlägt nächste Schritte vor.
+            Stelle eine kurze Wissensfrage oder beschreibe einen konkreten Sachverhalt — steuerstoff
+            erkennt den Typ automatisch und antwortet passend: kurz und direkt oder strukturiert mit
+            Rückfragen.
           </p>
 
           <form
@@ -89,13 +101,13 @@ function NeueAnfrage() {
           >
             <div>
               <label htmlFor="title" className="text-sm font-medium text-foreground">
-                Titel des Sachverhalts
+                Titel <span className="text-muted-foreground">(optional)</span>
               </label>
               <Input
                 id="title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                placeholder="z. B. Bewirtungsbeleg Geschäftsessen 03/2025"
+                placeholder="z. B. Bewirtungsbeleg 03/2025 oder leer lassen"
                 className="mt-1.5"
                 maxLength={200}
               />
@@ -126,13 +138,16 @@ function NeueAnfrage() {
 
             <div>
               <label htmlFor="description" className="text-sm font-medium text-foreground">
-                Sachverhalt
+                Frage oder Sachverhalt
               </label>
               <Textarea
                 id="description"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                placeholder="Beschreibe den Sachverhalt: Beteiligte, Zeitraum, Beträge, Belege, offene Punkte …"
+                placeholder={
+                  "Wissensfrage, z. B. „Wie viel Umsatzsteuer fällt auf Strom an?“\n\n" +
+                  "Oder Sachverhalt: Beteiligte, Zeitraum, Beträge, Belege, offene Punkte …"
+                }
                 className="mt-1.5 min-h-[180px]"
                 maxLength={4000}
               />
@@ -151,15 +166,15 @@ function NeueAnfrage() {
               </p>
               <Button type="submit" disabled={!canSubmit || submitting} className="h-10 px-5">
                 <Sparkles className="h-4 w-4" />
-                {submitting ? "Analysiere …" : "Analyse starten"}
+                {submitting ? "Wird beantwortet …" : "Antwort generieren"}
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </div>
           </form>
 
           <div className="mt-8">
-            <h2 className="text-sm font-medium text-foreground">Beispiel-Sachverhalte</h2>
-            <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-3">
+            <h2 className="text-sm font-medium text-foreground">Beispiele</h2>
+            <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-4">
               {EXAMPLES.map((ex, i) => (
                 <button
                   key={ex.title}

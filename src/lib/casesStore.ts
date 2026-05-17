@@ -10,7 +10,7 @@ export interface CaseRecord {
   analysis: Analysis;
 }
 
-const KEY = "steuerstoff.cases.v1";
+const KEY = "steuerstoff.cases.v2";
 
 function read(): CaseRecord[] {
   if (typeof window === "undefined") return [];

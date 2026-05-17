@@ -33,7 +33,7 @@ export const Route = createFileRoute("/mittelverwendungsrechner")({
 });
 
 const STEPS = [
-  "Stammdaten", "45.000-€-Schwelle", "Mittelzuflüsse", "Mittelverwendung",
+  "Daten importieren", "Stammdaten", "45.000-€-Schwelle", "Mittelzuflüsse", "Mittelverwendung",
   "Vermögen", "Rücklagen § 62 AO", "Mittelvortrag", "Rücklagenspiegel", "Ergebnis", "Export",
 ] as const;
 

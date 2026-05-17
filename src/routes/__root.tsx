@@ -75,11 +75,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "steuerstoff — KI-Steuer-Arbeitsassistent für Kanzleien" },
       { name: "description", content: "steuerstoff strukturiert steuerliche Sachverhalte, erkennt fehlende Angaben und erstellt Rückfragen, Buchungsvorschläge und Review-Dokumentation für deutsche Kanzleien." },
       { name: "author", content: "steuerstoff" },
-      { property: "og:title", content: "steuerstoff — KI-Steuer-Arbeitsassistent" },
-      { property: "og:description", content: "KI-gestützter Steuer-Arbeitsassistent für deutsche Kanzleien." },
+      { property: "og:title", content: "steuerstoff — KI-Steuer-Arbeitsassistent für Kanzleien" },
+      { property: "og:description", content: "steuerstoff strukturiert steuerliche Sachverhalte, erkennt fehlende Angaben und erstellt Rückfragen, Buchungsvorschläge und Review-Dokumentation für deutsche Kanzleien." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "steuerstoff — KI-Steuer-Arbeitsassistent für Kanzleien" },
+      { name: "twitter:description", content: "steuerstoff strukturiert steuerliche Sachverhalte, erkennt fehlende Angaben und erstellt Rückfragen, Buchungsvorschläge und Review-Dokumentation für deutsche Kanzleien." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/CjQopLmSORNbez2iC4oaUmefOTs1/social-images/social-1779019056799-58A18C81-365C-40F4-8127-765D2429813C.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/CjQopLmSORNbez2iC4oaUmefOTs1/social-images/social-1779019056799-58A18C81-365C-40F4-8127-765D2429813C.webp" },
     ],
     links: [
       {

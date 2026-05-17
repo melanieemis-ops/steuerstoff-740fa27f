@@ -1,7 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Button } from "@/components/ui/button";
+import { listCases, relativeTime, type CaseRecord } from "@/lib/casesStore";
 import {
   ArrowRight,
   FileSearch,
@@ -55,14 +57,15 @@ const quickstart = [
   },
 ];
 
-const recent = [
-  { title: "Bewirtungsbeleg Geschäftsessen 03/2025", tag: "USt", when: "vor 2 Std." },
-  { title: "Mittelverwendungsrechnung Verein 2024", tag: "NPO", when: "gestern" },
-  { title: "ARAP Hostingkosten 2025", tag: "Abgrenzung", when: "vor 2 Tagen" },
-  { title: "Zuschussabgrenzung NPO", tag: "NPO", when: "letzte Woche" },
-];
-
 function Home() {
+  const [recent, setRecent] = useState<CaseRecord[]>([]);
+  useEffect(() => {
+    const update = () => setRecent(listCases().slice(0, 4));
+    update();
+    window.addEventListener("steuerstoff:cases", update);
+    return () => window.removeEventListener("steuerstoff:cases", update);
+  }, []);
+
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <SiteHeader />
@@ -193,9 +196,10 @@ function Home() {
 
           <ul className="divide-y divide-border overflow-hidden rounded-2xl border border-border bg-card shadow-card-soft">
             {recent.map((r) => (
-              <li key={r.title}>
+              <li key={r.id}>
                 <Link
-                  to="/fallverlauf"
+                  to="/fall/$caseId"
+                  params={{ caseId: r.id }}
                   className="flex items-center gap-3 px-4 py-3 transition-colors hover:bg-accent/60 sm:px-5"
                 >
                   <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-secondary text-secondary-foreground">
@@ -205,9 +209,9 @@ function Home() {
                     <p className="truncate text-sm font-medium text-foreground">{r.title}</p>
                     <p className="mt-0.5 flex items-center gap-2 text-xs text-muted-foreground">
                       <span className="rounded border border-border bg-background px-1.5 py-0.5 text-[10px] uppercase tracking-wide">
-                        {r.tag}
+                        {r.topic}
                       </span>
-                      <Clock className="h-3 w-3" /> {r.when}
+                      <Clock className="h-3 w-3" /> {relativeTime(r.updatedAt)}
                     </p>
                   </div>
                   <ArrowRight className="h-4 w-4 text-muted-foreground" />

@@ -75,7 +75,7 @@ export function SiteHeader() {
           <span className="text-base sm:text-lg font-semibold tracking-tight text-foreground lowercase">
             steuerstoff
           </span>
-          <span className="hidden xs:inline text-[11px] sm:text-xs font-normal tracking-tight text-muted-foreground/80 whitespace-nowrap">
+          <span className="text-[11px] sm:text-xs font-normal tracking-tight text-muted-foreground/80 whitespace-nowrap">
             by Melanie Misakian
           </span>
           <span

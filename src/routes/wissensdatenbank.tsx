@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { BookOpen, Search, X } from "lucide-react";
+import { KNOWLEDGE_BASE } from "@/lib/knowledgeBase";
 
 export const Route = createFileRoute("/wissensdatenbank")({
   component: Wissensdatenbank,

@@ -60,6 +60,14 @@ const heroModules = [
     accent: "var(--cyan)",
     to: "/npo-pruefassistent" as const,
   },
+  {
+    icon: Car,
+    title: "Kfz-Wertabgabe berechnen",
+    desc: "1-%-Methode, Fahrten Wohnung/Betrieb, USt-Aufteilung und Kostendeckelung.",
+    cta: "Kfz-Rechner öffnen",
+    accent: "var(--magenta)",
+    to: "/kfz-wertabgabe" as const,
+  },
 ];
 
 const quickstart = [

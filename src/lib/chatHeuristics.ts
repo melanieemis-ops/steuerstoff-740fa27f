@@ -28,6 +28,85 @@ const REVIEW =
 export function generateAnswer(rawQuestion: string): ChatAnswer {
   const q = rawQuestion.toLowerCase().trim();
 
+  // --- Allgemeine Steuerlehre: "Was sind Steuern?" / Steuerarten ---
+  if (
+    /^(was\s+(ist|sind))\s+(eine\s+)?steuer/i.test(rawQuestion.trim()) ||
+    has(q, "steuerarten", "steuersystem", "abgabenarten") ||
+    (has(q, "unterschied") && has(q, "gebühr", "gebuehr", "beitrag")) ||
+    has(q, "direkte steuer", "indirekte steuer")
+  ) {
+    return {
+      kind: "info",
+      summary:
+        "Steuern sind Geldleistungen, die ein öffentlich-rechtliches Gemeinwesen ohne Anspruch auf konkrete Gegenleistung von allen erhebt, bei denen der gesetzliche Tatbestand zutrifft (§ 3 Abs. 1 AO).",
+      sections: [
+        {
+          title: "Abgrenzung",
+          body:
+            "Gebühr = Entgelt für konkrete Amtshandlung. Beitrag = Entgelt für die Möglichkeit der Inanspruchnahme einer Leistung. Sonderabgabe = Finanzierung gruppennütziger Zwecke. Nur die Steuer ist gegenleistungslos.",
+        },
+        {
+          title: "Nach Bemessungsgrundlage",
+          body:
+            "Ertragsteuern (ESt, KSt, GewSt), Verkehrsteuern (USt, GrESt), Substanzsteuern (GrSt, ErbSt), Verbrauchsteuern (Energie, Tabak).",
+        },
+        {
+          title: "Nach Steuergläubiger",
+          body:
+            "Bundessteuern, Landessteuern (z. B. ErbSt, GrESt), Gemeindesteuern (GrSt, GewSt) und Gemeinschaftsteuern (USt, ESt, KSt — Aufkommen wird aufgeteilt).",
+        },
+        {
+          title: "Direkt vs. indirekt",
+          body:
+            "Direkt: Steuerschuldner = Steuerträger (ESt, KSt). Indirekt: Last wird überwälzt (USt, Verbrauchsteuern).",
+        },
+      ],
+      clarify:
+        "Möchtest du zu einer bestimmten Steuerart vertiefen (z. B. ESt, KSt, USt, GewSt, ErbSt)?",
+      links: [{ label: "Wissensdatenbank öffnen", to: "/wissensdatenbank" }],
+      knowledge: "Steuern — Grundlagen",
+    };
+  }
+
+  // --- Erbschaft-/Schenkungsteuer ---
+  if (has(q, "erbschaftsteuer", "erbschaft-steuer", "schenkungsteuer", "erbstg", "nachlass", "erbanfall") || /\berbst\b/i.test(q)) {
+    return {
+      kind: "info",
+      summary:
+        "Die Erbschaft- und Schenkungsteuer erfasst den unentgeltlichen Vermögensübergang von Todes wegen (§ 3 ErbStG) bzw. unter Lebenden (§ 7 ErbStG). Bewertungsstichtag ist der Tag der Steuerentstehung (§§ 9, 11 ErbStG).",
+      sections: [
+        {
+          title: "Steuerklassen (§ 15 ErbStG)",
+          body:
+            "I: Ehegatten, Kinder, Enkel, bei Erbfall auch Eltern. II: Geschwister, Nichten/Neffen, Schwiegerkinder. III: alle übrigen Erwerber.",
+        },
+        {
+          title: "Persönliche Freibeträge (§ 16 ErbStG)",
+          body:
+            "Ehegatte 500.000 €, Kinder 400.000 €, Enkel 200.000 € (400.000 € bei verstorbenem Elternteil), Eltern bei Erbfall 100.000 €, StKl II/III 20.000 €.",
+        },
+        {
+          title: "Bewertung",
+          body:
+            "Anteile nicht notierter Kapitalgesellschaften: gemeiner Wert mit Substanzwert als Mindestwert (§ 11 BewG). Grundbesitz: Vergleichs-, Ertrags- oder Sachwertverfahren (§§ 182 ff. BewG). Gesonderte Feststellung nach § 151 BewG.",
+        },
+        {
+          title: "Begünstigungen",
+          body:
+            "§§ 13a/13b ErbStG: Betriebsvermögen / Kapitalanteile > 25 %. § 13d ErbStG: 10 %-Abschlag für zu Wohnzwecken vermietete Grundstücke. § 13 Abs. 1 Nr. 4b/c: Familienheim.",
+        },
+      ],
+      followUps: [
+        "Welche Steuerklasse liegt vor?",
+        "Welche Vermögensarten gehören zum Nachlass (Grundbesitz, GmbH-Anteile, Bankguthaben)?",
+        "Gibt es Vorerwerbe innerhalb von 10 Jahren (§ 14 ErbStG)?",
+      ],
+      nextStep: "Schema: Vermögensanfall ./. Nachlassverbindlichkeiten = Bereicherung ./. Freibetrag = stpfl. Erwerb × Tarif § 19 ErbStG.",
+      links: [{ label: "Wissensdatenbank öffnen", to: "/wissensdatenbank" }],
+      knowledge: "Erbschaftsteuer",
+    };
+  }
+
   // --- SKR ---
   if (has(q, "skr03", "skr 03", "skr42", "skr 42", "skr", "konto ", "kontierung", "buchungstext")) {
     const skrMatch = q.match(/skr\s*0?3?\s*(\d{3,5})/);

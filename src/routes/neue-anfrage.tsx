@@ -17,16 +17,20 @@ const TOPICS = ["USt", "NPO", "SKR03", "SKR42", "DATEV", "Abgrenzung", "Buchhalt
 
 const EXAMPLES = [
   {
+    title: "Wie viel Umsatzsteuer bezahlt man auf Strom?",
+    topic: "USt",
+    description: "Wie viel Umsatzsteuer bezahlt man auf Strom?",
+  },
+  {
+    title: "Was bedeutet Reverse Charge?",
+    topic: "USt",
+    description: "Was bedeutet Reverse Charge?",
+  },
+  {
     title: "Bewirtungsbeleg ohne Teilnehmerangaben",
     topic: "USt",
     description:
       "Restaurantrechnung 184,50 € brutto vom 14.03.2025. Auf dem Beleg fehlen Teilnehmernamen und konkreter Anlass. Frage: Vorsteuerabzug und 70-%-Regel.",
-  },
-  {
-    title: "Rücklage nach § 62 AO bilden",
-    topic: "NPO",
-    description:
-      "Gemeinnütziger Verein möchte eine freie Rücklage nach § 62 Abs. 1 Nr. 3 AO bilden. Mittelverwendungsfrist und Beschlussfassung zu klären.",
   },
   {
     title: "Hostingrechnung über Jahreswechsel",
@@ -44,7 +48,7 @@ function NeueAnfrage() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const canSubmit = title.trim().length >= 3 && description.trim().length >= 10;
+  const canSubmit = description.trim().length >= 5;
 
   function loadExample(i: number) {
     const ex = EXAMPLES[i];

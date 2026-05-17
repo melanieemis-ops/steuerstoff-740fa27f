@@ -133,7 +133,7 @@ function Page() {
 
   // Step 1 (Stammdaten) hat ein Pflichtfeld: Trägername
   const missingRequired = (s: MvrState, idx: number): boolean => {
-    if (idx === 1) return !s.traeger?.trim();
+    if (idx === 1) return !s.stamm?.name?.trim();
     return false;
   };
 

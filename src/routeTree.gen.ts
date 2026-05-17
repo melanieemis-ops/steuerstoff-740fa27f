@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as WissensdatenbankRouteImport } from './routes/wissensdatenbank'
 import { Route as NeueAnfrageRouteImport } from './routes/neue-anfrage'
 import { Route as FallverlaufRouteImport } from './routes/fallverlauf'
+import { Route as EinstellungenRouteImport } from './routes/einstellungen'
 import { Route as IndexRouteImport } from './routes/index'
 
 const WissensdatenbankRoute = WissensdatenbankRouteImport.update({
@@ -29,6 +30,11 @@ const FallverlaufRoute = FallverlaufRouteImport.update({
   path: '/fallverlauf',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EinstellungenRoute = EinstellungenRouteImport.update({
+  id: '/einstellungen',
+  path: '/einstellungen',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -37,12 +43,14 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/einstellungen': typeof EinstellungenRoute
   '/fallverlauf': typeof FallverlaufRoute
   '/neue-anfrage': typeof NeueAnfrageRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/einstellungen': typeof EinstellungenRoute
   '/fallverlauf': typeof FallverlaufRoute
   '/neue-anfrage': typeof NeueAnfrageRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
@@ -50,20 +58,38 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/einstellungen': typeof EinstellungenRoute
   '/fallverlauf': typeof FallverlaufRoute
   '/neue-anfrage': typeof NeueAnfrageRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/fallverlauf' | '/neue-anfrage' | '/wissensdatenbank'
+  fullPaths:
+    | '/'
+    | '/einstellungen'
+    | '/fallverlauf'
+    | '/neue-anfrage'
+    | '/wissensdatenbank'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/fallverlauf' | '/neue-anfrage' | '/wissensdatenbank'
-  id: '__root__' | '/' | '/fallverlauf' | '/neue-anfrage' | '/wissensdatenbank'
+  to:
+    | '/'
+    | '/einstellungen'
+    | '/fallverlauf'
+    | '/neue-anfrage'
+    | '/wissensdatenbank'
+  id:
+    | '__root__'
+    | '/'
+    | '/einstellungen'
+    | '/fallverlauf'
+    | '/neue-anfrage'
+    | '/wissensdatenbank'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  EinstellungenRoute: typeof EinstellungenRoute
   FallverlaufRoute: typeof FallverlaufRoute
   NeueAnfrageRoute: typeof NeueAnfrageRoute
   WissensdatenbankRoute: typeof WissensdatenbankRoute
@@ -92,6 +118,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FallverlaufRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/einstellungen': {
+      id: '/einstellungen'
+      path: '/einstellungen'
+      fullPath: '/einstellungen'
+      preLoaderRoute: typeof EinstellungenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -104,6 +137,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  EinstellungenRoute: EinstellungenRoute,
   FallverlaufRoute: FallverlaufRoute,
   NeueAnfrageRoute: NeueAnfrageRoute,
   WissensdatenbankRoute: WissensdatenbankRoute,

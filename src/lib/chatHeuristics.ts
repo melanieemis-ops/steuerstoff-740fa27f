@@ -107,6 +107,43 @@ export function generateAnswer(rawQuestion: string): ChatAnswer {
     };
   }
 
+  // --- Kfz-Wertabgabe / 1-%-Methode ---
+  if (
+    has(
+      q,
+      "kfz-wertabgabe",
+      "kfz wertabgabe",
+      "1%-methode",
+      "1 % methode",
+      "1%methode",
+      "1-%-methode",
+      "1 prozent methode",
+      "ein prozent methode",
+      "private kfz-nutzung",
+      "private kfz nutzung",
+      "bruttolistenpreis",
+      "kostendeckelung",
+      "8921",
+      "8924",
+      "fahrten wohnung betrieb",
+      "fahrten wohnung-betrieb",
+      "firmenwagen",
+    )
+  ) {
+    return {
+      kind: "info",
+      summary:
+        "Dafür kann ich den Kfz-Wertabgaben-Rechner öffnen. Er rechnet 1-%-Methode, Fahrten Wohnung/Betrieb (0,03 %), USt-Aufteilung auf # 8921 0 / # 8924 0 und die Kostendeckelung nach Arbeitspapier.",
+      nextStep:
+        "Bruttolistenpreis, Nutzungsmonate, Entfernung und Arbeitstage erfassen — anschließend Kostendeckelung prüfen.",
+      links: [
+        { label: "Kfz-Wertabgabe berechnen", to: "/kfz-wertabgabe" },
+        { label: "Wissensdatenbank öffnen", to: "/wissensdatenbank" },
+      ],
+      knowledge: "Kfz-Wertabgabe",
+    };
+  }
+
   // --- SKR ---
   if (has(q, "skr03", "skr 03", "skr42", "skr 42", "skr", "konto ", "kontierung", "buchungstext")) {
     const skrMatch = q.match(/skr\s*0?3?\s*(\d{3,5})/);

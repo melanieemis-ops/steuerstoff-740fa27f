@@ -13,6 +13,7 @@ import {
   gesamtEinnahmen, schwelleAmpel, zeitnahZuVerwendendeMittel, zweckentsprechendeVerwendung,
   pruefpflichtigeVerwendung, betriebsmittelSumme, berechneFreieRuecklage, vermoegenszufuehrungSumme,
   summeZulaessigeRuecklagen, berechneErgebnis, fristStatus, ampelClass, ampelLabel, fmt, buildExport,
+  analysiere, buildKurz, buildPruefnotiz, buildMandant, buildVorstand, buildRueckfragen, buildTodos,
   type RuecklageArt,
 } from "@/lib/mvrStore";
 import { Term } from "@/components/MvrGlossary";

@@ -145,6 +145,7 @@ function Page() {
                           value={input.orgTyp}
                           onChange={(e) => update("orgTyp", e.target.value as OrgTyp)}
                         >
+                          <option value="">— nicht angegeben —</option>
                           <option value="verein">Verein</option>
                           <option value="ggmbh">gGmbH</option>
                           <option value="stiftung">Stiftung</option>
@@ -154,11 +155,21 @@ function Page() {
                       <div className="grid grid-cols-2 gap-3">
                         <div>
                           <label className="text-xs text-muted-foreground">Jahr</label>
-                          <Input type="number" value={input.jahr} onChange={(e) => update("jahr", Number(e.target.value) || 0)} />
+                          <Input
+                            type="number"
+                            placeholder="nicht angegeben"
+                            value={input.jahr ?? ""}
+                            onChange={(e) => update("jahr", e.target.value ? Number(e.target.value) : undefined)}
+                          />
                         </div>
                         <div>
                           <label className="text-xs text-muted-foreground">Betrag (€)</label>
-                          <Input type="number" value={input.betrag} onChange={(e) => update("betrag", Number(e.target.value) || 0)} />
+                          <Input
+                            type="number"
+                            placeholder="nicht angegeben"
+                            value={input.betrag ?? ""}
+                            onChange={(e) => update("betrag", e.target.value ? Number(e.target.value) : undefined)}
+                          />
                         </div>
                       </div>
                       <div className="sm:col-span-2">

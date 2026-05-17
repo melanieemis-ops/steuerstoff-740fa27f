@@ -347,6 +347,8 @@ function MappingExplorer() {
     });
   }, [all, q, filter]);
 
+  const LIMIT = 200;
+  const shown = filtered.slice(0, LIMIT);
   const refresh = () => setUser(listUserMappings());
 
   return (
@@ -357,7 +359,10 @@ function MappingExplorer() {
             Mapping-Tabelle
           </h2>
           <p className="text-sm text-muted-foreground">
-            Demo-Mappings + eigene Zuordnungen ({all.length}).
+            Offizielle DATEV-Kontenbeschriftungen + eigene Zuordnungen ({all.length.toLocaleString("de-DE")}).
+            {filtered.length > LIMIT && (
+              <> Anzeige auf {LIMIT} Treffer begrenzt – Suche eingrenzen.</>
+            )}
           </p>
         </div>
         <div className="relative w-full sm:w-72">

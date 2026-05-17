@@ -210,29 +210,31 @@ export function PullToRefresh({
 
   return (
     <>
-      <div
-        aria-hidden={!visible}
-        className="pointer-events-none fixed left-0 right-0 top-0 z-40 flex justify-center md:hidden"
-        style={{
-          transform: `translate3d(0, ${visible ? Math.max(8, pull - 8) : -40}px, 0)`,
-          transition: status === "pull" || status === "ready" ? "none" : easing,
-        }}
-      >
-        <div className="mt-2 inline-flex items-center gap-2 rounded-full border border-border bg-card/95 px-3 py-1 text-[11px] text-foreground shadow-sm backdrop-blur">
-          <span
-            className={`inline-block h-3 w-3 rounded-full border-2 border-foreground/30 ${
-              status === "loading" ? "animate-spin border-t-foreground" : ""
-            }`}
-            style={{
-              transform:
-                status === "pull" || status === "ready"
-                  ? `rotate(${Math.min(360, (pull / THRESHOLD) * 360)}deg)`
-                  : undefined,
-            }}
-          />
-          <span>{label}</span>
+      {visible && (
+        <div
+          aria-hidden={!visible}
+          className="pointer-events-none fixed left-0 right-0 top-0 z-40 flex justify-center md:hidden"
+          style={{
+            transform: `translate3d(0, ${Math.max(8, pull - 8)}px, 0)`,
+            transition: status === "pull" || status === "ready" ? "none" : easing,
+          }}
+        >
+          <div className="mt-2 inline-flex items-center gap-2 rounded-full border border-border bg-card/95 px-3 py-1 text-[11px] text-foreground shadow-sm backdrop-blur">
+            <span
+              className={`inline-block h-3 w-3 rounded-full border-2 border-foreground/30 ${
+                status === "loading" ? "animate-spin border-t-foreground" : ""
+              }`}
+              style={{
+                transform:
+                  status === "pull" || status === "ready"
+                    ? `rotate(${Math.min(360, (pull / THRESHOLD) * 360)}deg)`
+                    : undefined,
+              }}
+            />
+            <span>{label}</span>
+          </div>
         </div>
-      </div>
+      )}
       <div
         style={{
           transform: `translate3d(0, ${pull * 0.4}px, 0)`,

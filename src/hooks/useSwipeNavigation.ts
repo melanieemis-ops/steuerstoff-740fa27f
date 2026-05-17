@@ -39,7 +39,7 @@ function isFormTarget(t: EventTarget | null): boolean {
   )
     return true;
   const closest = t.closest(
-    'input,textarea,select,button,[contenteditable="true"],[role="button"],[role="combobox"],[role="listbox"],[role="slider"],[role="textbox"],[role="menuitem"]',
+    'input,textarea,select,button,[contenteditable="true"],[role="button"],[role="combobox"],[role="listbox"],[role="slider"],[role="textbox"],[role="menuitem"],[data-no-swipe="true"],[data-radix-scroll-area-viewport],[data-vaul-drawer]',
   );
   return Boolean(closest);
 }

@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { BookOpen, Search, X } from "lucide-react";
 import { KNOWLEDGE_BASE } from "@/lib/knowledgeBase";
+import { HandoutsManager } from "@/components/HandoutsManager";
 
 export const Route = createFileRoute("/wissensdatenbank")({
   component: Wissensdatenbank,
@@ -356,6 +357,8 @@ function Wissensdatenbank() {
               ))}
             </div>
           )}
+
+          <HandoutsManager />
         </div>
       </main>
 

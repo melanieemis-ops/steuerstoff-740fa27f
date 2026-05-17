@@ -463,7 +463,7 @@ function StepRuecklagen({ state, update }: { state: MvrState; update: <K extends
       </Card>
 
       {/* D. Freie Rücklage */}
-      <Card title="D. Freie Rücklage" accent="var(--deep-blue)">
+      <Card title={<>D. <Term name="freie Rücklage">Freie Rücklage</Term></>} accent="var(--deep-blue)">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <NumField label="Überschuss Vermögensverwaltung (€)" value={state.freieRuecklage.ueberschussVV} onChange={(v) => update("freieRuecklage", { ...state.freieRuecklage, ueberschussVV: v })} />
           <NumField label="Unterdeckung VV aus Vorjahren (€)" value={state.freieRuecklage.unterdeckungVorjahre} onChange={(v) => update("freieRuecklage", { ...state.freieRuecklage, unterdeckungVorjahre: v })} />

@@ -101,8 +101,8 @@ function Page() {
                   NPO-Prüfassistent
                 </h1>
                 <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
-                  Sachverhalt eingeben, Prüfungstool auswählen, strukturierte Prüfnotiz erhalten.
-                  Sphären, Zweckbetrieb, Spenden, Zuschüsse, Mittelweitergabe, Rücklagen und USt.
+                  Beschreibe den Vorgang kurz. steuerstoff erstellt eine erste Einschätzung und
+                  fragt fehlende Angaben automatisch nach.
                 </p>
               </div>
             </div>

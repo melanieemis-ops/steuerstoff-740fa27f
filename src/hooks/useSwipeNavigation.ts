@@ -4,7 +4,7 @@ export interface SwipeOptions {
   onSwipeLeft?: () => void;
   onSwipeRight?: () => void;
   threshold?: number; // min horizontal px
-  ratio?: number; // min |dx|/|dy| to count as horizontal
+  ratio?: number; // |dx| must be at least ratio × |dy|
   enabled?: boolean;
 }
 
@@ -21,7 +21,6 @@ function isFormTarget(t: EventTarget | null): boolean {
   if (!(t instanceof Element)) return false;
   if (FORM_TAGS.has(t.tagName)) return true;
   if (t.getAttribute("contenteditable") === "true") return true;
-  // role-based controls (radix dropdowns, comboboxes etc.)
   const role = t.getAttribute("role");
   if (
     role &&
@@ -39,27 +38,32 @@ function isFormTarget(t: EventTarget | null): boolean {
     ].includes(role)
   )
     return true;
-  // walk up a few levels for nested icons inside buttons / inputs
   const closest = t.closest(
     'input,textarea,select,button,[contenteditable="true"],[role="button"],[role="combobox"],[role="listbox"],[role="slider"],[role="textbox"],[role="menuitem"]',
   );
   return Boolean(closest);
 }
 
+type Direction = "unknown" | "horizontal" | "vertical" | "blocked";
+const DECISION_THRESHOLD = 12; // px before locking direction
+const RATIO_LOCK = 1.5;
+
 /**
- * Attach swipe-left / swipe-right handlers to an element.
- * - Touch-only (coarse pointer) → desktop untouched
- * - Suppressed inside form controls so users can fill fields safely
- * - Single-touch only; ignores multi-touch / pinch
- * - Fires only after touchend with a clearly horizontal gesture
- *   (|dx| ≥ threshold AND |dx| ≥ ratio × |dy|)
+ * Horizontal swipe handler with direction lock.
+ * - Decides direction after ~12 px movement, then sticks with it.
+ * - Vertical / diagonal gestures never trigger a swipe (they belong to scroll
+ *   or pull-to-refresh).
+ * - Suppressed inside form controls.
+ * - Callbacks are read from a ref so re-renders don't tear down listeners
+ *   mid-gesture.
  */
 export function useSwipeNavigation<T extends HTMLElement = HTMLElement>(
   ref: React.RefObject<T | null>,
   opts: SwipeOptions,
 ) {
-  const { onSwipeLeft, onSwipeRight, threshold = 80, ratio = 1.7, enabled = true } = opts;
-  const start = useRef<{ x: number; y: number; t: number; blocked: boolean } | null>(null);
+  const { threshold = 60, ratio = RATIO_LOCK, enabled = true } = opts;
+  const cbRef = useRef(opts);
+  cbRef.current = opts;
 
   useEffect(() => {
     if (!enabled) return;
@@ -67,44 +71,89 @@ export function useSwipeNavigation<T extends HTMLElement = HTMLElement>(
     if (!el) return;
     if (typeof window !== "undefined" && !window.matchMedia("(pointer: coarse)").matches) return;
 
+    let startX = 0;
+    let startY = 0;
+    let startedAt = 0;
+    let direction: Direction = "unknown";
+    let active = false;
+
     const onStart = (e: TouchEvent) => {
       if (e.touches.length !== 1) {
-        start.current = null;
+        active = false;
+        direction = "blocked";
         return;
       }
-      const blocked = isFormTarget(e.target);
+      if (isFormTarget(e.target)) {
+        active = false;
+        direction = "blocked";
+        return;
+      }
       const t = e.touches[0];
-      start.current = { x: t.clientX, y: t.clientY, t: Date.now(), blocked };
+      startX = t.clientX;
+      startY = t.clientY;
+      startedAt = Date.now();
+      direction = "unknown";
+      active = true;
     };
+
     const onMove = (e: TouchEvent) => {
-      // cancel if a second finger lands during the gesture
-      if (e.touches.length > 1) start.current = null;
-    };
-    const onEnd = (e: TouchEvent) => {
-      const s = start.current;
-      start.current = null;
-      if (!s || s.blocked) return;
-      const t = e.changedTouches[0];
-      const dx = t.clientX - s.x;
-      const dy = t.clientY - s.y;
+      if (!active) return;
+      if (e.touches.length > 1) {
+        active = false;
+        direction = "blocked";
+        return;
+      }
+      if (direction !== "unknown") return;
+      const t = e.touches[0];
+      const dx = t.clientX - startX;
+      const dy = t.clientY - startY;
       const ax = Math.abs(dx);
       const ay = Math.abs(dy);
-      const dt = Date.now() - s.t;
+      if (ax < DECISION_THRESHOLD && ay < DECISION_THRESHOLD) return;
+      if (ax > ay * ratio) {
+        direction = "horizontal";
+      } else if (ay > ax * ratio) {
+        direction = "vertical";
+      } else {
+        // diagonal — neither; let the page scroll naturally
+        direction = "blocked";
+      }
+    };
+
+    const onEnd = (e: TouchEvent) => {
+      if (!active) {
+        direction = "unknown";
+        return;
+      }
+      const wasHorizontal = direction === "horizontal";
+      active = false;
+      direction = "unknown";
+      if (!wasHorizontal) return;
+      const dt = Date.now() - startedAt;
       if (dt > 800) return;
-      if (ax < threshold) return;
-      if (ax < ay * ratio) return;
-      if (dx < 0) onSwipeLeft?.();
-      else onSwipeRight?.();
+      const t = e.changedTouches[0];
+      const dx = t.clientX - startX;
+      const dy = t.clientY - startY;
+      if (Math.abs(dx) < threshold) return;
+      if (Math.abs(dx) < Math.abs(dy) * ratio) return;
+      if (dx < 0) cbRef.current.onSwipeLeft?.();
+      else cbRef.current.onSwipeRight?.();
+    };
+
+    const onCancel = () => {
+      active = false;
+      direction = "unknown";
     };
 
     el.addEventListener("touchstart", onStart, { passive: true });
     el.addEventListener("touchmove", onMove, { passive: true });
     el.addEventListener("touchend", onEnd, { passive: true });
-    el.addEventListener("touchcancel", () => (start.current = null), { passive: true });
+    el.addEventListener("touchcancel", onCancel, { passive: true });
     return () => {
       el.removeEventListener("touchstart", onStart);
       el.removeEventListener("touchmove", onMove);
       el.removeEventListener("touchend", onEnd);
+      el.removeEventListener("touchcancel", onCancel);
     };
-  }, [ref, onSwipeLeft, onSwipeRight, threshold, ratio, enabled]);
+  }, [ref, enabled, threshold, ratio]);
 }

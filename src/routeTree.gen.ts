@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WissensdatenbankRouteImport } from './routes/wissensdatenbank'
+import { Route as SkrKonverterRouteImport } from './routes/skr-konverter'
 import { Route as NeueAnfrageRouteImport } from './routes/neue-anfrage'
 import { Route as FallverlaufRouteImport } from './routes/fallverlauf'
 import { Route as EinstellungenRouteImport } from './routes/einstellungen'
@@ -19,6 +20,11 @@ import { Route as FallCaseIdRouteImport } from './routes/fall.$caseId'
 const WissensdatenbankRoute = WissensdatenbankRouteImport.update({
   id: '/wissensdatenbank',
   path: '/wissensdatenbank',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SkrKonverterRoute = SkrKonverterRouteImport.update({
+  id: '/skr-konverter',
+  path: '/skr-konverter',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NeueAnfrageRoute = NeueAnfrageRouteImport.update({
@@ -52,6 +58,7 @@ export interface FileRoutesByFullPath {
   '/einstellungen': typeof EinstellungenRoute
   '/fallverlauf': typeof FallverlaufRoute
   '/neue-anfrage': typeof NeueAnfrageRoute
+  '/skr-konverter': typeof SkrKonverterRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
   '/fall/$caseId': typeof FallCaseIdRoute
 }
@@ -60,6 +67,7 @@ export interface FileRoutesByTo {
   '/einstellungen': typeof EinstellungenRoute
   '/fallverlauf': typeof FallverlaufRoute
   '/neue-anfrage': typeof NeueAnfrageRoute
+  '/skr-konverter': typeof SkrKonverterRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
   '/fall/$caseId': typeof FallCaseIdRoute
 }
@@ -69,6 +77,7 @@ export interface FileRoutesById {
   '/einstellungen': typeof EinstellungenRoute
   '/fallverlauf': typeof FallverlaufRoute
   '/neue-anfrage': typeof NeueAnfrageRoute
+  '/skr-konverter': typeof SkrKonverterRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
   '/fall/$caseId': typeof FallCaseIdRoute
 }
@@ -79,6 +88,7 @@ export interface FileRouteTypes {
     | '/einstellungen'
     | '/fallverlauf'
     | '/neue-anfrage'
+    | '/skr-konverter'
     | '/wissensdatenbank'
     | '/fall/$caseId'
   fileRoutesByTo: FileRoutesByTo
@@ -87,6 +97,7 @@ export interface FileRouteTypes {
     | '/einstellungen'
     | '/fallverlauf'
     | '/neue-anfrage'
+    | '/skr-konverter'
     | '/wissensdatenbank'
     | '/fall/$caseId'
   id:
@@ -95,6 +106,7 @@ export interface FileRouteTypes {
     | '/einstellungen'
     | '/fallverlauf'
     | '/neue-anfrage'
+    | '/skr-konverter'
     | '/wissensdatenbank'
     | '/fall/$caseId'
   fileRoutesById: FileRoutesById
@@ -104,6 +116,7 @@ export interface RootRouteChildren {
   EinstellungenRoute: typeof EinstellungenRoute
   FallverlaufRoute: typeof FallverlaufRoute
   NeueAnfrageRoute: typeof NeueAnfrageRoute
+  SkrKonverterRoute: typeof SkrKonverterRoute
   WissensdatenbankRoute: typeof WissensdatenbankRoute
   FallCaseIdRoute: typeof FallCaseIdRoute
 }
@@ -115,6 +128,13 @@ declare module '@tanstack/react-router' {
       path: '/wissensdatenbank'
       fullPath: '/wissensdatenbank'
       preLoaderRoute: typeof WissensdatenbankRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/skr-konverter': {
+      id: '/skr-konverter'
+      path: '/skr-konverter'
+      fullPath: '/skr-konverter'
+      preLoaderRoute: typeof SkrKonverterRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/neue-anfrage': {
@@ -160,9 +180,20 @@ const rootRouteChildren: RootRouteChildren = {
   EinstellungenRoute: EinstellungenRoute,
   FallverlaufRoute: FallverlaufRoute,
   NeueAnfrageRoute: NeueAnfrageRoute,
+  SkrKonverterRoute: SkrKonverterRoute,
   WissensdatenbankRoute: WissensdatenbankRoute,
   FallCaseIdRoute: FallCaseIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

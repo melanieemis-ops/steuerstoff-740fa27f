@@ -1146,6 +1146,309 @@ Vorsteueranteile und DATEV-Buchungen fachlich prüfen.`,
 
 Hinweis: GoBD-Verstöße können zur Verwerfung der Buchführung und zu Hinzuschätzungen führen (§ 162 AO). Frühzeitige Dokumentation und revisionssichere Archivierung sind die wichtigste Prävention.`,
   },
+  {
+    id: "erbschaftsteuer-merksaetze",
+    title: "Erbschaftsteuer & Bewertung — Merksätze",
+    short:
+      "Erbanfall, Vor-/Nacherbschaft, Nachlassverbindlichkeiten, Familienheim, nicht notierte Anteile und Grundbesitzbewertung.",
+    category: "Jahresabschluss",
+    source: "Internes Handout — ErbSt / EStG / Bilanzierung / UmwStG.",
+    keywords: /erbanfall|vorerbe|nacherbe|nachlassverbindlich|familienheim|gemischte schenkung|erbfallkostenpauschale|gemeiner wert|substanzwert|grundbesitzwert|ertragswertverfahren|bodenrichtwert|denkmalgeschützt/i,
+    references: [
+      "§§ 1, 3, 6, 7, 9, 10, 11, 12, 13, 20 ErbStG",
+      "§§ 11, 151, 182–198 BewG",
+      "§ 1922 BGB",
+    ],
+    body: `1) Erwerb von Todes wegen
+- Erbanfall durch Gesamtrechtsnachfolge (§§ 1922 BGB, 1 Abs. 1 Nr. 1, 3 Abs. 1 Nr. 1 ErbStG).
+- ErbSt entsteht mit dem Tod des Erblassers (§ 9 Abs. 1 Nr. 1 ErbStG); Bewertungsstichtag ist der Todestag (§ 11 ErbStG).
+- Unbeschränkte Steuerpflicht bei Inländer­eigenschaft (§ 2 Abs. 1 ErbStG).
+- Steuerschuldner ist der Erwerber (§ 20 Abs. 1 ErbStG).
+- Steuerpflichtiger Erwerb = Bereicherung (Vermögensanfall ./. abzugsfähige Nachlassverbindlichkeiten, § 10 Abs. 1 ErbStG).
+
+2) Vor-/Nacherbe & Nachlassverbindlichkeiten
+- Steuerlich gilt nur der Vorerbe als Erbe (§ 6 Abs. 1 ErbStG); der Nacherbe erwirbt steuerlich vom Vorerben (§ 6 Abs. 2 S. 1 ErbStG).
+- Abzugsfähig nur Schulden, die vom Erblasser herrühren und ihn wirtschaftlich belastet haben (§ 10 Abs. 5 Nr. 1 ErbStG).
+- Betagte Vermächtnisse (fällig erst mit Tod des Beschwerten) wie Nacherbschaft behandelt (§ 6 Abs. 4 ErbStG); beim ersten Erbfall keine wirtschaftliche Belastung.
+- Erbfallkostenpauschale 10.300 € ohne Nachweis (§ 10 Abs. 5 Nr. 3 S. 2 ErbStG).
+
+3) Schenkung & Familienheim
+- Freigebige Zuwendung = Vermögensmehrung beim Bedachten + Vermögens­minderung beim Zuwendenden (§ 7 Abs. 1 Nr. 1 ErbStG).
+- Gemischte Schenkung wird bei Wertabweichung > ca. 20–25 % zur Gegenleistung vermutet.
+- Familienheim­begünstigung setzt Eigentum oder Miteigentum (auch Gesamthand in GbR) voraus (§ 13 Abs. 1 Nr. 4a–c ErbStG).
+
+4) Nicht notierte Anteile & Grundbesitz
+- Nicht notierte Anteile: gemeiner Wert (§ 11 Abs. 2 BewG); Substanzwert als Mindestwert (§ 11 Abs. 2 S. 3 BewG).
+- Gesonderte Feststellung nach § 151 Abs. 1 S. 1 Nr. 3 BewG.
+- Betriebsgrundstücke: gesondert festgestellte Grundbesitzwerte (§ 12 Abs. 3 ErbStG).
+- Gemischt genutzte Grundstücke (weder Wohn- noch Gewerbe > 80 %): Ertragswertverfahren (§ 182 Abs. 3 Nr. 2 BewG).
+- Bodenwert = Fläche × angepasster Bodenrichtwert (§ 184 Abs. 2 BewG).
+- Mietabweichung > 20 %: übliche Miete zwingend (§ 186 Abs. 2 BewG); Leerstand → übliche Miete ansetzen.
+- Umlagefähige Betriebskosten nicht im Rohertrag (§ 186 Abs. 1 S. 2 BewG).
+- Reinertrag = Rohertrag ./. pauschale Bewirtschaftungskosten (§ 187 BewG); Gebäudereinertrag = Reinertrag ./. Bodenwertverzinsung (§ 185 Abs. 2 BewG); Gebäudeertragswert = Gebäudereinertrag × Vervielfältiger (§ 185 Abs. 3 BewG).
+- Ertragswert = Boden + Gebäudeertragswert (§ 184 Abs. 3 BewG); Bodenwert als Mindestwert, niedrigerer gemeiner Wert nur mit Nachweis (§ 198 BewG).
+- 85 % steuerfrei: denkmalgeschützt, unrentierlich, der Allgemeinheit zugänglich (§ 13 Abs. 1 Nr. 2 ErbStG).`,
+  },
+  {
+    id: "betriebsaufgabe-euer",
+    title: "Betriebsaufgabe, EÜR-Übergang & Aufgabegewinn",
+    short:
+      "Aufgabeerklärung (§ 16 Abs. 3b EStG), Übergang zur Bilanzierung, Fünftelregelung und Behandlung der stillen Reserven.",
+    category: "Jahresabschluss",
+    source: "Internes Handout — EStG / Betriebsaufgabe.",
+    keywords: /betriebsaufgabe|aufgabeerklärung|aufgabegewinn|übergangsgewinn|fünftelregel|teilwert|einlage aus privatvermögen|§\s*16\s*estg|§\s*18\s*abs\.?\s*3\s*estg|§\s*34\s*estg/i,
+    references: [
+      "§ 4 Abs. 1, 3 EStG",
+      "§ 6 Abs. 1 Nr. 5 EStG",
+      "§ 11 EStG",
+      "§ 15 Abs. 1 EStG",
+      "§ 16 Abs. 3, 3b EStG",
+      "§ 18 Abs. 3 EStG",
+      "§ 34 Abs. 1, 2 Nr. 1 EStG",
+      "§§ 7, 8, 9 GewStG",
+    ],
+    body: `1) Gewerbebetrieb & EÜR
+- Einzelhandel ist regelmäßig Gewerbebetrieb (§ 15 Abs. 1 S. 1 Nr. 1 EStG); EÜR nach § 4 Abs. 3 EStG mit Zu-/Abflussprinzip (§ 11 EStG).
+- Gewerbeertrag = Gewinn (§ 7 GewStG) zzgl. Hinzurechnungen (§ 8 GewStG), abzgl. Kürzungen (§ 9 GewStG).
+
+2) Aufgabeerklärung
+- Aufgabeerklärung wirkt nur bei rechtzeitigem Eingang beim Finanzamt (§ 16 Abs. 3b EStG); Rückwirkung scheitert bei Überschreiten der 3-Monatsfrist.
+
+3) Übergang EÜR → Bilanzierung
+- Forderungen erhöhen den Übergangsgewinn (kein Zufluss in EÜR, in der Bilanz zu aktivieren).
+- Verbindlichkeiten mindern den Übergangsgewinn (kein Abfluss in EÜR, in der Bilanz zu passivieren).
+- Bei Betriebsaufgabe zwingend Übergang zum Betriebsvermögensvergleich (§ 18 Abs. 3 S. 2 EStG) — Ziel: vollständige Erfassung stiller Reserven.
+
+4) Aufgabegewinn
+- Außerordentliche Einkünfte (§ 34 Abs. 2 Nr. 1 EStG), Fünftelregelung (§ 34 Abs. 1 EStG).
+- Aufgabe = Veräußerung/Entnahme aller wesentlichen Betriebsgrundlagen (§ 16 Abs. 3 EStG); bei Freiberuflern über § 18 Abs. 3 EStG.
+- Auch zeitnah entnommene Wirtschaftsgüter einbeziehen (§ 16 Abs. 3 S. 8 EStG).
+
+5) Einlage & Teilwert
+- Zuführung aus Privatvermögen = Einlage (§ 4 Abs. 1 S. 8 EStG).
+- Mehr als 3 Jahre zwischen Anschaffung und Einlage → Teilwert zwingend (§ 6 Abs. 1 Nr. 5 S. 1 EStG); Teilwert ist neue AfA-Bemessungsgrundlage.
+
+6) Arzt / Freiberufler
+- Einkünfte aus selbständiger Arbeit (§ 18 Abs. 1 Nr. 1 EStG); keine Buchführungspflicht nach HGB (§§ 1, 238 HGB), EÜR zulässig.
+- Steuerfreie Heilbehandlungen (§ 4 Nr. 14 UStG) führen zu Netto-Einnahmen.
+
+7) GmbH-Anteile im Betriebsvermögen
+- Subsidiarität (§ 20 Abs. 8 EStG): Dividenden sind Betriebseinnahmen, keine Kapitaleinkünfte.
+- KapESt entfaltet im BV keine Abgeltungswirkung (§ 43 Abs. 5 S. 2 EStG).
+- Teileinkünfteverfahren (§ 3 Nr. 40 EStG) bei Beteiligungen im BV.`,
+  },
+  {
+    id: "bilanzierung-immaterielle-rueckstellungen",
+    title: "Bilanzierung — immaterielle WG, Vorräte, Rückstellungen, latente Steuern",
+    short:
+      "Aktivierungs(verbot/wahlrecht), Herstellungskosten, FIFO/LIFO, drohende Verluste, latente Steuern, IAB, Sammelposten, Krypto.",
+    category: "Jahresabschluss",
+    source: "Internes Handout — Bilanzierung / IAB / Krypto / latente Steuern.",
+    keywords: /immateriell|herstellungskosten|fifo|lifo|teilwertabschreibung|drohverlust|latente steuer|iab|investitionsabzugsbetrag|§\s*7g|sammelposten|krypto|§\s*274|§\s*248|§\s*249|§\s*255/i,
+    references: [
+      "§§ 246, 247, 248 Abs. 2, 249, 252, 255, 266, 274 HGB",
+      "§ 5 Abs. 1, 2, 4a EStG",
+      "§ 6 Abs. 1 Nr. 2, 2a, 5, 6 EStG",
+      "§ 7 Abs. 1, 4 EStG",
+      "§ 7g EStG",
+      "§ 15 UStG",
+      "BMF 10.05.2022 (Kryptowerte)",
+    ],
+    body: `1) Immaterielle WG / Herstellungskosten
+- Aktivierungswahlrecht für selbst geschaffene immaterielle WG des AV handelsrechtlich (§ 248 Abs. 2 HGB); steuerlich Aktivierungsverbot (§ 5 Abs. 2 EStG) → passive latente Steuern (§ 274 HGB).
+- Forschung nicht aktivierbar, Entwicklung aktivierbar (§ 255 Abs. 2a HGB).
+- Vertriebskosten nie Teil der HK (§ 255 Abs. 2 S. 4 HGB); MEK/MGK/FEK/FGK Pflicht (§ 255 Abs. 2 HGB).
+
+2) Vorräte
+- FIFO steuerlich unzulässig, LIFO zulässig (§ 6 Abs. 1 Nr. 2a EStG); UV-Teilwertabschreibung als Wahlrecht (§ 6 Abs. 1 Nr. 2 S. 2 EStG).
+
+3) Rückstellungen & schwebende Geschäfte
+- Drohverluste handelsrechtlich Rückstellung (§ 249 Abs. 1 S. 1 HGB), steuerlich unzulässig (§ 5 Abs. 4a EStG).
+- Schwebende Geschäfte werden nicht bilanziert, solange Leistung und Gegenleistung gleichwertig sind (Realisationsprinzip, § 252 Abs. 1 Nr. 4 HGB).
+
+4) Latente Steuern (§ 274 HGB)
+- Temporäre Differenz zwischen Handels- und Steuerbilanz × Steuersatz.
+- Passive latente Steuern: Ansatzpflicht.
+- Aktive latente Steuern: Ansatzwahlrecht.
+
+5) IAB (§ 7g EStG)
+- Rein steuerlich; Auflösung/Hinzurechnung fristgerecht, sonst Rückgängigmachung.
+- Hinzurechnung/Übertragung max. 50 % der tatsächlichen Anschaffungskosten (netto).
+- Geplante kürzere Nutzungsdauer ändert die AfA nicht (§ 7 Abs. 1, Abs. 4 EStG).
+
+6) Sammelposten (§ 6 Abs. 2a EStG)
+- Kein Einzelabgang; AfA stur 1/5 p. a. unabhängig von Schaden/Verkauf einzelner WG.
+
+7) Vorsteuer & Anlagevermögen
+- Aktivierung des AV und Passivierung der Verbindlichkeit bereits bei Erwerb (§ 246 HGB; § 5 EStG).
+- Vorsteuerabzug bei ordnungsgemäßer Rechnung im Leistungs-/Rechnungszeitraum (§ 15 UStG), unabhängig von Zahlung.
+
+8) Kryptowährungen
+- Wirtschaftsgüter; Ansatz mit Anschaffungskosten (§§ 246 HGB, 5/6 EStG).
+- Krypto-Zahlung oder Krypto-zu-Krypto = Tausch; Erlös = Marktwert der erhaltenen Gegenleistung (§ 6 Abs. 6 EStG; BMF 10.05.2022).`,
+  },
+  {
+    id: "anteilstausch-umwstg",
+    title: "Anteilstausch nach § 21 UmwStG",
+    short:
+      "Kein Rückwirkungszeitraum; Wertansatz gemeiner Wert vs. Buchwert; Voraussetzungen für Buchwertansatz.",
+    category: "Jahresabschluss",
+    source: "Internes Handout — UmwStG / Anteilstausch.",
+    keywords: /anteilstausch|umwstg|§\s*21\s*umwstg|einbringung\s+(von\s+)?anteilen|buchwertansatz/i,
+    references: ["§ 21 UmwStG", "§§ 2, 20 Abs. 5/6 UmwStG"],
+    body: `1) Zeitpunkt / Rückwirkung
+- Steuerlich wirkt der Anteilstausch ab Übergang Nutzen und Lasten — keine Rückwirkung wie bei Verschmelzungen (§§ 2, 20 Abs. 5/6 UmwStG gelten nicht).
+
+2) Wertansatz
+- Grundsatz: gemeiner Wert bei der übernehmenden GmbH → beim Einbringenden Veräußerungsgewinn.
+- Buchwertansatz auf Antrag möglich (§ 21 Abs. 1 S. 2 UmwStG), wenn die gesetzlichen Voraussetzungen nach Einbringung erfüllt sind (insb. mehrheitsvermittelnde Beteiligung, qualifizierter Anteilstausch).
+
+3) Praxisfolgen
+- Buchwertansatz = steuerneutral; gemeiner Wert = Veräußerungsgewinn mit Folgen für KSt/GewSt/ESt.
+- 7-jährige Sperrfristen nach § 22 UmwStG bei nachfolgender Anteilsveräußerung beachten.`,
+  },
+  {
+    id: "reverse-charge-grundschema",
+    title: "Reverse Charge (§ 13b UStG) — Grundschema & Anwendungsfälle",
+    short:
+      "Leistender stellt netto, Empfänger schuldet die USt; Vorsteuerabzug gleichzeitig möglich.",
+    category: "Umsatzsteuer",
+    source: "Internes Handout — Rückstellungen / USt / Mitunternehmerschaft.",
+    keywords: /§\s*13b|reverse[\s-]?charge|bauleistung\b|werklieferung\s+ausland|schrott|altgold|co2[\s-]?zertifikat|§\s*25b/i,
+    references: [
+      "§ 13b Abs. 1, 2 UStG",
+      "§ 15 UStG",
+      "§ 25b UStG",
+      "UStAE 13b.1 ff.",
+    ],
+    body: `1) Grundschema
+- Leistender Unternehmer stellt Netto-Rechnung mit Hinweis "Steuerschuldnerschaft des Leistungsempfängers".
+- Leistungsempfänger schuldet die USt und kann sie bei Vorsteuerabzugsberechtigung zeitgleich abziehen (§ 15 UStG) → grundsätzlich liquiditätsneutral.
+
+2) Anwendungsfälle (§ 13b Abs. 2 UStG)
+- Nr. 1: Werklieferungen / sonstige Leistungen eines im Ausland ansässigen Unternehmers (i. V. m. § 13b Abs. 1 UStG für ig. sonstige Leistungen nach § 3a Abs. 2 UStG).
+- Nr. 4: Bauleistungen, wenn der Empfänger selbst nachhaltig Bauleistungen erbringt.
+- Nr. 5: Gas, Elektrizität, Wärme/Kälte unter besonderen Voraussetzungen.
+- Nr. 7–11: Schrott, bestimmte Metalle, Altgold, Mobilfunkgeräte/Tablets ab Schwelle, CO₂-Zertifikate.
+- Dreiecksgeschäfte: Vereinfachung nach § 25b UStG prüfen.
+
+3) Beispiel Bauleistung
+- Subunternehmer (Ausland) berechnet 50.000 € netto an deutschen Generalunternehmer (Bauleistender).
+- Empfänger schuldet 9.500 € USt (§ 13b UStG) und zieht sie als Vorsteuer (§ 15 UStG) → liquiditätsneutral.`,
+  },
+  {
+    id: "reihengeschaeft",
+    title: "Reihengeschäft (§ 3 Abs. 6, 7 UStG)",
+    short:
+      "Mehrere Umsatzgeschäfte, eine Warenbewegung; nur eine Lieferung ist die bewegte, alle anderen ruhen.",
+    category: "Umsatzsteuer",
+    source: "Internes Handout — Reihengeschäft (UStAE 3.14).",
+    keywords: /reihengeschäft|bewegte lieferung|ruhende lieferung|ustae 3\.14|§\s*3\s*abs\.?\s*6|§\s*3\s*abs\.?\s*7/i,
+    references: [
+      "§ 3 Abs. 6, 7 UStG",
+      "§ 6a UStG",
+      "UStAE 3.14 Abs. 3–11",
+    ],
+    body: `1) Voraussetzung
+- Mehrere Unternehmer schließen Umsatzgeschäfte über denselben Gegenstand ab; nur eine Warenbewegung.
+
+2) Zuordnung der bewegten Lieferung (UStAE 3.14)
+- Nur eine Lieferung ist die bewegte (§ 3 Abs. 6 UStG); alle anderen sind ruhende Lieferungen (§ 3 Abs. 7 UStG).
+- Maßgeblich, wer den Transport veranlasst:
+  • Transport durch ersten Lieferer (A) → A→B bewegt.
+  • Transport durch Zwischenhändler (B) → grundsätzlich A→B bewegt (Vermutung); B kann mit USt-IdNr. seines Abgangslandes die bewegte Lieferung auf B→C verlagern.
+  • Transport durch letzten Abnehmer (C) → B→C bewegt.
+
+3) Ortsbestimmung
+- Bewegte Lieferung: Beginn der Beförderung/Versendung.
+- Ruhende Lieferung: Ort der Verschaffung der Verfügungsmacht.
+
+4) Steuerbefreiung
+- Bewegte Lieferung kann als innergemeinschaftliche Lieferung (§ 6a UStG) steuerfrei sein, wenn die Voraussetzungen (USt-IdNr., belegmäßige Nachweise, ZM) erfüllt sind.
+- Ruhende Lieferung regelmäßig im jeweiligen Belegenheitsstaat steuerbar.
+
+5) Beispiel A → B → C, Transport durch B ins EU-Ausland
+- A → B: bewegte Lieferung, Ort DE, ig. Lieferung (§ 6a UStG).
+- B → C: ruhende Lieferung, Ort im EU-Bestimmungsland, dort steuerbar.`,
+  },
+  {
+    id: "mitunternehmerschaft",
+    title: "Mitunternehmerschaft (§ 15 Abs. 1 Nr. 2 EStG)",
+    short:
+      "Initiative + Risiko; gesonderte und einheitliche Feststellung; Sonder- und Ergänzungsbilanzen.",
+    category: "Jahresabschluss",
+    source: "Internes Handout — Mitunternehmerschaft.",
+    keywords: /mitunternehmer|mitunternehmerschaft|sonderbilanz|ergänzungsbilanz|gesamthandsbilanz|§\s*15\s*abs\.?\s*1\s*nr\.?\s*2|atypisch still|kommanditist|komplementär/i,
+    references: [
+      "§ 15 Abs. 1 Nr. 2 EStG",
+      "§ 180 AO",
+      "§§ 118, 166 HGB",
+    ],
+    body: `1) Voraussetzungen
+- Mitunternehmerinitiative (Geschäftsführung / Kontrollrechte, §§ 118, 166 HGB) und
+- Mitunternehmerrisiko (Beteiligung an Gewinn, Verlust und stillen Reserven incl. Firmenwert).
+- Beides muss grundsätzlich kumulativ erfüllt sein.
+
+2) Typische Fälle
+- OHG, KG, GbR, atypisch stille Gesellschaft.
+- Komplementär: Initiative (+), Risiko (+).
+- Kommanditist: Initiative über Kontrollrechte (§ 166 HGB), Risiko über Gewinn-/Verlustbeteiligung; kann Mitunternehmer sein.
+- Typisch stiller Gesellschafter: regelmäßig kein Mitunternehmer.
+
+3) Rechtsfolgen
+- Einkünfte aus Gewerbebetrieb (§ 15 Abs. 1 Nr. 2 EStG).
+- Gesonderte und einheitliche Feststellung (§ 180 AO).
+- Steuerliches Gesamtergebnis = Gesamthandsbilanz + Sonderbilanzen + Ergänzungsbilanzen.
+
+4) Sonder- vs. Ergänzungsbilanz
+- Sonderbilanz: Wirtschaftsgüter im Sonderbetriebsvermögen (z. B. an die Gesellschaft überlassenes Grundstück, Gesellschafterdarlehen). Sonderbetriebseinnahmen/-ausgaben (Miete, AfA, Zinsen) erhöhen/mindern den Gewinnanteil des jeweiligen Gesellschafters.
+- Ergänzungsbilanz: individuelle Korrektur der Wertansätze in der Gesamthandsbilanz für einzelne Gesellschafter (z. B. Mehr-/Minderzahlung beim Eintritt) → spezielle AfA nur bei diesem Gesellschafter.`,
+  },
+  {
+    id: "npo-ruecklagen-pruefhinweise",
+    title: "NPO — Rücklagen, Audit-Risiken und offene Punkte",
+    short:
+      "Konkrete Planung, projektbezogene/Investitions-/Infrastruktur-/Audit-Rücklagen, Darlegungslast, Nachforderungen.",
+    category: "NPO / Gemeinnützigkeit",
+    source: "Internes NPO-Arbeitspapier — Rücklagen, offene Punkte, Nachweise.",
+    keywords: /projektbezogene rücklage|investitionsrücklage|ersatzbeschaffungsrücklage|infrastrukturrücklage|audit[-\s]?rücklage|rückforderung|darlegungslast|rücklagenspiegel|offene punkte|nachforderung|krankenversicherung\s+verein|fahrtenbuch\s+verein/i,
+    references: [
+      "§ 55 Abs. 1 Nr. 5 AO",
+      "§ 62 Abs. 1 Nr. 1–4 AO",
+      "§ 63 Abs. 4 AO",
+    ],
+    body: `1) Grundsatz / Darlegungslast
+- Die Körperschaft trägt die Darlegungslast für die Voraussetzungen jeder Rücklagenbildung.
+- Mit Ausnahme der freien Rücklage (§ 62 Abs. 1 Nr. 3 AO) müssen Rücklagen auf konkrete, geplante und satzungsgemäße Zwecke bezogen sein.
+- Erforderlich: Beschluss, konkreter Zweck, Zeitplan, Kostenrahmen, Umsetzungsstand, transparente Abbildung in Rücklagenspiegel und MVR.
+
+2) Projektbezogene Rücklage
+- Zulässig für konkrete satzungsgemäße Projekte — auch wenn Erstattung (z. B. Fördermittel) beantragt ist, sofern Durchführung glaubhaft und Mittel in angemessenem Zeitraum benötigt werden.
+- Auflösung, sobald Grund entfällt oder Erstattung erfolgt.
+
+3) Investitions-/Ersatzbeschaffungsrücklage (§ 62 Abs. 1 Nr. 2 AO)
+- Höhe grundsätzlich an der regulären AfA des zu ersetzenden WG orientiert.
+- Höherer Bedarf nur mit Nachweis (Angebote, Kostenvoranschläge, Preissteigerungen, technische Anforderungen).
+
+4) Infrastruktur-/Plattformrücklage
+- Laufende Plattform-/Hosting-/Personalkosten → eher Betriebsmittelrücklage (§ 62 Abs. 1 Nr. 1 AO).
+- Geplante technische Erneuerung / Systemumstellung → Investitions-/Ersatzbeschaffungsrücklage.
+- Keine pauschale "Sicherheitsreserve" — konkret begründen.
+
+5) Rücklage für Audit-/Rückforderungsrisiken
+- Möglich als Betriebsmittelrücklage bei tatsächlicher Unsicherheit über Rückforderungen.
+- Risikobetrag aus konkretem Fördervertrag, Erfahrungswerten und risikobehafteten Positionen herleiten — pauschale Prozentsätze sind kritisch.
+- Bei hinreichend konkreter Verpflichtung Abgrenzung zur bilanziellen Rückstellung (§ 249 HGB) prüfen.
+
+6) Offene Punkte / Nachforderungen
+- Bei Zeitdruck dokumentierte Zwischenfreigabe mit klar benannten offenen Punkten besser als Stillstand.
+- Typische Nachforderungen: Versicherungsbeleg/Beitragshöhe, Beschluss/Vertrag, Funktion der Person im Verein, Fahrzeug-Nutzungsvereinbarung & Fahrtenbuch, Darlehensvertrag, konkrete Investitions-/Erweiterungsplanung.
+
+7) Merksätze
+- Rücklage nur stehen lassen, wenn Zweck, Planung, Beschluss und Dokumentation belastbar sind.
+- Nicht auf die Bezeichnung des Belegs schauen, sondern auf den wirtschaftlichen Charakter der Zahlung.
+- Übernahme personenbezogener Kosten (z. B. KV-Beiträge) ohne klare Grundlage = Risiko für Mittelverwendung, Vergütung, Lohnsteuer und SV.`,
+  },
 ];
 
 // Hilfsmittel für die Wissensbasis-Suche (analyze.ts)

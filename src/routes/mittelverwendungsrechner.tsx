@@ -87,7 +87,7 @@ function CheckField({ label, value, onChange }: { label: string; value: boolean;
   );
 }
 
-function Card({ title, children, accent }: { title?: string; children: React.ReactNode; accent?: string }) {
+function Card({ title, children, accent }: { title?: React.ReactNode; children: React.ReactNode; accent?: string }) {
   return (
     <section className="rounded-2xl border border-border bg-card p-5 shadow-card-soft">
       {title && (

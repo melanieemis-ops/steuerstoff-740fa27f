@@ -446,7 +446,8 @@ Mit freundlichen Grüßen
 Ihre Kanzlei`;
 }
 
-const RUNNER: Record<Tool, (i: NpoInput) => NpoErgebnis> = {
+type RunnerOut = Partial<NpoErgebnis> & Pick<NpoErgebnis, "tool" | "toolLabel" | "ampel" | "einschaetzung" | "risiken" | "fehlendeAngaben" | "unterlagen" | "rueckfragen" | "buchungshinweis" | "reviewHinweis" | "textbaustein">;
+const RUNNER: Record<Tool, (i: NpoInput) => RunnerOut> = {
   sphaere: bewerteSphaere,
   zweck_vs_wgb: bewerteZweckVsWgb,
   spende: bewerteSpende,

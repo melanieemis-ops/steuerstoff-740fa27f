@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { listCases, relativeTime, type CaseRecord } from "@/lib/casesStore";
 import {
   ArrowRight,
+  ArrowRightLeft,
   FileSearch,
   Building2,
   Calculator,
@@ -54,6 +55,13 @@ const quickstart = [
     title: "Rückfragebrief vorbereiten",
     desc: "Fehlende Angaben erkennen und Mandantenanfrage formulieren.",
     accent: "var(--deep-blue)",
+  },
+  {
+    icon: ArrowRightLeft,
+    title: "SKR-Konverter",
+    desc: "SKR03 → SKR42 zuordnen, Textanalyse und eigene Mappings.",
+    accent: "var(--magenta)",
+    to: "/skr-konverter" as const,
   },
 ];
 

@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
+import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Button } from "@/components/ui/button";
@@ -44,6 +45,18 @@ function Page() {
   const [tool, setTool] = useState<Tool>("sphaere");
   const [input, setInput] = useState<NpoInput>(emptyInput());
   const [result, setResult] = useState<NpoErgebnis | null>(null);
+  const toolsRef = useRef<HTMLDivElement>(null);
+  const toolIdx = TOOLS.findIndex((t) => t.id === tool);
+  useSwipeNavigation(toolsRef, {
+    onSwipeLeft: () => {
+      const next = TOOLS[Math.min(TOOLS.length - 1, toolIdx + 1)];
+      if (next) setTool(next.id);
+    },
+    onSwipeRight: () => {
+      const prev = TOOLS[Math.max(0, toolIdx - 1)];
+      if (prev) setTool(prev.id);
+    },
+  });
 
   const update = <K extends keyof NpoInput>(k: K, v: NpoInput[K]) =>
     setInput((s) => ({ ...s, [k]: v }));

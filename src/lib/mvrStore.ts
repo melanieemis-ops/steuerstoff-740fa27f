@@ -747,7 +747,7 @@ export function buildVorstand(s: MvrState): string {
     });
   }
   L.push("Beschlussvorschlag:");
-  L.push("„Der Vorstand beschließt die o. g. Rücklagenzuführungen für das Wirtschaftsjahr " + s.stamm.jahr + ". Die Rücklagen werden zweckgebunden geführt und gemäß § 62 AO dokumentiert."");
+  L.push(`„Der Vorstand beschließt die o. g. Rücklagenzuführungen für das Wirtschaftsjahr ${s.stamm.jahr}. Die Rücklagen werden zweckgebunden geführt und gemäß § 62 AO dokumentiert."`);
   L.push("");
   L.push("Dokumentationshinweis:");
   L.push("Zu jedem Beschluss sind aufzubewahren: Beschlussprotokoll mit Datum, Projekt-/Verwendungsbeschreibung, Finanzierungs- und Zeitplan, Nachweis der Mittelherkunft sowie spätere Auflösungs-/Verwendungsdokumentation.");

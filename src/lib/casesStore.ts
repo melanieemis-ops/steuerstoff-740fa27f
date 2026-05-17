@@ -31,6 +31,24 @@ function write(cases: CaseRecord[]) {
 
 const DEMO: AnalysisInput[] = [
   {
+    title: "SKR42-Mapping Miete 2025",
+    topic: "SKR",
+    description:
+      "Übernahme der Mietaufwendungen aus SKR03-Konto 4210 nach SKR42. Zuordnung zu Raumkosten prüfen, Buchungstexte vereinheitlichen und Mapping-Tabelle dokumentieren.",
+  },
+  {
+    title: "Rücklagenprüfung gGmbH 2024",
+    topic: "NPO",
+    description:
+      "Gemeinnützige GmbH mit Zweckbetrieb Bildung. Prüfung freier Rücklage nach § 62 Abs. 1 Nr. 3 AO sowie Betriebsmittelrücklage. Beschlüsse und Finanzierungspläne fehlen teilweise.",
+  },
+  {
+    title: "Mittelverwendungsrechnung Verein 2024",
+    topic: "NPO",
+    description:
+      "Gemeinnütziger Verein mit Zweckbetrieb (Bildungsangebote) und kleinem wirtschaftlichen Geschäftsbetrieb (Cafeteria). Zeitnahe Mittelverwendung und Verwendungsüberhang zu prüfen.",
+  },
+  {
     title: "Bewirtungsbeleg Geschäftsessen 03/2025",
     topic: "USt",
     description:

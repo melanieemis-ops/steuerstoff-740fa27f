@@ -207,16 +207,16 @@ function ChatPage() {
   const canSend = input.trim().length > 0 && !busy;
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="chat-bg-deep min-h-screen flex flex-col">
       <SiteHeader />
 
-      <div className="border-b border-border/60 bg-background/85 backdrop-blur">
+      <div className="border-b border-white/10 bg-transparent">
         <div className="mx-auto flex w-full max-w-3xl items-center justify-between gap-3 px-4 py-3">
           <div className="min-w-0">
-            <h1 className="text-base font-semibold tracking-tight text-foreground">
+            <h1 className="text-base font-semibold tracking-tight text-white">
               steuerstoff Chat
             </h1>
-            <p className="text-[11px] text-muted-foreground">
+            <p className="text-[11px] text-white/60">
               Steuerlicher KI-Arbeitsassistent
             </p>
           </div>
@@ -225,7 +225,7 @@ function ChatPage() {
               <button
                 type="button"
                 onClick={newChat}
-                className="inline-flex items-center gap-1.5 rounded-md border border-border bg-background px-2.5 py-1.5 text-xs text-foreground transition-colors hover:bg-accent"
+                className="inline-flex items-center gap-1.5 rounded-md border border-white/15 bg-white/5 px-2.5 py-1.5 text-xs text-white transition-colors hover:bg-white/10"
                 aria-label="Neuer Chat"
               >
                 <Plus className="h-3.5 w-3.5" />
@@ -337,7 +337,7 @@ function ChatPage() {
 
       <form
         onSubmit={handleSubmit}
-        className="fixed inset-x-0 bottom-0 z-30 border-t border-border bg-background/95 backdrop-blur pb-[calc(env(safe-area-inset-bottom)+64px)] md:pb-3"
+        className="fixed inset-x-0 bottom-0 z-30 border-t border-white/10 bg-[#07142f]/95 backdrop-blur pb-[calc(env(safe-area-inset-bottom)+64px)] md:pb-3"
         data-no-swipe="true"
       >
         <div className="mx-auto w-full max-w-3xl px-3 pt-3">

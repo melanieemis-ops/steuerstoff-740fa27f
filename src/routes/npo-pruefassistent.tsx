@@ -145,6 +145,7 @@ function Page() {
                           value={input.orgTyp}
                           onChange={(e) => update("orgTyp", e.target.value as OrgTyp)}
                         >
+                          <option value="">— nicht angegeben —</option>
                           <option value="verein">Verein</option>
                           <option value="ggmbh">gGmbH</option>
                           <option value="stiftung">Stiftung</option>
@@ -154,11 +155,21 @@ function Page() {
                       <div className="grid grid-cols-2 gap-3">
                         <div>
                           <label className="text-xs text-muted-foreground">Jahr</label>
-                          <Input type="number" value={input.jahr} onChange={(e) => update("jahr", Number(e.target.value) || 0)} />
+                          <Input
+                            type="number"
+                            placeholder="nicht angegeben"
+                            value={input.jahr ?? ""}
+                            onChange={(e) => update("jahr", e.target.value ? Number(e.target.value) : undefined)}
+                          />
                         </div>
                         <div>
                           <label className="text-xs text-muted-foreground">Betrag (€)</label>
-                          <Input type="number" value={input.betrag} onChange={(e) => update("betrag", Number(e.target.value) || 0)} />
+                          <Input
+                            type="number"
+                            placeholder="nicht angegeben"
+                            value={input.betrag ?? ""}
+                            onChange={(e) => update("betrag", e.target.value ? Number(e.target.value) : undefined)}
+                          />
                         </div>
                       </div>
                       <div className="sm:col-span-2">
@@ -176,6 +187,7 @@ function Page() {
                           value={input.richtung}
                           onChange={(e) => update("richtung", e.target.value as Richtung)}
                         >
+                          <option value="">— nicht angegeben —</option>
                           <option value="einnahme">Einnahme</option>
                           <option value="ausgabe">Ausgabe</option>
                         </select>
@@ -323,19 +335,34 @@ function ResultCard({
         <A className={`h-4 w-4 ${a.text}`} />
         <div className={`text-sm font-semibold ${a.text}`}>{a.label}</div>
         <span className={`rounded-full border px-2 py-0.5 text-[10px] ${sicherheitClass}`}>{sicherheitLabel}</span>
-        <div className="ml-auto text-xs text-muted-foreground">{r.toolLabel}</div>
+        <div className="ml-auto text-xs text-muted-foreground">{r.titel}</div>
       </div>
       <div className="space-y-4 p-4 sm:p-5">
-        {r.sicherheit === "niedrig" && (
+        {r.modus === "wissen" ? (
+          <div className="rounded-md border border-dashed border-border bg-background p-2 text-[11px] text-muted-foreground">
+            Schnellantwort auf Basis typischer Sachverhalte — kein konkreter Einzelfall geprüft.
+          </div>
+        ) : r.sicherheit === "niedrig" ? (
           <div className="rounded-md border border-dashed border-border bg-background p-2 text-[11px] text-muted-foreground">
             Ersteinschätzung auf Basis der Kurzbeschreibung. Für eine belastbarere Prüfung sind
             zusätzliche Angaben hilfreich.
           </div>
-        )}
+        ) : null}
         <div>
-          <div className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Wahrscheinliche Einordnung</div>
+          <div className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Wahrscheinliche Sphäre</div>
           <p className="mt-1 text-sm text-foreground">{r.einschaetzung}</p>
         </div>
+
+        {r.begruendung && (
+          <div>
+            <div className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Begründung</div>
+            <p className="mt-1 text-sm text-foreground">{r.begruendung}</p>
+          </div>
+        )}
+
+        {r.wannAnders && r.wannAnders.length > 0 && (
+          <Section title="Wann wäre die Einordnung anders?" items={r.wannAnders} />
+        )}
 
         {r.alternativen.length > 0 && (
           <Section title="Mögliche Alternativ-Einordnung" items={r.alternativen} />

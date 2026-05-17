@@ -14,6 +14,7 @@ import { Route as NeueAnfrageRouteImport } from './routes/neue-anfrage'
 import { Route as FallverlaufRouteImport } from './routes/fallverlauf'
 import { Route as EinstellungenRouteImport } from './routes/einstellungen'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as FallCaseIdRouteImport } from './routes/fall.$caseId'
 
 const WissensdatenbankRoute = WissensdatenbankRouteImport.update({
   id: '/wissensdatenbank',
@@ -40,6 +41,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FallCaseIdRoute = FallCaseIdRouteImport.update({
+  id: '/fall/$caseId',
+  path: '/fall/$caseId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -47,6 +53,7 @@ export interface FileRoutesByFullPath {
   '/fallverlauf': typeof FallverlaufRoute
   '/neue-anfrage': typeof NeueAnfrageRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
+  '/fall/$caseId': typeof FallCaseIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +61,7 @@ export interface FileRoutesByTo {
   '/fallverlauf': typeof FallverlaufRoute
   '/neue-anfrage': typeof NeueAnfrageRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
+  '/fall/$caseId': typeof FallCaseIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,6 +70,7 @@ export interface FileRoutesById {
   '/fallverlauf': typeof FallverlaufRoute
   '/neue-anfrage': typeof NeueAnfrageRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
+  '/fall/$caseId': typeof FallCaseIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -71,6 +80,7 @@ export interface FileRouteTypes {
     | '/fallverlauf'
     | '/neue-anfrage'
     | '/wissensdatenbank'
+    | '/fall/$caseId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -78,6 +88,7 @@ export interface FileRouteTypes {
     | '/fallverlauf'
     | '/neue-anfrage'
     | '/wissensdatenbank'
+    | '/fall/$caseId'
   id:
     | '__root__'
     | '/'
@@ -85,6 +96,7 @@ export interface FileRouteTypes {
     | '/fallverlauf'
     | '/neue-anfrage'
     | '/wissensdatenbank'
+    | '/fall/$caseId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -93,6 +105,7 @@ export interface RootRouteChildren {
   FallverlaufRoute: typeof FallverlaufRoute
   NeueAnfrageRoute: typeof NeueAnfrageRoute
   WissensdatenbankRoute: typeof WissensdatenbankRoute
+  FallCaseIdRoute: typeof FallCaseIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -132,6 +145,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/fall/$caseId': {
+      id: '/fall/$caseId'
+      path: '/fall/$caseId'
+      fullPath: '/fall/$caseId'
+      preLoaderRoute: typeof FallCaseIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -141,7 +161,18 @@ const rootRouteChildren: RootRouteChildren = {
   FallverlaufRoute: FallverlaufRoute,
   NeueAnfrageRoute: NeueAnfrageRoute,
   WissensdatenbankRoute: WissensdatenbankRoute,
+  FallCaseIdRoute: FallCaseIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

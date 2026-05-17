@@ -264,8 +264,12 @@ function Page() {
                   })}
                 </div>
                 <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:justify-end">
-                  <Button onClick={run} className="h-10">
-                    Prüfung starten
+                  <Button
+                    onClick={run}
+                    disabled={!input.beschreibung.trim()}
+                    className="h-10"
+                  >
+                    NPO-Prüfung starten
                   </Button>
                 </div>
               </div>
@@ -277,8 +281,8 @@ function Page() {
                 <ResultCard r={result} onCopy={copy} onDownload={download} />
               ) : (
                 <div className="rounded-2xl border border-dashed border-border bg-card/60 p-6 text-sm text-muted-foreground">
-                  Bitte Sachverhalt erfassen und Prüfung starten. Das Ergebnis erscheint hier als
-                  strukturierte Prüfnotiz mit Ampel, Risiken, fehlenden Angaben und Textbaustein.
+                  Beschreibe den Vorgang in der Kurzbeschreibung und starte die Prüfung.
+                  Auch ohne weitere Angaben erstellt steuerstoff eine erste strukturierte Einschätzung.
                 </div>
               )}
 

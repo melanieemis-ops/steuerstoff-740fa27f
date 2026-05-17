@@ -14,6 +14,7 @@ import { Route as SkrKonverterRouteImport } from './routes/skr-konverter'
 import { Route as NpoPruefassistentRouteImport } from './routes/npo-pruefassistent'
 import { Route as NeueAnfrageRouteImport } from './routes/neue-anfrage'
 import { Route as MittelverwendungsrechnerRouteImport } from './routes/mittelverwendungsrechner'
+import { Route as KfzWertabgabeRouteImport } from './routes/kfz-wertabgabe'
 import { Route as FallverlaufRouteImport } from './routes/fallverlauf'
 import { Route as EinstellungenRouteImport } from './routes/einstellungen'
 import { Route as ChatRouteImport } from './routes/chat'
@@ -46,6 +47,11 @@ const MittelverwendungsrechnerRoute =
     path: '/mittelverwendungsrechner',
     getParentRoute: () => rootRouteImport,
   } as any)
+const KfzWertabgabeRoute = KfzWertabgabeRouteImport.update({
+  id: '/kfz-wertabgabe',
+  path: '/kfz-wertabgabe',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FallverlaufRoute = FallverlaufRouteImport.update({
   id: '/fallverlauf',
   path: '/fallverlauf',
@@ -77,6 +83,7 @@ export interface FileRoutesByFullPath {
   '/chat': typeof ChatRoute
   '/einstellungen': typeof EinstellungenRoute
   '/fallverlauf': typeof FallverlaufRoute
+  '/kfz-wertabgabe': typeof KfzWertabgabeRoute
   '/mittelverwendungsrechner': typeof MittelverwendungsrechnerRoute
   '/neue-anfrage': typeof NeueAnfrageRoute
   '/npo-pruefassistent': typeof NpoPruefassistentRoute
@@ -89,6 +96,7 @@ export interface FileRoutesByTo {
   '/chat': typeof ChatRoute
   '/einstellungen': typeof EinstellungenRoute
   '/fallverlauf': typeof FallverlaufRoute
+  '/kfz-wertabgabe': typeof KfzWertabgabeRoute
   '/mittelverwendungsrechner': typeof MittelverwendungsrechnerRoute
   '/neue-anfrage': typeof NeueAnfrageRoute
   '/npo-pruefassistent': typeof NpoPruefassistentRoute
@@ -102,6 +110,7 @@ export interface FileRoutesById {
   '/chat': typeof ChatRoute
   '/einstellungen': typeof EinstellungenRoute
   '/fallverlauf': typeof FallverlaufRoute
+  '/kfz-wertabgabe': typeof KfzWertabgabeRoute
   '/mittelverwendungsrechner': typeof MittelverwendungsrechnerRoute
   '/neue-anfrage': typeof NeueAnfrageRoute
   '/npo-pruefassistent': typeof NpoPruefassistentRoute
@@ -116,6 +125,7 @@ export interface FileRouteTypes {
     | '/chat'
     | '/einstellungen'
     | '/fallverlauf'
+    | '/kfz-wertabgabe'
     | '/mittelverwendungsrechner'
     | '/neue-anfrage'
     | '/npo-pruefassistent'
@@ -128,6 +138,7 @@ export interface FileRouteTypes {
     | '/chat'
     | '/einstellungen'
     | '/fallverlauf'
+    | '/kfz-wertabgabe'
     | '/mittelverwendungsrechner'
     | '/neue-anfrage'
     | '/npo-pruefassistent'
@@ -140,6 +151,7 @@ export interface FileRouteTypes {
     | '/chat'
     | '/einstellungen'
     | '/fallverlauf'
+    | '/kfz-wertabgabe'
     | '/mittelverwendungsrechner'
     | '/neue-anfrage'
     | '/npo-pruefassistent'
@@ -153,6 +165,7 @@ export interface RootRouteChildren {
   ChatRoute: typeof ChatRoute
   EinstellungenRoute: typeof EinstellungenRoute
   FallverlaufRoute: typeof FallverlaufRoute
+  KfzWertabgabeRoute: typeof KfzWertabgabeRoute
   MittelverwendungsrechnerRoute: typeof MittelverwendungsrechnerRoute
   NeueAnfrageRoute: typeof NeueAnfrageRoute
   NpoPruefassistentRoute: typeof NpoPruefassistentRoute
@@ -198,6 +211,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MittelverwendungsrechnerRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/kfz-wertabgabe': {
+      id: '/kfz-wertabgabe'
+      path: '/kfz-wertabgabe'
+      fullPath: '/kfz-wertabgabe'
+      preLoaderRoute: typeof KfzWertabgabeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/fallverlauf': {
       id: '/fallverlauf'
       path: '/fallverlauf'
@@ -241,6 +261,7 @@ const rootRouteChildren: RootRouteChildren = {
   ChatRoute: ChatRoute,
   EinstellungenRoute: EinstellungenRoute,
   FallverlaufRoute: FallverlaufRoute,
+  KfzWertabgabeRoute: KfzWertabgabeRoute,
   MittelverwendungsrechnerRoute: MittelverwendungsrechnerRoute,
   NeueAnfrageRoute: NeueAnfrageRoute,
   NpoPruefassistentRoute: NpoPruefassistentRoute,

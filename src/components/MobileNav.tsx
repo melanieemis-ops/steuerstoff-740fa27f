@@ -1,5 +1,7 @@
-import { Link, useLocation } from "@tanstack/react-router";
+import { Link, useLocation, useNavigate } from "@tanstack/react-router";
+import { useRef } from "react";
 import { Home, FilePlus, ArrowRightLeft, Calculator, ShieldCheck, MessageSquare } from "lucide-react";
+import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
 
 export const SECTIONS = [
   { to: "/chat", label: "Chat", short: "Chat" },
@@ -29,14 +31,36 @@ function currentIndex(pathname: string): number {
 }
 
 /**
- * Page-level wrapper. Global horizontal page swipe is intentionally OFF —
- * it conflicted with vertical scrolling and form interaction. Use the
- * bottom navigation, section dots, or burger menu to change pages.
- * Local swipe (carousels, wizard steps, tool tabs) is still supported
- * via useSwipeNavigation on the relevant containers.
+ * Page-level wrapper with horizontal swipe navigation on empty surfaces.
+ * Interactive controls (input, button, etc.), open menus, drawers and
+ * elements marked with [data-no-swipe="true"] are guarded by
+ * useSwipeNavigation. Vertical scroll / pull-to-refresh keep priority via
+ * the hook's direction lock.
  */
 export function GlobalSwipeArea({ children }: { children: React.ReactNode }) {
-  return <div className="min-h-screen">{children}</div>;
+  const ref = useRef<HTMLDivElement | null>(null);
+  const navigate = useNavigate();
+  const loc = useLocation();
+  const idx = currentIndex(loc.pathname);
+
+  const go = (dir: -1 | 1) => {
+    if (typeof document !== "undefined" && document.body.dataset.menuOpen === "true") return;
+    const next = idx + dir;
+    if (next < 0 || next >= SECTIONS.length) return;
+    navigate({ to: SECTIONS[next].to });
+  };
+
+  useSwipeNavigation(ref, {
+    onSwipeLeft: () => go(1),
+    onSwipeRight: () => go(-1),
+    threshold: 60,
+  });
+
+  return (
+    <div ref={ref} className="min-h-screen">
+      {children}
+    </div>
+  );
 }
 
 

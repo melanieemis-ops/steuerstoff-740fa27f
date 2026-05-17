@@ -134,10 +134,20 @@
 }
 
 @keyframes slidein-l {
-  from { transform: translateX(24px); opacity: 0.6; }
-  to   { transform: translateX(0); opacity: 1; }
+  from { transform: translate3d(24px, 0, 0); opacity: 0.6; }
+  to   { transform: translate3d(0, 0, 0); opacity: 1; }
 }
 @keyframes slidein-r {
-  from { transform: translateX(-24px); opacity: 0.6; }
-  to   { transform: translateX(0); opacity: 1; }
+  from { transform: translate3d(-24px, 0, 0); opacity: 0.6; }
+  to   { transform: translate3d(0, 0, 0); opacity: 1; }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

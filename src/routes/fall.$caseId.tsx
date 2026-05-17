@@ -12,10 +12,11 @@ import {
 import {
   ANSWER_MODES,
   type AnswerMode,
+  KIND_LABEL,
   riskLabel,
   type Risk,
 } from "@/lib/analyze";
-import { ArrowLeft, Check, Copy, Download, Trash2 } from "lucide-react";
+import { ArrowLeft, BookOpen, Check, Copy, Download, Trash2 } from "lucide-react";
 
 export const Route = createFileRoute("/fall/$caseId")({
   component: FallPage,

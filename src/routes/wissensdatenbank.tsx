@@ -513,6 +513,221 @@ function articleBody(article: Article) {
   return `${article.title}\n\n${article.short}\n\nDieser Wissenseintrag gehört zur Kategorie ${article.category}. Prüfe den Sachverhalt anhand der Kurzbeschreibung, der Prüfpunkte und der passenden Module.`;
 }
 
+function ArticleDetails({
+  article,
+  copied,
+  notice,
+  onCopy,
+  onPruefnotiz,
+  onClose,
+}: {
+  article: Article;
+  copied: boolean;
+  notice: string | null;
+  onCopy: (article: Article) => void;
+  onPruefnotiz: (article: Article) => void;
+  onClose: () => void;
+}) {
+  const handouts = matchHandouts(article);
+
+  return (
+    <>
+      <div className="flex items-start justify-between gap-4 border-b border-border p-4">
+        <div className="min-w-0">
+          <span className="inline-block rounded border border-border bg-background px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted-foreground">
+            {article.category}
+          </span>
+          <h3 className="mt-2 text-lg font-semibold text-foreground">{article.title}</h3>
+          <p className="mt-1 text-xs text-muted-foreground">{article.short}</p>
+        </div>
+        <button
+          type="button"
+          aria-label="Schließen"
+          onClick={onClose}
+          className="relative z-[1002] rounded-md p-1 text-muted-foreground hover:bg-accent hover:text-foreground"
+        >
+          <X className="h-4 w-4" />
+        </button>
+      </div>
+
+      <div className="flex-1 overflow-y-auto p-4 pb-6">
+        <section>
+          <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            Inhalt
+          </h4>
+          <pre className="mt-2 whitespace-pre-wrap font-sans text-sm leading-relaxed text-foreground">
+            {articleBody(article)}
+          </pre>
+        </section>
+
+        {article.checklist && article.checklist.length > 0 && (
+          <section className="mt-5">
+            <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              Prüfpunkte
+            </h4>
+            <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-foreground">
+              {article.checklist.map((c, i) => (
+                <li key={i}>{c}</li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {article.commonMistakes && article.commonMistakes.length > 0 && (
+          <section className="mt-5">
+            <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              Typische Fehler
+            </h4>
+            <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-foreground">
+              {article.commonMistakes.map((c, i) => (
+                <li key={i}>{c}</li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {article.questions && article.questions.length > 0 && (
+          <section className="mt-5">
+            <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              Rückfragen
+            </h4>
+            <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-foreground">
+              {article.questions.map((c, i) => (
+                <li key={i}>{c}</li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {article.relatedModules && article.relatedModules.length > 0 && (
+          <section className="mt-5">
+            <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              Passende Module
+            </h4>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {article.relatedModules.map((m, i) => (
+                <a
+                  key={i}
+                  href={m.to}
+                  className="inline-flex items-center rounded-md border border-border bg-background px-3 py-1.5 text-xs text-foreground hover:border-foreground/40"
+                >
+                  {m.label}
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
+
+        <section className="mt-5">
+          <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            Eigene Handouts
+          </h4>
+          {handouts.length === 0 ? (
+            <p className="mt-2 text-xs text-muted-foreground">
+              Keine eigenen Handouts zu diesem Thema hinterlegt.
+            </p>
+          ) : (
+            <ul className="mt-2 space-y-2">
+              {handouts.map((h) => (
+                <li key={h.id} className="rounded-md border border-border bg-background p-2.5">
+                  <div className="flex items-start justify-between gap-2">
+                    <p className="text-sm font-medium text-foreground">{h.title}</p>
+                    <span className="shrink-0 rounded border border-border bg-card px-1.5 py-0.5 text-[10px] text-muted-foreground">
+                      {h.category}
+                    </span>
+                  </div>
+                  {h.short && <p className="mt-1 text-xs text-muted-foreground">{h.short}</p>}
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+
+        {article.source && (
+          <p className="mt-5 text-[11px] text-muted-foreground">
+            Quelle (intern): {article.source}
+          </p>
+        )}
+      </div>
+
+      <div className="flex flex-wrap items-center gap-2 border-t border-border bg-background/60 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
+        <Button type="button" size="sm" variant="outline" onClick={() => onCopy(article)}>
+          {copied ? (
+            <>
+              <Check className="mr-1 h-3.5 w-3.5" />
+              Kopiert
+            </>
+          ) : (
+            <>
+              <Copy className="mr-1 h-3.5 w-3.5" />
+              Text kopieren
+            </>
+          )}
+        </Button>
+        <Button type="button" size="sm" variant="outline" onClick={() => onPruefnotiz(article)}>
+          <ClipboardList className="mr-1 h-3.5 w-3.5" />
+          Als Prüfnotiz verwenden
+        </Button>
+        <div className="flex-1" />
+        {notice && (
+          <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
+            <FileText className="h-3 w-3" />
+            {notice}
+          </span>
+        )}
+        <Button type="button" size="sm" onClick={onClose}>
+          Schließen
+        </Button>
+      </div>
+    </>
+  );
+}
+
+function KnowledgeDetailPortal({
+  article,
+  copied,
+  notice,
+  onCopy,
+  onPruefnotiz,
+  onClose,
+}: {
+  article: Article;
+  copied: boolean;
+  notice: string | null;
+  onCopy: (article: Article) => void;
+  onPruefnotiz: (article: Article) => void;
+  onClose: () => void;
+}) {
+  if (typeof document === "undefined" || !document.body || !articleBody(article).trim()) return null;
+
+  return createPortal(
+    <>
+      <div
+        className="fixed inset-0 z-[1000] bg-foreground/40 backdrop-blur-sm"
+        onClick={onClose}
+        data-no-swipe="true"
+      />
+      <div
+        className="fixed inset-x-0 bottom-0 z-[1001] flex max-h-[85vh] w-full flex-col overflow-hidden rounded-t-3xl border border-border bg-card text-card-foreground shadow-xl sm:inset-auto sm:left-1/2 sm:top-1/2 sm:w-[min(720px,calc(100vw-2rem))] sm:-translate-x-1/2 sm:-translate-y-1/2 sm:rounded-2xl"
+        data-no-swipe="true"
+        role="dialog"
+        aria-modal="true"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <ArticleDetails
+          article={article}
+          copied={copied}
+          notice={notice}
+          onCopy={onCopy}
+          onPruefnotiz={onPruefnotiz}
+          onClose={onClose}
+        />
+      </div>
+    </>,
+    document.body,
+  );
+}
+
 function Wissensdatenbank() {
   const [query, setQuery] = useState("");
   const [cat, setCat] = useState<Category>("Alle");

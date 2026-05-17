@@ -220,7 +220,38 @@ function Home() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Mobile: horizontaler Carousel */}
+          <div className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 sm:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {quickstart.map(({ icon: Icon, title, desc, cta, accent, to }) => (
+              <div
+                key={title}
+                className="snap-start shrink-0 basis-[78%] flex flex-col rounded-2xl border border-border bg-card p-4 shadow-card-soft"
+              >
+                <span
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-primary-foreground"
+                  style={{ background: accent }}
+                >
+                  <Icon className="h-4 w-4" />
+                </span>
+                <h3 className="mt-3 text-sm font-medium text-foreground">{title}</h3>
+                <p className="mt-1 flex-1 text-xs leading-relaxed text-muted-foreground">{desc}</p>
+                <Button asChild size="sm" variant="ghost" className="mt-3 h-8 justify-start px-2 text-xs">
+                  <Link to={to}>
+                    {cta}
+                    <ArrowRight className="ml-1 h-3.5 w-3.5" />
+                  </Link>
+                </Button>
+              </div>
+            ))}
+          </div>
+          <div className="mt-2 flex justify-center gap-1 sm:hidden">
+            {quickstart.map((_, i) => (
+              <span key={i} className="h-1 w-1 rounded-full bg-muted-foreground/40" />
+            ))}
+          </div>
+
+          {/* Desktop: Grid */}
+          <div className="hidden grid-cols-1 gap-3 sm:grid sm:grid-cols-2 lg:grid-cols-3">
             {quickstart.map(({ icon: Icon, title, desc, cta, accent, to }) => (
               <div
                 key={title}

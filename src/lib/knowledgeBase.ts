@@ -597,6 +597,226 @@ Praxisempfehlung
 - Vor Betriebsprüfung eigene Datenanalyse fahren (Z3-Zugriff simulieren), Auffälligkeiten dokumentieren und im Vorfeld erläutern.
 - Datenanalyse-Routinen in der Kanzlei standardisieren und in die Verfahrensdokumentation aufnehmen.`,
   },
+  {
+    id: "ki-agenten-langdock",
+    title: "KI-Agenten in Langdock — Aufbau und Einsatz im Kanzleialltag",
+    short:
+      "Spezialisierte Chatbots mit Anweisungen, Skills und Wissensquellen — stark bei Konvertierung, Importvorbereitung und Vorprüfung.",
+    category: "DATEV",
+    source: "Internes Team-Handout — KI-Agenten in Langdock.",
+    keywords: /langdock|ki[- ]?agent|qm[- ]?chatbot|kontoauszug[- ]?converter|buchungsvorlauf[- ]?converter|mt940|camt\.?053/i,
+    body: `Ein KI-Agent in Langdock ist ein vorkonfigurierter Chatbot mit hinterlegten Anweisungen, Skills und Wissensordnern. Vorteil gegenüber freiem Prompten: einheitliche Ergebnisse, geringere Einstiegshürde, formularbasierte Eingaben.
+
+Arbeitslogik
+- Pflichtfelder (Berater-/Mandantennummer, Vorgangsart, Zielformat) füllen.
+- Anhänge entscheiden über die Qualität: PDFs, CSV, Excel, Exportdaten, idealerweise GDPdU-Daten.
+- Optionale Hinweise im Freitext für Fallbesonderheiten ergänzen.
+- Ergebnis lesen, fachlich prüfen, Folgeschritte ableiten.
+
+Typische Agenten
+- QM-Chatbot: interne QM- und Wissenssuche in natürlicher Sprache.
+- Dokumentenübersetzer: Verträge, Belege, PDFs übersetzen.
+- Kontoauszug-Converter: PDF/CSV → MT940 oder CAMT.053 (PayPal/Stripe oft mit Pseudo-IBAN; bei Stripe Datumsformat beachten).
+- Buchungsvorlauf-Converter: Fremddaten → DATEV-Buchungsvorlauf; Matching mit Debitorenliste.
+- Anlagevermögens-Converter: Anlagenverzeichnis aus Fremdsystemen für DATEV-Import vorbereiten.
+- Fachagenten: Anhang, WP-Anfragen, Jahresabschluss, Fremdwährung, Einkommensteuer, Gesellschafterdarlehen, Tax-Compliance/NPO.
+- Organigramm-Agent laut Hinweis derzeit nicht zuverlässig — nicht nutzen.
+
+Ergebnislogik
+- Risikoeinstufung, Folgeprompts, Hinweise auf fehlende Unterlagen, Arbeitspapier-Struktur für die Akte.
+- Subagenten delegieren Spezialprüfungen im Hintergrund.
+
+Qualitätsregeln
+- Fachliche Endkontrolle bleibt immer beim Menschen.
+- Saubere Eingaben → kritische Prüfung → Rückmeldung von Fehlern an die Agenten-Pflege.`,
+  },
+  {
+    id: "datev-prochecklisten",
+    title: "DATEV ProChecklisten — laufende Nutzung und Mandatswissen",
+    short:
+      "Checkliste während der Arbeit nutzen, nicht erst am Ende abhaken. Standardprozess + Mandatswissen + Vertretungssicherheit.",
+    category: "DATEV",
+    source: "Internes Team-Handout — DATEV ProChecklisten.",
+    keywords: /procheck|prochecklist|checkliste.*datev|datev.*checkliste|vorgangsmappe.*check/i,
+    body: `ProCheck ist ein laufendes Arbeitswerkzeug, kein Pflicht-Häkchen am Ende. Ideal: Checkliste während der Bearbeitung geöffnet halten und Punkte direkt abhaken.
+
+Zugang
+- Direkt über ProCheck, über Schnellinfos beim Mandanten, über Karteikarten/Leistungsbereiche oder aus Fachanwendungen (z. B. Kanzlei-Rechnungswesen).
+- Darstellungen: Baumstruktur (hierarchisch) oder Prozesslandschaft/Kacheln (visuell).
+
+Prozessaufbau
+- Prozessinformation, Prozesspunkte, Rollen, Teilinformationen, Ziel/Nutzen, Verknüpfungen (DMS, Vorlagen, Leitfäden), Historie.
+- Verknüpfungen direkt aus dem Prozess öffnen — System kennt oft schon Mandant, Leistung, Zeitraum.
+
+Wissens- und QM-Plattform
+- Bildet auch Strategie-, Abrechnungs-, Datenschutz- und Unterstützungsprozesse ab.
+- Suche: Volltext, letzte Änderungen, Verknüpfungen, Zuständigkeiten.
+- QM-Chatbot in Langdock ergänzt die klassische Suche, aber nur so aktuell wie die letzte QM-Datenbasis.
+
+Mandatswissen ergänzen
+- Prozessgrundlage und Checklistenbasis sind standardisiert und nicht beliebig veränderbar.
+- Mandantenhinweise, Notizen, fallbezogene Besonderheiten, Zuständigkeiten sind ergänzbar.
+- Wiederholungen: monatlich/jährlich direkt möglich; quartalsweise/halbjährlich über gezielte Monate lösen.
+
+Notiz vs. Detailinformation
+- Notiz: gilt nur für die konkrete Checkliste/diesen Zeitraum, situativ.
+- Detailinformation: dauerhaft, läuft in Folge-Checklisten mit.
+- Faustregel: einmalig = Notiz, dauerhaft = Detailinformation.
+
+Qualitätsmaßstab
+- Eine gute Checkliste enthält Datenherkunft, Vorsysteme, Importlogik, Bearbeitungsbesonderheiten, dauerhafte Hinweise, Verknüpfungen, Zuständigkeiten und Vertretungswissen.
+- Test: Eine Vertretung kann das Mandat damit sicher und nachvollziehbar bearbeiten.`,
+  },
+  {
+    id: "kassen-datenanalyse",
+    title: "Kassenprozesse, Datenanalyse und prüfbare Kassendaten",
+    short:
+      "IKS, Risikoanalyse, Statistik, Benford/Chi-Quadrat, Visualisierung sowie DSFinV-K- und TSE-Datenexport.",
+    category: "Buchhaltung",
+    source: "Internes Team-Handout — Kassenprozesse, Datenanalyse und prüfbare Kassendaten.",
+    keywords: /dsfinv|tse[- ]?archiv|kassennachschau|benford|chi[- ]?quadrat|kassendaten|kassenrisik|stornoquote|z[- ]?bon/i,
+    references: ["§ 146a AO", "§ 147 Abs. 6 AO", "KassenSichV", "DSFinV-K"],
+    body: `Leitgedanke: Erst Prozessqualität, dann Datenanalyse. Schlechte Daten werden durch Analyse nicht gut.
+
+IKS und Risikoanalyse
+- Gesamtrisiko ist mandatsindividuell: Kneipe, Kiosk, Restaurant und Filialbetrieb haben andere Risiken.
+- Vorgehen: Risiko identifizieren → Folge beschreiben → Eintrittswahrscheinlichkeit → Auswirkung → Gesamtrisiko → Maßnahme/Kontrolle.
+- Typische Risikofelder: unberechtigter Zugriff, fehlende Funktionstrennung, fehlerhafte/unvollständige Erfassung, Stornos, Kassendifferenzen, TSE-/Meldepflichten.
+
+Kontrollen und Verantwortlichkeiten
+- Rollen, Rechte, Prüfintervalle, klare Zuständigkeiten.
+- Datenexport vor Außenprüfung organisieren — nicht erst dann.
+- TSE-Ausfälle/Offline-Status wahrnehmen, dokumentieren, nachverfolgen.
+
+Statistik-Grundlagen
+- Mittelwert ist anfällig für Ausreißer; Median und Quantile sind oft aussagekräftiger.
+- Verteilung schlägt eine einzelne Kennzahl.
+- Boxplot: Lage, Quartile, Streuung, Ausreißer für Vergleiche von Monaten, Filialen, Kassen.
+
+Ziffernanalysen
+- Benford-Verteilung der führenden Ziffer ist ein starkes Indiz — aber nur bei geeigneten, sauberen Datensätzen.
+- Chi-Quadrat vergleicht Erwartung mit Beobachtung; Freiheitsgrade und Signifikanzniveau einordnen.
+- Merksatz: statistische Auffälligkeit + weitere Sachverhaltsfeststellungen = belastbarer Prüfungsansatz.
+
+DSFinV-K, TSE und Datenexport
+- Fachliche Exportdaten (DSFinV-K), technische Archivdaten (TSE) und organisatorische Aufbewahrung müssen zusammenpassen.
+- Lücken in fortlaufenden Nummern oder Signaturfolgen sind regelmäßig erklärungsbedürftig.
+
+Minimalstandard für die Kanzlei
+- Mandat risikoorientiert einordnen, Datenverfügbarkeit und Exportfähigkeit sicherstellen, Grundprüfung auf Lücken und Plausibilität, Auffälligkeiten dokumentieren.`,
+  },
+  {
+    id: "dms-dokumentenmanagement",
+    title: "DMS — Dokumentenmanagement in der Kanzlei",
+    short:
+      "Revisionssicherheit, Ablageknigge, Status, Suche, Vorgangsmappen, Ein-/Auschecken.",
+    category: "DATEV",
+    source: "Internes Meeting-Handout — DMS Dokumentenmanagementsystem.",
+    keywords: /\bdms\b|dokumentenmanagement|ablagekn|vorgangsmappe|einchecken|auschecken|zur erledigung/i,
+    body: `Grundprinzipien
+- Revisionssicherheit: alle Änderungen nachvollziehbar, jede Version bleibt abrufbar, frühere Fassungen werden nicht überschrieben.
+- Nur fachlich und rechtlich zulässige Inhalte ablegen. Sensible/belastende Informationen gehören nicht in Aktennotizen.
+
+Zugriff
+- Mandantenbezogen: Schnellinfo zeigt alle Dokumente mit Betreff, Veranlagungsjahr, Status, Bearbeitung.
+- Mandantenübergreifend: „Zur Erledigung“ ist die zentrale Arbeitsliste — mehrmals täglich prüfen und schlank halten.
+
+Bearbeitung
+- Status über kontextbezogene Links rechts effizient setzen; nicht benötigte Status ausblenden.
+- Falsch zugeordnete Dokumente an den zuständigen Mitarbeiter weiterleiten.
+- Notizen und Aufgaben direkt am Dokument anlegen; Aufgaben sind mandatsbezogen sichtbar.
+- Öffnen per Viewer (Auge) für Sichtprüfung — geöffnete Dokumente werden ausgecheckt. Vor Arbeitsende kontrollieren, dass alles wieder eingecheckt ist.
+
+Suche und Ablage
+- Schnellsuche: Beschreibung und Attribute. Volltextsuche: zusätzlich Dokumentinhalt.
+- Ablagestruktur nicht als primären Suchweg nutzen.
+- Ablageknigge konsequent wählen; „Sonstiges“ nur mit aussagekräftiger Beschreibung.
+- Attribute pflegen: Auftrag, Jahr, Monat, Bearbeiter, Status, Stichworte; bei mehrjährigem Bezug weitere Jahre ergänzen.
+
+Weitere Funktionen
+- Anpinnen, Kopieren (unabhängig vs. verknüpft), Löschen erfolgt zunächst in einen Zwischenstatus.
+- Übergabe an andere DATEV-Anwendungen oder Export zur lokalen Speicherung.
+
+Neue Dokumente, Dummys, Vorgangsmappen
+- Nur vorgesehene Kanzlei-Vorlagen verwenden; Absenderangaben korrekt wählen.
+- Dummy-Dokument anlegen, wenn Unterlagen ohne E-Mail-Trägerdokument eingehen — sonst fehlen sie in „Zur Erledigung“.
+- Vorgangsmappen für Jahresabschlüsse: vordefinierte Struktur; nicht benötigte Unterordner erst nach Prüfung entfernen.`,
+  },
+  {
+    id: "datev-rewe-tipps",
+    title: "DATEV Kanzlei-Rechnungswesen — Tipps und Tricks",
+    short:
+      "Arbeitsplatz und Rechnungswesen-Programm an eigene Arbeitsweise anpassen, schneller buchen, Forderungen im Blick.",
+    category: "DATEV",
+    source: "Internes Lernvideo-Handout — DATEV Kanzlei-Rechnungswesen Tipps und Tricks.",
+    keywords: /kanzlei[- ]?rechnungswesen|datev arbeitsplatz|musterbest|buchungsperiode|festschreibung|gebucht[- ]?bis/i,
+    body: `Ihre Arbeitsweise ist Programm
+- DATEV Arbeitsplatz: Mandanten suchen, sortieren, gruppieren und filtern. Spalten konfigurieren — z. B. Festschreibungsanzeige (grün/gelb), UStVA-Rhythmus (M/Q), Gebucht-bis-Datum, zuletzt übermittelte Zeiträume.
+- Arbeitsblatt „Heute“ zeigt zuletzt bearbeitete Leistungen und ist anpassbar.
+- Kanzlei-Rechnungswesen: Navigationsbereich um häufig genutzte Funktionen/Auswertungen erweitern (z. B. konsolidierte UStVA, Kreditor anlegen). Anpassung ist benutzerbezogen.
+
+Buchen
+- Buchungen ändern/berichtigen: schnelle Korrekturwege statt Stornieren-und-Neubuchen; Buchungen ausschneiden und einfügen.
+- Einstellungen Buchungszeile: Tastenkürzel und Spaltenlogik nutzen.
+- Buchungstexte und Konto-Notizen: Kontenbeschriftung mit „k÷“ (Ziffernblock) in den Buchungstext übernehmen.
+
+Forderungen im Blick
+- OPOS-Auswertungen und Mahnwesen aus dem Rechnungswesen heraus steuern; Altersstruktur regelmäßig prüfen.
+
+Helfer für den Alltag
+- Tastenkürzel, individuelle Listenfilter, persönliche Favoriten — viele kleine Schritte sparen täglich Zeit.
+
+Musterbestände nutzen
+- DATEV-Musterkanzlei (Muster GmbH) zum Üben neuer Funktionen, ohne Echtdaten zu gefährden.
+
+Buchungsperiode abschließen
+- Festschreibung sauber durchführen, Stand der Buchführung dokumentieren, vor Abgabe der UStVA prüfen.`,
+  },
+  {
+    id: "automatisierungsservice-rechnungen",
+    title: "Automatisierungsservice Rechnungen — Voraussetzungen und AS1",
+    short:
+      "Voraussetzungen, Aktivierung, Symbolik (grün/gelb/rot), echte Automatisierung über die Spalte AS1 messen.",
+    category: "DATEV",
+    source: "Internes Team-Handout — Automatisierungsservice Rechnungen (Kanzlei-Rechnungswesen).",
+    keywords: /automatisierungsservice|as1[- ]?spalte|robotersymbol|e[- ]?rechnung.*automatik|automatisierungsgrad/i,
+    body: `Zielbild
+- Der Automatisierungsservice unterstützt die Verarbeitung von Eingangs- und Ausgangsrechnungen im DATEV-Rechnungswesen.
+- Er lebt von Datenhistorie, wiederkehrenden Mustern und einer sauberen digitalen Prozesskette.
+
+Voraussetzungen
+- Regelmäßige Sendung ins Rechenzentrum (aktuelle Datenbasis).
+- Ausreichende Dokumentenhistorie (offiziell mind. zwei Jahre, praktisch zählt Wiederkehr und Menge).
+- OPOS aktiviert und tatsächlich genutzt.
+- Behandlungsform „Standard“ (ggf. vor Aktivierung von „Erweitert“ umstellen).
+- SKR03 oder SKR04, keine Branchenpakete, kein selbstbuchender Mandant.
+- Digitale Belege werden bereits gebucht.
+
+Stammdaten und E-Rechnungen
+- System schlägt bei neuen Geschäftspartnern vorbefüllte Stammdaten vor.
+- Bei E-Rechnungen können neue Geschäftspartner im Hintergrund automatisch angelegt werden (Einstellung in „Eigenschaften → Digitale Belege“).
+- Sonderfälle wie Tankstellen-Filialen sind Prozessentscheidungen — nicht jeder Lieferant muss perfekt zusammengeführt werden.
+
+Aktivierung
+- In Kanzlei-Rechnungswesen über „Bestand → Automatisierungsservices“; System prüft Voraussetzungen.
+- Robotersymbol in der Statuszeile zeigt nur an, dass mindestens ein Service aktiv ist.
+- Pragmatisch testen und beobachten statt theoretisch zerdenken; bei fehlendem Mehrwert wieder deaktivieren.
+
+Symbolik
+- Grün: ausreichend sicher → automatische Verbuchung möglich.
+- Gelb: unsicher → manuelle Prüfung erforderlich.
+- Rot: kein Vorschlag bzw. Fehler → Sachverhalt klären.
+
+AS1-Spalte und echter Automatisierungsgrad
+- Spalte AS1 ist standardmäßig nicht sichtbar; je Bestand über Rechtsklick → „Einstellungen Liste“ aktivieren.
+- Zeigt, welche Buchungen wirklich vollautomatisch verarbeitet wurden (kein menschlicher Eingriff).
+- Sobald ein Buchungssatz erneut geöffnet, bestätigt oder verändert wird, verschwindet die Kennzeichnung für Vollautomatik.
+- AS1 ist sichtbar in Primanota/passender Ansicht, nicht im Grundblatt.
+
+Team-Empfehlung
+- Systemvorschläge nicht aus Gewohnheit bekämpfen — Prozesse so aufsetzen, dass das System möglichst oft recht hat.
+- Manuelle Eingriffe reduzieren, AS1 regelmäßig auswerten, Mehrwert pro Bestand kritisch bewerten.`,
+  },
 ];
 
 // Hilfsmittel für die Wissensbasis-Suche (analyze.ts)

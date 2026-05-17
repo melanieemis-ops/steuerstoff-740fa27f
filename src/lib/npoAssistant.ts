@@ -103,35 +103,48 @@ function worse(a: Ampel, b: Ampel): Ampel {
 function bewerteSphaere(i: NpoInput){
   const risiken: string[] = [];
   const fehlend = basisFehlend(i);
-  let ampel: Ampel = "gruen";
+  const rueckfragen: string[] = [
+    "Wofür wurden die Mittel konkret verwendet?",
+    "Besteht ein direkter Bezug zum Satzungszweck?",
+    "Gibt es Gegenleistungen für die andere Seite?",
+  ];
+  let ampel: Ampel = "gelb";
   let sphaereVermutung = i.sphaere;
+  const alternativen: string[] = [];
   const text = i.beschreibung.toLowerCase();
 
+  const istIdeell = /spende|zuwend|mitgliedsbeitrag|beitrag/.test(text);
+  const istZweck = /kurs|seminar|workshop|eintritt|aufführ|sport|kultur|bildung|jugend|konzert|theater|sommerfest|veranstaltung|fest/.test(text);
+  const istVermoegen = /miete|vermiet|zins|kapital|pacht|dividend/.test(text);
+  const istWgb = /verkauf|getränk|bewirtung|werbung|sponsor|logo|gastronom|festzelt|merch|tombola/.test(text);
+
   if (!sphaereVermutung) {
-    if (/spende|zuwend/.test(text)) sphaereVermutung = "ideell";
-    else if (/kurs|seminar|workshop|eintritt|aufführ|sport|kultur/.test(text)) sphaereVermutung = "zweckbetrieb";
-    else if (/miete|vermiet|zins|kapital|pacht/.test(text)) sphaereVermutung = "vermoegen";
-    else if (/verkauf|werbung|sponsor|gastronom|festzelt|merch/.test(text)) sphaereVermutung = "wgb";
+    if (istIdeell && !istWgb && !istZweck) sphaereVermutung = "ideell";
+    else if (istZweck && istWgb) {
+      sphaereVermutung = "zweckbetrieb";
+      alternativen.push("steuerpflichtiger wirtschaftlicher Geschäftsbetrieb (z. B. Getränke-/Speisenverkauf, Sponsoring)");
+      risiken.push("Mischfall: Einnahmen und Ausgaben pro Sphäre trennen (Trennrechnung).");
+      rueckfragen.push("Welcher Anteil entfällt auf Eintritt/Satzungszweck und welcher auf Verkauf/Bewirtung?");
+    } else if (istZweck) sphaereVermutung = "zweckbetrieb";
+    else if (istVermoegen) sphaereVermutung = "vermoegen";
+    else if (istWgb) sphaereVermutung = "wgb";
   }
 
   if (!sphaereVermutung) {
-    ampel = "gelb";
-    risiken.push("Sphäre nicht eindeutig zuordenbar.");
-    fehlend.push("Sphärenzuordnung");
+    risiken.push("Sphäre nicht eindeutig zuordenbar — Beschreibung präzisieren.");
   }
-  if (sphaereVermutung === "wgb") {
-    ampel = worse(ampel, "gelb");
-    risiken.push("Steuerpflichtiger wirtschaftlicher Geschäftsbetrieb — § 64 AO prüfen (Freigrenze 45.000 € Einnahmen).");
+  if (sphaereVermutung === "wgb" || alternativen.length) {
+    risiken.push("§ 64 AO: Freigrenze 45.000 € Einnahmen pro Jahr im wGb prüfen.");
+    if (i.betrag > 45000) ampel = "rot";
   }
-  if (sphaereVermutung === "zweckbetrieb" && !i.satzungsbezug) {
-    ampel = worse(ampel, "gelb");
+  if (sphaereVermutung === "zweckbetrieb" && !i.satzungsbezug && i.beteiligte) {
     risiken.push("Zweckbetrieb benötigt Satzungsbezug nach §§ 65–68 AO.");
-    fehlend.push("Nachweis Satzungsbezug");
   }
   if (sphaereVermutung === "vermoegen" && /werbung|sponsor/.test(text)) {
     ampel = "rot";
     risiken.push("Werbung/Sponsoring kann aus Vermögensverwaltung in wGb umqualifiziert werden.");
   }
+  if (sphaereVermutung === "ideell" && !alternativen.length) ampel = "gruen";
 
   const sphaereLabel: Record<Exclude<Sphaere, "">, string> = {
     ideell: "ideeller Bereich",
@@ -140,27 +153,24 @@ function bewerteSphaere(i: NpoInput){
     wgb: "steuerpflichtiger wirtschaftlicher Geschäftsbetrieb",
   };
   const einsch = sphaereVermutung
-    ? `Vorgang spricht für Zuordnung zum ${sphaereLabel[sphaereVermutung]}.`
-    : "Sphärenzuordnung konnte aus den Angaben nicht abgeleitet werden.";
+    ? `Wahrscheinliche Einordnung: ${sphaereLabel[sphaereVermutung]}.`
+    : "Sphärenzuordnung aus den Angaben nicht eindeutig — Rückfragen empfohlen.";
 
   return {
-    tool: "sphaere",
+    tool: "sphaere" as const,
     toolLabel: TOOL_LABEL.sphaere,
     ampel,
-    einschaetzung: `${einsch} Organisationstyp: ${i.orgTyp}. Betrag: ${fmt(i.betrag)}.`,
+    einschaetzung: einsch,
+    alternativen,
     risiken,
     fehlendeAngaben: fehlend,
     unterlagen: ["Beleg / Rechnung", "Vertrag oder Vereinbarung", "Satzungsauszug", "ggf. Vorstandsbeschluss"],
-    rueckfragen: [
-      "Wofür wurden die Mittel konkret verwendet?",
-      "Besteht ein direkter Bezug zum Satzungszweck?",
-      "Gibt es Gegenleistungen für die andere Seite?",
-    ],
+    rueckfragen,
     buchungshinweis:
       sphaereVermutung === "ideell"
         ? "Ideeller Bereich SKR42: z. B. 4100 Beiträge / 4200 Spenden."
         : sphaereVermutung === "zweckbetrieb"
-          ? "Zweckbetrieb SKR42: 4400er Konten."
+          ? "Zweckbetrieb SKR42: 4400er Konten. Mischfälle aufteilen."
           : sphaereVermutung === "vermoegen"
             ? "Vermögensverwaltung SKR42: 4600er Konten."
             : sphaereVermutung === "wgb"

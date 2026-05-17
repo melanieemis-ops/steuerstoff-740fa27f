@@ -6,11 +6,17 @@ export type ChatLink = { label: string; to: string };
 export interface ChatAnswer {
   summary: string;
   reasoning?: string;
+  /** Strukturierte Abgrenzungen (optional, statt langer Fließtext-Begründung). */
+  sections?: { title: string; body: string }[];
   risks?: string[];
   followUps?: string[];
   nextStep?: string;
   links?: ChatLink[];
   knowledge?: string;
+  /** Optionale Folgefrage am Ende ("Meinst du …?"). */
+  clarify?: string;
+  /** Kompakter Antworttyp — UI kann Prüfkarte schlanker rendern. */
+  kind?: "info" | "case" | "npo" | "mvr";
 }
 
 const has = (q: string, ...terms: string[]) =>
@@ -39,8 +45,104 @@ export function generateAnswer(rawQuestion: string): ChatAnswer {
     };
   }
 
-  // --- Mittelverwendung / Rücklagen ---
+  // --- NPO-Kontext-Trigger (für Mittelverwendung / § 62 / Rücklagen) ---
+  const npoContext = has(
+    q,
+    "verein",
+    "ggmbh",
+    "gug",
+    "stiftung",
+    "gemeinnützig",
+    "gemeinnuetzig",
+    "npo",
+    "mittelverwendung",
+    "§ 55",
+    "§ 62",
+    "§55",
+    "§62",
+    "rücklagenspiegel",
+    "verwendungsüberhang",
+    "verwendungsueberhang",
+    "zuflussjahr",
+    "zwei-jahres-frist",
+    "zeitnah",
+    "wiederbeschaffung",
+    "betriebsmittelrücklage",
+    "betriebsmittelruecklage",
+    "freie rücklage",
+    "freie ruecklage",
+  );
+
+  // --- Rückstellung vs. Rücklage (allgemeine Abgrenzungsfrage) ---
+  if (has(q, "rückstellung", "rueckstellung") && has(q, "rücklage", "ruecklage", "unterschied")) {
+    return {
+      kind: "info",
+      summary:
+        "Rücklage und Rückstellung sind nicht dasselbe — der Unterschied liegt in Bilanzposition und Anlass.",
+      sections: [
+        {
+          title: "Rücklage",
+          body:
+            "Teil des Eigenkapitals. Zurückbehaltene Mittel zur Stärkung der Organisation oder für künftige Zwecke. Beispiele: Gewinnrücklage, Kapitalrücklage, gemeinnützigkeitsrechtliche Rücklagen nach § 62 AO.",
+        },
+        {
+          title: "Rückstellung",
+          body:
+            "Fremdkapital. Sie bildet ungewisse Verbindlichkeiten oder drohende Belastungen ab (Höhe oder Fälligkeit unsicher). Beispiele: Steuerrückstellung, Gewährleistungsrückstellung, Pensionsrückstellung.",
+        },
+      ],
+      clarify:
+        "Soll ich die Abgrenzung im NPO-Kontext (§ 62 AO) oder bei einer Kapitalgesellschaft vertiefen?",
+      links: [
+        { label: "NPO-Rücklage prüfen", to: "/npo-pruefassistent" },
+        { label: "Mittelverwendungsrechner öffnen", to: "/mittelverwendungsrechner" },
+      ],
+      knowledge: "Bilanzielle Abgrenzung",
+    };
+  }
+
+  // --- Allgemeine Rücklagen-Wissensfrage (NICHT NPO-Kontext) ---
+  if (has(q, "rücklage", "ruecklage", "gewinnrücklage", "kapitalrücklage") && !npoContext) {
+    return {
+      kind: "info",
+      summary:
+        "Eine Rücklage ist zurückbehaltenes Eigenkapital bzw. ein zweckgebundener oder freier Betrag, der nicht unmittelbar ausgeschüttet oder verwendet wird. Im steuerlichen Kontext muss man unterscheiden, welche Art von Rücklage gemeint ist.",
+      sections: [
+        {
+          title: "1. Allgemeine Rücklage",
+          body:
+            "Eigenkapitalposition, z. B. Gewinnrücklage oder Kapitalrücklage. Dient der Stärkung des Eigenkapitals.",
+        },
+        {
+          title: "2. Steuerliche Spezialrücklage",
+          body:
+            "Steuerliche Sonderregelung möglich, z. B. Rücklagen im Zusammenhang mit Reinvestitionen — abhängig vom konkreten Steuertatbestand.",
+        },
+        {
+          title: "3. Gemeinnützigkeitsrechtliche Rücklage nach § 62 AO",
+          body:
+            "Relevant für Vereine, gGmbHs, Stiftungen und NPOs — z. B. freie Rücklage, zweckgebundene Rücklage, Betriebsmittelrücklage, Wiederbeschaffungsrücklage. Muss dokumentiert und häufig im Rücklagenspiegel dargestellt werden.",
+        },
+        {
+          title: "4. Rückstellung ist nicht Rücklage",
+          body:
+            "Rückstellung betrifft ungewisse Verbindlichkeiten oder drohende Belastungen (Fremdkapital). Rücklage ist grundsätzlich Eigenkapital bzw. Mittelbindung.",
+        },
+      ],
+      clarify:
+        "Meinst du eine allgemeine steuerliche Rücklage oder eine Rücklage bei einer gemeinnützigen Organisation?",
+      links: [
+        { label: "NPO-Rücklage prüfen", to: "/npo-pruefassistent" },
+        { label: "Mittelverwendungsrechner öffnen", to: "/mittelverwendungsrechner" },
+        { label: "Wissensdatenbank öffnen", to: "/wissensdatenbank" },
+      ],
+      knowledge: "Rücklage — Grundlagen",
+    };
+  }
+
+  // --- Mittelverwendung / NPO-Rücklagen (nur bei NPO-Kontext) ---
   if (
+    npoContext &&
     has(
       q,
       "mittelverwendung",
@@ -53,24 +155,27 @@ export function generateAnswer(rawQuestion: string): ChatAnswer {
       "zuflussjahr",
       "zwei-jahres-frist",
       "zeitnah",
+      "§ 55",
+      "§ 62",
     )
   ) {
     return {
+      kind: "mvr",
       summary:
-        "Mittel müssen grundsätzlich zeitnah verwendet werden: Zufluss im Jahr X muss bis Ende des zweiten auf den Zufluss folgenden Kalenderjahres (X+2) für satzungsmäßige Zwecke eingesetzt sein.",
+        "Mittel gemeinnütziger Körperschaften müssen grundsätzlich zeitnah verwendet werden: Zufluss im Jahr X bis Ende des zweiten Folgejahres (X+2) für satzungsmäßige Zwecke.",
       reasoning:
-        "Ausnahmen bilden zulässige Rücklagen (freie Rücklage, zweckgebundene Rücklage, Betriebsmittelrücklage, Wiederbeschaffungsrücklage). Diese sind im Rücklagenspiegel zu dokumentieren.",
+        "Ausnahmen bilden zulässige Rücklagen nach § 62 AO (freie Rücklage, zweckgebundene Rücklage, Betriebsmittelrücklage, Wiederbeschaffungsrücklage). Diese sind im Rücklagenspiegel zu dokumentieren.",
       risks: [
-        "Verwendungsüberhang führt zu Verstoß gegen § 55 AO.",
-        "Fehlende Dokumentation der Rücklage gefährdet die Gemeinnützigkeit.",
+        "Ein positiver Verwendungsüberhang kann auf eine nicht zeitnahe Mittelverwendung hinweisen und sollte geprüft werden.",
+        "Ein Verstoß führt nicht automatisch sofort zum Verlust der Gemeinnützigkeit — das Finanzamt kann nach § 63 Abs. 4 AO eine Verwendungsauflage erteilen.",
       ],
       followUps: [
         "Wann ist der Mittelzufluss erfolgt?",
-        "Sind bereits Rücklagen gebildet?",
+        "Sind bereits Rücklagen gebildet und dokumentiert?",
       ],
       nextStep: "Im Mittelverwendungsrechner Zufluss, Verwendung und Rücklagen erfassen.",
       links: [{ label: "Im Mittelverwendungsrechner berechnen", to: "/mittelverwendungsrechner" }],
-      knowledge: "Mittelverwendung",
+      knowledge: "NPO / Mittelverwendung",
     };
   }
 

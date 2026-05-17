@@ -446,6 +446,19 @@ function MessageBubble({
       <div className="max-w-[92%] space-y-3 rounded-2xl rounded-tl-md border border-border bg-card p-4 shadow-sm">
         <p className="text-sm leading-relaxed text-foreground">{a.summary}</p>
 
+        {a.sections && a.sections.length > 0 && (
+          <div className="space-y-2">
+            {a.sections.map((s, i) => (
+              <div key={i} className="rounded-lg border border-border bg-background/40 p-3">
+                <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
+                  {s.title}
+                </p>
+                <p className="mt-1 text-sm leading-relaxed text-foreground">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        )}
+
         {a.reasoning && (
           <div className="rounded-lg bg-muted/40 p-3">
             <p className="text-[11px] uppercase tracking-wide text-muted-foreground">
@@ -453,6 +466,12 @@ function MessageBubble({
             </p>
             <p className="mt-1 text-sm text-foreground">{a.reasoning}</p>
           </div>
+        )}
+
+        {a.clarify && (
+          <p className="rounded-lg border border-dashed border-border bg-background/30 p-3 text-sm text-foreground">
+            {a.clarify}
+          </p>
         )}
 
         {a.risks && a.risks.length > 0 && (

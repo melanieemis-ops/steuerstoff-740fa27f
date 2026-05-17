@@ -4,9 +4,10 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Search, X } from "lucide-react";
+import { BookOpen, Search, X, Copy, Check, ClipboardList, FileText } from "lucide-react";
 import { KNOWLEDGE_BASE } from "@/lib/knowledgeBase";
 import { HandoutsManager } from "@/components/HandoutsManager";
+import { listHandouts, type Handout } from "@/lib/knowledgeTopics";
 
 export const Route = createFileRoute("/wissensdatenbank")({
   component: Wissensdatenbank,
@@ -33,6 +34,12 @@ interface Article {
   short: string;
   category: Category;
   body: string;
+  checklist?: string[];
+  commonMistakes?: string[];
+  questions?: string[];
+  relatedModules?: { label: string; to: string }[];
+  tags?: string[];
+  source?: string;
 }
 
 const ARTICLES: Article[] = [
@@ -42,17 +49,50 @@ const ARTICLES: Article[] = [
     short:
       "Pflicht für gemeinnützige Körperschaften: Mittel zeitnah verwenden (§ 55 AO).",
     category: "NPO / Gemeinnützigkeit",
-    body: `Gemeinnützige Körperschaften müssen ihre Mittel grundsätzlich zeitnah für die satzungsmäßigen Zwecke verwenden (§ 55 Abs. 1 Nr. 5 AO).
+    tags: ["NPO", "Mittelverwendung", "§ 55 AO", "Rücklagenspiegel", "Verwendungsüberhang"],
+    body: `Die Mittelverwendungsrechnung (MVR) dokumentiert, ob eine gemeinnützige Körperschaft ihre Mittel zeitnah und satzungsgemäß verwendet (§ 55 Abs. 1 Nr. 5 AO).
 
-Zeitnahe Mittelverwendung:
-- Mittel sind spätestens in den auf den Zufluss folgenden zwei Kalender- bzw. Wirtschaftsjahren zu verwenden.
-- Befreiung von der zeitnahen Mittelverwendung für kleine Körperschaften (Einnahmen ≤ 45.000 €).
+Zeitnahe Mittelverwendung
+- Mittel sind grundsätzlich bis zum Ende des zweiten auf den Zufluss folgenden Kalender- bzw. Wirtschaftsjahres zu verwenden.
+- Befreiung möglich für kleine Körperschaften mit Einnahmen ≤ 45.000 € (§ 55 Abs. 1 Nr. 5 Satz 4 AO).
 
-Nachweis:
-- Mittelverwendungsrechnung als Anlage zur Jahresrechnung.
+Bestandteile der MVR
+- Mittelzuflüsse (ideeller Bereich, Vermögensverwaltung, Zweckbetrieb, wGB)
+- Mittelverwendung (zweckgebundene Ausgaben)
+- Rücklagenbildung nach § 62 AO
+- Mittelvortrag aus Vorjahren
+- Rücklagenspiegel
+- Verwendungsüberhang / -unterhang
+
+Nachweis
+- MVR als Nebenrechnung zum Jahresabschluss.
 - Differenz zwischen verwendbaren und tatsächlich verwendeten Mitteln darstellen.
 
-Tipp: Excel-Vorlage in der Mandantenakte verlinken, jährlich aktualisieren.`,
+Praxis
+- Excel-Vorlage in der Mandantenakte verlinken, jährlich fortschreiben.
+- Ein positiver Verwendungsüberhang kann auf eine nicht zeitnahe Mittelverwendung hinweisen und sollte geprüft werden.`,
+    checklist: [
+      "Zuflussjahr je Mittelart erfasst?",
+      "Zwei-Jahres-Frist je Tranche dokumentiert?",
+      "Rücklagenspiegel aktuell?",
+      "Verwendungsüberhang erklärt?",
+      "Befreiung nach § 55 Abs. 1 Nr. 5 Satz 4 AO geprüft?",
+    ],
+    commonMistakes: [
+      "Mittel aus mehreren Jahren in einem Topf — keine Tranchen-Sicht.",
+      "Rücklagen nicht beschlossen oder nicht dokumentiert.",
+      "Verwendungsüberhang ohne Begründung stehen gelassen.",
+    ],
+    questions: [
+      "Welches Wirtschafts-/Kalenderjahr betrachten wir?",
+      "Liegen Einnahmen ≤ 45.000 € vor (Befreiung)?",
+      "Existieren Rücklagenbeschlüsse?",
+    ],
+    relatedModules: [
+      { label: "Mittelverwendungsrechner", to: "/mittelverwendungsrechner" },
+      { label: "NPO-Prüfassistent", to: "/npo-pruefassistent" },
+    ],
+    source: "Internes Arbeitspapier — MVR-Standard.",
   },
   {
     id: "ruecklagen-62-ao",
@@ -60,17 +100,42 @@ Tipp: Excel-Vorlage in der Mandantenakte verlinken, jährlich aktualisieren.`,
     short:
       "Zweckgebundene, Wiederbeschaffungs- und freie Rücklage — Voraussetzungen und Grenzen.",
     category: "NPO / Gemeinnützigkeit",
-    body: `§ 62 AO erlaubt vier Rücklagenarten:
+    tags: ["NPO", "Rücklagen", "§ 62 AO", "Rücklagenspiegel", "Mittelverwendung"],
+    body: `§ 62 AO erlaubt gemeinnützigen Körperschaften bestimmte Rücklagen. Mittel, die in eine zulässige Rücklage eingestellt werden, gelten als verwendet und sind der zeitnahen Mittelverwendung entzogen.
 
-1) Zweckgebundene Rücklage (Abs. 1 Nr. 1): konkretes Vorhaben, Zeitrahmen.
-2) Wiederbeschaffungsrücklage (Abs. 1 Nr. 2): Ersatzbeschaffung von Wirtschaftsgütern.
-3) Freie Rücklage (Abs. 1 Nr. 3): bis zu 1/3 des Überschusses aus Vermögensverwaltung + 10 % der sonstigen zeitnah zu verwendenden Mittel.
+Rücklagenarten
+1) Zweckgebundene Rücklage (Abs. 1 Nr. 1) — konkretes Vorhaben, Zeitrahmen.
+2) Wiederbeschaffungsrücklage (Abs. 1 Nr. 2) — Ersatzbeschaffung von Wirtschaftsgütern.
+3) Freie Rücklage (Abs. 1 Nr. 3) — bis 1/3 des Überschusses aus Vermögensverwaltung + 10 % der sonstigen zeitnah zu verwendenden Mittel.
 4) Rücklage zum Erwerb von Gesellschaftsrechten (Abs. 1 Nr. 4).
+5) Betriebsmittelrücklage — laufender Liquiditätsbedarf.
+6) Vermögenszuführungen (§ 62 Abs. 3 AO) — Sachzuwendungen, Erbschaften.
 
-Formal:
+Formal
 - Beschluss des zuständigen Organs.
-- Dokumentation in der Mittelverwendungsrechnung.
+- Dokumentation in der Mittelverwendungsrechnung und im Rücklagenspiegel.
 - Unterlassene Bildung der freien Rücklage kann nicht in Folgejahren nachgeholt werden.`,
+    checklist: [
+      "Rücklagenart eindeutig bestimmt?",
+      "Beschluss des Organs vorhanden?",
+      "Zweck, Betrag, Finanzierungsplan dokumentiert?",
+      "Geplanter Verwendungszeitpunkt festgehalten?",
+      "Rücklagenspiegel aktualisiert?",
+    ],
+    commonMistakes: [
+      "Freie Rücklage nicht im Jahr gebildet — Nachholung nicht möglich.",
+      "Zweckgebundene Rücklage ohne konkretes Vorhaben.",
+      "Wiederbeschaffungsrücklage ohne tatsächliche Ersatzplanung.",
+    ],
+    questions: [
+      "Welcher Zweck wird mit der Rücklage verfolgt?",
+      "Wann ist die Verwendung geplant?",
+      "Gibt es einen Organbeschluss?",
+    ],
+    relatedModules: [
+      { label: "Mittelverwendungsrechner", to: "/mittelverwendungsrechner" },
+      { label: "NPO-Prüfassistent", to: "/npo-pruefassistent" },
+    ],
   },
   {
     id: "bewirtungsbelege",
@@ -78,19 +143,40 @@ Formal:
     short:
       "70 %-Regel, Pflichtangaben, Vorsteuerabzug — typische Fehlerquellen.",
     category: "Umsatzsteuer",
+    tags: ["USt", "Bewirtung", "§ 4 EStG", "Vorsteuer"],
     body: `Voraussetzungen für den Betriebsausgabenabzug (§ 4 Abs. 5 Nr. 2 EStG):
 - Maschinell erstellte Restaurantrechnung mit Steuernummer / USt-ID.
 - Datum, Anlass, Teilnehmer (Name, Funktion), Höhe der Aufwendungen.
 - Unterschrift des Bewirtenden.
+- Trinkgeld separat dokumentieren.
 
-Steuerliche Behandlung:
+Steuerliche Behandlung
 - 70 % als abzugsfähige Betriebsausgabe, 30 % nicht abzugsfähig.
 - 100 % Vorsteuerabzug bei ordnungsgemäßer Rechnung (§ 15 UStG).
 
-Typische Fehler:
-- Sammelbegriff „Geschäftsessen“ ohne konkreten Anlass.
-- Fehlende Teilnehmerangaben — gilt insbesondere für eigene Mitarbeitende.
-- Handgeschriebene Rechnungen unzulässig.`,
+Bei rein eigener Belegschaft (z. B. Weihnachtsfeier) gelten gesonderte Regeln — keine 70/30-Aufteilung, sondern Sachbezugs- und Lohnsteuerlogik.`,
+    checklist: [
+      "Maschinelle Rechnung mit Steuernummer?",
+      "Anlass konkret formuliert?",
+      "Alle Teilnehmer (inkl. Funktion) genannt?",
+      "Datum und Ort eindeutig?",
+      "Trinkgeld separat ausgewiesen?",
+      "Geschäftlicher / betrieblicher Bezug klar?",
+    ],
+    commonMistakes: [
+      "Sammelbegriff „Geschäftsessen“ ohne konkreten Anlass.",
+      "Fehlende Teilnehmerangaben — insbesondere eigene Mitarbeitende.",
+      "Handgeschriebene Rechnungen unzulässig.",
+      "70/30-Logik auf interne Veranstaltungen angewendet.",
+    ],
+    questions: [
+      "Wer war anwesend (Namen, Funktionen)?",
+      "Was war der konkrete Anlass?",
+      "Liegt eine maschinelle Rechnung vor?",
+    ],
+    relatedModules: [
+      { label: "Neue Anfrage starten", to: "/neue-anfrage" },
+    ],
   },
   {
     id: "reverse-charge",
@@ -98,21 +184,33 @@ Typische Fehler:
     short:
       "Übergang der Steuerschuldnerschaft — Voraussetzungen und Rechnungspflichten.",
     category: "Umsatzsteuer",
+    tags: ["USt", "Reverse Charge", "§ 13b UStG"],
     body: `Bei bestimmten Leistungen geht die Steuerschuldnerschaft auf den Leistungsempfänger über (§ 13b UStG).
 
-Typische Fälle:
+Typische Fälle
 - Sonstige Leistungen ausländischer Unternehmer an inländische Unternehmer (§ 13b Abs. 1 UStG).
 - Bauleistungen an Bauleistende (Abs. 2 Nr. 4).
 - Lieferungen von Schrott, Altmetall, Gold, Mobilfunkgeräten (≥ 5.000 €).
 
-Rechnungspflicht:
+Rechnungspflicht
 - Kein Ausweis deutscher USt.
 - Pflichthinweis: „Steuerschuldnerschaft des Leistungsempfängers“.
 
-Buchung:
+Buchung
 - USt selbst berechnen und in der UStVA anmelden.
 - Gleichzeitig Vorsteuerabzug (sofern berechtigt).
 - Bei EU-Leistungen ZM-Meldung erforderlich.`,
+    checklist: [
+      "Empfänger ist Unternehmer?",
+      "Leistungsart fällt unter § 13b UStG?",
+      "Rechnung ohne USt + Pflichthinweis?",
+      "UStVA und ggf. ZM vorbereitet?",
+    ],
+    commonMistakes: [
+      "Pflichthinweis auf der Rechnung vergessen.",
+      "Vorsteuerabzug ohne USt-Buchung.",
+      "ZM bei EU-Leistungen vergessen.",
+    ],
   },
   {
     id: "arap",
@@ -120,15 +218,16 @@ Buchung:
     short:
       "Ausgaben vor dem Stichtag, Aufwand danach — periodengerechte Abgrenzung.",
     category: "Jahresabschluss",
+    tags: ["Jahresabschluss", "ARAP", "§ 250 HGB"],
     body: `§ 250 Abs. 1 HGB / § 5 Abs. 5 EStG verlangen die Bildung eines aktiven Rechnungsabgrenzungspostens, wenn Ausgaben vor dem Abschlussstichtag Aufwand für eine bestimmte Zeit danach darstellen.
 
-Voraussetzungen:
+Voraussetzungen
 - Bestimmte Zeit nach dem Stichtag (kalendermäßig festgelegt).
 - Ausgabe ist vor dem Stichtag erfolgt.
 
 Typische Fälle: Versicherungen, Mieten, Hosting, Wartungsverträge, Kfz-Steuer.
 
-Praxis:
+Praxis
 - Erfassung über Konto SKR03 980 / SKR04 1900.
 - Monatliche Auflösung als wiederkehrende Buchung anlegen.
 - Wesentlichkeitsgrenze (z. B. 800 € netto) intern definieren.`,
@@ -139,9 +238,10 @@ Praxis:
     short:
       "Forderungs- und Verbindlichkeitsabstimmung, Wertberichtigung, USt-Korrektur.",
     category: "Buchhaltung",
+    tags: ["OPOS", "DATEV", "Debitoren", "Kreditoren"],
     body: `OPOS-Listen liefern die Basis für Mahnwesen, Liquiditätsplanung und Jahresabschluss.
 
-Zum Jahresabschluss prüfen:
+Zum Jahresabschluss prüfen
 - Altersstruktur der Forderungen.
 - Einzelwertberichtigung bei begründetem Ausfallrisiko.
 - Pauschalwertberichtigung (empirisch, oft 1 %).
@@ -155,13 +255,14 @@ Tipp: Kontenklärung Debitoren/Kreditoren vor der Bilanz aufstellen, ungeklärte
     short:
       "Amtliches Muster, vereinfachter Nachweis, Sachspenden.",
     category: "NPO / Gemeinnützigkeit",
+    tags: ["NPO", "Spende", "§ 10b EStG", "§ 50 EStDV"],
     body: `Zuwendungsbestätigungen sind formgebunden (§ 50 EStDV, amtliches Muster).
 
-Vereinfachter Nachweis bis 300 € (§ 50 Abs. 4 EStDV):
+Vereinfachter Nachweis bis 300 € (§ 50 Abs. 4 EStDV)
 - Bareinzahlungsbeleg oder Buchungsbestätigung des Kreditinstituts.
 - Plus Beleg der Empfängerkörperschaft (Zweck, Freistellungsbescheid).
 
-Sachspenden:
+Sachspenden
 - Wertansatz: gemeiner Wert, ggf. Buchwert bei Entnahme aus Betriebsvermögen.
 - Nachweis der Wertermittlung in der Akte.
 
@@ -173,13 +274,15 @@ Haftung: Aussteller haftet bei vorsätzlich/grob fahrlässig falscher Bestätigu
     short:
       "Wann SKR03, wann SKR04? Unterschiede für Kanzleien und NPOs.",
     category: "DATEV",
-    body: `SKR03: Prozess­gliederungs­prinzip (Aufwand/Ertrag). Weit verbreitet im Mittelstand.
-SKR04: Abschluss­gliederungs­prinzip (orientiert an § 266 HGB). Vorteilhaft bei größeren Kapitalgesellschaften.
-SKR42: Spezialkontenrahmen für gemeinnützige Vereine und Stiftungen — Sphärenzuordnung integriert.
+    tags: ["DATEV", "SKR03", "SKR04", "SKR42", "Kontenrahmen"],
+    body: `SKR03 — Prozess­gliederungs­prinzip (Aufwand/Ertrag). Weit verbreitet im Mittelstand.
+SKR04 — Abschluss­gliederungs­prinzip (orientiert an § 266 HGB). Vorteilhaft bei größeren Kapitalgesellschaften.
+SKR42 — Spezialkontenrahmen für gemeinnützige Vereine und Stiftungen — Sphärenzuordnung integriert.
 
-Empfehlung:
+Empfehlung
 - Wechsel ausschließlich zum Geschäftsjahresbeginn.
 - Bei NPOs SKR42 prüfen, weil Sphären (ideell, Vermögensverwaltung, Zweckbetrieb, wGB) sauber abgebildet werden.`,
+    relatedModules: [{ label: "SKR-Konverter", to: "/skr-konverter" }],
   },
   {
     id: "rueckfrage-checkliste",
@@ -187,6 +290,7 @@ Empfehlung:
     short:
       "Was muss eine gute Rückfrage enthalten — Form und Inhalt.",
     category: "Rückfragen",
+    tags: ["Rückfragen"],
     body: `Eine gute Rückfrage:
 1) Konkrete Frage (kein „bitte Unterlagen nachreichen“).
 2) Verweis auf den Sachverhalt / die Belegnummer.
@@ -202,6 +306,7 @@ Tonalität: sachlich, freundlich, ohne Fachjargon gegenüber Mandanten.`,
     short:
       "Schnellüberblick: 4980 Werbung, 4650 Bewirtung, 1576 Vorsteuer, …",
     category: "SKR03",
+    tags: ["SKR03", "DATEV"],
     body: `Häufig genutzte SKR03-Konten:
 - 1200 Bank
 - 1576 Abziehbare Vorsteuer 19 %
@@ -221,14 +326,105 @@ Buchungssätze stets mit eindeutigem Belegtext und Belegnummer erfassen.`,
     short:
       "Ideell, Vermögensverwaltung, Zweckbetrieb, wirtschaftlicher Geschäftsbetrieb.",
     category: "SKR42",
-    body: `SKR42 bildet die vier Sphären nach AO ab:
+    tags: ["NPO", "SKR42", "Sphären", "Mittelverwendung", "DATEV"],
+    body: `SKR42 wird bei gemeinnützigen Organisationen genutzt, um Vorgänge nach steuerlichen Sphären zu strukturieren. Die Sphärenzuordnung beeinflusst Umsatzsteuer, Ertragsteuer, Mittelverwendung und Kontierung.
 
+Die vier Sphären nach AO
 1) Ideeller Bereich — Beiträge, Spenden, Zuschüsse (steuerfrei).
-2) Vermögensverwaltung — Zinsen, Mieten (steuerfrei, aber Mittelverwendung).
-3) Zweckbetrieb (§§ 65–68 AO) — z. B. Bildungsangebote (steuerfrei, ermäßigter USt-Satz).
+2) Vermögensverwaltung — Zinsen, Mieten (steuerfrei, aber Mittelverwendung beachten).
+3) Zweckbetrieb (§§ 65–68 AO) — z. B. Bildungsangebote (steuerfrei, ermäßigter USt-Satz möglich).
 4) Wirtschaftlicher Geschäftsbetrieb — z. B. Cafeteria (KSt- & GewSt-pflichtig oberhalb 45.000 € Einnahmen).
 
-Trennung der Konten zwingend, um die Steuerpflicht korrekt zu ermitteln.`,
+Vor der Kontierung sollte die Sphäre geprüft werden. Trennung der Konten zwingend, um die Steuerpflicht korrekt zu ermitteln.`,
+    checklist: [
+      "Welche Art von Einnahme oder Ausgabe liegt vor?",
+      "Gibt es eine Gegenleistung?",
+      "Besteht ein direkter Satzungsbezug?",
+      "Handelt es sich um Vermögensverwaltung?",
+      "Liegt ein Zweckbetrieb vor?",
+      "Ist ein steuerpflichtiger wirtschaftlicher Geschäftsbetrieb möglich?",
+    ],
+    commonMistakes: [
+      "Sponsoring mit Gegenleistung im ideellen Bereich gebucht.",
+      "Vermögensverwaltung mit Zweckbetrieb vermischt.",
+      "wGB-Grenze (45.000 €) übersehen.",
+    ],
+    questions: [
+      "Liegt eine konkrete Gegenleistung vor?",
+      "Wird der Satzungszweck unmittelbar erfüllt?",
+      "Welche USt-Logik gilt?",
+    ],
+    relatedModules: [
+      { label: "SKR-Konverter", to: "/skr-konverter" },
+      { label: "NPO-Prüfassistent", to: "/npo-pruefassistent" },
+    ],
+  },
+  {
+    id: "vier-sphaeren",
+    title: "Die vier Sphären gemeinnütziger Körperschaften",
+    short:
+      "Ideeller Bereich, Vermögensverwaltung, Zweckbetrieb, wirtschaftlicher Geschäftsbetrieb.",
+    category: "NPO / Gemeinnützigkeit",
+    tags: ["NPO", "Sphären", "Zweckbetrieb", "wGB"],
+    body: `Ideeller Bereich
+- Mitgliedsbeiträge, Spenden, echte Zuschüsse ohne Gegenleistung.
+- Steuerfrei.
+
+Vermögensverwaltung
+- Zinsen, langfristige Vermietung, Kapitalerträge.
+- Steuerfrei, aber Mittelverwendungspflicht beachten.
+
+Zweckbetrieb (§§ 65–68 AO)
+- Tätigkeit dient unmittelbar dem steuerbegünstigten Satzungszweck.
+- Steuerbegünstigt, oft ermäßigter USt-Satz.
+
+Steuerpflichtiger wirtschaftlicher Geschäftsbetrieb
+- Wirtschaftliche Tätigkeit mit Einnahmen und möglichem Wettbewerb.
+- Beispiele: Verkauf, Fest, Sponsoring mit Gegenleistung.
+- KSt- und GewSt-pflichtig oberhalb 45.000 € Einnahmen.`,
+    checklist: [
+      "Sphäre eindeutig bestimmt?",
+      "Gegenleistung vorhanden?",
+      "Satzungsbezug dokumentiert?",
+      "USt-Logik je Sphäre korrekt?",
+    ],
+    relatedModules: [{ label: "NPO-Prüfassistent", to: "/npo-pruefassistent" }],
+  },
+  {
+    id: "ruecklage-grundlagen",
+    title: "Rücklage — Grundlagen und Abgrenzungen",
+    short:
+      "Allgemeine Rücklage, steuerliche Spezialrücklage, § 62 AO und Abgrenzung zur Rückstellung.",
+    category: "Buchhaltung",
+    tags: ["Rücklage", "Rückstellung", "§ 62 AO", "Eigenkapital"],
+    body: `Eine Rücklage ist grundsätzlich zurückbehaltenes Eigenkapital bzw. gebundene Mittel. Zu unterscheiden sind:
+
+1) Allgemeine Rücklage
+- Eigenkapitalposition (Gewinnrücklage, Kapitalrücklage, gesetzliche Rücklage).
+
+2) Steuerliche Spezialrücklage
+- z. B. § 6b EStG Reinvestitionsrücklage, Ersatzbeschaffungsrücklage (R 6.6 EStR).
+
+3) Gemeinnützigkeitsrechtliche Rücklage nach § 62 AO
+- Freie Rücklage, zweckgebundene Rücklage, Betriebsmittelrücklage, Wiederbeschaffungsrücklage.
+
+4) Abgrenzung Rückstellung
+- Rückstellung = Fremdkapital, ungewisse Verbindlichkeit (§ 249 HGB).
+- Rücklage = Eigenkapital bzw. Mittelbindung.
+- Rückstellung ist nicht gleich Rücklage.`,
+    checklist: [
+      "Welche Art der Rücklage liegt vor?",
+      "Eigenkapital oder Fremdkapital?",
+      "Bei NPO: § 62 AO geprüft?",
+      "Beschluss / Dokumentation vorhanden?",
+    ],
+    commonMistakes: [
+      "Rückstellung und Rücklage verwechselt.",
+      "Freie Rücklage nicht im Entstehungsjahr gebildet.",
+    ],
+    relatedModules: [
+      { label: "Mittelverwendungsrechner", to: "/mittelverwendungsrechner" },
+    ],
   },
   {
     id: "jahresabschluss-checkliste",
@@ -236,41 +432,86 @@ Trennung der Konten zwingend, um die Steuerpflicht korrekt zu ermitteln.`,
     short:
       "Inventur, Abgrenzungen, Rückstellungen, OPOS, latente Steuern.",
     category: "Jahresabschluss",
-    body: `Vorbereitung:
+    tags: ["Jahresabschluss", "Bilanz", "Review"],
+    body: `Vorbereitung
 - Inventur körperlich + Bewertung.
 - Kontenklärung Debitoren/Kreditoren.
 - Bank- und Kassenabstimmung.
 
-Bewertung:
+Bewertung
 - ARAP / PRAP.
 - Rückstellungen (Urlaub, Boni, Prozessrisiken, Steuern).
 - Abschreibungen + Sonderabschreibungen.
 
-Steuerlich:
+Steuerlich
 - Latente Steuern (ab mittelgroßen KapGes).
 - Verrechnungskonten gegen 0.
-- E-Bilanz: Taxonomie aktuell? Berichtsperiode korrekt?`,
+- E-Bilanz: Taxonomie aktuell? Berichtsperiode korrekt?
+
+Bei NPO zusätzlich
+- Sphärenrechnung sauber abgegrenzt.
+- Rücklagenspiegel aktualisiert.
+- Mittelverwendungsrechnung erstellt.`,
+    checklist: [
+      "Bankabstimmung",
+      "Kassenprüfung",
+      "OPOS Debitoren",
+      "OPOS Kreditoren",
+      "ARAP / PRAP",
+      "Rückstellungen",
+      "Anlagevermögen",
+      "Darlehen",
+      "Umsatzsteuer-Verprobung",
+      "Lohnkonten",
+      "NPO: Sphären, Rücklagen, MVR",
+    ],
+    relatedModules: [
+      { label: "Mittelverwendungsrechner", to: "/mittelverwendungsrechner" },
+      { label: "SKR-Konverter", to: "/skr-konverter" },
+    ],
   },
 ];
 
 // Aus interner Wissensbasis (Kanzlei-Arbeitspapiere) ergänzte Einträge.
-// Die zugrundeliegenden PDFs werden bewusst nicht ausgeliefert.
 const KB_ARTICLES: Article[] = KNOWLEDGE_BASE.map((e) => ({
   id: `kb-${e.id}`,
   title: e.title,
   short: e.short,
   category: e.category as Category,
-  body: `${e.body}\n\nQuelle (intern): ${e.source}${
-    e.references?.length ? `\nRechtsgrundlagen: ${e.references.join(", ")}` : ""
+  body: `${e.body}${
+    e.references?.length ? `\n\nRechtsgrundlagen: ${e.references.join(", ")}` : ""
   }`,
+  source: e.source,
+  tags: [e.category],
 }));
 
 const ALL_ARTICLES: Article[] = [...ARTICLES, ...KB_ARTICLES];
+
+function matchHandouts(article: Article): Handout[] {
+  const all = listHandouts();
+  if (all.length === 0) return [];
+  const tagSet = new Set(
+    [...(article.tags ?? []), article.category, article.title]
+      .join(" ")
+      .toLowerCase()
+      .split(/[\s,/]+/)
+      .filter((s) => s.length > 2),
+  );
+  return all.filter((h) => {
+    const hay = [h.category, h.title, h.short, ...(h.tags ?? [])]
+      .join(" ")
+      .toLowerCase();
+    for (const t of tagSet) if (hay.includes(t)) return true;
+    return false;
+  });
+}
 
 function Wissensdatenbank() {
   const [query, setQuery] = useState("");
   const [cat, setCat] = useState<Category>("Alle");
   const [open, setOpen] = useState<Article | null>(null);
+  const [copied, setCopied] = useState(false);
+  const [notice, setNotice] = useState<string | null>(null);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -284,6 +525,51 @@ function Wissensdatenbank() {
       );
     });
   }, [query, cat]);
+
+  const handouts = open ? matchHandouts(open) : [];
+
+  const buildFullText = (a: Article) => {
+    const lines = [
+      `${a.category} — ${a.title}`,
+      "",
+      a.short,
+      "",
+      a.body,
+    ];
+    if (a.checklist?.length) {
+      lines.push("", "Prüfpunkte:", ...a.checklist.map((c) => `- ${c}`));
+    }
+    if (a.commonMistakes?.length) {
+      lines.push("", "Typische Fehler:", ...a.commonMistakes.map((c) => `- ${c}`));
+    }
+    if (a.questions?.length) {
+      lines.push("", "Rückfragen:", ...a.questions.map((c) => `- ${c}`));
+    }
+    if (a.source) lines.push("", `Quelle (intern): ${a.source}`);
+    return lines.join("\n");
+  };
+
+  const handleCopy = async (a: Article) => {
+    try {
+      await navigator.clipboard.writeText(buildFullText(a));
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch {
+      setNotice("Kopieren fehlgeschlagen.");
+      setTimeout(() => setNotice(null), 2000);
+    }
+  };
+
+  const handlePruefnotiz = async (a: Article) => {
+    try {
+      await navigator.clipboard.writeText(buildFullText(a));
+      setNotice("Inhalt kopiert — kann in eine Prüfnotiz übernommen werden.");
+      setTimeout(() => setNotice(null), 2500);
+    } catch {
+      setNotice("Kopieren fehlgeschlagen.");
+      setTimeout(() => setNotice(null), 2000);
+    }
+  };
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
@@ -334,7 +620,17 @@ function Wissensdatenbank() {
               {filtered.map((a) => (
                 <article
                   key={a.id}
-                  className="flex flex-col rounded-2xl border border-border bg-card p-4 shadow-card-soft transition-colors hover:border-foreground/30"
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => setOpen(a)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setOpen(a);
+                    }
+                  }}
+                  data-no-swipe="true"
+                  className="flex cursor-pointer flex-col rounded-2xl border border-border bg-card p-4 shadow-card-soft transition-colors hover:border-foreground/30 focus:outline-none focus:ring-2 focus:ring-ring"
                 >
                   <span className="inline-flex items-center gap-1.5 self-start rounded border border-border bg-background px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted-foreground">
                     <BookOpen className="h-3 w-3" />
@@ -349,7 +645,10 @@ function Wissensdatenbank() {
                     variant="outline"
                     size="sm"
                     className="mt-3 self-start"
-                    onClick={() => setOpen(a)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setOpen(a);
+                    }}
                   >
                     Öffnen
                   </Button>
@@ -364,19 +663,23 @@ function Wissensdatenbank() {
 
       {open && (
         <div
-          className="fixed inset-0 z-50 flex items-end justify-center bg-foreground/40 p-0 backdrop-blur-sm sm:items-center sm:p-4"
+          className="fixed inset-0 z-[60] flex items-end justify-center bg-foreground/40 p-0 backdrop-blur-sm sm:items-center sm:p-4"
           onClick={() => setOpen(null)}
+          data-no-swipe="true"
+          role="dialog"
+          aria-modal="true"
         >
           <div
-            className="w-full max-w-2xl overflow-hidden rounded-t-2xl border border-border bg-card shadow-xl sm:rounded-2xl"
+            className="flex max-h-[92vh] w-full max-w-2xl flex-col overflow-hidden rounded-t-2xl border border-border bg-card shadow-xl sm:max-h-[85vh] sm:rounded-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-start justify-between gap-4 border-b border-border p-4">
-              <div>
+              <div className="min-w-0">
                 <span className="inline-block rounded border border-border bg-background px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted-foreground">
                   {open.category}
                 </span>
                 <h3 className="mt-2 text-lg font-semibold text-foreground">{open.title}</h3>
+                <p className="mt-1 text-xs text-muted-foreground">{open.short}</p>
               </div>
               <button
                 type="button"
@@ -387,10 +690,150 @@ function Wissensdatenbank() {
                 <X className="h-4 w-4" />
               </button>
             </div>
-            <div className="max-h-[70vh] overflow-auto p-4">
-              <pre className="whitespace-pre-wrap text-sm leading-relaxed text-foreground">
-                {open.body}
-              </pre>
+
+            <div className="flex-1 overflow-auto p-4">
+              <section>
+                <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                  Inhalt
+                </h4>
+                <pre className="mt-2 whitespace-pre-wrap font-sans text-sm leading-relaxed text-foreground">
+                  {open.body}
+                </pre>
+              </section>
+
+              {open.checklist && open.checklist.length > 0 && (
+                <section className="mt-5">
+                  <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    Prüfpunkte
+                  </h4>
+                  <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-foreground">
+                    {open.checklist.map((c, i) => (
+                      <li key={i}>{c}</li>
+                    ))}
+                  </ul>
+                </section>
+              )}
+
+              {open.commonMistakes && open.commonMistakes.length > 0 && (
+                <section className="mt-5">
+                  <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    Typische Fehler
+                  </h4>
+                  <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-foreground">
+                    {open.commonMistakes.map((c, i) => (
+                      <li key={i}>{c}</li>
+                    ))}
+                  </ul>
+                </section>
+              )}
+
+              {open.questions && open.questions.length > 0 && (
+                <section className="mt-5">
+                  <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    Rückfragen
+                  </h4>
+                  <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-foreground">
+                    {open.questions.map((c, i) => (
+                      <li key={i}>{c}</li>
+                    ))}
+                  </ul>
+                </section>
+              )}
+
+              {open.relatedModules && open.relatedModules.length > 0 && (
+                <section className="mt-5">
+                  <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    Passende Module
+                  </h4>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {open.relatedModules.map((m, i) => (
+                      <a
+                        key={i}
+                        href={m.to}
+                        className="inline-flex items-center rounded-md border border-border bg-background px-3 py-1.5 text-xs text-foreground hover:border-foreground/40"
+                      >
+                        {m.label}
+                      </a>
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              <section className="mt-5">
+                <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                  Eigene Handouts
+                </h4>
+                {handouts.length === 0 ? (
+                  <p className="mt-2 text-xs text-muted-foreground">
+                    Keine eigenen Handouts zu diesem Thema hinterlegt.
+                  </p>
+                ) : (
+                  <ul className="mt-2 space-y-2">
+                    {handouts.map((h) => (
+                      <li
+                        key={h.id}
+                        className="rounded-md border border-border bg-background p-2.5"
+                      >
+                        <div className="flex items-start justify-between gap-2">
+                          <p className="text-sm font-medium text-foreground">{h.title}</p>
+                          <span className="shrink-0 rounded border border-border bg-card px-1.5 py-0.5 text-[10px] text-muted-foreground">
+                            {h.category}
+                          </span>
+                        </div>
+                        {h.short && (
+                          <p className="mt-1 text-xs text-muted-foreground">{h.short}</p>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+
+              {open.source && (
+                <p className="mt-5 text-[11px] text-muted-foreground">
+                  Quelle (intern): {open.source}
+                </p>
+              )}
+            </div>
+
+            <div className="flex flex-wrap items-center gap-2 border-t border-border bg-background/60 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
+              <Button
+                type="button"
+                size="sm"
+                variant="outline"
+                onClick={() => handleCopy(open)}
+              >
+                {copied ? (
+                  <>
+                    <Check className="mr-1 h-3.5 w-3.5" />
+                    Kopiert
+                  </>
+                ) : (
+                  <>
+                    <Copy className="mr-1 h-3.5 w-3.5" />
+                    Text kopieren
+                  </>
+                )}
+              </Button>
+              <Button
+                type="button"
+                size="sm"
+                variant="outline"
+                onClick={() => handlePruefnotiz(open)}
+              >
+                <ClipboardList className="mr-1 h-3.5 w-3.5" />
+                Als Prüfnotiz verwenden
+              </Button>
+              <div className="flex-1" />
+              {notice && (
+                <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
+                  <FileText className="h-3 w-3" />
+                  {notice}
+                </span>
+              )}
+              <Button type="button" size="sm" onClick={() => setOpen(null)}>
+                Schließen
+              </Button>
             </div>
           </div>
         </div>

@@ -147,7 +147,7 @@ function Page() {
   const lastCheckedLabel = lastChecked ? formatTime(lastChecked) : null;
 
   return (
-    <PullToRefresh onRefresh={onRefresh}>
+    
     <div className="flex min-h-screen flex-col bg-background">
       <SiteHeader />
       <main className="flex-1">

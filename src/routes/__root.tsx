@@ -168,6 +168,7 @@ function RootComponent() {
           <SectionDots />
           <Outlet />
           <div aria-hidden className="md:hidden h-16" />
+          <ScrollToBottom />
           <MobileBottomNav />
         </GlobalSwipeArea>
       </PullToRefresh>

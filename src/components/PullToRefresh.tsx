@@ -69,6 +69,10 @@ export function PullToRefresh({
         direction.current = "blocked";
         return;
       }
+      if (typeof document !== "undefined" && document.body.dataset.menuOpen === "true") {
+        direction.current = "blocked";
+        return;
+      }
       if (isFormTarget(e.target)) {
         direction.current = "blocked";
         return;

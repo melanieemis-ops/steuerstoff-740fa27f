@@ -1,6 +1,4 @@
-import { Link, useLocation, useNavigate } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
-import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
+import { Link, useLocation } from "@tanstack/react-router";
 import { Home, FilePlus, ArrowRightLeft, Calculator, ShieldCheck } from "lucide-react";
 
 export const SECTIONS = [
@@ -14,10 +12,7 @@ export const SECTIONS = [
   { to: "/einstellungen", label: "Einstellungen", short: "Mehr" },
 ] as const;
 
-type SectionTo = (typeof SECTIONS)[number]["to"];
-
 function currentIndex(pathname: string): number {
-  // longest-prefix match
   let best = 0;
   let bestLen = 0;
   SECTIONS.forEach((s, i) => {
@@ -32,52 +27,17 @@ function currentIndex(pathname: string): number {
   return best;
 }
 
-/** Wraps page content with horizontal swipe → next/previous main section. */
+/**
+ * Page-level wrapper. Global horizontal page swipe is intentionally OFF —
+ * it conflicted with vertical scrolling and form interaction. Use the
+ * bottom navigation, section dots, or burger menu to change pages.
+ * Local swipe (carousels, wizard steps, tool tabs) is still supported
+ * via useSwipeNavigation on the relevant containers.
+ */
 export function GlobalSwipeArea({ children }: { children: React.ReactNode }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const navigate = useNavigate();
-  const loc = useLocation();
-  const idx = currentIndex(loc.pathname);
-  const [slide, setSlide] = useState<"none" | "left" | "right">("none");
-
-  useSwipeNavigation(ref, {
-    onSwipeLeft: () => {
-      const next = SECTIONS[idx + 1];
-      if (next) {
-        setSlide("left");
-        navigate({ to: next.to as SectionTo });
-      }
-    },
-    onSwipeRight: () => {
-      const prev = SECTIONS[idx - 1];
-      if (prev) {
-        setSlide("right");
-        navigate({ to: prev.to as SectionTo });
-      }
-    },
-  });
-
-  useEffect(() => {
-    if (slide === "none") return;
-    const id = window.setTimeout(() => setSlide("none"), 320);
-    return () => window.clearTimeout(id);
-  }, [slide]);
-
-  return (
-    <div
-      ref={ref}
-      className={`min-h-screen touch-pan-y ${
-        slide === "left"
-          ? "animate-[slidein-l_300ms_ease-out]"
-          : slide === "right"
-            ? "animate-[slidein-r_300ms_ease-out]"
-            : ""
-      }`}
-    >
-      {children}
-    </div>
-  );
+  return <div className="min-h-screen">{children}</div>;
 }
+
 
 /** Mini horizontal dots indicator (mobile only). */
 export function SectionDots() {

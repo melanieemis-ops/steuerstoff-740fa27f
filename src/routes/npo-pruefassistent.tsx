@@ -220,8 +220,23 @@ function Page() {
                 </div>
               </div>
 
-              <div className="rounded-2xl border border-border bg-card p-4 shadow-card-soft sm:p-5">
-                <h2 className="text-sm font-semibold text-foreground">2. Prüfungstool</h2>
+              <div ref={toolsRef} className="rounded-2xl border border-border bg-card p-4 shadow-card-soft sm:p-5 touch-pan-y">
+                <div className="flex items-center justify-between gap-2">
+                  <h2 className="text-sm font-semibold text-foreground">2. Prüfungstool</h2>
+                  <div className="flex items-center gap-1">
+                    {TOOLS.map((t, i) => (
+                      <span
+                        key={t.id}
+                        className={`h-1.5 w-1.5 rounded-full ${
+                          i === toolIdx ? "bg-foreground" : "bg-muted-foreground/30"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </div>
+                <p className="mt-1 text-[11px] text-muted-foreground sm:hidden">
+                  Tipp: nach links/rechts swipen, um Tools zu wechseln.
+                </p>
                 <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
                   {TOOLS.map((t) => {
                     const active = tool === t.id;

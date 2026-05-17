@@ -373,6 +373,14 @@ function Home() {
       </main>
 
       <SiteFooter />
+
+      <KnowledgeSheet
+        topic={activeTopic ? getTopic(activeTopic) ?? null : null}
+        open={activeTopic !== null}
+        onOpenChange={(o) => {
+          if (!o) setActiveTopic(null);
+        }}
+      />
     </div>
   );
 }

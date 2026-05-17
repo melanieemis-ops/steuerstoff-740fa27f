@@ -73,9 +73,9 @@ const quickstart = [
     icon: Building2,
     title: "NPO-Sachverhalt strukturieren",
     desc: "Sphären, Mittelverwendung und steuerliche Folgen ordnen.",
-    cta: "NPO-Fall starten",
+    cta: "NPO-Prüfassistent öffnen",
     accent: "var(--violet)",
-    to: "/neue-anfrage" as const,
+    to: "/npo-pruefassistent" as const,
   },
   {
     icon: Calculator,

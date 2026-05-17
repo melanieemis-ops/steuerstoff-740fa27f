@@ -523,6 +523,349 @@ const LEXICON: LexEntry[] = [
       knowledge: "NPO / Mittelverwendung",
     },
   },
+
+  // --- Erbschaftsteuer / Bewertung ---
+  {
+    aliases: ["Erbanfall"],
+    answer: {
+      kind: "info",
+      summary:
+        "Erbanfall: Übergang des Vermögens des Erblassers auf den Erben kraft Gesamtrechtsnachfolge mit dem Tod (§ 1922 BGB; § 3 Abs. 1 Nr. 1 ErbStG). ErbSt entsteht mit dem Tod (§ 9 Abs. 1 Nr. 1 ErbStG); Bewertungsstichtag ist der Todestag (§ 11 ErbStG).",
+      links: [KB_LINK],
+      knowledge: "Erbschaftsteuer & Bewertung — Merksätze",
+    },
+  },
+  {
+    aliases: ["Vorerbe", "Nacherbe", "Vorerbschaft", "Nacherbschaft"],
+    answer: {
+      kind: "info",
+      summary:
+        "Steuerlich gilt nur der Vorerbe als Erbe (§ 6 Abs. 1 ErbStG); der Nacherbe erwirbt steuerlich vom Vorerben (§ 6 Abs. 2 S. 1 ErbStG). Betagte Vermächtnisse werden wie Nacherbschaft behandelt (§ 6 Abs. 4 ErbStG).",
+      links: [KB_LINK],
+      knowledge: "Erbschaftsteuer & Bewertung — Merksätze",
+    },
+  },
+  {
+    aliases: ["Nachlassverbindlichkeit", "Nachlassverbindlichkeiten"],
+    answer: {
+      kind: "info",
+      summary:
+        "Abzugsfähig sind nur Schulden, die vom Erblasser herrühren und ihn wirtschaftlich belastet haben (§ 10 Abs. 5 Nr. 1 ErbStG). Erbfallkostenpauschale 10.300 € ohne Nachweis (§ 10 Abs. 5 Nr. 3 S. 2 ErbStG).",
+      links: [KB_LINK],
+      knowledge: "Erbschaftsteuer & Bewertung — Merksätze",
+    },
+  },
+  {
+    aliases: ["Familienheim", "Familienheim-Begünstigung"],
+    answer: {
+      kind: "info",
+      summary:
+        "Steuerbefreiung für das Familienheim (§ 13 Abs. 1 Nr. 4a–c ErbStG) — setzt Eigentum/Miteigentum (auch Gesamthand in GbR) und tatsächliche Selbstnutzung voraus; Behaltefrist 10 Jahre.",
+      links: [KB_LINK],
+      knowledge: "Erbschaftsteuer & Bewertung — Merksätze",
+    },
+  },
+  {
+    aliases: ["gemischte Schenkung"],
+    answer: {
+      kind: "info",
+      summary:
+        "Gemischte Schenkung: Wert der Zuwendung übersteigt die Gegenleistung deutlich (Faustregel > ca. 20–25 %). Steuerlich liegt insoweit eine freigebige Zuwendung (§ 7 Abs. 1 Nr. 1 ErbStG) vor.",
+      links: [KB_LINK],
+      knowledge: "Erbschaftsteuer & Bewertung — Merksätze",
+    },
+  },
+  {
+    aliases: ["gemeiner Wert"],
+    answer: {
+      kind: "info",
+      summary:
+        "Gemeiner Wert (§ 9 BewG): Preis, der im gewöhnlichen Geschäftsverkehr bei einer Veräußerung zu erzielen wäre. Für nicht notierte Anteile: § 11 Abs. 2 BewG mit Substanzwert als Mindestwert.",
+      links: [KB_LINK],
+      knowledge: "Erbschaftsteuer & Bewertung — Merksätze",
+    },
+  },
+  {
+    aliases: ["Substanzwert"],
+    answer: {
+      kind: "info",
+      summary:
+        "Substanzwert: Summe der Einzelwerte der WG abzgl. Schulden; bei nicht notierten Anteilen der Mindestwert (§ 11 Abs. 2 S. 3 BewG).",
+      links: [KB_LINK],
+      knowledge: "Erbschaftsteuer & Bewertung — Merksätze",
+    },
+  },
+  {
+    aliases: ["Bodenrichtwert"],
+    answer: {
+      kind: "info",
+      summary:
+        "Vom Gutachterausschuss ermittelter durchschnittlicher Lagewert je m² Grundstücksfläche; Grundlage für die Bodenwertermittlung im Ertrags- und Sachwertverfahren (§ 184 Abs. 2 BewG).",
+      links: [KB_LINK],
+    },
+  },
+  {
+    aliases: ["Ertragswertverfahren"],
+    answer: {
+      kind: "info",
+      summary:
+        "Bewertungsverfahren für Miet- und gemischt genutzte Grundstücke (§§ 182 Abs. 3, 184–188 BewG): Bodenwert + Gebäudeertragswert (Reinertrag ./. Bodenwertverzinsung × Vervielfältiger).",
+      links: [KB_LINK],
+      knowledge: "Erbschaftsteuer & Bewertung — Merksätze",
+    },
+  },
+
+  // --- EStG / Bilanzierung ---
+  {
+    aliases: ["Betriebsaufgabe"],
+    answer: {
+      kind: "info",
+      summary:
+        "Betriebsaufgabe (§ 16 Abs. 3 EStG; bei Freiberuflern § 18 Abs. 3 EStG): Veräußerung/Entnahme aller wesentlichen Betriebsgrundlagen. Aufgabegewinn ist außerordentlich (§ 34 Abs. 2 Nr. 1 EStG) und nach Fünftelregelung (§ 34 Abs. 1 EStG) begünstigt.",
+      links: [KB_LINK],
+      knowledge: "Betriebsaufgabe, EÜR-Übergang & Aufgabegewinn",
+    },
+  },
+  {
+    aliases: ["Aufgabeerklärung"],
+    answer: {
+      kind: "info",
+      summary:
+        "Aufgabeerklärung (§ 16 Abs. 3b EStG): wirkt nur bei rechtzeitigem Eingang beim Finanzamt; Rückwirkung max. 3 Monate.",
+      links: [KB_LINK],
+      knowledge: "Betriebsaufgabe, EÜR-Übergang & Aufgabegewinn",
+    },
+  },
+  {
+    aliases: ["Übergangsgewinn"],
+    answer: {
+      kind: "info",
+      summary:
+        "Beim Wechsel von EÜR (§ 4 Abs. 3 EStG) zur Bilanzierung: Forderungen erhöhen, Verbindlichkeiten mindern den Übergangsgewinn. Ziel ist die vollständige Erfassung der bislang noch nicht berücksichtigten Geschäftsvorfälle.",
+      links: [KB_LINK],
+      knowledge: "Betriebsaufgabe, EÜR-Übergang & Aufgabegewinn",
+    },
+  },
+  {
+    aliases: ["Fünftelregelung", "Fünftelregel"],
+    answer: {
+      kind: "info",
+      summary:
+        "Fünftelregelung (§ 34 Abs. 1 EStG): Tarifglättung für außerordentliche Einkünfte (z. B. Aufgabegewinn, Veräußerungsgewinn, Entschädigungen).",
+      links: [KB_LINK],
+    },
+  },
+  {
+    aliases: ["Teilwert"],
+    answer: {
+      kind: "info",
+      summary:
+        "Teilwert (§ 6 Abs. 1 Nr. 1 S. 3 EStG): Betrag, den ein Erwerber des ganzen Betriebs für das einzelne WG ansetzen würde. Bei Einlage > 3 Jahre nach Anschaffung zwingend (§ 6 Abs. 1 Nr. 5 S. 1 EStG); neue AfA-Bemessungsgrundlage.",
+      links: [KB_LINK],
+      knowledge: "Betriebsaufgabe, EÜR-Übergang & Aufgabegewinn",
+    },
+  },
+  {
+    aliases: ["Einlage"],
+    answer: {
+      kind: "info",
+      summary:
+        "Einlage (§ 4 Abs. 1 S. 8 EStG): Zuführung von Wirtschaftsgütern aus dem Privat- in das Betriebsvermögen. Bewertung mit Teilwert, max. Anschaffungs-/Herstellungskosten bei Anschaffung innerhalb der letzten 3 Jahre (§ 6 Abs. 1 Nr. 5 EStG).",
+      links: [KB_LINK],
+      knowledge: "Betriebsaufgabe, EÜR-Übergang & Aufgabegewinn",
+    },
+  },
+  {
+    aliases: ["Teileinkünfteverfahren", "TEV"],
+    answer: {
+      kind: "info",
+      summary:
+        "Teileinkünfteverfahren (§ 3 Nr. 40 EStG): 40 % der Einnahmen aus Beteiligungen an Kapitalgesellschaften im Betriebsvermögen bleiben steuerfrei; korrespondierend 40 % der zugehörigen Aufwendungen nicht abziehbar (§ 3c Abs. 2 EStG).",
+      links: [KB_LINK],
+    },
+  },
+  {
+    aliases: ["IAB", "Investitionsabzugsbetrag"],
+    answer: {
+      kind: "info",
+      summary:
+        "Investitionsabzugsbetrag (§ 7g EStG): bis zu 50 % der voraussichtlichen Anschaffungs-/Herstellungskosten beweglicher abnutzbarer WG des AV außerbilanziell vorab abziehbar; Hinzurechnung/Übertragung max. 50 % der tatsächlichen AK (netto).",
+      links: [KB_LINK],
+      knowledge: "Bilanzierung — immaterielle WG, Vorräte, Rückstellungen, latente Steuern",
+    },
+  },
+  {
+    aliases: ["Sammelposten", "Pool-Abschreibung", "Poolabschreibung"],
+    answer: {
+      kind: "info",
+      summary:
+        "Sammelposten (§ 6 Abs. 2a EStG): GWG zwischen 250 € und 1.000 € werden gepoolt und über 5 Jahre linear (1/5 p. a.) abgeschrieben. Kein Einzelabgang bei Verkauf/Schaden.",
+      links: [KB_LINK],
+      knowledge: "Bilanzierung — immaterielle WG, Vorräte, Rückstellungen, latente Steuern",
+    },
+  },
+  {
+    aliases: ["FIFO"],
+    answer: {
+      kind: "info",
+      summary:
+        "First-in-first-out: Verbrauchsfolgeverfahren. Steuerlich nicht zulässig — nur LIFO ist steuerlich anerkannt (§ 6 Abs. 1 Nr. 2a EStG).",
+      links: [KB_LINK],
+    },
+  },
+  {
+    aliases: ["LIFO"],
+    answer: {
+      kind: "info",
+      summary:
+        "Last-in-first-out (§ 6 Abs. 1 Nr. 2a EStG): die zuletzt angeschafften/hergestellten WG gelten als zuerst verbraucht. Steuerlich zulässig bei gleichartigen WG des Vorratsvermögens.",
+      links: [KB_LINK],
+    },
+  },
+  {
+    aliases: ["Herstellungskosten"],
+    answer: {
+      kind: "info",
+      summary:
+        "Herstellungskosten (§ 255 Abs. 2, 2a HGB): Materialeinzel-/-gemeinkosten und Fertigungseinzel-/-gemeinkosten sind Pflichtbestandteil; Vertriebskosten nie. Forschung nicht aktivierbar, Entwicklung aktivierbar.",
+      links: [KB_LINK],
+      knowledge: "Bilanzierung — immaterielle WG, Vorräte, Rückstellungen, latente Steuern",
+    },
+  },
+  {
+    aliases: ["latente Steuern", "latente Steuer"],
+    answer: {
+      kind: "info",
+      summary:
+        "Latente Steuern (§ 274 HGB): temporäre Differenzen zwischen Handels- und Steuerbilanz × Steuersatz. Passive latente Steuern → Ansatzpflicht; aktive latente Steuern → Ansatzwahlrecht.",
+      links: [KB_LINK],
+      knowledge: "Bilanzierung — immaterielle WG, Vorräte, Rückstellungen, latente Steuern",
+    },
+  },
+  {
+    aliases: ["Drohverlustrückstellung", "Drohverlust"],
+    answer: {
+      kind: "info",
+      summary:
+        "Rückstellung für drohende Verluste aus schwebenden Geschäften: handelsrechtlich Pflicht (§ 249 Abs. 1 S. 1 HGB), steuerlich unzulässig (§ 5 Abs. 4a EStG) → temporäre Differenz / latente Steuern.",
+      links: [KB_LINK],
+      knowledge: "Bilanzierung — immaterielle WG, Vorräte, Rückstellungen, latente Steuern",
+    },
+  },
+  {
+    aliases: ["Kryptowährung", "Kryptowährungen", "Bitcoin", "Krypto"],
+    answer: {
+      kind: "info",
+      summary:
+        "Kryptowerte sind Wirtschaftsgüter (§§ 246 HGB, 5/6 EStG; BMF 10.05.2022). Zahlung in Krypto und Krypto-zu-Krypto-Tausch sind Veräußerungen; Erlös = Marktwert der Gegenleistung (§ 6 Abs. 6 EStG).",
+      links: [KB_LINK],
+      knowledge: "Bilanzierung — immaterielle WG, Vorräte, Rückstellungen, latente Steuern",
+    },
+  },
+
+  // --- UmwStG ---
+  {
+    aliases: ["Anteilstausch"],
+    answer: {
+      kind: "info",
+      summary:
+        "Anteilstausch (§ 21 UmwStG): Einbringung von Anteilen an einer Kapitalgesellschaft gegen Gewährung neuer Anteile. Grundsatz gemeiner Wert; Buchwertansatz auf Antrag möglich, wenn die Voraussetzungen erfüllt sind. Keine Rückwirkung (§§ 2, 20 Abs. 5/6 UmwStG gelten nicht).",
+      links: [KB_LINK],
+      knowledge: "Anteilstausch nach § 21 UmwStG",
+    },
+  },
+
+  // --- USt / Reihengeschäft ---
+  {
+    aliases: ["Reihengeschäft"],
+    answer: {
+      kind: "info",
+      summary:
+        "Reihengeschäft (§ 3 Abs. 6, 7 UStG; UStAE 3.14): mehrere Umsatzgeschäfte, eine Warenbewegung. Nur eine Lieferung ist die bewegte; alle anderen sind ruhende Lieferungen. Zuordnung nach Transportveranlasser.",
+      links: [KB_LINK],
+      knowledge: "Reihengeschäft (§ 3 Abs. 6, 7 UStG)",
+    },
+  },
+  {
+    aliases: ["bewegte Lieferung"],
+    answer: {
+      kind: "info",
+      summary:
+        "Bewegte Lieferung (§ 3 Abs. 6 UStG): die Lieferung, der die Warenbewegung im Reihengeschäft zugeordnet wird. Ort = Beginn der Beförderung/Versendung; kann als ig. Lieferung (§ 6a UStG) steuerfrei sein.",
+      links: [KB_LINK],
+      knowledge: "Reihengeschäft (§ 3 Abs. 6, 7 UStG)",
+    },
+  },
+  {
+    aliases: ["ruhende Lieferung"],
+    answer: {
+      kind: "info",
+      summary:
+        "Ruhende Lieferung (§ 3 Abs. 7 UStG): jede Lieferung im Reihengeschäft, die nicht die bewegte ist. Ort = Ort der Verschaffung der Verfügungsmacht; regelmäßig im Belegenheitsstaat steuerbar.",
+      links: [KB_LINK],
+      knowledge: "Reihengeschäft (§ 3 Abs. 6, 7 UStG)",
+    },
+  },
+  {
+    aliases: ["innergemeinschaftliche Lieferung", "ig Lieferung", "ig. Lieferung"],
+    answer: {
+      kind: "info",
+      summary:
+        "Innergemeinschaftliche Lieferung (§ 6a UStG): steuerfrei, wenn USt-IdNr. des Abnehmers, körperliche Warenbewegung in einen anderen EU-Mitgliedstaat, belegmäßige Nachweise (Gelangensbestätigung) und Zusammenfassende Meldung (§ 18a UStG) vorliegen.",
+      links: [KB_LINK],
+    },
+  },
+  {
+    aliases: ["Dreiecksgeschäft"],
+    answer: {
+      kind: "info",
+      summary:
+        "Innergemeinschaftliches Dreiecksgeschäft (§ 25b UStG): Vereinfachung für Reihengeschäfte mit drei in unterschiedlichen EU-Staaten registrierten Unternehmern — Steuerschuld geht auf den letzten Abnehmer über; mittlerer Unternehmer muss sich nicht im Bestimmungsland registrieren.",
+      links: [KB_LINK],
+    },
+  },
+
+  // --- Mitunternehmerschaft ---
+  {
+    aliases: ["Mitunternehmerschaft", "Mitunternehmer"],
+    answer: {
+      kind: "info",
+      summary:
+        "Mitunternehmerschaft (§ 15 Abs. 1 Nr. 2 EStG): mehrere Personen tragen gemeinsam Mitunternehmerinitiative (Geschäftsführung/Kontrollrechte, §§ 118, 166 HGB) und Mitunternehmerrisiko (Gewinn, Verlust, stille Reserven). Gesonderte und einheitliche Feststellung (§ 180 AO).",
+      links: [KB_LINK],
+      knowledge: "Mitunternehmerschaft (§ 15 Abs. 1 Nr. 2 EStG)",
+    },
+  },
+  {
+    aliases: ["Sonderbilanz"],
+    answer: {
+      kind: "info",
+      summary:
+        "Sonderbilanz: bildet das Sonderbetriebsvermögen eines Mitunternehmers ab (z. B. an die Gesellschaft überlassenes Grundstück, Gesellschafterdarlehen). Sonderbetriebseinnahmen/-ausgaben erhöhen/mindern den Gewinnanteil dieses Gesellschafters (§ 15 Abs. 1 Nr. 2 EStG).",
+      links: [KB_LINK],
+      knowledge: "Mitunternehmerschaft (§ 15 Abs. 1 Nr. 2 EStG)",
+    },
+  },
+  {
+    aliases: ["Ergänzungsbilanz"],
+    answer: {
+      kind: "info",
+      summary:
+        "Ergänzungsbilanz: gesellschafterindividuelle Korrektur der Wertansätze der Gesamthandsbilanz (z. B. Mehrzahlung beim Eintritt) → spezielle Mehr-/Minder-AfA wirkt nur bei diesem Mitunternehmer.",
+      links: [KB_LINK],
+      knowledge: "Mitunternehmerschaft (§ 15 Abs. 1 Nr. 2 EStG)",
+    },
+  },
+  {
+    aliases: ["Gesamthandsbilanz"],
+    answer: {
+      kind: "info",
+      summary:
+        "Gesamthandsbilanz: Bilanz der Personengesellschaft selbst (z. B. OHG, KG). Bildet zusammen mit Sonder- und Ergänzungsbilanzen das steuerliche Gesamtergebnis der Mitunternehmerschaft.",
+      links: [KB_LINK],
+      knowledge: "Mitunternehmerschaft (§ 15 Abs. 1 Nr. 2 EStG)",
+    },
+  },
 ];
 
 export function lookupLexicon(rawQuestion: string): ChatAnswer | null {

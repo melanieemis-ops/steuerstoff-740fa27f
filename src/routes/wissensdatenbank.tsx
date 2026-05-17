@@ -252,6 +252,20 @@ Steuerlich:
   },
 ];
 
+// Aus interner Wissensbasis (Kanzlei-Arbeitspapiere) ergänzte Einträge.
+// Die zugrundeliegenden PDFs werden bewusst nicht ausgeliefert.
+const KB_ARTICLES: Article[] = KNOWLEDGE_BASE.map((e) => ({
+  id: `kb-${e.id}`,
+  title: e.title,
+  short: e.short,
+  category: e.category as Category,
+  body: `${e.body}\n\nQuelle (intern): ${e.source}${
+    e.references?.length ? `\nRechtsgrundlagen: ${e.references.join(", ")}` : ""
+  }`,
+}));
+
+const ALL_ARTICLES: Article[] = [...ARTICLES, ...KB_ARTICLES];
+
 function Wissensdatenbank() {
   const [query, setQuery] = useState("");
   const [cat, setCat] = useState<Category>("Alle");

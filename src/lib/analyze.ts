@@ -345,6 +345,28 @@ function isLikelyKnowledge(input: AnalysisInput): boolean {
 function pickKnowledgeRule(input: AnalysisInput): KnowledgeRule | null {
   const text = `${input.title}\n${input.description}\n${input.topic}`;
   for (const r of KNOWLEDGE_RULES) if (r.keywords.test(text)) return r;
+  // Fallback: erweiterte interne Wissensbasis (aus Kanzlei-Arbeitspapieren).
+  for (const e of KNOWLEDGE_BASE) {
+    if (e.keywords.test(text)) {
+      const kindMap: Record<string, KnowledgeRule["kind"]> = {
+        "Umsatzsteuer": "ust",
+        "NPO / Gemeinnützigkeit": "npo",
+        "Buchhaltung": "buchung",
+        "Jahresabschluss": "buchung",
+        "DATEV": "buchung",
+        "SKR03": "buchung",
+        "SKR42": "npo",
+        "Rückfragen": "buchung",
+      };
+      return {
+        keywords: e.keywords,
+        kind: kindMap[e.category] ?? "npo",
+        answer: e.short,
+        explanation: e.body,
+        references: e.references,
+      };
+    }
+  }
   return null;
 }
 

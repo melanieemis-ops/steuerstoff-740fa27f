@@ -390,7 +390,7 @@ export function berechneErgebnis(s: MvrState): MvrErgebnis {
   let ampel: Ampel = "gruen";
   const fr = berechneFreieRuecklage(s.freieRuecklage);
   if (fr.ampel === "rot") { ampel = "rot"; hinweise.push("Freie Rücklage überschreitet das zulässige Maß."); }
-  else if (fr.ampel === "gelb") { if (ampel !== "rot") ampel = "gelb"; }
+  else if (fr.ampel === "gelb") { ampel = "gelb"; }
   if (verwendungsueberhang > 0) {
     ampel = "rot";
     hinweise.push("Rechnerischer Verwendungsüberhang – mögliche nicht zeitnahe Mittelverwendung.");

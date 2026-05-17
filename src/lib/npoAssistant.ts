@@ -30,15 +30,21 @@ export interface NpoInput {
   skr42?: string;
 }
 
+export type Sicherheit = "hoch" | "mittel" | "niedrig";
+
 export interface NpoErgebnis {
   tool: Tool;
   toolLabel: string;
   ampel: Ampel;
+  sicherheit: Sicherheit;
   einschaetzung: string;
+  annahmen: string[];
+  alternativen: string[];
   risiken: string[];
-  fehlendeAngaben: string[];
+  fehlendeAngaben: string[]; // hilfreiche, nicht blockierende Hinweise
   unterlagen: string[];
   rueckfragen: string[];
+  ustHinweis: string;
   buchungshinweis: string;
   reviewHinweis: string;
   textbaustein: string;

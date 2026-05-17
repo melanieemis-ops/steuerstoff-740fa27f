@@ -146,6 +146,9 @@ export function PullToRefresh({
         setStatus("loading");
         setPull(48);
         pullRef.current = 48;
+        if (typeof window !== "undefined") {
+          window.dispatchEvent(new CustomEvent("steuerstoff:refreshing", { detail: true }));
+        }
         const timeout = new Promise<void>((_, rej) =>
           window.setTimeout(() => rej(new Error("timeout")), 5000),
         );
@@ -158,6 +161,9 @@ export function PullToRefresh({
           refreshing.current = false;
           setPull(0);
           pullRef.current = 0;
+          if (typeof window !== "undefined") {
+            window.dispatchEvent(new CustomEvent("steuerstoff:refreshing", { detail: false }));
+          }
           window.setTimeout(() => setStatus("idle"), 900);
         }
       } else {
@@ -168,6 +174,10 @@ export function PullToRefresh({
     };
 
     const onCancel = () => {
+      if (!refreshing.current) reset();
+    };
+
+    const onMenuOpen = () => {
       if (!refreshing.current) reset();
     };
 

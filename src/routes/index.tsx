@@ -62,6 +62,14 @@ const heroModules = [
 
 const quickstart = [
   {
+    icon: MessageSquareText,
+    title: "steuerstoff Chat",
+    desc: "Frage direkt stellen oder Sachverhalt im KI-Chat beschreiben.",
+    cta: "Chat öffnen",
+    accent: "var(--gradient-accent)",
+    to: "/chat" as const,
+  },
+  {
     icon: FileSearch,
     title: "Umsatzsteuer prüfen",
     desc: "Sachverhalt strukturieren, Steuerbarkeit und Satz klären.",

@@ -1,7 +1,8 @@
 import { Link, useLocation } from "@tanstack/react-router";
-import { Home, FilePlus, ArrowRightLeft, Calculator, ShieldCheck } from "lucide-react";
+import { Home, FilePlus, ArrowRightLeft, Calculator, ShieldCheck, MessageSquare } from "lucide-react";
 
 export const SECTIONS = [
+  { to: "/chat", label: "Chat", short: "Chat" },
   { to: "/", label: "Dashboard", short: "Home" },
   { to: "/neue-anfrage", label: "Anfrage", short: "Anfrage" },
   { to: "/fallverlauf", label: "Verlauf", short: "Verlauf" },
@@ -67,6 +68,7 @@ export function SectionDots() {
 /** Bottom navigation, mobile only. */
 export function MobileBottomNav() {
   const items = [
+    { to: "/chat", label: "Chat", Icon: MessageSquare },
     { to: "/", label: "Home", Icon: Home },
     { to: "/neue-anfrage", label: "Anfrage", Icon: FilePlus },
     { to: "/skr-konverter", label: "SKR", Icon: ArrowRightLeft },

@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { Menu, X, Loader2 } from "lucide-react";
 
 const nav = [
+  { to: "/chat", label: "Chat" },
   { to: "/neue-anfrage", label: "Neue Anfrage" },
   { to: "/fallverlauf", label: "Fallverlauf" },
   { to: "/wissensdatenbank", label: "Wissensdatenbank" },

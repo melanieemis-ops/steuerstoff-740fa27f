@@ -1,5 +1,8 @@
-// SKR03 → SKR42 Demo-Zuordnungstabelle
+// SKR03 ↔ SKR42 Mapping basierend auf den individuellen Kontenrahmen
+// (DATEV-Kontenbeschriftungen, NPO-Arbeitsfassung).
 // WICHTIG: Vorschläge sind Hilfestellungen, KEINE verbindliche Kontierung.
+
+import officialMappingsRaw from "@/data/skrMappings.json";
 
 export type Sicherheit = "hoch" | "mittel" | "pruefen";
 
@@ -17,10 +20,65 @@ export interface SkrMapping {
   npoRelevant?: boolean;
   /** Trigger-Wörter für Textanalyse (lowercased substrings) */
   textPatterns?: string[];
-  sphaere?: "Ideeller Bereich" | "Vermögensverwaltung" | "Zweckbetrieb" | "wGB" | "—";
+  sphaere?: string;
+  /** true = aus offiziellem Kontenrahmen (DATEV-Beschriftung) */
+  official?: boolean;
 }
 
-export const SKR_MAPPINGS: SkrMapping[] = [
+interface OfficialRaw {
+  skr03: string;
+  skr03Name: string;
+  skr42: string;
+  skr42Name: string;
+  kontoart: string;
+  sphaere: string;
+  suchwoerter: string;
+  pruefhilfe: string;
+  ambiguous: boolean;
+  unmapped: boolean;
+}
+
+const NPO_HINTS = /spende|kollekte|zweck|sphäre|sphaere|rücklage|ruecklage|mittelverwendung|ideell|gemeinn|§\s*6[02]|ao\b/i;
+
+function toPatterns(s: string): string[] {
+  return s
+    .toLowerCase()
+    .split(/[;,·|/]+/)
+    .map((x) => x.trim())
+    .filter((x) => x.length >= 3 && x !== "—");
+}
+
+export const OFFICIAL_MAPPINGS: SkrMapping[] = (officialMappingsRaw as OfficialRaw[])
+  .filter((r) => r.skr03 && r.skr03Name && r.skr03Name !== "(ohne Beschriftung sichtbar)")
+  .map((r) => {
+    const sicherheit: Sicherheit = r.unmapped
+      ? "pruefen"
+      : r.ambiguous
+      ? "mittel"
+      : "hoch";
+    const npo =
+      NPO_HINTS.test(r.skr42Name + " " + r.sphaere + " " + r.pruefhilfe) ||
+      /^(20\d|40[34]|48[23])/.test(r.skr42);
+    const hinweis = [r.pruefhilfe, r.sphaere && `Sphäre/Hinweis: ${r.sphaere}`]
+      .filter(Boolean)
+      .join(" · ");
+    return {
+      skr03: r.skr03,
+      skr03Name: r.skr03Name,
+      skr42: r.skr42 || "—",
+      skr42Name: r.skr42Name || "Kein eindeutiges SKR42-Spiegelkonto – bitte prüfen",
+      hinweis: hinweis || "Aus individuellem Kontenrahmen übernommen.",
+      beispiel: r.suchwoerter || r.skr03Name,
+      sicherheit,
+      oneToOne: !r.unmapped && !r.ambiguous,
+      npoRelevant: npo || undefined,
+      textPatterns: toPatterns(r.suchwoerter + " " + r.skr03Name),
+      sphaere: r.sphaere || undefined,
+      official: true,
+    } as SkrMapping;
+  });
+
+const DEMO_MAPPINGS: SkrMapping[] = [
   {
     skr03: "4210",
     skr03Name: "Miete",

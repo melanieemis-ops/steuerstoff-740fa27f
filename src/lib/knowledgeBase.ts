@@ -850,6 +850,208 @@ Team-Empfehlung
 - Systemvorschläge nicht aus Gewohnheit bekämpfen — Prozesse so aufsetzen, dass das System möglichst oft recht hat.
 - Manuelle Eingriffe reduzieren, AS1 regelmäßig auswerten, Mehrwert pro Bestand kritisch bewerten.`,
   },
+  {
+    id: "steuern-grundlagen",
+    title: "Steuern — Grundlagen und Systematik",
+    short:
+      "Was Steuern sind, Abgrenzung zu Gebühren/Beiträgen, Steuerarten im deutschen Steuersystem.",
+    category: "Buchhaltung",
+    source: "Allgemeines Grundlagenwissen (interne Aufbereitung).",
+    keywords: /(was\s+(ist|sind)\s+(eine\s+)?steuer)|steuerarten|steuersystem|steuerrecht\s+grundlagen|abgabenarten|grundbegriffe\s+steuer/i,
+    references: ["§ 3 AO"],
+    body: `Steuern sind Geldleistungen, die ein öffentlich-rechtliches Gemeinwesen (Bund, Länder, Gemeinden) zur Erzielung von Einnahmen allen auferlegt, bei denen der gesetzliche Tatbestand zutrifft — ohne Anspruch auf eine konkrete Gegenleistung (Legaldefinition § 3 Abs. 1 AO).
+
+Abgrenzung zu anderen Abgaben:
+- Gebühr: Entgelt für eine konkrete Amtshandlung (z. B. Passgebühr).
+- Beitrag: Entgelt für die Möglichkeit der Inanspruchnahme einer Leistung (z. B. IHK-Beitrag).
+- Sonderabgabe: Finanzierung gruppennütziger Zwecke.
+
+Einteilung der Steuern:
+1) Nach Bemessungsgrundlage
+   - Ertragsteuern: Einkommensteuer, Körperschaftsteuer, Gewerbesteuer.
+   - Verkehrsteuern: Umsatzsteuer, Grunderwerbsteuer, Versicherungsteuer.
+   - Substanzsteuern: Grundsteuer, Erbschaft-/Schenkungsteuer.
+   - Verbrauchsteuern: Energiesteuer, Tabaksteuer, Kaffeesteuer.
+
+2) Nach Steuergläubiger
+   - Bundessteuern (z. B. Energiesteuer, Versicherungsteuer).
+   - Landessteuern (z. B. Erbschaftsteuer, Grunderwerbsteuer).
+   - Gemeindesteuern (z. B. Grundsteuer, Gewerbesteuer).
+   - Gemeinschaftsteuern (USt, ESt, KSt — Ertrag wird aufgeteilt).
+
+3) Nach Überwälzbarkeit
+   - Direkte Steuern: Steuerschuldner = Steuerträger (ESt, KSt).
+   - Indirekte Steuern: werden überwälzt (USt, Verbrauchsteuern).
+
+Wichtige Steuerarten in der Praxis:
+- Einkommensteuer (EStG) — natürliche Personen.
+- Körperschaftsteuer (KStG) — juristische Personen, 15 % + SolZ.
+- Gewerbesteuer (GewStG) — Gewerbebetriebe, Hebesatz der Gemeinde.
+- Umsatzsteuer (UStG) — 19 %/7 %, indirekt, EU-harmonisiert.
+- Lohnsteuer — Erhebungsform der ESt, Arbeitgeber haftet.
+- Erbschaft-/Schenkungsteuer (ErbStG) — siehe eigener Eintrag.
+- Grunderwerbsteuer, Grundsteuer, Kfz-Steuer, Kapitalertragsteuer.
+
+Grundprinzipien:
+- Gesetzmäßigkeit der Besteuerung (Art. 20 Abs. 3 GG, § 3 Abs. 1 AO).
+- Gleichmäßigkeit (Art. 3 GG).
+- Leistungsfähigkeitsprinzip.
+- Bestimmtheitsgrundsatz.
+
+Verfahrensrechtlicher Rahmen: Abgabenordnung (AO) — Mantelgesetz für alle Steuerarten (Festsetzung, Erhebung, Vollstreckung, Rechtsbehelfe).`,
+  },
+  {
+    id: "erbschaftsteuer-grundlagen",
+    title: "Erbschaft- und Schenkungsteuer — Grundlagen",
+    short:
+      "Steuerpflicht, Steuerklassen, Freibeträge, Bewertung und Tarif nach ErbStG.",
+    category: "Buchhaltung",
+    source: "Interne Musterlösung Übungsklausur ErbSt/Bewertung (Rechtsstand 2024).",
+    keywords: /erbschaftsteuer|erbst\b|schenkungsteuer|erbstg|nachlass|erbanfall|§\s*15\s*erbstg|§\s*16\s*erbstg|freibetrag\s+erbe/i,
+    references: ["§§ 1, 3, 9, 10, 15, 16, 19 ErbStG", "§§ 11, 151, 182 ff. BewG", "§ 1922 BGB"],
+    body: `Die Erbschaft- und Schenkungsteuer erfasst den unentgeltlichen Vermögensübergang von Todes wegen (§ 3 ErbStG) bzw. unter Lebenden (§ 7 ErbStG).
+
+Steuerpflicht:
+- Unbeschränkt steuerpflichtig (§ 2 Abs. 1 Nr. 1 ErbStG), wenn Erblasser/Schenker oder Erwerber zum Zeitpunkt der Steuerentstehung Inländer ist (Wohnsitz/gewöhnlicher Aufenthalt im Inland, § 8/§ 9 AO).
+- Beschränkt steuerpflichtig: nur Inlandsvermögen.
+- Steuer entsteht mit dem Tod des Erblassers bzw. Ausführung der Schenkung (§ 9 ErbStG). Dieser Tag ist Bewertungsstichtag (§ 11 ErbStG).
+
+Steuerklassen (§ 15 ErbStG):
+- StKl I: Ehegatten, Lebenspartner, Kinder, Stiefkinder, Enkel, bei Erbfall auch Eltern/Großeltern.
+- StKl II: Geschwister, Nichten/Neffen, Stiefeltern, Schwiegerkinder, geschiedene Ehegatten.
+- StKl III: alle übrigen Erwerber.
+
+Persönliche Freibeträge (§ 16 ErbStG):
+- Ehegatte/Lebenspartner: 500.000 €.
+- Kinder/Stiefkinder: 400.000 €.
+- Enkel: 200.000 € (400.000 €, wenn Elternteil verstorben).
+- Eltern bei Erbfall: 100.000 €.
+- StKl II/III: 20.000 €.
+Zusätzlich: Versorgungsfreibetrag (§ 17 ErbStG), Hausrat-/Pkw-Freibetrag (§ 13 Abs. 1 Nr. 1 ErbStG: 41.000 € Hausrat / 12.000 € andere bewegliche Gegenstände in StKl I).
+
+Steuertarif (§ 19 ErbStG): progressiv nach Erwerb und StKl, z. B. StKl I bis 600.000 € = 15 %, bis 6 Mio. € = 19 %, bis 13 Mio. € = 23 %.
+
+Bewertung (BewG):
+- Anteile an nicht notierten Kapitalgesellschaften: gemeiner Wert; vorrangig IDW-S1/vereinfachtes Ertragswertverfahren; Substanzwert als Mindestwert (§ 11 Abs. 2 BewG). Gesonderte Feststellung nach § 151 Abs. 1 Nr. 3 BewG.
+- Grundbesitz: gesonderte Feststellung nach § 151 Abs. 1 Nr. 1 BewG; je nach Grundstücksart Vergleichs-, Ertrags- oder Sachwertverfahren (§§ 182 ff. BewG).
+- Niedrigerer gemeiner Wert kann nach § 198 BewG durch Gutachten nachgewiesen werden.
+
+Begünstigungen:
+- §§ 13a/13b ErbStG: Begünstigung von Betriebsvermögen, qualifizierten Kapitalgesellschafts­anteilen (Mindestbeteiligung > 25 %) und land-/forstwirtschaftlichem Vermögen; Verschonungsabschlag 85 % oder 100 %, Lohnsummenregelung, Behaltensfrist.
+- § 13d ErbStG: 10 %-Abschlag für zu Wohnzwecken vermietete Grundstücke.
+- § 13 Abs. 1 Nr. 4b/c ErbStG: Familienheim für Ehegatten/Kinder.
+
+Nachlassverbindlichkeiten (§ 10 Abs. 5 ErbStG):
+- Erblasserschulden (z. B. Hypotheken).
+- Erbfallschulden (Pflichtteile, Vermächtnisse, Beerdigungs- und Nachlassregelungskosten; Pauschbetrag 10.300 €).
+
+Berechnungsschema:
+Wert des Vermögensanfalls (Aktiva, jeweils gesondert bewertet)
+./. sachliche Befreiungen (§ 13 ErbStG)
+./. Nachlassverbindlichkeiten (§ 10 Abs. 5 ErbStG)
+= Bereicherung (§ 10 Abs. 1 ErbStG)
+./. persönlicher Freibetrag (§ 16 ErbStG)
+./. Versorgungsfreibetrag (§ 17 ErbStG)
+= steuerpflichtiger Erwerb (abgerundet auf volle 100 €, § 10 Abs. 1 S. 6 ErbStG)
+× Steuersatz § 19 ErbStG
+= festzusetzende Erbschaftsteuer
+
+Praxisbeispiel (Auszug Musterlösung 2024): Enkel erbt nach verstorbenem Vater Vermögen mit GmbH-Anteil 22 %, gemischt genutztem Grundstück, EFH, Hausrat, Pkw, Bankguthaben. Bereicherung 3.421.081 € ./. Freibetrag 400.000 € = stpfl. Erwerb 3.021.000 € × 19 % = 573.990 € ErbSt.
+
+Vorerwerbe (§ 14 ErbStG): Erwerbe innerhalb von 10 Jahren von derselben Person werden zusammengerechnet.`,
+  },
+  {
+    id: "datev-esteuern-prozess",
+    title: "DATEV eSteuern — digitaler Einkommensteuerprozess",
+    short:
+      "Vollmacht, vorausgefüllte Steuererklärung, Steuerkonto online, Bescheiddatenabgleich und DIVA 2 im Überblick.",
+    category: "DATEV",
+    source: "Internes Handout NPO-Team — DATEV eSteuern.",
+    keywords: /esteuern|vorausgefüllte? steuererklärung|steuerkonto\s+online|bescheiddaten|diva\s*2|vollmachtsdatenbank/i,
+    body: `Der DATEV eSteuern-Einkommensteuerprozess ermöglicht eine weitgehend papierlose Bearbeitung von der Vorbereitung bis zum Bescheid.
+
+Bausteine
+- Vollmacht / Vollmachtsdatenbank: Grundlage für alle digitalen Abrufe.
+- Vorausgefüllte Steuererklärung (VaSt): Lohnsteuerbescheinigungen, Rentenbezüge, Vorsorgeaufwendungen elektronisch übernehmen.
+- Steuerkonto online: offene Beträge, geleistete Zahlungen, Sollstellungen / Vorauszahlungen abrufen.
+- Post, Fristen und Bescheide: Bescheiddatenabgleich; automatische Anzeige von Abweichungen Erklärung ↔ Bescheid.
+- DIVA 2: digitale Zustellung von Bescheiden und Finanzamtsdokumenten ins DMS.
+
+Voraussetzungen
+- Hinterlegte Vollmacht, gesetztes Vollmachtszeichen.
+- Abruffreigabe für VaSt und Steuerkonto online.
+- Mandant beim Finanzamt registriert.
+- Bei Abruffehlern zuerst Registrierung, Vollmacht und Freigaben prüfen — nicht nur Warnhinweise.
+
+Steuerkonto online — Abrufweg
+Mandant auswählen → Rechtsklick „Abfrage ausgewählter Mandant“ → offene Beträge / geleistete Zahlungen / Sollstellungen wählen.
+
+Bescheiddatenabgleich
+- Bescheiddaten früh prüfen.
+- Abweichungen zur abgegebenen Erklärung werden markiert; Einspruchsfristen im Auge behalten.
+
+DIVA 2
+- Digitaler Eingang von Finanzamtsdokumenten.
+- Ablage automatisiert in DMS, Verknüpfung zum Mandantenakt.
+
+Team-Workflow
+1) Vorbereitung: Vollmacht/Freigaben prüfen, VaSt + Steuerkonto online ziehen.
+2) Bearbeitung: Erklärung erstellen, digitale Optionen aktiv mitdenken.
+3) Nachgelagert: Bescheiddatenabgleich, DIVA 2-Eingang prüfen, Fristen sichern.`,
+  },
+  {
+    id: "datev-lerndateien",
+    title: "DATEV Lerndateien & Buchungsvorschläge",
+    short:
+      "Kriterien richtig wählen, Sternchen-Platzhalter, automatisiertes Buchen, AS1-Spalte und Aufräumen bestehender Bestände.",
+    category: "DATEV",
+    source: "Internes Handout — Lerndateien, Buchungsvorschläge & Automatisierung.",
+    keywords: /lerndatei|buchungsvorschlag|automatisches buchen|sternchen.*platzhalter|alt\s*\+\s*-|strg\s*\+\s*l/i,
+    body: `Grundsatz: So wenig Kriterien wie möglich, so viel wie nötig. Eine Lerndatei soll den wiederkehrenden Sachverhalt präzise treffen.
+
+Anlegen
+- Wege: Funktion oben im Programm, Shortcut Alt + -, oder STRG + L.
+- Oben: Was soll gebucht werden (Konto, Personenkonto, Aufteilung).
+- Unten: Wann soll die Lerndatei greifen (Kriterien je Rechnungskreis).
+
+Geeignete Kriterien
+- Wiederkehrende Begriffe im Verwendungszweck.
+- Stabile Auftraggeber/Geschäftspartner kombiniert mit weiteren Kriterien.
+- Transaktionstypen bei PayPal/Amazon.
+- Ware/Leistung bei Eingangs- und Ausgangsrechnungen.
+
+Riskante Kriterien
+- Datum, Monat, Zeitraum (z. B. 06/23).
+- Rechnungsnummern, laufende Referenzen.
+- Wechselnde Beträge, zufällige Zeichenketten.
+- Zu kurze Stichwörter (z. B. nur „AAG“).
+- Nur der Auftraggeber, wenn unterschiedliche Sachverhalte möglich sind.
+
+Sternchen-Platzhalter
+- *Einzahlung* — beliebiger Text vor/nach „Einzahlung“.
+- *Erstattung*AAG* — beide Stichwörter müssen vorkommen.
+- *Beitr*ge* — deckt „Beiträge“ und „Beitraege“ ab.
+- Zu viele Sternchen oder zu kurze Textteile machen die Lerndatei gefährlich breit.
+
+Lerndateien testen: Transaktionen reimportieren und Vorschläge prüfen.
+
+Buchungsvorschläge — Symbolik
+- Grün: ausreichend sicher → automatische Verbuchung möglich.
+- Gelb: unsicher → manuelle Prüfung.
+- Rot: kein Vorschlag/Fehler → Sachverhalt klären.
+
+Automatisiertes Buchen
+- Erst aktivieren, wenn Vorschläge stabil greifen und erste Zeiträume plausibel geprüft sind.
+- AS1-Spalte zeigt den tatsächlichen Vollautomatisierungsgrad; standardmäßig ausgeblendet, über Listen-Einstellungen aktivieren.
+- Sobald ein Buchungssatz erneut geöffnet oder verändert wird, entfällt die AS1-Kennzeichnung.
+
+Pflege bestehender Bestände
+- Übernommene Bestände kritisch prüfen: leere, redundante oder zu allgemeine Lerndateien aufräumen.
+- Lerndateien, die nur einmal greifen, verschwenden Pflegeaufwand.
+
+Neue Prüfungslogik
+- Weg von der Einzelfallkontrolle jedes Belegs, hin zu risikoorientierter Stichprobe und gezielter Kontrolle der gelben/roten Fälle.`,
+  },
 ];
 
 // Hilfsmittel für die Wissensbasis-Suche (analyze.ts)

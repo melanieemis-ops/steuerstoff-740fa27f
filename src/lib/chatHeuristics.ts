@@ -30,6 +30,11 @@ const REVIEW =
 export function generateAnswer(rawQuestion: string): ChatAnswer {
   const q = rawQuestion.toLowerCase().trim();
 
+  // --- 1) Lexikon / Begriffsfrage (vor allen Spezialmodulen) ---
+  const lex = lookupLexicon(rawQuestion);
+  if (lex) return lex;
+
+
   // --- Allgemeine Steuerlehre: "Was sind Steuern?" / Steuerarten ---
   if (
     /^(was\s+(ist|sind))\s+(eine\s+)?steuer/i.test(rawQuestion.trim()) ||

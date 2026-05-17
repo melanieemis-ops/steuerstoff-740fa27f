@@ -85,11 +85,13 @@ const fmt = (n: number) =>
   new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR", maximumFractionDigits: 2 }).format(n);
 
 function basisFehlend(i: NpoInput): string[] {
+  // Hilfreiche, NICHT blockierende Angaben für belastbarere Einschätzung.
   const f: string[] = [];
-  if (!i.beschreibung.trim()) f.push("Kurzbeschreibung des Sachverhalts");
-  if (!i.betrag) f.push("Betrag");
+  if (!i.betrag) f.push("Betrag (für Wesentlichkeit und Schwellenwerte)");
   if (!i.beteiligte.trim()) f.push("Beteiligte Personen oder Organisationen");
   if (!i.belegVorhanden) f.push("Beleg / Rechnung");
+  if (!i.vertragVorhanden) f.push("Vertrag oder schriftliche Vereinbarung");
+  if (!i.satzungsbezug) f.push("Bestätigung Satzungsbezug");
   return f;
 }
 

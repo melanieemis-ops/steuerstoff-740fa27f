@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as WissensdatenbankRouteImport } from './routes/wissensdatenbank'
 import { Route as SkrKonverterRouteImport } from './routes/skr-konverter'
 import { Route as NeueAnfrageRouteImport } from './routes/neue-anfrage'
+import { Route as MittelverwendungsrechnerRouteImport } from './routes/mittelverwendungsrechner'
 import { Route as FallverlaufRouteImport } from './routes/fallverlauf'
 import { Route as EinstellungenRouteImport } from './routes/einstellungen'
 import { Route as IndexRouteImport } from './routes/index'
@@ -32,6 +33,12 @@ const NeueAnfrageRoute = NeueAnfrageRouteImport.update({
   path: '/neue-anfrage',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MittelverwendungsrechnerRoute =
+  MittelverwendungsrechnerRouteImport.update({
+    id: '/mittelverwendungsrechner',
+    path: '/mittelverwendungsrechner',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const FallverlaufRoute = FallverlaufRouteImport.update({
   id: '/fallverlauf',
   path: '/fallverlauf',
@@ -57,6 +64,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/einstellungen': typeof EinstellungenRoute
   '/fallverlauf': typeof FallverlaufRoute
+  '/mittelverwendungsrechner': typeof MittelverwendungsrechnerRoute
   '/neue-anfrage': typeof NeueAnfrageRoute
   '/skr-konverter': typeof SkrKonverterRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
@@ -66,6 +74,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/einstellungen': typeof EinstellungenRoute
   '/fallverlauf': typeof FallverlaufRoute
+  '/mittelverwendungsrechner': typeof MittelverwendungsrechnerRoute
   '/neue-anfrage': typeof NeueAnfrageRoute
   '/skr-konverter': typeof SkrKonverterRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
@@ -76,6 +85,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/einstellungen': typeof EinstellungenRoute
   '/fallverlauf': typeof FallverlaufRoute
+  '/mittelverwendungsrechner': typeof MittelverwendungsrechnerRoute
   '/neue-anfrage': typeof NeueAnfrageRoute
   '/skr-konverter': typeof SkrKonverterRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
@@ -87,6 +97,7 @@ export interface FileRouteTypes {
     | '/'
     | '/einstellungen'
     | '/fallverlauf'
+    | '/mittelverwendungsrechner'
     | '/neue-anfrage'
     | '/skr-konverter'
     | '/wissensdatenbank'
@@ -96,6 +107,7 @@ export interface FileRouteTypes {
     | '/'
     | '/einstellungen'
     | '/fallverlauf'
+    | '/mittelverwendungsrechner'
     | '/neue-anfrage'
     | '/skr-konverter'
     | '/wissensdatenbank'
@@ -105,6 +117,7 @@ export interface FileRouteTypes {
     | '/'
     | '/einstellungen'
     | '/fallverlauf'
+    | '/mittelverwendungsrechner'
     | '/neue-anfrage'
     | '/skr-konverter'
     | '/wissensdatenbank'
@@ -115,6 +128,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   EinstellungenRoute: typeof EinstellungenRoute
   FallverlaufRoute: typeof FallverlaufRoute
+  MittelverwendungsrechnerRoute: typeof MittelverwendungsrechnerRoute
   NeueAnfrageRoute: typeof NeueAnfrageRoute
   SkrKonverterRoute: typeof SkrKonverterRoute
   WissensdatenbankRoute: typeof WissensdatenbankRoute
@@ -142,6 +156,13 @@ declare module '@tanstack/react-router' {
       path: '/neue-anfrage'
       fullPath: '/neue-anfrage'
       preLoaderRoute: typeof NeueAnfrageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mittelverwendungsrechner': {
+      id: '/mittelverwendungsrechner'
+      path: '/mittelverwendungsrechner'
+      fullPath: '/mittelverwendungsrechner'
+      preLoaderRoute: typeof MittelverwendungsrechnerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/fallverlauf': {
@@ -179,6 +200,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   EinstellungenRoute: EinstellungenRoute,
   FallverlaufRoute: FallverlaufRoute,
+  MittelverwendungsrechnerRoute: MittelverwendungsrechnerRoute,
   NeueAnfrageRoute: NeueAnfrageRoute,
   SkrKonverterRoute: SkrKonverterRoute,
   WissensdatenbankRoute: WissensdatenbankRoute,

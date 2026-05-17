@@ -63,6 +63,13 @@ const quickstart = [
     accent: "var(--magenta)",
     to: "/skr-konverter" as const,
   },
+  {
+    icon: Calculator,
+    title: "Mittelverwendungsrechnung prüfen",
+    desc: "Zeitnahe Mittelverwendung, Rücklagen und Verwendungsüberhang für NPOs strukturieren.",
+    accent: "var(--violet)",
+    to: "/mittelverwendungsrechner" as const,
+  },
 ];
 
 function Home() {

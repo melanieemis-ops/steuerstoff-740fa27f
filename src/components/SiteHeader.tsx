@@ -7,6 +7,7 @@ const nav = [
   { to: "/fallverlauf", label: "Fallverlauf" },
   { to: "/wissensdatenbank", label: "Wissensdatenbank" },
   { to: "/skr-konverter", label: "SKR-Konverter" },
+  { to: "/mittelverwendungsrechner", label: "Mittelverwendungsrechner" },
   { to: "/einstellungen", label: "Einstellungen" },
 ] as const;
 

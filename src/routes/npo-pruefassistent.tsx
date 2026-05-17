@@ -187,6 +187,7 @@ function Page() {
                           value={input.richtung}
                           onChange={(e) => update("richtung", e.target.value as Richtung)}
                         >
+                          <option value="">— nicht angegeben —</option>
                           <option value="einnahme">Einnahme</option>
                           <option value="ausgabe">Ausgabe</option>
                         </select>

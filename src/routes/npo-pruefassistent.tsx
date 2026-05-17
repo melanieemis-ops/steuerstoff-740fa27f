@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { PullToRefresh } from "@/components/PullToRefresh";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -21,7 +22,16 @@ import {
   type Sphaere,
   type Tool,
 } from "@/lib/npoAssistant";
-import { ShieldCheck, Copy, Download, AlertTriangle, CheckCircle2, AlertCircle } from "lucide-react";
+import { ShieldCheck, Copy, Download, AlertTriangle, CheckCircle2, AlertCircle, RefreshCw } from "lucide-react";
+
+function inputSignature(tool: Tool, i: NpoInput): string {
+  return JSON.stringify([tool, i]);
+}
+function formatTime(d: Date): string {
+  const diff = Date.now() - d.getTime();
+  if (diff < 60_000) return "gerade eben";
+  return d.toLocaleTimeString("de-DE", { hour: "2-digit", minute: "2-digit" });
+}
 
 export const Route = createFileRoute("/npo-pruefassistent")({
   component: Page,
@@ -47,7 +57,13 @@ function Page() {
   const [tool, setTool] = useState<Tool>("sphaere");
   const [input, setInput] = useState<NpoInput>(emptyInput());
   const [result, setResult] = useState<NpoErgebnis | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [lastChecked, setLastChecked] = useState<Date | null>(null);
+  const [checkedSignature, setCheckedSignature] = useState<string | null>(null);
+  const [, setNowTick] = useState(0);
   const toolsRef = useRef<HTMLDivElement>(null);
+  const resultRef = useRef<HTMLDivElement>(null);
   const toolIdx = TOOLS.findIndex((t) => t.id === tool);
   useSwipeNavigation(toolsRef, {
     onSwipeLeft: () => {
@@ -60,10 +76,54 @@ function Page() {
     },
   });
 
+  useEffect(() => {
+    const id = window.setInterval(() => setNowTick((n) => n + 1), 30_000);
+    return () => window.clearInterval(id);
+  }, []);
+
   const update = <K extends keyof NpoInput>(k: K, v: NpoInput[K]) =>
     setInput((s) => ({ ...s, [k]: v }));
 
-  const run = () => setResult(pruefe(tool, input));
+  const currentSig = inputSignature(tool, input);
+  const isStale = result !== null && checkedSignature !== null && checkedSignature !== currentSig;
+
+  const run = useCallback(async () => {
+    if (!input.beschreibung.trim() || loading) return;
+    setLoading(true);
+    setError(null);
+    try {
+      await new Promise<void>((r) => requestAnimationFrame(() => r()));
+      const r = pruefe(tool, input);
+      setResult(r);
+      setCheckedSignature(inputSignature(tool, input));
+      setLastChecked(new Date());
+      requestAnimationFrame(() => {
+        const el = resultRef.current;
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const vh = window.innerHeight || 0;
+        const inView = rect.top >= 0 && rect.top < vh * 0.8;
+        if (!inView && window.innerWidth < 768) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    } catch {
+      setError("Die Prüfung konnte nicht erstellt werden. Bitte erneut versuchen.");
+    } finally {
+      setLoading(false);
+    }
+  }, [tool, input, loading]);
+
+  const onRefresh = useCallback(async () => {
+    if (result && input.beschreibung.trim()) {
+      const r = pruefe(tool, input);
+      setResult(r);
+      setCheckedSignature(inputSignature(tool, input));
+      setLastChecked(new Date());
+    } else {
+      setNowTick((n) => n + 1);
+    }
+  }, [tool, input, result]);
 
   const exportText = useMemo(
     () => (result ? ergebnisAlsText(result, input) : ""),
@@ -83,7 +143,11 @@ function Page() {
     URL.revokeObjectURL(url);
   };
 
+  const buttonLabel = loading ? "Prüfung läuft …" : result ? "Erneut prüfen" : "NPO-Prüfung starten";
+  const lastCheckedLabel = lastChecked ? formatTime(lastChecked) : null;
+
   return (
+    <PullToRefresh onRefresh={onRefresh}>
     <div className="flex min-h-screen flex-col bg-background">
       <SiteHeader />
       <main className="flex-1">
@@ -275,22 +339,44 @@ function Page() {
                     );
                   })}
                 </div>
-                <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:justify-end">
+                <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                  <div className="min-h-[1.25rem] text-[11px] text-muted-foreground">
+                    {error ? (
+                      <span className="text-rose-700">{error}</span>
+                    ) : isStale ? (
+                      <span className="text-amber-700">Eingaben geändert – bitte erneut prüfen.</span>
+                    ) : lastCheckedLabel ? (
+                      <span>Zuletzt geprüft: {lastCheckedLabel}</span>
+                    ) : null}
+                  </div>
                   <Button
                     onClick={run}
-                    disabled={!input.beschreibung.trim()}
+                    disabled={!input.beschreibung.trim() || loading}
                     className="h-10"
                   >
-                    NPO-Prüfung starten
+                    {loading ? (
+                      <RefreshCw className="mr-1.5 h-4 w-4 animate-spin" />
+                    ) : result ? (
+                      <RefreshCw className="mr-1.5 h-4 w-4" />
+                    ) : null}
+                    {buttonLabel}
                   </Button>
                 </div>
               </div>
             </div>
 
             {/* Ergebnis */}
-            <div className="space-y-4">
+            <div className="space-y-4" ref={resultRef}>
               {result ? (
-                <ResultCard r={result} onCopy={copy} onDownload={download} />
+                <ResultCard
+                  r={result}
+                  onCopy={copy}
+                  onDownload={download}
+                  onRefresh={run}
+                  loading={loading}
+                  isStale={isStale}
+                  lastChecked={lastCheckedLabel}
+                />
               ) : (
                 <div className="rounded-2xl border border-dashed border-border bg-card/60 p-6 text-sm text-muted-foreground">
                   Beschreibe den Vorgang in der Kurzbeschreibung und starte die Prüfung.
@@ -308,6 +394,7 @@ function Page() {
       </main>
       <SiteFooter />
     </div>
+    </PullToRefresh>
   );
 }
 
@@ -315,10 +402,18 @@ function ResultCard({
   r,
   onCopy,
   onDownload,
+  onRefresh,
+  loading,
+  isStale,
+  lastChecked,
 }: {
   r: NpoErgebnis;
   onCopy: () => void;
   onDownload: () => void;
+  onRefresh: () => void;
+  loading: boolean;
+  isStale: boolean;
+  lastChecked: string | null;
 }) {
   const a = ampelStyle(r.ampel);
   const A = a.Icon;
@@ -330,12 +425,31 @@ function ResultCard({
         ? "bg-amber-50 text-amber-800 border-amber-200"
         : "bg-muted text-muted-foreground border-border";
   return (
-    <div className="rounded-2xl border border-border bg-card shadow-card-soft">
+    <div className={`rounded-2xl border bg-card shadow-card-soft ${isStale ? "border-amber-300/70" : "border-border"}`}>
       <div className={`flex flex-wrap items-center gap-2 rounded-t-2xl border-b ${a.border} ${a.bg} px-4 py-3`}>
         <A className={`h-4 w-4 ${a.text}`} />
         <div className={`text-sm font-semibold ${a.text}`}>{a.label}</div>
         <span className={`rounded-full border px-2 py-0.5 text-[10px] ${sicherheitClass}`}>{sicherheitLabel}</span>
-        <div className="ml-auto text-xs text-muted-foreground">{r.titel}</div>
+        <button
+          type="button"
+          onClick={onRefresh}
+          disabled={loading}
+          className="ml-auto inline-flex items-center gap-1 rounded-full border border-border bg-background/80 px-2 py-0.5 text-[10px] text-foreground hover:bg-accent disabled:opacity-60"
+          title="Aktualisieren"
+        >
+          <RefreshCw className={`h-3 w-3 ${loading ? "animate-spin" : ""}`} />
+          Aktualisieren
+        </button>
+      </div>
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border/60 bg-background/50 px-4 py-2 text-[11px] text-muted-foreground">
+        <div>{r.titel}</div>
+        <div>
+          {isStale ? (
+            <span className="text-amber-700">Dieses Ergebnis basiert auf früheren Eingaben.</span>
+          ) : lastChecked ? (
+            <span>Zuletzt geprüft: {lastChecked}</span>
+          ) : null}
+        </div>
       </div>
       <div className="space-y-4 p-4 sm:p-5">
         {r.modus === "wissen" ? (

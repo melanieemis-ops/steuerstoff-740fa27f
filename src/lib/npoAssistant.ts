@@ -448,8 +448,8 @@ Mit freundlichen Grüßen
 Ihre Kanzlei`;
 }
 
-type RunnerOut = Partial<NpoErgebnis> & Pick<NpoErgebnis, "tool" | "toolLabel" | "ampel" | "einschaetzung" | "risiken" | "fehlendeAngaben" | "unterlagen" | "rueckfragen" | "buchungshinweis" | "reviewHinweis" | "textbaustein">;
-const RUNNER: Record<Tool, (i: NpoInput) => RunnerOut> = {
+type RunnerOut = Omit<NpoErgebnis, "sicherheit" | "annahmen" | "alternativen" | "ustHinweis"> & Partial<Pick<NpoErgebnis, "alternativen" | "ustHinweis">>;
+const RUNNER = {
   sphaere: bewerteSphaere,
   zweck_vs_wgb: bewerteZweckVsWgb,
   spende: bewerteSpende,
@@ -457,7 +457,7 @@ const RUNNER: Record<Tool, (i: NpoInput) => RunnerOut> = {
   mittelweitergabe: bewerteMittelweitergabe,
   ruecklage: bewerteRuecklage,
   ust: bewerteUst,
-};
+} as Record<Tool, (i: NpoInput) => RunnerOut>;
 
 export function pruefe(tool: Tool, input: NpoInput){
   const raw = RUNNER[tool](input as NpoInput);

@@ -30,15 +30,21 @@ export interface NpoInput {
   skr42?: string;
 }
 
+export type Sicherheit = "hoch" | "mittel" | "niedrig";
+
 export interface NpoErgebnis {
   tool: Tool;
   toolLabel: string;
   ampel: Ampel;
+  sicherheit: Sicherheit;
   einschaetzung: string;
+  annahmen: string[];
+  alternativen: string[];
   risiken: string[];
-  fehlendeAngaben: string[];
+  fehlendeAngaben: string[]; // hilfreiche, nicht blockierende Hinweise
   unterlagen: string[];
   rueckfragen: string[];
+  ustHinweis: string;
   buchungshinweis: string;
   reviewHinweis: string;
   textbaustein: string;
@@ -79,11 +85,13 @@ const fmt = (n: number) =>
   new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR", maximumFractionDigits: 2 }).format(n);
 
 function basisFehlend(i: NpoInput): string[] {
+  // Hilfreiche, NICHT blockierende Angaben für belastbarere Einschätzung.
   const f: string[] = [];
-  if (!i.beschreibung.trim()) f.push("Kurzbeschreibung des Sachverhalts");
-  if (!i.betrag) f.push("Betrag");
+  if (!i.betrag) f.push("Betrag (für Wesentlichkeit und Schwellenwerte)");
   if (!i.beteiligte.trim()) f.push("Beteiligte Personen oder Organisationen");
   if (!i.belegVorhanden) f.push("Beleg / Rechnung");
+  if (!i.vertragVorhanden) f.push("Vertrag oder schriftliche Vereinbarung");
+  if (!i.satzungsbezug) f.push("Bestätigung Satzungsbezug");
   return f;
 }
 
@@ -92,38 +100,51 @@ function worse(a: Ampel, b: Ampel): Ampel {
   return r[a] >= r[b] ? a : b;
 }
 
-function bewerteSphaere(i: NpoInput): NpoErgebnis {
+function bewerteSphaere(i: NpoInput){
   const risiken: string[] = [];
   const fehlend = basisFehlend(i);
-  let ampel: Ampel = "gruen";
+  const rueckfragen: string[] = [
+    "Wofür wurden die Mittel konkret verwendet?",
+    "Besteht ein direkter Bezug zum Satzungszweck?",
+    "Gibt es Gegenleistungen für die andere Seite?",
+  ];
+  let ampel: Ampel = "gelb";
   let sphaereVermutung = i.sphaere;
+  const alternativen: string[] = [];
   const text = i.beschreibung.toLowerCase();
 
+  const istIdeell = /spende|zuwend|mitgliedsbeitrag|beitrag/.test(text);
+  const istZweck = /kurs|seminar|workshop|eintritt|aufführ|sport|kultur|bildung|jugend|konzert|theater|sommerfest|veranstaltung|fest/.test(text);
+  const istVermoegen = /miete|vermiet|zins|kapital|pacht|dividend/.test(text);
+  const istWgb = /verkauf|getränk|bewirtung|werbung|sponsor|logo|gastronom|festzelt|merch|tombola/.test(text);
+
   if (!sphaereVermutung) {
-    if (/spende|zuwend/.test(text)) sphaereVermutung = "ideell";
-    else if (/kurs|seminar|workshop|eintritt|aufführ|sport|kultur/.test(text)) sphaereVermutung = "zweckbetrieb";
-    else if (/miete|vermiet|zins|kapital|pacht/.test(text)) sphaereVermutung = "vermoegen";
-    else if (/verkauf|werbung|sponsor|gastronom|festzelt|merch/.test(text)) sphaereVermutung = "wgb";
+    if (istIdeell && !istWgb && !istZweck) sphaereVermutung = "ideell";
+    else if (istZweck && istWgb) {
+      sphaereVermutung = "zweckbetrieb";
+      alternativen.push("steuerpflichtiger wirtschaftlicher Geschäftsbetrieb (z. B. Getränke-/Speisenverkauf, Sponsoring)");
+      risiken.push("Mischfall: Einnahmen und Ausgaben pro Sphäre trennen (Trennrechnung).");
+      rueckfragen.push("Welcher Anteil entfällt auf Eintritt/Satzungszweck und welcher auf Verkauf/Bewirtung?");
+    } else if (istZweck) sphaereVermutung = "zweckbetrieb";
+    else if (istVermoegen) sphaereVermutung = "vermoegen";
+    else if (istWgb) sphaereVermutung = "wgb";
   }
 
   if (!sphaereVermutung) {
-    ampel = "gelb";
-    risiken.push("Sphäre nicht eindeutig zuordenbar.");
-    fehlend.push("Sphärenzuordnung");
+    risiken.push("Sphäre nicht eindeutig zuordenbar — Beschreibung präzisieren.");
   }
-  if (sphaereVermutung === "wgb") {
-    ampel = worse(ampel, "gelb");
-    risiken.push("Steuerpflichtiger wirtschaftlicher Geschäftsbetrieb — § 64 AO prüfen (Freigrenze 45.000 € Einnahmen).");
+  if (sphaereVermutung === "wgb" || alternativen.length) {
+    risiken.push("§ 64 AO: Freigrenze 45.000 € Einnahmen pro Jahr im wGb prüfen.");
+    if (i.betrag > 45000) ampel = "rot";
   }
-  if (sphaereVermutung === "zweckbetrieb" && !i.satzungsbezug) {
-    ampel = worse(ampel, "gelb");
+  if (sphaereVermutung === "zweckbetrieb" && !i.satzungsbezug && i.beteiligte) {
     risiken.push("Zweckbetrieb benötigt Satzungsbezug nach §§ 65–68 AO.");
-    fehlend.push("Nachweis Satzungsbezug");
   }
   if (sphaereVermutung === "vermoegen" && /werbung|sponsor/.test(text)) {
     ampel = "rot";
     risiken.push("Werbung/Sponsoring kann aus Vermögensverwaltung in wGb umqualifiziert werden.");
   }
+  if (sphaereVermutung === "ideell" && !alternativen.length) ampel = "gruen";
 
   const sphaereLabel: Record<Exclude<Sphaere, "">, string> = {
     ideell: "ideeller Bereich",
@@ -132,27 +153,24 @@ function bewerteSphaere(i: NpoInput): NpoErgebnis {
     wgb: "steuerpflichtiger wirtschaftlicher Geschäftsbetrieb",
   };
   const einsch = sphaereVermutung
-    ? `Vorgang spricht für Zuordnung zum ${sphaereLabel[sphaereVermutung]}.`
-    : "Sphärenzuordnung konnte aus den Angaben nicht abgeleitet werden.";
+    ? `Wahrscheinliche Einordnung: ${sphaereLabel[sphaereVermutung]}.`
+    : "Sphärenzuordnung aus den Angaben nicht eindeutig — Rückfragen empfohlen.";
 
   return {
-    tool: "sphaere",
+    tool: "sphaere" as const,
     toolLabel: TOOL_LABEL.sphaere,
     ampel,
-    einschaetzung: `${einsch} Organisationstyp: ${i.orgTyp}. Betrag: ${fmt(i.betrag)}.`,
+    einschaetzung: einsch,
+    alternativen,
     risiken,
     fehlendeAngaben: fehlend,
     unterlagen: ["Beleg / Rechnung", "Vertrag oder Vereinbarung", "Satzungsauszug", "ggf. Vorstandsbeschluss"],
-    rueckfragen: [
-      "Wofür wurden die Mittel konkret verwendet?",
-      "Besteht ein direkter Bezug zum Satzungszweck?",
-      "Gibt es Gegenleistungen für die andere Seite?",
-    ],
+    rueckfragen,
     buchungshinweis:
       sphaereVermutung === "ideell"
         ? "Ideeller Bereich SKR42: z. B. 4100 Beiträge / 4200 Spenden."
         : sphaereVermutung === "zweckbetrieb"
-          ? "Zweckbetrieb SKR42: 4400er Konten."
+          ? "Zweckbetrieb SKR42: 4400er Konten. Mischfälle aufteilen."
           : sphaereVermutung === "vermoegen"
             ? "Vermögensverwaltung SKR42: 4600er Konten."
             : sphaereVermutung === "wgb"
@@ -163,7 +181,7 @@ function bewerteSphaere(i: NpoInput): NpoErgebnis {
   };
 }
 
-function bewerteZweckVsWgb(i: NpoInput): NpoErgebnis {
+function bewerteZweckVsWgb(i: NpoInput){
   const t = i.beschreibung.toLowerCase();
   const risiken: string[] = [];
   let ampel: Ampel = "gelb";
@@ -208,7 +226,7 @@ function bewerteZweckVsWgb(i: NpoInput): NpoErgebnis {
   };
 }
 
-function bewerteSpende(i: NpoInput): NpoErgebnis {
+function bewerteSpende(i: NpoInput){
   const t = i.beschreibung.toLowerCase();
   const risiken: string[] = [];
   let ampel: Ampel = "gruen";
@@ -250,7 +268,7 @@ function bewerteSpende(i: NpoInput): NpoErgebnis {
   };
 }
 
-function bewerteZuschuss(i: NpoInput): NpoErgebnis {
+function bewerteZuschuss(i: NpoInput){
   const t = i.beschreibung.toLowerCase();
   const risiken: string[] = [];
   let ampel: Ampel = "gelb";
@@ -289,7 +307,7 @@ function bewerteZuschuss(i: NpoInput): NpoErgebnis {
   };
 }
 
-function bewerteMittelweitergabe(i: NpoInput): NpoErgebnis {
+function bewerteMittelweitergabe(i: NpoInput){
   const risiken: string[] = [];
   let ampel: Ampel = "gelb";
   if (i.richtung !== "ausgabe") {
@@ -331,7 +349,7 @@ function bewerteMittelweitergabe(i: NpoInput): NpoErgebnis {
   };
 }
 
-function bewerteRuecklage(i: NpoInput): NpoErgebnis {
+function bewerteRuecklage(i: NpoInput){
   const t = i.beschreibung.toLowerCase();
   const risiken: string[] = [];
   let ampel: Ampel = "gelb";
@@ -376,7 +394,7 @@ function bewerteRuecklage(i: NpoInput): NpoErgebnis {
   };
 }
 
-function bewerteUst(i: NpoInput): NpoErgebnis {
+function bewerteUst(i: NpoInput){
   const t = i.beschreibung.toLowerCase();
   const risiken: string[] = [];
   let ampel: Ampel = "gelb";
@@ -440,7 +458,8 @@ Mit freundlichen Grüßen
 Ihre Kanzlei`;
 }
 
-const RUNNER: Record<Tool, (i: NpoInput) => NpoErgebnis> = {
+type RunnerOut = Omit<NpoErgebnis, "sicherheit" | "annahmen" | "alternativen" | "ustHinweis"> & Partial<Pick<NpoErgebnis, "alternativen" | "ustHinweis">>;
+const RUNNER = {
   sphaere: bewerteSphaere,
   zweck_vs_wgb: bewerteZweckVsWgb,
   spende: bewerteSpende,
@@ -448,10 +467,51 @@ const RUNNER: Record<Tool, (i: NpoInput) => NpoErgebnis> = {
   mittelweitergabe: bewerteMittelweitergabe,
   ruecklage: bewerteRuecklage,
   ust: bewerteUst,
-};
+} as Record<Tool, (i: NpoInput) => RunnerOut>;
 
 export function pruefe(tool: Tool, input: NpoInput): NpoErgebnis {
-  return RUNNER[tool](input);
+  const raw = RUNNER[tool](input);
+  return enrich(raw, input);
+}
+
+function enrich(e: RunnerOut, i: NpoInput): NpoErgebnis {
+  const sicherheit = bewerteSicherheit(i);
+  const annahmen = ableiteAnnahmen(i);
+  const alternativen = e.alternativen ?? [];
+  const ustHinweis = e.ustHinweis ?? defaultUstHinweis(i);
+  let ampel = e.ampel;
+  if (sicherheit === "niedrig" && ampel === "gruen") ampel = "gelb";
+  return { ...e, ampel, sicherheit, annahmen, alternativen, ustHinweis };
+}
+
+function bewerteSicherheit(i: NpoInput): Sicherheit {
+  let score = 0;
+  if (i.betrag) score++;
+  if (i.beteiligte.trim()) score++;
+  if (i.sphaere) score++;
+  if (i.belegVorhanden || i.vertragVorhanden) score++;
+  if (i.satzungsbezug || i.zweckbindung) score++;
+  if (score >= 4) return "hoch";
+  if (score >= 2) return "mittel";
+  return "niedrig";
+}
+
+function ableiteAnnahmen(i: NpoInput): string[] {
+  const a: string[] = [];
+  if (!i.betrag) a.push("Betrag nicht angegeben — Wesentlichkeit kann nicht bewertet werden.");
+  if (!i.beteiligte.trim()) a.push("Beteiligte unbekannt — Empfänger-/Geberstatus nicht geprüft.");
+  if (!i.sphaere) a.push("Sphäre nicht vorgegeben — Einordnung erfolgt heuristisch aus Beschreibung.");
+  if (!i.belegVorhanden && !i.vertragVorhanden) a.push("Keine Belege/Verträge bestätigt — formale Nachweise offen.");
+  return a;
+}
+
+function defaultUstHinweis(i: NpoInput): string {
+  const t = i.beschreibung.toLowerCase();
+  if (/sponsor|werbung|logo/.test(t)) return "Aktives Sponsoring i. d. R. 19 % USt; Leistungsaustausch prüfen.";
+  if (/eintritt|aufführ|konzert|kultur/.test(t)) return "Ggf. 7 % USt (§ 12 Abs. 2 Nr. 7 UStG) oder Steuerbefreiung § 4 Nr. 20 UStG.";
+  if (/spende|zuwend/.test(t)) return "Spenden ohne Gegenleistung sind nicht steuerbar.";
+  if (/zuschuss|förder/.test(t)) return "Echter Zuschuss nicht steuerbar; bei Leistungsbezug 19 %.";
+  return "Steuerbarkeit, Steuersatz und etwaige Befreiungen (§ 4 UStG, § 19 UStG) prüfen.";
 }
 
 export function ergebnisAlsText(e: NpoErgebnis, i: NpoInput): string {

@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { ChevronDown } from "lucide-react";
 import {
   TOOLS,
   emptyInput,
@@ -99,8 +101,8 @@ function Page() {
                   NPO-Prüfassistent
                 </h1>
                 <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
-                  Sachverhalt eingeben, Prüfungstool auswählen, strukturierte Prüfnotiz erhalten.
-                  Sphären, Zweckbetrieb, Spenden, Zuschüsse, Mittelweitergabe, Rücklagen und USt.
+                  Beschreibe den Vorgang kurz. steuerstoff erstellt eine erste Einschätzung und
+                  fragt fehlende Angaben automatisch nach.
                 </p>
               </div>
             </div>
@@ -112,112 +114,116 @@ function Page() {
             {/* Form */}
             <div className="lg:col-span-2 space-y-4">
               <div className="rounded-2xl border border-border bg-card p-4 shadow-card-soft sm:p-5">
-                <h2 className="text-sm font-semibold text-foreground">1. Sachverhalt</h2>
-                <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                  <div className="sm:col-span-2">
-                    <label className="text-xs text-muted-foreground">Kurzbeschreibung</label>
-                    <Textarea
-                      rows={3}
-                      placeholder="z. B. Sponsoringeinnahme von lokalem Unternehmen mit Logoplatzierung"
-                      value={input.beschreibung}
-                      onChange={(e) => update("beschreibung", e.target.value)}
-                    />
-                  </div>
-                  <div>
-                    <label className="text-xs text-muted-foreground">Organisationstyp</label>
-                    <select
-                      className="mt-1 h-9 w-full rounded-md border border-input bg-transparent px-3 text-sm"
-                      value={input.orgTyp}
-                      onChange={(e) => update("orgTyp", e.target.value as OrgTyp)}
-                    >
-                      <option value="verein">Verein</option>
-                      <option value="ggmbh">gGmbH</option>
-                      <option value="stiftung">Stiftung</option>
-                      <option value="sonstige">Sonstige NPO</option>
-                    </select>
-                  </div>
-                  <div className="grid grid-cols-2 gap-3">
-                    <div>
-                      <label className="text-xs text-muted-foreground">Jahr</label>
-                      <Input
-                        type="number"
-                        value={input.jahr}
-                        onChange={(e) => update("jahr", Number(e.target.value) || 0)}
-                      />
-                    </div>
-                    <div>
-                      <label className="text-xs text-muted-foreground">Betrag (€)</label>
-                      <Input
-                        type="number"
-                        value={input.betrag}
-                        onChange={(e) => update("betrag", Number(e.target.value) || 0)}
-                      />
-                    </div>
-                  </div>
-                  <div className="sm:col-span-2">
-                    <label className="text-xs text-muted-foreground">
-                      Beteiligte Personen / Organisationen
-                    </label>
-                    <Input
-                      placeholder="z. B. Musterfirma GmbH; Stadt Musterstadt"
-                      value={input.beteiligte}
-                      onChange={(e) => update("beteiligte", e.target.value)}
-                    />
-                  </div>
-                  <div>
-                    <label className="text-xs text-muted-foreground">Richtung</label>
-                    <select
-                      className="mt-1 h-9 w-full rounded-md border border-input bg-transparent px-3 text-sm"
-                      value={input.richtung}
-                      onChange={(e) => update("richtung", e.target.value as Richtung)}
-                    >
-                      <option value="einnahme">Einnahme</option>
-                      <option value="ausgabe">Ausgabe</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="text-xs text-muted-foreground">Sphäre (falls bekannt)</label>
-                    <select
-                      className="mt-1 h-9 w-full rounded-md border border-input bg-transparent px-3 text-sm"
-                      value={input.sphaere}
-                      onChange={(e) => update("sphaere", e.target.value as Sphaere)}
-                    >
-                      <option value="">— unbekannt —</option>
-                      <option value="ideell">Ideeller Bereich</option>
-                      <option value="zweckbetrieb">Zweckbetrieb</option>
-                      <option value="vermoegen">Vermögensverwaltung</option>
-                      <option value="wgb">wirtschaftl. Geschäftsbetrieb</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="text-xs text-muted-foreground">SKR42-Konto (optional)</label>
-                    <Input
-                      placeholder="z. B. 4400"
-                      value={input.skr42 ?? ""}
-                      onChange={(e) => update("skr42", e.target.value)}
-                    />
-                  </div>
+                <h2 className="text-sm font-semibold text-foreground">1. Kurzbeschreibung</h2>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  Pflicht. Alles andere ist optional und verbessert nur die Einschätzung.
+                </p>
+                <div className="mt-3">
+                  <Textarea
+                    rows={4}
+                    autoFocus
+                    placeholder='z. B. „Sommerfest mit Eintritt und Getränkeverkauf" oder „Verein erhält Zuschuss für Projekt 2025"'
+                    value={input.beschreibung}
+                    onChange={(e) => update("beschreibung", e.target.value)}
+                  />
                 </div>
 
-                <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
-                  {([
-                    ["belegVorhanden", "Beleg vorhanden"],
-                    ["vertragVorhanden", "Vertrag vorhanden"],
-                    ["satzungsbezug", "Satzungsbezug"],
-                    ["zweckbindung", "Zweckbindung"],
-                  ] as Array<[keyof NpoInput, string]>).map(([k, l]) => (
-                    <label
-                      key={k}
-                      className="flex items-center gap-2 rounded-md border border-border bg-background px-3 py-2 text-xs text-foreground"
-                    >
-                      <Checkbox
-                        checked={Boolean(input[k])}
-                        onCheckedChange={(v) => update(k, Boolean(v) as never)}
-                      />
-                      {l}
-                    </label>
-                  ))}
-                </div>
+                <Collapsible className="mt-4">
+                  <CollapsibleTrigger className="group flex w-full items-center justify-between rounded-md border border-dashed border-border bg-background px-3 py-2 text-xs text-foreground hover:bg-accent/60">
+                    <span>Optionale Details ergänzen</span>
+                    <ChevronDown className="h-4 w-4 transition-transform group-data-[state=open]:rotate-180" />
+                  </CollapsibleTrigger>
+                  <CollapsibleContent>
+                    <p className="mt-3 text-[11px] text-muted-foreground">
+                      Optionale Details verbessern die Einschätzung, sind aber für den Start nicht erforderlich.
+                    </p>
+                    <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                      <div>
+                        <label className="text-xs text-muted-foreground">Organisationstyp</label>
+                        <select
+                          className="mt-1 h-9 w-full rounded-md border border-input bg-transparent px-3 text-sm"
+                          value={input.orgTyp}
+                          onChange={(e) => update("orgTyp", e.target.value as OrgTyp)}
+                        >
+                          <option value="verein">Verein</option>
+                          <option value="ggmbh">gGmbH</option>
+                          <option value="stiftung">Stiftung</option>
+                          <option value="sonstige">Sonstige NPO</option>
+                        </select>
+                      </div>
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <label className="text-xs text-muted-foreground">Jahr</label>
+                          <Input type="number" value={input.jahr} onChange={(e) => update("jahr", Number(e.target.value) || 0)} />
+                        </div>
+                        <div>
+                          <label className="text-xs text-muted-foreground">Betrag (€)</label>
+                          <Input type="number" value={input.betrag} onChange={(e) => update("betrag", Number(e.target.value) || 0)} />
+                        </div>
+                      </div>
+                      <div className="sm:col-span-2">
+                        <label className="text-xs text-muted-foreground">Beteiligte Personen / Organisationen</label>
+                        <Input
+                          placeholder="z. B. Musterfirma GmbH; Stadt Musterstadt"
+                          value={input.beteiligte}
+                          onChange={(e) => update("beteiligte", e.target.value)}
+                        />
+                      </div>
+                      <div>
+                        <label className="text-xs text-muted-foreground">Richtung</label>
+                        <select
+                          className="mt-1 h-9 w-full rounded-md border border-input bg-transparent px-3 text-sm"
+                          value={input.richtung}
+                          onChange={(e) => update("richtung", e.target.value as Richtung)}
+                        >
+                          <option value="einnahme">Einnahme</option>
+                          <option value="ausgabe">Ausgabe</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label className="text-xs text-muted-foreground">Sphäre (falls bekannt)</label>
+                        <select
+                          className="mt-1 h-9 w-full rounded-md border border-input bg-transparent px-3 text-sm"
+                          value={input.sphaere}
+                          onChange={(e) => update("sphaere", e.target.value as Sphaere)}
+                        >
+                          <option value="">— unbekannt —</option>
+                          <option value="ideell">Ideeller Bereich</option>
+                          <option value="zweckbetrieb">Zweckbetrieb</option>
+                          <option value="vermoegen">Vermögensverwaltung</option>
+                          <option value="wgb">wirtschaftl. Geschäftsbetrieb</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label className="text-xs text-muted-foreground">SKR42-Konto</label>
+                        <Input
+                          placeholder="z. B. 4400"
+                          value={input.skr42 ?? ""}
+                          onChange={(e) => update("skr42", e.target.value)}
+                        />
+                      </div>
+                    </div>
+                    <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
+                      {([
+                        ["belegVorhanden", "Beleg vorhanden"],
+                        ["vertragVorhanden", "Vertrag vorhanden"],
+                        ["satzungsbezug", "Satzungsbezug"],
+                        ["zweckbindung", "Zweckbindung"],
+                      ] as Array<[keyof NpoInput, string]>).map(([k, l]) => (
+                        <label
+                          key={k}
+                          className="flex items-center gap-2 rounded-md border border-border bg-background px-3 py-2 text-xs text-foreground"
+                        >
+                          <Checkbox
+                            checked={Boolean(input[k])}
+                            onCheckedChange={(v) => update(k, Boolean(v) as never)}
+                          />
+                          {l}
+                        </label>
+                      ))}
+                    </div>
+                  </CollapsibleContent>
+                </Collapsible>
               </div>
 
               <div ref={toolsRef} className="rounded-2xl border border-border bg-card p-4 shadow-card-soft sm:p-5 touch-pan-y">
@@ -258,8 +264,12 @@ function Page() {
                   })}
                 </div>
                 <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:justify-end">
-                  <Button onClick={run} className="h-10">
-                    Prüfung starten
+                  <Button
+                    onClick={run}
+                    disabled={!input.beschreibung.trim()}
+                    className="h-10"
+                  >
+                    NPO-Prüfung starten
                   </Button>
                 </div>
               </div>
@@ -271,8 +281,8 @@ function Page() {
                 <ResultCard r={result} onCopy={copy} onDownload={download} />
               ) : (
                 <div className="rounded-2xl border border-dashed border-border bg-card/60 p-6 text-sm text-muted-foreground">
-                  Bitte Sachverhalt erfassen und Prüfung starten. Das Ergebnis erscheint hier als
-                  strukturierte Prüfnotiz mit Ampel, Risiken, fehlenden Angaben und Textbaustein.
+                  Beschreibe den Vorgang in der Kurzbeschreibung und starte die Prüfung.
+                  Auch ohne weitere Angaben erstellt steuerstoff eine erste strukturierte Einschätzung.
                 </div>
               )}
 
@@ -300,22 +310,52 @@ function ResultCard({
 }) {
   const a = ampelStyle(r.ampel);
   const A = a.Icon;
+  const sicherheitLabel = r.sicherheit === "hoch" ? "Sicherheit: hoch" : r.sicherheit === "mittel" ? "Sicherheit: mittel" : "Sicherheit: niedrig";
+  const sicherheitClass =
+    r.sicherheit === "hoch"
+      ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+      : r.sicherheit === "mittel"
+        ? "bg-amber-50 text-amber-800 border-amber-200"
+        : "bg-muted text-muted-foreground border-border";
   return (
     <div className="rounded-2xl border border-border bg-card shadow-card-soft">
-      <div className={`flex items-center gap-2 rounded-t-2xl border-b ${a.border} ${a.bg} px-4 py-3`}>
+      <div className={`flex flex-wrap items-center gap-2 rounded-t-2xl border-b ${a.border} ${a.bg} px-4 py-3`}>
         <A className={`h-4 w-4 ${a.text}`} />
         <div className={`text-sm font-semibold ${a.text}`}>{a.label}</div>
+        <span className={`rounded-full border px-2 py-0.5 text-[10px] ${sicherheitClass}`}>{sicherheitLabel}</span>
         <div className="ml-auto text-xs text-muted-foreground">{r.toolLabel}</div>
       </div>
       <div className="space-y-4 p-4 sm:p-5">
-        <p className="text-sm text-foreground">{r.einschaetzung}</p>
+        {r.sicherheit === "niedrig" && (
+          <div className="rounded-md border border-dashed border-border bg-background p-2 text-[11px] text-muted-foreground">
+            Ersteinschätzung auf Basis der Kurzbeschreibung. Für eine belastbarere Prüfung sind
+            zusätzliche Angaben hilfreich.
+          </div>
+        )}
+        <div>
+          <div className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Wahrscheinliche Einordnung</div>
+          <p className="mt-1 text-sm text-foreground">{r.einschaetzung}</p>
+        </div>
 
-        <Section title="Risiken" items={r.risiken} empty="Keine Risiken erkannt." />
-        <Section title="Fehlende Angaben" items={r.fehlendeAngaben} empty="Keine fehlenden Angaben." />
+        {r.alternativen.length > 0 && (
+          <Section title="Mögliche Alternativ-Einordnung" items={r.alternativen} />
+        )}
+        {r.annahmen.length > 0 && <Section title="Annahmen" items={r.annahmen} />}
+
+        <Section title="Prüfpflichtige Punkte / Risiken" items={r.risiken} empty="Keine besonderen Risiken erkannt." />
+        <Section
+          title="Hilfreich wäre"
+          items={r.fehlendeAngaben}
+          empty="Angaben ausreichend."
+        />
         <Section title="Benötigte Unterlagen" items={r.unterlagen} />
         <Section title="Empfohlene Rückfragen" items={r.rueckfragen} />
 
         <div className="grid grid-cols-1 gap-2 rounded-lg border border-border bg-background p-3 text-xs">
+          <div>
+            <span className="font-medium text-foreground">USt-Hinweis:</span>{" "}
+            <span className="text-muted-foreground">{r.ustHinweis}</span>
+          </div>
           <div>
             <span className="font-medium text-foreground">Buchung / SKR42:</span>{" "}
             <span className="text-muted-foreground">{r.buchungshinweis}</span>

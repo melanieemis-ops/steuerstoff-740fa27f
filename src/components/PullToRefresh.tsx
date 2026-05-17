@@ -69,6 +69,10 @@ export function PullToRefresh({
         direction.current = "blocked";
         return;
       }
+      if (typeof document !== "undefined" && document.body.dataset.menuOpen === "true") {
+        direction.current = "blocked";
+        return;
+      }
       if (isFormTarget(e.target)) {
         direction.current = "blocked";
         return;
@@ -142,6 +146,9 @@ export function PullToRefresh({
         setStatus("loading");
         setPull(48);
         pullRef.current = 48;
+        if (typeof window !== "undefined") {
+          window.dispatchEvent(new CustomEvent("steuerstoff:refreshing", { detail: true }));
+        }
         const timeout = new Promise<void>((_, rej) =>
           window.setTimeout(() => rej(new Error("timeout")), 5000),
         );
@@ -154,6 +161,9 @@ export function PullToRefresh({
           refreshing.current = false;
           setPull(0);
           pullRef.current = 0;
+          if (typeof window !== "undefined") {
+            window.dispatchEvent(new CustomEvent("steuerstoff:refreshing", { detail: false }));
+          }
           window.setTimeout(() => setStatus("idle"), 900);
         }
       } else {
@@ -167,15 +177,21 @@ export function PullToRefresh({
       if (!refreshing.current) reset();
     };
 
+    const onMenuOpen = () => {
+      if (!refreshing.current) reset();
+    };
+
     window.addEventListener("touchstart", onTouchStart, { passive: true });
     window.addEventListener("touchmove", onTouchMove, { passive: true });
     window.addEventListener("touchend", onTouchEnd, { passive: true });
     window.addEventListener("touchcancel", onCancel, { passive: true });
+    window.addEventListener("steuerstoff:menu-open", onMenuOpen);
     return () => {
       window.removeEventListener("touchstart", onTouchStart);
       window.removeEventListener("touchmove", onTouchMove);
       window.removeEventListener("touchend", onTouchEnd);
       window.removeEventListener("touchcancel", onCancel);
+      window.removeEventListener("steuerstoff:menu-open", onMenuOpen);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
   }, []);

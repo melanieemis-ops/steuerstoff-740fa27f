@@ -13,6 +13,7 @@ import {
   gesamtEinnahmen, schwelleAmpel, zeitnahZuVerwendendeMittel, zweckentsprechendeVerwendung,
   pruefpflichtigeVerwendung, betriebsmittelSumme, berechneFreieRuecklage, vermoegenszufuehrungSumme,
   summeZulaessigeRuecklagen, berechneErgebnis, fristStatus, ampelClass, ampelLabel, fmt, buildExport,
+  analysiere, buildKurz, buildPruefnotiz, buildMandant, buildVorstand, buildRueckfragen, buildTodos,
   type RuecklageArt,
 } from "@/lib/mvrStore";
 import { Term } from "@/components/MvrGlossary";
@@ -677,42 +678,126 @@ function StepSpiegel({ state, update }: { state: MvrState; update: <K extends ke
 }
 
 function StepErgebnis({ state }: { state: MvrState }) {
-  const e = useMemo(() => berechneErgebnis(state), [state]);
-  const sw = schwelleAmpel(state.schwelle);
-  const interpretation =
-    e.verwendungsueberhang > 0 ? "Positiver Wert: mögliche nicht zeitnahe Mittelverwendung / Prüfbedarf."
-      : e.verwendungsueberhang === 0 ? "Null: rechnerisch ausgeglichen."
-      : "Negativer Wert: mehr Mittel zweckentsprechend verwendet als erforderlich.";
+  const a = useMemo(() => analysiere(state), [state]);
+  const e = a.ergebnis;
+  const sw = a.schwelle;
+  const [mode, setMode] = useState<"kurz" | "pruef" | "mandant" | "vorstand" | "fragen" | "todos">("kurz");
+
+  const text = useMemo(() => {
+    switch (mode) {
+      case "kurz": return buildKurz(state);
+      case "pruef": return buildPruefnotiz(state);
+      case "mandant": return buildMandant(state);
+      case "vorstand": return buildVorstand(state);
+      case "fragen": return buildRueckfragen(state);
+      case "todos": return buildTodos(state);
+    }
+  }, [mode, state]);
+
+  const [copied, setCopied] = useState(false);
+  const copy = async () => { await navigator.clipboard.writeText(text); setCopied(true); setTimeout(() => setCopied(false), 1500); };
+  const download = () => {
+    const names: Record<typeof mode, string> = {
+      kurz: "kurze-einschaetzung.txt", pruef: "pruefnotiz.txt", mandant: "mandantenhinweis.txt",
+      vorstand: "vorstandsvorlage.txt", fragen: "rueckfragen.txt", todos: "todo-mvr.txt",
+    };
+    const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a"); link.href = url; link.download = names[mode]; link.click(); URL.revokeObjectURL(url);
+  };
+
+  const modes: { key: typeof mode; label: string }[] = [
+    { key: "kurz", label: "1 · Kurze Einschätzung" },
+    { key: "pruef", label: "2 · Prüfnotiz (Kanzlei)" },
+    { key: "mandant", label: "3 · Mandantenerklärung" },
+    { key: "vorstand", label: "4 · Vorstandsvorlage" },
+    { key: "fragen", label: "5 · Rückfragen" },
+    { key: "todos", label: "6 · To-do-Liste" },
+  ];
 
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-      <Card title="1. Gesamtstatus" accent="var(--violet)">
-        <span className={`inline-flex rounded-full border px-3 py-1 text-sm font-semibold ${ampelClass(e.gesamtAmpel)}`}>{ampelLabel(e.gesamtAmpel)}</span>
-        <ul className="mt-3 list-disc space-y-1 pl-5 text-xs text-foreground/80">
-          {e.hinweise.length === 0 ? <li>Keine Auffälligkeiten erkannt.</li> : e.hinweise.map((h, i) => <li key={i}>{h}</li>)}
-        </ul>
+    <div className="space-y-5">
+      {/* Header-Karte mit Ampel + Kernsatz */}
+      <Card title="Gesamtergebnis" accent="var(--violet)">
+        <div className="flex flex-wrap items-center gap-3">
+          <span className={`inline-flex rounded-full border px-3 py-1 text-sm font-semibold ${ampelClass(a.gesamt)}`}>
+            Ampel: {ampelLabel(a.gesamt)}
+          </span>
+          <span className="text-xs text-muted-foreground">{a.findings.length} Hinweis(e) erkannt</span>
+        </div>
+        <p className="mt-3 text-sm text-foreground/90">{a.kernsatz}</p>
+        <div className="mt-3 grid gap-2 sm:grid-cols-2">
+          <div className="rounded-lg border border-border bg-card/40 p-3 text-xs">
+            <div className="font-medium text-foreground">Wichtigste Auffälligkeit</div>
+            <p className="mt-1 text-foreground/80">{a.hauptauffaelligkeit}</p>
+          </div>
+          <div className="rounded-lg border border-border bg-card/40 p-3 text-xs">
+            <div className="font-medium text-foreground">Nächster Schritt</div>
+            <p className="mt-1 text-foreground/80">{a.naechsterSchritt}</p>
+          </div>
+        </div>
+        <div className="mt-4"><Note tone="warn">Nicht verbindlich. Bitte steuerlich prüfen lassen.</Note></div>
       </Card>
-      <Card title="2. 45.000-€-Schwelle" accent="var(--cyan)">
-        <div className="text-sm">Gesamteinnahmen: <strong>{fmt(gesamtEinnahmen(state.schwelle))}</strong></div>
-        <span className={`mt-2 inline-flex rounded-full border px-3 py-1 text-xs ${ampelClass(sw.ampel)}`}>{ampelLabel(sw.ampel)}</span>
-        <p className="mt-2 text-xs text-muted-foreground">{sw.hinweis}</p>
+
+      {/* Zahlenüberblick */}
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+        <Card title="Zeitnah"><div className="text-base font-semibold">{fmt(e.zeitnah)}</div></Card>
+        <Card title="Zweckentsprechend"><div className="text-base font-semibold">{fmt(e.zweckentsprechend)}</div></Card>
+        <Card title="Rücklagen"><div className="text-base font-semibold">{fmt(e.ruecklagen)}</div></Card>
+        <Card title={<>Verwendungsüberhang</>}>
+          <div className="text-base font-semibold">{fmt(e.verwendungsueberhang)}</div>
+        </Card>
+        <Card title="§ 62 Abs. 3 AO"><div className="text-base font-semibold">{fmt(e.vz62)}</div></Card>
+        <Card title="Mittelvortrag offen"><div className="text-base font-semibold">{fmt(e.mittelvortragOffen)}</div></Card>
+        <Card title="45.000-€-Schwelle">
+          <span className={`inline-flex rounded-full border px-2 py-0.5 text-xs ${ampelClass(sw.ampel)}`}>{ampelLabel(sw.ampel)}</span>
+        </Card>
+        <Card title="Freie Rücklage">
+          <span className={`inline-flex rounded-full border px-2 py-0.5 text-xs ${ampelClass(a.freie.ampel)}`}>{ampelLabel(a.freie.ampel)}</span>
+        </Card>
+      </div>
+
+      {/* Findings */}
+      <Card title="Findings (Risikologik)" accent="var(--magenta)">
+        {a.findings.length === 0 ? (
+          <p className="text-xs text-muted-foreground">Keine Auffälligkeiten erkannt.</p>
+        ) : (
+          <ul className="space-y-1.5 text-xs">
+            {a.findings.map((f, i) => (
+              <li key={i} className="flex items-start gap-2">
+                <span className={`mt-0.5 inline-flex shrink-0 rounded-full border px-2 py-0.5 text-[10px] font-semibold ${ampelClass(f.level)}`}>{ampelLabel(f.level)}</span>
+                <span className="text-foreground/85">{f.text}</span>
+              </li>
+            ))}
+          </ul>
+        )}
       </Card>
-      <Card title="3. Zeitnah zu verwendende Mittel"><div className="text-lg font-semibold">{fmt(e.zeitnah)}</div></Card>
-      <Card title="4. Zweckentsprechend verwendet"><div className="text-lg font-semibold">{fmt(e.zweckentsprechend)}</div></Card>
-      <Card title="5. Zulässige Rücklagen"><div className="text-lg font-semibold">{fmt(e.ruecklagen)}</div></Card>
-      <Card title="6. Vermögenszuführungen § 62 Abs. 3 AO"><div className="text-lg font-semibold">{fmt(e.vz62)}</div></Card>
-      <Card title="7. Mittelvortrag (offen, innerhalb Frist)"><div className="text-lg font-semibold">{fmt(e.mittelvortragOffen)}</div></Card>
-      <Card title={<>8. <Term name="Verwendungsüberhang" /></>} accent="var(--magenta)">
-        <div className="text-2xl font-semibold">{fmt(e.verwendungsueberhang)}</div>
-        <p className="mt-2 text-xs text-muted-foreground">{interpretation}</p>
-        <p className="mt-2 text-xs italic text-muted-foreground">Der Verwendungsüberhang ist ein rechnerischer Arbeitswert und ersetzt keine fachliche Prüfung.</p>
+
+      {/* Antwortmodi */}
+      <Card title="Antwortmodi" accent="var(--cyan)">
+        <div className="flex flex-wrap gap-1.5">
+          {modes.map((m) => (
+            <button
+              key={m.key}
+              onClick={() => setMode(m.key)}
+              className={`rounded-full border px-3 py-1 text-xs transition ${
+                mode === m.key
+                  ? "border-foreground/30 bg-foreground text-background"
+                  : "border-border bg-card text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {m.label}
+            </button>
+          ))}
+        </div>
+        <div className="mt-3 flex flex-wrap gap-2">
+          <Button size="sm" onClick={copy}><Copy className="mr-1 h-3.5 w-3.5" /> {copied ? "Kopiert" : "Kopieren"}</Button>
+          <Button size="sm" variant="outline" onClick={download}><Download className="mr-1 h-3.5 w-3.5" /> Als .txt</Button>
+        </div>
+        <Textarea value={text} readOnly className="mt-4 min-h-[360px] font-mono text-xs" />
       </Card>
-      <Card title="9. Rücklagenspiegel">
-        <div className="text-sm">{state.spiegel.length} Position(en) erfasst.</div>
-      </Card>
-      <Card title="10. Review-Hinweis" accent="var(--deep-blue)">
-        <Note tone="warn">{REVIEW_NOTE}</Note>
-      </Card>
+
+      <Note tone="warn">{REVIEW_NOTE}</Note>
     </div>
   );
 }

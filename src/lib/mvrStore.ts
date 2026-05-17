@@ -427,6 +427,345 @@ export function fmt(n: number): string {
   return n.toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " €";
 }
 
+// -------- Erweiterte Risiko- und Antwortlogik --------
+
+export interface RiskFinding {
+  level: Ampel;
+  text: string;
+}
+
+export interface MvrAnalyse {
+  ergebnis: MvrErgebnis;
+  schwelle: ReturnType<typeof schwelleAmpel>;
+  freie: FreieRuecklageErgebnis;
+  findings: RiskFinding[];
+  gesamt: Ampel;
+  kernsatz: string;
+  naechsterSchritt: string;
+  hauptauffaelligkeit: string;
+  fehlendeUnterlagen: string[];
+  rueckfragen: string[];
+  todos: string[];
+  beschluesse: { art: string; betrag: number; begruendung: string }[];
+}
+
+function worse(a: Ampel, b: Ampel): Ampel {
+  const r = ["gruen", "gelb", "rot"] as const;
+  return r.indexOf(a) >= r.indexOf(b) ? a : b;
+}
+
+export function analysiere(s: MvrState): MvrAnalyse {
+  const ergebnis = berechneErgebnis(s);
+  const sw = schwelleAmpel(s.schwelle);
+  const fr = berechneFreieRuecklage(s.freieRuecklage);
+  const curYear = Number(s.stamm.jahr) || new Date().getFullYear();
+  const findings: RiskFinding[] = [];
+  let gesamt: Ampel = "gruen";
+
+  // 45k-Schwelle
+  if (sw.ampel !== "gruen") {
+    findings.push({ level: sw.ampel, text: `45.000-€-Grenze überschritten – ${sw.hinweis}` });
+    gesamt = worse(gesamt, sw.ampel);
+  }
+
+  // Freie Rücklage
+  if (fr.ampel === "rot") {
+    findings.push({ level: "rot", text: "Freie Rücklage überschreitet das nach § 62 Abs. 1 Nr. 3 AO zulässige Maß." });
+    gesamt = "rot";
+  } else if (fr.ampel === "gelb") {
+    findings.push({ level: "gelb", text: "Freie Rücklage nahe am zulässigen Maximum – Berechnung sauber dokumentieren." });
+    gesamt = worse(gesamt, "gelb");
+  }
+
+  // Verwendungsüberhang
+  if (ergebnis.verwendungsueberhang > 0) {
+    const altMittel = s.mittelvortrag.some((m) => fristStatus(m, curYear).status !== "innerhalb" && fristStatus(m, curYear).offen > 0);
+    const lvl: Ampel = altMittel || ergebnis.verwendungsueberhang > ergebnis.zeitnah * 0.1 ? "rot" : "gelb";
+    findings.push({ level: lvl, text: `Positiver Verwendungsüberhang von ${fmt(ergebnis.verwendungsueberhang)} – mögliche nicht zeitnahe Mittelverwendung.` });
+    gesamt = worse(gesamt, lvl);
+  }
+
+  // Mittelvortrag-Fristen
+  s.mittelvortrag.forEach((m) => {
+    const st = fristStatus(m, curYear);
+    if (st.status === "ueberschritten" && st.offen > 0) {
+      findings.push({ level: "rot", text: `Mittelvortrag Zufluss ${m.zuflussjahr}: Zwei-Jahres-Frist überschritten (offen ${fmt(st.offen)}).` });
+      gesamt = "rot";
+    } else if (st.status === "endetBald" && st.offen > 0) {
+      findings.push({ level: "gelb", text: `Mittelvortrag Zufluss ${m.zuflussjahr}: Frist endet ${st.fristende} – Verwendung sicherstellen.` });
+      gesamt = worse(gesamt, "gelb");
+    }
+  });
+
+  // Darlehen
+  if (s.verwendung.darlehen > 0) {
+    findings.push({ level: "gelb", text: "Darlehensvergabe aus zeitnah zu verwendenden Mitteln – Zweckbezug schriftlich begründen." });
+    gesamt = worse(gesamt, "gelb");
+  }
+
+  // VV/wGB ohne freie Rücklage gedeckt
+  const vvWgB = s.verwendung.ausgVV + s.verwendung.ausgWgB + s.verwendung.anlagevermoegenSonstiges;
+  const freieDeckung = Math.min(s.freieRuecklage.geplanteZufuehrung, fr.maxZuluessig);
+  if (vvWgB > freieDeckung + s.zufluesse.vermoegenszufuehrung62Abs3 + vermoegenszufuehrungSumme(s.vz62Abs3)) {
+    findings.push({ level: "rot", text: "Mittel in Vermögensverwaltung / wirt. Geschäftsbetrieb ohne erkennbare Deckung aus freier Rücklage oder Vermögenszuführung." });
+    gesamt = "rot";
+  }
+
+  // Rücklagen ohne Beschluss/Zweck/Plan
+  s.zweckRuecklagen.forEach((r) => {
+    if (r.zufuehrung > 0 && (!r.beschluss || !r.finanzplan || !r.zweck)) {
+      findings.push({ level: "rot", text: `Zweckgebundene Rücklage „${r.projekt || "(ohne Bezeichnung)"}": Beschluss, Finanzierungsplan oder Zweck fehlen.` });
+      gesamt = "rot";
+    }
+  });
+  s.spiegel.forEach((r) => {
+    if (r.zufuehrung > 0 && (!r.beschlussdatum || !r.zweck)) {
+      findings.push({ level: "gelb", text: `Rücklage (${r.art}): Beschlussdatum oder Zweckangabe im Spiegel fehlt.` });
+      gesamt = worse(gesamt, "gelb");
+    }
+  });
+
+  // Fehlende Sphärenzuordnung im Anlagevermögen
+  if ((s.vermoegen.saIdeell + s.vermoegen.saVV + s.vermoegen.saWgB) === 0 && s.vermoegen.saSonstiges > 0) {
+    findings.push({ level: "gelb", text: "Sachanlagen nicht den Sphären zugeordnet (ideell / Zweckbetrieb / VV / wGB)." });
+    gesamt = worse(gesamt, "gelb");
+  }
+
+  // Stammdaten unvollständig
+  if (!s.stamm.name || !s.zufluesse.zuflussjahr) {
+    findings.push({ level: "gelb", text: "Stammdaten unvollständig (Name der Körperschaft oder Zuflussjahr fehlt)." });
+    gesamt = worse(gesamt, "gelb");
+  }
+
+  // Kernsatz + nächster Schritt
+  let kernsatz = "";
+  let naechsterSchritt = "";
+  if (gesamt === "gruen") {
+    kernsatz = `Die Mittelverwendung ${s.stamm.jahr} ist rechnerisch unauffällig. Zeitnah zu verwenden waren ${fmt(ergebnis.zeitnah)}; davon wurden ${fmt(ergebnis.zweckentsprechend)} zweckentsprechend eingesetzt und ${fmt(ergebnis.ruecklagen)} in zulässige Rücklagen überführt. Ein Verwendungsüberhang besteht rechnerisch nicht.`;
+    naechsterSchritt = "Prüfnotiz und Rücklagenspiegel zur Akte nehmen und Steuerberater-Review dokumentieren.";
+  } else if (gesamt === "gelb") {
+    kernsatz = `Die Mittelverwendung ${s.stamm.jahr} ist mit Einschränkungen plausibel: zeitnah zu verwenden ${fmt(ergebnis.zeitnah)}, zweckentsprechend ${fmt(ergebnis.zweckentsprechend)}, Rücklagen ${fmt(ergebnis.ruecklagen)}, Verwendungsüberhang ${fmt(ergebnis.verwendungsueberhang)}. Einzelne Angaben oder Nachweise sind nachzuziehen.`;
+    naechsterSchritt = "Offene Punkte und Rückfragen mit dem Mandanten klären, bevor die Rechnung finalisiert wird.";
+  } else {
+    kernsatz = `Die Mittelverwendung ${s.stamm.jahr} weist gemeinnützigkeitsrechtliche Risiken auf. Zeitnah ${fmt(ergebnis.zeitnah)}, zweckentsprechend ${fmt(ergebnis.zweckentsprechend)}, Rücklagen ${fmt(ergebnis.ruecklagen)}, Verwendungsüberhang ${fmt(ergebnis.verwendungsueberhang)}.`;
+    naechsterSchritt = "Sofort fachlich prüfen lassen: Fristen, Rücklagenbeschlüsse und Sphärenzuordnung priorisiert klären.";
+  }
+
+  const haupt = findings.find((f) => f.level === "rot")?.text
+    || findings.find((f) => f.level === "gelb")?.text
+    || "Keine wesentliche Auffälligkeit.";
+
+  const fehlendeUnterlagen: string[] = [];
+  if (s.zweckRuecklagen.some((r) => r.zufuehrung > 0 && !r.beschluss)) fehlendeUnterlagen.push("Vorstandsbeschluss zur zweckgebundenen Rücklage");
+  if (s.zweckRuecklagen.some((r) => r.zufuehrung > 0 && !r.finanzplan)) fehlendeUnterlagen.push("Projekt- und Finanzierungsplan");
+  if (s.spiegel.some((r) => r.zufuehrung > 0 && !r.beschlussdatum)) fehlendeUnterlagen.push("Beschlussdatum im Rücklagenspiegel");
+  if (s.spiegel.some((r) => !r.nachweis)) fehlendeUnterlagen.push("Nachweise/Belege je Rücklage");
+  if (!s.betriebsmittel.beschluss && betriebsmittelSumme(s.betriebsmittel) > 0) fehlendeUnterlagen.push("Beschluss zur Betriebsmittelrücklage");
+  if (s.wiederbeschaffung.some((w) => !w.beschluss)) fehlendeUnterlagen.push("Beschluss zur Wiederbeschaffungsrücklage");
+  if (!s.vz62Abs3.nachweis && vermoegenszufuehrungSumme(s.vz62Abs3) > 0) fehlendeUnterlagen.push("Nachweis zur Vermögenszuführung § 62 Abs. 3 AO");
+
+  const rueckfragen: string[] = [
+    "Gibt es für jede gebildete Rücklage einen schriftlichen Vorstandsbeschluss?",
+    "Liegt für zweckgebundene Rücklagen ein konkreter Projekt- und Finanzierungsplan vor?",
+    "Wurden Mittel aus der Vermögensverwaltung nicht doppelt als Bemessungsgrundlage für die 10 %-Rücklage angesetzt?",
+    "Welche Mittel stammen aus welchem Zuflussjahr (Zuordnung Mittelvortrag)?",
+    "Sind alle offenen Mittel noch innerhalb der Zwei-Jahres-Frist nach § 55 Abs. 1 Nr. 5 AO?",
+    "Gibt es Vermögenszuführungen nach § 62 Abs. 3 AO (Todesfall, Ausstattung, Spendenaufruf, Sachzuwendung)?",
+    "Sind Anlagegüter eindeutig dem ideellen Bereich, Zweckbetrieb, der Vermögensverwaltung oder dem wirtschaftlichen Geschäftsbetrieb zugeordnet?",
+  ];
+  if (s.verwendung.darlehen > 0) rueckfragen.push("Wofür wurden Darlehen vergeben und besteht ein unmittelbarer Zweckbezug?");
+  if (s.gesellschaftsrechte.vorhanden) rueckfragen.push("Dient die Rücklage zur Erhaltung von Gesellschaftsrechten – nicht zum erstmaligen Erwerb?");
+
+  const todos: string[] = [
+    "Rücklagenbeschluss prüfen und ggf. nachholen",
+    "Finanzierungsplan und Zeitplan für zweckgebundene Rücklagen ergänzen",
+    "Mittelvortrag mit Zuflussjahren abstimmen",
+    "Offene Altmittel innerhalb der Zwei-Jahres-Frist klären",
+    "Vermögensverwaltung separat von ideellem Bereich prüfen",
+    "Sphärenzuordnung der Anlagegüter dokumentieren",
+    "Steuerberater-Review durchführen und Ergebnis ablegen",
+  ];
+
+  const beschluesse: { art: string; betrag: number; begruendung: string }[] = [];
+  if (s.freieRuecklage.geplanteZufuehrung > 0) {
+    beschluesse.push({
+      art: "Freie Rücklage (§ 62 Abs. 1 Nr. 3 AO)",
+      betrag: Math.min(s.freieRuecklage.geplanteZufuehrung, fr.maxZuluessig),
+      begruendung: `Zuführung gestützt auf 1/3 des verrechenbaren VV-Überschusses (${fmt(fr.drittelVV)}) zzgl. 10 % sonstiger zeitnah zu verwendender Mittel (${fmt(fr.zehnProzentSonstige)}) zzgl. Nachholung (${fmt(fr.nachholung)}).`,
+    });
+  }
+  s.zweckRuecklagen.forEach((r) => {
+    if (r.zufuehrung > 0) {
+      beschluesse.push({
+        art: `Zweckgebundene Rücklage „${r.projekt || "ohne Bezeichnung"}" (§ 62 Abs. 1 Nr. 1 AO)`,
+        betrag: r.zufuehrung,
+        begruendung: r.zweck || "Zweck zu ergänzen; Finanzierungs- und Zeitplan beifügen.",
+      });
+    }
+  });
+  const bm = betriebsmittelSumme(s.betriebsmittel);
+  if (bm > 0) beschluesse.push({
+    art: "Betriebsmittelrücklage (§ 62 Abs. 1 Nr. 1 AO)",
+    betrag: bm,
+    begruendung: `Sicherung der periodisch wiederkehrenden Ausgaben für ${s.betriebsmittel.monate} Monate (Personal, Miete, Energie, Sonstiges).`,
+  });
+  s.wiederbeschaffung.forEach((w) => {
+    if (w.zufuehrung > 0) beschluesse.push({
+      art: `Wiederbeschaffungsrücklage „${w.wirtschaftsgut}" (§ 62 Abs. 1 Nr. 2 AO)`,
+      betrag: w.zufuehrung,
+      begruendung: `AK ${fmt(w.ak)}, Nutzungsdauer ${w.nutzungsdauer} Jahre, jährliche AfA ${fmt(w.afa)}, geplanter Ersatz ${w.ersatzAm || "offen"}.`,
+    });
+  });
+
+  return {
+    ergebnis, schwelle: sw, freie: fr, findings, gesamt,
+    kernsatz, naechsterSchritt, hauptauffaelligkeit: haupt,
+    fehlendeUnterlagen, rueckfragen, todos, beschluesse,
+  };
+}
+
+// -------- Antwortmodi (Text-Builder) --------
+
+const DISCLAIMER = "Nicht verbindlich. Bitte steuerlich prüfen lassen.";
+
+export function buildKurz(s: MvrState): string {
+  const a = analysiere(s);
+  const L = [
+    `Ampel: ${ampelLabel(a.gesamt).toUpperCase()}`,
+    "",
+    a.kernsatz,
+    "",
+    `Wichtigste Auffälligkeit: ${a.hauptauffaelligkeit}`,
+    `Nächster Schritt: ${a.naechsterSchritt}`,
+    "",
+    DISCLAIMER,
+  ];
+  return L.join("\n");
+}
+
+export function buildPruefnotiz(s: MvrState): string {
+  const a = analysiere(s);
+  const e = a.ergebnis;
+  const curYear = Number(s.stamm.jahr) || new Date().getFullYear();
+  const L: string[] = [];
+  L.push("KANZLEIINTERNE PRÜFNOTIZ – MITTELVERWENDUNGSRECHNUNG");
+  L.push("=".repeat(60));
+  L.push(`Mandant: ${s.stamm.name || "(ohne)"} · Rechtsform: ${s.stamm.rechtsform} · WJ ${s.stamm.jahr}`);
+  L.push(`Bearbeiter/in: ${s.stamm.bearbeiter || "—"} · Review: ${s.stamm.reviewStatus}`);
+  L.push(`Gesamtampel: ${ampelLabel(a.gesamt)}`);
+  L.push("");
+  L.push("1. SACHVERHALT");
+  L.push(`Geprüft wird die Mittelverwendung für das Wirtschaftsjahr ${s.stamm.jahr} der ${s.stamm.rechtsform} „${s.stamm.name || "—"}" (Gemeinnützigkeit: ${s.stamm.gemeinnuetzig}).`);
+  L.push("");
+  L.push("2. DATENGRUNDLAGE");
+  L.push(`- Stammdaten und Sphäreneinnahmen erfasst (Gesamt: ${fmt(gesamtEinnahmen(s.schwelle))}).`);
+  L.push(`- Mittelzuflüsse, Mittelverwendung, Vermögen, Rücklagen und Mittelvortrag erfasst.`);
+  L.push(`- ${s.spiegel.length} Position(en) im Rücklagenspiegel, ${s.mittelvortrag.length} Mittelvortragsposition(en).`);
+  L.push("");
+  L.push("3. 45.000-€-SCHWELLENPRÜFUNG");
+  L.push(`Gesamteinnahmen ${fmt(gesamtEinnahmen(s.schwelle))} – Ampel ${ampelLabel(a.schwelle.ampel)}.`);
+  L.push(`${a.schwelle.hinweis}`);
+  L.push("");
+  L.push("4. ZEITNAH ZU VERWENDENDE MITTEL");
+  L.push(`Summe: ${fmt(e.zeitnah)} (Zuflussjahr ${s.zufluesse.zuflussjahr}).`);
+  L.push("");
+  L.push("5. ZWECKENTSPRECHENDE MITTELVERWENDUNG");
+  L.push(`Summe: ${fmt(e.zweckentsprechend)} (ideell, Zweckbetrieb, Mittelweitergabe, nutzungsgebundenes AV).`);
+  L.push(`Prüfpflichtige Verwendung: ${fmt(pruefpflichtigeVerwendung(s.verwendung))}.`);
+  L.push("");
+  L.push("6. RÜCKLAGENPRÜFUNG");
+  L.push(`Freie Rücklage max. zulässig: ${fmt(a.freie.maxZuluessig)} – geplant: ${fmt(a.freie.geplant)} – Differenz: ${fmt(a.freie.differenz)} (${ampelLabel(a.freie.ampel)}).`);
+  L.push(`Zweckgebundene Rücklagen: ${s.zweckRuecklagen.length} · Betriebsmittel: ${fmt(betriebsmittelSumme(s.betriebsmittel))} · Wiederbeschaffung: ${s.wiederbeschaffung.length}.`);
+  L.push(`Summe zulässige Rücklagen: ${fmt(e.ruecklagen)}.`);
+  L.push("");
+  L.push("7. MITTELVORTRAG / ZWEI-JAHRES-FRIST");
+  if (s.mittelvortrag.length === 0) L.push("Keine Mittelvortragspositionen erfasst.");
+  else s.mittelvortrag.forEach((m) => {
+    const st = fristStatus(m, curYear);
+    L.push(`- Zufluss ${m.zuflussjahr}: ${fmt(m.betrag)} · offen ${fmt(st.offen)} · Frist ${st.fristende} (${st.status}).`);
+  });
+  L.push("");
+  L.push("8. VERWENDUNGSÜBERHANG");
+  L.push(`Rechnerisch: ${fmt(e.verwendungsueberhang)} (${ampelLabel(a.gesamt)}).`);
+  L.push("");
+  L.push("9. OFFENE PUNKTE");
+  if (a.findings.length === 0) L.push("- keine");
+  else a.findings.forEach((f) => L.push(`- [${ampelLabel(f.level)}] ${f.text}`));
+  if (a.fehlendeUnterlagen.length > 0) {
+    L.push("Fehlende Unterlagen:");
+    a.fehlendeUnterlagen.forEach((u) => L.push(`- ${u}`));
+  }
+  L.push("");
+  L.push("10. REVIEW-HINWEIS");
+  L.push(REVIEW_NOTE);
+  L.push("");
+  L.push(DISCLAIMER);
+  return L.join("\n");
+}
+
+export function buildMandant(s: MvrState): string {
+  const a = analysiere(s);
+  const e = a.ergebnis;
+  const L: string[] = [];
+  L.push(`Hinweise zur Mittelverwendung ${s.stamm.jahr}`);
+  L.push("");
+  L.push(`Gesamtbild: ${ampelLabel(a.gesamt).toUpperCase()}.`);
+  L.push("");
+  L.push(`Im Jahr ${s.stamm.jahr} sind bei Ihnen rund ${fmt(e.zeitnah)} an Mitteln eingegangen, die zeitnah – das heißt innerhalb von zwei Jahren – für Ihre satzungsmäßigen Zwecke verwendet werden müssen. Davon wurden ${fmt(e.zweckentsprechend)} direkt für den ideellen Bereich, den Zweckbetrieb oder die Mittelweitergabe eingesetzt. Weitere ${fmt(e.ruecklagen)} wurden in zulässige Rücklagen gestellt.`);
+  L.push("");
+  if (e.verwendungsueberhang > 0) {
+    L.push(`Rechnerisch verbleibt ein Überhang von ${fmt(e.verwendungsueberhang)}. Das bedeutet nicht automatisch ein Problem, muss aber erklärt werden – entweder durch zusätzliche Rücklagen, durch Vermögenszuführungen oder durch geplante Projekte im Folgejahr.`);
+    L.push("");
+  }
+  if (a.fehlendeUnterlagen.length > 0) {
+    L.push("Bitte stellen Sie uns folgende Unterlagen zur Verfügung, damit wir die Rechnung sauber abschließen können:");
+    a.fehlendeUnterlagen.forEach((u) => L.push(`- ${u}`));
+    L.push("");
+  }
+  L.push("Warum sind Rücklagen-Beschlüsse so wichtig?");
+  L.push("Das Finanzamt erkennt eine Rücklage nur dann an, wenn klar dokumentiert ist, wofür die Mittel zurückgelegt werden, wann sie verwendet werden sollen und wer das beschlossen hat. Ein formloser Vorstandsbeschluss mit Projektbeschreibung, Finanzierungs- und Zeitplan reicht in der Regel. Ohne diese Dokumentation kann die Rücklage steuerlich nicht stehen bleiben und wirkt wie nicht zeitnah verwendete Mittel.");
+  L.push("");
+  L.push(DISCLAIMER);
+  return L.join("\n");
+}
+
+export function buildVorstand(s: MvrState): string {
+  const a = analysiere(s);
+  const L: string[] = [];
+  L.push(`Vorstandsvorlage – Rücklagenbeschlüsse ${s.stamm.jahr}`);
+  L.push("=".repeat(60));
+  L.push(`Körperschaft: ${s.stamm.name || "(ohne)"}`);
+  L.push("");
+  if (a.beschluesse.length === 0) {
+    L.push("Es liegen aktuell keine zuführungsfähigen Rücklagen vor.");
+  } else {
+    a.beschluesse.forEach((b, i) => {
+      L.push(`Beschluss ${i + 1}: ${b.art}`);
+      L.push(`Betrag: ${fmt(b.betrag)}`);
+      L.push(`Begründung: ${b.begruendung}`);
+      L.push("");
+    });
+  }
+  L.push("Beschlussvorschlag:");
+  L.push(`„Der Vorstand beschließt die o. g. Rücklagenzuführungen für das Wirtschaftsjahr ${s.stamm.jahr}. Die Rücklagen werden zweckgebunden geführt und gemäß § 62 AO dokumentiert."`);
+  L.push("");
+  L.push("Dokumentationshinweis:");
+  L.push("Zu jedem Beschluss sind aufzubewahren: Beschlussprotokoll mit Datum, Projekt-/Verwendungsbeschreibung, Finanzierungs- und Zeitplan, Nachweis der Mittelherkunft sowie spätere Auflösungs-/Verwendungsdokumentation.");
+  L.push("");
+  L.push(DISCLAIMER);
+  return L.join("\n");
+}
+
+export function buildRueckfragen(s: MvrState): string {
+  const a = analysiere(s);
+  return ["Rückfragen an den Mandanten", "", ...a.rueckfragen.map((q, i) => `${i + 1}. ${q}`), "", DISCLAIMER].join("\n");
+}
+
+export function buildTodos(s: MvrState): string {
+  const a = analysiere(s);
+  return ["To-do – Mittelverwendungsrechnung", "", ...a.todos.map((t) => `[ ] ${t}`), "", DISCLAIMER].join("\n");
+}
+
 export function buildExport(s: MvrState): string {
   const e = berechneErgebnis(s);
   const sw = schwelleAmpel(s.schwelle);

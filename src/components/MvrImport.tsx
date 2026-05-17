@@ -213,8 +213,8 @@ function apply(state: MvrState, rows: ParsedRow[]): { next: MvrState; applied: n
       const k = r.target.slice(3) as "personal" | "miete" | "energie" | "sonstige";
       next.betriebsmittel[k] = (next.betriebsmittel[k] || 0) + v;
     } else if (r.target.startsWith("v.")) {
-      const k = r.target.slice(2) as keyof typeof next.vermoegen;
-      (next.vermoegen[k] as number) = ((next.vermoegen[k] as number) || 0) + v;
+      const k = r.target.slice(2) as "bank" | "kasse" | "forderungenKurz" | "forderungenLang" | "verbindlichkeiten" | "darlehen" | "rueckstellungen";
+      next.vermoegen[k] = (next.vermoegen[k] || 0) + v;
     } else if (r.target === "anlNutz") {
       next.verwendung.anlagevermoegenNutzungsgebunden += v;
     } else if (r.target === "anlSonst") {
@@ -224,10 +224,10 @@ function apply(state: MvrState, rows: ParsedRow[]): { next: MvrState; applied: n
     } else if (r.target === "sonstigeVerw") {
       next.verwendung.sonstige += v;
     } else if (r.target === "ausgIdeell" || r.target === "ausgZweckbetrieb" || r.target === "ausgVV" || r.target === "ausgWgB" || r.target === "mittelweitergabe") {
-      (next.verwendung[r.target] as number) += v;
+      next.verwendung[r.target] += v;
     } else {
-      const k = r.target as keyof typeof next.zufluesse;
-      if (typeof next.zufluesse[k] === "number") (next.zufluesse[k] as number) += v;
+      const k = r.target as "spenden" | "mitgliedsbeitraege" | "zuschuesse" | "ideell" | "ueberschussZweckbetrieb" | "gewinnWgB" | "ueberschussVV" | "sonstigeZeitnah";
+      if (typeof next.zufluesse[k] === "number") next.zufluesse[k] = (next.zufluesse[k] as number) + v;
     }
     applied++;
   }

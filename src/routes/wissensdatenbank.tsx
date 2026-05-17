@@ -754,8 +754,6 @@ function Wissensdatenbank() {
     setCanUsePortal(typeof document !== "undefined" && !!document.body);
   }, []);
 
-  const handouts = open ? matchHandouts(open) : [];
-
   const buildFullText = (a: Article) => {
     const lines = [
       `${a.category} — ${a.title}`,

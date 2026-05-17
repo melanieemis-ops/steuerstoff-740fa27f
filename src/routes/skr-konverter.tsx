@@ -413,7 +413,7 @@ function MappingExplorer() {
               </tr>
             </thead>
             <tbody className="divide-y divide-border">
-              {filtered.map((m, i) => {
+              {shown.map((m, i) => {
                 const isUser = "id" in m;
                 return (
                   <tr key={i} className="hover:bg-accent/40">

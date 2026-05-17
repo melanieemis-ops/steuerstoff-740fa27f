@@ -16,6 +16,7 @@ import {
   type RuecklageArt,
 } from "@/lib/mvrStore";
 import { Term } from "@/components/MvrGlossary";
+import { MvrImport } from "@/components/MvrImport";
 
 export const Route = createFileRoute("/mittelverwendungsrechner")({
   component: Page,

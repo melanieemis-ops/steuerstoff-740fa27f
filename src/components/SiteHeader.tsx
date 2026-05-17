@@ -8,6 +8,7 @@ const nav = [
   { to: "/wissensdatenbank", label: "Wissensdatenbank" },
   { to: "/skr-konverter", label: "SKR-Konverter" },
   { to: "/mittelverwendungsrechner", label: "Mittelverwendungsrechner" },
+  { to: "/npo-pruefassistent", label: "NPO-Prüfassistent" },
   { to: "/einstellungen", label: "Einstellungen" },
 ] as const;
 

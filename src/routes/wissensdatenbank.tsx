@@ -517,8 +517,10 @@ function Wissensdatenbank() {
   const [query, setQuery] = useState("");
   const [cat, setCat] = useState<Category>("Alle");
   const [open, setOpen] = useState<Article | null>(null);
+  const [inlineOpenId, setInlineOpenId] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
   const [notice, setNotice] = useState<string | null>(null);
+  const [canUsePortal, setCanUsePortal] = useState(false);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -533,6 +535,10 @@ function Wissensdatenbank() {
     });
   }, [query, cat]);
 
+  useEffect(() => {
+    setCanUsePortal(typeof document !== "undefined" && !!document.body);
+  }, []);
+
   const handouts = open ? matchHandouts(open) : [];
 
   const buildFullText = (a: Article) => {
@@ -541,7 +547,7 @@ function Wissensdatenbank() {
       "",
       a.short,
       "",
-      a.body,
+      articleBody(a),
     ];
     if (a.checklist?.length) {
       lines.push("", "Prüfpunkte:", ...a.checklist.map((c) => `- ${c}`));
@@ -554,6 +560,21 @@ function Wissensdatenbank() {
     }
     if (a.source) lines.push("", `Quelle (intern): ${a.source}`);
     return lines.join("\n");
+  };
+
+  const openArticle = (article: Article) => {
+    if (!articleBody(article).trim()) {
+      setOpen(null);
+      setInlineOpenId(article.id);
+      return;
+    }
+    setInlineOpenId(article.id);
+    setOpen(article);
+  };
+
+  const closeArticle = () => {
+    setOpen(null);
+    setInlineOpenId(null);
   };
 
   const handleCopy = async (a: Article) => {

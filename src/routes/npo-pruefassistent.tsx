@@ -114,112 +114,116 @@ function Page() {
             {/* Form */}
             <div className="lg:col-span-2 space-y-4">
               <div className="rounded-2xl border border-border bg-card p-4 shadow-card-soft sm:p-5">
-                <h2 className="text-sm font-semibold text-foreground">1. Sachverhalt</h2>
-                <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                  <div className="sm:col-span-2">
-                    <label className="text-xs text-muted-foreground">Kurzbeschreibung</label>
-                    <Textarea
-                      rows={3}
-                      placeholder="z. B. Sponsoringeinnahme von lokalem Unternehmen mit Logoplatzierung"
-                      value={input.beschreibung}
-                      onChange={(e) => update("beschreibung", e.target.value)}
-                    />
-                  </div>
-                  <div>
-                    <label className="text-xs text-muted-foreground">Organisationstyp</label>
-                    <select
-                      className="mt-1 h-9 w-full rounded-md border border-input bg-transparent px-3 text-sm"
-                      value={input.orgTyp}
-                      onChange={(e) => update("orgTyp", e.target.value as OrgTyp)}
-                    >
-                      <option value="verein">Verein</option>
-                      <option value="ggmbh">gGmbH</option>
-                      <option value="stiftung">Stiftung</option>
-                      <option value="sonstige">Sonstige NPO</option>
-                    </select>
-                  </div>
-                  <div className="grid grid-cols-2 gap-3">
-                    <div>
-                      <label className="text-xs text-muted-foreground">Jahr</label>
-                      <Input
-                        type="number"
-                        value={input.jahr}
-                        onChange={(e) => update("jahr", Number(e.target.value) || 0)}
-                      />
-                    </div>
-                    <div>
-                      <label className="text-xs text-muted-foreground">Betrag (€)</label>
-                      <Input
-                        type="number"
-                        value={input.betrag}
-                        onChange={(e) => update("betrag", Number(e.target.value) || 0)}
-                      />
-                    </div>
-                  </div>
-                  <div className="sm:col-span-2">
-                    <label className="text-xs text-muted-foreground">
-                      Beteiligte Personen / Organisationen
-                    </label>
-                    <Input
-                      placeholder="z. B. Musterfirma GmbH; Stadt Musterstadt"
-                      value={input.beteiligte}
-                      onChange={(e) => update("beteiligte", e.target.value)}
-                    />
-                  </div>
-                  <div>
-                    <label className="text-xs text-muted-foreground">Richtung</label>
-                    <select
-                      className="mt-1 h-9 w-full rounded-md border border-input bg-transparent px-3 text-sm"
-                      value={input.richtung}
-                      onChange={(e) => update("richtung", e.target.value as Richtung)}
-                    >
-                      <option value="einnahme">Einnahme</option>
-                      <option value="ausgabe">Ausgabe</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="text-xs text-muted-foreground">Sphäre (falls bekannt)</label>
-                    <select
-                      className="mt-1 h-9 w-full rounded-md border border-input bg-transparent px-3 text-sm"
-                      value={input.sphaere}
-                      onChange={(e) => update("sphaere", e.target.value as Sphaere)}
-                    >
-                      <option value="">— unbekannt —</option>
-                      <option value="ideell">Ideeller Bereich</option>
-                      <option value="zweckbetrieb">Zweckbetrieb</option>
-                      <option value="vermoegen">Vermögensverwaltung</option>
-                      <option value="wgb">wirtschaftl. Geschäftsbetrieb</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="text-xs text-muted-foreground">SKR42-Konto (optional)</label>
-                    <Input
-                      placeholder="z. B. 4400"
-                      value={input.skr42 ?? ""}
-                      onChange={(e) => update("skr42", e.target.value)}
-                    />
-                  </div>
+                <h2 className="text-sm font-semibold text-foreground">1. Kurzbeschreibung</h2>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  Pflicht. Alles andere ist optional und verbessert nur die Einschätzung.
+                </p>
+                <div className="mt-3">
+                  <Textarea
+                    rows={4}
+                    autoFocus
+                    placeholder='z. B. „Sommerfest mit Eintritt und Getränkeverkauf" oder „Verein erhält Zuschuss für Projekt 2025"'
+                    value={input.beschreibung}
+                    onChange={(e) => update("beschreibung", e.target.value)}
+                  />
                 </div>
 
-                <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
-                  {([
-                    ["belegVorhanden", "Beleg vorhanden"],
-                    ["vertragVorhanden", "Vertrag vorhanden"],
-                    ["satzungsbezug", "Satzungsbezug"],
-                    ["zweckbindung", "Zweckbindung"],
-                  ] as Array<[keyof NpoInput, string]>).map(([k, l]) => (
-                    <label
-                      key={k}
-                      className="flex items-center gap-2 rounded-md border border-border bg-background px-3 py-2 text-xs text-foreground"
-                    >
-                      <Checkbox
-                        checked={Boolean(input[k])}
-                        onCheckedChange={(v) => update(k, Boolean(v) as never)}
-                      />
-                      {l}
-                    </label>
-                  ))}
-                </div>
+                <Collapsible className="mt-4">
+                  <CollapsibleTrigger className="group flex w-full items-center justify-between rounded-md border border-dashed border-border bg-background px-3 py-2 text-xs text-foreground hover:bg-accent/60">
+                    <span>Optionale Details ergänzen</span>
+                    <ChevronDown className="h-4 w-4 transition-transform group-data-[state=open]:rotate-180" />
+                  </CollapsibleTrigger>
+                  <CollapsibleContent>
+                    <p className="mt-3 text-[11px] text-muted-foreground">
+                      Optionale Details verbessern die Einschätzung, sind aber für den Start nicht erforderlich.
+                    </p>
+                    <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                      <div>
+                        <label className="text-xs text-muted-foreground">Organisationstyp</label>
+                        <select
+                          className="mt-1 h-9 w-full rounded-md border border-input bg-transparent px-3 text-sm"
+                          value={input.orgTyp}
+                          onChange={(e) => update("orgTyp", e.target.value as OrgTyp)}
+                        >
+                          <option value="verein">Verein</option>
+                          <option value="ggmbh">gGmbH</option>
+                          <option value="stiftung">Stiftung</option>
+                          <option value="sonstige">Sonstige NPO</option>
+                        </select>
+                      </div>
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <label className="text-xs text-muted-foreground">Jahr</label>
+                          <Input type="number" value={input.jahr} onChange={(e) => update("jahr", Number(e.target.value) || 0)} />
+                        </div>
+                        <div>
+                          <label className="text-xs text-muted-foreground">Betrag (€)</label>
+                          <Input type="number" value={input.betrag} onChange={(e) => update("betrag", Number(e.target.value) || 0)} />
+                        </div>
+                      </div>
+                      <div className="sm:col-span-2">
+                        <label className="text-xs text-muted-foreground">Beteiligte Personen / Organisationen</label>
+                        <Input
+                          placeholder="z. B. Musterfirma GmbH; Stadt Musterstadt"
+                          value={input.beteiligte}
+                          onChange={(e) => update("beteiligte", e.target.value)}
+                        />
+                      </div>
+                      <div>
+                        <label className="text-xs text-muted-foreground">Richtung</label>
+                        <select
+                          className="mt-1 h-9 w-full rounded-md border border-input bg-transparent px-3 text-sm"
+                          value={input.richtung}
+                          onChange={(e) => update("richtung", e.target.value as Richtung)}
+                        >
+                          <option value="einnahme">Einnahme</option>
+                          <option value="ausgabe">Ausgabe</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label className="text-xs text-muted-foreground">Sphäre (falls bekannt)</label>
+                        <select
+                          className="mt-1 h-9 w-full rounded-md border border-input bg-transparent px-3 text-sm"
+                          value={input.sphaere}
+                          onChange={(e) => update("sphaere", e.target.value as Sphaere)}
+                        >
+                          <option value="">— unbekannt —</option>
+                          <option value="ideell">Ideeller Bereich</option>
+                          <option value="zweckbetrieb">Zweckbetrieb</option>
+                          <option value="vermoegen">Vermögensverwaltung</option>
+                          <option value="wgb">wirtschaftl. Geschäftsbetrieb</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label className="text-xs text-muted-foreground">SKR42-Konto</label>
+                        <Input
+                          placeholder="z. B. 4400"
+                          value={input.skr42 ?? ""}
+                          onChange={(e) => update("skr42", e.target.value)}
+                        />
+                      </div>
+                    </div>
+                    <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
+                      {([
+                        ["belegVorhanden", "Beleg vorhanden"],
+                        ["vertragVorhanden", "Vertrag vorhanden"],
+                        ["satzungsbezug", "Satzungsbezug"],
+                        ["zweckbindung", "Zweckbindung"],
+                      ] as Array<[keyof NpoInput, string]>).map(([k, l]) => (
+                        <label
+                          key={k}
+                          className="flex items-center gap-2 rounded-md border border-border bg-background px-3 py-2 text-xs text-foreground"
+                        >
+                          <Checkbox
+                            checked={Boolean(input[k])}
+                            onCheckedChange={(v) => update(k, Boolean(v) as never)}
+                          />
+                          {l}
+                        </label>
+                      ))}
+                    </div>
+                  </CollapsibleContent>
+                </Collapsible>
               </div>
 
               <div ref={toolsRef} className="rounded-2xl border border-border bg-card p-4 shadow-card-soft sm:p-5 touch-pan-y">

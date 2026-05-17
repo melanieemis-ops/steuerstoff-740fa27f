@@ -1,3 +1,5 @@
+import { KNOWLEDGE_BASE } from "./knowledgeBase";
+
 export type Risk = "gruen" | "gelb" | "rot";
 
 export type AnswerMode =

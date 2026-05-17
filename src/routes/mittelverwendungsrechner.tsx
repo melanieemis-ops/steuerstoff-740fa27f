@@ -700,7 +700,7 @@ function StepErgebnis({ state }: { state: MvrState }) {
       <Card title="5. Zulässige Rücklagen"><div className="text-lg font-semibold">{fmt(e.ruecklagen)}</div></Card>
       <Card title="6. Vermögenszuführungen § 62 Abs. 3 AO"><div className="text-lg font-semibold">{fmt(e.vz62)}</div></Card>
       <Card title="7. Mittelvortrag (offen, innerhalb Frist)"><div className="text-lg font-semibold">{fmt(e.mittelvortragOffen)}</div></Card>
-      <Card title="8. Verwendungsüberhang" accent="var(--magenta)">
+      <Card title={<>8. <Term name="Verwendungsüberhang" /></>} accent="var(--magenta)">
         <div className="text-2xl font-semibold">{fmt(e.verwendungsueberhang)}</div>
         <p className="mt-2 text-xs text-muted-foreground">{interpretation}</p>
         <p className="mt-2 text-xs italic text-muted-foreground">Der Verwendungsüberhang ist ein rechnerischer Arbeitswert und ersetzt keine fachliche Prüfung.</p>

@@ -15,13 +15,35 @@ export const ANSWER_MODES: { id: AnswerMode; label: string }[] = [
   { id: "buchung", label: "Buchungsvorschlag (DATEV)" },
 ];
 
+export type Kind =
+  | "wissen"
+  | "buchung"
+  | "npo"
+  | "ust"
+  | "fall";
+
+export const KIND_LABEL: Record<Kind, string> = {
+  wissen: "Wissensfrage",
+  buchung: "Buchungsfrage",
+  npo: "NPO-Frage",
+  ust: "USt-Frage",
+  fall: "Komplexer Kanzlei-Fall",
+};
+
 export interface AnalysisInput {
   title: string;
-  topic: string; // USt, NPO, SKR42 etc
+  topic: string;
   description: string;
 }
 
+export interface KnowledgeAnswer {
+  answer: string;
+  explanation: string;
+  references?: string[];
+}
+
 export interface Analysis {
+  kind: Kind;
   risk: Risk;
   riskReason: string;
   summary: string;
@@ -29,11 +51,117 @@ export interface Analysis {
   questions: string[];
   recommendation: string;
   answers: Record<AnswerMode, string>;
+  knowledge?: KnowledgeAnswer;
 }
 
-interface Rule {
+// ---------- Knowledge base (kurze Fachantworten) ----------
+
+interface KnowledgeRule {
   keywords: RegExp;
-  topic?: string;
+  kind: Exclude<Kind, "fall">;
+  answer: string;
+  explanation: string;
+  references?: string[];
+}
+
+const KNOWLEDGE_RULES: KnowledgeRule[] = [
+  {
+    keywords: /strom.*(umsatzsteuer|ust|mwst|mehrwertsteuer)|(umsatzsteuer|ust|mwst|mehrwertsteuer).*strom/i,
+    kind: "ust",
+    answer:
+      "Auf Stromlieferungen fallen in Deutschland regelmäßig 19 % Umsatzsteuer an.",
+    explanation:
+      "Der reguläre Umsatzsteuersatz beträgt derzeit 19 % (§ 12 Abs. 1 UStG). In Rechnungen wird er üblicherweise separat ausgewiesen. Der ermäßigte Satz (7 %) ist für Strom nicht anwendbar.",
+    references: ["§ 12 Abs. 1 UStG"],
+  },
+  {
+    keywords: /reverse[\s-]?charge|§\s*13b/i,
+    kind: "ust",
+    answer:
+      "Reverse Charge bezeichnet den Übergang der Steuerschuldnerschaft vom leistenden Unternehmer auf den Leistungsempfänger (§ 13b UStG).",
+    explanation:
+      "Typisch bei sonstigen Leistungen ausländischer Unternehmer an inländische B2B-Empfänger. Der Empfänger meldet und zahlt die Umsatzsteuer selbst und kann sie gleichzeitig als Vorsteuer abziehen, sofern er zum Abzug berechtigt ist. Die Rechnung wird ohne USt-Ausweis mit dem Hinweis „Steuerschuldnerschaft des Leistungsempfängers“ ausgestellt.",
+    references: ["§ 13b UStG", "§ 3a Abs. 2 UStG"],
+  },
+  {
+    keywords: /\bvorsteuer\b/i,
+    kind: "ust",
+    answer:
+      "Vorsteuer ist die Umsatzsteuer, die ein Unternehmer auf Eingangsleistungen zahlt und beim Finanzamt vom eigenen Umsatzsteuerbetrag abziehen kann (§ 15 UStG).",
+    explanation:
+      "Voraussetzung ist eine ordnungsgemäße Rechnung nach § 14 UStG und die Verwendung der Leistung für steuerpflichtige Ausgangsumsätze. Regelsatz 19 %, ermäßigter Satz 7 %.",
+    references: ["§ 15 UStG", "§ 14 UStG"],
+  },
+  {
+    keywords: /\barap\b|aktive rechnungsabgrenzung/i,
+    kind: "buchung",
+    answer:
+      "ARAP = Aktiver Rechnungsabgrenzungsposten. Auszahlungen vor dem Bilanzstichtag, die Aufwand für einen bestimmten Zeitraum nach dem Stichtag darstellen (§ 250 Abs. 1 HGB, § 5 Abs. 5 EStG).",
+    explanation:
+      "Typische Beispiele: vorausbezahlte Miete, Versicherung, Hosting. Der ARAP wird in den Folgeperioden ratierlich als Aufwand aufgelöst, damit die Periodenabgrenzung gewahrt bleibt. Buchung SKR03: 980 ARAP an 1200 Bank; Auflösung an Aufwandskonto.",
+    references: ["§ 250 HGB", "§ 5 Abs. 5 EStG"],
+  },
+  {
+    keywords: /zweckbetrieb/i,
+    kind: "npo",
+    answer:
+      "Ein Zweckbetrieb ist ein wirtschaftlicher Geschäftsbetrieb einer gemeinnützigen Körperschaft, der unmittelbar der Verwirklichung steuerbegünstigter Zwecke dient (§§ 65–68 AO).",
+    explanation:
+      "Erträge aus dem Zweckbetrieb sind körperschaft- und gewerbesteuerfrei und unterliegen umsatzsteuerlich häufig dem ermäßigten Steuersatz (7 %, § 12 Abs. 2 Nr. 8a UStG). Abzugrenzen vom steuerpflichtigen wirtschaftlichen Geschäftsbetrieb.",
+    references: ["§§ 65–68 AO", "§ 12 Abs. 2 Nr. 8a UStG"],
+  },
+  {
+    keywords: /umsatzsteuersatz|mehrwertsteuersatz|wie hoch.*(ust|mwst|umsatzsteuer)/i,
+    kind: "ust",
+    answer:
+      "Der reguläre Umsatzsteuersatz in Deutschland beträgt 19 %, der ermäßigte Satz 7 % (§ 12 UStG).",
+    explanation:
+      "Der ermäßigte Satz gilt u. a. für Lebensmittel, Bücher, Personennahverkehr und Beherbergung. Bestimmte Leistungen sind nach § 4 UStG umsatzsteuerfrei.",
+    references: ["§ 12 UStG", "§ 4 UStG"],
+  },
+  {
+    keywords: /kleinunternehmer|§\s*19\s*ustg/i,
+    kind: "ust",
+    answer:
+      "Kleinunternehmer nach § 19 UStG sind Unternehmer, deren Vorjahresumsatz 25.000 € nicht überschritten hat und im laufenden Jahr voraussichtlich 100.000 € nicht überschreitet (Stand 2025).",
+    explanation:
+      "Kleinunternehmer weisen keine Umsatzsteuer aus und sind nicht zum Vorsteuerabzug berechtigt. Auf der Rechnung ist ein Hinweis auf die Kleinunternehmerregelung erforderlich.",
+    references: ["§ 19 UStG"],
+  },
+  {
+    keywords: /spendenbescheinigung|zuwendungsbestätigung/i,
+    kind: "npo",
+    answer:
+      "Zuwendungsbestätigungen müssen nach amtlichem Muster (§ 50 EStDV) ausgestellt werden, damit der Zuwendende den Sonderausgabenabzug erhält.",
+    explanation:
+      "Bis 300 € genügt der vereinfachte Nachweis (Kontoauszug + Empfangsbestätigung). Bei höheren Beträgen ist das amtliche Muster zwingend; die Körperschaft muss die Mittelverwendung für satzungsmäßige Zwecke bestätigen.",
+    references: ["§ 50 EStDV", "§ 10b EStG"],
+  },
+  {
+    keywords: /mittelverwendung/i,
+    kind: "npo",
+    answer:
+      "Gemeinnützige Körperschaften müssen ihre Mittel zeitnah, d. h. spätestens in den auf den Zufluss folgenden zwei Kalender- bzw. Wirtschaftsjahren für satzungsmäßige Zwecke verwenden (§ 55 Abs. 1 Nr. 5 AO).",
+    explanation:
+      "Nachweis erfolgt über die Mittelverwendungsrechnung. Ausnahmen: zulässige Rücklagen nach § 62 AO (z. B. freie Rücklage, zweckgebundene Rücklage, Wiederbeschaffungsrücklage).",
+    references: ["§ 55 AO", "§ 62 AO"],
+  },
+  {
+    keywords: /\bopos\b|offene posten/i,
+    kind: "buchung",
+    answer:
+      "OPOS (Offene-Posten-Buchhaltung) erfasst alle noch nicht ausgeglichenen Forderungen und Verbindlichkeiten je Geschäftspartner.",
+    explanation:
+      "Grundlage für Mahnwesen, Saldenabstimmung und Wertberichtigungen. Bei dauerhafter Uneinbringlichkeit ist die Umsatzsteuer nach § 17 UStG zu berichtigen.",
+    references: ["§ 17 UStG"],
+  },
+];
+
+// ---------- Fallregeln (komplexe Sachverhalte) ----------
+
+interface CaseRule {
+  keywords: RegExp;
+  kind: Exclude<Kind, "wissen">;
   risk: Risk;
   riskReason: string;
   summary: string;
@@ -41,13 +169,12 @@ interface Rule {
   questions: string[];
   recommendation: string;
   datev: { konto: string; bezeichnung: string; skr: "SKR03" | "SKR04" | "SKR42" }[];
-  tags: string[];
 }
 
-const RULES: Rule[] = [
+const CASE_RULES: CaseRule[] = [
   {
     keywords: /bewirtung|geschäftsessen|restaurant|teilnehmer/i,
-    topic: "USt",
+    kind: "ust",
     risk: "gelb",
     riskReason:
       "Vorsteuerabzug und Betriebsausgabenabzug nur bei vollständiger Bewirtungsdokumentation (§ 4 Abs. 5 Nr. 2 EStG, § 15 UStG).",
@@ -71,11 +198,10 @@ const RULES: Rule[] = [
       { konto: "4654", bezeichnung: "Nicht abzugsfähige Bewirtungskosten (30 %)", skr: "SKR03" },
       { konto: "1576", bezeichnung: "Abziehbare Vorsteuer 19 %", skr: "SKR03" },
     ],
-    tags: ["USt", "EStG", "Bewirtung"],
   },
   {
     keywords: /reverse[\s-]?charge|§\s*13b|ausland|eu-leistung/i,
-    topic: "USt",
+    kind: "ust",
     risk: "gelb",
     riskReason:
       "Reverse-Charge-Verfahren nach § 13b UStG erfordert korrekten Hinweis auf der Rechnung und Anmeldung der Steuerschuldnerschaft.",
@@ -96,11 +222,10 @@ const RULES: Rule[] = [
       { konto: "3123", bezeichnung: "Sonstige Leistungen § 13b UStG 19 %", skr: "SKR03" },
       { konto: "1577", bezeichnung: "Abziehbare Vorsteuer § 13b UStG", skr: "SKR03" },
     ],
-    tags: ["USt", "§ 13b", "Reverse-Charge"],
   },
   {
     keywords: /arap|aktive rechnungsabgrenzung|hosting|miete vorauszahlung|versicherung/i,
-    topic: "Abgrenzung",
+    kind: "buchung",
     risk: "gruen",
     riskReason:
       "Periodengerechte Abgrenzung nach § 250 HGB / § 5 Abs. 5 EStG — Standardvorgang ohne besonderes Risiko, sofern Zeitraum eindeutig.",
@@ -120,11 +245,10 @@ const RULES: Rule[] = [
       { konto: "0980", bezeichnung: "Aktive Rechnungsabgrenzung", skr: "SKR03" },
       { konto: "4380", bezeichnung: "Fremdleistungen / EDV-Kosten", skr: "SKR03" },
     ],
-    tags: ["Abgrenzung", "ARAP"],
   },
   {
     keywords: /verein|gemeinnützig|npo|mittelverwendung|zweckbetrieb|§\s*62|rücklage/i,
-    topic: "NPO",
+    kind: "npo",
     risk: "gelb",
     riskReason:
       "Mittelverwendung und Rücklagenbildung sind formell streng geregelt (§§ 55, 62 AO). Verstöße gefährden die Gemeinnützigkeit.",
@@ -146,35 +270,10 @@ const RULES: Rule[] = [
       { konto: "8400", bezeichnung: "Erlöse Zweckbetrieb (SKR42)", skr: "SKR42" },
       { konto: "8500", bezeichnung: "Erlöse wirtschaftlicher Geschäftsbetrieb (SKR42)", skr: "SKR42" },
     ],
-    tags: ["NPO", "AO", "SKR42"],
-  },
-  {
-    keywords: /spende|spendenbescheinigung|zuwendungsbestätigung/i,
-    topic: "NPO",
-    risk: "gelb",
-    riskReason:
-      "Zuwendungsbestätigungen sind formgebunden (amtliches Muster). Fehler führen zum Ausschluss des Sonderausgabenabzugs beim Zuwendenden.",
-    summary:
-      "Ausstellung bzw. Prüfung einer Zuwendungsbestätigung nach § 50 EStDV. Form, Inhalt und Zuordnung sind sicherzustellen.",
-    missing: [
-      "Amtliches Muster (Geld- oder Sachzuwendung)",
-      "Bestätigung der Mittelverwendung für satzungsmäßige Zwecke",
-      "Bei Sachspenden: Nachweis des Wertansatzes",
-    ],
-    questions: [
-      "Liegt das aktuelle amtliche Muster der Finanzverwaltung vor?",
-      "Handelt es sich um eine Geld- oder Sachzuwendung?",
-    ],
-    recommendation:
-      "Vereinfachten Zuwendungsnachweis bis 300 € prüfen (§ 50 Abs. 4 EStDV). Bei höheren Beträgen amtliches Muster verwenden und Spendenliste fortlaufend führen.",
-    datev: [
-      { konto: "2300", bezeichnung: "Spenden (Aufwand)", skr: "SKR03" },
-    ],
-    tags: ["NPO", "Spenden", "EStDV"],
   },
   {
     keywords: /opos|offene posten|mahnung|forderung/i,
-    topic: "Buchhaltung",
+    kind: "buchung",
     risk: "gruen",
     riskReason: "Operativer OPOS-Vorgang — Risiko nur bei Wertberichtigungs- oder Ausbuchungsbedarf.",
     summary: "Offene-Posten-Verwaltung — Abstimmung Debitoren/Kreditoren und ggf. Wertberichtigung.",
@@ -189,11 +288,11 @@ const RULES: Rule[] = [
       { konto: "2400", bezeichnung: "Forderungsverluste", skr: "SKR03" },
       { konto: "1246", bezeichnung: "EWB auf Forderungen", skr: "SKR03" },
     ],
-    tags: ["Buchhaltung", "OPOS"],
   },
 ];
 
-const DEFAULT_RULE: Omit<Rule, "keywords" | "topic"> = {
+const DEFAULT_CASE: Omit<CaseRule, "keywords"> = {
+  kind: "fall",
   risk: "gelb",
   riskReason:
     "Sachverhalt erfordert weitere Angaben — eine abschließende Beurteilung ist ohne Rückfragen nicht möglich.",
@@ -214,16 +313,48 @@ const DEFAULT_RULE: Omit<Rule, "keywords" | "topic"> = {
     { konto: "1200", bezeichnung: "Bank", skr: "SKR03" },
     { konto: "1800", bezeichnung: "Privatentnahmen / Verrechnungskonto", skr: "SKR03" },
   ],
-  tags: ["Allgemein"],
 };
 
-function pickRule(input: AnalysisInput): Rule {
-  const text = `${input.title}\n${input.description}\n${input.topic}`;
-  for (const r of RULES) if (r.keywords.test(text)) return r;
-  return { keywords: /.*/, topic: input.topic, ...DEFAULT_RULE };
+// ---------- Klassifizierung ----------
+
+function isLikelyKnowledge(input: AnalysisInput): boolean {
+  const desc = input.description.trim();
+  const title = input.title.trim();
+  if (desc.length === 0) return false;
+
+  const startsWithQuestionWord =
+    /^(was|wie|wann|wer|wo|warum|welche|wieso|wofür|wie\s*viel|wieviel|wie hoch|gibt es|gilt|gelten|kann man|muss man|darf man|braucht man)\b/i;
+
+  const looksLikeQuestion =
+    /\?\s*$/.test(desc) ||
+    startsWithQuestionWord.test(desc) ||
+    startsWithQuestionWord.test(title);
+
+  // Konkrete Sachverhaltsmerkmale → eher Fall, nicht reine Wissensfrage
+  const factMarkers =
+    /\d+[.,]?\d*\s*(€|eur|euro)|rechnung\s+(vom|über|aus|nr\.?|nummer)|beleg|mandant|teilnehmer|leistungszeitraum|kontoauszug|bilanzstichtag|insolvenz|mahnstufe|wertberichtigung|geschäftsjahr\s+\d|01\.\d{2}\.\d{4}/i;
+
+  const hasFactMarkers = factMarkers.test(`${title}\n${desc}`);
+  const short = desc.length < 280;
+
+  return looksLikeQuestion && short && !hasFactMarkers;
 }
 
-function buildAnswers(input: AnalysisInput, r: Rule): Record<AnswerMode, string> {
+function pickKnowledgeRule(input: AnalysisInput): KnowledgeRule | null {
+  const text = `${input.title}\n${input.description}\n${input.topic}`;
+  for (const r of KNOWLEDGE_RULES) if (r.keywords.test(text)) return r;
+  return null;
+}
+
+function pickCaseRule(input: AnalysisInput): CaseRule {
+  const text = `${input.title}\n${input.description}\n${input.topic}`;
+  for (const r of CASE_RULES) if (r.keywords.test(text)) return r;
+  return { keywords: /.*/, ...DEFAULT_CASE };
+}
+
+// ---------- Antworttexte ----------
+
+function buildCaseAnswers(input: AnalysisInput, r: CaseRule): Record<AnswerMode, string> {
   const datevLines = r.datev
     .map((d) => `  ${d.skr} ${d.konto} — ${d.bezeichnung}`)
     .join("\n");
@@ -239,19 +370,60 @@ function buildAnswers(input: AnalysisInput, r: Rule): Record<AnswerMode, string>
   };
 }
 
+function buildKnowledgeAnswers(input: AnalysisInput, k: KnowledgeAnswer): Record<AnswerMode, string> {
+  const refs = k.references?.length ? `\n\nRechtsgrundlage: ${k.references.join(", ")}` : "";
+  const kurz = `${k.answer}\n\n${k.explanation}${refs}`;
+  return {
+    kurz,
+    pruefnotiz: `FACHHINWEIS — ${input.title}\n\nFrage:\n${input.description.trim()}\n\nAntwort:\n${k.answer}\n\nErläuterung:\n${k.explanation}${refs}`,
+    mandant: `Sehr geehrte Damen und Herren,\n\ngern beantworten wir Ihre Frage:\n\n${k.answer}\n\n${k.explanation}${refs}\n\nFür Rückfragen stehen wir Ihnen gern zur Verfügung.\n\nMit freundlichen Grüßen\nIhre Kanzlei`,
+    rueckfrage: kurz,
+    buchung: kurz,
+  };
+}
+
+// ---------- Public API ----------
+
 export function riskLabel(r: Risk): string {
   return r === "gruen" ? "Grün (gering)" : r === "gelb" ? "Gelb (mittel)" : "Rot (hoch)";
 }
 
 export function analyze(input: AnalysisInput): Analysis {
-  const r = pickRule(input);
+  // 1) Wissensfrage?
+  if (isLikelyKnowledge(input)) {
+    const rule = pickKnowledgeRule(input);
+    const knowledge: KnowledgeAnswer = rule
+      ? { answer: rule.answer, explanation: rule.explanation, references: rule.references }
+      : {
+          answer:
+            "Zu dieser Frage liegt aktuell keine hinterlegte Kurzantwort vor. Bitte präzisiere die Frage oder beschreibe den Sachverhalt etwas ausführlicher.",
+          explanation:
+            "steuerstoff erkennt häufige Wissensfragen (z. B. zu Umsatzsteuer, Reverse Charge, ARAP, Zweckbetrieb, Spendenrecht). Bei spezifischen Mandantenfällen liefert die App stattdessen eine vollständige Sachverhaltsanalyse mit Rückfragen und Risikoeinstufung.",
+        };
+
+    return {
+      kind: rule?.kind ?? "wissen",
+      risk: "gruen",
+      riskReason: "Reine Wissensfrage — keine fallbezogene Risikoeinstufung erforderlich.",
+      summary: knowledge.answer,
+      missing: [],
+      questions: [],
+      recommendation: knowledge.explanation,
+      knowledge,
+      answers: buildKnowledgeAnswers(input, knowledge),
+    };
+  }
+
+  // 2) Komplexer Sachverhalt
+  const r = pickCaseRule(input);
   return {
+    kind: r.kind,
     risk: r.risk,
     riskReason: r.riskReason,
     summary: r.summary,
     missing: r.missing,
     questions: r.questions,
     recommendation: r.recommendation,
-    answers: buildAnswers(input, r),
+    answers: buildCaseAnswers(input, r),
   };
 }

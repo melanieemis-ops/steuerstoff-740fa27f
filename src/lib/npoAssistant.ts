@@ -98,7 +98,7 @@ function worse(a: Ampel, b: Ampel): Ampel {
   return r[a] >= r[b] ? a : b;
 }
 
-function bewerteSphaere(i: NpoInput): NpoErgebnis {
+function bewerteSphaere(i: NpoInput){
   const risiken: string[] = [];
   const fehlend = basisFehlend(i);
   let ampel: Ampel = "gruen";
@@ -169,7 +169,7 @@ function bewerteSphaere(i: NpoInput): NpoErgebnis {
   };
 }
 
-function bewerteZweckVsWgb(i: NpoInput): NpoErgebnis {
+function bewerteZweckVsWgb(i: NpoInput){
   const t = i.beschreibung.toLowerCase();
   const risiken: string[] = [];
   let ampel: Ampel = "gelb";
@@ -214,7 +214,7 @@ function bewerteZweckVsWgb(i: NpoInput): NpoErgebnis {
   };
 }
 
-function bewerteSpende(i: NpoInput): NpoErgebnis {
+function bewerteSpende(i: NpoInput){
   const t = i.beschreibung.toLowerCase();
   const risiken: string[] = [];
   let ampel: Ampel = "gruen";
@@ -256,7 +256,7 @@ function bewerteSpende(i: NpoInput): NpoErgebnis {
   };
 }
 
-function bewerteZuschuss(i: NpoInput): NpoErgebnis {
+function bewerteZuschuss(i: NpoInput){
   const t = i.beschreibung.toLowerCase();
   const risiken: string[] = [];
   let ampel: Ampel = "gelb";
@@ -295,7 +295,7 @@ function bewerteZuschuss(i: NpoInput): NpoErgebnis {
   };
 }
 
-function bewerteMittelweitergabe(i: NpoInput): NpoErgebnis {
+function bewerteMittelweitergabe(i: NpoInput){
   const risiken: string[] = [];
   let ampel: Ampel = "gelb";
   if (i.richtung !== "ausgabe") {
@@ -337,7 +337,7 @@ function bewerteMittelweitergabe(i: NpoInput): NpoErgebnis {
   };
 }
 
-function bewerteRuecklage(i: NpoInput): NpoErgebnis {
+function bewerteRuecklage(i: NpoInput){
   const t = i.beschreibung.toLowerCase();
   const risiken: string[] = [];
   let ampel: Ampel = "gelb";
@@ -382,7 +382,7 @@ function bewerteRuecklage(i: NpoInput): NpoErgebnis {
   };
 }
 
-function bewerteUst(i: NpoInput): NpoErgebnis {
+function bewerteUst(i: NpoInput){
   const t = i.beschreibung.toLowerCase();
   const risiken: string[] = [];
   let ampel: Ampel = "gelb";
@@ -457,12 +457,12 @@ const RUNNER: Record<Tool, (i: NpoInput) => RunnerOut> = {
   ust: bewerteUst,
 };
 
-export function pruefe(tool: Tool, input: NpoInput): NpoErgebnis {
+export function pruefe(tool: Tool, input: NpoInput){
   const raw = RUNNER[tool](input as NpoInput);
   return enrich(raw, input);
 }
 
-function enrich(e: Partial<NpoErgebnis> & Pick<NpoErgebnis, "tool" | "toolLabel" | "ampel" | "einschaetzung" | "risiken" | "fehlendeAngaben" | "unterlagen" | "rueckfragen" | "buchungshinweis" | "reviewHinweis" | "textbaustein">, i: NpoInput): NpoErgebnis {
+function enrich(e: Partial<NpoErgebnis> & Pick<NpoErgebnis, "tool" | "toolLabel" | "ampel" | "einschaetzung" | "risiken" | "fehlendeAngaben" | "unterlagen" | "rueckfragen" | "buchungshinweis" | "reviewHinweis" | "textbaustein">, i: NpoInput){
   const sicherheit = bewerteSicherheit(i);
   const annahmen = ableiteAnnahmen(i);
   const alternativen = e.alternativen ?? [];

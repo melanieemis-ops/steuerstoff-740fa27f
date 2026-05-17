@@ -71,8 +71,9 @@ function SkrKonverter() {
               SKR-Konverter
             </h1>
             <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-              Konten und Buchungstexte zwischen SKR03 und SKR42 zuordnen. Individuelle Kontenrahmen
-              können später per Excel ergänzt werden.
+              Konten und Buchungstexte zwischen SKR03 und SKR42 zuordnen – auf Basis des
+              individuellen Kontenrahmens mit DATEV-Kontenbeschriftungen (NPO-Arbeitsfassung,
+              {" "}{OFFICIAL_COUNT.toLocaleString("de-DE")} Konten).
             </p>
           </div>
         </section>

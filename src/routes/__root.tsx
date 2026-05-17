@@ -10,6 +10,7 @@ import {
 
 import appCss from "../styles.css?url";
 import { GlobalSwipeArea, SectionDots, MobileBottomNav } from "@/components/MobileNav";
+import { PullToRefresh } from "@/components/PullToRefresh";
 
 function NotFoundComponent() {
   return (

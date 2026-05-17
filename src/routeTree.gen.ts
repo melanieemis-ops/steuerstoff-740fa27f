@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as NeueAnfrageRouteImport } from './routes/neue-anfrage'
+import { Route as FallverlaufRouteImport } from './routes/fallverlauf'
 import { Route as IndexRouteImport } from './routes/index'
 
 const NeueAnfrageRoute = NeueAnfrageRouteImport.update({
   id: '/neue-anfrage',
   path: '/neue-anfrage',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FallverlaufRoute = FallverlaufRouteImport.update({
+  id: '/fallverlauf',
+  path: '/fallverlauf',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -25,27 +31,31 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/fallverlauf': typeof FallverlaufRoute
   '/neue-anfrage': typeof NeueAnfrageRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/fallverlauf': typeof FallverlaufRoute
   '/neue-anfrage': typeof NeueAnfrageRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/fallverlauf': typeof FallverlaufRoute
   '/neue-anfrage': typeof NeueAnfrageRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/neue-anfrage'
+  fullPaths: '/' | '/fallverlauf' | '/neue-anfrage'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/neue-anfrage'
-  id: '__root__' | '/' | '/neue-anfrage'
+  to: '/' | '/fallverlauf' | '/neue-anfrage'
+  id: '__root__' | '/' | '/fallverlauf' | '/neue-anfrage'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  FallverlaufRoute: typeof FallverlaufRoute
   NeueAnfrageRoute: typeof NeueAnfrageRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/neue-anfrage'
       fullPath: '/neue-anfrage'
       preLoaderRoute: typeof NeueAnfrageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fallverlauf': {
+      id: '/fallverlauf'
+      path: '/fallverlauf'
+      fullPath: '/fallverlauf'
+      preLoaderRoute: typeof FallverlaufRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  FallverlaufRoute: FallverlaufRoute,
   NeueAnfrageRoute: NeueAnfrageRoute,
 }
 export const routeTree = rootRouteImport

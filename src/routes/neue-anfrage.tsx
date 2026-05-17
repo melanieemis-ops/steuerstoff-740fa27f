@@ -166,15 +166,15 @@ function NeueAnfrage() {
               </p>
               <Button type="submit" disabled={!canSubmit || submitting} className="h-10 px-5">
                 <Sparkles className="h-4 w-4" />
-                {submitting ? "Analysiere …" : "Analyse starten"}
+                {submitting ? "Wird beantwortet …" : "Antwort generieren"}
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </div>
           </form>
 
           <div className="mt-8">
-            <h2 className="text-sm font-medium text-foreground">Beispiel-Sachverhalte</h2>
-            <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-3">
+            <h2 className="text-sm font-medium text-foreground">Beispiele</h2>
+            <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-4">
               {EXAMPLES.map((ex, i) => (
                 <button
                   key={ex.title}

@@ -15,6 +15,7 @@ import {
   summeZulaessigeRuecklagen, berechneErgebnis, fristStatus, ampelClass, ampelLabel, fmt, buildExport,
   type RuecklageArt,
 } from "@/lib/mvrStore";
+import { Term } from "@/components/MvrGlossary";
 
 export const Route = createFileRoute("/mittelverwendungsrechner")({
   component: Page,
@@ -86,7 +87,7 @@ function CheckField({ label, value, onChange }: { label: string; value: boolean;
   );
 }
 
-function Card({ title, children, accent }: { title?: string; children: React.ReactNode; accent?: string }) {
+function Card({ title, children, accent }: { title?: React.ReactNode; children: React.ReactNode; accent?: string }) {
   return (
     <section className="rounded-2xl border border-border bg-card p-5 shadow-card-soft">
       {title && (
@@ -398,7 +399,7 @@ function StepRuecklagen({ state, update }: { state: MvrState; update: <K extends
       </Card>
 
       {/* B. Betriebsmittel */}
-      <Card title="B. Betriebsmittelrücklage" accent="var(--violet)">
+      <Card title={<>B. <Term name="Betriebsmittelrücklage" /></>} accent="var(--violet)">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <NumField label="Personalkosten / Monat (€)" value={state.betriebsmittel.personal} onChange={(v) => update("betriebsmittel", { ...state.betriebsmittel, personal: v })} />
           <NumField label="Miete / Monat (€)" value={state.betriebsmittel.miete} onChange={(v) => update("betriebsmittel", { ...state.betriebsmittel, miete: v })} />
@@ -462,7 +463,7 @@ function StepRuecklagen({ state, update }: { state: MvrState; update: <K extends
       </Card>
 
       {/* D. Freie Rücklage */}
-      <Card title="D. Freie Rücklage" accent="var(--deep-blue)">
+      <Card title={<>D. <Term name="freie Rücklage">Freie Rücklage</Term></>} accent="var(--deep-blue)">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <NumField label="Überschuss Vermögensverwaltung (€)" value={state.freieRuecklage.ueberschussVV} onChange={(v) => update("freieRuecklage", { ...state.freieRuecklage, ueberschussVV: v })} />
           <NumField label="Unterdeckung VV aus Vorjahren (€)" value={state.freieRuecklage.unterdeckungVorjahre} onChange={(v) => update("freieRuecklage", { ...state.freieRuecklage, unterdeckungVorjahre: v })} />
@@ -525,7 +526,7 @@ function StepRuecklagen({ state, update }: { state: MvrState; update: <K extends
 function StepMittelvortrag({ state, update }: { state: MvrState; update: <K extends keyof MvrState>(k: K, v: MvrState[K]) => void }) {
   const curYear = Number(state.stamm.jahr) || new Date().getFullYear();
   return (
-    <Card title="Mittelvortrag · Zwei-Jahres-Frist" accent="var(--cyan)">
+    <Card title={<><Term name="Mittelvortrag" /> · Zwei-Jahres-Frist</>} accent="var(--cyan)">
       <Note tone="info">
         Mittel müssen spätestens in den beiden auf das Jahr des Zuflusses folgenden Kalender- oder
         Wirtschaftsjahren verwendet werden. Beispiel: Zufluss 2024 → Verwendung bis Ende 2026.
@@ -699,7 +700,7 @@ function StepErgebnis({ state }: { state: MvrState }) {
       <Card title="5. Zulässige Rücklagen"><div className="text-lg font-semibold">{fmt(e.ruecklagen)}</div></Card>
       <Card title="6. Vermögenszuführungen § 62 Abs. 3 AO"><div className="text-lg font-semibold">{fmt(e.vz62)}</div></Card>
       <Card title="7. Mittelvortrag (offen, innerhalb Frist)"><div className="text-lg font-semibold">{fmt(e.mittelvortragOffen)}</div></Card>
-      <Card title="8. Verwendungsüberhang" accent="var(--magenta)">
+      <Card title={<>8. <Term name="Verwendungsüberhang" /></>} accent="var(--magenta)">
         <div className="text-2xl font-semibold">{fmt(e.verwendungsueberhang)}</div>
         <p className="mt-2 text-xs text-muted-foreground">{interpretation}</p>
         <p className="mt-2 text-xs italic text-muted-foreground">Der Verwendungsüberhang ist ein rechnerischer Arbeitswert und ersetzt keine fachliche Prüfung.</p>

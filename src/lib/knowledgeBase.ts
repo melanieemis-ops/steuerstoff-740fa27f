@@ -242,6 +242,220 @@ Im Mandat prüfen:
 
 Risiken: Fehlt der Bericht oder weicht er von der Buchhaltung ab, drohen Rückfragen des Finanzamts, im Wiederholungsfall Aberkennung der Gemeinnützigkeit.`,
   },
+  // ===== NPO / Mittelverwendungsrechnung — vertiefende Wissenskarten =====
+  {
+    id: "mvr-zeitnahe-mittelverwendung",
+    title: "Zeitnahe Mittelverwendung",
+    short:
+      "Mittel gemeinnütziger Körperschaften müssen grundsätzlich zeitnah für steuerbegünstigte satzungsmäßige Zwecke verwendet werden.",
+    category: "NPO / Gemeinnützigkeit",
+    source: "Internes Arbeitspapier — Mittelverwendung (Kapitel 1).",
+    keywords: /zeitnahe?\s+mittelverwendung|selbstlosigkeit|zwei[-\s]?jahres[-\s]?frist/i,
+    references: ["§ 55 Abs. 1 Nr. 5 AO"],
+    body: `Grundsatz der Selbstlosigkeit (§ 55 AO): Eine gemeinnützige Körperschaft darf in erster Linie keine eigenwirtschaftlichen Zwecke verfolgen. Daraus folgt die Pflicht, die ihr zufließenden Mittel zeitnah für die steuerbegünstigten satzungsmäßigen Zwecke einzusetzen.
+
+Zwei-Jahres-Frist: Mittel müssen spätestens in den auf den Zufluss folgenden zwei Kalender- bzw. Wirtschaftsjahren verwendet werden (§ 55 Abs. 1 Nr. 5 S. 3 AO). Beispiel: Zufluss 2024 → Verwendung bis Ende 2026.
+
+Zweck der Regelung: Vermeidung unzulässiger Mittelhortung. Die Mittel sollen tatsächlich dem geförderten Zweck zugutekommen und nicht dauerhaft im Vermögen der Körperschaft verbleiben.
+
+Review-Hinweis: Die zeitnahe Mittelverwendung ist über eine Mittelverwendungsrechnung (MVR) nachzuweisen. Ein positiver Verwendungsüberhang führt nicht automatisch zum Verlust der Gemeinnützigkeit, kann aber Anlass für eine Verwendungsauflage des Finanzamts (§ 63 Abs. 4 AO) sein.`,
+  },
+  {
+    id: "mvr-45000-grenze",
+    title: "45.000-€-Grenze",
+    short:
+      "Kleine Körperschaften mit Einnahmen bis 45.000 € sind nach der hinterlegten Logik von der Pflicht zur zeitnahen Mittelverwendung ausgenommen.",
+    category: "NPO / Gemeinnützigkeit",
+    source: "Internes Arbeitspapier — Mittelverwendung, Schwellenprüfung.",
+    keywords: /45\.?000|kleine körperschaft|bagatellgrenze\s+mittelverwendung/i,
+    references: ["§ 55 Abs. 1 Nr. 5 S. 4 AO"],
+    body: `Liegen die jährlichen Einnahmen einer Körperschaft insgesamt bei höchstens 45.000 €, entfällt die Pflicht zur zeitnahen Mittelverwendung.
+
+Kumulierte Betrachtung — einzubeziehen sind die Einnahmen aller vier Sphären:
+- ideeller Bereich (Spenden, Beiträge, Zuschüsse, Bruttoeinnahmen),
+- Zweckbetrieb,
+- Vermögensverwaltung,
+- steuerpflichtiger wirtschaftlicher Geschäftsbetrieb.
+
+Praxis: Die Befreiung greift jahresbezogen. Wer einmal die Schwelle überschreitet, fällt für dieses Jahr aus der Befreiung. Eine freiwillige Mittelverwendungsrechnung ist auch unterhalb der Grenze sinnvoll, weil sie bei späterem Wachstum nahtlos fortgeführt werden kann und Mittelherkunftsnachweise erleichtert.
+
+Review-Hinweis: Befreiung nicht mit Aufzeichnungspflichten verwechseln. Tätigkeitsbericht, ordnungsgemäße Buchführung und Sphärenabgrenzung sind weiterhin erforderlich.`,
+  },
+  {
+    id: "mvr-mittelbegriff",
+    title: "Mittelbegriff",
+    short:
+      "Mittel umfassen grundsätzlich sämtliche Vermögenswerte der Körperschaft.",
+    category: "NPO / Gemeinnützigkeit",
+    source: "Internes Arbeitspapier — Definition Mittel.",
+    keywords: /mittelbegriff|was sind mittel|grundstockvermögen/i,
+    references: ["§ 55 Abs. 1 AO", "§ 62 Abs. 3 AO"],
+    body: `„Mittel" im Sinne des § 55 AO sind grundsätzlich sämtliche Vermögenswerte der Körperschaft, insbesondere:
+
+- Spenden,
+- Mitgliedsbeiträge,
+- Zuschüsse,
+- Gewinne aus Zweckbetrieb,
+- Gewinne aus steuerpflichtigem wirtschaftlichem Geschäftsbetrieb,
+- Überschüsse aus Vermögensverwaltung,
+- Bruttoeinnahmen des ideellen Bereichs.
+
+Ausnahme: Das Grundstockvermögen einer Stiftung sowie Stiftungseinlagen und ausdrücklich der Vermögensausstattung gewidmete Zuwendungen unterliegen nicht der zeitnahen Mittelverwendung (§ 62 Abs. 3 AO). Sie sind in der MVR getrennt auszuweisen.
+
+Review-Hinweis: Bei Sachzuwendungen ist der gemeine Wert maßgeblich. Die Zweckbindung muss aus Spendenaufruf, Zuwendungsvereinbarung oder Stiftungsgeschäft eindeutig hervorgehen.`,
+  },
+  {
+    id: "mvr-zulaessige-verwendung",
+    title: "Zulässige Mittelverwendung",
+    short:
+      "Mittelverwendung ist zulässig, wenn sie satzungsmäßigen steuerbegünstigten Zwecken dient.",
+    category: "NPO / Gemeinnützigkeit",
+    source: "Internes Arbeitspapier — Zulässige Verwendung.",
+    keywords: /zulässige? mittelverwendung|mittelweitergabe|§\s*58\s*nr\.?\s*1/i,
+    references: ["§ 55 AO", "§ 58 Nr. 1 AO"],
+    body: `Eine Mittelverwendung gilt als zulässig (= zweckentsprechend), wenn sie unmittelbar oder mittelbar die satzungsmäßigen steuerbegünstigten Zwecke fördert.
+
+Typische zulässige Verwendungen:
+- Ausgaben im ideellen Bereich (Projektkosten, ehrenamtliche Aufwandsentschädigungen, Öffentlichkeitsarbeit für den Zweck),
+- Ausgaben im Zweckbetrieb (§§ 65–68 AO),
+- nutzungsgebundenes Anlagevermögen im ideellen Bereich / Zweckbetrieb (z. B. Therapieräume, Lehrmittel),
+- Mittelweitergabe an andere steuerbegünstigte Körperschaften nach § 58 Nr. 1 AO,
+- Darlehensvergabe nur in engen Fällen, wenn die Darlehensvergabe selbst der unmittelbaren Zweckverwirklichung dient (z. B. Schuldnerberatung, Stipendiendarlehen).
+
+Nicht zweckentsprechend: Ausgaben in Vermögensverwaltung und steuerpflichtigem wGB, sonstiges (nicht nutzungsgebundenes) Anlagevermögen, kommerzielle Darlehen aus zeitnah zu verwendenden Mitteln.
+
+Review-Hinweis: Bei Mittelweitergabe Freistellungsbescheid bzw. Anlage zum KSt-Bescheid des Empfängers in Akte halten.`,
+  },
+  {
+    id: "mvr-ruecklagen-62-uebersicht",
+    title: "Rücklagen nach § 62 AO",
+    short:
+      "Zulässige Rücklagen entziehen Mittel der zeitnahen Mittelverwendungspflicht.",
+    category: "NPO / Gemeinnützigkeit",
+    source: "Internes Arbeitspapier — Rücklagenarten § 62 AO.",
+    keywords: /§\s*62\s*ao|rücklagen?\s*nach\s*§\s*62|betriebsmittelrücklage|wiederbeschaffungsrücklage/i,
+    references: ["§ 62 Abs. 1 AO", "§ 62 Abs. 3 AO"],
+    body: `Mittel, die in eine zulässige Rücklage nach § 62 AO eingestellt werden, gelten als verwendet und unterliegen für die Dauer der Rücklagenbildung nicht mehr der zeitnahen Mittelverwendung.
+
+Übersicht der Rücklagenarten:
+1) Zweckgebundene Rücklage (§ 62 Abs. 1 Nr. 1 AO) — für konkret geplante Projekte.
+2) Betriebsmittelrücklage (Unterfall Nr. 1) — Liquiditätssicherung für periodisch wiederkehrende Ausgaben (i. d. R. 3–12 Monate).
+3) Wiederbeschaffungsrücklage (§ 62 Abs. 1 Nr. 2 AO) — Ersatzbeschaffung von Wirtschaftsgütern, regelmäßig in Höhe der AfA.
+4) Freie Rücklage (§ 62 Abs. 1 Nr. 3 AO) — siehe eigener Eintrag.
+5) Rücklage zum Erwerb von Gesellschaftsrechten (§ 62 Abs. 1 Nr. 4 AO) — zur Erhaltung der Beteiligungsquote.
+
+Daneben: Vermögenszuführungen nach § 62 Abs. 3 AO (Erbschaft, ausdrückliche Vermögensausstattung, Spendenaufruf zur Vermögensaufstockung, Sachzuwendung zur Vermögensbildung).
+
+Review-Hinweis: Jede Rücklage benötigt Beschluss, Zweck, Dokumentation und Auflösung bei Wegfall des Grundes.`,
+  },
+  {
+    id: "mvr-freie-ruecklage",
+    title: "Freie Rücklage",
+    short:
+      "Die freie Rücklage ist flexibel, aber die jährliche Zuführung ist begrenzt.",
+    category: "NPO / Gemeinnützigkeit",
+    source: "Internes Arbeitspapier — Freie Rücklage (Bemessungsgrundlagen).",
+    keywords: /freie? rücklage|§\s*62\s*abs\.?\s*1\s*nr\.?\s*3|nachholung\s+freie\s+rücklage/i,
+    references: ["§ 62 Abs. 1 Nr. 3 AO"],
+    body: `Bemessung der jährlichen Höchstzuführung:
+- bis zu 1/3 des Überschusses der Vermögensverwaltung,
+- zuzüglich bis zu 10 % der sonstigen zeitnah zu verwendenden Mittel (ideeller Bereich, Zweckbetrieb, wGB).
+
+Wichtige Regeln:
+- Keine Doppelberücksichtigung: Mittel der Vermögensverwaltung dürfen nicht zusätzlich in die Bemessungsgrundlage der 10 %-Rücklage einbezogen werden.
+- Nachholung: Nicht ausgeschöpfte Höchstbeträge können in den zwei folgenden Jahren nachgeholt werden.
+- Unterdeckungen der Vermögensverwaltung sind in spätere Jahre vortragbar und mindern dort die Bemessungsgrundlage.
+
+Gesamthöhe ist unbegrenzt. Verwendung später z. B. für Darlehen, Beteiligungen, Investitionen, Kapitalerhöhungen aus Gesellschaftsmitteln.
+
+Review-Hinweis: Zuführung und Berechnungsgrundlage in der MVR transparent dokumentieren. Eine unterlassene Zuführung kann nur innerhalb der 2-Jahres-Nachholung aufgeholt werden.`,
+  },
+  {
+    id: "mvr-mittelverwendungsrechnung",
+    title: "Mittelverwendungsrechnung",
+    short:
+      "Die MVR dokumentiert die zeitnahe und satzungsgemäße Mittelverwendung.",
+    category: "NPO / Gemeinnützigkeit",
+    source: "Internes Arbeitspapier — Aufbau MVR.",
+    keywords: /mittelverwendungsrechnung|mvr\b|nebenrechnung\s+jahresabschluss/i,
+    references: ["§ 55 AO", "§ 63 AO"],
+    body: `Die Mittelverwendungsrechnung (MVR) ist Nebenrechnung zum Jahresabschluss und dient dem Nachweis, dass die Körperschaft ihre Mittel zeitnah und satzungsgemäß verwendet hat.
+
+Format: Es gibt kein gesetzlich vorgeschriebenes Schema. In der Praxis verbreitet sind:
+- bilanzorientierte Darstellung (Vermögensvergleich; Gegenüberstellung der zeitnah zu verwendenden Mittel und ihrer Verwendung),
+- kapitalflussorientierte Darstellung (Mittelzu- und -abflüsse im Jahr).
+
+Pflichtbestandteile in der Praxis:
+- Saldobetrachtung / Globalbetrachtung über alle zeitnah zu verwendenden Mittel,
+- Abstimmung mit dem Rücklagenspiegel,
+- Ausweis offener Mittelvorträge mit Fristen,
+- Verwendungsüberhang als Ergebniskennzahl.
+
+Review-Hinweis: Die MVR ist Teil der Akte und sollte beim Finanzamt auf Anforderung kurzfristig vorgelegt werden können.`,
+  },
+  {
+    id: "mvr-ruecklagenspiegel",
+    title: "Rücklagenspiegel",
+    short:
+      "Der Rücklagenspiegel zeigt Bildung, Entwicklung und Auflösung gemeinnützigkeitsrechtlicher Rücklagen.",
+    category: "NPO / Gemeinnützigkeit",
+    source: "Internes Arbeitspapier — Rücklagenspiegel.",
+    keywords: /rücklagenspiegel/i,
+    references: ["§ 62 AO"],
+    body: `Der Rücklagenspiegel stellt für jede Rücklage je Geschäftsjahr dar:
+- Anfangsbestand,
+- Zuführung,
+- Entnahme / Auflösung,
+- Endbestand,
+- Zweck,
+- Vorstands- bzw. Geschäftsführungsbeschluss (Datum),
+- Nachweise (Projektplan, Finanzierungsplan, Belege).
+
+Er ergänzt die Mittelverwendungsrechnung und macht die Rücklagenentwicklung über mehrere Jahre nachvollziehbar.
+
+Review-Hinweis: Auflösungen sind zwingend zu dokumentieren — frei werdende Mittel unterliegen wieder der zeitnahen Mittelverwendung. Dauerhaft unveränderte Rücklagen oder pauschale Sammelpositionen ohne Zweck sind Audit-Risiko.`,
+  },
+  {
+    id: "mvr-verwendungsueberhang",
+    title: "Verwendungsüberhang",
+    short:
+      "Ein positiver Verwendungsüberhang kann auf nicht zeitnah verwendete Mittel hinweisen.",
+    category: "NPO / Gemeinnützigkeit",
+    source: "Internes Arbeitspapier — Auswertung MVR.",
+    keywords: /verwendungsüberhang|nicht\s+zeitnah\s+verwendete\s+mittel/i,
+    references: ["§ 55 AO", "§ 63 Abs. 4 AO"],
+    body: `Der Verwendungsüberhang ist eine rechnerische Kennzahl der MVR:
+Zeitnah zu verwendende Mittel − zweckentsprechende Verwendung − zulässige Rücklagen − Vermögenszuführungen § 62 Abs. 3 AO − offener Mittelvortrag (innerhalb Frist).
+
+Interpretation:
+- Positiver Überhang: Hinweis auf nicht zeitnah verwendete Mittel → Prüfbedarf.
+- Negativer Überhang: Es wurden mehr Mittel zweckentsprechend verwendet als rechnerisch erforderlich (z. B. Auflösung von Vorjahresmitteln).
+
+Folgen: Ein positiver Überhang führt nicht automatisch zur Aberkennung der Gemeinnützigkeit. Das Finanzamt kann nach § 63 Abs. 4 AO eine angemessene Verwendungsauflage (oft bis zu drei Jahren) erteilen. Erst wiederholte oder schwere Verstöße gefährden die Gemeinnützigkeit.
+
+Review-Hinweis: Der Überhang ist Arbeitswert und ersetzt keine fachliche Würdigung — insbesondere Mittelherkunft, Sphärenzuordnung und Rücklagengründe sind zu prüfen.`,
+  },
+  {
+    id: "mvr-vorstandsbeschluesse",
+    title: "Vorstandsbeschlüsse und Dokumentation",
+    short:
+      "Rücklagen sollten durch Beschlüsse und Nachweise dokumentiert werden.",
+    category: "NPO / Gemeinnützigkeit",
+    source: "Internes Arbeitspapier — Dokumentationsstandards Rücklagen.",
+    keywords: /vorstandsbeschluss|rücklagenbeschluss|dokumentation\s+rücklage/i,
+    references: ["§ 62 AO", "§ 63 AO"],
+    body: `Jede Rücklagenbildung sollte durch das zuständige Organ (Vorstand, Geschäftsführung) formal beschlossen und dokumentiert werden.
+
+Mindestbestandteile der Dokumentation:
+- Rücklagenbeschluss mit Datum,
+- Projektbeschreibung (Zweck, Inhalt),
+- Finanzierungsplan (geplante Kosten, Mittelherkunft),
+- Zeitplan (geplanter Verwendungs- bzw. Ersatzzeitpunkt),
+- Auflösungsdokumentation bei Wegfall des Rücklagengrundes,
+- Review durch Steuerberater / Wirtschaftsprüfer.
+
+Praxisempfehlung: Beschlussvorlage als wiederverwendbares Template in der Mandatsakte führen. Im Rücklagenspiegel jede Position mit Beschlussdatum verknüpfen — fehlt das Datum, ist die Position fachlich nicht belastbar.`,
+  },
 ];
 
 // Hilfsmittel für die Wissensbasis-Suche (analyze.ts)

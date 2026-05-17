@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { BookOpen, Search, X } from "lucide-react";
+import { KNOWLEDGE_BASE } from "@/lib/knowledgeBase";
 
 export const Route = createFileRoute("/wissensdatenbank")({
   component: Wissensdatenbank,
@@ -251,6 +252,20 @@ Steuerlich:
   },
 ];
 
+// Aus interner Wissensbasis (Kanzlei-Arbeitspapiere) ergänzte Einträge.
+// Die zugrundeliegenden PDFs werden bewusst nicht ausgeliefert.
+const KB_ARTICLES: Article[] = KNOWLEDGE_BASE.map((e) => ({
+  id: `kb-${e.id}`,
+  title: e.title,
+  short: e.short,
+  category: e.category as Category,
+  body: `${e.body}\n\nQuelle (intern): ${e.source}${
+    e.references?.length ? `\nRechtsgrundlagen: ${e.references.join(", ")}` : ""
+  }`,
+}));
+
+const ALL_ARTICLES: Article[] = [...ARTICLES, ...KB_ARTICLES];
+
 function Wissensdatenbank() {
   const [query, setQuery] = useState("");
   const [cat, setCat] = useState<Category>("Alle");
@@ -258,7 +273,7 @@ function Wissensdatenbank() {
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return ARTICLES.filter((a) => {
+    return ALL_ARTICLES.filter((a) => {
       if (cat !== "Alle" && a.category !== cat) return false;
       if (!q) return true;
       return (

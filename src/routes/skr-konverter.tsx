@@ -20,6 +20,7 @@ import {
 import {
   COMPLIANCE_NOTE,
   SKR_MAPPINGS,
+  OFFICIAL_MAPPINGS,
   type SkrMapping,
   type Sicherheit,
   findBySkr03,
@@ -32,6 +33,8 @@ import {
   sicherheitLabel,
   type UserMapping,
 } from "@/lib/skrMapping";
+
+const OFFICIAL_COUNT = OFFICIAL_MAPPINGS.length;
 
 export const Route = createFileRoute("/skr-konverter")({
   component: SkrKonverter,
@@ -71,8 +74,9 @@ function SkrKonverter() {
               SKR-Konverter
             </h1>
             <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-              Konten und Buchungstexte zwischen SKR03 und SKR42 zuordnen. Individuelle Kontenrahmen
-              können später per Excel ergänzt werden.
+              Konten und Buchungstexte zwischen SKR03 und SKR42 zuordnen – auf Basis des
+              individuellen Kontenrahmens mit DATEV-Kontenbeschriftungen (NPO-Arbeitsfassung,
+              {" "}{OFFICIAL_COUNT.toLocaleString("de-DE")} Konten).
             </p>
           </div>
         </section>
@@ -343,6 +347,8 @@ function MappingExplorer() {
     });
   }, [all, q, filter]);
 
+  const LIMIT = 200;
+  const shown = filtered.slice(0, LIMIT);
   const refresh = () => setUser(listUserMappings());
 
   return (
@@ -353,7 +359,10 @@ function MappingExplorer() {
             Mapping-Tabelle
           </h2>
           <p className="text-sm text-muted-foreground">
-            Demo-Mappings + eigene Zuordnungen ({all.length}).
+            Offizielle DATEV-Kontenbeschriftungen + eigene Zuordnungen ({all.length.toLocaleString("de-DE")}).
+            {filtered.length > LIMIT && (
+              <> Anzeige auf {LIMIT} Treffer begrenzt – Suche eingrenzen.</>
+            )}
           </p>
         </div>
         <div className="relative w-full sm:w-72">
@@ -404,7 +413,7 @@ function MappingExplorer() {
               </tr>
             </thead>
             <tbody className="divide-y divide-border">
-              {filtered.map((m, i) => {
+              {shown.map((m, i) => {
                 const isUser = "id" in m;
                 return (
                   <tr key={i} className="hover:bg-accent/40">

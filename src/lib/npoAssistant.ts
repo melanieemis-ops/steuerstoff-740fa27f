@@ -457,7 +457,56 @@ const RUNNER: Record<Tool, (i: NpoInput) => NpoErgebnis> = {
 };
 
 export function pruefe(tool: Tool, input: NpoInput): NpoErgebnis {
-  return RUNNER[tool](input);
+  const raw = RUNNER[tool](input as NpoInput);
+  return enrich(raw, input);
+}
+
+function enrich(e: Partial<NpoErgebnis> & Pick<NpoErgebnis, "tool" | "toolLabel" | "ampel" | "einschaetzung" | "risiken" | "fehlendeAngaben" | "unterlagen" | "rueckfragen" | "buchungshinweis" | "reviewHinweis" | "textbaustein">, i: NpoInput): NpoErgebnis {
+  const sicherheit = bewerteSicherheit(i);
+  const annahmen = ableiteAnnahmen(i);
+  const alternativen = e.alternativen ?? [];
+  const ustHinweis = e.ustHinweis ?? defaultUstHinweis(i);
+  // bei nur Kurzbeschreibung: Ampel max. gelb (vorsichtig)
+  let ampel = e.ampel;
+  if (sicherheit === "niedrig" && ampel === "gruen") ampel = "gelb";
+  return {
+    ...e,
+    ampel,
+    sicherheit,
+    annahmen,
+    alternativen,
+    ustHinweis,
+  };
+}
+
+function bewerteSicherheit(i: NpoInput): Sicherheit {
+  let score = 0;
+  if (i.betrag) score++;
+  if (i.beteiligte.trim()) score++;
+  if (i.sphaere) score++;
+  if (i.belegVorhanden || i.vertragVorhanden) score++;
+  if (i.satzungsbezug || i.zweckbindung) score++;
+  if (score >= 4) return "hoch";
+  if (score >= 2) return "mittel";
+  return "niedrig";
+}
+
+function ableiteAnnahmen(i: NpoInput): string[] {
+  const a: string[] = [];
+  if (!i.betrag) a.push("Betrag nicht angegeben — Wesentlichkeit kann nicht bewertet werden.");
+  if (!i.beteiligte.trim()) a.push("Beteiligte unbekannt — Empfänger-/Geberstatus nicht geprüft.");
+  if (!i.sphaere) a.push("Sphäre nicht vorgegeben — Einordnung erfolgt heuristisch aus Beschreibung.");
+  if (!i.belegVorhanden && !i.vertragVorhanden) a.push("Keine Belege/Verträge bestätigt — formale Nachweise offen.");
+  return a;
+}
+
+function defaultUstHinweis(i: NpoInput): string {
+  const t = i.beschreibung.toLowerCase();
+  if (/sponsor|werbung|logo/.test(t)) return "Aktives Sponsoring i. d. R. 19 % USt; Leistungsaustausch prüfen.";
+  if (/eintritt|aufführ|konzert|kultur/.test(t)) return "Ggf. 7 % USt (§ 12 Abs. 2 Nr. 7 UStG) oder Steuerbefreiung § 4 Nr. 20 UStG.";
+  if (/spende|zuwend/.test(t)) return "Spenden ohne Gegenleistung sind nicht steuerbar.";
+  if (/zuschuss|förder/.test(t)) return "Echter Zuschuss nicht steuerbar; bei Leistungsbezug 19 %.";
+  return "Steuerbarkeit, Steuersatz und etwaige Befreiungen (§ 4 UStG, § 19 UStG) prüfen.";
 }
 
 export function ergebnisAlsText(e: NpoErgebnis, i: NpoInput): string {

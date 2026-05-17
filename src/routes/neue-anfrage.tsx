@@ -87,11 +87,12 @@ function NeueAnfrage() {
       <main className="flex-1">
         <div className="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6 sm:py-14">
           <h1 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-            Neue steuerliche Anfrage
+            Neue Anfrage
           </h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            Beschreibe den Sachverhalt — steuerstoff strukturiert ihn, erkennt fehlende Angaben und
-            schlägt nächste Schritte vor.
+            Stelle eine kurze Wissensfrage oder beschreibe einen konkreten Sachverhalt — steuerstoff
+            erkennt den Typ automatisch und antwortet passend: kurz und direkt oder strukturiert mit
+            Rückfragen.
           </p>
 
           <form
@@ -100,13 +101,13 @@ function NeueAnfrage() {
           >
             <div>
               <label htmlFor="title" className="text-sm font-medium text-foreground">
-                Titel des Sachverhalts
+                Titel <span className="text-muted-foreground">(optional)</span>
               </label>
               <Input
                 id="title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                placeholder="z. B. Bewirtungsbeleg Geschäftsessen 03/2025"
+                placeholder="z. B. Bewirtungsbeleg 03/2025 oder leer lassen"
                 className="mt-1.5"
                 maxLength={200}
               />
@@ -137,13 +138,16 @@ function NeueAnfrage() {
 
             <div>
               <label htmlFor="description" className="text-sm font-medium text-foreground">
-                Sachverhalt
+                Frage oder Sachverhalt
               </label>
               <Textarea
                 id="description"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                placeholder="Beschreibe den Sachverhalt: Beteiligte, Zeitraum, Beträge, Belege, offene Punkte …"
+                placeholder={
+                  "Wissensfrage, z. B. „Wie viel Umsatzsteuer fällt auf Strom an?“\n\n" +
+                  "Oder Sachverhalt: Beteiligte, Zeitraum, Beträge, Belege, offene Punkte …"
+                }
                 className="mt-1.5 min-h-[180px]"
                 maxLength={4000}
               />

@@ -273,7 +273,7 @@ function Wissensdatenbank() {
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return ARTICLES.filter((a) => {
+    return ALL_ARTICLES.filter((a) => {
       if (cat !== "Alle" && a.category !== cat) return false;
       if (!q) return true;
       return (

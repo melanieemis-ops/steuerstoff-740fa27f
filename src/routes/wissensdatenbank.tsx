@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Input } from "@/components/ui/input";
@@ -506,12 +507,235 @@ function matchHandouts(article: Article): Handout[] {
   });
 }
 
+function articleBody(article: Article) {
+  const body = article.body?.trim();
+  if (body) return body;
+  return `${article.title}\n\n${article.short}\n\nDieser Wissenseintrag gehört zur Kategorie ${article.category}. Prüfe den Sachverhalt anhand der Kurzbeschreibung, der Prüfpunkte und der passenden Module.`;
+}
+
+function ArticleDetails({
+  article,
+  copied,
+  notice,
+  onCopy,
+  onPruefnotiz,
+  onClose,
+}: {
+  article: Article;
+  copied: boolean;
+  notice: string | null;
+  onCopy: (article: Article) => void;
+  onPruefnotiz: (article: Article) => void;
+  onClose: () => void;
+}) {
+  const handouts = matchHandouts(article);
+
+  return (
+    <>
+      <div className="flex items-start justify-between gap-4 border-b border-border p-4">
+        <div className="min-w-0">
+          <span className="inline-block rounded border border-border bg-background px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted-foreground">
+            {article.category}
+          </span>
+          <h3 className="mt-2 text-lg font-semibold text-foreground">{article.title}</h3>
+          <p className="mt-1 text-xs text-muted-foreground">{article.short}</p>
+        </div>
+        <button
+          type="button"
+          aria-label="Schließen"
+          onClick={onClose}
+          className="relative z-[1002] rounded-md p-1 text-muted-foreground hover:bg-accent hover:text-foreground"
+        >
+          <X className="h-4 w-4" />
+        </button>
+      </div>
+
+      <div className="flex-1 overflow-y-auto p-4 pb-6">
+        <section>
+          <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            Inhalt
+          </h4>
+          <pre className="mt-2 whitespace-pre-wrap font-sans text-sm leading-relaxed text-foreground">
+            {articleBody(article)}
+          </pre>
+        </section>
+
+        {article.checklist && article.checklist.length > 0 && (
+          <section className="mt-5">
+            <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              Prüfpunkte
+            </h4>
+            <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-foreground">
+              {article.checklist.map((c, i) => (
+                <li key={i}>{c}</li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {article.commonMistakes && article.commonMistakes.length > 0 && (
+          <section className="mt-5">
+            <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              Typische Fehler
+            </h4>
+            <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-foreground">
+              {article.commonMistakes.map((c, i) => (
+                <li key={i}>{c}</li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {article.questions && article.questions.length > 0 && (
+          <section className="mt-5">
+            <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              Rückfragen
+            </h4>
+            <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-foreground">
+              {article.questions.map((c, i) => (
+                <li key={i}>{c}</li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {article.relatedModules && article.relatedModules.length > 0 && (
+          <section className="mt-5">
+            <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              Passende Module
+            </h4>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {article.relatedModules.map((m, i) => (
+                <a
+                  key={i}
+                  href={m.to}
+                  className="inline-flex items-center rounded-md border border-border bg-background px-3 py-1.5 text-xs text-foreground hover:border-foreground/40"
+                >
+                  {m.label}
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
+
+        <section className="mt-5">
+          <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            Eigene Handouts
+          </h4>
+          {handouts.length === 0 ? (
+            <p className="mt-2 text-xs text-muted-foreground">
+              Keine eigenen Handouts zu diesem Thema hinterlegt.
+            </p>
+          ) : (
+            <ul className="mt-2 space-y-2">
+              {handouts.map((h) => (
+                <li key={h.id} className="rounded-md border border-border bg-background p-2.5">
+                  <div className="flex items-start justify-between gap-2">
+                    <p className="text-sm font-medium text-foreground">{h.title}</p>
+                    <span className="shrink-0 rounded border border-border bg-card px-1.5 py-0.5 text-[10px] text-muted-foreground">
+                      {h.category}
+                    </span>
+                  </div>
+                  {h.short && <p className="mt-1 text-xs text-muted-foreground">{h.short}</p>}
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+
+        {article.source && (
+          <p className="mt-5 text-[11px] text-muted-foreground">
+            Quelle (intern): {article.source}
+          </p>
+        )}
+      </div>
+
+      <div className="flex flex-wrap items-center gap-2 border-t border-border bg-background/60 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
+        <Button type="button" size="sm" variant="outline" onClick={() => onCopy(article)}>
+          {copied ? (
+            <>
+              <Check className="mr-1 h-3.5 w-3.5" />
+              Kopiert
+            </>
+          ) : (
+            <>
+              <Copy className="mr-1 h-3.5 w-3.5" />
+              Text kopieren
+            </>
+          )}
+        </Button>
+        <Button type="button" size="sm" variant="outline" onClick={() => onPruefnotiz(article)}>
+          <ClipboardList className="mr-1 h-3.5 w-3.5" />
+          Als Prüfnotiz verwenden
+        </Button>
+        <div className="flex-1" />
+        {notice && (
+          <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
+            <FileText className="h-3 w-3" />
+            {notice}
+          </span>
+        )}
+        <Button type="button" size="sm" onClick={onClose}>
+          Schließen
+        </Button>
+      </div>
+    </>
+  );
+}
+
+function KnowledgeDetailPortal({
+  article,
+  copied,
+  notice,
+  onCopy,
+  onPruefnotiz,
+  onClose,
+}: {
+  article: Article;
+  copied: boolean;
+  notice: string | null;
+  onCopy: (article: Article) => void;
+  onPruefnotiz: (article: Article) => void;
+  onClose: () => void;
+}) {
+  if (typeof document === "undefined" || !document.body || !articleBody(article).trim()) return null;
+
+  return createPortal(
+    <>
+      <div
+        className="fixed inset-0 z-[1000] bg-foreground/40 backdrop-blur-sm"
+        onClick={onClose}
+        data-no-swipe="true"
+      />
+      <div
+        className="fixed inset-x-0 bottom-0 z-[1001] flex max-h-[85vh] w-full flex-col overflow-hidden rounded-t-3xl border border-border bg-card text-card-foreground shadow-xl sm:inset-auto sm:left-1/2 sm:top-1/2 sm:w-[min(720px,calc(100vw-2rem))] sm:-translate-x-1/2 sm:-translate-y-1/2 sm:rounded-2xl"
+        data-no-swipe="true"
+        role="dialog"
+        aria-modal="true"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <ArticleDetails
+          article={article}
+          copied={copied}
+          notice={notice}
+          onCopy={onCopy}
+          onPruefnotiz={onPruefnotiz}
+          onClose={onClose}
+        />
+      </div>
+    </>,
+    document.body,
+  );
+}
+
 function Wissensdatenbank() {
   const [query, setQuery] = useState("");
   const [cat, setCat] = useState<Category>("Alle");
   const [open, setOpen] = useState<Article | null>(null);
+  const [inlineOpenId, setInlineOpenId] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
   const [notice, setNotice] = useState<string | null>(null);
+  const [canUsePortal, setCanUsePortal] = useState(false);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -526,7 +750,9 @@ function Wissensdatenbank() {
     });
   }, [query, cat]);
 
-  const handouts = open ? matchHandouts(open) : [];
+  useEffect(() => {
+    setCanUsePortal(typeof document !== "undefined" && !!document.body);
+  }, []);
 
   const buildFullText = (a: Article) => {
     const lines = [
@@ -534,7 +760,7 @@ function Wissensdatenbank() {
       "",
       a.short,
       "",
-      a.body,
+      articleBody(a),
     ];
     if (a.checklist?.length) {
       lines.push("", "Prüfpunkte:", ...a.checklist.map((c) => `- ${c}`));
@@ -547,6 +773,21 @@ function Wissensdatenbank() {
     }
     if (a.source) lines.push("", `Quelle (intern): ${a.source}`);
     return lines.join("\n");
+  };
+
+  const openArticle = (article: Article) => {
+    if (!articleBody(article).trim()) {
+      setOpen(null);
+      setInlineOpenId(article.id);
+      return;
+    }
+    setInlineOpenId(article.id);
+    setOpen(article);
+  };
+
+  const closeArticle = () => {
+    setOpen(null);
+    setInlineOpenId(null);
   };
 
   const handleCopy = async (a: Article) => {
@@ -618,41 +859,54 @@ function Wissensdatenbank() {
           ) : (
             <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {filtered.map((a) => (
-                <article
-                  key={a.id}
-                  role="button"
-                  tabIndex={0}
-                  onClick={() => setOpen(a)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault();
-                      setOpen(a);
-                    }
-                  }}
-                  data-no-swipe="true"
-                  className="flex cursor-pointer flex-col rounded-2xl border border-border bg-card p-4 shadow-card-soft transition-colors hover:border-foreground/30 focus:outline-none focus:ring-2 focus:ring-ring"
-                >
-                  <span className="inline-flex items-center gap-1.5 self-start rounded border border-border bg-background px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted-foreground">
-                    <BookOpen className="h-3 w-3" />
-                    {a.category}
-                  </span>
-                  <h2 className="mt-3 text-sm font-semibold text-foreground">{a.title}</h2>
-                  <p className="mt-1 line-clamp-3 flex-1 text-xs leading-relaxed text-muted-foreground">
-                    {a.short}
-                  </p>
-                  <Button
-                    type="button"
-                    variant="outline"
-                    size="sm"
-                    className="mt-3 self-start"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setOpen(a);
+                <div key={a.id} className="sm:contents">
+                  <article
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => openArticle(a)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        openArticle(a);
+                      }
                     }}
+                    data-no-swipe="true"
+                    className="pointer-events-auto flex cursor-pointer flex-col rounded-2xl border border-border bg-card p-4 shadow-card-soft transition-colors hover:border-foreground/30 focus:outline-none focus:ring-2 focus:ring-ring"
                   >
-                    Öffnen
-                  </Button>
-                </article>
+                    <span className="inline-flex items-center gap-1.5 self-start rounded border border-border bg-background px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted-foreground">
+                      <BookOpen className="h-3 w-3" />
+                      {a.category}
+                    </span>
+                    <h2 className="mt-3 text-sm font-semibold text-foreground">{a.title}</h2>
+                    <p className="mt-1 line-clamp-3 flex-1 text-xs leading-relaxed text-muted-foreground">
+                      {a.short}
+                    </p>
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      className="pointer-events-auto mt-3 self-start"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        openArticle(a);
+                      }}
+                    >
+                      Öffnen
+                    </Button>
+                  </article>
+                  {inlineOpenId === a.id && (!open || !canUsePortal) && (
+                    <div className="mt-3 flex max-h-[75vh] flex-col overflow-hidden rounded-2xl border border-border bg-card text-card-foreground shadow-card-soft sm:col-span-2 lg:col-span-3">
+                      <ArticleDetails
+                        article={a}
+                        copied={copied}
+                        notice={notice}
+                        onCopy={handleCopy}
+                        onPruefnotiz={handlePruefnotiz}
+                        onClose={closeArticle}
+                      />
+                    </div>
+                  )}
+                </div>
               ))}
             </div>
           )}
@@ -661,182 +915,15 @@ function Wissensdatenbank() {
         </div>
       </main>
 
-      {open && (
-        <div
-          className="fixed inset-0 z-[60] flex items-end justify-center bg-foreground/40 p-0 backdrop-blur-sm sm:items-center sm:p-4"
-          onClick={() => setOpen(null)}
-          data-no-swipe="true"
-          role="dialog"
-          aria-modal="true"
-        >
-          <div
-            className="flex max-h-[92vh] w-full max-w-2xl flex-col overflow-hidden rounded-t-2xl border border-border bg-card shadow-xl sm:max-h-[85vh] sm:rounded-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex items-start justify-between gap-4 border-b border-border p-4">
-              <div className="min-w-0">
-                <span className="inline-block rounded border border-border bg-background px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted-foreground">
-                  {open.category}
-                </span>
-                <h3 className="mt-2 text-lg font-semibold text-foreground">{open.title}</h3>
-                <p className="mt-1 text-xs text-muted-foreground">{open.short}</p>
-              </div>
-              <button
-                type="button"
-                aria-label="Schließen"
-                onClick={() => setOpen(null)}
-                className="rounded-md p-1 text-muted-foreground hover:bg-accent hover:text-foreground"
-              >
-                <X className="h-4 w-4" />
-              </button>
-            </div>
-
-            <div className="flex-1 overflow-auto p-4">
-              <section>
-                <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                  Inhalt
-                </h4>
-                <pre className="mt-2 whitespace-pre-wrap font-sans text-sm leading-relaxed text-foreground">
-                  {open.body}
-                </pre>
-              </section>
-
-              {open.checklist && open.checklist.length > 0 && (
-                <section className="mt-5">
-                  <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                    Prüfpunkte
-                  </h4>
-                  <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-foreground">
-                    {open.checklist.map((c, i) => (
-                      <li key={i}>{c}</li>
-                    ))}
-                  </ul>
-                </section>
-              )}
-
-              {open.commonMistakes && open.commonMistakes.length > 0 && (
-                <section className="mt-5">
-                  <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                    Typische Fehler
-                  </h4>
-                  <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-foreground">
-                    {open.commonMistakes.map((c, i) => (
-                      <li key={i}>{c}</li>
-                    ))}
-                  </ul>
-                </section>
-              )}
-
-              {open.questions && open.questions.length > 0 && (
-                <section className="mt-5">
-                  <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                    Rückfragen
-                  </h4>
-                  <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-foreground">
-                    {open.questions.map((c, i) => (
-                      <li key={i}>{c}</li>
-                    ))}
-                  </ul>
-                </section>
-              )}
-
-              {open.relatedModules && open.relatedModules.length > 0 && (
-                <section className="mt-5">
-                  <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                    Passende Module
-                  </h4>
-                  <div className="mt-2 flex flex-wrap gap-2">
-                    {open.relatedModules.map((m, i) => (
-                      <a
-                        key={i}
-                        href={m.to}
-                        className="inline-flex items-center rounded-md border border-border bg-background px-3 py-1.5 text-xs text-foreground hover:border-foreground/40"
-                      >
-                        {m.label}
-                      </a>
-                    ))}
-                  </div>
-                </section>
-              )}
-
-              <section className="mt-5">
-                <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                  Eigene Handouts
-                </h4>
-                {handouts.length === 0 ? (
-                  <p className="mt-2 text-xs text-muted-foreground">
-                    Keine eigenen Handouts zu diesem Thema hinterlegt.
-                  </p>
-                ) : (
-                  <ul className="mt-2 space-y-2">
-                    {handouts.map((h) => (
-                      <li
-                        key={h.id}
-                        className="rounded-md border border-border bg-background p-2.5"
-                      >
-                        <div className="flex items-start justify-between gap-2">
-                          <p className="text-sm font-medium text-foreground">{h.title}</p>
-                          <span className="shrink-0 rounded border border-border bg-card px-1.5 py-0.5 text-[10px] text-muted-foreground">
-                            {h.category}
-                          </span>
-                        </div>
-                        {h.short && (
-                          <p className="mt-1 text-xs text-muted-foreground">{h.short}</p>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </section>
-
-              {open.source && (
-                <p className="mt-5 text-[11px] text-muted-foreground">
-                  Quelle (intern): {open.source}
-                </p>
-              )}
-            </div>
-
-            <div className="flex flex-wrap items-center gap-2 border-t border-border bg-background/60 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
-              <Button
-                type="button"
-                size="sm"
-                variant="outline"
-                onClick={() => handleCopy(open)}
-              >
-                {copied ? (
-                  <>
-                    <Check className="mr-1 h-3.5 w-3.5" />
-                    Kopiert
-                  </>
-                ) : (
-                  <>
-                    <Copy className="mr-1 h-3.5 w-3.5" />
-                    Text kopieren
-                  </>
-                )}
-              </Button>
-              <Button
-                type="button"
-                size="sm"
-                variant="outline"
-                onClick={() => handlePruefnotiz(open)}
-              >
-                <ClipboardList className="mr-1 h-3.5 w-3.5" />
-                Als Prüfnotiz verwenden
-              </Button>
-              <div className="flex-1" />
-              {notice && (
-                <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
-                  <FileText className="h-3 w-3" />
-                  {notice}
-                </span>
-              )}
-              <Button type="button" size="sm" onClick={() => setOpen(null)}>
-                Schließen
-              </Button>
-            </div>
-          </div>
-        </div>
+      {open && canUsePortal && articleBody(open).trim() && (
+        <KnowledgeDetailPortal
+          article={open}
+          copied={copied}
+          notice={notice}
+          onCopy={handleCopy}
+          onPruefnotiz={handlePruefnotiz}
+          onClose={closeArticle}
+        />
       )}
 
       <SiteFooter />

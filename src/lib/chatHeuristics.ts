@@ -6,11 +6,17 @@ export type ChatLink = { label: string; to: string };
 export interface ChatAnswer {
   summary: string;
   reasoning?: string;
+  /** Strukturierte Abgrenzungen (optional, statt langer Fließtext-Begründung). */
+  sections?: { title: string; body: string }[];
   risks?: string[];
   followUps?: string[];
   nextStep?: string;
   links?: ChatLink[];
   knowledge?: string;
+  /** Optionale Folgefrage am Ende ("Meinst du …?"). */
+  clarify?: string;
+  /** Kompakter Antworttyp — UI kann Prüfkarte schlanker rendern. */
+  kind?: "info" | "case" | "npo" | "mvr";
 }
 
 const has = (q: string, ...terms: string[]) =>

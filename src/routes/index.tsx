@@ -148,7 +148,13 @@ function Home() {
 
               <h1 className="mt-4 text-balance text-2xl font-semibold tracking-tight text-foreground sm:text-4xl">
                 KI-gestützter Steuer-Arbeitsassistent
-                <span className="text-gradient-brand"> für deutsche Kanzleien</span>
+                {" "}
+                <span
+                  className="text-gradient-brand text-sheen"
+                  data-text="für deutsche Kanzleien"
+                >
+                  für deutsche Kanzleien
+                </span>
               </h1>
 
               <p className="mx-auto mt-3 max-w-2xl text-pretty text-sm text-muted-foreground">

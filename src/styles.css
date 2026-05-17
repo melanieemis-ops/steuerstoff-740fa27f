@@ -151,3 +151,40 @@
   }
 }
 
+
+/* Subtle premium sheen on hero accent text. Uses a duplicated text layer
+   clipped to the glyphs via background-clip:text, so the highlight only
+   appears inside the text. Honors prefers-reduced-motion (see above). */
+.text-sheen {
+  position: relative;
+  display: inline-block;
+}
+.text-sheen::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(
+    100deg,
+    transparent 38%,
+    rgba(255, 255, 255, 0.75) 50%,
+    transparent 62%
+  );
+  background-size: 220% 100%;
+  background-repeat: no-repeat;
+  background-position: 150% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: text-sheen 5s ease-in-out infinite;
+  will-change: background-position;
+}
+@keyframes text-sheen {
+  0%   { background-position: 150% 0; }
+  45%  { background-position: -60% 0; }
+  100% { background-position: -60% 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .text-sheen::after { animation: none; display: none; }
+}

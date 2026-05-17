@@ -56,7 +56,7 @@ const heroModules = [
     desc: "Sphären, Zweckbetrieb, Rücklagen und gemeinnützigkeitsrechtliche Risiken strukturieren.",
     cta: "NPO-Fall prüfen",
     accent: "var(--cyan)",
-    to: "/neue-anfrage" as const,
+    to: "/npo-pruefassistent" as const,
   },
 ];
 

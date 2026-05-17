@@ -232,6 +232,9 @@ const DEMO_MAPPINGS: SkrMapping[] = [
   },
 ];
 
+/** Demo-Mappings zuerst (höhere Priorität bei Textanalyse), dann offizielle DATEV-Mappings. */
+export const SKR_MAPPINGS: SkrMapping[] = [...DEMO_MAPPINGS, ...OFFICIAL_MAPPINGS];
+
 export const COMPLIANCE_NOTE =
   "Kontenvorschlag bitte fachlich prüfen – insbesondere bei NPO, Umsatzsteuer und Sphärenzuordnung.";
 

@@ -15,6 +15,7 @@ import {
   summeZulaessigeRuecklagen, berechneErgebnis, fristStatus, ampelClass, ampelLabel, fmt, buildExport,
   type RuecklageArt,
 } from "@/lib/mvrStore";
+import { Term } from "@/components/MvrGlossary";
 
 export const Route = createFileRoute("/mittelverwendungsrechner")({
   component: Page,

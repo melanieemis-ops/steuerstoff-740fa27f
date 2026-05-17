@@ -338,22 +338,44 @@ function Page() {
                     );
                   })}
                 </div>
-                <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:justify-end">
+                <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                  <div className="min-h-[1.25rem] text-[11px] text-muted-foreground">
+                    {error ? (
+                      <span className="text-rose-700">{error}</span>
+                    ) : isStale ? (
+                      <span className="text-amber-700">Eingaben geändert – bitte erneut prüfen.</span>
+                    ) : lastCheckedLabel ? (
+                      <span>Zuletzt geprüft: {lastCheckedLabel}</span>
+                    ) : null}
+                  </div>
                   <Button
                     onClick={run}
-                    disabled={!input.beschreibung.trim()}
+                    disabled={!input.beschreibung.trim() || loading}
                     className="h-10"
                   >
-                    NPO-Prüfung starten
+                    {loading ? (
+                      <RefreshCw className="mr-1.5 h-4 w-4 animate-spin" />
+                    ) : result ? (
+                      <RefreshCw className="mr-1.5 h-4 w-4" />
+                    ) : null}
+                    {buttonLabel}
                   </Button>
                 </div>
               </div>
             </div>
 
             {/* Ergebnis */}
-            <div className="space-y-4">
+            <div className="space-y-4" ref={resultRef}>
               {result ? (
-                <ResultCard r={result} onCopy={copy} onDownload={download} />
+                <ResultCard
+                  r={result}
+                  onCopy={copy}
+                  onDownload={download}
+                  onRefresh={run}
+                  loading={loading}
+                  isStale={isStale}
+                  lastChecked={lastCheckedLabel}
+                />
               ) : (
                 <div className="rounded-2xl border border-dashed border-border bg-card/60 p-6 text-sm text-muted-foreground">
                   Beschreibe den Vorgang in der Kurzbeschreibung und starte die Prüfung.

@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Input } from "@/components/ui/input";
@@ -504,6 +505,12 @@ function matchHandouts(article: Article): Handout[] {
     for (const t of tagSet) if (hay.includes(t)) return true;
     return false;
   });
+}
+
+function articleBody(article: Article) {
+  const body = article.body?.trim();
+  if (body) return body;
+  return `${article.title}\n\n${article.short}\n\nDieser Wissenseintrag gehört zur Kategorie ${article.category}. Prüfe den Sachverhalt anhand der Kurzbeschreibung, der Prüfpunkte und der passenden Module.`;
 }
 
 function Wissensdatenbank() {

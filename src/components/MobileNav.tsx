@@ -68,6 +68,7 @@ export function SectionDots() {
 /** Bottom navigation, mobile only. */
 export function MobileBottomNav() {
   const items = [
+    { to: "/chat", label: "Chat", Icon: MessageSquare },
     { to: "/", label: "Home", Icon: Home },
     { to: "/neue-anfrage", label: "Anfrage", Icon: FilePlus },
     { to: "/skr-konverter", label: "SKR", Icon: ArrowRightLeft },

@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
+import { KnowledgeSheet } from "@/components/KnowledgeSheet";
+import { KNOWLEDGE_TOPICS, type TopicId, getTopic } from "@/lib/knowledgeTopics";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Button } from "@/components/ui/button";
 import { listCases, relativeTime, type CaseRecord } from "@/lib/casesStore";
@@ -31,7 +33,7 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const chips = ["USt", "NPO", "SKR42", "DATEV", "Rückfragen", "Review"];
+// chips entfernt → kommen aus KNOWLEDGE_TOPICS
 
 const heroModules = [
   {
@@ -121,6 +123,7 @@ const quickstart = [
 
 function Home() {
   const [recent, setRecent] = useState<CaseRecord[]>([]);
+  const [activeTopic, setActiveTopic] = useState<TopicId | null>(null);
   useEffect(() => {
     const update = () => setRecent(listCases().slice(0, 5));
     update();
@@ -171,14 +174,25 @@ function Home() {
               </p>
 
               <div className="mt-4 flex flex-wrap justify-center gap-1.5">
-                {chips.map((c) => (
-                  <span
-                    key={c}
-                    className="rounded-full border border-border bg-card px-2.5 py-1 text-xs text-muted-foreground"
-                  >
-                    {c}
-                  </span>
-                ))}
+                {KNOWLEDGE_TOPICS.map((t) => {
+                  const isActive = activeTopic === t.id;
+                  return (
+                    <button
+                      key={t.id}
+                      type="button"
+                      onClick={() => setActiveTopic(t.id)}
+                      aria-pressed={isActive}
+                      aria-label={`Wissen zu ${t.title} öffnen`}
+                      className={`chip-knowledge rounded-full border bg-card px-2.5 py-1 text-xs transition-colors ${
+                        isActive
+                          ? "chip-knowledge-active border-transparent text-foreground"
+                          : "border-border text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      {t.chip}
+                    </button>
+                  );
+                })}
               </div>
 
               <div className="mt-5 flex flex-col items-stretch justify-center gap-2 sm:flex-row sm:items-center">

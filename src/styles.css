@@ -188,3 +188,63 @@
 @media (prefers-reduced-motion: reduce) {
   .text-sheen::after { animation: none; display: none; }
 }
+
+/* Chat-Seite: tiefes Navy */
+.chat-bg-deep {
+  background: #07142f;
+  color: #e8eef9;
+}
+.chat-bg-deep [data-no-swipe="true"] textarea,
+.chat-bg-deep [data-no-swipe="true"] input {
+  color: #0b1a3a;
+}
+
+/* Hero-Chip: aktiver Surface-Flow-Ring */
+.chip-knowledge {
+  position: relative;
+  isolation: isolate;
+}
+.chip-knowledge:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--background),
+    0 0 0 4px color-mix(in oklab, var(--violet) 70%, transparent);
+}
+.chip-knowledge-active {
+  background: var(--card);
+}
+.chip-knowledge-active::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 9999px;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--ring-angle, 0deg),
+    var(--magenta),
+    var(--violet),
+    var(--cyan),
+    var(--deep-blue),
+    var(--magenta)
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  animation: chip-ring-flow 4.5s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.95;
+}
+@property --ring-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+@keyframes chip-ring-flow {
+  to { --ring-angle: 360deg; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chip-knowledge-active::before { animation: none; }
+}

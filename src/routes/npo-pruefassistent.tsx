@@ -3,7 +3,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import { PullToRefresh } from "@/components/PullToRefresh";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -115,6 +115,7 @@ function Page() {
   }, [tool, input, loading]);
 
   const onRefresh = useCallback(async () => {
+    setError(null);
     if (result && input.beschreibung.trim()) {
       const r = pruefe(tool, input);
       setResult(r);
@@ -124,6 +125,14 @@ function Page() {
       setNowTick((n) => n + 1);
     }
   }, [tool, input, result]);
+
+  useEffect(() => {
+    const handler = () => {
+      void onRefresh();
+    };
+    window.addEventListener("steuerstoff:refresh", handler);
+    return () => window.removeEventListener("steuerstoff:refresh", handler);
+  }, [onRefresh]);
 
   const exportText = useMemo(
     () => (result ? ergebnisAlsText(result, input) : ""),
@@ -147,7 +156,7 @@ function Page() {
   const lastCheckedLabel = lastChecked ? formatTime(lastChecked) : null;
 
   return (
-    <PullToRefresh onRefresh={onRefresh}>
+    
     <div className="flex min-h-screen flex-col bg-background">
       <SiteHeader />
       <main className="flex-1">
@@ -394,7 +403,7 @@ function Page() {
       </main>
       <SiteFooter />
     </div>
-    </PullToRefresh>
+    
   );
 }
 

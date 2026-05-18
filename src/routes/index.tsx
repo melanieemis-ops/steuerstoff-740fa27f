@@ -167,7 +167,7 @@ function Home() {
                 className="group inline-flex cursor-pointer items-center gap-2 rounded-full border border-border bg-card/80 px-3 py-1 text-xs text-muted-foreground shadow-sm transition-transform hover:border-foreground/30 hover:text-foreground active:scale-[0.98]"
               >
                 <span className="status-pulse h-1.5 w-1.5 rounded-full" style={{ background: "var(--magenta)" }} />
-                KI-Arbeitsassistent · für Kanzleien
+                KI-Arbeitsassistent · Chat öffnen
               </Link>
 
               <h1 className="mt-4 text-balance text-2xl font-semibold tracking-tight text-foreground sm:text-4xl">

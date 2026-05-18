@@ -905,7 +905,7 @@ function Wissensdatenbank() {
             {CATEGORIES.map((c) => (
               <button
                 key={c}
-                key-data={c}
+                
                 type="button"
                 onClick={() => setCat(c)}
                 className={

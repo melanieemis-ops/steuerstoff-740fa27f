@@ -573,7 +573,7 @@ function ArticleDetails({
       <div className="flex items-start justify-between gap-4 border-b border-border p-4">
         <div className="min-w-0">
           <span className="inline-block rounded border border-border bg-background px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted-foreground">
-            {article.category}
+            {effectiveCategory(article)}
           </span>
           <h3 className="mt-2 text-lg font-semibold text-foreground">{article.title}</h3>
           <p className="mt-1 text-xs text-muted-foreground">{article.short}</p>

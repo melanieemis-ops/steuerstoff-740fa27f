@@ -33,41 +33,65 @@ const CATEGORIES = [
 ] as const;
 
 type Category = (typeof CATEGORIES)[number];
+type CategoryId =
+  | "all"
+  | "umsatzsteuer"
+  | "npo"
+  | "skr03"
+  | "skr42"
+  | "datev"
+  | "rueckfragen"
+  | "jahresabschluss"
+  | "buchhaltung"
+  | "kfz"
+  | "ao"
+  | "erbschaftsteuer"
+  | "umwandlungsteuer"
+  | "bilanzierung"
+  | "hilfe";
 
-// Strikte Kategorie-Zuordnung über stabile Artikel-IDs.
-// Keine breite Substring-/Keyword-Suche mehr — dadurch keine Cross-Treffer
-// wie „Reverse Charge“ unter „Erbschaftsteuer“.
-//
-// PRIMARY_OVERRIDE: Setzt die effektive (primäre) Kategorie einzelner Artikel,
-//   ohne die Rohdaten zu ändern. Wird auch für Anzeige + Counts verwendet.
-// RELATED: Zusätzliche Kategorien, in denen ein Artikel ebenfalls erscheinen darf
-//   (bewusst sparsam einsetzen).
-const PRIMARY_OVERRIDE: Record<string, Category> = {
-  "kb-erbschaftsteuer-grundlagen": "Erbschaftsteuer",
-  "kb-erbschaftsteuer-merksaetze": "Erbschaftsteuer",
-  "kb-anteilstausch-umwstg": "Umwandlungsteuer",
-  "kb-aenderung-173a-ao": "AO / Verfahrensrecht",
-  "kb-kfz-wertabgabe-1prozent": "Kfz",
-  "kb-bilanzierung-immaterielle-rueckstellungen": "Bilanzierung",
-  "kb-rhb-vorratsbewertung": "Bilanzierung",
+const CATEGORY_ID_BY_LABEL: Record<Category, CategoryId> = {
+  Alle: "all",
+  Umsatzsteuer: "umsatzsteuer",
+  "NPO / Gemeinnützigkeit": "npo",
+  SKR03: "skr03",
+  SKR42: "skr42",
+  DATEV: "datev",
+  Rückfragen: "rueckfragen",
+  Jahresabschluss: "jahresabschluss",
+  Buchhaltung: "buchhaltung",
+  Kfz: "kfz",
+  "AO / Verfahrensrecht": "ao",
+  Erbschaftsteuer: "erbschaftsteuer",
+  Umwandlungsteuer: "umwandlungsteuer",
+  Bilanzierung: "bilanzierung",
 };
 
-const RELATED: Record<string, Category[]> = {
-  "kb-reverse-charge-npo": ["NPO / Gemeinnützigkeit"],
-  "kb-ruecklage-allgemein": ["Bilanzierung"],
+const CATEGORY_LABEL_BY_ID = Object.fromEntries(
+  Object.entries(CATEGORY_ID_BY_LABEL).map(([label, id]) => [id, label]),
+) as Partial<Record<CategoryId, Category>>;
+
+const CATEGORY_ID_OVERRIDE: Record<string, CategoryId> = {
+  "kb-erbschaftsteuer-grundlagen": "erbschaftsteuer",
+  "kb-erbschaftsteuer-merksaetze": "erbschaftsteuer",
+  "kb-anteilstausch-umwstg": "umwandlungsteuer",
+  "kb-aenderung-173a-ao": "ao",
+  "kb-kfz-wertabgabe-1prozent": "kfz",
+  "kb-bilanzierung-immaterielle-rueckstellungen": "bilanzierung",
+  "kb-rhb-vorratsbewertung": "bilanzierung",
 };
 
-function effectiveCategory(a: Article): Category {
-  return PRIMARY_OVERRIDE[a.id] ?? a.category;
+function getCategoryId(a: Article): CategoryId {
+  return a.categoryId ?? CATEGORY_ID_OVERRIDE[a.id] ?? CATEGORY_ID_BY_LABEL[a.category];
+}
+
+function getCategoryLabel(a: Article): Category {
+  return CATEGORY_LABEL_BY_ID[getCategoryId(a)] ?? a.category;
 }
 
 function articleMatchesCategory(a: Article, c: Category): boolean {
-  if (c === "Alle") return true;
-  // Strikt: ausschließlich effektive Kategorie + explizit erlaubte RELATED-IDs.
-  // Keine Tag-/Substring-Heuristik mehr – verhindert Cross-Treffer
-  // (z. B. USt-Karten unter „DATEV“).
-  if (effectiveCategory(a) === c) return true;
-  return RELATED[a.id]?.includes(c) ?? false;
+  const activeCategoryId = CATEGORY_ID_BY_LABEL[c];
+  return activeCategoryId === "all" || getCategoryId(a) === activeCategoryId;
 }
 
 interface Article {
@@ -75,6 +99,7 @@ interface Article {
   title: string;
   short: string;
   category: Category;
+  categoryId?: CategoryId;
   body: string;
   checklist?: string[];
   commonMistakes?: string[];
@@ -588,7 +613,7 @@ function ArticleDetails({
       <div className="flex items-start justify-between gap-4 border-b border-border p-4">
         <div className="min-w-0">
           <span className="inline-block rounded border border-border bg-background px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted-foreground">
-            {effectiveCategory(article)}
+            {getCategoryLabel(article)}
           </span>
           <h3 className="mt-2 text-lg font-semibold text-foreground">{article.title}</h3>
           <p className="mt-1 text-xs text-muted-foreground">{article.short}</p>
@@ -790,21 +815,14 @@ function Wissensdatenbank() {
   const [notice, setNotice] = useState<string | null>(null);
   const [canUsePortal, setCanUsePortal] = useState(false);
 
+  const activeCategoryId = CATEGORY_ID_BY_LABEL[cat];
+
   // Einzige Quelle der Wahrheit: gleiche Liste für Count UND Karten.
   const finalVisibleItems = useMemo(() => {
-    const q = query.trim().toLowerCase();
     return ALL_ARTICLES.filter((a) => {
-      if (!articleMatchesCategory(a, cat)) return false;
-      if (!q) return true;
-      return (
-        a.title.toLowerCase().includes(q) ||
-        a.short.toLowerCase().includes(q) ||
-        a.body.toLowerCase().includes(q) ||
-        (a.tags ?? []).some((t) => t.toLowerCase().includes(q))
-      );
+      return activeCategoryId === "all" || getCategoryId(a) === activeCategoryId;
     });
-  }, [query, cat]);
-  const filtered = finalVisibleItems;
+  }, [activeCategoryId]);
 
   const counts = useMemo(() => {
     const m: Record<string, number> = {};
@@ -814,39 +832,23 @@ function Wissensdatenbank() {
     return m;
   }, []);
 
-  const grouped = useMemo(() => {
-    if (cat !== "Alle") return null;
-    const seen = new Set<string>();
-    const groups: { category: Category; items: Article[] }[] = [];
-    for (const c of CATEGORIES) {
-      if (c === "Alle") continue;
-      const items = filtered.filter(
-        (a) => !seen.has(a.id) && articleMatchesCategory(a, c),
-      );
-      items.forEach((a) => seen.add(a.id));
-      if (items.length) groups.push({ category: c, items });
-    }
-    const rest = filtered.filter((a) => !seen.has(a.id));
-    if (rest.length) groups.push({ category: "Buchhaltung" as Category, items: rest });
-    return groups;
-  }, [cat, filtered]);
-
   useEffect(() => {
     if (typeof window === "undefined") return;
     // Dev-Debug: aktiver Filter + tatsächlich angezeigte Kategorien.
     if (import.meta.env.DEV) {
       // eslint-disable-next-line no-console
-      console.log("[KB-Filter]", {
-        activeCategoryId: cat,
-        query,
-        visible: filtered.map((a) => ({ id: a.id, cat: effectiveCategory(a) })),
-      });
+      console.log("activeCategoryId", activeCategoryId);
+      // eslint-disable-next-line no-console
+      console.log(
+        "finalVisibleItems",
+        finalVisibleItems.map((i) => ({ title: i.title, categoryId: getCategoryId(i) })),
+      );
     }
     const el = document.getElementById("kb-list-anchor");
     if (!el) return;
     const y = el.getBoundingClientRect().top + window.scrollY - 80;
     window.scrollTo({ top: y, behavior: "smooth" });
-  }, [cat, query, filtered]);
+  }, [activeCategoryId, finalVisibleItems]);
 
   useEffect(() => {
     setCanUsePortal(typeof document !== "undefined" && !!document.body);
@@ -854,7 +856,7 @@ function Wissensdatenbank() {
 
   const buildFullText = (a: Article) => {
     const lines = [
-      `${a.category} — ${a.title}`,
+      `${getCategoryLabel(a)} — ${a.title}`,
       "",
       a.short,
       "",
@@ -927,7 +929,7 @@ function Wissensdatenbank() {
       >
         <span className="inline-flex items-center gap-1.5 self-start rounded border border-border bg-background px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted-foreground">
           <BookOpen className="h-3 w-3" />
-          {effectiveCategory(a)}
+          {getCategoryLabel(a)}
         </span>
         <h2 className="mt-3 text-sm font-semibold text-foreground">{a.title}</h2>
         <p className="mt-1 line-clamp-3 flex-1 text-xs leading-relaxed text-muted-foreground">
@@ -1015,7 +1017,7 @@ function Wissensdatenbank() {
             className="mt-4 flex items-center justify-between gap-3 text-xs text-muted-foreground"
           >
             <span>
-              {filtered.length} {filtered.length === 1 ? "Inhalt" : "Inhalte"} gefunden
+              {finalVisibleItems.length} {finalVisibleItems.length === 1 ? "Inhalt" : "Inhalte"} gefunden
               {cat !== "Alle" ? ` · Kategorie „${cat}“` : ""}
               {query.trim() ? ` · Suche „${query.trim()}“` : ""}
             </span>
@@ -1033,7 +1035,7 @@ function Wissensdatenbank() {
             )}
           </div>
 
-          {filtered.length === 0 ? (
+          {finalVisibleItems.length === 0 ? (
             <div className="mt-6 rounded-2xl border border-dashed border-border bg-card p-8 text-center text-sm text-muted-foreground">
               <p>Keine passenden Inhalte gefunden.</p>
               <div className="mt-3 flex flex-wrap justify-center gap-2">
@@ -1057,25 +1059,9 @@ function Wissensdatenbank() {
                 )}
               </div>
             </div>
-          ) : grouped ? (
-            <div className="mt-6 space-y-8">
-              {grouped.map((g) => (
-                <section key={g.category}>
-                  <h2 className="text-sm font-semibold tracking-tight text-foreground">
-                    {g.category}{" "}
-                    <span className="text-xs font-normal text-muted-foreground">
-                      ({g.items.length})
-                    </span>
-                  </h2>
-                  <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                    {g.items.map((a) => renderCard(a))}
-                  </div>
-                </section>
-              ))}
-            </div>
           ) : (
             <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {filtered.map((a) => renderCard(a))}
+              {finalVisibleItems.map((a) => renderCard(a))}
             </div>
           )}
 

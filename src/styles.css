@@ -249,20 +249,23 @@
   .chip-knowledge-active::before { animation: none; }
 }
 
-/* Status-Indikator (z. B. Hero-Badge): langsamer Glow-Puls, kein Layout-Shift. */
+/* Status-Indikator (z. B. Hero-Badge): Zyklus aus
+   sichtbar → kurzer Glow → komplett unsichtbar (≈2 s) → wieder erscheinen.
+   Animiert ausschließlich opacity + box-shadow → kein Reflow, kein Layout-Shift. */
 .status-pulse {
-  box-shadow: 0 0 0 0 color-mix(in oklab, var(--magenta) 55%, transparent);
-  animation: status-pulse 2.6s ease-in-out infinite;
+  opacity: 1;
+  box-shadow: 0 0 0 0 color-mix(in oklab, var(--magenta) 0%, transparent);
+  animation: status-pulse-cycle 4.5s ease-in-out infinite;
+  will-change: opacity, box-shadow;
 }
-@keyframes status-pulse {
-  0%, 100% {
-    opacity: 0.75;
-    box-shadow: 0 0 0 0 color-mix(in oklab, var(--magenta) 35%, transparent);
-  }
-  50% {
-    opacity: 1;
-    box-shadow: 0 0 8px 2px color-mix(in oklab, var(--magenta) 55%, transparent);
-  }
+@keyframes status-pulse-cycle {
+  0%   { opacity: 1; box-shadow: 0 0 0 0 color-mix(in oklab, var(--magenta) 30%, transparent); }
+  12%  { opacity: 1; box-shadow: 0 0 10px 3px color-mix(in oklab, var(--magenta) 65%, transparent); }
+  22%  { opacity: 1; box-shadow: 0 0 4px 1px color-mix(in oklab, var(--magenta) 30%, transparent); }
+  32%  { opacity: 0; box-shadow: 0 0 0 0 color-mix(in oklab, var(--magenta) 0%, transparent); }
+  78%  { opacity: 0; box-shadow: 0 0 0 0 color-mix(in oklab, var(--magenta) 0%, transparent); }
+  88%  { opacity: 1; box-shadow: 0 0 10px 3px color-mix(in oklab, var(--magenta) 65%, transparent); }
+  100% { opacity: 1; box-shadow: 0 0 0 0 color-mix(in oklab, var(--magenta) 0%, transparent); }
 }
 @media (prefers-reduced-motion: reduce) {
   .status-pulse { animation: none; box-shadow: none; opacity: 1; }

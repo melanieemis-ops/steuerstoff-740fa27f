@@ -527,7 +527,19 @@ const KB_ARTICLES: Article[] = KNOWLEDGE_BASE.map((e) => ({
   tags: [e.category],
 }));
 
-const ALL_ARTICLES: Article[] = [...ARTICLES, ...KB_ARTICLES];
+// Dedupe nach ID — KNOWLEDGE_BASE enthält teilweise doppelte Einträge
+// (z. B. „reverse-charge-npo“, „darlehen-npo“). Doppelte React-Keys führen
+// zu stehengebliebenen DOM-Nodes beim Filterwechsel.
+const ALL_ARTICLES: Article[] = (() => {
+  const seen = new Set<string>();
+  const out: Article[] = [];
+  for (const a of [...ARTICLES, ...KB_ARTICLES]) {
+    if (seen.has(a.id)) continue;
+    seen.add(a.id);
+    out.push(a);
+  }
+  return out;
+})();
 
 function matchHandouts(article: Article): Handout[] {
   const all = listHandouts();

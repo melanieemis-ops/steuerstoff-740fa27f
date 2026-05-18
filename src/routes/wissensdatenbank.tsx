@@ -613,7 +613,7 @@ function ArticleDetails({
       <div className="flex items-start justify-between gap-4 border-b border-border p-4">
         <div className="min-w-0">
           <span className="inline-block rounded border border-border bg-background px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted-foreground">
-            {effectiveCategory(article)}
+            {getCategoryLabel(article)}
           </span>
           <h3 className="mt-2 text-lg font-semibold text-foreground">{article.title}</h3>
           <p className="mt-1 text-xs text-muted-foreground">{article.short}</p>
@@ -815,21 +815,14 @@ function Wissensdatenbank() {
   const [notice, setNotice] = useState<string | null>(null);
   const [canUsePortal, setCanUsePortal] = useState(false);
 
+  const activeCategoryId = CATEGORY_ID_BY_LABEL[cat];
+
   // Einzige Quelle der Wahrheit: gleiche Liste für Count UND Karten.
   const finalVisibleItems = useMemo(() => {
-    const q = query.trim().toLowerCase();
     return ALL_ARTICLES.filter((a) => {
-      if (!articleMatchesCategory(a, cat)) return false;
-      if (!q) return true;
-      return (
-        a.title.toLowerCase().includes(q) ||
-        a.short.toLowerCase().includes(q) ||
-        a.body.toLowerCase().includes(q) ||
-        (a.tags ?? []).some((t) => t.toLowerCase().includes(q))
-      );
+      return activeCategoryId === "all" || getCategoryId(a) === activeCategoryId;
     });
-  }, [query, cat]);
-  const filtered = finalVisibleItems;
+  }, [activeCategoryId]);
 
   const counts = useMemo(() => {
     const m: Record<string, number> = {};
@@ -864,14 +857,14 @@ function Wissensdatenbank() {
       console.log("[KB-Filter]", {
         activeCategoryId: cat,
         query,
-        visible: filtered.map((a) => ({ id: a.id, cat: effectiveCategory(a) })),
+        visible: finalVisibleItems.map((a) => ({ id: a.id, cat: getCategoryId(a) })),
       });
     }
     const el = document.getElementById("kb-list-anchor");
     if (!el) return;
     const y = el.getBoundingClientRect().top + window.scrollY - 80;
     window.scrollTo({ top: y, behavior: "smooth" });
-  }, [cat, query, filtered]);
+  }, [cat, query, finalVisibleItems]);
 
   useEffect(() => {
     setCanUsePortal(typeof document !== "undefined" && !!document.body);

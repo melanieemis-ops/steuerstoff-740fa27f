@@ -30,6 +30,9 @@ const REVIEW =
 export function generateAnswer(rawQuestion: string): ChatAnswer {
   const q = rawQuestion.toLowerCase().trim();
 
+  // --- 0) Meta-Fragen über die App selbst (vor Lexikon + Fallback) ---
+  if (isSteuerstoffInfoQuery(q)) return steuerstoffInfoAnswer();
+
   // --- 1) Lexikon / Begriffsfrage (vor allen Spezialmodulen) ---
   const lex = lookupLexicon(rawQuestion);
   if (lex) return lex;

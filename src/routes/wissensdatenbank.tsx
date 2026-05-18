@@ -50,40 +50,48 @@ type CategoryId =
   | "bilanzierung"
   | "hilfe";
 
-// Strikte Kategorie-Zuordnung über stabile Artikel-IDs.
-// Keine breite Substring-/Keyword-Suche mehr — dadurch keine Cross-Treffer
-// wie „Reverse Charge“ unter „Erbschaftsteuer“.
-//
-// PRIMARY_OVERRIDE: Setzt die effektive (primäre) Kategorie einzelner Artikel,
-//   ohne die Rohdaten zu ändern. Wird auch für Anzeige + Counts verwendet.
-// RELATED: Zusätzliche Kategorien, in denen ein Artikel ebenfalls erscheinen darf
-//   (bewusst sparsam einsetzen).
-const PRIMARY_OVERRIDE: Record<string, Category> = {
-  "kb-erbschaftsteuer-grundlagen": "Erbschaftsteuer",
-  "kb-erbschaftsteuer-merksaetze": "Erbschaftsteuer",
-  "kb-anteilstausch-umwstg": "Umwandlungsteuer",
-  "kb-aenderung-173a-ao": "AO / Verfahrensrecht",
-  "kb-kfz-wertabgabe-1prozent": "Kfz",
-  "kb-bilanzierung-immaterielle-rueckstellungen": "Bilanzierung",
-  "kb-rhb-vorratsbewertung": "Bilanzierung",
+const CATEGORY_ID_BY_LABEL: Record<Category, CategoryId> = {
+  Alle: "all",
+  Umsatzsteuer: "umsatzsteuer",
+  "NPO / Gemeinnützigkeit": "npo",
+  SKR03: "skr03",
+  SKR42: "skr42",
+  DATEV: "datev",
+  Rückfragen: "rueckfragen",
+  Jahresabschluss: "jahresabschluss",
+  Buchhaltung: "buchhaltung",
+  Kfz: "kfz",
+  "AO / Verfahrensrecht": "ao",
+  Erbschaftsteuer: "erbschaftsteuer",
+  Umwandlungsteuer: "umwandlungsteuer",
+  Bilanzierung: "bilanzierung",
 };
 
-const RELATED: Record<string, Category[]> = {
-  "kb-reverse-charge-npo": ["NPO / Gemeinnützigkeit"],
-  "kb-ruecklage-allgemein": ["Bilanzierung"],
+const CATEGORY_LABEL_BY_ID = Object.fromEntries(
+  Object.entries(CATEGORY_ID_BY_LABEL).map(([label, id]) => [id, label]),
+) as Partial<Record<CategoryId, Category>>;
+
+const CATEGORY_ID_OVERRIDE: Record<string, CategoryId> = {
+  "kb-erbschaftsteuer-grundlagen": "erbschaftsteuer",
+  "kb-erbschaftsteuer-merksaetze": "erbschaftsteuer",
+  "kb-anteilstausch-umwstg": "umwandlungsteuer",
+  "kb-aenderung-173a-ao": "ao",
+  "kb-kfz-wertabgabe-1prozent": "kfz",
+  "kb-bilanzierung-immaterielle-rueckstellungen": "bilanzierung",
+  "kb-rhb-vorratsbewertung": "bilanzierung",
 };
 
-function effectiveCategory(a: Article): Category {
-  return PRIMARY_OVERRIDE[a.id] ?? a.category;
+function getCategoryId(a: Article): CategoryId {
+  return a.categoryId ?? CATEGORY_ID_OVERRIDE[a.id] ?? CATEGORY_ID_BY_LABEL[a.category];
+}
+
+function getCategoryLabel(a: Article): Category {
+  return CATEGORY_LABEL_BY_ID[getCategoryId(a)] ?? a.category;
 }
 
 function articleMatchesCategory(a: Article, c: Category): boolean {
-  if (c === "Alle") return true;
-  // Strikt: ausschließlich effektive Kategorie + explizit erlaubte RELATED-IDs.
-  // Keine Tag-/Substring-Heuristik mehr – verhindert Cross-Treffer
-  // (z. B. USt-Karten unter „DATEV“).
-  if (effectiveCategory(a) === c) return true;
-  return RELATED[a.id]?.includes(c) ?? false;
+  const activeCategoryId = CATEGORY_ID_BY_LABEL[c];
+  return activeCategoryId === "all" || getCategoryId(a) === activeCategoryId;
 }
 
 interface Article {
@@ -91,6 +99,7 @@ interface Article {
   title: string;
   short: string;
   category: Category;
+  categoryId?: CategoryId;
   body: string;
   checklist?: string[];
   commonMistakes?: string[];

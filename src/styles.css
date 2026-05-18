@@ -270,3 +270,16 @@
 @media (prefers-reduced-motion: reduce) {
   .status-pulse { animation: none; box-shadow: none; opacity: 1; }
 }
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}

@@ -773,15 +773,49 @@ function Wissensdatenbank() {
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     return ALL_ARTICLES.filter((a) => {
-      if (cat !== "Alle" && a.category !== cat) return false;
+      if (!articleMatchesCategory(a, cat)) return false;
       if (!q) return true;
       return (
         a.title.toLowerCase().includes(q) ||
         a.short.toLowerCase().includes(q) ||
-        a.body.toLowerCase().includes(q)
+        a.body.toLowerCase().includes(q) ||
+        (a.tags ?? []).some((t) => t.toLowerCase().includes(q))
       );
     });
   }, [query, cat]);
+
+  const counts = useMemo(() => {
+    const m: Record<string, number> = {};
+    for (const c of CATEGORIES) {
+      m[c] = ALL_ARTICLES.filter((a) => articleMatchesCategory(a, c)).length;
+    }
+    return m;
+  }, []);
+
+  const grouped = useMemo(() => {
+    if (cat !== "Alle") return null;
+    const seen = new Set<string>();
+    const groups: { category: Category; items: Article[] }[] = [];
+    for (const c of CATEGORIES) {
+      if (c === "Alle") continue;
+      const items = filtered.filter(
+        (a) => !seen.has(a.id) && articleMatchesCategory(a, c),
+      );
+      items.forEach((a) => seen.add(a.id));
+      if (items.length) groups.push({ category: c, items });
+    }
+    const rest = filtered.filter((a) => !seen.has(a.id));
+    if (rest.length) groups.push({ category: "Buchhaltung" as Category, items: rest });
+    return groups;
+  }, [cat, filtered]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const el = document.getElementById("kb-list-anchor");
+    if (!el) return;
+    const y = el.getBoundingClientRect().top + window.scrollY - 80;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  }, [cat]);
 
   useEffect(() => {
     setCanUsePortal(typeof document !== "undefined" && !!document.body);

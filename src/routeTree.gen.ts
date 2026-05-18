@@ -19,6 +19,7 @@ import { Route as FallverlaufRouteImport } from './routes/fallverlauf'
 import { Route as EinstellungenRouteImport } from './routes/einstellungen'
 import { Route as ChatRouteImport } from './routes/chat'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CsvKonverterRouteImport } from './routes/csv-konverter'
 import { Route as FallCaseIdRouteImport } from './routes/fall.$caseId'
 
 const WissensdatenbankRoute = WissensdatenbankRouteImport.update({

@@ -879,6 +879,57 @@ function Wissensdatenbank() {
     }
   };
 
+  const renderCard = (a: Article) => (
+    <div key={a.id} className="sm:contents">
+      <article
+        role="button"
+        tabIndex={0}
+        onClick={() => openArticle(a)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            openArticle(a);
+          }
+        }}
+        data-no-swipe="true"
+        className="pointer-events-auto flex cursor-pointer flex-col rounded-2xl border border-border bg-card p-4 shadow-card-soft transition-colors hover:border-foreground/30 focus:outline-none focus:ring-2 focus:ring-ring"
+      >
+        <span className="inline-flex items-center gap-1.5 self-start rounded border border-border bg-background px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted-foreground">
+          <BookOpen className="h-3 w-3" />
+          {a.category}
+        </span>
+        <h2 className="mt-3 text-sm font-semibold text-foreground">{a.title}</h2>
+        <p className="mt-1 line-clamp-3 flex-1 text-xs leading-relaxed text-muted-foreground">
+          {a.short}
+        </p>
+        <Button
+          type="button"
+          variant="outline"
+          size="sm"
+          className="pointer-events-auto mt-3 self-start"
+          onClick={(e) => {
+            e.stopPropagation();
+            openArticle(a);
+          }}
+        >
+          Öffnen
+        </Button>
+      </article>
+      {inlineOpenId === a.id && (!open || !canUsePortal) && (
+        <div className="mt-3 flex max-h-[75vh] flex-col overflow-hidden rounded-2xl border border-border bg-card text-card-foreground shadow-card-soft sm:col-span-2 lg:col-span-3">
+          <ArticleDetails
+            article={a}
+            copied={copied}
+            notice={notice}
+            onCopy={handleCopy}
+            onPruefnotiz={handlePruefnotiz}
+            onClose={closeArticle}
+          />
+        </div>
+      )}
+    </div>
+  );
+
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <SiteHeader />

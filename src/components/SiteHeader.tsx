@@ -8,6 +8,7 @@ const nav = [
   { to: "/fallverlauf", label: "Fallverlauf" },
   { to: "/wissensdatenbank", label: "Wissensdatenbank" },
   { to: "/skr-konverter", label: "SKR-Konverter" },
+  { to: "/csv-konverter", label: "CSV-Konverter" },
   { to: "/mittelverwendungsrechner", label: "Mittelverwendungsrechner" },
   { to: "/kfz-wertabgabe", label: "Kfz-Wertabgabe" },
   { to: "/npo-pruefassistent", label: "NPO-Prüfassistent" },

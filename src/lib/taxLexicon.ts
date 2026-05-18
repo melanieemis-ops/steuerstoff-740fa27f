@@ -86,6 +86,185 @@ function match(nq: string, aliases: string[]): boolean {
 const KB_LINK = { label: "Wissensdatenbank öffnen", to: "/wissensdatenbank" };
 
 const LEXICON: LexEntry[] = [
+  // --- Gesetze / Abkürzungen ---
+  {
+    aliases: ["AO", "Abgabenordnung"],
+    answer: {
+      kind: "info",
+      summary:
+        "AO – Abgabenordnung: zentrales Verfahrensgesetz des deutschen Steuerrechts. Sie regelt die grundlegenden Regeln des Besteuerungsverfahrens.",
+      sections: [
+        {
+          title: "Was regelt die AO?",
+          body:
+            "Steuererklärungspflichten, Steuerbescheide, Festsetzungsfristen, Änderungsnormen (z. B. § 173, § 173a, § 175 AO), Außenprüfung, Einspruchsverfahren, Mitwirkungs- und Auskunftspflichten, Haftung sowie Gemeinnützigkeit (§§ 51 ff. AO).",
+        },
+        {
+          title: "Warum kanzleirelevant?",
+          body:
+            "Relevant immer dann, wenn geprüft wird, ob ein Bescheid geändert werden kann, welche Fristen laufen, welche Pflichten Mandanten haben oder ob eine gemeinnützige Körperschaft die Voraussetzungen der §§ 51 ff. AO erfüllt.",
+        },
+        {
+          title: "Typische AO-Themen",
+          body:
+            "Festsetzungsfrist, Änderung nach § 173a AO, Gemeinnützigkeit §§ 51 ff. AO, Mittelverwendung § 55 AO, Rücklagen § 62 AO, tatsächliche Geschäftsführung § 63 AO.",
+        },
+      ],
+      nextStep:
+        "steuerstoff ist eine Arbeitshilfe und ersetzt keine verbindliche steuerliche Beratung.",
+      links: [KB_LINK],
+      knowledge: "AO / Verfahrensrecht",
+    },
+  },
+  {
+    aliases: ["EStG", "Einkommensteuergesetz"],
+    answer: {
+      kind: "info",
+      summary:
+        "EStG – Einkommensteuergesetz: regelt die Besteuerung des Einkommens natürlicher Personen (sieben Einkunftsarten, § 2 EStG), Gewinnermittlung, Sonderausgaben, außergewöhnliche Belastungen und Tarif.",
+      links: [KB_LINK],
+    },
+  },
+  {
+    aliases: ["UStG", "Umsatzsteuergesetz"],
+    answer: {
+      kind: "info",
+      summary:
+        "UStG – Umsatzsteuergesetz: regelt die Besteuerung von Lieferungen und sonstigen Leistungen (§ 1 UStG), Steuersätze (§ 12), Vorsteuerabzug (§ 15), Steuerschuld (§ 13, § 13b) und Meldepflichten (UStVA, ZM).",
+      links: [KB_LINK],
+    },
+  },
+  {
+    aliases: ["KStG", "Körperschaftsteuergesetz"],
+    answer: {
+      kind: "info",
+      summary:
+        "KStG – Körperschaftsteuergesetz: regelt die Besteuerung des Einkommens juristischer Personen (insbes. GmbH, AG, Genossenschaften, Vereine). Tarif 15 % zzgl. SolZ; bei gemeinnützigen Körperschaften gelten §§ 5 Abs. 1 Nr. 9 KStG i. V. m. §§ 51 ff. AO.",
+      links: [KB_LINK],
+    },
+  },
+  {
+    aliases: ["GewStG", "Gewerbesteuergesetz"],
+    answer: {
+      kind: "info",
+      summary:
+        "GewStG – Gewerbesteuergesetz: regelt die Besteuerung des Gewerbeertrags (Gewinn aus Gewerbebetrieb +/- Hinzurechnungen/Kürzungen, §§ 8, 9 GewStG). Steuermesszahl 3,5 % × Hebesatz der Gemeinde.",
+      links: [KB_LINK],
+    },
+  },
+  {
+    aliases: ["ErbStG", "Erbschaftsteuergesetz", "Erbschaft- und Schenkungsteuergesetz"],
+    answer: {
+      kind: "info",
+      summary:
+        "ErbStG – Erbschaft- und Schenkungsteuergesetz: regelt Erbanfälle (§ 3) und Schenkungen unter Lebenden (§ 7), Bewertungsstichtag (§ 11), Freibeträge (§ 16), Steuerklassen (§ 15) und Verschonungen für Betriebsvermögen (§§ 13a/b).",
+      links: [KB_LINK],
+      knowledge: "Erbschaftsteuer & Bewertung — Merksätze",
+    },
+  },
+  {
+    aliases: ["BewG", "Bewertungsgesetz"],
+    answer: {
+      kind: "info",
+      summary:
+        "BewG – Bewertungsgesetz: einheitliche Bewertungsregeln für steuerliche Zwecke (gemeiner Wert § 9, Grundbesitzbewertung §§ 176 ff., Ertragswert-/Sachwertverfahren, Anteilsbewertung § 11 BewG).",
+      links: [KB_LINK],
+    },
+  },
+  {
+    aliases: ["UmwStG", "Umwandlungsteuergesetz"],
+    answer: {
+      kind: "info",
+      summary:
+        "UmwStG – Umwandlungsteuergesetz: steuerliche Behandlung von Umwandlungen, Einbringungen und Anteilstausch (z. B. § 20 Einbringung in KapG, § 21 Anteilstausch, § 24 Einbringung in PersG). Bewertungswahlrechte (Buchwert/Zwischenwert/gemeiner Wert).",
+      links: [KB_LINK],
+      knowledge: "Anteilstausch nach § 21 UmwStG",
+    },
+  },
+  {
+    aliases: ["HGB", "Handelsgesetzbuch"],
+    answer: {
+      kind: "info",
+      summary:
+        "HGB – Handelsgesetzbuch: Sonderrecht für Kaufleute. Drittes Buch (§§ 238 ff.) enthält die Vorschriften zur Handelsbilanz (GoB, Ansatz, Bewertung, Ausweis), die über § 5 EStG auch steuerlich gelten (Maßgeblichkeit).",
+      links: [KB_LINK],
+    },
+  },
+  {
+    aliases: ["BGB", "Bürgerliches Gesetzbuch"],
+    answer: {
+      kind: "info",
+      summary:
+        "BGB – Bürgerliches Gesetzbuch: allgemeines Zivilrecht (Schuldrecht, Sachenrecht, Familienrecht, Erbrecht). Steuerlich relevant z. B. für Erbfolge (§§ 1922 ff.), Schenkung (§§ 516 ff.) und Vertragsauslegung.",
+      links: [KB_LINK],
+    },
+  },
+  {
+    aliases: ["FGO", "Finanzgerichtsordnung"],
+    answer: {
+      kind: "info",
+      summary:
+        "FGO – Finanzgerichtsordnung: Verfahrensordnung der Finanzgerichtsbarkeit (Klage gegen Steuerbescheide nach erfolglosem Einspruch, Revision zum BFH).",
+      links: [KB_LINK],
+    },
+  },
+  // --- Buchhaltung / Sonstiges ---
+  {
+    aliases: ["EWB", "Einzelwertberichtigung"],
+    answer: {
+      kind: "info",
+      summary:
+        "Einzelwertberichtigung (EWB): Abwertung einzelner zweifelhafter Forderungen auf den voraussichtlich realisierbaren Wert; USt-Korrektur erst bei Uneinbringlichkeit (§ 17 UStG).",
+      links: [KB_LINK],
+      knowledge: "Kundenforderungen — Bewertung, EWB, PWB, USt-Korrektur",
+    },
+  },
+  {
+    aliases: ["PWB", "Pauschalwertberichtigung"],
+    answer: {
+      kind: "info",
+      summary:
+        "Pauschalwertberichtigung (PWB): pauschaler Abschlag (erfahrungsgemäß ca. 1 %) auf den nicht einzelwertberichtigten Forderungsbestand für allgemeines Ausfallrisiko. Steuerlich nur in angemessener Höhe anerkannt.",
+      links: [KB_LINK],
+      knowledge: "Kundenforderungen — Bewertung, EWB, PWB, USt-Korrektur",
+    },
+  },
+  {
+    aliases: ["Delkredere", "Delkredererisiko"],
+    answer: {
+      kind: "info",
+      summary:
+        "Delkredere: Ausfallrisiko bei Forderungen. Wird über Einzel- (EWB) oder Pauschalwertberichtigung (PWB) abgebildet.",
+      links: [KB_LINK],
+    },
+  },
+  {
+    aliases: ["Leistungsort", "Ort der Leistung", "Ort der sonstigen Leistung"],
+    answer: {
+      kind: "info",
+      summary:
+        "Leistungsort entscheidet, in welchem Staat eine Leistung umsatzsteuerbar ist. Grundregel B2B: Sitz des Empfängers (§ 3a Abs. 2 UStG). Grundregel B2C: Sitz des Leistenden (§ 3a Abs. 1 UStG). Zahlreiche Sonderregeln (§ 3a Abs. 3 ff., § 3b, § 3e UStG).",
+      links: [KB_LINK],
+    },
+  },
+  {
+    aliases: ["Vermögensbindung"],
+    answer: {
+      kind: "info",
+      summary:
+        "Vermögensbindung (§ 55 Abs. 1 Nr. 4 AO): das Vermögen einer gemeinnützigen Körperschaft darf bei Auflösung oder Wegfall des steuerbegünstigten Zwecks nur für steuerbegünstigte Zwecke verwendet werden. Satzungsmäßige Festlegung zwingend (§ 61 AO).",
+      links: [{ label: "NPO-Prüfassistent öffnen", to: "/npo-pruefassistent" }, KB_LINK],
+    },
+  },
+  {
+    aliases: ["tatsächliche Geschäftsführung"],
+    answer: {
+      kind: "info",
+      summary:
+        "Tatsächliche Geschäftsführung (§ 63 AO): die tatsächliche Tätigkeit der gemeinnützigen Körperschaft muss den satzungsmäßigen Anforderungen entsprechen. Nachweis durch ordnungsgemäße Aufzeichnungen und Tätigkeitsbericht.",
+      links: [{ label: "NPO-Prüfassistent öffnen", to: "/npo-pruefassistent" }, KB_LINK],
+    },
+  },
   {
     aliases: ["GoBD", "GOBD", "die GoBD"],
     answer: {

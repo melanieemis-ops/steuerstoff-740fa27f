@@ -25,9 +25,42 @@ const CATEGORIES = [
   "Rückfragen",
   "Jahresabschluss",
   "Buchhaltung",
+  "Kfz",
+  "AO / Verfahrensrecht",
+  "Erbschaftsteuer",
+  "Umwandlungsteuer",
+  "Bilanzierung",
 ] as const;
 
 type Category = (typeof CATEGORIES)[number];
+
+// Zusatz-Keyword-Regeln für Kategorien, die nicht direkt als `category` vergeben sind.
+// Bestehende Karten werden so zusätzlich in die richtige Kategorie einsortiert,
+// ohne dass wir Daten umbenennen müssen.
+const CAT_KEYWORDS: Partial<Record<Category, RegExp>> = {
+  Kfz: /kfz|1[- ]?%[- ]?methode|kostendeckel|fahrten wohnung|\b8921\b|\b8924\b|wertabgabe/i,
+  "AO / Verfahrensrecht":
+    /§ ?173a|festsetzungsfrist|bescheidänd|änderungsnorm|rechtsbehelf|einspruch|verfahrensrecht/i,
+  Erbschaftsteuer:
+    /erbschaft|schenkungsteuer|\berbsteuer\b|nachlass|familienheim|erbfall|erbanfall|ertragswertverfahren|\bbewg\b|vorerbe/i,
+  Umwandlungsteuer:
+    /umwandlung|umwstg|anteilstausch|einbringung|buchwertansatz|gemeiner wert|steuerliche rückwirkung/i,
+  Bilanzierung:
+    /bilanzierung|immaterielle|teilwert|aktivierung|abschreibung|drohverlust|\bfifo\b|\blifo\b|rückstellung|latente steuer/i,
+  Rückfragen:
+    /rückfrage|nachforder|mandantenrückfrag|prüfnotiz|offene punkte|review/i,
+  SKR03: /skr ?03/i,
+  SKR42: /skr ?42/i,
+};
+
+function articleMatchesCategory(a: Article, c: Category): boolean {
+  if (c === "Alle") return true;
+  if (a.category === c) return true;
+  const re = CAT_KEYWORDS[c];
+  if (!re) return false;
+  const hay = `${a.title} ${a.short} ${a.id} ${(a.tags ?? []).join(" ")}`;
+  return re.test(hay);
+}
 
 interface Article {
   id: string;
@@ -740,15 +773,49 @@ function Wissensdatenbank() {
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     return ALL_ARTICLES.filter((a) => {
-      if (cat !== "Alle" && a.category !== cat) return false;
+      if (!articleMatchesCategory(a, cat)) return false;
       if (!q) return true;
       return (
         a.title.toLowerCase().includes(q) ||
         a.short.toLowerCase().includes(q) ||
-        a.body.toLowerCase().includes(q)
+        a.body.toLowerCase().includes(q) ||
+        (a.tags ?? []).some((t) => t.toLowerCase().includes(q))
       );
     });
   }, [query, cat]);
+
+  const counts = useMemo(() => {
+    const m: Record<string, number> = {};
+    for (const c of CATEGORIES) {
+      m[c] = ALL_ARTICLES.filter((a) => articleMatchesCategory(a, c)).length;
+    }
+    return m;
+  }, []);
+
+  const grouped = useMemo(() => {
+    if (cat !== "Alle") return null;
+    const seen = new Set<string>();
+    const groups: { category: Category; items: Article[] }[] = [];
+    for (const c of CATEGORIES) {
+      if (c === "Alle") continue;
+      const items = filtered.filter(
+        (a) => !seen.has(a.id) && articleMatchesCategory(a, c),
+      );
+      items.forEach((a) => seen.add(a.id));
+      if (items.length) groups.push({ category: c, items });
+    }
+    const rest = filtered.filter((a) => !seen.has(a.id));
+    if (rest.length) groups.push({ category: "Buchhaltung" as Category, items: rest });
+    return groups;
+  }, [cat, filtered]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const el = document.getElementById("kb-list-anchor");
+    if (!el) return;
+    const y = el.getBoundingClientRect().top + window.scrollY - 80;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  }, [cat]);
 
   useEffect(() => {
     setCanUsePortal(typeof document !== "undefined" && !!document.body);
@@ -812,6 +879,57 @@ function Wissensdatenbank() {
     }
   };
 
+  const renderCard = (a: Article) => (
+    <div key={a.id} className="sm:contents">
+      <article
+        role="button"
+        tabIndex={0}
+        onClick={() => openArticle(a)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            openArticle(a);
+          }
+        }}
+        data-no-swipe="true"
+        className="pointer-events-auto flex cursor-pointer flex-col rounded-2xl border border-border bg-card p-4 shadow-card-soft transition-colors hover:border-foreground/30 focus:outline-none focus:ring-2 focus:ring-ring"
+      >
+        <span className="inline-flex items-center gap-1.5 self-start rounded border border-border bg-background px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted-foreground">
+          <BookOpen className="h-3 w-3" />
+          {a.category}
+        </span>
+        <h2 className="mt-3 text-sm font-semibold text-foreground">{a.title}</h2>
+        <p className="mt-1 line-clamp-3 flex-1 text-xs leading-relaxed text-muted-foreground">
+          {a.short}
+        </p>
+        <Button
+          type="button"
+          variant="outline"
+          size="sm"
+          className="pointer-events-auto mt-3 self-start"
+          onClick={(e) => {
+            e.stopPropagation();
+            openArticle(a);
+          }}
+        >
+          Öffnen
+        </Button>
+      </article>
+      {inlineOpenId === a.id && (!open || !canUsePortal) && (
+        <div className="mt-3 flex max-h-[75vh] flex-col overflow-hidden rounded-2xl border border-border bg-card text-card-foreground shadow-card-soft sm:col-span-2 lg:col-span-3">
+          <ArticleDetails
+            article={a}
+            copied={copied}
+            notice={notice}
+            onCopy={handleCopy}
+            onPruefnotiz={handlePruefnotiz}
+            onClose={closeArticle}
+          />
+        </div>
+      )}
+    </div>
+  );
+
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <SiteHeader />
@@ -834,80 +952,99 @@ function Wissensdatenbank() {
             />
           </div>
 
-          <div className="mt-4 flex flex-wrap gap-1.5">
+          <div className="mt-4 -mx-4 flex gap-1.5 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0">
             {CATEGORIES.map((c) => (
               <button
                 key={c}
+                
                 type="button"
                 onClick={() => setCat(c)}
                 className={
-                  "rounded-full border px-3 py-1 text-xs transition-colors " +
+                  "shrink-0 inline-flex items-center gap-1 rounded-full border px-3 py-1 text-xs transition-colors " +
                   (cat === c
-                    ? "border-foreground bg-foreground text-background"
+                    ? "border-foreground bg-foreground text-background ring-1 ring-foreground"
                     : "border-border bg-card text-muted-foreground hover:text-foreground")
                 }
               >
-                {c}
+                <span>{c}</span>
+                <span
+                  className={
+                    "text-[10px] " +
+                    (cat === c ? "text-background/70" : "text-muted-foreground/70")
+                  }
+                >
+                  {counts[c] ?? 0}
+                </span>
               </button>
             ))}
           </div>
 
+          <div
+            id="kb-list-anchor"
+            className="mt-4 flex items-center justify-between gap-3 text-xs text-muted-foreground"
+          >
+            <span>
+              {filtered.length} {filtered.length === 1 ? "Inhalt" : "Inhalte"} gefunden
+              {cat !== "Alle" ? ` · Kategorie „${cat}“` : ""}
+              {query.trim() ? ` · Suche „${query.trim()}“` : ""}
+            </span>
+            {(cat !== "Alle" || query.trim()) && (
+              <button
+                type="button"
+                onClick={() => {
+                  setCat("Alle");
+                  setQuery("");
+                }}
+                className="rounded-md border border-border bg-card px-2 py-1 text-xs text-foreground hover:border-foreground/40"
+              >
+                Filter zurücksetzen
+              </button>
+            )}
+          </div>
+
           {filtered.length === 0 ? (
-            <div className="mt-8 rounded-2xl border border-dashed border-border bg-card p-8 text-center text-sm text-muted-foreground">
-              Keine Treffer für „{query}“.
+            <div className="mt-6 rounded-2xl border border-dashed border-border bg-card p-8 text-center text-sm text-muted-foreground">
+              <p>Keine passenden Inhalte gefunden.</p>
+              <div className="mt-3 flex flex-wrap justify-center gap-2">
+                {query.trim() && (
+                  <button
+                    type="button"
+                    onClick={() => setQuery("")}
+                    className="rounded-md border border-border bg-background px-3 py-1.5 text-xs text-foreground hover:border-foreground/40"
+                  >
+                    Suche zurücksetzen
+                  </button>
+                )}
+                {cat !== "Alle" && (
+                  <button
+                    type="button"
+                    onClick={() => setCat("Alle")}
+                    className="rounded-md border border-border bg-background px-3 py-1.5 text-xs text-foreground hover:border-foreground/40"
+                  >
+                    Alle Inhalte anzeigen
+                  </button>
+                )}
+              </div>
+            </div>
+          ) : grouped ? (
+            <div className="mt-6 space-y-8">
+              {grouped.map((g) => (
+                <section key={g.category}>
+                  <h2 className="text-sm font-semibold tracking-tight text-foreground">
+                    {g.category}{" "}
+                    <span className="text-xs font-normal text-muted-foreground">
+                      ({g.items.length})
+                    </span>
+                  </h2>
+                  <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                    {g.items.map((a) => renderCard(a))}
+                  </div>
+                </section>
+              ))}
             </div>
           ) : (
             <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {filtered.map((a) => (
-                <div key={a.id} className="sm:contents">
-                  <article
-                    role="button"
-                    tabIndex={0}
-                    onClick={() => openArticle(a)}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        openArticle(a);
-                      }
-                    }}
-                    data-no-swipe="true"
-                    className="pointer-events-auto flex cursor-pointer flex-col rounded-2xl border border-border bg-card p-4 shadow-card-soft transition-colors hover:border-foreground/30 focus:outline-none focus:ring-2 focus:ring-ring"
-                  >
-                    <span className="inline-flex items-center gap-1.5 self-start rounded border border-border bg-background px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted-foreground">
-                      <BookOpen className="h-3 w-3" />
-                      {a.category}
-                    </span>
-                    <h2 className="mt-3 text-sm font-semibold text-foreground">{a.title}</h2>
-                    <p className="mt-1 line-clamp-3 flex-1 text-xs leading-relaxed text-muted-foreground">
-                      {a.short}
-                    </p>
-                    <Button
-                      type="button"
-                      variant="outline"
-                      size="sm"
-                      className="pointer-events-auto mt-3 self-start"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        openArticle(a);
-                      }}
-                    >
-                      Öffnen
-                    </Button>
-                  </article>
-                  {inlineOpenId === a.id && (!open || !canUsePortal) && (
-                    <div className="mt-3 flex max-h-[75vh] flex-col overflow-hidden rounded-2xl border border-border bg-card text-card-foreground shadow-card-soft sm:col-span-2 lg:col-span-3">
-                      <ArticleDetails
-                        article={a}
-                        copied={copied}
-                        notice={notice}
-                        onCopy={handleCopy}
-                        onPruefnotiz={handlePruefnotiz}
-                        onClose={closeArticle}
-                      />
-                    </div>
-                  )}
-                </div>
-              ))}
+              {filtered.map((a) => renderCard(a))}
             </div>
           )}
 

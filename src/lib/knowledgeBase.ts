@@ -83,7 +83,6 @@ Merksätze:
 - Wettbewerb ist ein starkes Indiz für Steuerpflicht.
 - Die Sphäre ergibt sich aus dem Sachverhalt, nicht aus der Kontobezeichnung.`,
   },
-},
 {
   id: "mvr-ruecklagen-und-verwendungsueberhang",
   title: "Mittelverwendungsrechnung, Rücklagen und Verwendungsüberhang",

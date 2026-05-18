@@ -122,6 +122,237 @@ Review-Hinweise:
 - Verwendungsüberhang berechnen und erläutern
 - offene Punkte im Review dokumentieren`
 },
+{
+  id: "npo-satzung-tatsaechliche-geschaeftsfuehrung",
+  title: "Gemeinnützigkeit: Satzung und tatsächliche Geschäftsführung",
+  short:
+    "Prüfung, ob Satzung und tatsächliche Geschäftsführung die Voraussetzungen der Gemeinnützigkeit erfüllen.",
+  category: "NPO / Gemeinnützigkeit",
+  source: "beck-chat Arbeitsnotiz – Gemeinnützigkeit und Satzung",
+  keywords:
+    /gemeinnützigkeit|gemeinnuetzigkeit|satzung|mustersatzung|tatsächliche geschäftsführung|tatsaechliche geschaeftsfuehrung|steuerbegünstigung|steuerbeguenstigung|§ 60a|feststellungsbescheid|freistellungsbescheid/i,
+  references: ["§§ 51–68 AO", "§ 60 AO", "§ 60a AO", "§ 63 AO"],
+  body: `Die Gemeinnützigkeit setzt voraus, dass Satzung und tatsächliche Geschäftsführung auf steuerbegünstigte Zwecke ausgerichtet sind.
+
+Satzungsmäßige Voraussetzungen:
+Die Satzung muss die gemeinnützigen Zwecke genau bestimmen. Sie muss erkennen lassen, dass die Körperschaft ausschließlich und unmittelbar steuerbegünstigte Zwecke verfolgt. Die Mustersatzung nach Anlage 1 zu § 60 AO ist verbindlich. Abweichungen oder unklare Formulierungen können die Anerkennung gefährden.
+
+Tatsächliche Geschäftsführung:
+Die tatsächliche Geschäftsführung muss der Satzung entsprechen. Entscheidend ist nicht nur der Satzungstext, sondern auch die tatsächliche Mittelverwendung, Dokumentation und organisatorische Umsetzung.
+
+Typische Prüfpunkte:
+- Sind die steuerbegünstigten Zwecke in der Satzung klar benannt?
+- Entspricht die Satzung der Mustersatzung?
+- Liegt ein Feststellungsbescheid nach § 60a AO vor?
+- Liegt ein aktueller Freistellungsbescheid oder eine vergleichbare steuerliche Anerkennung vor?
+- Stimmen Einnahmen, Ausgaben und Tätigkeiten mit Satzung und Zweckverfolgung überein?
+- Werden Mittel zeitnah und zweckentsprechend verwendet?
+- Sind wirtschaftliche Tätigkeiten sauber von ideellem Bereich, Zweckbetrieb und Vermögensverwaltung abgegrenzt?
+
+Review-Hinweise:
+- Satzung mit aktuellem Bescheid abgleichen
+- Satzungszwecke mit tatsächlichen Tätigkeiten vergleichen
+- Mittelverwendung anhand Buchführung und Belegen prüfen
+- Abweichungen dokumentieren
+- Bei unklarer Zweckverfolgung steuerliche Anerkennung kritisch prüfen`,
+},
+{
+  id: "npo-zuwendungsbestaetigungen-spendenbescheinigungen",
+  title: "Zuwendungsbestätigungen und Spendenbescheinigungen",
+  short:
+    "Voraussetzungen, Pflichtangaben und Risiken bei der Ausstellung von Zuwendungsbestätigungen.",
+  category: "NPO / Gemeinnützigkeit",
+  source: "beck-chat Arbeitsnotiz – Zuwendungsbestätigungen",
+  keywords:
+    /zuwendungsbestätigung|zuwendungsbestaetigung|spendenbescheinigung|spende|spendenabzug|amtliches muster|vereinfachter nachweis|300 euro|haftung|mittelverwendung|§ 10b|§ 50 estdv/i,
+  references: ["§ 10b EStG", "§ 50 EStDV", "§ 63 AO", "§ 60a AO"],
+  body: `Zuwendungsbestätigungen dürfen nur ausgestellt werden, wenn der Verein bzw. die Körperschaft zur Ausstellung berechtigt ist und die Zuwendung steuerbegünstigten Zwecken dient.
+
+Grundvoraussetzungen:
+- Die Körperschaft muss steuerbegünstigt anerkannt sein.
+- Die Satzung muss gemeinnützige Zwecke korrekt abbilden.
+- Die tatsächliche Geschäftsführung muss den steuerbegünstigten Zwecken entsprechen.
+- Die Zuwendung muss dem ideellen Bereich oder einem steuerbegünstigten Zweckbetrieb zugutekommen.
+- Für Zuwendungen an Vermögensverwaltung oder wirtschaftlichen Geschäftsbetrieb dürfen grundsätzlich keine Spendenbescheinigungen ausgestellt werden.
+
+Formelle Anforderungen:
+Es ist das amtliche Muster zu verwenden. Die Bestätigung muss insbesondere Angaben enthalten zu:
+- Name und Anschrift des Zuwendenden
+- Betrag oder Art der Zuwendung
+- Datum der Zuwendung
+- steuerbegünstigtem Zweck
+- Bestätigung der ausschließlichen und unmittelbaren Verwendung
+- Unterschrift einer berechtigten Person oder maschineller Bestätigung nach den Vorgaben
+
+Vereinfachter Nachweis:
+Bei Zuwendungen bis 300 EUR kann regelmäßig ein vereinfachter Nachweis durch Bareinzahlungsbeleg oder Buchungsbestätigung genügen.
+
+Haftung und Risiken:
+Bei vorsätzlich oder grob fahrlässig falsch ausgestellten Zuwendungsbestätigungen kann eine Haftung für entgangene Steuer entstehen. Zusätzlich können bei schwerwiegenden Fehlern gemeinnützigkeitsrechtliche Risiken entstehen.
+
+Typische Fehler:
+- Ausstellung ohne gültigen steuerlichen Anerkennungsnachweis
+- falscher oder unvollständiger Spendenzweck
+- Bescheinigung für nicht begünstigte Tätigkeiten
+- fehlende tatsächliche Mittelverwendung
+- unklare Zuordnung zwischen ideellem Bereich, Zweckbetrieb, Vermögensverwaltung und wirtschaftlichem Geschäftsbetrieb
+- Bescheinigung für Leistungen mit Gegenleistung
+
+Review-Hinweise:
+- Aktuellen Freistellungs- oder Feststellungsbescheid prüfen
+- Spendenzweck mit Satzung abgleichen
+- Zahlungseingang und Betrag nachweisen
+- Mittelverwendung dokumentieren
+- Keine Bescheinigung bei Gegenleistung oder nicht begünstigtem Bereich ausstellen`,
+},
+{
+  id: "npo-sphaeren-umsatzzuordnung-review",
+  title: "Zuordnung von Einnahmen und Ausgaben zu NPO-Sphären",
+  short:
+    "Einordnung von Einnahmen, Ausgaben und Mittelverwendung in ideellen Bereich, Vermögensverwaltung, Zweckbetrieb und wirtschaftlichen Geschäftsbetrieb.",
+  category: "NPO / Gemeinnützigkeit",
+  source: "beck-chat Arbeitsnotiz – Sphären und Mittelverwendung",
+  keywords:
+    /sphäre|sphaere|ideeller bereich|vermögensverwaltung|vermoegensverwaltung|zweckbetrieb|wirtschaftlicher geschäftsbetrieb|wirtschaftlicher geschaeftsbetrieb|mittelverwendung|einnahmen|ausgaben|rücklagen|ruecklagen/i,
+  references: ["§ 14 AO", "§§ 64–68 AO", "§ 62 AO"],
+  body: `Gemeinnützige Körperschaften müssen Einnahmen und Ausgaben den steuerlichen Sphären zutreffend zuordnen.
+
+Die vier Sphären:
+1) Ideeller Bereich:
+Unmittelbare Verfolgung der gemeinnützigen Satzungszwecke ohne wirtschaftliche Tätigkeit. Beispiele können Mitgliedsbeiträge ohne konkrete Gegenleistung, Spenden und Zuschüsse für gemeinnützige Zwecke sein.
+
+2) Vermögensverwaltung:
+Verwaltung eigenen Vermögens, z. B. Zinsen, Dividenden, Miet- oder Pachteinnahmen, soweit keine aktive gewerbliche Tätigkeit vorliegt.
+
+3) Zweckbetrieb:
+Wirtschaftliche Tätigkeit, die dem gemeinnützigen Zweck dient und die Voraussetzungen der §§ 65–68 AO erfüllt.
+
+4) Wirtschaftlicher Geschäftsbetrieb:
+Marktbezogene wirtschaftliche Tätigkeiten außerhalb der steuerbegünstigten Zweckverfolgung. Diese können steuerpflichtig sein.
+
+Grundsatz:
+Die Zuordnung richtet sich nach dem konkreten Sachverhalt, nicht nur nach der Bezeichnung in der Buchhaltung. Entscheidend sind Zweck, Gegenleistung, Marktbezug, tatsächliche Durchführung und Verwendung der Mittel.
+
+Mittelverwendung:
+Mittel des Vereins dürfen grundsätzlich nur für satzungsmäßige steuerbegünstigte Zwecke verwendet werden. Ausgaben müssen der passenden Sphäre zugeordnet und dokumentiert werden.
+
+Rücklagen:
+Rücklagen sind nur zulässig, wenn sie gesetzlich erlaubt, wirtschaftlich begründet oder für konkrete steuerbegünstigte Vorhaben vorgesehen sind. Die Bildung und Verwendung sollte dokumentiert werden.
+
+Review-Hinweise:
+- Einnahmen nach Herkunft und Gegenleistung prüfen
+- Ausgaben nach Zweck und Veranlassung zuordnen
+- Zweckbetrieb von wirtschaftlichem Geschäftsbetrieb abgrenzen
+- Vermögensverwaltung von aktiver gewerblicher Tätigkeit abgrenzen
+- Mittelverwendung mit Satzung und Bescheiden abstimmen
+- Rücklagenzweck und Rücklagenhöhe dokumentieren
+- Unklare Fälle im Review festhalten`,
+},
+{
+  id: "verein-mitgliedsbeitraege-echt-unecht",
+  title: "Echte und unechte Mitgliedsbeiträge",
+  short:
+    "Abgrenzung von echten Mitgliedsbeiträgen ohne Gegenleistung und unechten Beiträgen mit Leistungsbezug.",
+  category: "NPO / Gemeinnützigkeit",
+  source: "beck-chat Arbeitsnotiz – Mitgliedsbeiträge",
+  keywords:
+    /mitgliedsbeitrag|mitgliedsbeiträge|echter mitgliedsbeitrag|unechter mitgliedsbeitrag|grundbeitrag|beitrag|leistungsaustausch|gegenleistung|umsatzsteuer|verein/i,
+  references: ["UStG", "AO", "Vereinsbesteuerung"],
+  body: `Mitgliedsbeiträge sind steuerlich danach zu prüfen, ob ein echter Beitrag ohne konkrete Gegenleistung oder ein unechter Beitrag mit Leistungsbezug vorliegt.
+
+Echter Mitgliedsbeitrag:
+Ein echter Mitgliedsbeitrag dient allgemein der Mitgliedschaft und Finanzierung des Vereins. Es besteht kein unmittelbarer Zusammenhang mit einer konkreten Leistung an das einzelne Mitglied. In diesem Fall liegt regelmäßig kein Leistungsaustausch vor.
+
+Unechter Mitgliedsbeitrag:
+Ein unechter Mitgliedsbeitrag liegt vor, wenn das Mitglied für den Beitrag eine konkrete, individualisierbare Leistung erhält. Dann kann ein steuerbarer Leistungsaustausch vorliegen.
+
+Prüfkriterien:
+- Gibt es eine konkrete Gegenleistung für den Beitrag?
+- Ist der Beitrag pauschal für die Mitgliedschaft geschuldet?
+- Erhält das Mitglied besondere Vorteile, Nutzungsrechte oder Leistungen?
+- Werden Leistungen gesondert abgerechnet?
+- Gibt es unterschiedliche Beitragshöhen wegen konkreter Leistungsnutzung?
+
+Beispiele:
+- Allgemeiner Grundbeitrag ohne Sonderleistung: eher echter Mitgliedsbeitrag.
+- Beitrag für konkrete Veranstaltungsteilnahme, Nutzung einer Einrichtung oder Sonderleistung: kritisch prüfen.
+- Kombinierte Beiträge müssen gegebenenfalls aufgeteilt werden.
+
+Review-Hinweise:
+- Satzung und Beitragsordnung prüfen
+- Beitragstatbestand mit tatsächlicher Leistung vergleichen
+- Sonderleistungen gesondert erfassen
+- Umsatzsteuerliche Folgen bei Leistungsaustausch prüfen
+- Dokumentieren, warum ein Beitrag als echt oder unecht eingeordnet wird`,
+},
+{
+  id: "bilanzierung-anzahlungen-herstellungskosten",
+  title: "Bilanzierung: Erhaltene Anzahlungen und Herstellungskosten",
+  short:
+    "Erhaltene Anzahlungen werden nicht von aktivierten Herstellungskosten abgezogen, sondern grundsätzlich passiviert.",
+  category: "Bilanzierung / Jahresabschluss",
+  source: "beck-chat Arbeitsnotiz – Anzahlungen und Herstellungskosten",
+  keywords:
+    /anzahlung|anzahlungen|erhaltene anzahlung|herstellungskosten|aktivierte herstellungskosten|bilanzierung|passivierung|verbindlichkeit|bestandsveränderung|bestandsveraenderung/i,
+  references: ["HGB", "Bilanzierung", "Jahresabschluss"],
+  body: `Erhaltene Anzahlungen und aktivierte Herstellungskosten sind bilanziell getrennt zu beurteilen.
+
+Aktivierte Herstellungskosten:
+Herstellungskosten werden aktiviert, wenn die Voraussetzungen für die Aktivierung erfüllt sind. Maßgeblich sind die angefallenen Aufwendungen für die Herstellung des Vermögensgegenstands.
+
+Erhaltene Anzahlungen:
+Erhaltene Anzahlungen sind grundsätzlich als Verbindlichkeit bzw. Passivposten zu erfassen. Sie mindern nicht automatisch die aktivierten Herstellungskosten.
+
+Keine Saldierung:
+Die erhaltene Anzahlung wird nicht einfach von den Herstellungskosten abgezogen. Herstellungskosten und erhaltene Anzahlungen werden getrennt ausgewiesen, soweit keine besonderen Saldierungsvorschriften greifen.
+
+Praktische Folge:
+- Herstellungskosten erhöhen den Aktivposten.
+- Erhaltene Anzahlungen werden passiviert.
+- Die Gewinnwirkung ergibt sich erst nach den einschlägigen Bilanzierungs- und Realisationsgrundsätzen.
+
+Review-Hinweise:
+- Vertragliche Grundlage der Anzahlung prüfen
+- Zeitpunkt des Zahlungseingangs dokumentieren
+- Aktivierungsfähigkeit der Herstellungskosten prüfen
+- Keine ungeprüfte Verrechnung mit Herstellungskosten vornehmen
+- Ausweis im Jahresabschluss abstimmen`,
+},
+{
+  id: "npo-demokratisches-staatswesen-foerderung",
+  title: "Förderung des demokratischen Staatswesens nach § 52 Abs. 2 Nr. 24 AO",
+  short:
+    "Einordnung förderfähiger und nicht förderfähiger Aktivitäten im Bereich demokratisches Staatswesen.",
+  category: "NPO / Gemeinnützigkeit",
+  source: "beck-chat Arbeitsnotiz – Demokratisches Staatswesen",
+  keywords:
+    /demokratisches staatswesen|demokratie|§ 52 abs. 2 nr. 24 ao|politische bildung|rechtsstaatlichkeit|meinungsfreiheit|pluralismus|parteipolitisch|kommunalpolitisch/i,
+  references: ["§ 52 Abs. 2 Nr. 24 AO"],
+  body: `Die allgemeine Förderung des demokratischen Staatswesens kann nach § 52 Abs. 2 Nr. 24 AO gemeinnützig sein.
+
+Begünstigt sind Tätigkeiten, die sich objektiv und neutral mit demokratischen Grundprinzipien befassen. Dazu können insbesondere die Vermittlung von Gewaltenteilung, Meinungsfreiheit, Rechtsstaatlichkeit, Toleranz und Pluralismus gehören.
+
+Förderfähige Maßnahmen:
+- Seminare, Tagungen, Kolloquien und Diskussionsveranstaltungen
+- politische Bildungsarbeit mit neutralem und überparteilichem Charakter
+- Vermittlung demokratischer Grundwerte
+- Aufklärung über rechtsstaatliche und demokratische Strukturen
+- Bildungsangebote ohne parteipolitische Zielrichtung
+
+Nicht förderfähig:
+Nicht begünstigt sind Tätigkeiten, die nur bestimmte Einzelinteressen staatsbürgerlicher Art verfolgen oder auf den kommunalpolitischen Bereich beschränkt sind. Ebenfalls kritisch sind parteipolitische Ziele, Wahlwerbung oder einseitige politische Einflussnahme.
+
+Abgrenzung:
+Die Tätigkeit muss allgemein auf demokratische Bildung und das demokratische Staatswesen gerichtet sein. Sie darf nicht primär der Durchsetzung einzelner politischer Forderungen, Parteiziele oder kommunaler Einzelinteressen dienen.
+
+Review-Hinweise:
+- Satzungszweck mit § 52 Abs. 2 Nr. 24 AO abgleichen
+- Neutralität und Überparteilichkeit prüfen
+- Inhalte der Veranstaltungen dokumentieren
+- Keine Wahlwerbung oder Parteiförderung
+- Kommunalpolitische Einzelinteressen abgrenzen
+- Bildungscharakter hervorheben`,
+},
   {
     id: "zeitnahe-mittelverwendung",
     title: "Zeitnahe Mittelverwendung (§ 55 Abs. 1 Nr. 5 AO)",

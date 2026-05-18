@@ -901,7 +901,7 @@ function Wissensdatenbank() {
       >
         <span className="inline-flex items-center gap-1.5 self-start rounded border border-border bg-background px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted-foreground">
           <BookOpen className="h-3 w-3" />
-          {a.category}
+          {effectiveCategory(a)}
         </span>
         <h2 className="mt-3 text-sm font-semibold text-foreground">{a.title}</h2>
         <p className="mt-1 line-clamp-3 flex-1 text-xs leading-relaxed text-muted-foreground">

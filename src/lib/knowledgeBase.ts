@@ -1449,6 +1449,276 @@ Hinweis: GoBD-Verstöße können zur Verwerfung der Buchführung und zu Hinzusch
 - Nicht auf die Bezeichnung des Belegs schauen, sondern auf den wirtschaftlichen Charakter der Zahlung.
 - Übernahme personenbezogener Kosten (z. B. KV-Beiträge) ohne klare Grundlage = Risiko für Mittelverwendung, Vergütung, Lohnsteuer und SV.`,
   },
+  {
+    id: "reverse-charge-npo",
+    title: "Reverse Charge bei gemeinnützigen Körperschaften (§ 13b UStG)",
+    short:
+      "Steuerfalle für NPOs bei Leistungsbezug aus dem Ausland — Zusammenspiel §§ 2, 3a, 13b UStG; auch ideeller Bereich betroffen.",
+    category: "Umsatzsteuer",
+    source: "von Maydell, npoR 2022, 190 — kanzleiintern aufbereitet.",
+    keywords: /reverse[-\s]?charge.*(verein|gemeinn|npo|ggmbh|stiftung)|gemeinn.*reverse|§\s*13b.*(verein|gemeinn|ideell)|ust[-\s]?idnr.*verein|leistung.*ausland.*verein/i,
+    references: [
+      "§ 13b UStG",
+      "§ 3a Abs. 1, 2 UStG",
+      "§ 2 UStG",
+      "§ 19 UStG",
+      "§ 15 Abs. 2 S. 1 Nr. 1 UStG",
+      "Abschn. 13b.1 Abs. 1 UStAE",
+    ],
+    body: `1) Kerngedanke
+- Bei sonstigen Leistungen eines im Ausland ansässigen Unternehmers an einen inländischen Unternehmer verlagert § 3a Abs. 2 UStG den Leistungsort ins Inland; § 13b UStG verlagert die Steuerschuld auf den Leistungsempfänger (Reverse Charge).
+- Gilt seit 2011 ausdrücklich auch dann, wenn die Leistung für den nichtunternehmerischen / ideellen Bereich einer gemeinnützigen Körperschaft bezogen wird, sofern die Körperschaft im Übrigen Unternehmerin ist oder eine USt-IdNr. verwendet (§ 3a Abs. 2 S. 3 UStG).
+
+2) Unternehmereigenschaft der NPO (§ 2 UStG)
+- Unternehmerisch tätig regelmäßig im steuerpflichtigen wirtschaftlichen Geschäftsbetrieb, im Zweckbetrieb und in Teilen der Vermögensverwaltung.
+- Schon eine geringe unternehmerische Tätigkeit reicht für die Eigenschaft als Unternehmer und damit für § 3a Abs. 2 UStG.
+
+3) Häufige Fehleinschätzungen
+- "Wir sind gemeinnützig, also keine USt" — falsch. § 13b greift auch bei steuerfreien Umsätzen und bei Kleinunternehmern (§ 19 UStG) der inländischen NPO.
+- Die Kleinunternehmerregelung gilt nicht für im Ausland ansässige Leistende (§ 13b Abs. 5 S. 8 UStG bezieht sich nur auf Inländer).
+- Hat der ausländische Unternehmer fälschlich ausländische USt aufgeschlagen, bleibt die deutsche Steuerschuld bestehen; die ausländische USt erhöht nach h. M. sogar die Bemessungsgrundlage.
+
+4) Vorsteuerproblem
+- Vorsteuerabzug nach § 15 UStG nur, soweit die Eingangsleistung für steuerpflichtige Umsätze verwendet wird.
+- Bei NPOs typischerweise (teilweiser) Ausschluss → die nach § 13b geschuldete USt wird zur echten Zusatzbelastung.
+
+5) Typische Risikofälle
+- Werbeleistungen großer Tech-Konzerne (z. B. Irland), Webseiten-/Agenturleistungen aus Drittstaaten, Cloud-/SaaS-Leistungen, Freelancer im Ausland.
+- Bauleistungen ausländischer Unternehmer an inländischem Grundstück (§ 3a Abs. 3 Nr. 1 UStG) — immer USt im Inland.
+- Projektpartner / Hilfsperson im Ausland (§ 57 Abs. 1 S. 2 AO) — Leistungsaustausch kann Reverse Charge auslösen.
+
+6) USt-IdNr. nicht leichtfertig beantragen
+- Bei nicht-unternehmerischen Körperschaften löst die bloße Verwendung der USt-IdNr. die Ortsverlagerung ins Inland und damit § 13b aus (§ 3a Abs. 2 S. 3 Hs. 1 UStG).
+
+Merksatz: Gemeinnützigkeit schützt nicht vor § 13b UStG. Bei jedem Leistungsbezug aus dem Ausland prüfen: Wer ist Leistender? Ist die NPO Unternehmer / hat sie USt-IdNr.? Greift Reverse Charge? Vorsteuer möglich?`,
+  },
+  {
+    id: "kooperation-57-abs-3-ao",
+    title: "Servicegesellschaften & Kooperationen — § 57 Abs. 3 AO",
+    short:
+      "Planmäßiges Zusammenwirken gemeinnütziger Körperschaften, doppeltes Satzungserfordernis, EuGH-Vorlage des BFH (V R 22/23) und Alternativen (§ 4 Nr. 29 UStG).",
+    category: "NPO / Gemeinnützigkeit",
+    source: "Kanzleinotizen zu BFH-Beschluss vom 22.05.2025, V R 22/23.",
+    keywords: /§\s*57\s*abs\.?\s*3|servicegesell|planmäßiges zusammenwirken|kostenteilungsgemeinschaft|§\s*4\s*nr\.?\s*29|arbeitsteilige gemeinn/i,
+    references: [
+      "§ 57 Abs. 1, 3 AO",
+      "§§ 51–68 AO",
+      "§ 4 Nr. 29 UStG",
+      "Art. 132 Abs. 1 lit. f MwStSystRL",
+      "Art. 107, 108 AEUV",
+      "BFH 22.05.2025, V R 22/23",
+      "FG Hamburg 26.09.2023, 5 K 11/23",
+      "BFH 04.09.2024, XI R 37/21",
+    ],
+    body: `1) Grundsatz Unmittelbarkeit (§ 57 Abs. 1 AO)
+- Steuerbegünstigte Zwecke sind grundsätzlich unmittelbar selbst zu verwirklichen.
+- Ausnahmen: Hilfsperson (§ 57 Abs. 1 S. 2 AO) und seit JStG 2020 das planmäßige Zusammenwirken (§ 57 Abs. 3 AO).
+
+2) § 57 Abs. 3 AO — planmäßiges Zusammenwirken
+- Eine Körperschaft verfolgt steuerbegünstigte Zwecke auch dann unmittelbar, wenn sie satzungsgemäß durch planmäßiges Zusammenwirken mit mindestens einer weiteren steuerbegünstigten Körperschaft einen steuerbegünstigten Zweck verwirklicht.
+- Eröffnet die Steuerbegünstigung reiner Servicegesellschaften (IT, Buchhaltung, Personal, Beschaffung, Reinigung).
+
+3) "Doppeltes Satzungserfordernis"
+- Finanzverwaltung (AEAO Nr. 8 zu § 57 Abs. 3 AO) verlangte die Verankerung sowohl in der Satzung der leistenden Servicegesellschaft als auch in den Satzungen der empfangenden Körperschaften.
+- FG Hamburg (26.09.2023, 5 K 11/23) verwarf diese doppelte Satzungspflicht; nur die Satzung der leistenden Körperschaft muss die Kooperation aufnehmen.
+- BFH hat die Frage im Beschluss vom 22.05.2025 (V R 22/23) nicht entschieden, tendiert aber der FG-Hamburg-Auffassung zu.
+
+4) EuGH-Vorlage (BFH V R 22/23) — beihilferechtliches Risiko
+- BFH zweifelt an der Vereinbarkeit von § 57 Abs. 3 AO mit Art. 107 AEUV; Bundesregierung hat keine Notifizierung nach Art. 108 Abs. 3 AEUV vorgenommen.
+- Vorlagefragen: (1) staatliche Beihilfe? (2) neutralisieren §§ 55, 61 AO den selektiven Vorteil? (3) notifizierungspflichtige Neu-/Umgestaltungsbeihilfe?
+- Bei Einstufung als unzulässige Beihilfe droht Durchführungsverbot und Rückforderung gewährter Steuervergünstigungen.
+
+5) Handlungsempfehlungen
+- Bestehende Strukturen: Risikoaudit, lückenlose Verrechnungspreis-Dokumentation (Fremdvergleich), ggf. Rückstellungen für mögliche Steuernachzahlungen, USt-Härtefallklauseln in Verträge.
+- Neugründungen: vorrangig Kostenteilungsgemeinschaft nach § 4 Nr. 29 UStG (basiert auf Art. 132 Abs. 1 lit. f MwStSystRL; BFH 04.09.2024, XI R 37/21 bestätigt). Hybride Gestaltungen möglich (gGmbH, deren Satzung sowohl § 57 Abs. 3 AO als auch § 4 Nr. 29 UStG erfüllt).
+- Allgemein: schriftliche Verträge, Kostenverteilungsschlüssel, Dokumentation der Selbstkosten.`,
+  },
+  {
+    id: "darlehen-npo",
+    title: "Darlehensvergabe durch gemeinnützige Organisationen",
+    short:
+      "Mittelherkunft entscheidend — zeitnah zu verwendende Mittel nur zur unmittelbaren Zweckverwirklichung; sonst nur aus freier Rücklage / Vermögen.",
+    category: "NPO / Gemeinnützigkeit",
+    source: "Internes Arbeitspapier — Darlehensvergabe NPO.",
+    keywords: /darlehen.*(verein|gemeinn|npo|ggmbh|stiftung)|darlehensvergabe|kreditvergabe.*gemeinn|zinslos.*verein/i,
+    references: [
+      "§ 55 Abs. 1 Nr. 1, 5 AO",
+      "§ 58 Nr. 1 AO",
+      "§ 62 Abs. 1 Nr. 3 AO",
+    ],
+    body: `1) Grundsatz
+- Darlehensvergabe ist als solche kein gemeinnütziger Zweck und darf nicht Hauptzweck der Satzung sein, kann aber als Mittel zur Zweckverwirklichung satzungsgemäß vorgesehen werden.
+- Maßgeblich ist die Herkunft der eingesetzten Mittel.
+
+2) Aus zeitnah zu verwendenden Mitteln (Spenden, Beiträge, Überschüsse aus Zweck-/wirtschaftlichen Geschäftsbetrieben)
+- Grundsätzlich gemeinnützigkeitsschädlich, weil Mittel nicht endgültig verbraucht, sondern nur in eine Forderung umgewandelt werden.
+- Ausnahmsweise unschädlich, wenn das Darlehen unmittelbar der Verwirklichung satzungsmäßiger Zwecke dient (z. B. Schuldnerberatung mit Ablösung von Bankschulden, Studienstipendien als Darlehen, Instrumentendarlehen an Nachwuchskünstler). Voraussetzung: zinslos oder zinsverbilligt (Unterscheidung zur gewerblichen Kreditvergabe) und Rückflüsse werden wieder zeitnah verwendet.
+- An andere steuerbegünstigte Körperschaften: zulässig nach § 58 Nr. 1 AO, wenn die Empfänger-Körperschaft die Mittel ihrerseits zeitnah satzungsgemäß verwendet.
+
+3) Aus nicht zeitnah zu verwendenden Mitteln (insb. freie Rücklage § 62 Abs. 1 Nr. 3 AO, sonstige Vermögenszuführungen)
+- Darlehen als Vermögensanlage/-umschichtung sind zulässig.
+- An nicht-gemeinnützige Empfänger (Mitarbeiter, gewerbliche Tochter): zwingend marktübliche Konditionen, insb. angemessene Verzinsung. Zinslose/begünstigte Darlehen wären unzulässige Mittelverwendung oder vGA und gefährden die Gemeinnützigkeit.
+- Rückflüsse (Tilgung + Zinsen) müssen wieder zeitnah satzungsgemäß verwendet werden.
+
+4) Freie Rücklage als Finanzierungsquelle
+- Bildung ohne konkreten Zweck zulässig (§ 62 Abs. 1 Nr. 3 AO).
+- Höchstens 1/3 des Überschusses der Vermögensverwaltung + 10 % der sonstigen zeitnah zu verwendenden Mittel pro Jahr; Nachholung in zwei Folgejahren möglich.
+- Gesamthöhe unbegrenzt; keine zeitliche Verwendungspflicht.
+- Bildung durch Beschluss des zuständigen Gremiums, dokumentiert im Jahresabschluss / Rücklagenspiegel.
+
+Merksatz: Darlehen zur unmittelbaren Zweckverwirklichung → zinsgünstig/zinslos aus allen Mitteln; Darlehen als Vermögensanlage → nur aus freier Rücklage / Vermögen und zu marktüblichen Konditionen.`,
+  },
+  {
+    id: "ust-grundpruefung",
+    title: "Umsatzsteuer — Grundprüfung (Steuerbarkeit, Ort, Steuerschuldner)",
+    short:
+      "Prüffolge: Leistungsaustausch → Leistungsort → Steuerbefreiung → Bemessungsgrundlage → Steuersatz → Steuerschuldner → Entstehungszeitpunkt.",
+    category: "Umsatzsteuer",
+    source: "Internes Handout — USt-Grundprüfung.",
+    keywords: /ust[-\s]?grundpr|umsatzsteuer.*pr(üfung|uefung)|steuerbarkeit|leistungsort|sollversteuerung|ort der lieferung/i,
+    references: [
+      "§ 1 Abs. 1 Nr. 1 UStG",
+      "§ 3 Abs. 6, 7 UStG",
+      "§ 3a UStG",
+      "§ 4 UStG",
+      "§ 10 Abs. 1 UStG",
+      "§ 12 UStG",
+      "§ 13 Abs. 1 Nr. 1 a UStG",
+      "§ 13a Abs. 1 Nr. 1 UStG",
+      "§ 13b UStG",
+    ],
+    body: `Prüffolge:
+1) Leistungsaustausch — Leistung und Gegenleistung sind innerlich verknüpft (§ 1 Abs. 1 Nr. 1 UStG).
+2) Leistungsort Inland — bewegte Lieferung: Beginn der Beförderung/Versendung (§ 3 Abs. 6 S. 1 UStG); ruhende Lieferung: Ort der Verschaffung der Verfügungsmacht (§ 3 Abs. 7 S. 1 UStG); sonstige Leistungen: § 3a UStG.
+3) Steuerbefreiung — § 4 UStG (z. B. ig. Lieferung, Heilbehandlungen, Bankumsätze).
+4) Bemessungsgrundlage — Entgelt (§ 10 Abs. 1 UStG).
+5) Steuersatz — 19 % Regelsatz (§ 12 Abs. 1 UStG); 7 % ermäßigt (§ 12 Abs. 2 UStG).
+6) Steuerschuldner — grundsätzlich der leistende Unternehmer (§ 13a Abs. 1 Nr. 1 UStG); Übergang bei § 13b UStG.
+7) Entstehungszeitpunkt — bei Sollversteuerung: Ablauf des Voranmeldungszeitraums der Leistungsausführung (§ 13 Abs. 1 Nr. 1 a S. 1 UStG).`,
+  },
+  {
+    id: "forderungen-ewb-pwb",
+    title: "Kundenforderungen — Bewertung, EWB, PWB, USt-Korrektur",
+    short:
+      "Forderungen mit Nennwert; Einzelbewertung vor Pauschalwertberichtigung; bei PWB USt herausrechnen (§ 17 Abs. 2 UStG); Wertaufhellung beachten.",
+    category: "Jahresabschluss",
+    source: "Internes Handout — Forderungsbewertung und Wertaufhellung.",
+    keywords: /einzelwertberichtigung|pauschalwertberichtigung|\bewb\b|\bpwb\b|delkredere|wertaufhellung|forderungsbewertung|§\s*17\s*abs\.?\s*2/i,
+    references: [
+      "§ 6 Abs. 1 Nr. 2 EStG",
+      "§ 247 Abs. 2 HGB",
+      "§ 252 Abs. 1 Nr. 3, 4 HGB",
+      "§ 253 Abs. 1 S. 1 HGB",
+      "§ 17 Abs. 2 Nr. 1 UStG",
+      "R 6.1 Abs. 2 EStR",
+    ],
+    body: `1) Ansatz & Bewertung
+- Kundenforderungen = Umlaufvermögen (R 6.1 Abs. 2 EStR i. V. m. § 247 Abs. 2 HGB).
+- Ansatz mit Anschaffungskosten / Nennwert (§ 6 Abs. 1 Nr. 2 S. 1 EStG i. V. m. § 253 Abs. 1 S. 1 HGB).
+- Kombination EWB + PWB zulässig (§ 252 Abs. 1 Nr. 3 HGB — Einzelbewertungsprinzip; zuerst einzeln, dann pauschal auf den Restbestand).
+
+2) Einzelwertberichtigung (EWB)
+- Konkret erkennbares Ausfallrisiko bei einzelnem Debitor (Insolvenz, Mahnverfahren, Bestreiten).
+- USt-Korrektur erst bei tatsächlicher Uneinbringlichkeit (§ 17 Abs. 2 Nr. 1 UStG) — Reduktion auf Nettowert.
+
+3) Pauschalwertberichtigung (PWB)
+- Allgemeines Ausfallrisiko auf Basis eines nachgewiesenen Erfahrungssatzes (§ 252 Abs. 1 Nr. 4 HGB).
+- USt ist herauszurechnen (insoweit ist bei späterem Ausfall ein USt-Erstattungsanspruch zu erwarten, § 17 Abs. 2 Nr. 1 UStG).
+
+4) Wertaufhellung
+- Bis zur Bilanzaufstellung bekannt gewordene werterhellende Tatsachen sind zu berücksichtigen (§ 252 Abs. 1 Nr. 4 HGB).
+- PWB ist auf den Betrag zu begrenzen, für den am Bilanzstichtag tatsächlich noch ein Ausfallrisiko besteht.
+
+Prüfpunkte: Forderungsbestand abgestimmt? Konkrete Risiken einzelner Debitoren? Erfahrungssatz nachweisbar und plausibel? USt bei PWB herausgerechnet? Werterhellende Tatsachen bis zur Bilanzerstellung berücksichtigt?`,
+  },
+  {
+    id: "rhb-vorratsbewertung",
+    title: "Roh-, Hilfs- und Betriebsstoffe — Bewertung & Verbrauchsfolgen",
+    short:
+      "Umlaufvermögen; Anschaffungskosten; gewogener Durchschnitt zulässig; LIFO steuerlich anerkannt, FIFO nur handelsrechtlich.",
+    category: "Jahresabschluss",
+    source: "Internes Handout — RHB / Vorratsbewertung.",
+    keywords: /roh-,?\s?hilfs-?\s?(und|&)?\s?betriebsstoffe|\brhb\b|vorratsbewertung|gewogener durchschnitt|verbrauchsfolge|§\s*256\s*hgb/i,
+    references: [
+      "§ 240 Abs. 1, 4 HGB",
+      "§ 247 Abs. 2 HGB",
+      "§ 253 Abs. 1 S. 1 HGB",
+      "§ 256 HGB",
+      "§ 5 Abs. 1 S. 1 EStG",
+      "§ 6 Abs. 1 Nr. 2 EStG",
+      "§ 6 Abs. 1 Nr. 2a EStG",
+    ],
+    body: `1) Ansatz
+- RHB sind Umlaufvermögen (R 6.1 Abs. 2 EStR i. V. m. § 247 Abs. 2 HGB).
+- Bewertung mit Anschaffungskosten (§ 6 Abs. 1 Nr. 2 S. 1 EStG i. V. m. § 253 Abs. 1 S. 1 HGB).
+- Mangels spezieller steuerlicher Bewertungsregel: handelsrechtlicher Wertansatz wird grundsätzlich in die Steuerbilanz übernommen (§ 5 Abs. 1 S. 1 EStG).
+
+2) Vereinfachungsverfahren
+- Bestand zum Bilanzstichtag aus Inventur + Zugängen − Entnahmen (§ 240 Abs. 1 HGB).
+- Gewogener Durchschnitt zulässig (§ 240 Abs. 4 HGB i. V. m. § 256 S. 2 HGB) — handels- und steuerrechtlich.
+
+3) Verbrauchsfolge
+- Handelsrechtlich: FIFO oder LIFO (§ 256 S. 1 HGB).
+- Steuerlich: nur LIFO (§ 6 Abs. 1 Nr. 2a EStG); FIFO nicht zulässig.
+
+Merksatz: RHB = Umlaufvermögen, Bewertung regelmäßig mit Anschaffungskosten, Durchschnittsbewertung als sachgerechte Vereinfachung.`,
+  },
+  {
+    id: "aenderung-173a-ao",
+    title: "Änderung nach § 173a AO — Schreib- und Rechenfehler",
+    short:
+      "Zwingende Änderung von Steuerbescheiden bei rechtserheblichen Schreib-/Rechenfehlern des Steuerpflichtigen — nur innerhalb der Festsetzungsfrist.",
+    category: "Buchhaltung",
+    source: "Internes Handout — AO § 173a / Festsetzungsfrist.",
+    keywords: /§\s*173a|schreibfehler|rechenfehler|festsetzungsfrist|§\s*169|§\s*170/i,
+    references: [
+      "§ 173a AO",
+      "§ 169 Abs. 1, Abs. 2 S. 1 Nr. 2 AO",
+      "§ 170 Abs. 2 Nr. 1 AO",
+    ],
+    body: `1) Voraussetzungen § 173a AO
+- Schreib- oder Rechenfehler des Steuerpflichtigen bei Erstellung der Steuererklärung.
+- Dadurch unzutreffende Mitteilung rechtserheblicher Tatsachen.
+- Rechtserheblich, wenn das FA bei Kenntnis mit an Sicherheit grenzender Wahrscheinlichkeit anders festgesetzt hätte.
+- Rechtsfolge: zwingende Änderung (kein Ermessen).
+
+2) Festsetzungsfrist
+- Reguläre Frist ESt: 4 Jahre (§ 169 Abs. 2 S. 1 Nr. 2 AO).
+- Anlaufhemmung bei Abgabe einer Erklärung: Beginn mit Ablauf des Kalenderjahres der Abgabe (§ 170 Abs. 2 Nr. 1 AO).
+- Beispiel ESt 2017, abgegeben 2018: Beginn 31.12.2018, Ende regulär 31.12.2022.
+
+Merksatz: § 173a AO korrigiert Schreib-/Rechenfehler — aber nur, wenn rechtserheblich und die Festsetzungsfrist noch läuft.`,
+  },
+  {
+    id: "ust-karussell-gutglaube",
+    title: "Umsatzsteuerkarussell & Vertrauensschutz beim Vorsteuerabzug",
+    short:
+      "Vorsteuerabzug bleibt für gutgläubige Unternehmer erhalten — entfällt bei Wissen/Wissen-müssen um Einbeziehung in MwSt-Betrug.",
+    category: "Umsatzsteuer",
+    source: "Weimann, Umsatzsteuer in der Praxis, 15. Aufl. — kanzleiintern aufbereitet.",
+    keywords: /karussell|missing trader|gutglaubensschutz|gutgläubig|vertrauensschutz.*vorsteuer|mwst[-\s]?betrug|wissen müssen.*umsatz/i,
+    references: [
+      "§ 15 UStG",
+      "EuGH 12.01.2006, C-354/03 u. a. (Optigen)",
+      "EuGH 06.07.2006, C-439/04 u. C-440/04 (Kittel/Recolta)",
+      "BFH 19.04.2007, V R 48/04, BStBl. II 2009, 315",
+    ],
+    body: `1) Grundsatz
+- Jeder Umsatz einer Lieferkette ist eine eigenständige wirtschaftliche Tätigkeit (Optigen).
+- Der Vorsteuerabzug eines redlichen Unternehmers bleibt erhalten, auch wenn ein vor- oder nachgelagerter Umsatz mit MwSt-Betrug behaftet ist, sofern der Unternehmer dies weder kannte noch kennen konnte.
+
+2) Versagung bei Wissen / Wissen-müssen (Kittel)
+- Der Vorsteuerabzug ist zu versagen, wenn objektive Umstände belegen, dass der Steuerpflichtige wusste oder hätte wissen müssen, dass er sich mit dem Erwerb an einem in eine MwSt-Hinterziehung einbezogenen Umsatz beteiligte.
+
+3) Anforderungen an den "guten Glauben" (BFH V R 48/04)
+- Unternehmer muss alle Maßnahmen treffen, die vernünftigerweise verlangt werden können, um sicherzustellen, dass seine Umsätze nicht in einen Betrug einbezogen sind.
+- Feststellungslast für die Voraussetzungen des Vorsteuerabzugs trägt der den Abzug Begehrende — einschließlich des Nichtwissens vom Tatplan.
+
+4) Praxis-Dokumentation
+- Identitätsprüfung des Geschäftspartners (HR-Auszug, USt-IdNr.-Bestätigung qualifiziert nach § 18e UStG, Gewerbeanmeldung).
+- Plausibilitätsprüfung bei ungewöhnlichen Preisen, neuen Lieferanten, Bar-/Drittlandzahlungen, häufig wechselnden Vorlieferanten.
+- Belegnachweise (z. B. Gelangensbestätigung bei ig. Lieferungen, Ausfuhrnachweis).`,
+  },
 ];
 
 // Hilfsmittel für die Wissensbasis-Suche (analyze.ts)

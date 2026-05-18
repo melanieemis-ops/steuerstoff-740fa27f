@@ -25,9 +25,42 @@ const CATEGORIES = [
   "Rückfragen",
   "Jahresabschluss",
   "Buchhaltung",
+  "Kfz",
+  "AO / Verfahrensrecht",
+  "Erbschaftsteuer",
+  "Umwandlungsteuer",
+  "Bilanzierung",
 ] as const;
 
 type Category = (typeof CATEGORIES)[number];
+
+// Zusatz-Keyword-Regeln für Kategorien, die nicht direkt als `category` vergeben sind.
+// Bestehende Karten werden so zusätzlich in die richtige Kategorie einsortiert,
+// ohne dass wir Daten umbenennen müssen.
+const CAT_KEYWORDS: Partial<Record<Category, RegExp>> = {
+  Kfz: /kfz|1[- ]?%[- ]?methode|kostendeckel|fahrten wohnung|\b8921\b|\b8924\b|wertabgabe/i,
+  "AO / Verfahrensrecht":
+    /§ ?173a|festsetzungsfrist|bescheidänd|änderungsnorm|rechtsbehelf|einspruch|verfahrensrecht/i,
+  Erbschaftsteuer:
+    /erbschaft|schenkungsteuer|\berbsteuer\b|nachlass|familienheim|erbfall|erbanfall|ertragswertverfahren|\bbewg\b|vorerbe/i,
+  Umwandlungsteuer:
+    /umwandlung|umwstg|anteilstausch|einbringung|buchwertansatz|gemeiner wert|steuerliche rückwirkung/i,
+  Bilanzierung:
+    /bilanzierung|immaterielle|teilwert|aktivierung|abschreibung|drohverlust|\bfifo\b|\blifo\b|rückstellung|latente steuer/i,
+  Rückfragen:
+    /rückfrage|nachforder|mandantenrückfrag|prüfnotiz|offene punkte|review/i,
+  SKR03: /skr ?03/i,
+  SKR42: /skr ?42/i,
+};
+
+function articleMatchesCategory(a: Article, c: Category): boolean {
+  if (c === "Alle") return true;
+  if (a.category === c) return true;
+  const re = CAT_KEYWORDS[c];
+  if (!re) return false;
+  const hay = `${a.title} ${a.short} ${a.id} ${(a.tags ?? []).join(" ")}`;
+  return re.test(hay);
+}
 
 interface Article {
   id: string;

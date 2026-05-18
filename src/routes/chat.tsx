@@ -37,12 +37,12 @@ type Msg =
 const STORAGE_KEY = "steuerstoff.chat.v1";
 
 const SUGGEST = [
-  "USt-Frage stellen",
+  "Was kann steuerstoff?",
   "NPO-Sphäre prüfen",
-  "SKR03 → SKR42",
-  "Mittelverwendung prüfen",
+  "SKR03 in SKR42 umwandeln",
+  "Mittelverwendung erklären",
   "Rückfrage formulieren",
-  "Buchungsvorschlag erstellen",
+  "Kfz-Wertabgabe berechnen",
 ];
 
 const EXAMPLES = [

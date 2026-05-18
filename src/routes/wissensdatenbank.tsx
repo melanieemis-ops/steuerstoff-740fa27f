@@ -33,6 +33,22 @@ const CATEGORIES = [
 ] as const;
 
 type Category = (typeof CATEGORIES)[number];
+type CategoryId =
+  | "all"
+  | "umsatzsteuer"
+  | "npo"
+  | "skr03"
+  | "skr42"
+  | "datev"
+  | "rueckfragen"
+  | "jahresabschluss"
+  | "buchhaltung"
+  | "kfz"
+  | "ao"
+  | "erbschaftsteuer"
+  | "umwandlungsteuer"
+  | "bilanzierung"
+  | "hilfe";
 
 // Strikte Kategorie-Zuordnung über stabile Artikel-IDs.
 // Keine breite Substring-/Keyword-Suche mehr — dadurch keine Cross-Treffer

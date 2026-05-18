@@ -13,6 +13,12 @@ const norm = (s: string) =>
 
 const PREFIXES = [
   "",
+  "die",
+  "der",
+  "das",
+  "ein",
+  "eine",
+  "einen",
   "wassind",
   "wassinddie",
   "wassinddas",
@@ -34,6 +40,8 @@ const PREFIXES = [
   "wasbedeutetein",
   "washeisst",
   "washeißt",
+  "wofuersteht",
+  "wofürsteht",
   "definitionvon",
   "definition",
   "erklaere",
@@ -44,6 +52,10 @@ const PREFIXES = [
   "erklaermir",
   "bittedefiniere",
   "definiere",
+  "wasregelt",
+  "wasregeltdie",
+  "wasregeltder",
+  "wasregeltdas",
 ];
 const SUFFIXES = [
   "",

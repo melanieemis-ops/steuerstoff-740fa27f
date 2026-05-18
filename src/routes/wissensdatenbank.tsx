@@ -34,32 +34,37 @@ const CATEGORIES = [
 
 type Category = (typeof CATEGORIES)[number];
 
-// Zusatz-Keyword-Regeln für Kategorien, die nicht direkt als `category` vergeben sind.
-// Bestehende Karten werden so zusätzlich in die richtige Kategorie einsortiert,
-// ohne dass wir Daten umbenennen müssen.
-const CAT_KEYWORDS: Partial<Record<Category, RegExp>> = {
-  Kfz: /kfz|1[- ]?%[- ]?methode|kostendeckel|fahrten wohnung|\b8921\b|\b8924\b|wertabgabe/i,
-  "AO / Verfahrensrecht":
-    /§ ?173a|festsetzungsfrist|bescheidänd|änderungsnorm|rechtsbehelf|einspruch|verfahrensrecht/i,
-  Erbschaftsteuer:
-    /erbschaft|schenkungsteuer|\berbsteuer\b|nachlass|familienheim|erbfall|erbanfall|ertragswertverfahren|\bbewg\b|vorerbe/i,
-  Umwandlungsteuer:
-    /umwandlung|umwstg|anteilstausch|einbringung|buchwertansatz|gemeiner wert|steuerliche rückwirkung/i,
-  Bilanzierung:
-    /bilanzierung|immaterielle|teilwert|aktivierung|abschreibung|drohverlust|\bfifo\b|\blifo\b|rückstellung|latente steuer/i,
-  Rückfragen:
-    /rückfrage|nachforder|mandantenrückfrag|prüfnotiz|offene punkte|review/i,
-  SKR03: /skr ?03/i,
-  SKR42: /skr ?42/i,
+// Strikte Kategorie-Zuordnung über stabile Artikel-IDs.
+// Keine breite Substring-/Keyword-Suche mehr — dadurch keine Cross-Treffer
+// wie „Reverse Charge“ unter „Erbschaftsteuer“.
+//
+// PRIMARY_OVERRIDE: Setzt die effektive (primäre) Kategorie einzelner Artikel,
+//   ohne die Rohdaten zu ändern. Wird auch für Anzeige + Counts verwendet.
+// RELATED: Zusätzliche Kategorien, in denen ein Artikel ebenfalls erscheinen darf
+//   (bewusst sparsam einsetzen).
+const PRIMARY_OVERRIDE: Record<string, Category> = {
+  "kb-erbschaftsteuer-grundlagen": "Erbschaftsteuer",
+  "kb-erbschaftsteuer-merksaetze": "Erbschaftsteuer",
+  "kb-anteilstausch-umwstg": "Umwandlungsteuer",
+  "kb-aenderung-173a-ao": "AO / Verfahrensrecht",
+  "kb-kfz-wertabgabe-1prozent": "Kfz",
+  "kb-bilanzierung-immaterielle-rueckstellungen": "Bilanzierung",
+  "kb-rhb-vorratsbewertung": "Bilanzierung",
 };
+
+const RELATED: Record<string, Category[]> = {
+  "kb-reverse-charge-npo": ["NPO / Gemeinnützigkeit"],
+  "kb-ruecklage-allgemein": ["Bilanzierung"],
+};
+
+function effectiveCategory(a: Article): Category {
+  return PRIMARY_OVERRIDE[a.id] ?? a.category;
+}
 
 function articleMatchesCategory(a: Article, c: Category): boolean {
   if (c === "Alle") return true;
-  if (a.category === c) return true;
-  const re = CAT_KEYWORDS[c];
-  if (!re) return false;
-  const hay = `${a.title} ${a.short} ${a.id} ${(a.tags ?? []).join(" ")}`;
-  return re.test(hay);
+  if (effectiveCategory(a) === c) return true;
+  return RELATED[a.id]?.includes(c) ?? false;
 }
 
 interface Article {
@@ -568,7 +573,7 @@ function ArticleDetails({
       <div className="flex items-start justify-between gap-4 border-b border-border p-4">
         <div className="min-w-0">
           <span className="inline-block rounded border border-border bg-background px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted-foreground">
-            {article.category}
+            {effectiveCategory(article)}
           </span>
           <h3 className="mt-2 text-lg font-semibold text-foreground">{article.title}</h3>
           <p className="mt-1 text-xs text-muted-foreground">{article.short}</p>
@@ -896,7 +901,7 @@ function Wissensdatenbank() {
       >
         <span className="inline-flex items-center gap-1.5 self-start rounded border border-border bg-background px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted-foreground">
           <BookOpen className="h-3 w-3" />
-          {a.category}
+          {effectiveCategory(a)}
         </span>
         <h2 className="mt-3 text-sm font-semibold text-foreground">{a.title}</h2>
         <p className="mt-1 line-clamp-3 flex-1 text-xs leading-relaxed text-muted-foreground">

@@ -832,39 +832,23 @@ function Wissensdatenbank() {
     return m;
   }, []);
 
-  const grouped = useMemo(() => {
-    if (cat !== "Alle") return null;
-    const seen = new Set<string>();
-    const groups: { category: Category; items: Article[] }[] = [];
-    for (const c of CATEGORIES) {
-      if (c === "Alle") continue;
-      const items = filtered.filter(
-        (a) => !seen.has(a.id) && articleMatchesCategory(a, c),
-      );
-      items.forEach((a) => seen.add(a.id));
-      if (items.length) groups.push({ category: c, items });
-    }
-    const rest = filtered.filter((a) => !seen.has(a.id));
-    if (rest.length) groups.push({ category: "Buchhaltung" as Category, items: rest });
-    return groups;
-  }, [cat, filtered]);
-
   useEffect(() => {
     if (typeof window === "undefined") return;
     // Dev-Debug: aktiver Filter + tatsächlich angezeigte Kategorien.
     if (import.meta.env.DEV) {
       // eslint-disable-next-line no-console
-      console.log("[KB-Filter]", {
-        activeCategoryId: cat,
-        query,
-        visible: finalVisibleItems.map((a) => ({ id: a.id, cat: getCategoryId(a) })),
-      });
+      console.log("activeCategoryId", activeCategoryId);
+      // eslint-disable-next-line no-console
+      console.log(
+        "finalVisibleItems",
+        finalVisibleItems.map((i) => ({ title: i.title, categoryId: getCategoryId(i) })),
+      );
     }
     const el = document.getElementById("kb-list-anchor");
     if (!el) return;
     const y = el.getBoundingClientRect().top + window.scrollY - 80;
     window.scrollTo({ top: y, behavior: "smooth" });
-  }, [cat, query, finalVisibleItems]);
+  }, [activeCategoryId, finalVisibleItems]);
 
   useEffect(() => {
     setCanUsePortal(typeof document !== "undefined" && !!document.body);
@@ -872,7 +856,7 @@ function Wissensdatenbank() {
 
   const buildFullText = (a: Article) => {
     const lines = [
-      `${a.category} — ${a.title}`,
+      `${getCategoryLabel(a)} — ${a.title}`,
       "",
       a.short,
       "",
@@ -945,7 +929,7 @@ function Wissensdatenbank() {
       >
         <span className="inline-flex items-center gap-1.5 self-start rounded border border-border bg-background px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted-foreground">
           <BookOpen className="h-3 w-3" />
-          {effectiveCategory(a)}
+          {getCategoryLabel(a)}
         </span>
         <h2 className="mt-3 text-sm font-semibold text-foreground">{a.title}</h2>
         <p className="mt-1 line-clamp-3 flex-1 text-xs leading-relaxed text-muted-foreground">

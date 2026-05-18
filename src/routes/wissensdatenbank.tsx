@@ -1017,7 +1017,7 @@ function Wissensdatenbank() {
             className="mt-4 flex items-center justify-between gap-3 text-xs text-muted-foreground"
           >
             <span>
-              {filtered.length} {filtered.length === 1 ? "Inhalt" : "Inhalte"} gefunden
+              {finalVisibleItems.length} {finalVisibleItems.length === 1 ? "Inhalt" : "Inhalte"} gefunden
               {cat !== "Alle" ? ` · Kategorie „${cat}“` : ""}
               {query.trim() ? ` · Suche „${query.trim()}“` : ""}
             </span>
@@ -1035,7 +1035,7 @@ function Wissensdatenbank() {
             )}
           </div>
 
-          {filtered.length === 0 ? (
+          {finalVisibleItems.length === 0 ? (
             <div className="mt-6 rounded-2xl border border-dashed border-border bg-card p-8 text-center text-sm text-muted-foreground">
               <p>Keine passenden Inhalte gefunden.</p>
               <div className="mt-3 flex flex-wrap justify-center gap-2">
@@ -1059,25 +1059,9 @@ function Wissensdatenbank() {
                 )}
               </div>
             </div>
-          ) : grouped ? (
-            <div className="mt-6 space-y-8">
-              {grouped.map((g) => (
-                <section key={g.category}>
-                  <h2 className="text-sm font-semibold tracking-tight text-foreground">
-                    {g.category}{" "}
-                    <span className="text-xs font-normal text-muted-foreground">
-                      ({g.items.length})
-                    </span>
-                  </h2>
-                  <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                    {g.items.map((a) => renderCard(a))}
-                  </div>
-                </section>
-              ))}
-            </div>
           ) : (
             <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {filtered.map((a) => renderCard(a))}
+              {finalVisibleItems.map((a) => renderCard(a))}
             </div>
           )}
 

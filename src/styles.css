@@ -248,3 +248,22 @@
 @media (prefers-reduced-motion: reduce) {
   .chip-knowledge-active::before { animation: none; }
 }
+
+/* Status-Indikator (z. B. Hero-Badge): langsamer Glow-Puls, kein Layout-Shift. */
+.status-pulse {
+  box-shadow: 0 0 0 0 color-mix(in oklab, var(--magenta) 55%, transparent);
+  animation: status-pulse 2.6s ease-in-out infinite;
+}
+@keyframes status-pulse {
+  0%, 100% {
+    opacity: 0.75;
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--magenta) 35%, transparent);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 8px 2px color-mix(in oklab, var(--magenta) 55%, transparent);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .status-pulse { animation: none; box-shadow: none; opacity: 1; }
+}

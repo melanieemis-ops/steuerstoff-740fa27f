@@ -122,8 +122,8 @@ Review-Hinweise:
 - Verwendungsüberhang berechnen und erläutern
 - offene Punkte im Review dokumentieren`
 },
-{
-  id: "kooperation-57-abs-3-ao",
+
+
   {
     id: "zeitnahe-mittelverwendung",
     title: "Zeitnahe Mittelverwendung (§ 55 Abs. 1 Nr. 5 AO)",

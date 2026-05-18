@@ -271,7 +271,7 @@ function ChatPage() {
                     <button
                       key={s}
                       type="button"
-                      onClick={() => setInput(s + ": ")}
+                      onClick={() => (s.endsWith("?") ? ask(s) : setInput(s + ": "))}
                       className="rounded-full border border-border bg-background px-3 py-1.5 text-xs text-foreground transition-colors hover:bg-accent"
                     >
                       {s}

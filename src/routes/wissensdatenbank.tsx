@@ -819,11 +819,20 @@ function Wissensdatenbank() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
+    // Dev-Debug: aktiver Filter + tatsächlich angezeigte Kategorien.
+    if (import.meta.env.DEV) {
+      // eslint-disable-next-line no-console
+      console.log("[KB-Filter]", {
+        activeCategoryId: cat,
+        query,
+        visible: filtered.map((a) => ({ id: a.id, cat: effectiveCategory(a) })),
+      });
+    }
     const el = document.getElementById("kb-list-anchor");
     if (!el) return;
     const y = el.getBoundingClientRect().top + window.scrollY - 80;
     window.scrollTo({ top: y, behavior: "smooth" });
-  }, [cat]);
+  }, [cat, query, filtered]);
 
   useEffect(() => {
     setCanUsePortal(typeof document !== "undefined" && !!document.body);

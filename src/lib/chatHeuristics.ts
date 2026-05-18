@@ -27,8 +27,62 @@ const has = (q: string, ...terms: string[]) =>
 const REVIEW =
   "steuerstoff ist eine Arbeitshilfe und ersetzt keine verbindliche steuerliche Beratung. Bitte fachlich prüfen lassen.";
 
+// --- Meta-Intent „steuerstoff_info“ ---
+function isSteuerstoffInfoQuery(q: string): boolean {
+  const s = q.trim();
+  if (!s) return false;
+  // direkte Hilfe-Trigger
+  if (/^(hilfe|einführung|einfuehrung|app erklären|app erklaeren)\??$/.test(s)) return true;
+  // Fragen rund um die App / „du“
+  const aboutApp =
+    /\bsteuerstoff\b/.test(s) ||
+    /\bdiese[r]?\s+app\b/.test(s) ||
+    /\bdas\s+hier\b/.test(s) ||
+    /\bder\s+steuerstoff\s+chat\b/.test(s);
+  const askVerb =
+    /^(was\s+(ist|kann|macht|bringt|bietet|leistet))\b/.test(s) ||
+    /^(wofür|wofuer|wozu)\b/.test(s) ||
+    /^(wie\s+(benutze|nutze|funktioniert))\b/.test(s) ||
+    /^(erklär|erklaer|zeig|hilf)\b/.test(s) ||
+    /\bwelche\s+funktionen\b/.test(s) ||
+    /^was\s+kannst\s+du\b/.test(s);
+  return aboutApp && askVerb;
+}
+
+function steuerstoffInfoAnswer(): ChatAnswer {
+  return {
+    kind: "info",
+    summary:
+      "steuerstoff ist dein steuerlicher KI-Arbeitsassistent für deutsche Steuerkanzleien. Du kannst einfache Fragen stellen oder konkrete Sachverhalte prüfen lassen – z. B. NPO-Sphären, SKR42-Konten, Mittelverwendung, Rücklagen, Kfz-Wertabgaben, Umsatzsteuer oder Jahresabschluss-Themen.",
+    sections: [
+      { title: "Steuer-Chat", body: "Einfache Fragen oder Sachverhalte beschreiben — steuerstoff gibt eine erste Einordnung, nennt offene Punkte und verweist auf passende Module." },
+      { title: "NPO-Prüfassistent", body: "Sphären, Zweckbetrieb, Vermögensverwaltung, wirtschaftlicher Geschäftsbetrieb, Spenden, Zuschüsse, Mittelweitergabe und gemeinnützigkeitsrechtliche Risiken." },
+      { title: "Mittelverwendungsrechner", body: "Zeitnahe Mittelverwendung, 45.000-€-Grenze, Rücklagen nach § 62 AO, Mittelvortrag, Rücklagenspiegel, Verwendungsüberhang." },
+      { title: "SKR-Konverter", body: "SKR03-Konten und Buchungstexte in passende SKR42-Konten überführen — mit NPO-Sphärenlogik." },
+      { title: "Kfz-Wertabgaben-Rechner", body: "Private Kfz-Nutzung nach 1-%-Methode, Fahrten Wohnung/Betrieb (0,03 %), USt-Aufteilung und Kostendeckelung." },
+      { title: "Wissensdatenbank", body: "Handouts, Kanzlei-Standards, Steuerwissen, DATEV-Logiken, NPO-Wissen und Prüfhinweise." },
+      { title: "Rückfragen & Review", body: "Mandantenrückfragen, interne Prüfnotizen, To-do-Listen und Review-Hinweise strukturiert erzeugen." },
+      { title: "DATEV / Buchhaltung", body: "Buchungsvorschläge, Belegprüfung, OPOS, SKR-Logik, USt-Hinweise und Jahresabschlussvorbereitung." },
+    ],
+    nextStep:
+      "steuerstoff ersetzt keine Steuerberatung — hilft aber dabei, Sachverhalte zu sortieren, Rückfragen zu formulieren, Buchungsvorschläge vorzubereiten und Review-Punkte zu dokumentieren.",
+    links: [
+      { label: "Neue Frage stellen", to: "/chat" },
+      { label: "NPO-Prüfassistent öffnen", to: "/npo-pruefassistent" },
+      { label: "SKR-Konverter öffnen", to: "/skr-konverter" },
+      { label: "Mittelverwendungsrechner öffnen", to: "/mittelverwendungsrechner" },
+      { label: "Wissensdatenbank öffnen", to: "/wissensdatenbank" },
+      { label: "Kfz-Wertabgabe berechnen", to: "/kfz-wertabgabe" },
+    ],
+    knowledge: "Über steuerstoff",
+  };
+}
+
 export function generateAnswer(rawQuestion: string): ChatAnswer {
   const q = rawQuestion.toLowerCase().trim();
+
+  // --- 0) Meta-Fragen über die App selbst (vor Lexikon + Fallback) ---
+  if (isSteuerstoffInfoQuery(q)) return steuerstoffInfoAnswer();
 
   // --- 1) Lexikon / Begriffsfrage (vor allen Spezialmodulen) ---
   const lex = lookupLexicon(rawQuestion);

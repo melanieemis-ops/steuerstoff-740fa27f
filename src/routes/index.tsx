@@ -161,10 +161,14 @@ function Home() {
 
           <div className="relative mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-14">
             <div className="mx-auto max-w-3xl text-center">
-              <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card/80 px-3 py-1 text-xs text-muted-foreground shadow-sm">
-                <span className="h-1.5 w-1.5 rounded-full" style={{ background: "var(--magenta)" }} />
+              <Link
+                to="/chat"
+                aria-label="steuerstoff Chat öffnen"
+                className="group inline-flex cursor-pointer items-center gap-2 rounded-full border border-border bg-card/80 px-3 py-1 text-xs text-muted-foreground shadow-sm transition-transform hover:border-foreground/30 hover:text-foreground active:scale-[0.98]"
+              >
+                <span className="status-pulse h-1.5 w-1.5 rounded-full" style={{ background: "var(--magenta)" }} />
                 KI-Arbeitsassistent · für Kanzleien
-              </span>
+              </Link>
 
               <h1 className="mt-4 text-balance text-2xl font-semibold tracking-tight text-foreground sm:text-4xl">
                 KI-gestützter Steuer-Arbeitsassistent

@@ -37,12 +37,12 @@ type Msg =
 const STORAGE_KEY = "steuerstoff.chat.v1";
 
 const SUGGEST = [
-  "USt-Frage stellen",
+  "Was kann steuerstoff?",
   "NPO-Sphäre prüfen",
-  "SKR03 → SKR42",
-  "Mittelverwendung prüfen",
+  "SKR03 in SKR42 umwandeln",
+  "Mittelverwendung erklären",
   "Rückfrage formulieren",
-  "Buchungsvorschlag erstellen",
+  "Kfz-Wertabgabe berechnen",
 ];
 
 const EXAMPLES = [
@@ -271,7 +271,7 @@ function ChatPage() {
                     <button
                       key={s}
                       type="button"
-                      onClick={() => setInput(s + ": ")}
+                      onClick={() => (s.endsWith("?") ? ask(s) : setInput(s + ": "))}
                       className="rounded-full border border-border bg-background px-3 py-1.5 text-xs text-foreground transition-colors hover:bg-accent"
                     >
                       {s}

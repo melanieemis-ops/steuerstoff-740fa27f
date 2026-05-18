@@ -63,6 +63,9 @@ function effectiveCategory(a: Article): Category {
 
 function articleMatchesCategory(a: Article, c: Category): boolean {
   if (c === "Alle") return true;
+  // Strikt: ausschließlich effektive Kategorie + explizit erlaubte RELATED-IDs.
+  // Keine Tag-/Substring-Heuristik mehr – verhindert Cross-Treffer
+  // (z. B. USt-Karten unter „DATEV“).
   if (effectiveCategory(a) === c) return true;
   return RELATED[a.id]?.includes(c) ?? false;
 }

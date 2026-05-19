@@ -410,14 +410,15 @@ function MessageBubble({
       <div className="max-w-[85%] rounded-2xl rounded-tr-sm bg-white/10 px-4 py-3 text-white">
         <p className="whitespace-pre-wrap">{msg.text}</p>
 
-        <button
-          type="button"
-          onClick={() => window.prompt("Prompt kopieren:", msg.text)}
-          className="mt-3 block rounded-xl px-2 py-1 text-xs text-white/70 hover:bg-white/10 hover:text-white"
-          aria-label="Prompt kopieren"
-        >
-          Prompt kopieren
-        </button>
+       <button
+  type="button"
+  onClick={onCopy}
+  className="mt-3 inline-flex items-center gap-1 rounded-xl px-2 py-1 text-xs text-white/70 hover:bg-white/10 hover:text-white"
+  aria-label="Prompt kopieren"
+>
+  {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+  {copied ? "Kopiert" : "Kopieren"}
+</button>
       </div>
     </div>
   );

@@ -392,41 +392,44 @@ function messageTextById(msgs: Msg[], id: string): string | null {
   if (m && m.role === "user") return m.text;
   return null;
 }
-async function copyTextToClipboard(text: string) {
+function copyTextToClipboard(text: string) {
   const value = String(text ?? "");
-  if (!value) return false;
+  if (!value) return;
+
+  const textarea = document.createElement("textarea");
+  textarea.value = value;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "fixed";
+  textarea.style.top = "0";
+  textarea.style.left = "0";
+  textarea.style.width = "2px";
+  textarea.style.height = "2px";
+  textarea.style.opacity = "0";
+
+  document.body.appendChild(textarea);
+  textarea.focus();
+  textarea.select();
+  textarea.setSelectionRange(0, value.length);
+
+  let ok = false;
 
   try {
-    if (navigator.clipboard && window.isSecureContext) {
-      await navigator.clipboard.writeText(value);
-      return true;
-    }
+    ok = document.execCommand("copy");
   } catch {
-    // fallback unten
+    ok = false;
   }
 
-  try {
-    const textarea = document.createElement("textarea");
-    textarea.value = value;
-    textarea.setAttribute("readonly", "");
-    textarea.style.position = "fixed";
-    textarea.style.top = "0";
-    textarea.style.left = "0";
-    textarea.style.width = "1px";
-    textarea.style.height = "1px";
-    textarea.style.opacity = "0";
+  document.body.removeChild(textarea);
 
-    document.body.appendChild(textarea);
-    textarea.focus();
-    textarea.select();
-    textarea.setSelectionRange(0, value.length);
+  if (!ok && navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(value).catch(() => {
+      window.prompt("Prompt kopieren:", value);
+    });
+    return;
+  }
 
-    const ok = document.execCommand("copy");
-    document.body.removeChild(textarea);
-
-    return ok;
-  } catch {
-    return false;
+  if (!ok) {
+    window.prompt("Prompt kopieren:", value);
   }
 }
 function MessageBubble({

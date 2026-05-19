@@ -444,29 +444,14 @@ function MessageBubble({
   return (
     <div className="flex justify-end">
       <div className="max-w-[85%] rounded-2xl rounded-tr-sm bg-white/10 px-4 py-3 text-white">
-        <p className="whitespace-pre-wrap">{msg.text}</p>
-
-    <button
+        <p className="whitespace-pre-wrap">{msg.text}</
+<button
   type="button"
-  onClick={() => {
-    const text = String(msg.text ?? "");
-    if (!text) return;
+  onClick={async (event) => {
+    event.preventDefault();
+    event.stopPropagation();
 
-    const textarea = document.createElement("textarea");
-    textarea.value = text;
-    textarea.setAttribute("readonly", "");
-    textarea.style.position = "fixed";
-    textarea.style.top = "0";
-    textarea.style.left = "0";
-    textarea.style.opacity = "0";
-
-    document.body.appendChild(textarea);
-    textarea.focus();
-    textarea.select();
-    textarea.setSelectionRange(0, textarea.value.length);
-
-    document.execCommand("copy");
-    document.body.removeChild(textarea);
+    await copyTextToClipboard(msg.text);
   }}
   className="mt-3 inline-flex items-center gap-1 rounded-xl px-2 py-1 text-xs text-white/70 hover:bg-white/10 hover:text-white"
   aria-label="Prompt kopieren"

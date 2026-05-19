@@ -444,27 +444,27 @@ function MessageBubble({
   onRetry: () => void;
 }) {
   if (msg.role === "user") {
-  return (
-    <div className="flex justify-end">
-      <div className="max-w-[85%] rounded-2xl rounded-tr-sm bg-white/10 px-4 py-3 text-white">
-        <p className="whitespace-pre-wrap">{msg.text}</
-<button
-  type="button"
-  onClick={(event) => {
-    event.preventDefault();
-    event.stopPropagation();
-    copyTextToClipboard(msg.text);
-  }}
-  className="mt-3 inline-flex items-center gap-1 rounded-xl px-2 py-1 text-xs text-white/70 hover:bg-white/10 hover:text-white"
-  aria-label="Prompt kopieren"
->
-  <Copy className="h-3 w-3" />
-  Kopieren
-</button>
+    return (
+      <div className="flex justify-end">
+        <div className="max-w-[85%] rounded-2xl rounded-tr-sm bg-primary px-4 py-3 text-primary-foreground">
+          <p className="whitespace-pre-wrap">{msg.text}</p>
+          <button
+            type="button"
+            onClick={(event) => {
+              event.preventDefault();
+              event.stopPropagation();
+              copyTextToClipboard(msg.text);
+            }}
+            className="mt-3 inline-flex items-center gap-1 rounded-xl px-2 py-1 text-xs text-primary-foreground/70 hover:bg-primary-foreground/10 hover:text-primary-foreground"
+            aria-label="Prompt kopieren"
+          >
+            <Copy className="h-3 w-3" />
+            Kopieren
+          </button>
+        </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
   if (msg.role === "error") {
     return (
       <div className="flex justify-start">

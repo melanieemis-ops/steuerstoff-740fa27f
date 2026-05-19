@@ -479,7 +479,7 @@ Review-Hinweise:
   title: "Bilanzierung: Erhaltene Anzahlungen und Herstellungskosten",
   short:
     "Erhaltene Anzahlungen werden nicht von aktivierten Herstellungskosten abgezogen, sondern grundsätzlich passiviert.",
-  category: "Bilanzierung / Jahresabschluss",
+  category: "Jahresabschluss",
   source: "beck-chat Arbeitsnotiz – Anzahlungen und Herstellungskosten",
   keywords:
     /anzahlung|anzahlungen|erhaltene anzahlung|herstellungskosten|aktivierte herstellungskosten|bilanzierung|passivierung|verbindlichkeit|bestandsveränderung|bestandsveraenderung/i,

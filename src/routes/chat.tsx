@@ -409,6 +409,14 @@ function MessageBubble({
       <div className="flex justify-end">
         <div className="max-w-[85%] rounded-2xl rounded-tr-md bg-foreground px-4 py-2.5 text-sm text-background shadow-sm">
           {msg.text}
+<button
+  type="button"
+  onClick={onCopy}
+  className="mt-3 inline-flex items-center rounded-xl px-2 py-1 text-xs text-white/70 hover:bg-white/10 hover:text-white"
+  aria-label="Prompt kopieren"
+>
+  {copied ? "Kopiert" : "Prompt kopieren"}
+</button>
         </div>
       </div>
     );

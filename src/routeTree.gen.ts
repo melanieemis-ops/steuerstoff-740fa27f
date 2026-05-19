@@ -17,9 +17,9 @@ import { Route as MittelverwendungsrechnerRouteImport } from './routes/mittelver
 import { Route as KfzWertabgabeRouteImport } from './routes/kfz-wertabgabe'
 import { Route as FallverlaufRouteImport } from './routes/fallverlauf'
 import { Route as EinstellungenRouteImport } from './routes/einstellungen'
+import { Route as CsvKonverterRouteImport } from './routes/csv-konverter'
 import { Route as ChatRouteImport } from './routes/chat'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as CsvKonverterRouteImport } from './routes/csv-konverter'
 import { Route as FallCaseIdRouteImport } from './routes/fall.$caseId'
 
 const WissensdatenbankRoute = WissensdatenbankRouteImport.update({
@@ -27,11 +27,6 @@ const WissensdatenbankRoute = WissensdatenbankRouteImport.update({
   path: '/wissensdatenbank',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CsvKonverterRoute = CsvKonverterRouteImport.update({
-  id: '/csv-konverter',
-  path: '/csv-konverter',
-  getParentRoute: () => rootRouteImport,
-} as any)} as any)
 const SkrKonverterRoute = SkrKonverterRouteImport.update({
   id: '/skr-konverter',
   path: '/skr-konverter',
@@ -68,6 +63,11 @@ const EinstellungenRoute = EinstellungenRouteImport.update({
   path: '/einstellungen',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CsvKonverterRoute = CsvKonverterRouteImport.update({
+  id: '/csv-konverter',
+  path: '/csv-konverter',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ChatRoute = ChatRouteImport.update({
   id: '/chat',
   path: '/chat',
@@ -87,7 +87,7 @@ const FallCaseIdRoute = FallCaseIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/chat': typeof ChatRoute
-  '/csv-konverter': typeof CsvKonverterRoute 
+  '/csv-konverter': typeof CsvKonverterRoute
   '/einstellungen': typeof EinstellungenRoute
   '/fallverlauf': typeof FallverlaufRoute
   '/kfz-wertabgabe': typeof KfzWertabgabeRoute
@@ -101,7 +101,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/chat': typeof ChatRoute
-  '/csv-konverter': typeof CsvKonverterRoute 
+  '/csv-konverter': typeof CsvKonverterRoute
   '/einstellungen': typeof EinstellungenRoute
   '/fallverlauf': typeof FallverlaufRoute
   '/kfz-wertabgabe': typeof KfzWertabgabeRoute
@@ -132,7 +132,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/chat'
-    | '/csv-konverter'   
+    | '/csv-konverter'
     | '/einstellungen'
     | '/fallverlauf'
     | '/kfz-wertabgabe'
@@ -146,7 +146,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/chat'
-    | '/csv-konverter' 
+    | '/csv-konverter'
     | '/einstellungen'
     | '/fallverlauf'
     | '/kfz-wertabgabe'
@@ -160,7 +160,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/chat'
-    | '/csv-konverter'    
+    | '/csv-konverter'
     | '/einstellungen'
     | '/fallverlauf'
     | '/kfz-wertabgabe'
@@ -175,7 +175,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ChatRoute: typeof ChatRoute
-  CsvKonverterRoute: typeof CsvKonverterRoute 
+  CsvKonverterRoute: typeof CsvKonverterRoute
   EinstellungenRoute: typeof EinstellungenRoute
   FallverlaufRoute: typeof FallverlaufRoute
   KfzWertabgabeRoute: typeof KfzWertabgabeRoute
@@ -196,13 +196,7 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WissensdatenbankRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/csv-konverter': {
-      id: '/csv-konverter'
-      path: '/csv-konverter'
-      fullPath: '/csv-konverter'
-      preLoaderRoute: typeof CsvKonverterRouteImport
-      parentRoute: typeof rootRouteImport
-    }    '/skr-konverter': {
+    '/skr-konverter': {
       id: '/skr-konverter'
       path: '/skr-konverter'
       fullPath: '/skr-konverter'
@@ -251,6 +245,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EinstellungenRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/csv-konverter': {
+      id: '/csv-konverter'
+      path: '/csv-konverter'
+      fullPath: '/csv-konverter'
+      preLoaderRoute: typeof CsvKonverterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/chat': {
       id: '/chat'
       path: '/chat'
@@ -278,7 +279,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ChatRoute: ChatRoute,
-  CsvKonverterRoute: CsvKonverterRoute, 
+  CsvKonverterRoute: CsvKonverterRoute,
   EinstellungenRoute: EinstellungenRoute,
   FallverlaufRoute: FallverlaufRoute,
   KfzWertabgabeRoute: KfzWertabgabeRoute,

@@ -73,6 +73,11 @@ function kbSections(entries: KBEntry[]): { title: string; body: string }[] {
 
 export type ChatLink = { label: string; to: string };
 
+export interface TraceStep {
+  step: string;
+  detail?: string;
+}
+
 export interface ChatAnswer {
   summary: string;
   reasoning?: string;
@@ -87,7 +92,14 @@ export interface ChatAnswer {
   clarify?: string;
   /** Kompakter Antworttyp — UI kann Prüfkarte schlanker rendern. */
   kind?: "info" | "case" | "npo" | "mvr";
+  /** Debug-Trace der Klassifizierungsentscheidung (Dev-Modus). */
+  trace?: TraceStep[];
+  /** Erkannter Sachverhaltstyp, wenn USt-Klassifizierung durchgeführt wurde. */
+  scenarioType?: string;
+  /** Erkannte Kernparagraphen (aus Klassifizierung). */
+  paragraphs?: string[];
 }
+
 
 const has = (q: string, ...terms: string[]) =>
   terms.some((t) => q.includes(t));

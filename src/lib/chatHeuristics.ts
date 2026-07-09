@@ -261,8 +261,10 @@ function classifyUst(q: string): UstClassification | null {
     scheme[0].body = "Ausfuhrlieferung ins Drittland (§ 6 UStG), steuerfrei nach § 4 Nr. 1a UStG bei Belegnachweis (Ausfuhrnachweis, Buchnachweis).";
     return {
       type: "ausfuhr", label: "Ausfuhrlieferung", paragraph: "§ 6, § 4 Nr. 1a UStG",
+      trail: buildTrail("§ 6 UStG (Ausfuhrlieferung)"),
       reasoning: "Ware verlässt das Zollgebiet der EU — steuerfreie Ausfuhrlieferung.", scheme,
-      followUps: ["Liegt Ausfuhrnachweis (MRN/EAD) vor?", "Buchnachweis vollständig?"],
+      complete: true,
+      followUps: [],
     };
   }
   if (hasWare && drittland && nachDE) {
@@ -270,9 +272,12 @@ function classifyUst(q: string): UstClassification | null {
     scheme[0].body = "Einfuhr aus dem Drittland → Einfuhrumsatzsteuer (§ 1 Abs. 1 Nr. 4 UStG), Vorsteuerabzug nach § 15 Abs. 1 Nr. 2 UStG.";
     return {
       type: "einfuhr", label: "Einfuhr / EUSt", paragraph: "§ 1 Abs. 1 Nr. 4, § 15 Abs. 1 Nr. 2 UStG",
+      trail: buildTrail("§ 1 Abs. 1 Nr. 4 UStG (Einfuhr / EUSt)"),
       reasoning: "Bei Wareneinfuhr aus Drittland entsteht EUSt beim Zoll — kein § 13b UStG.", scheme,
-      followUps: ["Zollbeleg / EUSt-Bescheid vorhanden?"],
+      complete: true,
+      followUps: [],
     };
+
   }
 
   // 7) Verbringen

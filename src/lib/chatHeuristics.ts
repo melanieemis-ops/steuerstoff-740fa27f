@@ -400,6 +400,8 @@ const UST_TRIGGERS: RegExp[] = [
   /\breverse\s*charge\b/i,
   /§\s*13b|13b\s*ustg/i,
   /§\s*1a|1a\s*ustg/i,
+  /§\s*3a|3a\s*ustg/i,
+  /§\s*6a|6a\s*ustg/i,
   /\binnergemeinschaftlich(e[nrs]?)?\s+(erwerb|lieferung|verbringen)\b/i,
   /\big\.?\s*(erwerb|lieferung)\b/i,
   /\b(ware|waren|lieferung|liefer(n|t|ung)|dienstleistung|werklieferung|werkleistung)\b/i,
@@ -408,6 +410,9 @@ const UST_TRIGGERS: RegExp[] = [
   /\bdeutschland|inland\b/i,
   /\b(transport|versand|bef(ö|oe)rder|versendet|gelangt|geliefert)\b/i,
   /\bleistungsort|ort\s+der\s+leistung\b/i,
+  /\bsteuerschuldner(schaft)?\b/i,
+  /\bbemessungsgrundlage\b/i,
+  /\bausfuhrlieferung\b/i,
   /\berwerb\b/i,
   /\b(ausfuhr|einfuhr|eust|einfuhrumsatzsteuer)\b/i,
 ];
@@ -418,11 +423,15 @@ function ustTriggerCount(q: string): number {
   return n;
 }
 
+// Fachbegriffe, die für sich allein den USt-Workflow zwingend auslösen.
+const UST_STRONG = /\b(umsatzsteuer|ust\b|mwst|mehrwertsteuer|vorsteuer|reverse\s*charge|innergemein|ig\.?\s*(erwerb|lieferung)|ust-?id|werklieferung|werkleistung|ausfuhrlieferung|ausfuhr|einfuhr|eust|leistungsort|steuerschuldner(schaft)?|bemessungsgrundlage)\b|§\s*(13b|1a|3a|6a)|(?:^|[^a-z])(13b|1a|3a|6a)\s*ustg/i;
+
 function hasUstTriggers(q: string): boolean {
   // Ein starker Kernbegriff reicht, sonst mindestens zwei allgemeine Trigger.
-  const strong = /\b(umsatzsteuer|ust|mwst|mehrwertsteuer|vorsteuer|reverse\s*charge|innergemein|ig\.?\s*(erwerb|lieferung)|ust-?id|13b|1a\s*ustg|werklieferung|werkleistung|ausfuhr|einfuhr|eust)\b/i.test(q);
-  return strong || ustTriggerCount(q) >= 2;
+  if (UST_STRONG.test(q)) return true;
+  return ustTriggerCount(q) >= 2;
 }
+
 
 export function generateAnswer(rawQuestion: string): ChatAnswer {
   const q = rawQuestion.toLowerCase().trim();

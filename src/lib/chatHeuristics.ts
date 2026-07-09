@@ -364,10 +364,12 @@ function classifyUstSachverhalt(q: string): ChatAnswer | null {
   const c = classifyUst(q);
   if (!c) return null;
   const sections = [
+    ...(c.trail ? [{ title: "Klassifizierung", body: c.trail }] : []),
     { title: "Sachverhaltsart", body: `${c.label} (${c.paragraph})` },
     ...c.scheme,
     { title: "9. Ergebnis", body: c.ergebnis ?? c.reasoning },
   ];
+
   if (c.negative) sections.push({ title: "Nicht anwenden", body: c.negative });
   return {
     kind: "case",

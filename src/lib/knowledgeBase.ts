@@ -4,6 +4,9 @@
 // Hier sind ausschließlich die inhaltlichen Kernaussagen als bearbeiteter
 // Fließtext hinterlegt, damit die App Wissens- und Fallfragen beantworten kann.
 
+import { resolveTaxTypeFromText, type TaxType } from "./router/taxTypes";
+
+
 export type ScenarioType =
   | "innergemeinschaftlicher_erwerb"
   | "innergemeinschaftliche_lieferung"

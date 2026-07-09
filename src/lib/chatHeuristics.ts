@@ -180,11 +180,13 @@ function classifyUst(q: string): UstClassification | null {
   const bothUstId = /\b(beide|jeweils|jeder)[^.]*ust-?id/i.test(q)
     || (/(ust-?id|ustid|umsatzsteuer-?identifikationsnummer)/i.test(q) && b2b);
   // Leistender ist im Ausland ansässig (EU oder Drittland).
-  const leistenderAusland = /\b(eu-?unternehmer|ausl(ä|ae)ndisch(er|e|en)?\s+(unternehmer|dienstleister|leistender|firma|subunternehmer))\b/i.test(q)
-    || /\b(unternehmer|anbieter|leistender|dienstleister|subunternehmer|firma)\s+(aus|mit\s+sitz\s+in|ans(ä|ae)ssig\s+in)\s+(dem\s+)?(eu-?ausland|ausland|drittland|österreich|oesterreich|frankreich|italien|spanien|niederlande|polen|belgien|irland|luxemburg|tschechien|slowakei|schweden|d(ä|ae)nemark|finnland|portugal|griechenland|ungarn|schweiz|usa|uk|gro(ß|ss)britannien|china|japan|t(ü|ue)rkei)\b/i.test(q)
-    || /\b(leistungsempf(ä|ae)nger|empf(ä|ae)nger)\s+(ist\s+)?(deutscher?\s+unternehmer|in\s+deutschland)\b/i.test(q);
+  const leistenderAusland = /\b(eu-?unternehmer|ausl(ä|ae)ndisch(er|e|en|es)?\s+(unternehmer|unternehmen|dienstleister|leistender|firma|subunternehmer))\b/i.test(q)
+    || /\b(unternehmer|unternehmen|anbieter|leistender|dienstleister|subunternehmer|firma|lieferant)\s+(aus|mit\s+sitz\s+in|ans(ä|ae)ssig\s+in)\s+(dem\s+)?(eu-?ausland|ausland|drittland|österreich|oesterreich|frankreich|italien|spanien|niederlande|polen|belgien|irland|luxemburg|tschechien|slowakei|schweden|d(ä|ae)nemark|finnland|portugal|griechenland|ungarn|schweiz|usa|uk|gro(ß|ss)britannien|china|japan|t(ü|ue)rkei)\b/i.test(q)
+    || /\b(österreichisch|oesterreichisch|franz(ö|oe)sisch|italienisch|spanisch|niederl(ä|ae)ndisch|polnisch|belgisch|irisch|luxemburgisch|tschechisch|slowakisch|schwedisch|d(ä|ae)nisch|finnisch|portugiesisch|griechisch|ungarisch|schweizerisch|amerikanisch|britisch|chinesisch|japanisch|t(ü|ue)rkisch)(er|e|en|es)?\s+(unternehmer|unternehmen|dienstleister|leistender|firma|subunternehmer|lieferant)\b/i.test(q)
+    || /\b(leistungsempf(ä|ae)nger|empf(ä|ae)nger)\s+(ist\s+)?(deutscher?\s+unternehmer|deutsches?\s+unternehmen|in\s+deutschland)\b/i.test(q);
   // Empfänger ist deutscher Unternehmer
-  const empfaengerDE = /\b(deutscher?\s+unternehmer|leistungsempf(ä|ae)nger\s+in\s+deutschland|empf(ä|ae)nger\s+in\s+deutschland|inl(ä|ae)ndischer?\s+unternehmer)\b/i.test(q)
+  const empfaengerDE = /\b(deutscher?\s+unternehmer|deutsches?\s+unternehmen|leistungsempf(ä|ae)nger\s+in\s+deutschland|empf(ä|ae)nger\s+in\s+deutschland|inl(ä|ae)ndischer?\s+unternehmer|inl(ä|ae)ndisches?\s+unternehmen)\b/i.test(q)
+    || /\b(wir|unser(e|es)?\s+(kanzlei|mandant|unternehmen|firma|gmbh))\b/i.test(q) && b2b
     || (b2b && nachDE);
 
 

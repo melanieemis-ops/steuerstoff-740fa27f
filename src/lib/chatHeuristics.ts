@@ -391,15 +391,56 @@ function steuerstoffInfoAnswer(): ChatAnswer {
   };
 }
 
+// Trigger-Wörter, die den USt-Workflow zwingend aktivieren.
+const UST_TRIGGERS: RegExp[] = [
+  /\brechnung(en)?\b/i,
+  /\b(umsatzsteuer|ust|mwst|mehrwertsteuer)\b/i,
+  /\bvorsteuer\b/i,
+  /\b(ust-?id(nr)?\.?|ustid|umsatzsteuer-?identifikationsnummer)\b/i,
+  /\breverse\s*charge\b/i,
+  /§\s*13b|13b\s*ustg/i,
+  /§\s*1a|1a\s*ustg/i,
+  /\binnergemeinschaftlich(e[nrs]?)?\s+(erwerb|lieferung|verbringen)\b/i,
+  /\big\.?\s*(erwerb|lieferung)\b/i,
+  /\b(ware|waren|lieferung|liefer(n|t|ung)|dienstleistung|werklieferung|werkleistung)\b/i,
+  /\b(eu-?ausland|eu\b|drittland)\b/i,
+  /\b(niederlande|österreich|oesterreich|frankreich|polen|italien|spanien|belgien|luxemburg|tschechien|slowakei|schweden|dänemark|daenemark|finnland|portugal|griechenland|ungarn|irland)\b/i,
+  /\bdeutschland|inland\b/i,
+  /\b(transport|versand|bef(ö|oe)rder|versendet|gelangt|geliefert)\b/i,
+  /\bleistungsort|ort\s+der\s+leistung\b/i,
+  /\berwerb\b/i,
+  /\b(ausfuhr|einfuhr|eust|einfuhrumsatzsteuer)\b/i,
+];
+
+function ustTriggerCount(q: string): number {
+  let n = 0;
+  for (const r of UST_TRIGGERS) if (r.test(q)) n++;
+  return n;
+}
+
+function hasUstTriggers(q: string): boolean {
+  // Ein starker Kernbegriff reicht, sonst mindestens zwei allgemeine Trigger.
+  const strong = /\b(umsatzsteuer|ust|mwst|mehrwertsteuer|vorsteuer|reverse\s*charge|innergemein|ig\.?\s*(erwerb|lieferung)|ust-?id|13b|1a\s*ustg|werklieferung|werkleistung|ausfuhr|einfuhr|eust)\b/i.test(q);
+  return strong || ustTriggerCount(q) >= 2;
+}
+
 export function generateAnswer(rawQuestion: string): ChatAnswer {
   const q = rawQuestion.toLowerCase().trim();
 
   // --- 0) Meta-Fragen über die App selbst (vor Lexikon + Fallback) ---
   if (isSteuerstoffInfoQuery(q)) return steuerstoffInfoAnswer();
 
+  // --- 0b) USt-Trigger erkannt → direkt USt-Workflow, keine allgemeine Rückfrage ---
+  if (hasUstTriggers(q)) {
+    const ust = classifyUstSachverhalt(q);
+    if (ust) return ust;
+  }
+
   // --- 1) Lexikon / Begriffsfrage (vor allen Spezialmodulen) ---
   const lex = lookupLexicon(rawQuestion);
   if (lex) return lex;
+
+
 
 
   // --- Allgemeine Steuerlehre: "Was sind Steuern?" / Steuerarten ---

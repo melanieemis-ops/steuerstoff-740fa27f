@@ -203,7 +203,7 @@ function classifyUst(q: string): UstClassification | null {
 
   const drittland = /\b(drittland|schweiz|usa|uk|großbritannien|grossbritannien|china|japan|türkei|tuerkei)\b/i.test(q);
   const b2b = /\b(unternehmer|unternehmen|firma|gmbh|ug|ohg|kg|ag|b2b|ust-?id|ustid|umsatzsteuer-?identifikationsnummer|vat[-\s]?id)\b/i.test(q) || /\bbeide\s+(sind\s+)?unternehmer\b/i.test(q);
-  const grundstueck = /\b(grundst|immobilie|gebäude|gebaeude|wohnung|bauleistung|bauträger|bautraeger|zwischenvermietung|vermietung|sportanlage|betriebsvorrichtung|tennishalle)\b/i.test(q);
+  const grundstueck = /\b(grundst[a-zäöüß]*|immobilie[a-zäöüß]*|geb(ä|ae)ud[a-zäöüß]*|wohnung[a-zäöüß]*|bautr(ä|ae)ger|zwischenvermietung|vermietung|sportanlage|betriebsvorrichtung|tennishalle)\b/i.test(q);
   const werkMitMaterial = /\bwerklieferung|montage\s+mit\s+material|einbau\s+mit\s+material\b/i.test(q);
   const werkOhneMaterial = /\bwerkleistung|reparatur|montage(?!\s*mit\s*material)|installation\b/i.test(q);
   const reihe = /\breihengesch|kettengesch|drei(ecks|-ecks?)gesch/i.test(q);

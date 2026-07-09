@@ -89,7 +89,17 @@ function ChatPage() {
   // hydrate once
   useEffect(() => {
     setMessages(loadMessages());
+    // Dev-Modus: KB-Regression per Konsole ausführbar machen.
+    if (import.meta.env.DEV && typeof window !== "undefined") {
+      void import("@/lib/regressionRunner").then((m) => {
+        (window as unknown as { __runKbRegression?: (opts?: { verbose?: boolean }) => unknown }).__runKbRegression =
+          (opts = { verbose: true }) => m.runKbRegression(opts);
+        // eslint-disable-next-line no-console
+        console.info("[steuerstoff] KB-Regression verfügbar: window.__runKbRegression()");
+      });
+    }
   }, []);
+
 
   // persist
   useEffect(() => {

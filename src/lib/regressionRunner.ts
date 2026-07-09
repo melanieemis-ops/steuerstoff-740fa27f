@@ -19,6 +19,8 @@ export interface RegressionCaseResult {
   expectedScenario: ScenarioType | null;
   actualScenario: string | null;
   actualParagraph: string | null;
+  expectedTaxType: TaxType | null;
+  actualTaxType: TaxType;
   complete: boolean;
   hardFail: boolean;
   softFail: boolean;
@@ -31,7 +33,10 @@ export interface RegressionReport {
   softFails: number;
   passed: number;
   results: RegressionCaseResult[];
+  /** Pro Steuerart aggregierte Statistik. */
+  byTaxType: Record<string, { total: number; hardFails: number; softFails: number; passed: number }>;
 }
+
 
 /** Kernszenarien, für die harte Erwartungen gelten. */
 const HARD_SCENARIOS: ScenarioType[] = [

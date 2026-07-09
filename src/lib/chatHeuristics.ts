@@ -863,17 +863,39 @@ function hasUstTriggers(q: string): boolean {
 }
 
 
+/**
+ * Deterministische Router-Pipeline:
+ *   Eingabe → Steuerart → Sachverhaltsart → Prüfschema → Prüfung → Ergebnis → KB.
+ * `annotateWithRouter` hängt an jede Antwort die erkannte Steuerart sowie
+ * einen Router-Trace-Schritt an. Die eigentliche Klassifizierung findet
+ * weiterhin in den bewährten Zweigen unten statt (USt: `classifyUstSachverhalt`,
+ * Erb/Schenk/NPO/Bilanz/AO/… in `generateAnswer`).
+ */
+function annotateWithRouter(a: ChatAnswer, router: RouterResult): ChatAnswer {
+  const routerStep: TraceStep = { step: "Steuerart (Router)", detail: router.trail };
+  return {
+    ...a,
+    taxType: a.taxType ?? router.taxType,
+    taxTypeLabel: a.taxTypeLabel ?? TAX_TYPE_LABELS[router.taxType],
+    trace: [routerStep, ...(a.trace ?? [])],
+  };
+}
+
 export function generateAnswer(rawQuestion: string): ChatAnswer {
   const q = rawQuestion.toLowerCase().trim();
 
-  // --- 0) Meta-Fragen über die App selbst (vor Lexikon + Fallback) ---
+  // --- 0) Meta-Fragen über die App selbst (vor Router) ---
   if (isSteuerstoffInfoQuery(q)) return steuerstoffInfoAnswer();
 
-  // --- 0b) USt-Trigger erkannt → direkt USt-Workflow, keine allgemeine Rückfrage ---
-  if (hasUstTriggers(q)) {
+  // --- 1) Steuerarten-Router (deterministisch, vor jeder fachlichen Antwort) ---
+  const router = routeTaxType(rawQuestion);
+
+  // --- 2) USt-Zweig: bestehende feinjustierte Klassifizierung wiederverwenden ---
+  if (router.taxType === "umsatzsteuer" || hasUstTriggers(q)) {
     const ust = classifyUstSachverhalt(q);
-    if (ust) return ust;
+    if (ust) return annotateWithRouter(ust, router);
   }
+
 
   // --- 1) Lexikon / Begriffsfrage (vor allen Spezialmodulen) ---
   const lex = lookupLexicon(rawQuestion);

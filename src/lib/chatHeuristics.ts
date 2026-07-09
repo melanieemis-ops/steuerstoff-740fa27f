@@ -160,14 +160,30 @@ function classifyUst(q: string): UstClassification | null {
   if (!hasUstTriggers(q)) return null;
 
 
-  const hasWare = /\b(ware|gegenst|liefer|lieferung|transport|versand|maschine|geraet|gerät|hardware|material|palette|container)\b/i.test(q);
+  // Städte → Länder mappen (typische EU/DE-Städte, damit „Amsterdam → München" erkannt wird)
+  const CITY_DE = /\b(m(ü|ue)nchen|berlin|hamburg|k(ö|oe)ln|frankfurt|stuttgart|d(ü|ue)sseldorf|leipzig|dresden|hannover|bremen|n(ü|ue)rnberg|essen|dortmund)\b/i;
+  const CITY_EU = /\b(amsterdam|rotterdam|den\s*haag|utrecht|wien|salzburg|graz|innsbruck|paris|lyon|marseille|nizza|nice|rom|roma|mailand|milano|neapel|napoli|madrid|barcelona|valencia|sevilla|warschau|warsaw|krakau|krakow|br(ü|ue)ssel|brussels|antwerpen|gent|luxemburg|luxembourg|dublin|prag|prague|bratislava|budapest|stockholm|kopenhagen|copenhagen|helsinki|lissabon|lisbon|athen|athens)\b/i;
+  const cityDE = CITY_DE.test(q);
+  const cityEU = CITY_EU.test(q);
+  // Bewegung „X → Y" / „X nach Y" / „von X nach Y"
+  const flow = q.match(/([A-Za-zÄÖÜäöüß\s-]+?)\s*(?:->|→|=>|nach)\s+([A-Za-zÄÖÜäöüß-]+)/i);
+  let flowEUtoDE = false;
+  let flowDEtoEU = false;
+  if (flow) {
+    const from = flow[1] ?? "";
+    const to = flow[2] ?? "";
+    if (CITY_EU.test(from) && CITY_DE.test(to)) flowEUtoDE = true;
+    if (CITY_DE.test(from) && CITY_EU.test(to)) flowDEtoEU = true;
+  }
+
+  const hasWare = /\b(ware|waren|gegenst|liefer|lieferung|liefert|geliefert|transport|transportiert|versand|versendet|versand|kauf|kauft|gekauft|erwirbt|erworben|verkauf|verkauft|maschine|maschinen|ger(ä|ae)t|hardware|material|palette|container|m(ö|oe)bel|fahrzeug|pkw|lkw|kfz|auto|anlage|produkt)\b/i.test(q);
   const hasDienst = /\b(dienstleistung|beratung|reparatur|softwarelizen|lizenz|schulung|werkleistung|montage(?!\s*mit)|honorar|design|marketing|übersetzung|uebersetzung)\b/i.test(q);
-  const nachDE = /\b(nach\s+deutschland|nach\s+de\b|ins\s+inland|inland)\b/i.test(q);
-  const ausDE = /\b(aus\s+deutschland|von\s+deutschland|ins\s+ausland|in\s+(einen\s+anderen\s+)?(eu-?)?mitgliedstaat|nach\s+(österreich|oesterreich|frankreich|italien|spanien|niederlande|polen|belgien|eu-?ausland))\b/i.test(q);
-  const euCtx = /\b(eu-?ausland|eu-?mitgliedstaat|(anderen?\s+)?mitgliedstaat|innergemein|frankreich|italien|spanien|niederlande|polen|belgien|österreich|oesterreich|irland|luxemburg|tschechien|slowakei|schweden|dänemark|daenemark|finnland|portugal|griechenland|ungarn)\b/i.test(q);
+  const nachDE = /\b(nach\s+deutschland|nach\s+de\b|ins\s+inland|inland)\b/i.test(q) || flowEUtoDE || (cityDE && !cityEU) || (cityDE && flowEUtoDE);
+  const ausDE = /\b(aus\s+deutschland|von\s+deutschland|ins\s+ausland|in\s+(einen\s+anderen\s+)?(eu-?)?mitgliedstaat|nach\s+(österreich|oesterreich|frankreich|italien|spanien|niederlande|polen|belgien|eu-?ausland))\b/i.test(q) || flowDEtoEU;
+  const euCtx = /\b(eu-?ausland|eu-?mitgliedstaat|(anderen?\s+)?mitgliedstaat|innergemein|frankreich|italien|spanien|niederlande|holland|polen|belgien|österreich|oesterreich|irland|luxemburg|tschechien|slowakei|schweden|dänemark|daenemark|finnland|portugal|griechenland|ungarn)\b/i.test(q) || cityEU || flowEUtoDE || flowDEtoEU;
 
   const drittland = /\b(drittland|schweiz|usa|uk|großbritannien|grossbritannien|china|japan|türkei|tuerkei)\b/i.test(q);
-  const b2b = /\b(unternehmer|b2b|ust-?id|ustid|umsatzsteuer-?identifikationsnummer)\b/i.test(q);
+  const b2b = /\b(unternehmer|unternehmen|firma|gmbh|ug|ohg|kg|ag|b2b|ust-?id|ustid|umsatzsteuer-?identifikationsnummer|vat[-\s]?id)\b/i.test(q) || /\bbeide\s+(sind\s+)?unternehmer\b/i.test(q);
   const grundstueck = /\b(grundst|immobilie|gebäude|gebaeude|wohnung|bauleistung|bauträger|bautraeger)\b/i.test(q);
   const werkMitMaterial = /\bwerklieferung|montage\s+mit\s+material|einbau\s+mit\s+material\b/i.test(q);
   const werkOhneMaterial = /\bwerkleistung|reparatur|montage(?!\s*mit\s*material)|installation\b/i.test(q);

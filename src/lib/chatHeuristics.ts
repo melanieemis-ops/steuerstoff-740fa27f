@@ -65,9 +65,8 @@ interface UstClassification {
 }
 
 function classifyUst(q: string): UstClassification | null {
-  const isUstContext =
-    /\b(ust|umsatzsteuer|mwst|mehrwertsteuer|vorsteuer|reverse\s*charge|13b|1a\s*ustg|innergemein|ig\.?\s*(erwerb|lieferung)|rechnung ohne (ust|mwst|steuer)|eu-?ausland|ausland|drittland)\b/i.test(q);
-  if (!isUstContext) return null;
+  if (!hasUstTriggers(q)) return null;
+
 
   const hasWare = /\b(ware|gegenst|liefer|lieferung|transport|versand|maschine|geraet|gerät|hardware|material|palette|container)\b/i.test(q);
   const hasDienst = /\b(dienstleistung|beratung|reparatur|softwarelizen|lizenz|schulung|werkleistung|montage(?!\s*mit)|honorar|design|marketing|übersetzung|uebersetzung)\b/i.test(q);

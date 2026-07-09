@@ -58,6 +58,10 @@ interface UstClassification {
   scheme: { title: string; body: string }[];
   followUps: string[];
   negative?: string;
+  /** true, wenn alle klassifizierungsrelevanten Angaben im Prompt enthalten sind → keine Rückfragen stellen */
+  complete?: boolean;
+  /** Kompaktes Endergebnis bei vollständigem Sachverhalt */
+  ergebnis?: string;
 }
 
 function classifyUst(q: string): UstClassification | null {

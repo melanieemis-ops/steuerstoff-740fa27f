@@ -9048,6 +9048,6 @@ Merksatz: § 173a AO korrigiert Schreib-/Rechenfehler — aber nur, wenn rechtse
 
 // Hilfsmittel für die Wissensbasis-Suche (analyze.ts)
 export function findKnowledgeEntry(text: string): KBEntry | null {
-  for (const e of KNOWLEDGE_BASE) if (e.keywords.test(text)) return e;
+  for (const e of KNOWLEDGE_BASE) if (kbKeywordsToRegExp(e.keywords).test(text)) return e;
   return null;
 }

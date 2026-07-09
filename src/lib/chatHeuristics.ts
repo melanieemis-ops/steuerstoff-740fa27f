@@ -188,15 +188,15 @@ function classifyUst(q: string): UstClassification | null {
     if (CITY_DE.test(from) && CITY_EU.test(to)) flowDEtoEU = true;
   }
 
-  const hasWare = /\b(ware|waren|gegenst|liefer|lieferung|liefert|geliefert|transport|transportiert|versand|versendet|versand|kauf|kauft|gekauft|erwirbt|erworben|verkauf|verkauft|maschine|maschinen|ger(ä|ae)t|hardware|material|palette|container|m(ö|oe)bel|fahrzeug|pkw|lkw|kfz|auto|anlage|produkt)\b/i.test(q);
+  const hasWare = /\b(ware|waren|gegenst|liefer|lieferung|liefert|geliefert|transport|transportiert|versand|versendet|versand|kauf|kauft|gekauft|erwirbt|erworben|erwerb|verkauf|verkauft|maschine|maschinen|ger(ä|ae)t|hardware|material|palette|container|m(ö|oe)bel|fahrzeug|pkw|lkw|kfz|auto|anlage|produkt|t(ü|ue)r(en)?)\b/i.test(q);
   const hasDienst = /\b(dienstleistung|beratung|reparatur|softwarelizen|lizenz|schulung|werkleistung|montage(?!\s*mit)|honorar|design|marketing|übersetzung|uebersetzung)\b/i.test(q);
   const nachDE = /\b(nach\s+deutschland|nach\s+de\b|ins\s+inland|inland)\b/i.test(q) || flowEUtoDE || (cityDE && !cityEU) || (cityDE && flowEUtoDE);
   const ausDE = /\b(aus\s+deutschland|von\s+deutschland|ins\s+ausland|in\s+(einen\s+anderen\s+)?(eu-?)?mitgliedstaat|nach\s+(österreich|oesterreich|frankreich|italien|spanien|niederlande|polen|belgien|eu-?ausland))\b/i.test(q) || flowDEtoEU;
-  const euCtx = /\b(eu-?ausland|eu-?mitgliedstaat|(anderen?\s+)?mitgliedstaat|innergemein|frankreich|italien|spanien|niederlande|holland|polen|belgien|österreich|oesterreich|irland|luxemburg|tschechien|slowakei|schweden|dänemark|daenemark|finnland|portugal|griechenland|ungarn)\b/i.test(q) || cityEU || flowEUtoDE || flowDEtoEU;
+  const euCtx = /\b(eu-?ausland|eu-?mitgliedstaat|(anderen?\s+)?mitgliedstaat|innergemein[a-zäöüß]*|frankreich|italien|spanien|niederlande|holland|polen|belgien|österreich|oesterreich|irland|luxemburg|tschechien|slowakei|schweden|dänemark|daenemark|finnland|portugal|griechenland|ungarn)\b/i.test(q) || cityEU || flowEUtoDE || flowDEtoEU;
 
   const drittland = /\b(drittland|schweiz|usa|uk|großbritannien|grossbritannien|china|japan|türkei|tuerkei)\b/i.test(q);
   const b2b = /\b(unternehmer|unternehmen|firma|gmbh|ug|ohg|kg|ag|b2b|ust-?id|ustid|umsatzsteuer-?identifikationsnummer|vat[-\s]?id)\b/i.test(q) || /\bbeide\s+(sind\s+)?unternehmer\b/i.test(q);
-  const grundstueck = /\b(grundst|immobilie|gebäude|gebaeude|wohnung|bauleistung|bauträger|bautraeger)\b/i.test(q);
+  const grundstueck = /\b(grundst|immobilie|gebäude|gebaeude|wohnung|bauleistung|bauträger|bautraeger|zwischenvermietung|vermietung|sportanlage|betriebsvorrichtung|tennishalle)\b/i.test(q);
   const werkMitMaterial = /\bwerklieferung|montage\s+mit\s+material|einbau\s+mit\s+material\b/i.test(q);
   const werkOhneMaterial = /\bwerkleistung|reparatur|montage(?!\s*mit\s*material)|installation\b/i.test(q);
   const reihe = /\breihengesch|kettengesch|drei(ecks|-ecks?)gesch/i.test(q);

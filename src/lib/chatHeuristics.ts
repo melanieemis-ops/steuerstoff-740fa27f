@@ -718,7 +718,8 @@ function classifyUstSachverhalt(q: string): ChatAnswer | null {
   if (!c) return null;
 
   const scenarioType = ustTypeToScenarioType(c.type);
-  const kbRaw = findKbMatches(q, [c.paragraph], ["Umsatzsteuer"], 3, scenarioType);
+  const kbRaw = findKbMatches(q, [c.paragraph], ["Umsatzsteuer"], 3, scenarioType, "umsatzsteuer");
+
   // Konsistenzprüfung: KB-Zitate, deren Rechtsgrundlagen keine Überschneidung
   // mit der klassifizierten Norm haben, werden verworfen (Qualitätssicherung).
   const kb = kbRaw.filter((e) => citationMatchesNorm(e, [c.paragraph])).slice(0, 2);

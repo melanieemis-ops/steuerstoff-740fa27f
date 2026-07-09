@@ -4,6 +4,23 @@
 // Hier sind ausschließlich die inhaltlichen Kernaussagen als bearbeiteter
 // Fließtext hinterlegt, damit die App Wissens- und Fallfragen beantworten kann.
 
+export type ScenarioType =
+  | "innergemeinschaftlicher_erwerb"
+  | "innergemeinschaftliche_lieferung"
+  | "reverse_charge"
+  | "reihengeschaeft"
+  | "dreiecksgeschaeft"
+  | "grundstuecksleistung"
+  | "werklieferung"
+  | "werkleistung"
+  | "ausfuhrlieferung"
+  | "einfuhr"
+  | "unentgeltliche_wertabgabe"
+  | "verbringen"
+  | "lieferung_inland"
+  | "sonstige_leistung"
+  | "sonstiges";
+
 export interface KBEntry {
   id: string;
   title: string;
@@ -16,7 +33,29 @@ export interface KBEntry {
   /** Trigger für Wissensfrage-Erkennung. Regex, Regex-Quelltext-String oder Liste von Strings/Regexen. */
   keywords?: RegExp | string | (RegExp | string)[];
   references?: string[];
+  /** Umsatzsteuerlicher Sachverhaltstyp — für gezielte KB-Suche nach Klassifizierung. */
+  scenarioType?: ScenarioType;
 }
+
+/** Heuristische Ableitung des scenarioType aus id/title, falls kein explizites Feld gesetzt ist. */
+export function resolveScenarioType(e: KBEntry): ScenarioType | null {
+  if (e.scenarioType) return e.scenarioType;
+  const h = `${e.id} ${e.title}`.toLowerCase();
+  if (/dreieck/.test(h)) return "dreiecksgeschaeft";
+  if (/reihen|kettengesch/.test(h)) return "reihengeschaeft";
+  if (/(ig[-_ ]?erwerb|innergemeinschaftlich(er)?[-_ ]?erwerb|\b1a\b)/.test(h)) return "innergemeinschaftlicher_erwerb";
+  if (/(ig[-_ ]?lieferung|innergemeinschaftlich(e)?[-_ ]?lieferung|\b6a\b)/.test(h)) return "innergemeinschaftliche_lieferung";
+  if (/verbringen/.test(h)) return "verbringen";
+  if (/ausfuhr/.test(h)) return "ausfuhrlieferung";
+  if (/einfuhr|eust/.test(h)) return "einfuhr";
+  if (/wertabgabe|privatnutzung|privatentnahme|kfz.*(1[-_ ]?prozent|wertabgabe)/.test(h)) return "unentgeltliche_wertabgabe";
+  if (/werklieferung/.test(h)) return "werklieferung";
+  if (/werkleistung/.test(h)) return "werkleistung";
+  if (/grundst|immobilie|geb(ä|ae)ude|tennishalle/.test(h)) return "grundstuecksleistung";
+  if (/reverse[-_ ]?charge|\b13b\b/.test(h)) return "reverse_charge";
+  return null;
+}
+
 
 /** Trigger-Wert in RegExp konvertieren (Pipe-Strings/Arrays zulassen). */
 export function kbKeywordsToRegExp(k: KBEntry["keywords"]): RegExp {

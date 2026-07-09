@@ -2,27 +2,42 @@
 // Replace generateAnswer() with a real API call later.
 
 import { lookupLexicon } from "./taxLexicon";
-import { KNOWLEDGE_BASE, kbKeywordsToRegExp, type KBEntry } from "./knowledgeBase";
+import {
+  KNOWLEDGE_BASE,
+  kbKeywordsToRegExp,
+  resolveScenarioType,
+  type KBEntry,
+  type ScenarioType,
+} from "./knowledgeBase";
 
 /**
  * Gezielte KB-Suche NACH der Klassifizierung.
- * Bewertet jeden KB-Eintrag mit Scoring: Paragraph-Treffer (stark) +
- * Keyword-Treffer im Prompt (schwach) + Kategorie-Treffer (mittel).
- * Gibt die Top-Treffer als zusätzliche Sections zurück, statt bloß den
- * ersten semantisch ähnlichen Eintrag wiederzugeben.
+ * Ablauf:
+ *   1. Wenn ein scenarioType übergeben wird, werden ausschließlich Einträge
+ *      mit demselben scenarioType (explizit oder heuristisch abgeleitet)
+ *      als Kandidaten zugelassen.
+ *   2. Erst danach wird gewertet: Paragraph-Treffer (stark) +
+ *      Kategorie-Treffer (mittel) + Keyword-Treffer im Prompt (schwach).
  */
 function findKbMatches(
   q: string,
   paragraphs: string[],
   categoryHints: string[] = [],
   limit = 2,
+  scenarioType?: ScenarioType | null,
 ): KBEntry[] {
   const text = q.toLowerCase();
   const paraTokens = paragraphs
     .map((p) => p.match(/§\s*\d+[a-z]?/i)?.[0]?.replace(/\s+/g, "").toLowerCase())
     .filter(Boolean) as string[];
 
-  const scored = KNOWLEDGE_BASE.map((e) => {
+  // 1) Kandidatenmenge auf gleichen scenarioType eingrenzen
+  const candidates = scenarioType
+    ? KNOWLEDGE_BASE.filter((e) => resolveScenarioType(e) === scenarioType)
+    : KNOWLEDGE_BASE;
+
+  // 2) Paragraph-/Kategorie-/Keyword-Scoring auf den Kandidaten
+  const scored = candidates.map((e) => {
     let score = 0;
     const hay = `${e.title}\n${e.body}\n${e.references?.join(" ") ?? ""}`.toLowerCase();
     for (const t of paraTokens) {
@@ -38,12 +53,13 @@ function findKbMatches(
     }
     return { e, score };
   })
-    .filter((x) => x.score >= 5)
+    .filter((x) => x.score >= (scenarioType ? 2 : 5))
     .sort((a, b) => b.score - a.score)
     .slice(0, limit);
 
   return scored.map((x) => x.e);
 }
+
 
 function kbSections(entries: KBEntry[]): { title: string; body: string }[] {
   return entries.map((e) => ({
@@ -117,6 +133,27 @@ interface UstClassification {
   /** Kurze, nachvollziehbare Erkennungsspur (Signale → Norm). */
   trail?: string;
 }
+
+/** Mapping vom internen UstType auf den ScenarioType der Knowledge Base. */
+function ustTypeToScenarioType(t: UstType): ScenarioType | null {
+  switch (t) {
+    case "innergemeinschaftlicher_erwerb": return "innergemeinschaftlicher_erwerb";
+    case "innergemeinschaftliche_lieferung": return "innergemeinschaftliche_lieferung";
+    case "reverse_charge": return "reverse_charge";
+    case "werklieferung": return "werklieferung";
+    case "werkleistung": return "werkleistung";
+    case "reihengeschaeft": return "reihengeschaeft";
+    case "grundstueck": return "grundstuecksleistung";
+    case "ausfuhr": return "ausfuhrlieferung";
+    case "einfuhr": return "einfuhr";
+    case "unentgeltliche_wertabgabe": return "unentgeltliche_wertabgabe";
+    case "verbringen": return "verbringen";
+    case "lieferung_inland": return "lieferung_inland";
+    case "sonstige_leistung": return "sonstige_leistung";
+    default: return null;
+  }
+}
+
 
 
 function classifyUst(q: string): UstClassification | null {
@@ -425,9 +462,12 @@ function classifyUstSachverhalt(q: string): ChatAnswer | null {
   const c = classifyUst(q);
   if (!c) return null;
 
-  // 2) NACH Klassifizierung gezielt passende KB-Einträge laden
-  //    (Paragraph + Kategorie „Umsatzsteuer" statt Volltext-Ähnlichkeit).
-  const kb = findKbMatches(q, [c.paragraph], ["Umsatzsteuer"], 2);
+  // 2) NACH Klassifizierung: scenarioType bestimmen und gezielt KB-Einträge
+  //    mit demselben scenarioType laden (Paragraph/Kategorie/Keyword-Scoring
+  //    läuft nur auf dieser Kandidatenmenge).
+  const scenarioType = ustTypeToScenarioType(c.type);
+  const kb = findKbMatches(q, [c.paragraph], ["Umsatzsteuer"], 2, scenarioType);
+
 
   const sections = [
     ...(c.trail ? [{ title: "Klassifizierung", body: c.trail }] : []),

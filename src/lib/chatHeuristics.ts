@@ -215,22 +215,28 @@ function classifyUst(q: string): UstClassification | null {
       type: "werklieferung",
       label: "Werklieferung",
       paragraph: "§ 3 Abs. 4 UStG",
-      reasoning: "Wird der Hauptstoff vom leistenden Unternehmer beschafft, liegt eine Lieferung vor — ortsbestimmung nach Lieferungsregeln.",
+      trail: buildTrail("§ 3 Abs. 4 UStG (Werklieferung)"),
+      reasoning: "Wird der Hauptstoff vom leistenden Unternehmer beschafft, liegt eine Lieferung vor — Ortsbestimmung nach Lieferungsregeln.",
       scheme,
-      followUps: ["Wer beschafft Haupt- und Nebenstoffe?", "Ort der Verschaffung der Verfügungsmacht?"],
+      complete: true,
+      followUps: [],
     };
   }
   if (werkOhneMaterial) {
     const scheme = baseScheme();
     scheme[0].body = "Werkleistung: Bearbeitung/Verarbeitung fremder Gegenstände → sonstige Leistung (§ 3 Abs. 9 UStG).";
+    const complete = b2b && (euCtx || drittland || nachDE || ausDE);
     return {
       type: "werkleistung",
       label: "Werkleistung",
       paragraph: "§ 3 Abs. 9 UStG",
-      reasoning: "Wird kein Hauptstoff geliefert, liegt eine sonstige Leistung vor. § 13b UStG nur, wenn Empfänger Unternehmer und leistender im Ausland ansässig ist.",
+      trail: buildTrail("§ 3 Abs. 9 UStG (Werkleistung / sonstige Leistung)"),
+      reasoning: "Wird kein Hauptstoff geliefert, liegt eine sonstige Leistung vor. § 13b UStG nur, wenn Empfänger Unternehmer und Leistender im Ausland ansässig ist.",
       scheme,
-      followUps: ["Wo ist der Leistende ansässig?", "Empfänger Unternehmer (B2B)?"],
+      complete,
+      followUps: complete ? [] : ["Wo ist der Leistende ansässig?", "Empfänger Unternehmer (B2B)?"],
     };
+
   }
 
   // 5) Grundstück

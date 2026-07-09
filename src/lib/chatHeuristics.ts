@@ -168,6 +168,7 @@ function classifyUst(q: string): UstClassification | null {
       type: "innergemeinschaftliche_lieferung",
       label: "Innergemeinschaftliche Lieferung",
       paragraph: "§ 6a UStG, § 4 Nr. 1b UStG",
+      trail: buildTrail("§ 6a UStG (ig. Lieferung)"),
       reasoning: "Ware verlässt Deutschland in Richtung EU-Ausland an einen Unternehmer — steuerfreie ig. Lieferung, kein § 13b UStG.",
       scheme,
       followUps: complete
@@ -182,6 +183,7 @@ function classifyUst(q: string): UstClassification | null {
         ? "Steuerbare Lieferung (§ 1 Abs. 1 Nr. 1 UStG), steuerfrei als ig. Lieferung (§ 4 Nr. 1b i. V. m. § 6a UStG). Rechnung ohne USt mit Hinweis auf Steuerbefreiung (§ 14 Abs. 4 Nr. 8 UStG). Beleg- und Buchnachweis (§§ 17a ff. UStDV) sowie ZM-Meldung (§ 18a UStG) erforderlich."
         : undefined,
     };
+
   }
 
   // 3) Reihengeschäft

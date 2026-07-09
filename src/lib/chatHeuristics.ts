@@ -518,7 +518,7 @@ function classifyUst(q: string): UstClassification | null {
       scheme[3].body = "Steuerfrei nach § 4 Nr. 1b i. V. m. § 6a UStG bei gültiger USt-IdNr. des Abnehmers und Beleg-/Buchnachweis.";
       scheme[4].body = "Bemessungsgrundlage: vereinbartes Entgelt (§ 10 UStG), aber steuerfrei.";
       scheme[5].body = "Steuerschuldner: der deutsche Lieferer (§ 13a Abs. 1 Nr. 1 UStG) — Lieferung steuerfrei.";
-      scheme[6].body = "Rechnung ohne deutsche USt mit Hinweis „Steuerfreie innergemeinschaftliche Lieferung" (§ 14 Abs. 4 Nr. 8 UStG).";
+      scheme[6].body = 'Rechnung ohne deutsche USt mit Hinweis „Steuerfreie innergemeinschaftliche Lieferung" (§ 14 Abs. 4 Nr. 8 UStG).';
       scheme[7].body = "ZM (§ 18a UStG), UStVA Zeile ig. Lieferungen, Gelangensbestätigung (§§ 17a ff. UStDV).";
       const complete = b2b || bothUstId;
       return {

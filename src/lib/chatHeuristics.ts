@@ -74,8 +74,9 @@ function classifyUst(q: string): UstClassification | null {
   const hasWare = /\b(ware|gegenst|liefer|lieferung|transport|versand|maschine|geraet|gerät|hardware|material|palette|container)\b/i.test(q);
   const hasDienst = /\b(dienstleistung|beratung|reparatur|softwarelizen|lizenz|schulung|werkleistung|montage(?!\s*mit)|honorar|design|marketing|übersetzung|uebersetzung)\b/i.test(q);
   const nachDE = /\b(nach\s+deutschland|nach\s+de\b|ins\s+inland|inland)\b/i.test(q);
-  const ausDE = /\b(aus\s+deutschland|von\s+deutschland|ins\s+ausland|nach\s+(österreich|oesterreich|frankreich|italien|spanien|niederlande|polen|belgien|eu-?ausland))\b/i.test(q);
-  const euCtx = /\b(eu-?ausland|innergemein|frankreich|italien|spanien|niederlande|polen|belgien|österreich|oesterreich|irland|luxemburg|tschechien|slowakei|schweden|dänemark|daenemark|finnland|portugal|griechenland|ungarn)\b/i.test(q);
+  const ausDE = /\b(aus\s+deutschland|von\s+deutschland|ins\s+ausland|in\s+(einen\s+anderen\s+)?(eu-?)?mitgliedstaat|nach\s+(österreich|oesterreich|frankreich|italien|spanien|niederlande|polen|belgien|eu-?ausland))\b/i.test(q);
+  const euCtx = /\b(eu-?ausland|eu-?mitgliedstaat|(anderen?\s+)?mitgliedstaat|innergemein|frankreich|italien|spanien|niederlande|polen|belgien|österreich|oesterreich|irland|luxemburg|tschechien|slowakei|schweden|dänemark|daenemark|finnland|portugal|griechenland|ungarn)\b/i.test(q);
+
   const drittland = /\b(drittland|schweiz|usa|uk|großbritannien|grossbritannien|china|japan|türkei|tuerkei)\b/i.test(q);
   const b2b = /\b(unternehmer|b2b|ust-?id|ustid|umsatzsteuer-?identifikationsnummer)\b/i.test(q);
   const grundstueck = /\b(grundst|immobilie|gebäude|gebaeude|wohnung|bauleistung|bauträger|bautraeger)\b/i.test(q);
@@ -162,8 +163,16 @@ function classifyUst(q: string): UstClassification | null {
   if (hasWare && ausDE && euCtx) {
     const scheme = baseScheme();
     scheme[0].body = "Warenlieferung aus Deutschland in einen anderen EU-Mitgliedstaat an einen Unternehmer → innergemeinschaftliche Lieferung (§ 6a UStG).";
-    scheme[3].body = "Steuerbefreit nach § 4 Nr. 1b i. V. m. § 6a UStG bei gültiger USt-IdNr. des Abnehmers, Nachweisen (Gelangensbestätigung), Meldung ZM.";
-    const complete = b2b && bothUstId;
+    scheme[1].body = "Steuerbar nach § 1 Abs. 1 Nr. 1 UStG (Lieferung im Inland gegen Entgelt durch einen Unternehmer im Rahmen seines Unternehmens).";
+    scheme[2].body = "Lieferort: Deutschland — Beginn der Beförderung/Versendung (§ 3 Abs. 6 UStG).";
+    scheme[3].body = "Steuerfrei nach § 4 Nr. 1b i. V. m. § 6a UStG bei gültiger USt-IdNr. des Abnehmers und Beleg-/Buchnachweis (§§ 17a ff. UStDV).";
+    scheme[4].body = "Bemessungsgrundlage: vereinbartes Entgelt (§ 10 UStG), aber steuerfrei → keine deutsche USt.";
+    scheme[5].body = "Steuerschuldner: der deutsche Lieferer (§ 13a Abs. 1 Nr. 1 UStG) — Lieferung ist jedoch steuerfrei, keine deutsche USt.";
+    scheme[6].body = 'Rechnung ohne deutsche USt mit Hinweis „Steuerfreie innergemeinschaftliche Lieferung" (§ 14 Abs. 4 Nr. 8 UStG), USt-IdNr. beider Beteiligter.';
+    scheme[7].body = "Meldepflichten: Zusammenfassende Meldung (§ 18a UStG), USt-Voranmeldung Zeile ig. Lieferungen; Buch-/Belegnachweis (§§ 17a ff. UStDV, Gelangensbestätigung).";
+    // Vollständig, sobald Ware + Ausgang aus D + EU-Kontext + Unternehmerstatus vorliegen.
+    // USt-IdNr./B2B stärkt das Ergebnis, blockiert es aber nicht (Beleg-/Buchnachweis bleibt Hinweis).
+    const complete = b2b || bothUstId;
     return {
       type: "innergemeinschaftliche_lieferung",
       label: "Innergemeinschaftliche Lieferung",
@@ -174,17 +183,17 @@ function classifyUst(q: string): UstClassification | null {
       followUps: complete
         ? []
         : [
-            "Liegt die gültige USt-IdNr. des Abnehmers vor (qualifizierte Bestätigungsanfrage)?",
-            "Ist die Gelangensbestätigung / der Belegnachweis vollständig?",
-            "Zusammenfassende Meldung (ZM) fristgerecht eingereicht?",
+            "Ist der Abnehmer Unternehmer mit gültiger USt-IdNr. des Bestimmungsmitgliedstaats?",
+            "Ist der Warenweg (Deutschland → EU-Mitgliedstaat) belegt (Gelangensbestätigung)?",
           ],
       complete,
       ergebnis: complete
-        ? "Steuerbare Lieferung (§ 1 Abs. 1 Nr. 1 UStG), steuerfrei als ig. Lieferung (§ 4 Nr. 1b i. V. m. § 6a UStG). Rechnung ohne USt mit Hinweis auf Steuerbefreiung (§ 14 Abs. 4 Nr. 8 UStG). Beleg- und Buchnachweis (§§ 17a ff. UStDV) sowie ZM-Meldung (§ 18a UStG) erforderlich."
+        ? "Innergemeinschaftliche Lieferung: Lieferort Deutschland (§ 3 Abs. 6 UStG), steuerbar (§ 1 Abs. 1 Nr. 1 UStG), steuerfrei nach § 4 Nr. 1b i. V. m. § 6a UStG. Keine deutsche USt. Steuerschuldner ist der deutsche Lieferer (§ 13a Abs. 1 Nr. 1 UStG), Lieferung jedoch steuerfrei. Rechnung ohne deutsche USt mit Hinweis auf Steuerfreiheit / innergemeinschaftliche Lieferung (§ 14 Abs. 4 Nr. 8 UStG). Buch- und Belegnachweise nach §§ 17a ff. UStDV (Gelangensbestätigung). Meldung in Zusammenfassender Meldung (§ 18a UStG)."
         : undefined,
     };
 
   }
+
 
   // 3) Reihengeschäft
   if (reihe) {

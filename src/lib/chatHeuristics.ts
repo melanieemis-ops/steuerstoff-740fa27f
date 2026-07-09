@@ -882,6 +882,13 @@ function annotateWithRouter(a: ChatAnswer, router: RouterResult): ChatAnswer {
 }
 
 export function generateAnswer(rawQuestion: string): ChatAnswer {
+  const router = routeTaxType(rawQuestion);
+  const answer = _generateAnswerImpl(rawQuestion, router);
+  return annotateWithRouter(answer, router);
+}
+
+function _generateAnswerImpl(rawQuestion: string, router: RouterResult): ChatAnswer {
+
   const q = rawQuestion.toLowerCase().trim();
 
   // --- 0) Meta-Fragen über die App selbst (vor Router) ---

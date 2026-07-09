@@ -90,7 +90,25 @@ function classifyUst(q: string): UstClassification | null {
   const bothUstId = /\b(beide|jeweils|jeder)[^.]*ust-?id/i.test(q)
     || (/(ust-?id|ustid|umsatzsteuer-?identifikationsnummer)/i.test(q) && b2b);
 
-  const baseScheme = (extra: { title: string; body: string }[] = []) => [
+  // Kurze, menschlich lesbare Signal-Spur für die Antwort ("Erkennung: …").
+  const signals: string[] = [];
+  if (hasWare && !hasDienst) signals.push("Ware/Lieferung");
+  else if (hasDienst && !hasWare) signals.push("sonstige Leistung");
+  else if (hasWare && hasDienst) signals.push("Ware + Leistung");
+  if (nachDE) signals.push("→ Deutschland");
+  if (ausDE) signals.push("aus Deutschland →");
+  if (euCtx) signals.push("EU-Ausland");
+  if (drittland) signals.push("Drittland");
+  if (b2b) signals.push("B2B");
+  if (bothUstId) signals.push("beide USt-IdNr.");
+  if (grundstueck) signals.push("Grundstück");
+  if (reihe) signals.push("Reihe/Dreieck");
+  if (werkMitMaterial) signals.push("Werk mit Material");
+  else if (werkOhneMaterial) signals.push("Werk ohne Material");
+  const buildTrail = (norm: string) =>
+    `Erkennung: ${signals.length ? signals.join(" · ") : "USt-Sachverhalt"} → ${norm}`;
+
+
     { title: "1. Sachverhaltsart", body: "" }, // filled per type
     { title: "2. Steuerbarkeit", body: "§ 1 Abs. 1 UStG prüfen (Leistung im Inland, gegen Entgelt, im Rahmen des Unternehmens)." },
     { title: "3. Ort", body: "§§ 3, 3a–3g UStG — Ortsbestimmung je nach Leistungsart." },

@@ -424,11 +424,17 @@ function classifyUst(q: string): UstClassification | null {
 function classifyUstSachverhalt(q: string): ChatAnswer | null {
   const c = classifyUst(q);
   if (!c) return null;
+
+  // 2) NACH Klassifizierung gezielt passende KB-Einträge laden
+  //    (Paragraph + Kategorie „Umsatzsteuer" statt Volltext-Ähnlichkeit).
+  const kb = findKbMatches(q, [c.paragraph], ["Umsatzsteuer"], 2);
+
   const sections = [
     ...(c.trail ? [{ title: "Klassifizierung", body: c.trail }] : []),
     { title: "Sachverhaltsart", body: `${c.label} (${c.paragraph})` },
     ...c.scheme,
     { title: "9. Ergebnis", body: c.ergebnis ?? c.reasoning },
+    ...kbSections(kb),
   ];
 
   if (c.negative) sections.push({ title: "Nicht anwenden", body: c.negative });

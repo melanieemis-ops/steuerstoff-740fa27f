@@ -188,11 +188,18 @@ function classifyUst(q: string): UstClassification | null {
     if (CITY_DE.test(from) && CITY_EU.test(to)) flowDEtoEU = true;
   }
 
-  const hasWare = /\b(ware|waren|gegenst|liefer|lieferung|liefert|geliefert|transport|transportiert|versand|versendet|versand|kauf|kauft|gekauft|erwirbt|erworben|erwerb|verkauf|verkauft|maschine|maschinen|ger(ä|ae)t|hardware|material|palette|container|m(ö|oe)bel|fahrzeug|pkw|lkw|kfz|auto|anlage|produkt|t(ü|ue)r(en)?)\b/i.test(q);
+  let hasWare = /\b(ware|waren|gegenst|liefer|lieferung|liefert|geliefert|transport|transportiert|versand|versendet|versand|kauf|kauft|gekauft|erwirbt|erworben|erwerb|verkauf|verkauft|maschine|maschinen|ger(ä|ae)t|hardware|material|palette|container|m(ö|oe)bel|fahrzeug|pkw|lkw|kfz|auto|anlage|produkt|t(ü|ue)r(en)?)\b/i.test(q);
   const hasDienst = /\b(dienstleistung|beratung|reparatur|softwarelizen|lizenz|schulung|werkleistung|montage(?!\s*mit)|honorar|design|marketing|übersetzung|uebersetzung)\b/i.test(q);
-  const nachDE = /\b(nach\s+deutschland|nach\s+de\b|ins\s+inland|inland)\b/i.test(q) || flowEUtoDE || (cityDE && !cityEU) || (cityDE && flowEUtoDE);
-  const ausDE = /\b(aus\s+deutschland|von\s+deutschland|ins\s+ausland|in\s+(einen\s+anderen\s+)?(eu-?)?mitgliedstaat|nach\s+(österreich|oesterreich|frankreich|italien|spanien|niederlande|polen|belgien|eu-?ausland))\b/i.test(q) || flowDEtoEU;
-  const euCtx = /\b(eu-?ausland|eu-?mitgliedstaat|(anderen?\s+)?mitgliedstaat|innergemein[a-zäöüß]*|frankreich|italien|spanien|niederlande|holland|polen|belgien|österreich|oesterreich|irland|luxemburg|tschechien|slowakei|schweden|dänemark|daenemark|finnland|portugal|griechenland|ungarn)\b/i.test(q) || cityEU || flowEUtoDE || flowDEtoEU;
+  let nachDE = /\b(nach\s+deutschland|nach\s+de\b|ins\s+inland|inland)\b/i.test(q) || flowEUtoDE || (cityDE && !cityEU) || (cityDE && flowEUtoDE);
+  let ausDE = /\b(aus\s+deutschland|von\s+deutschland|ins\s+ausland|in\s+(einen\s+anderen\s+)?(eu-?)?mitgliedstaat|nach\s+(österreich|oesterreich|frankreich|italien|spanien|niederlande|polen|belgien|eu-?ausland))\b/i.test(q) || flowDEtoEU;
+  let euCtx = /\b(eu-?ausland|eu-?mitgliedstaat|(anderen?\s+)?mitgliedstaat|innergemein[a-zäöüß]*|frankreich|italien|spanien|niederlande|holland|polen|belgien|österreich|oesterreich|irland|luxemburg|tschechien|slowakei|schweden|dänemark|daenemark|finnland|portugal|griechenland|ungarn)\b/i.test(q) || cityEU || flowEUtoDE || flowDEtoEU;
+
+  // Explizite Phrasen „innergemeinschaftlicher Erwerb/Lieferung" als starke Signale:
+  // erzwingt hasWare/euCtx/Richtung, damit die Klassifizierung in die richtige Branch fällt.
+  const explicitIgErwerb = /\binnergemeinschaftlich[a-zäöüß]*\s+erwerb\b/i.test(q) || /\big\.?\s*erwerb\b/i.test(q);
+  const explicitIgLieferung = /\binnergemeinschaftlich[a-zäöüß]*\s+lieferung\b/i.test(q) || /\big\.?\s*lieferung\b/i.test(q);
+  if (explicitIgErwerb) { hasWare = true; euCtx = true; nachDE = true; }
+  if (explicitIgLieferung) { hasWare = true; euCtx = true; ausDE = true; }
 
   const drittland = /\b(drittland|schweiz|usa|uk|großbritannien|grossbritannien|china|japan|türkei|tuerkei)\b/i.test(q);
   const b2b = /\b(unternehmer|unternehmen|firma|gmbh|ug|ohg|kg|ag|b2b|ust-?id|ustid|umsatzsteuer-?identifikationsnummer|vat[-\s]?id)\b/i.test(q) || /\bbeide\s+(sind\s+)?unternehmer\b/i.test(q);

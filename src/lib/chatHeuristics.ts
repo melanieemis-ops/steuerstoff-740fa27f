@@ -894,14 +894,12 @@ function _generateAnswerImpl(rawQuestion: string, router: RouterResult): ChatAns
   // --- 0) Meta-Fragen über die App selbst (vor Router) ---
   if (isSteuerstoffInfoQuery(q)) return steuerstoffInfoAnswer();
 
-  // --- 1) Steuerarten-Router (deterministisch, vor jeder fachlichen Antwort) ---
-  const router = routeTaxType(rawQuestion);
-
-  // --- 2) USt-Zweig: bestehende feinjustierte Klassifizierung wiederverwenden ---
+  // --- USt-Zweig: bestehende feinjustierte Klassifizierung wiederverwenden ---
   if (router.taxType === "umsatzsteuer" || hasUstTriggers(q)) {
     const ust = classifyUstSachverhalt(q);
-    if (ust) return annotateWithRouter(ust, router);
+    if (ust) return ust;
   }
+
 
 
   // --- 1) Lexikon / Begriffsfrage (vor allen Spezialmodulen) ---

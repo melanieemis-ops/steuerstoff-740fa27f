@@ -259,7 +259,14 @@ function classifyUst(q: string): UstClassification | null {
   ];
 
   // 1) Innergemeinschaftlicher Erwerb — Ware aus EU-Ausland nach DE, B2B
-  if (hasWare && euCtx && !hasDienst && !drittland && !reihe && !uwa) {
+  //    WICHTIG: § 1a UStG greift NUR auf der Erwerberseite (Ware gelangt nach Deutschland).
+  //    Wenn der Prompt eindeutig eine Warenbewegung AUS Deutschland IN einen anderen EU-Mitgliedstaat
+  //    beschreibt (ausDE / flowDEtoEU / explizite ig. Lieferung), NICHT § 1a wählen — dann greift § 6a
+  //    (siehe Branch 2 direkt darunter).
+  const igErwerbGate = hasWare && euCtx && !hasDienst && !drittland && !reihe && !uwa
+    && !ausDE && !flowDEtoEU && !explicitIgLieferung
+    && (nachDE || flowEUtoDE || transportNachDE || explicitIgErwerb);
+  if (igErwerbGate) {
     const scheme = baseScheme();
     scheme[0].body = "Warenbewegung aus einem anderen EU-Mitgliedstaat nach Deutschland an einen Unternehmer für sein Unternehmen → innergemeinschaftlicher Erwerb (§ 1a UStG).";
     scheme[4].body = "Steuerschuldner ist der Erwerber (§ 13a Abs. 1 Nr. 2 UStG). Kein § 13b UStG — dieser gilt nur für sonstige Leistungen und einzelne Sonderfälle.";

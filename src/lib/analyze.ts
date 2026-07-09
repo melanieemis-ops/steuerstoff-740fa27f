@@ -1,4 +1,4 @@
-import { KNOWLEDGE_BASE } from "./knowledgeBase";
+import { KNOWLEDGE_BASE, kbKeywordsToRegExp } from "./knowledgeBase";
 
 export type Risk = "gruen" | "gelb" | "rot";
 
@@ -347,7 +347,8 @@ function pickKnowledgeRule(input: AnalysisInput): KnowledgeRule | null {
   for (const r of KNOWLEDGE_RULES) if (r.keywords.test(text)) return r;
   // Fallback: erweiterte interne Wissensbasis (aus Kanzlei-Arbeitspapieren).
   for (const e of KNOWLEDGE_BASE) {
-    if (e.keywords.test(text)) {
+    const rx = kbKeywordsToRegExp(e.keywords);
+    if (rx.test(text)) {
       const kindMap: Record<string, KnowledgeRule["kind"]> = {
         "Umsatzsteuer": "ust",
         "NPO / Gemeinnützigkeit": "npo",
@@ -359,9 +360,9 @@ function pickKnowledgeRule(input: AnalysisInput): KnowledgeRule | null {
         "Rückfragen": "buchung",
       };
       return {
-        keywords: e.keywords,
+        keywords: rx,
         kind: kindMap[e.category] ?? "npo",
-        answer: e.short,
+        answer: e.short ?? e.title,
         explanation: e.body,
         references: e.references,
       };

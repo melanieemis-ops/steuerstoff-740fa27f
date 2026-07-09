@@ -7,22 +7,26 @@
 export interface KBEntry {
   id: string;
   title: string;
-  short: string;
-  category:
-    | "NPO / Gemeinnützigkeit"
-    | "Umsatzsteuer"
-    | "Jahresabschluss"
-    | "Buchhaltung"
-    | "DATEV"
-    | "SKR03"
-    | "SKR42"
-    | "Rückfragen";
+  short?: string;
+  /** Kategorie — bewusst offen gehalten, damit neue Rechtsgebiete ohne Migration ergänzt werden können. */
+  category: string;
   body: string;
   /** Interner Quellenhinweis (nicht öffentlich verlinkt). */
-  source: string;
-  /** Trigger für Wissensfrage-Erkennung in analyze.ts. */
-  keywords: RegExp;
+  source?: string;
+  /** Trigger für Wissensfrage-Erkennung. Regex, Regex-Quelltext-String oder Liste von Strings/Regexen. */
+  keywords?: RegExp | string | (RegExp | string)[];
   references?: string[];
+}
+
+/** Trigger-Wert in RegExp konvertieren (Pipe-Strings/Arrays zulassen). */
+export function kbKeywordsToRegExp(k: KBEntry["keywords"]): RegExp {
+  if (!k) return /$^/;
+  if (k instanceof RegExp) return k;
+  if (Array.isArray(k)) {
+    const parts = k.map((p) => (p instanceof RegExp ? p.source : String(p)));
+    return new RegExp(parts.join("|"), "i");
+  }
+  return new RegExp(k, "i");
 }
 
 export const KNOWLEDGE_BASE: KBEntry[] = [
@@ -9044,6 +9048,6 @@ Merksatz: § 173a AO korrigiert Schreib-/Rechenfehler — aber nur, wenn rechtse
 
 // Hilfsmittel für die Wissensbasis-Suche (analyze.ts)
 export function findKnowledgeEntry(text: string): KBEntry | null {
-  for (const e of KNOWLEDGE_BASE) if (e.keywords.test(text)) return e;
+  for (const e of KNOWLEDGE_BASE) if (kbKeywordsToRegExp(e.keywords).test(text)) return e;
   return null;
 }

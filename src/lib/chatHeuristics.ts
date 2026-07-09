@@ -282,34 +282,31 @@ function classifyUst(q: string): UstClassification | null {
     };
   }
 
-  // 10) Rechnung ohne USt ohne weitere Hinweise → NICHT direkt § 13b, sondern klassifizieren
-  if (rechnungOhneUst || (euCtx && !hasWare && !hasDienst)) {
-    return {
-      type: "unbestimmt",
-      label: "Sachverhalt noch nicht bestimmbar",
-      paragraph: "§ 1 UStG (Systematik)",
-      reasoning:
-        "Rechnung ohne USt aus dem EU-Ausland kann viele Ursachen haben: ig. Erwerb (Ware), Reverse Charge (Dienstleistung), ig. Dreiecksgeschäft, steuerfreie Lieferung, Kleinunternehmer, Fehler des Rechnungsstellers. Erst die Sachverhaltsart entscheidet.",
-      scheme: [
-        { title: "1. Was wurde geleistet?", body: "Ware (Lieferung) oder Dienstleistung (sonstige Leistung)?" },
-        { title: "2. Warenweg", body: "Woher / wohin bewegt sich der Gegenstand? EU-Ausland → Deutschland?" },
-        { title: "3. Beteiligte", body: "B2B mit gültigen USt-IdNr.? Ansässigkeit des Leistenden?" },
-        { title: "4. Rechnungsangaben", body: "USt-IdNr., Hinweis auf § 13b oder ig. Lieferung, Ort/Datum?" },
-        { title: "5. Erst dann Norm", body: "§ 1a (ig. Erwerb) vs. § 13b (RC) vs. § 6a (ig. Lieferung) vs. § 25b (Dreieck) usw." },
-      ],
-      followUps: [
-        "Handelt es sich um Ware oder Dienstleistung?",
-        "Aus welchem Land wurde geliefert / geleistet?",
-        "Gelangt der Gegenstand physisch nach Deutschland?",
-        "Liegen gültige USt-IdNr. beider Seiten vor?",
-      ],
-      negative:
-        "Bitte nicht vorschnell auf § 13b UStG schließen — insbesondere bei Warenbewegungen ist regelmäßig § 1a UStG (ig. Erwerb) einschlägig.",
-    };
-  }
-
-  return null;
+  // 10) Kein spezifischer Typ erkannt, aber USt-Trigger vorhanden
+  //     → USt-Workflow trotzdem starten (keine allgemeine „Welche Steuerart?"-Rückfrage).
+  return {
+    type: "unbestimmt",
+    label: "Umsatzsteuerlicher Sachverhalt — Klassifizierung erforderlich",
+    paragraph: "§ 1 UStG (Systematik)",
+    reasoning:
+      "Umsatzsteuerliche Begriffe im Prompt erkannt. Die konkrete Sachverhaltsart (Lieferung, sonstige Leistung, ig. Erwerb § 1a, ig. Lieferung § 6a, Reverse Charge § 13b, Ausfuhr § 6, Einfuhr, Reihen-/Dreiecksgeschäft) ist noch nicht eindeutig — bitte die entscheidungserheblichen Angaben ergänzen.",
+    scheme: [
+      { title: "1. Was wurde geleistet?", body: "Ware (Lieferung, § 3 Abs. 1 UStG) oder Dienstleistung (sonstige Leistung, § 3 Abs. 9 UStG)?" },
+      { title: "2. Warenweg / Leistungsort", body: "Woher / wohin? Inland, EU-Ausland oder Drittland? Ort nach §§ 3, 3a–3g UStG." },
+      { title: "3. Beteiligte", body: "B2B mit gültigen USt-IdNr.? Ansässigkeit des Leistenden / Empfängers?" },
+      { title: "4. Rechnungsangaben", body: "USt ausgewiesen? Hinweis auf § 13b oder ig. Lieferung? § 14 UStG." },
+      { title: "5. Erst dann Norm", body: "§ 1a (ig. Erwerb) vs. § 13b (RC) vs. § 6a (ig. Lieferung) vs. § 25b (Dreieck) vs. § 6 (Ausfuhr) usw." },
+    ],
+    followUps: [
+      "Handelt es sich um Ware oder Dienstleistung?",
+      "Aus welchem Land wird geliefert / geleistet, wohin?",
+      "Sind beide Beteiligte Unternehmer (USt-IdNr.)?",
+    ],
+    negative:
+      "Bitte nicht vorschnell auf § 13b UStG schließen — bei Warenbewegungen ist regelmäßig § 1a UStG (ig. Erwerb) einschlägig.",
+  };
 }
+
 
 function classifyUstSachverhalt(q: string): ChatAnswer | null {
   const c = classifyUst(q);
@@ -400,6 +397,8 @@ const UST_TRIGGERS: RegExp[] = [
   /\breverse\s*charge\b/i,
   /§\s*13b|13b\s*ustg/i,
   /§\s*1a|1a\s*ustg/i,
+  /§\s*3a|3a\s*ustg/i,
+  /§\s*6a|6a\s*ustg/i,
   /\binnergemeinschaftlich(e[nrs]?)?\s+(erwerb|lieferung|verbringen)\b/i,
   /\big\.?\s*(erwerb|lieferung)\b/i,
   /\b(ware|waren|lieferung|liefer(n|t|ung)|dienstleistung|werklieferung|werkleistung)\b/i,
@@ -408,6 +407,9 @@ const UST_TRIGGERS: RegExp[] = [
   /\bdeutschland|inland\b/i,
   /\b(transport|versand|bef(ö|oe)rder|versendet|gelangt|geliefert)\b/i,
   /\bleistungsort|ort\s+der\s+leistung\b/i,
+  /\bsteuerschuldner(schaft)?\b/i,
+  /\bbemessungsgrundlage\b/i,
+  /\bausfuhrlieferung\b/i,
   /\berwerb\b/i,
   /\b(ausfuhr|einfuhr|eust|einfuhrumsatzsteuer)\b/i,
 ];
@@ -418,11 +420,15 @@ function ustTriggerCount(q: string): number {
   return n;
 }
 
+// Fachbegriffe, die für sich allein den USt-Workflow zwingend auslösen.
+const UST_STRONG = /\b(umsatzsteuer|ust\b|mwst|mehrwertsteuer|vorsteuer|reverse\s*charge|innergemein|ig\.?\s*(erwerb|lieferung)|ust-?id|werklieferung|werkleistung|ausfuhrlieferung|ausfuhr|einfuhr|eust|leistungsort|steuerschuldner(schaft)?|bemessungsgrundlage)\b|§\s*(13b|1a|3a|6a)|(?:^|[^a-z])(13b|1a|3a|6a)\s*ustg/i;
+
 function hasUstTriggers(q: string): boolean {
   // Ein starker Kernbegriff reicht, sonst mindestens zwei allgemeine Trigger.
-  const strong = /\b(umsatzsteuer|ust|mwst|mehrwertsteuer|vorsteuer|reverse\s*charge|innergemein|ig\.?\s*(erwerb|lieferung)|ust-?id|13b|1a\s*ustg|werklieferung|werkleistung|ausfuhr|einfuhr|eust)\b/i.test(q);
-  return strong || ustTriggerCount(q) >= 2;
+  if (UST_STRONG.test(q)) return true;
+  return ustTriggerCount(q) >= 2;
 }
+
 
 export function generateAnswer(rawQuestion: string): ChatAnswer {
   const q = rawQuestion.toLowerCase().trim();

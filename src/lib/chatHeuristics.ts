@@ -62,7 +62,10 @@ interface UstClassification {
   complete?: boolean;
   /** Kompaktes Endergebnis bei vollständigem Sachverhalt */
   ergebnis?: string;
+  /** Kurze, nachvollziehbare Erkennungsspur (Signale → Norm). */
+  trail?: string;
 }
+
 
 function classifyUst(q: string): UstClassification | null {
   if (!hasUstTriggers(q)) return null;

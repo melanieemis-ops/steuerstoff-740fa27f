@@ -111,6 +111,53 @@ soweit die Forderung uneinbringlich geworden ist.
 `
 },
 {
+  id: "ust-grundstuecksveraeusserung-option",
+  title: "Veräußerung eines unbebauten Grundstücks mit Option zur Steuerpflicht",
+  short: "Umsatzsteuerliche Behandlung einer Grundstückslieferung mit Verzicht auf die Steuerbefreiung.",
+  category: "Umsatzsteuer",
+  keywords: [
+    "Grundstück",
+    "§4 Nr9a",
+    "§9 UStG",
+    "Option",
+    "Steuerbefreiung"
+  ],
+
+  references: [
+    "§3 Abs.1 UStG",
+    "§4 Nr.9 Buchst. a UStG",
+    "§9 Abs.1 UStG",
+    "§9 Abs.3 UStG"
+  ],
+
+  body: `
+# Grundsatz
+
+Die Lieferung eines unbebauten Grundstücks ist grundsätzlich nach §4 Nr.9 Buchst. a UStG steuerfrei.
+
+---
+
+# Option zur Steuerpflicht
+
+Verkauft der Unternehmer an einen anderen Unternehmer für dessen Unternehmen, kann auf die Steuerbefreiung verzichtet werden (§9 UStG).
+
+Voraussetzungen:
+
+- Lieferung an Unternehmer
+- Verwendung für dessen Unternehmen
+- Verzicht im notariellen Kaufvertrag erklärt
+
+---
+
+# Folge
+
+Die Grundstückslieferung wird steuerpflichtig.
+
+Regelsteuersatz: 19 %
+
+`
+},
+{
 id:"ust-nebenleistung-betriebsvorrichtung",
 title:"Nebenleistung oder eigenständige Betriebsvorrichtung?",
 category:"Umsatzsteuer",

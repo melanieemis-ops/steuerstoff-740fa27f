@@ -74,8 +74,9 @@ function classifyUst(q: string): UstClassification | null {
   const hasWare = /\b(ware|gegenst|liefer|lieferung|transport|versand|maschine|geraet|gerät|hardware|material|palette|container)\b/i.test(q);
   const hasDienst = /\b(dienstleistung|beratung|reparatur|softwarelizen|lizenz|schulung|werkleistung|montage(?!\s*mit)|honorar|design|marketing|übersetzung|uebersetzung)\b/i.test(q);
   const nachDE = /\b(nach\s+deutschland|nach\s+de\b|ins\s+inland|inland)\b/i.test(q);
-  const ausDE = /\b(aus\s+deutschland|von\s+deutschland|ins\s+ausland|nach\s+(österreich|oesterreich|frankreich|italien|spanien|niederlande|polen|belgien|eu-?ausland))\b/i.test(q);
-  const euCtx = /\b(eu-?ausland|innergemein|frankreich|italien|spanien|niederlande|polen|belgien|österreich|oesterreich|irland|luxemburg|tschechien|slowakei|schweden|dänemark|daenemark|finnland|portugal|griechenland|ungarn)\b/i.test(q);
+  const ausDE = /\b(aus\s+deutschland|von\s+deutschland|ins\s+ausland|in\s+(einen\s+anderen\s+)?(eu-?)?mitgliedstaat|nach\s+(österreich|oesterreich|frankreich|italien|spanien|niederlande|polen|belgien|eu-?ausland))\b/i.test(q);
+  const euCtx = /\b(eu-?ausland|eu-?mitgliedstaat|(anderen?\s+)?mitgliedstaat|innergemein|frankreich|italien|spanien|niederlande|polen|belgien|österreich|oesterreich|irland|luxemburg|tschechien|slowakei|schweden|dänemark|daenemark|finnland|portugal|griechenland|ungarn)\b/i.test(q);
+
   const drittland = /\b(drittland|schweiz|usa|uk|großbritannien|grossbritannien|china|japan|türkei|tuerkei)\b/i.test(q);
   const b2b = /\b(unternehmer|b2b|ust-?id|ustid|umsatzsteuer-?identifikationsnummer)\b/i.test(q);
   const grundstueck = /\b(grundst|immobilie|gebäude|gebaeude|wohnung|bauleistung|bauträger|bautraeger)\b/i.test(q);

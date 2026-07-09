@@ -114,7 +114,12 @@ export interface ChatAnswer {
   scenarioType?: string;
   /** Erkannte Kernparagraphen (aus Klassifizierung). */
   paragraphs?: string[];
+  /** Erkannte Steuerart (Router-Ergebnis). */
+  taxType?: TaxType;
+  /** Menschenlesbares Label der Steuerart. */
+  taxTypeLabel?: string;
 }
+
 
 
 const has = (q: string, ...terms: string[]) =>

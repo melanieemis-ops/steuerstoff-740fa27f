@@ -318,16 +318,25 @@ function classifyUstSachverhalt(q: string): ChatAnswer | null {
   const sections = [
     { title: "Sachverhaltsart", body: `${c.label} (${c.paragraph})` },
     ...c.scheme,
-    { title: "9. Ergebnis", body: c.reasoning },
+    { title: "9. Ergebnis", body: c.ergebnis ?? c.reasoning },
   ];
   if (c.negative) sections.push({ title: "Nicht anwenden", body: c.negative });
   return {
     kind: "case",
-    summary: `USt-Prüfung: ${c.label} (${c.paragraph}).`,
+    summary: c.complete
+      ? `USt-Prüfung abgeschlossen: ${c.label} (${c.paragraph}).`
+      : `USt-Prüfung: ${c.label} (${c.paragraph}).`,
     reasoning: c.reasoning,
     sections,
-    followUps: c.followUps,
-    nextStep: "Erst nach vollständiger Klassifizierung Buchung/Meldung ableiten (UStVA, ZM, ggf. § 18 Abs. 4c UStG).",
+    followUps: c.complete ? undefined : c.followUps,
+    nextStep: c.complete
+      ? "Buchung/Meldung ableiten: UStVA (ig. Erwerbe 19 %, Vorsteuer), ZM des Lieferers, Belegnachweise archivieren."
+      : "Erst nach vollständiger Klassifizierung Buchung/Meldung ableiten (UStVA, ZM, ggf. § 18 Abs. 4c UStG).",
+    knowledge: "Umsatzsteuer / Prüfschema",
+    links: [
+      { label: "Wissensdatenbank öffnen", to: "/wissensdatenbank" },
+      { label: "Strukturierte Anfrage anlegen", to: "/neue-anfrage" },
+    ],
     knowledge: "Umsatzsteuer / Prüfschema",
     links: [
       { label: "Wissensdatenbank öffnen", to: "/wissensdatenbank" },

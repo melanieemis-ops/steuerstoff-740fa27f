@@ -338,6 +338,8 @@ function classifyUst(q: string): UstClassification | null {
     type: "unbestimmt",
     label: "Umsatzsteuerlicher Sachverhalt — Klassifizierung erforderlich",
     paragraph: "§ 1 UStG (Systematik)",
+    trail: buildTrail("Sachverhaltsart offen"),
+
     reasoning:
       "Umsatzsteuerliche Begriffe im Prompt erkannt. Die konkrete Sachverhaltsart (Lieferung, sonstige Leistung, ig. Erwerb § 1a, ig. Lieferung § 6a, Reverse Charge § 13b, Ausfuhr § 6, Einfuhr, Reihen-/Dreiecksgeschäft) ist noch nicht eindeutig — bitte die entscheidungserheblichen Angaben ergänzen.",
     scheme: [

@@ -168,7 +168,7 @@ function classifyUst(q: string): UstClassification | null {
     scheme[3].body = "Steuerfrei nach § 4 Nr. 1b i. V. m. § 6a UStG bei gültiger USt-IdNr. des Abnehmers und Beleg-/Buchnachweis (§§ 17a ff. UStDV).";
     scheme[4].body = "Bemessungsgrundlage: vereinbartes Entgelt (§ 10 UStG), aber steuerfrei → keine deutsche USt.";
     scheme[5].body = "Steuerschuldner: der deutsche Lieferer (§ 13a Abs. 1 Nr. 1 UStG) — Lieferung ist jedoch steuerfrei, keine deutsche USt.";
-    scheme[6].body = "Rechnung ohne deutsche USt mit Hinweis „Steuerfreie innergemeinschaftliche Lieferung" (§ 14 Abs. 4 Nr. 8 UStG), USt-IdNr. beider Beteiligter.";
+    scheme[6].body = 'Rechnung ohne deutsche USt mit Hinweis „Steuerfreie innergemeinschaftliche Lieferung" (§ 14 Abs. 4 Nr. 8 UStG), USt-IdNr. beider Beteiligter.';
     scheme[7].body = "Meldepflichten: Zusammenfassende Meldung (§ 18a UStG), USt-Voranmeldung Zeile ig. Lieferungen; Buch-/Belegnachweis (§§ 17a ff. UStDV, Gelangensbestätigung).";
     // Vollständig, sobald Ware + Ausgang aus D + EU-Kontext + Unternehmerstatus vorliegen.
     // USt-IdNr./B2B stärkt das Ergebnis, blockiert es aber nicht (Beleg-/Buchnachweis bleibt Hinweis).

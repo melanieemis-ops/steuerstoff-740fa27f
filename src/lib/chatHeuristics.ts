@@ -286,6 +286,7 @@ function classifyUst(q: string): UstClassification | null {
     scheme[0].body = "Innergemeinschaftliches Verbringen eigener Ware ins EU-Ausland → einer ig. Lieferung gleichgestellt (§ 3 Abs. 1a UStG).";
     return {
       type: "verbringen", label: "Innergemeinschaftliches Verbringen", paragraph: "§ 3 Abs. 1a UStG",
+      trail: buildTrail("§ 3 Abs. 1a UStG (ig. Verbringen)"),
       reasoning: "Eigene Ware wird ohne Umsatz ins EU-Ausland verbracht — als ig. Lieferung/ig. Erwerb zu behandeln.", scheme,
       followUps: ["Zweck der Verbringung (dauerhaft / vorübergehend)?"],
     };
@@ -297,9 +298,11 @@ function classifyUst(q: string): UstClassification | null {
     scheme[0].body = "Unentgeltliche Wertabgabe (§ 3 Abs. 1b / Abs. 9a UStG) — Gleichstellung mit entgeltlicher Lieferung/Leistung.";
     return {
       type: "unentgeltliche_wertabgabe", label: "Unentgeltliche Wertabgabe", paragraph: "§ 3 Abs. 1b, Abs. 9a UStG",
+      trail: buildTrail("§ 3 Abs. 1b/9a UStG (unentgeltliche Wertabgabe)"),
       reasoning: "Privatnutzung / Entnahme aus dem Unternehmen — Bemessungsgrundlage § 10 Abs. 4 UStG.", scheme,
       followUps: ["Vorsteuerabzug bei Anschaffung möglich gewesen?", "Nutzungsanteil dokumentiert?"],
     };
+
   }
 
   // 9) Reverse Charge — nur wenn wirklich sonstige Leistung / § 13b-Fall

@@ -6,9 +6,13 @@ import {
   KNOWLEDGE_BASE,
   kbKeywordsToRegExp,
   resolveScenarioType,
+  resolveTaxType,
   type KBEntry,
   type ScenarioType,
 } from "./knowledgeBase";
+import { routeTaxType, type RouterResult } from "./router/pipeline";
+import { TAX_TYPE_LABELS, type TaxType } from "./router/taxTypes";
+
 
 /**
  * Gezielte KB-Suche NACH der Klassifizierung.

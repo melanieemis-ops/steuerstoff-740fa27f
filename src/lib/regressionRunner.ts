@@ -6,8 +6,10 @@
 //
 // Aufruf in DEV: window.__runKbRegression() in der Chat-Route.
 
-import { KNOWLEDGE_BASE, resolveScenarioType, type KBEntry, type ScenarioType } from "./knowledgeBase";
+import { KNOWLEDGE_BASE, resolveScenarioType, resolveTaxType, type KBEntry, type ScenarioType } from "./knowledgeBase";
 import { classifyForRegression, generateAnswer } from "./chatHeuristics";
+import { detectTaxType, TAX_TYPE_LABELS, type TaxType } from "./router/taxTypes";
+
 
 export interface RegressionCaseResult {
   id: string;
@@ -17,6 +19,8 @@ export interface RegressionCaseResult {
   expectedScenario: ScenarioType | null;
   actualScenario: string | null;
   actualParagraph: string | null;
+  expectedTaxType: TaxType | null;
+  actualTaxType: TaxType;
   complete: boolean;
   hardFail: boolean;
   softFail: boolean;
@@ -29,7 +33,10 @@ export interface RegressionReport {
   softFails: number;
   passed: number;
   results: RegressionCaseResult[];
+  /** Pro Steuerart aggregierte Statistik. */
+  byTaxType: Record<string, { total: number; hardFails: number; softFails: number; passed: number }>;
 }
+
 
 /** Kernszenarien, für die harte Erwartungen gelten. */
 const HARD_SCENARIOS: ScenarioType[] = [
@@ -83,6 +90,14 @@ export function runKbRegression(opts: { verbose?: boolean } = {}): RegressionRep
     const isHardScenario = expected && HARD_SCENARIOS.includes(expected);
     const hasExplicitExpect = !!entry.expect;
 
+    // Erwartete + tatsächliche Steuerart (Router)
+    const expectedTaxType = resolveTaxType(entry);
+    const actualTaxType = detectTaxType(prompt.toLowerCase()).type;
+    if (expectedTaxType && actualTaxType !== "unklar" && actualTaxType !== expectedTaxType) {
+      reasons.push(`taxType erwartet=${expectedTaxType}, tatsächlich=${actualTaxType}`);
+      softFail = true;
+    }
+
     // Szenariotyp — hart nur bei explizit gesetzten Erwartungen. Bei ohne
     // `expect` (synthetisierte Prompts) bleibt Abweichung "soft", damit
     // schwammige Titel/Keywords keine Regressionen provozieren.
@@ -134,6 +149,8 @@ export function runKbRegression(opts: { verbose?: boolean } = {}): RegressionRep
       expectedScenario: expected ?? null,
       actualScenario: cls.scenarioType,
       actualParagraph: cls.paragraph,
+      expectedTaxType: expectedTaxType ?? null,
+      actualTaxType,
       complete: cls.complete,
       hardFail,
       softFail,
@@ -144,11 +161,24 @@ export function runKbRegression(opts: { verbose?: boolean } = {}): RegressionRep
   const hardFails = results.filter((r) => r.hardFail).length;
   const softFails = results.filter((r) => r.softFail && !r.hardFail).length;
   const passed = results.length - hardFails - softFails;
-  const report: RegressionReport = { total: results.length, hardFails, softFails, passed, results };
+
+  const byTaxType: RegressionReport["byTaxType"] = {};
+  for (const r of results) {
+    const key = r.expectedTaxType ?? r.actualTaxType ?? "unklar";
+    const bucket = (byTaxType[key] ??= { total: 0, hardFails: 0, softFails: 0, passed: 0 });
+    bucket.total++;
+    if (r.hardFail) bucket.hardFails++;
+    else if (r.softFail) bucket.softFails++;
+    else bucket.passed++;
+  }
+
+  const report: RegressionReport = { total: results.length, hardFails, softFails, passed, results, byTaxType };
 
   if (opts.verbose) {
     // eslint-disable-next-line no-console
     console.group(`[steuerstoff] KB-Regression: ${passed}/${results.length} ok, ${hardFails} hardFails, ${softFails} softFails`);
+    // eslint-disable-next-line no-console
+    console.table(Object.entries(byTaxType).map(([k, v]) => ({ steuerart: TAX_TYPE_LABELS[k as TaxType] ?? k, ...v })));
     for (const r of results) {
       if (r.hardFail || r.softFail) {
         // eslint-disable-next-line no-console
@@ -160,3 +190,4 @@ export function runKbRegression(opts: { verbose?: boolean } = {}): RegressionRep
   }
   return report;
 }
+

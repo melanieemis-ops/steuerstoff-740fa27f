@@ -6,9 +6,13 @@ import {
   KNOWLEDGE_BASE,
   kbKeywordsToRegExp,
   resolveScenarioType,
+  resolveTaxType,
   type KBEntry,
   type ScenarioType,
 } from "./knowledgeBase";
+import { routeTaxType, type RouterResult } from "./router/pipeline";
+import { TAX_TYPE_LABELS, type TaxType } from "./router/taxTypes";
+
 
 /**
  * Gezielte KB-Suche NACH der Klassifizierung.
@@ -25,16 +29,27 @@ function findKbMatches(
   categoryHints: string[] = [],
   limit = 2,
   scenarioType?: ScenarioType | null,
+  taxType?: TaxType | null,
 ): KBEntry[] {
   const text = q.toLowerCase();
   const paraTokens = paragraphs
     .map((p) => p.match(/§\s*\d+[a-z]?/i)?.[0]?.replace(/\s+/g, "").toLowerCase())
     .filter(Boolean) as string[];
 
-  // 1) Kandidatenmenge auf gleichen scenarioType eingrenzen
-  const candidates = scenarioType
-    ? KNOWLEDGE_BASE.filter((e) => resolveScenarioType(e) === scenarioType)
-    : KNOWLEDGE_BASE;
+  // 1) Hierarchische Kandidaten-Filterung: erst taxType, dann scenarioType.
+  let candidates = KNOWLEDGE_BASE;
+  if (taxType && taxType !== "unklar") {
+    const byTax = candidates.filter((e) => {
+      const t = resolveTaxType(e);
+      return t == null || t === taxType; // unbekannte Einträge nicht ausschließen
+    });
+    // Nur anwenden, wenn wir dadurch nicht alles verlieren.
+    if (byTax.length > 0) candidates = byTax;
+  }
+  if (scenarioType) {
+    const byScenario = candidates.filter((e) => resolveScenarioType(e) === scenarioType);
+    if (byScenario.length > 0) candidates = byScenario;
+  }
 
   // 2) Paragraph-/Kategorie-/Keyword-Scoring auf den Kandidaten
   const scored = candidates.map((e) => {
@@ -59,6 +74,7 @@ function findKbMatches(
 
   return scored.map((x) => x.e);
 }
+
 
 
 function kbSections(entries: KBEntry[]): { title: string; body: string }[] {
@@ -98,7 +114,12 @@ export interface ChatAnswer {
   scenarioType?: string;
   /** Erkannte Kernparagraphen (aus Klassifizierung). */
   paragraphs?: string[];
+  /** Erkannte Steuerart (Router-Ergebnis). */
+  taxType?: TaxType;
+  /** Menschenlesbares Label der Steuerart. */
+  taxTypeLabel?: string;
 }
+
 
 
 const has = (q: string, ...terms: string[]) =>
@@ -697,7 +718,8 @@ function classifyUstSachverhalt(q: string): ChatAnswer | null {
   if (!c) return null;
 
   const scenarioType = ustTypeToScenarioType(c.type);
-  const kbRaw = findKbMatches(q, [c.paragraph], ["Umsatzsteuer"], 3, scenarioType);
+  const kbRaw = findKbMatches(q, [c.paragraph], ["Umsatzsteuer"], 3, scenarioType, "umsatzsteuer");
+
   // Konsistenzprüfung: KB-Zitate, deren Rechtsgrundlagen keine Überschneidung
   // mit der klassifizierten Norm haben, werden verworfen (Qualitätssicherung).
   const kb = kbRaw.filter((e) => citationMatchesNorm(e, [c.paragraph])).slice(0, 2);
@@ -737,9 +759,12 @@ function classifyUstSachverhalt(q: string): ChatAnswer | null {
     ],
     scenarioType: scenarioType ?? undefined,
     paragraphs: [c.paragraph],
+    taxType: "umsatzsteuer",
+    taxTypeLabel: TAX_TYPE_LABELS.umsatzsteuer,
     trace: buildTrace(q, c),
   };
 }
+
 
 
 
@@ -838,17 +863,44 @@ function hasUstTriggers(q: string): boolean {
 }
 
 
+/**
+ * Deterministische Router-Pipeline:
+ *   Eingabe → Steuerart → Sachverhaltsart → Prüfschema → Prüfung → Ergebnis → KB.
+ * `annotateWithRouter` hängt an jede Antwort die erkannte Steuerart sowie
+ * einen Router-Trace-Schritt an. Die eigentliche Klassifizierung findet
+ * weiterhin in den bewährten Zweigen unten statt (USt: `classifyUstSachverhalt`,
+ * Erb/Schenk/NPO/Bilanz/AO/… in `generateAnswer`).
+ */
+function annotateWithRouter(a: ChatAnswer, router: RouterResult): ChatAnswer {
+  const routerStep: TraceStep = { step: "Steuerart (Router)", detail: router.trail };
+  return {
+    ...a,
+    taxType: a.taxType ?? router.taxType,
+    taxTypeLabel: a.taxTypeLabel ?? TAX_TYPE_LABELS[router.taxType],
+    trace: [routerStep, ...(a.trace ?? [])],
+  };
+}
+
 export function generateAnswer(rawQuestion: string): ChatAnswer {
+  const router = routeTaxType(rawQuestion);
+  const answer = _generateAnswerImpl(rawQuestion, router);
+  return annotateWithRouter(answer, router);
+}
+
+function _generateAnswerImpl(rawQuestion: string, router: RouterResult): ChatAnswer {
+
   const q = rawQuestion.toLowerCase().trim();
 
-  // --- 0) Meta-Fragen über die App selbst (vor Lexikon + Fallback) ---
+  // --- 0) Meta-Fragen über die App selbst (vor Router) ---
   if (isSteuerstoffInfoQuery(q)) return steuerstoffInfoAnswer();
 
-  // --- 0b) USt-Trigger erkannt → direkt USt-Workflow, keine allgemeine Rückfrage ---
-  if (hasUstTriggers(q)) {
+  // --- USt-Zweig: bestehende feinjustierte Klassifizierung wiederverwenden ---
+  if (router.taxType === "umsatzsteuer" || hasUstTriggers(q)) {
     const ust = classifyUstSachverhalt(q);
     if (ust) return ust;
   }
+
+
 
   // --- 1) Lexikon / Begriffsfrage (vor allen Spezialmodulen) ---
   const lex = lookupLexicon(rawQuestion);

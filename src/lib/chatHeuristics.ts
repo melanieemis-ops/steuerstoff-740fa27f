@@ -759,9 +759,12 @@ function classifyUstSachverhalt(q: string): ChatAnswer | null {
     ],
     scenarioType: scenarioType ?? undefined,
     paragraphs: [c.paragraph],
+    taxType: "umsatzsteuer",
+    taxTypeLabel: TAX_TYPE_LABELS.umsatzsteuer,
     trace: buildTrace(q, c),
   };
 }
+
 
 
 

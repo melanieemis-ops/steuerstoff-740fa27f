@@ -440,57 +440,9 @@ export function generateAnswer(rawQuestion: string): ChatAnswer {
     };
   }
 
-  // --- Reverse Charge ---
-  if (has(q, "reverse charge", "§ 13b", "13b ustg")) {
-    return {
-      summary:
-        "Reverse Charge verlagert die Steuerschuld auf den Leistungsempfänger (§ 13b UStG). Der Leistende stellt netto ohne USt mit Hinweis aus.",
-      reasoning:
-        "Typische Fälle: Bauleistungen B2B, sonstige Leistungen aus dem EU-Ausland an deutsche Unternehmer, bestimmte Lieferungen (z. B. Schrott).",
-      followUps: ["Wer ist Leistender, wer Leistungsempfänger?", "Liegt eine gültige USt-IdNr. vor?"],
-      nextStep: "Rechnungshinweis 'Steuerschuldnerschaft des Leistungsempfängers' prüfen.",
-      knowledge: "Umsatzsteuer / 13b",
-    };
-  }
-
-  // --- Bewirtung ---
-  if (has(q, "bewirtung")) {
-    return {
-      summary:
-        "Ohne vollständige Teilnehmerangaben und Anlass ist der Betriebsausgabenabzug der Bewirtung gefährdet.",
-      reasoning:
-        "§ 4 Abs. 5 Nr. 2 EStG verlangt Ort, Tag, Teilnehmer, Anlass und Höhe. Vorsteuerabzug kann auch ohne 70-%-Kürzung möglich sein, wenn formelle Voraussetzungen erfüllt sind.",
-      risks: ["Komplette Nichtabzugsfähigkeit bei Formmängeln."],
-      followUps: ["Können Teilnehmer und Anlass nachgereicht werden?"],
-      nextStep: "Eigenbeleg mit Teilnehmern, Anlass, Datum ergänzen.",
-      knowledge: "Betriebsausgaben",
-    };
-  }
-
-  // --- Rechnung Ausland ohne USt ---
-  if (has(q, "irland", "ausland", "eu-ausland", "rechnung ohne ust", "ohne umsatzsteuer")) {
-    return {
-      summary:
-        "Eingangsrechnung aus dem EU-Ausland ohne USt deutet auf Reverse Charge (§ 13b UStG) hin.",
-      reasoning:
-        "Voraussetzung: gültige USt-IdNr., B2B-Leistung, korrekter Rechnungshinweis. Steuerschuld geht auf den Leistungsempfänger über.",
-      followUps: ["USt-IdNr. des Leistenden und des Empfängers vorhanden?", "Hinweis 'Reverse Charge' auf der Rechnung?"],
-      nextStep: "USt-Voranmeldung: Steuer berechnen und gleichzeitig Vorsteuer ziehen.",
-      knowledge: "Umsatzsteuer / 13b",
-    };
-  }
-
-  // --- USt allgemein ---
-  if (has(q, "umsatzsteuer", "ust ", " ust", "mwst", "vorsteuer", "13b")) {
-    return {
-      summary:
-        "Für die umsatzsteuerliche Beurteilung sind Leistungsart, Ort, Empfänger und Steuersatz maßgeblich.",
-      followUps: ["Welche Leistung? Wer ist Empfänger?", "Lieferung oder sonstige Leistung?"],
-      nextStep: "Sachverhalt strukturiert in einer Anfrage erfassen.",
-      links: [{ label: "Neue Anfrage öffnen", to: "/neue-anfrage" }],
-      knowledge: "Umsatzsteuer",
-    };
-  }
+  // --- Umsatzsteuer: Pflicht-Klassifizierung VOR § 13b ---
+  const ustAnswer = classifyUstSachverhalt(q);
+  if (ustAnswer) return ustAnswer;
 
   // --- Sommerfest / gemischter Sachverhalt ---
   if (has(q, "sommerfest", "fest mit eintritt", "getränkeverkauf", "getraenkeverkauf")) {

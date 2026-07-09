@@ -431,7 +431,7 @@ function classifyUst(q: string): UstClassification | null {
 
 
   // 5) Grundstück
-  if (grundstueck) {
+  if (grundstueck && !explicitRCEarly) {
     const scheme = baseScheme();
     scheme[0].body = "Grundstücksbezogene Leistung / Grundstücksumsatz — Ort nach § 3a Abs. 3 Nr. 1 UStG (Belegenheitsort); Umsatz ggf. steuerfrei nach § 4 Nr. 9a UStG mit Optionsmöglichkeit § 9 UStG.";
     return {

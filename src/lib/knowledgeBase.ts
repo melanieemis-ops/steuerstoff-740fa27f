@@ -49,11 +49,23 @@ export interface KBEntry {
   references?: string[];
   /** Umsatzsteuerlicher Sachverhaltstyp — für gezielte KB-Suche nach Klassifizierung. */
   scenarioType?: ScenarioType;
+  /** Übergeordnete Steuerart — für hierarchische KB-Filterung (Router → Steuerart → Sachverhalt). */
+  taxType?: TaxType;
+  /** Feinerer Unterfall (frei, z. B. "entfernungspauschale"). */
+  subCase?: string;
   /** Optionaler Testprompt für die automatische KB-Regression. Wenn leer, wird ein Prompt aus title+keywords synthetisiert. */
   testPrompt?: string;
   /** Optionale Erwartungen für die Regressionsprüfung. */
   expect?: KBExpectation;
 }
+
+/** TaxType eines KB-Eintrags — explizit oder heuristisch aus category/title/id. */
+export function resolveTaxType(e: KBEntry): TaxType | null {
+  if (e.taxType) return e.taxType;
+  const hay = `${e.category} ${e.title} ${e.id}`;
+  return resolveTaxTypeFromText(hay);
+}
+
 
 
 /** Heuristische Ableitung des scenarioType aus id/title, falls kein explizites Feld gesetzt ist. */

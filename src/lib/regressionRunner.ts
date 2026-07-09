@@ -6,8 +6,10 @@
 //
 // Aufruf in DEV: window.__runKbRegression() in der Chat-Route.
 
-import { KNOWLEDGE_BASE, resolveScenarioType, type KBEntry, type ScenarioType } from "./knowledgeBase";
+import { KNOWLEDGE_BASE, resolveScenarioType, resolveTaxType, type KBEntry, type ScenarioType } from "./knowledgeBase";
 import { classifyForRegression, generateAnswer } from "./chatHeuristics";
+import { detectTaxType, TAX_TYPE_LABELS, type TaxType } from "./router/taxTypes";
+
 
 export interface RegressionCaseResult {
   id: string;

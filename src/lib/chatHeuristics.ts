@@ -29,16 +29,27 @@ function findKbMatches(
   categoryHints: string[] = [],
   limit = 2,
   scenarioType?: ScenarioType | null,
+  taxType?: TaxType | null,
 ): KBEntry[] {
   const text = q.toLowerCase();
   const paraTokens = paragraphs
     .map((p) => p.match(/§\s*\d+[a-z]?/i)?.[0]?.replace(/\s+/g, "").toLowerCase())
     .filter(Boolean) as string[];
 
-  // 1) Kandidatenmenge auf gleichen scenarioType eingrenzen
-  const candidates = scenarioType
-    ? KNOWLEDGE_BASE.filter((e) => resolveScenarioType(e) === scenarioType)
-    : KNOWLEDGE_BASE;
+  // 1) Hierarchische Kandidaten-Filterung: erst taxType, dann scenarioType.
+  let candidates = KNOWLEDGE_BASE;
+  if (taxType && taxType !== "unklar") {
+    const byTax = candidates.filter((e) => {
+      const t = resolveTaxType(e);
+      return t == null || t === taxType; // unbekannte Einträge nicht ausschließen
+    });
+    // Nur anwenden, wenn wir dadurch nicht alles verlieren.
+    if (byTax.length > 0) candidates = byTax;
+  }
+  if (scenarioType) {
+    const byScenario = candidates.filter((e) => resolveScenarioType(e) === scenarioType);
+    if (byScenario.length > 0) candidates = byScenario;
+  }
 
   // 2) Paragraph-/Kategorie-/Keyword-Scoring auf den Kandidaten
   const scored = candidates.map((e) => {
@@ -63,6 +74,7 @@ function findKbMatches(
 
   return scored.map((x) => x.e);
 }
+
 
 
 function kbSections(entries: KBEntry[]): { title: string; body: string }[] {

@@ -638,18 +638,58 @@ function kbCitationSection(
   return { title: `${role}: ${e.title}`, body };
 }
 
+/** Prüft, ob ein KB-Zitat inhaltlich zur Klassifizierung passt (mindestens ein Paragraph gemeinsam). */
+function citationMatchesNorm(entry: KBEntry, paragraphs: string[]): boolean {
+  const tokens = paragraphs
+    .flatMap((p) => p.match(/§\s*\d+[a-z]?/gi) ?? [])
+    .map((s) => s.replace(/\s+/g, "").toLowerCase());
+  if (!tokens.length) return true;
+  const hay = (entry.references?.join(" ") ?? "").toLowerCase().replace(/\s+/g, "");
+  return tokens.some((t) => hay.includes(t));
+}
+
+function buildTrace(q: string, c: UstClassification): TraceStep[] {
+  const trace: TraceStep[] = [];
+  trace.push({ step: "Eingang", detail: q.slice(0, 240) });
+  if (c.trail) trace.push({ step: "Erkennung", detail: c.trail });
+  trace.push({ step: "Sachverhaltsart", detail: `${c.label} (${c.paragraph})` });
+  if (c.negative) trace.push({ step: "Verworfene Zweige", detail: c.negative });
+  trace.push({ step: "Vollständig", detail: c.complete ? "ja — keine Rückfragen" : "nein — Rückfragen aktiv" });
+  return trace;
+}
+
+/** Öffentliche Klassifizierung — für Regressionstests. */
+export function classifyForRegression(q: string): {
+  scenarioType: string | null;
+  paragraph: string | null;
+  complete: boolean;
+  followUps: string[];
+  label: string | null;
+} {
+  const c = classifyUst(q);
+  if (!c) return { scenarioType: null, paragraph: null, complete: false, followUps: [], label: null };
+  return {
+    scenarioType: ustTypeToScenarioType(c.type),
+    paragraph: c.paragraph,
+    complete: !!c.complete,
+    followUps: c.followUps ?? [],
+    label: c.label,
+  };
+}
+
 function classifyUstSachverhalt(q: string): ChatAnswer | null {
   const c = classifyUst(q);
   if (!c) return null;
 
-  // 2) NACH Klassifizierung: scenarioType bestimmen und gezielt KB-Einträge
-  //    mit demselben scenarioType laden. Diese Treffer dienen ausschließlich
-  //    als Begründung / Vertiefung — sie ersetzen niemals die eigene Falllösung.
   const scenarioType = ustTypeToScenarioType(c.type);
-  const kb = findKbMatches(q, [c.paragraph], ["Umsatzsteuer"], 2, scenarioType);
+  const kbRaw = findKbMatches(q, [c.paragraph], ["Umsatzsteuer"], 3, scenarioType);
+  // Konsistenzprüfung: KB-Zitate, deren Rechtsgrundlagen keine Überschneidung
+  // mit der klassifizierten Norm haben, werden verworfen (Qualitätssicherung).
+  const kb = kbRaw.filter((e) => citationMatchesNorm(e, [c.paragraph])).slice(0, 2);
   const main = kb[0];
   const alt = kb[1];
 
+  // Reihenfolge: Klassifizierung → Falllösung → Schema → Ergebnis → KB-Vertiefung
   const sections: { title: string; body: string }[] = [
     ...(c.trail ? [{ title: "Klassifizierung", body: c.trail }] : []),
     { title: "Sachverhaltsart", body: `${c.label} (${c.paragraph})` },
@@ -657,15 +697,13 @@ function classifyUstSachverhalt(q: string): ChatAnswer | null {
     { title: "9. Ergebnis", body: c.ergebnis ?? c.reasoning },
   ];
 
-  // Wissensbausteine NUR als Zitat/Vertiefung anhängen — kein Body-Copy,
-  // kein Beispiel-Sachverhalt, keine Ersatz-Falllösung.
   if (main) sections.push(kbCitationSection(main, "Vertiefung"));
   if (alt) sections.push(kbCitationSection(alt, "Alternative Regel"));
 
-  if (c.negative) sections.push({ title: "Nicht anwenden", body: c.negative });
+  // "Nicht anwenden" nur ausgeben, wenn Sachverhalt NICHT bereits vollständig
+  // klassifiziert wurde (bei c.complete ist die Norm eindeutig, Warnung überflüssig).
+  if (c.negative && !c.complete) sections.push({ title: "Nicht anwenden", body: c.negative });
 
-  // Rückfragen weiterhin nur unterdrücken, wenn der Sachverhalt vollständig
-  // klassifiziert ist — KB-Treffer allein reichen dafür NICHT.
   return {
     kind: "case",
     summary: c.complete
@@ -682,8 +720,12 @@ function classifyUstSachverhalt(q: string): ChatAnswer | null {
       { label: "Wissensdatenbank öffnen", to: "/wissensdatenbank" },
       { label: "Strukturierte Anfrage anlegen", to: "/neue-anfrage" },
     ],
+    scenarioType: scenarioType ?? undefined,
+    paragraphs: [c.paragraph],
+    trace: buildTrace(q, c),
   };
 }
+
 
 
 

@@ -2,6 +2,58 @@
 // Replace generateAnswer() with a real API call later.
 
 import { lookupLexicon } from "./taxLexicon";
+import { KNOWLEDGE_BASE, kbKeywordsToRegExp, type KBEntry } from "./knowledgeBase";
+
+/**
+ * Gezielte KB-Suche NACH der Klassifizierung.
+ * Bewertet jeden KB-Eintrag mit Scoring: Paragraph-Treffer (stark) +
+ * Keyword-Treffer im Prompt (schwach) + Kategorie-Treffer (mittel).
+ * Gibt die Top-Treffer als zusätzliche Sections zurück, statt bloß den
+ * ersten semantisch ähnlichen Eintrag wiederzugeben.
+ */
+function findKbMatches(
+  q: string,
+  paragraphs: string[],
+  categoryHints: string[] = [],
+  limit = 2,
+): KBEntry[] {
+  const text = q.toLowerCase();
+  const paraTokens = paragraphs
+    .map((p) => p.match(/§\s*\d+[a-z]?/i)?.[0]?.replace(/\s+/g, "").toLowerCase())
+    .filter(Boolean) as string[];
+
+  const scored = KNOWLEDGE_BASE.map((e) => {
+    let score = 0;
+    const hay = `${e.title}\n${e.body}\n${e.references?.join(" ") ?? ""}`.toLowerCase();
+    for (const t of paraTokens) {
+      if (hay.replace(/\s+/g, "").includes(t)) score += 5;
+    }
+    if (categoryHints.some((c) => e.category.toLowerCase().includes(c.toLowerCase()))) {
+      score += 2;
+    }
+    if (e.keywords) {
+      try {
+        if (kbKeywordsToRegExp(e.keywords).test(text)) score += 3;
+      } catch { /* ignore bad regex */ }
+    }
+    return { e, score };
+  })
+    .filter((x) => x.score >= 5)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit);
+
+  return scored.map((x) => x.e);
+}
+
+function kbSections(entries: KBEntry[]): { title: string; body: string }[] {
+  return entries.map((e) => ({
+    title: `Wissensbaustein: ${e.title}`,
+    body:
+      (e.short ? `${e.short}\n\n` : "") +
+      e.body +
+      (e.references?.length ? `\n\nRechtsgrundlage: ${e.references.join(", ")}` : ""),
+  }));
+}
 
 export type ChatLink = { label: string; to: string };
 

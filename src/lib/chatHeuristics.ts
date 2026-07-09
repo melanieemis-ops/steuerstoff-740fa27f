@@ -412,7 +412,7 @@ function classifyUst(q: string): UstClassification | null {
       followUps: [],
     };
   }
-  if (werkOhneMaterial) {
+  if (werkOhneMaterial && !explicitRCEarly) {
     const scheme = baseScheme();
     scheme[0].body = "Werkleistung: Bearbeitung/Verarbeitung fremder Gegenstände → sonstige Leistung (§ 3 Abs. 9 UStG).";
     const complete = b2b && (euCtx || drittland || nachDE || ausDE);

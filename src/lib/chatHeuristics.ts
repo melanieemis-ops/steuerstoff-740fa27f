@@ -188,15 +188,22 @@ function classifyUst(q: string): UstClassification | null {
     if (CITY_DE.test(from) && CITY_EU.test(to)) flowDEtoEU = true;
   }
 
-  const hasWare = /\b(ware|waren|gegenst|liefer|lieferung|liefert|geliefert|transport|transportiert|versand|versendet|versand|kauf|kauft|gekauft|erwirbt|erworben|verkauf|verkauft|maschine|maschinen|ger(ä|ae)t|hardware|material|palette|container|m(ö|oe)bel|fahrzeug|pkw|lkw|kfz|auto|anlage|produkt)\b/i.test(q);
+  let hasWare = /\b(ware|waren|gegenst|liefer|lieferung|liefert|geliefert|transport|transportiert|versand|versendet|versand|kauf|kauft|gekauft|erwirbt|erworben|erwerb|verkauf|verkauft|maschine|maschinen|ger(ä|ae)t|hardware|material|palette|container|m(ö|oe)bel|fahrzeug|pkw|lkw|kfz|auto|anlage|produkt|t(ü|ue)r(en)?)\b/i.test(q);
   const hasDienst = /\b(dienstleistung|beratung|reparatur|softwarelizen|lizenz|schulung|werkleistung|montage(?!\s*mit)|honorar|design|marketing|übersetzung|uebersetzung)\b/i.test(q);
-  const nachDE = /\b(nach\s+deutschland|nach\s+de\b|ins\s+inland|inland)\b/i.test(q) || flowEUtoDE || (cityDE && !cityEU) || (cityDE && flowEUtoDE);
-  const ausDE = /\b(aus\s+deutschland|von\s+deutschland|ins\s+ausland|in\s+(einen\s+anderen\s+)?(eu-?)?mitgliedstaat|nach\s+(österreich|oesterreich|frankreich|italien|spanien|niederlande|polen|belgien|eu-?ausland))\b/i.test(q) || flowDEtoEU;
-  const euCtx = /\b(eu-?ausland|eu-?mitgliedstaat|(anderen?\s+)?mitgliedstaat|innergemein|frankreich|italien|spanien|niederlande|holland|polen|belgien|österreich|oesterreich|irland|luxemburg|tschechien|slowakei|schweden|dänemark|daenemark|finnland|portugal|griechenland|ungarn)\b/i.test(q) || cityEU || flowEUtoDE || flowDEtoEU;
+  let nachDE = /\b(nach\s+deutschland|nach\s+de\b|ins\s+inland|inland)\b/i.test(q) || flowEUtoDE || (cityDE && !cityEU) || (cityDE && flowEUtoDE);
+  let ausDE = /\b(aus\s+deutschland|von\s+deutschland|ins\s+ausland|in\s+(einen\s+anderen\s+)?(eu-?)?mitgliedstaat|nach\s+(österreich|oesterreich|frankreich|italien|spanien|niederlande|polen|belgien|eu-?ausland))\b/i.test(q) || flowDEtoEU;
+  let euCtx = /\b(eu-?ausland|eu-?mitgliedstaat|(anderen?\s+)?mitgliedstaat|innergemein[a-zäöüß]*|frankreich|italien|spanien|niederlande|holland|polen|belgien|österreich|oesterreich|irland|luxemburg|tschechien|slowakei|schweden|dänemark|daenemark|finnland|portugal|griechenland|ungarn)\b/i.test(q) || cityEU || flowEUtoDE || flowDEtoEU;
+
+  // Explizite Phrasen „innergemeinschaftlicher Erwerb/Lieferung" als starke Signale:
+  // erzwingt hasWare/euCtx/Richtung, damit die Klassifizierung in die richtige Branch fällt.
+  const explicitIgErwerb = /\binnergemeinschaftlich[a-zäöüß]*\s+erwerb\b/i.test(q) || /\big\.?\s*erwerb\b/i.test(q);
+  const explicitIgLieferung = /\binnergemeinschaftlich[a-zäöüß]*\s+lieferung\b/i.test(q) || /\big\.?\s*lieferung\b/i.test(q);
+  if (explicitIgErwerb) { hasWare = true; euCtx = true; nachDE = true; }
+  if (explicitIgLieferung) { hasWare = true; euCtx = true; ausDE = true; }
 
   const drittland = /\b(drittland|schweiz|usa|uk|großbritannien|grossbritannien|china|japan|türkei|tuerkei)\b/i.test(q);
   const b2b = /\b(unternehmer|unternehmen|firma|gmbh|ug|ohg|kg|ag|b2b|ust-?id|ustid|umsatzsteuer-?identifikationsnummer|vat[-\s]?id)\b/i.test(q) || /\bbeide\s+(sind\s+)?unternehmer\b/i.test(q);
-  const grundstueck = /\b(grundst|immobilie|gebäude|gebaeude|wohnung|bauleistung|bauträger|bautraeger)\b/i.test(q);
+  const grundstueck = /\b(grundst[a-zäöüß]*|immobilie[a-zäöüß]*|geb(ä|ae)ud[a-zäöüß]*|wohnung[a-zäöüß]*|bautr(ä|ae)ger|zwischenvermietung|vermietung|sportanlage|betriebsvorrichtung|tennishalle)\b/i.test(q);
   const werkMitMaterial = /\bwerklieferung|montage\s+mit\s+material|einbau\s+mit\s+material\b/i.test(q);
   const werkOhneMaterial = /\bwerkleistung|reparatur|montage(?!\s*mit\s*material)|installation\b/i.test(q);
   const reihe = /\breihengesch|kettengesch|drei(ecks|-ecks?)gesch/i.test(q);
@@ -390,7 +397,8 @@ function classifyUst(q: string): UstClassification | null {
     };
   }
 
-  if (werkMitMaterial) {
+  const explicitRCEarly = /\breverse\s*charge|§\s*13b|13b\s*ustg\b/i.test(q);
+  if (werkMitMaterial && !explicitRCEarly) {
     const scheme = baseScheme();
     scheme[0].body = "Werklieferung: Unternehmer stellt aus selbst beschafftem Hauptstoff ein Werk her → Lieferung (§ 3 Abs. 4 UStG).";
     return {
@@ -404,7 +412,7 @@ function classifyUst(q: string): UstClassification | null {
       followUps: [],
     };
   }
-  if (werkOhneMaterial) {
+  if (werkOhneMaterial && !explicitRCEarly) {
     const scheme = baseScheme();
     scheme[0].body = "Werkleistung: Bearbeitung/Verarbeitung fremder Gegenstände → sonstige Leistung (§ 3 Abs. 9 UStG).";
     const complete = b2b && (euCtx || drittland || nachDE || ausDE);
@@ -814,7 +822,7 @@ function ustTriggerCount(q: string): number {
 }
 
 // Fachbegriffe, die für sich allein den USt-Workflow zwingend auslösen.
-const UST_STRONG = /\b(umsatzsteuer|ust\b|mwst|mehrwertsteuer|vorsteuer|reverse\s*charge|innergemein|ig\.?\s*(erwerb|lieferung)|ust-?id|werklieferung|werkleistung|ausfuhrlieferung|ausfuhr|einfuhr|eust|leistungsort|steuerschuldner(schaft)?|bemessungsgrundlage)\b|§\s*(13b|1a|3a|6a)|(?:^|[^a-z])(13b|1a|3a|6a)\s*ustg/i;
+const UST_STRONG = /\b(umsatzsteuer[a-zäöüß]*|ust\b|mwst|mehrwertsteuer|vorsteuer[a-zäöüß]*|reverse\s*charge|innergemein[a-zäöüß]*|ig\.?\s*(erwerb|lieferung)|ust-?id|werklieferung|werkleistung|ausfuhrlieferung|ausfuhr|einfuhr|eust|leistungsort|steuerschuldner(schaft)?|bemessungsgrundlage|grundst[a-zäöüß]*|geb(ä|ae)ude|immobilie|zwischenvermietung|vermietung|sportanlage|betriebsvorrichtung|tennishalle|bauleistung)\b|§\s*(13b|1a|3a|6a|15a?|4\s*nr\.?\s*(9a?|12)|9\b)|(?:^|[^a-z])(13b|1a|3a|6a|15a?)\s*ustg/i;
 
 function hasUstTriggers(q: string): boolean {
   // Ein starker Kernbegriff reicht, sonst mindestens zwei allgemeine Trigger.

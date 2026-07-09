@@ -1,4 +1,4 @@
-import { KNOWLEDGE_BASE } from "./knowledgeBase";
+import { KNOWLEDGE_BASE, kbKeywordsToRegExp } from "./knowledgeBase";
 
 export type Risk = "gruen" | "gelb" | "rot";
 

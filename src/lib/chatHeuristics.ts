@@ -195,6 +195,7 @@ function classifyUst(q: string): UstClassification | null {
       type: "reihengeschaeft",
       label: "Reihengeschäft",
       paragraph: "§ 3 Abs. 6a, § 3 Abs. 7 UStG",
+      trail: buildTrail("§ 3 Abs. 6a UStG (Reihengeschäft)"),
       reasoning: "Beteiligte, Transportverantwortung und USt-IdNr. entscheiden über die bewegte Lieferung — § 13b UStG greift hier nicht automatisch.",
       scheme,
       followUps: [
@@ -203,6 +204,7 @@ function classifyUst(q: string): UstClassification | null {
         "Handelt es sich um ein innergemeinschaftliches Dreiecksgeschäft (§ 25b UStG)?",
       ],
     };
+
   }
 
   // 4) Werklieferung / Werkleistung

@@ -314,6 +314,50 @@ function classifyUst(q: string): UstClassification | null {
   }
 
   // 4) Werklieferung / Werkleistung
+  //    Sonderfall: Werk(-lieferung/-leistung) eines im Ausland ansässigen
+  //    Unternehmers an einen deutschen Unternehmer → Reverse Charge § 13b.
+  //    Diese Konstellation muss VOR den generischen Werk-Zweigen greifen und
+  //    eine vollständige Falllösung liefern.
+  const werk = werkMitMaterial || werkOhneMaterial;
+  const rcSignals = leistenderAusland || euCtx || drittland;
+  const empfDE = empfaengerDE || nachDE || (b2b && !ausDE);
+  if (werk && rcSignals && (b2b || bothUstId || rechnungOhneUst) && empfDE) {
+    const scheme = baseScheme();
+    scheme[0].body = werkMitMaterial
+      ? "Werklieferung eines im Ausland ansässigen Unternehmers an einen deutschen Unternehmer. Werklieferung = Lieferung (§ 3 Abs. 4 UStG); Ort nach § 3 Abs. 7 Satz 1 UStG dort, wo sich der Gegenstand bei Verschaffung der Verfügungsmacht befindet — hier Deutschland."
+      : "Werkleistung (Bearbeitung/Verarbeitung fremder Gegenstände) → sonstige Leistung (§ 3 Abs. 9 UStG). Leistender ist im Ausland ansässiger Unternehmer, Empfänger ist deutscher Unternehmer.";
+    scheme[1].body = "Steuerbar im Inland nach § 1 Abs. 1 Nr. 1 UStG (Leistung im Inland gegen Entgelt im Rahmen des Unternehmens).";
+    scheme[2].body = werkMitMaterial
+      ? "Lieferort: § 3 Abs. 7 Satz 1 UStG — Ort der Verschaffung der Verfügungsmacht (Deutschland)."
+      : "Leistungsort: § 3a Abs. 2 UStG — Sitz des Leistungsempfängers (Deutschland).";
+    scheme[3].body = "Keine Steuerbefreiung nach § 4 UStG einschlägig → steuerpflichtig.";
+    scheme[4].body = werkMitMaterial
+      ? "Steuerschuldner ist der Leistungsempfänger (deutscher Unternehmer) nach § 13b Abs. 2 Nr. 1, Abs. 5 Satz 1 UStG (Werklieferung eines im Ausland ansässigen Unternehmers)."
+      : "Steuerschuldner ist der Leistungsempfänger (deutscher Unternehmer) nach § 13b Abs. 1, Abs. 5 Satz 1 UStG (sonstige Leistung eines im übrigen Gemeinschaftsgebiet ansässigen Unternehmers).";
+    scheme[5].body = "Bemessungsgrundlage: Nettoentgelt nach § 10 Abs. 1 UStG (Rechnung ohne deutsche USt).";
+    scheme[6].body = "Steuerbetrag: 19 % nach § 12 Abs. 1 UStG (bzw. 7 % bei § 12 Abs. 2 UStG-Fällen).";
+    scheme[7].body = "Vorsteuerabzug in gleicher Höhe nach § 15 Abs. 1 Satz 1 Nr. 4 UStG, wenn der Empfänger die Leistung für sein Unternehmen bezieht und kein Ausschluss (§ 15 Abs. 1a, Abs. 2 UStG) greift.";
+    return {
+      type: werkMitMaterial ? "werklieferung" : "werkleistung",
+      label: werkMitMaterial
+        ? "Werklieferung eines ausländischen Unternehmers → Reverse Charge"
+        : "Werkleistung eines ausländischen Unternehmers → Reverse Charge",
+      paragraph: werkMitMaterial
+        ? "§ 3 Abs. 4, § 3 Abs. 7 S. 1, § 13b Abs. 2 Nr. 1, Abs. 5 UStG"
+        : "§ 3 Abs. 9, § 3a Abs. 2, § 13b Abs. 1, Abs. 5 UStG",
+      trail: buildTrail(werkMitMaterial
+        ? "§ 13b Abs. 2 Nr. 1 UStG (Werklieferung, RC)"
+        : "§ 13b Abs. 1 UStG (Werkleistung, RC)"),
+      reasoning: werkMitMaterial
+        ? "Werklieferung eines im Ausland ansässigen Unternehmers an einen deutschen Unternehmer im Inland → Steuerschuld verlagert sich auf den Leistungsempfänger (§ 13b Abs. 2 Nr. 1 UStG). Rechnung ohne deutsche USt; Empfänger schuldet 19 % und zieht sie zugleich als Vorsteuer ab."
+        : "Sonstige Leistung eines im übrigen Gemeinschaftsgebiet ansässigen Unternehmers an einen deutschen Unternehmer → Leistungsort § 3a Abs. 2 UStG in Deutschland, Steuerschuldner ist der Leistungsempfänger (§ 13b Abs. 1, Abs. 5 UStG).",
+      scheme,
+      complete: true,
+      followUps: [],
+      ergebnis: `Reverse Charge: Der deutsche Leistungsempfänger schuldet die Umsatzsteuer (${werkMitMaterial ? "§ 13b Abs. 2 Nr. 1" : "§ 13b Abs. 1"}, Abs. 5 UStG), 19 % auf das Nettoentgelt (§ 10, § 12 Abs. 1 UStG). Gleichzeitig Vorsteuerabzug in gleicher Höhe nach § 15 Abs. 1 S. 1 Nr. 4 UStG, soweit für das Unternehmen bezogen und kein Ausschluss greift → wirtschaftlich neutral. Rechnungshinweis „Steuerschuldnerschaft des Leistungsempfängers" (§ 14a Abs. 5 UStG); Deklaration in UStVA (§ 13b-Umsätze + Vorsteuer § 15 Abs. 1 Nr. 4).`,
+    };
+  }
+
   if (werkMitMaterial) {
     const scheme = baseScheme();
     scheme[0].body = "Werklieferung: Unternehmer stellt aus selbst beschafftem Hauptstoff ein Werk her → Lieferung (§ 3 Abs. 4 UStG).";
@@ -344,6 +388,7 @@ function classifyUst(q: string): UstClassification | null {
     };
 
   }
+
 
   // 5) Grundstück
   if (grundstueck) {

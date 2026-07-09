@@ -105,7 +105,14 @@ function classifyUst(q: string): UstClassification | null {
     const scheme = baseScheme();
     scheme[0].body = "Warenbewegung aus einem anderen EU-Mitgliedstaat nach Deutschland an einen Unternehmer für sein Unternehmen → innergemeinschaftlicher Erwerb (§ 1a UStG).";
     scheme[4].body = "Steuerschuldner ist der Erwerber (§ 13a Abs. 1 Nr. 2 UStG). Kein § 13b UStG — dieser gilt nur für sonstige Leistungen und einzelne Sonderfälle.";
-    scheme[2].body = "Ort des Erwerbs: Ende der Beförderung/Versendung (§ 3d UStG) — hier Deutschland.";
+    scheme[2].body = "Ort des Erwerbs: Ende der Beförderung/Versendung (§ 3d Satz 1 UStG) — hier Deutschland.";
+    const complete = b2b && bothUstId && transportNachDE && (rechnungOhneUst || /rechnung/i.test(q));
+    if (complete) {
+      scheme[3].body = "Steuerpflichtig 19 % (§ 12 Abs. 1 UStG) bzw. 7 % (§ 12 Abs. 2 UStG) — keine Befreiung einschlägig.";
+      scheme[5].body = "Bemessungsgrundlage: Entgelt der Rechnung (§ 10 Abs. 1 UStG) ohne USt.";
+      scheme[6].body = "Erwerbsteuer 19 % auf das Entgelt (§ 12 Abs. 1 UStG).";
+      scheme[7].body = "Vorsteuerabzug in gleicher Höhe (§ 15 Abs. 1 Satz 1 Nr. 3 UStG), soweit für steuerpflichtige Ausgangsumsätze verwendet → wirtschaftlich neutral.";
+    }
     return {
       type: "innergemeinschaftlicher_erwerb",
       label: "Innergemeinschaftlicher Erwerb",
@@ -113,12 +120,18 @@ function classifyUst(q: string): UstClassification | null {
       reasoning:
         "Ware gelangt aus einem EU-Mitgliedstaat nach Deutschland an einen Unternehmer für sein Unternehmen. Das ist ein ig. Erwerb (§ 1a UStG), kein Reverse Charge nach § 13b UStG.",
       scheme,
-      followUps: [
-        "Ist die USt-IdNr. des Erwerbers dem Lieferer mitgeteilt worden?",
-        "Wurde der Erwerb im Inland (Deutschland) beendet?",
-        "Erfolgt der Erwerb ausschließlich für das Unternehmen?",
-      ],
+      followUps: complete
+        ? []
+        : [
+            "Ist die USt-IdNr. des Erwerbers dem Lieferer mitgeteilt worden?",
+            "Wurde der Erwerb im Inland (Deutschland) beendet?",
+            "Erfolgt der Erwerb ausschließlich für das Unternehmen?",
+          ],
       negative: "Reverse Charge nach § 13b UStG bewusst NICHT anwenden — bei Warenbewegung greift § 1a UStG (ig. Erwerb).",
+      complete,
+      ergebnis: complete
+        ? "Innergemeinschaftlicher Erwerb im Inland steuerbar (§ 1 Abs. 1 Nr. 5, § 3d S. 1 UStG) und steuerpflichtig (19 %). Steuerschuldner ist der deutsche Erwerber (§ 13a Abs. 1 Nr. 2 UStG); zugleich Vorsteuerabzug in gleicher Höhe nach § 15 Abs. 1 S. 1 Nr. 3 UStG → Zahllast 0. Meldepflichten: Erwerb in UStVA (Zeilen ig. Erwerbe 19 %), Lieferer meldet ig. Lieferung in ZM."
+        : undefined,
     };
   }
 
@@ -127,17 +140,24 @@ function classifyUst(q: string): UstClassification | null {
     const scheme = baseScheme();
     scheme[0].body = "Warenlieferung aus Deutschland in einen anderen EU-Mitgliedstaat an einen Unternehmer → innergemeinschaftliche Lieferung (§ 6a UStG).";
     scheme[3].body = "Steuerbefreit nach § 4 Nr. 1b i. V. m. § 6a UStG bei gültiger USt-IdNr. des Abnehmers, Nachweisen (Gelangensbestätigung), Meldung ZM.";
+    const complete = b2b && bothUstId;
     return {
       type: "innergemeinschaftliche_lieferung",
       label: "Innergemeinschaftliche Lieferung",
       paragraph: "§ 6a UStG, § 4 Nr. 1b UStG",
       reasoning: "Ware verlässt Deutschland in Richtung EU-Ausland an einen Unternehmer — steuerfreie ig. Lieferung, kein § 13b UStG.",
       scheme,
-      followUps: [
-        "Liegt die gültige USt-IdNr. des Abnehmers vor (qualifizierte Bestätigungsanfrage)?",
-        "Ist die Gelangensbestätigung / der Belegnachweis vollständig?",
-        "Zusammenfassende Meldung (ZM) fristgerecht eingereicht?",
-      ],
+      followUps: complete
+        ? []
+        : [
+            "Liegt die gültige USt-IdNr. des Abnehmers vor (qualifizierte Bestätigungsanfrage)?",
+            "Ist die Gelangensbestätigung / der Belegnachweis vollständig?",
+            "Zusammenfassende Meldung (ZM) fristgerecht eingereicht?",
+          ],
+      complete,
+      ergebnis: complete
+        ? "Steuerbare Lieferung (§ 1 Abs. 1 Nr. 1 UStG), steuerfrei als ig. Lieferung (§ 4 Nr. 1b i. V. m. § 6a UStG). Rechnung ohne USt mit Hinweis auf Steuerbefreiung (§ 14 Abs. 4 Nr. 8 UStG). Beleg- und Buchnachweis (§§ 17a ff. UStDV) sowie ZM-Meldung (§ 18a UStG) erforderlich."
+        : undefined,
     };
   }
 

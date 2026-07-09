@@ -21,6 +21,17 @@ export type ScenarioType =
   | "sonstige_leistung"
   | "sonstiges";
 
+export interface KBExpectation {
+  /** Erwartete Steuerart (Kategorie-Bereich), z. B. "Umsatzsteuer". */
+  steuerart?: string;
+  /** Erwarteter Sachverhaltstyp der Klassifizierung. */
+  scenarioType?: ScenarioType;
+  /** Mindestens einer dieser Paragraphen muss in der Antwort auftauchen. */
+  paragraphen?: string[];
+  /** Wenn true: Assistent darf bei diesem Prompt KEINE Rückfragen stellen. */
+  mustNotAskFollowup?: boolean;
+}
+
 export interface KBEntry {
   id: string;
   title: string;
@@ -35,7 +46,12 @@ export interface KBEntry {
   references?: string[];
   /** Umsatzsteuerlicher Sachverhaltstyp — für gezielte KB-Suche nach Klassifizierung. */
   scenarioType?: ScenarioType;
+  /** Optionaler Testprompt für die automatische KB-Regression. Wenn leer, wird ein Prompt aus title+keywords synthetisiert. */
+  testPrompt?: string;
+  /** Optionale Erwartungen für die Regressionsprüfung. */
+  expect?: KBExpectation;
 }
+
 
 /** Heuristische Ableitung des scenarioType aus id/title, falls kein explizites Feld gesetzt ist. */
 export function resolveScenarioType(e: KBEntry): ScenarioType | null {

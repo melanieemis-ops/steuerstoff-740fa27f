@@ -1,81 +1,107 @@
-# Steuerstoff Assistant – Deterministische Entscheidungslogik + KB‑Regressionstests
+# Universeller Steuer-Router (Expertensystem)
 
-Ziel: Der Chat klassifiziert immer zuerst, löst dann den Fall, und nutzt die Knowledge Base nur zur Vertiefung. Alle bestehenden KB‑Einträge dienen zusätzlich automatisch als Regressionstests.
+Ziel: Vor jeder Antwort läuft eine feste Pipeline
+`Steuerart → Sachverhaltsart → Unterfall → Prüfschema → Prüfung → Ergebnis → KB`.
+Die Knowledge Base darf Klassifizierung und Ergebnis nie überschreiben, sondern nur vertiefen.
 
-## Umfang (minimal-invasiv)
-Nur Logik/Tests, kein Redesign. Betroffen:
-- `src/lib/chatHeuristics.ts` – Klassifizierung, Vollständigkeitsprüfung, Trace, Antwort‑Pipeline
-- `src/lib/knowledgeBase.ts` – optionale Felder `testPrompt`, `expect` (Steuerart, scenarioType, Paragraphen) – nur additiv
-- `src/lib/taxLexicon.ts` – nur wenn nötig, additiv
-- `src/routes/chat.tsx` – kleiner Dev‑Toggle „Trace anzeigen" (nur wenn `import.meta.env.DEV`), keine visuelle Änderung für Nutzer
-- **Neu**: `src/lib/classifier.ts` (interne Extraktion + Router, ausgelagert für Testbarkeit)
-- **Neu**: `src/lib/__tests__/classifier.test.ts` + `src/lib/__tests__/kb-regression.test.ts` (Vitest)
+Arbeit bleibt minimal-invasiv: kein Redesign, keine neuen Seiten, keine neuen Runtime-Deps.
+Öffentliche API von `generateAnswer(prompt)` bleibt gleich.
 
-## 1. Prompt‑Vollständigkeit
-Neuer Extractor `extractFacts(prompt)` liefert strukturiertes Objekt:
-`{ steuerart, beteiligte, unternehmerstatus, leistungsart, warenbewegung{from,to,fromKind,toKind}, laender[], staedte[], betraege[], zeitraum, rechnungOhneUst, ustIdNr, sonstigeSignale[] }`.
-`isComplete(facts, scenarioType)` entscheidet, ob Rückfragen unterdrückt werden. Rückfragen nur für fehlende Felder des gewählten Zweigs.
+## 1. Neue Router-Schicht (rein logisch)
 
-## 2. Klassifizierungs‑Router (deterministisch)
-Reihenfolge fix:
-1. Lexikon/Begriffsfrage
-2. `extractFacts` → `classify(facts)` → `scenarioType` + Paragraphen
-3. Falllösung + 9‑Punkte‑Schema aus Templates pro `scenarioType`
-4. KB nur als Vertiefung (Citations), niemals als Hauptantwort
-5. Fallback „Sachverhaltsart offen" nur wenn `classify` `null` liefert UND `isComplete` false
+Neue Dateien unter `src/lib/router/`:
 
-## 3. Heuristik‑Trace (Dev)
-`classify` gibt `{ result, trace }` zurück. `trace` = Array Schritte:
-erkannte Entitäten, Länder, Städte→Land, B2B/B2C, Ware/sL, Warenbewegung, Ort, Paragraphen, gewählter Zweig, verworfene Zweige mit Grund. Im Chat als collapsibles „Debug" nur unter `import.meta.env.DEV`.
+- `taxTypeRouter.ts` — bestimmt `TaxType`
+  (`einkommensteuer | umsatzsteuer | koerperschaftsteuer | gewerbesteuer | lohnsteuer |
+  bilanzsteuerrecht | abgabenordnung | gemeinnuetzigkeit | erbschaftsteuer |
+  schenkungsteuer | grunderwerbsteuer | umwandlungssteuer | internationales_steuerrecht |
+  sonstige | unklar`) — deterministisch per Regex/Lexikon-Signale.
+- `scenarioRouter.ts` — bestimmt pro `TaxType` die `ScenarioType`
+  (bestehende USt-Szenarien bleiben; neu: EStG-Werbungskosten/Sonderausgaben/agB/§35a/
+  Gewinneinkünfte/Überschusseinkünfte/Vermietung/Kapital/Veräußerung/AfA,
+  Bilanz-Rückstellungen/RAP/Bewertung/AfA/…, AO-Einspruch/Verjährung/Änderungsnormen/…).
+- `subCaseRouter.ts` — feinere Unterfälle je Sachverhalt (z. B. Entfernungspauschale,
+  häusliches Arbeitszimmer; ig. Erwerb vs. ig. Lieferung; Rückstellung drohend vs. ungewiss).
+- `schemaRegistry.ts` — Registry `Map<ScenarioType | SubCase, PruefSchema>`.
+  Ein `PruefSchema` ist eine Datenstruktur (nicht Text): `steps[]` mit `id, label, evaluate(facts)`.
+- `pipeline.ts` — orchestriert: `extractFacts → routeTaxType → routeScenario → routeSubCase →
+  loadSchema → runSchema → deriveResult → citeKb`. Liefert `RouterResult` mit
+  `taxType, scenarioType, subCase, schema, findings[], result, trace[], kbCitations[]`.
 
-## 4. Stadt‑Land‑Mapping erweitern
-Vorhandene `CITY_DE`/`CITY_EU` um EU‑Hauptstädte + große Wirtschaftszentren ergänzen (Paris/FR, Wien/AT, Mailand/IT, Madrid/ES, Warschau/PL, Prag/CZ, …). Drittland‑Set (`CITY_3RD`: Zürich, London, New York, Istanbul …) für Ausfuhr/Einfuhr‑Routing.
+## 2. Integration in `chatHeuristics.ts`
 
-## 5. EU‑Routing‑Matrix
-`classify` deckt alle Zweige ab:
-- Inland
-- EU→DE (ig. Erwerb § 1a)
-- DE→EU (ig. Lieferung § 6a, § 4 Nr. 1b)
-- EU→EU (Reihen/Dreieck bei ≥3 Beteiligten)
-- Drittland→DE (Einfuhr § 1 Abs. 1 Nr. 4)
-- DE→Drittland (Ausfuhr § 6, § 4 Nr. 1a)
-- Werklieferung/Werkleistung ausl. Unternehmer → § 13b
-- Reihen‑ und Dreiecksgeschäft (§ 25b) bei 3+ Parteien
-- Grundstück (§ 3a Abs. 3 Nr. 1), Personenbeförderung, elektronische Leistungen B2C (§ 3a Abs. 5)
+- `generateAnswer` ruft zuerst Lexikon (Begriffsfrage) wie bisher.
+- Sonst: `pipeline.run(prompt)` und dann Rendering in fester Reihenfolge:
+  1. Klassifizierung  2. Sachverhaltsart  3. Prüfungsschema  4. Rechtsgrundlagen
+  5. Steuerliche Prüfung  6. Ergebnis  7. Vertiefung KB  8. Alternative Regel
+  9. Nicht anwenden  10. Rückfragen (nur bei fehlenden Fakten).
+- Bestehende `classifyUst` bleibt bestehen, wird aber vom `scenarioRouter` für
+  `taxType === "umsatzsteuer"` aufgerufen (keine Doppel-Logik).
+- KB-Suche (`findKbMatches`) wird strikt zweistufig: erst nach `taxType` filtern,
+  dann nach `scenarioType`; darf nie Norm/Ergebnis der Klassifizierung überschreiben
+  (`citationMatchesNorm` bleibt aktiv).
+- Rückfragen erscheinen nur, wenn `pipeline` `missingFacts[]` meldet.
 
-## 6. KB‑Regressionstests
-Jeder KB‑Eintrag erhält optional:
+## 3. KB-Modell erweitern (additiv)
+
+`KBEntry` bekommt optional:
 ```
-testPrompt?: string
-expect?: { steuerart?, scenarioType?, paragraphen?: string[], mustNotAskFollowup?: boolean }
+taxType?: TaxType
+subCase?: string
 ```
-Für Einträge ohne `testPrompt` wird ein Prompt aus `title + keywords` synthetisiert.
-`kb-regression.test.ts` iteriert alle Einträge:
-- ruft `classify(extractFacts(prompt))`
-- prüft: Steuerart passt, scenarioType passt (falls angegeben), mindestens ein erwarteter Paragraph, kein Fallback "unbestimmt" wenn `mustNotAskFollowup`, KB‑Zitat kommt nach Falllösung.
+Bestehende Einträge bleiben gültig; fehlende Felder werden aus `category` /
+`scenarioType` heuristisch abgeleitet (`resolveTaxType(entry)`).
 
-Beim ersten Lauf werden fehlende `expect`‑Felder als „soft assertions" nur geloggt (kein Fail), harte Fails nur bei Kernfällen (USt‑Matrix, Werklieferung, ig. Erwerb/Lieferung, Ausfuhr, Einfuhr, § 13b, § 25b). So schlägt der initiale Lauf nicht flächig fehl.
+## 4. Prüfschemata (Startumfang)
 
-## 7. Antwortreihenfolge (fest)
-Renderer in `chatHeuristics.ts`:
-1. Klassifizierung (1 Zeile: Sachverhaltsart + Kernnorm)
-2. Falllösung (konkret)
-3. 9‑Punkte‑Schema
-4. Ergebnis
-5. Begründung
-6. Vertiefung KB (optional, klar abgesetzt)
+Nur die im Prompt genannten Kernschemata initial umsetzen, jeweils als Datenstruktur:
+- USt 9-Punkte (bestehend, in Registry überführen)
+- EStG Werbungskosten (inkl. Entfernungspauschale-Berechnung)
+- EStG §35a (Höchstbeträge, haushaltsnahe/Handwerker)
+- Bilanz Rückstellung (Voraussetzungen, Bewertung, Auflösung)
+- AO Einspruch (Zulässigkeit, Frist, Begründetheit)
+- Erbschaft-/Schenkungsteuer Grundschema (Steuerklasse, Freibeträge, Tarif)
 
-Bei eindeutiger Klassifizierung werden „Sachverhalt offen", generisches Prüfschema, „Nicht anwenden"‑Blöcke unterdrückt.
+Weitere Schemata sind später ohne Architekturänderung ergänzbar (nur neue Registry-Einträge).
 
-## 8. Qualitätsprüfung (Self‑Check)
-Vor Rückgabe: `assertConsistent(result, kbCitations)` – wirft Warnung im Trace wenn ein KB‑Zitat einer anderen Norm folgt als die Klassifizierung; solche Zitate werden dann verworfen statt angezeigt.
+## 5. Regression pro Steuerart
 
-## 9. Technisches
-- Vitest ist bereits im Stack; Tests unter `src/lib/__tests__/`
-- Keine neuen Runtime‑Dependencies
-- Keine Änderung der öffentlichen Chat‑UI außer Dev‑Trace hinter `import.meta.env.DEV`
-- Öffentliche API von `generateAnswer` bleibt gleich
+`src/lib/regressionRunner.ts` erweitern:
+- Cases werden pro `TaxType` gruppiert.
+- Pro Case zusätzlich geprüft: erkannter `taxType`, `scenarioType`, Prüfschema-ID,
+  Antwortreihenfolge (Sektionstitel-Sequenz), KB-Auswahl nur nach Klassifizierung,
+  keine überflüssigen Rückfragen, erwartete Paragraphen.
+- Bestehende KB-Einträge dürfen nicht regressieren (harte Baseline = aktueller Stand
+  102/102 grün). Neue Steuerarten starten mit „soft"-Erwartungen, damit initialer Lauf
+  nicht flächig fehlschlägt.
+- Vitest-Datei `src/lib/__tests__/router.test.ts` mit gezielten Prompts pro Steuerart
+  (mind. 2–3 Positiv- und 1 Negativfall).
+- Dev-Toggle `window.__runKbRegression()` bleibt.
+
+## 6. UI
+
+Keine Änderung. Optional im Dev-Modus (`import.meta.env.DEV`) wird die Trace um
+`taxType → scenarioType → subCase → schemaId` erweitert; produktiv unsichtbar.
+
+## Technisches
+
+- Alle Router sind reine Funktionen auf einem gemeinsamen `Facts`-Objekt
+  (`extractFacts` in bestehender Form; nur um Felder erweitert, die weitere Steuerarten
+   brauchen: `arbeitsweg, entfernungKm, arbeitstage, aufwandArt, rechtsbehelf, frist, …`).
+- Keine externen Deps. Keine Änderungen an Routen, Layouts, Styles, Assets.
+- Änderungspunkte: `src/lib/router/*` (neu), `src/lib/chatHeuristics.ts` (Integration),
+  `src/lib/knowledgeBase.ts` (nur additive Felder + `resolveTaxType`),
+  `src/lib/regressionRunner.ts` (erweitert), `src/lib/__tests__/router.test.ts` (neu).
 
 ## Out of scope
-- Kein Redesign, keine neuen Seiten, keine KB‑Inhaltserweiterung in diesem Schritt
-- Keine Änderung an Wissensdatenbank‑Route, Lexikon‑Route, Kfz‑Rechner
+
+- Keine neuen Seiten, keine UI-Anpassung, keine KB-Inhaltserweiterung.
+- Keine Änderung an Kfz-Rechner, MVR, Lexikon-Route, Wissensdatenbank-Filter.
+- Keine LLM-Anbindung; die Logik bleibt deterministisch.
+
+## Rollout in 3 kleinen Schritten
+
+1. Router-Skeleton + USt-Migration in Registry, alle bestehenden Regressionen bleiben grün.
+2. EStG + AO + Bilanz-Schemata + zugehörige Regressionstests.
+3. Erbschaft/Schenkung/GrESt/KStG/GewSt/LSt/UmwSt/IntStR als Stubs mit klaren Fallback-Schemata,
+   damit die Steuerart erkannt wird, auch wenn das Fach-Schema minimal ist.

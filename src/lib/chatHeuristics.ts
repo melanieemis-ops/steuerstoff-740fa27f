@@ -2,27 +2,42 @@
 // Replace generateAnswer() with a real API call later.
 
 import { lookupLexicon } from "./taxLexicon";
-import { KNOWLEDGE_BASE, kbKeywordsToRegExp, type KBEntry } from "./knowledgeBase";
+import {
+  KNOWLEDGE_BASE,
+  kbKeywordsToRegExp,
+  resolveScenarioType,
+  type KBEntry,
+  type ScenarioType,
+} from "./knowledgeBase";
 
 /**
  * Gezielte KB-Suche NACH der Klassifizierung.
- * Bewertet jeden KB-Eintrag mit Scoring: Paragraph-Treffer (stark) +
- * Keyword-Treffer im Prompt (schwach) + Kategorie-Treffer (mittel).
- * Gibt die Top-Treffer als zusätzliche Sections zurück, statt bloß den
- * ersten semantisch ähnlichen Eintrag wiederzugeben.
+ * Ablauf:
+ *   1. Wenn ein scenarioType übergeben wird, werden ausschließlich Einträge
+ *      mit demselben scenarioType (explizit oder heuristisch abgeleitet)
+ *      als Kandidaten zugelassen.
+ *   2. Erst danach wird gewertet: Paragraph-Treffer (stark) +
+ *      Kategorie-Treffer (mittel) + Keyword-Treffer im Prompt (schwach).
  */
 function findKbMatches(
   q: string,
   paragraphs: string[],
   categoryHints: string[] = [],
   limit = 2,
+  scenarioType?: ScenarioType | null,
 ): KBEntry[] {
   const text = q.toLowerCase();
   const paraTokens = paragraphs
     .map((p) => p.match(/§\s*\d+[a-z]?/i)?.[0]?.replace(/\s+/g, "").toLowerCase())
     .filter(Boolean) as string[];
 
-  const scored = KNOWLEDGE_BASE.map((e) => {
+  // 1) Kandidatenmenge auf gleichen scenarioType eingrenzen
+  const candidates = scenarioType
+    ? KNOWLEDGE_BASE.filter((e) => resolveScenarioType(e) === scenarioType)
+    : KNOWLEDGE_BASE;
+
+  // 2) Paragraph-/Kategorie-/Keyword-Scoring auf den Kandidaten
+  const scored = candidates.map((e) => {
     let score = 0;
     const hay = `${e.title}\n${e.body}\n${e.references?.join(" ") ?? ""}`.toLowerCase();
     for (const t of paraTokens) {
@@ -38,12 +53,13 @@ function findKbMatches(
     }
     return { e, score };
   })
-    .filter((x) => x.score >= 5)
+    .filter((x) => x.score >= (scenarioType ? 2 : 5))
     .sort((a, b) => b.score - a.score)
     .slice(0, limit);
 
   return scored.map((x) => x.e);
 }
+
 
 function kbSections(entries: KBEntry[]): { title: string; body: string }[] {
   return entries.map((e) => ({

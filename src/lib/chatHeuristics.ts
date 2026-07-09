@@ -127,7 +127,7 @@ function classifyUst(q: string): UstClassification | null {
     scheme[0].body = "Warenbewegung aus einem anderen EU-Mitgliedstaat nach Deutschland an einen Unternehmer für sein Unternehmen → innergemeinschaftlicher Erwerb (§ 1a UStG).";
     scheme[4].body = "Steuerschuldner ist der Erwerber (§ 13a Abs. 1 Nr. 2 UStG). Kein § 13b UStG — dieser gilt nur für sonstige Leistungen und einzelne Sonderfälle.";
     scheme[2].body = "Ort des Erwerbs: Ende der Beförderung/Versendung (§ 3d Satz 1 UStG) — hier Deutschland.";
-    const complete = b2b && bothUstId && transportNachDE && (rechnungOhneUst || /rechnung/i.test(q));
+    const complete = b2b && bothUstId && (transportNachDE || nachDE);
     if (complete) {
       scheme[3].body = "Steuerpflichtig 19 % (§ 12 Abs. 1 UStG) bzw. 7 % (§ 12 Abs. 2 UStG) — keine Befreiung einschlägig.";
       scheme[5].body = "Bemessungsgrundlage: Entgelt der Rechnung (§ 10 Abs. 1 UStG) ohne USt.";
@@ -138,6 +138,7 @@ function classifyUst(q: string): UstClassification | null {
       type: "innergemeinschaftlicher_erwerb",
       label: "Innergemeinschaftlicher Erwerb",
       paragraph: "§ 1a UStG",
+      trail: buildTrail("§ 1a UStG (ig. Erwerb)"),
       reasoning:
         "Ware gelangt aus einem EU-Mitgliedstaat nach Deutschland an einen Unternehmer für sein Unternehmen. Das ist ein ig. Erwerb (§ 1a UStG), kein Reverse Charge nach § 13b UStG.",
       scheme,
@@ -154,6 +155,7 @@ function classifyUst(q: string): UstClassification | null {
         ? "Innergemeinschaftlicher Erwerb im Inland steuerbar (§ 1 Abs. 1 Nr. 5, § 3d S. 1 UStG) und steuerpflichtig (19 %). Steuerschuldner ist der deutsche Erwerber (§ 13a Abs. 1 Nr. 2 UStG); zugleich Vorsteuerabzug in gleicher Höhe nach § 15 Abs. 1 S. 1 Nr. 3 UStG → Zahllast 0. Meldepflichten: Erwerb in UStVA (Zeilen ig. Erwerbe 19 %), Lieferer meldet ig. Lieferung in ZM."
         : undefined,
     };
+
   }
 
   // 2) Innergemeinschaftliche Lieferung

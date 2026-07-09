@@ -311,20 +311,26 @@ function classifyUst(q: string): UstClassification | null {
     const scheme = baseScheme();
     scheme[0].body = "Sonstige Leistung eines im Ausland ansässigen Unternehmers an einen inländischen Unternehmer → Reverse Charge (§ 13b Abs. 1/Abs. 2 UStG).";
     scheme[4].body = "Steuerschuldner ist der Leistungsempfänger (§ 13b Abs. 5 UStG). Rechnung ohne USt mit Hinweis 'Steuerschuldnerschaft des Leistungsempfängers'.";
+    const complete = explicitRC || (hasDienst && (euCtx || drittland) && b2b);
     return {
       type: "reverse_charge",
       label: "Reverse Charge",
       paragraph: "§ 13b UStG",
+      trail: buildTrail("§ 13b UStG (Reverse Charge)"),
       reasoning:
         "Nur bei ausdrücklich in § 13b UStG genannten Fällen (v. a. sonstige Leistungen ausländischer Unternehmer, Bauleistungen B2B, Schrott, Gebäudereinigung, Emissionshandel).",
       scheme,
-      followUps: [
-        "Handelt es sich wirklich um eine sonstige Leistung (nicht Ware)?",
-        "Ist der Leistende im Ausland ansässig?",
-        "Empfänger inländischer Unternehmer?",
-      ],
+      complete,
+      followUps: complete
+        ? []
+        : [
+            "Handelt es sich wirklich um eine sonstige Leistung (nicht Ware)?",
+            "Ist der Leistende im Ausland ansässig?",
+            "Empfänger inländischer Unternehmer?",
+          ],
     };
   }
+
 
   // 10) Kein spezifischer Typ erkannt, aber USt-Trigger vorhanden
   //     → USt-Workflow trotzdem starten (keine allgemeine „Welche Steuerart?"-Rückfrage).

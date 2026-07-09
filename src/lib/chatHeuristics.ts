@@ -108,6 +108,7 @@ function classifyUst(q: string): UstClassification | null {
   const buildTrail = (norm: string) =>
     `Erkennung: ${signals.length ? signals.join(" · ") : "USt-Sachverhalt"} → ${norm}`;
 
+  const baseScheme = (extra: { title: string; body: string }[] = []) => [
 
     { title: "1. Sachverhaltsart", body: "" }, // filled per type
     { title: "2. Steuerbarkeit", body: "§ 1 Abs. 1 UStG prüfen (Leistung im Inland, gegen Entgelt, im Rahmen des Unternehmens)." },

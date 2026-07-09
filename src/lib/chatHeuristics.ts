@@ -82,7 +82,11 @@ function classifyUst(q: string): UstClassification | null {
   const reihe = /\breihengesch|kettengesch|drei(ecks|-ecks?)gesch/i.test(q);
   const verbringen = /\bverbringen|eigene ware ins ausland|innergemeinschaftliches verbringen\b/i.test(q);
   const uwa = /\bunentgeltlich|privatnutzung|privatentnahme|wertabgabe\b/i.test(q);
-  const rechnungOhneUst = /\brechnung ohne (ust|mwst|umsatzsteuer|steuer)\b/i.test(q);
+  const rechnungOhneUst = /\brechnung\s+ohne\s+(ust|mwst|umsatzsteuer|steuer)|ohne\s+(ausgewiesene\s+)?(ust|mwst|umsatzsteuer)\b/i.test(q);
+  const transportNachDE = /\b(transport|versand|bef(ö|oe)rder|versendet|geliefert|gelangt)[^.]*\b(nach\s+de(utschland)?|ins\s+inland)\b/i.test(q)
+    || /\bvon\s+(den\s+niederlanden|niederlande|frankreich|italien|spanien|polen|belgien|österreich|oesterreich|irland|luxemburg|tschechien|slowakei|schweden|dänemark|daenemark|finnland|portugal|griechenland|ungarn)\s+nach\s+de(utschland)?\b/i.test(q);
+  const bothUstId = /\b(beide|jeweils|jeder)[^.]*ust-?id/i.test(q)
+    || (/(ust-?id|ustid|umsatzsteuer-?identifikationsnummer)/i.test(q) && b2b);
 
   const baseScheme = (extra: { title: string; body: string }[] = []) => [
     { title: "1. Sachverhaltsart", body: "" }, // filled per type

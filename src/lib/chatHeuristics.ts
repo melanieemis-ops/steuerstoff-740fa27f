@@ -179,6 +179,14 @@ function classifyUst(q: string): UstClassification | null {
     || /\bvon\s+(den\s+niederlanden|niederlande|frankreich|italien|spanien|polen|belgien|österreich|oesterreich|irland|luxemburg|tschechien|slowakei|schweden|dänemark|daenemark|finnland|portugal|griechenland|ungarn)\s+nach\s+de(utschland)?\b/i.test(q);
   const bothUstId = /\b(beide|jeweils|jeder)[^.]*ust-?id/i.test(q)
     || (/(ust-?id|ustid|umsatzsteuer-?identifikationsnummer)/i.test(q) && b2b);
+  // Leistender ist im Ausland ansässig (EU oder Drittland).
+  const leistenderAusland = /\b(eu-?unternehmer|ausl(ä|ae)ndisch(er|e|en)?\s+(unternehmer|dienstleister|leistender|firma|subunternehmer))\b/i.test(q)
+    || /\b(unternehmer|anbieter|leistender|dienstleister|subunternehmer|firma)\s+(aus|mit\s+sitz\s+in|ans(ä|ae)ssig\s+in)\s+(dem\s+)?(eu-?ausland|ausland|drittland|österreich|oesterreich|frankreich|italien|spanien|niederlande|polen|belgien|irland|luxemburg|tschechien|slowakei|schweden|d(ä|ae)nemark|finnland|portugal|griechenland|ungarn|schweiz|usa|uk|gro(ß|ss)britannien|china|japan|t(ü|ue)rkei)\b/i.test(q)
+    || /\b(leistungsempf(ä|ae)nger|empf(ä|ae)nger)\s+(ist\s+)?(deutscher?\s+unternehmer|in\s+deutschland)\b/i.test(q);
+  // Empfänger ist deutscher Unternehmer
+  const empfaengerDE = /\b(deutscher?\s+unternehmer|leistungsempf(ä|ae)nger\s+in\s+deutschland|empf(ä|ae)nger\s+in\s+deutschland|inl(ä|ae)ndischer?\s+unternehmer)\b/i.test(q)
+    || (b2b && nachDE);
+
 
   // Kurze, menschlich lesbare Signal-Spur für die Antwort ("Erkennung: …").
   const signals: string[] = [];

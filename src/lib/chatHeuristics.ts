@@ -160,14 +160,30 @@ function classifyUst(q: string): UstClassification | null {
   if (!hasUstTriggers(q)) return null;
 
 
-  const hasWare = /\b(ware|gegenst|liefer|lieferung|transport|versand|maschine|geraet|gerät|hardware|material|palette|container)\b/i.test(q);
+  // Städte → Länder mappen (typische EU/DE-Städte, damit „Amsterdam → München" erkannt wird)
+  const CITY_DE = /\b(m(ü|ue)nchen|berlin|hamburg|k(ö|oe)ln|frankfurt|stuttgart|d(ü|ue)sseldorf|leipzig|dresden|hannover|bremen|n(ü|ue)rnberg|essen|dortmund)\b/i;
+  const CITY_EU = /\b(amsterdam|rotterdam|den\s*haag|utrecht|wien|salzburg|graz|innsbruck|paris|lyon|marseille|nizza|nice|rom|roma|mailand|milano|neapel|napoli|madrid|barcelona|valencia|sevilla|warschau|warsaw|krakau|krakow|br(ü|ue)ssel|brussels|antwerpen|gent|luxemburg|luxembourg|dublin|prag|prague|bratislava|budapest|stockholm|kopenhagen|copenhagen|helsinki|lissabon|lisbon|athen|athens)\b/i;
+  const cityDE = CITY_DE.test(q);
+  const cityEU = CITY_EU.test(q);
+  // Bewegung „X → Y" / „X nach Y" / „von X nach Y"
+  const flow = q.match(/([A-Za-zÄÖÜäöüß\s-]+?)\s*(?:->|→|=>|nach)\s+([A-Za-zÄÖÜäöüß-]+)/i);
+  let flowEUtoDE = false;
+  let flowDEtoEU = false;
+  if (flow) {
+    const from = flow[1] ?? "";
+    const to = flow[2] ?? "";
+    if (CITY_EU.test(from) && CITY_DE.test(to)) flowEUtoDE = true;
+    if (CITY_DE.test(from) && CITY_EU.test(to)) flowDEtoEU = true;
+  }
+
+  const hasWare = /\b(ware|waren|gegenst|liefer|lieferung|liefert|geliefert|transport|transportiert|versand|versendet|versand|kauf|kauft|gekauft|erwirbt|erworben|verkauf|verkauft|maschine|maschinen|ger(ä|ae)t|hardware|material|palette|container|m(ö|oe)bel|fahrzeug|pkw|lkw|kfz|auto|anlage|produkt)\b/i.test(q);
   const hasDienst = /\b(dienstleistung|beratung|reparatur|softwarelizen|lizenz|schulung|werkleistung|montage(?!\s*mit)|honorar|design|marketing|übersetzung|uebersetzung)\b/i.test(q);
-  const nachDE = /\b(nach\s+deutschland|nach\s+de\b|ins\s+inland|inland)\b/i.test(q);
-  const ausDE = /\b(aus\s+deutschland|von\s+deutschland|ins\s+ausland|in\s+(einen\s+anderen\s+)?(eu-?)?mitgliedstaat|nach\s+(österreich|oesterreich|frankreich|italien|spanien|niederlande|polen|belgien|eu-?ausland))\b/i.test(q);
-  const euCtx = /\b(eu-?ausland|eu-?mitgliedstaat|(anderen?\s+)?mitgliedstaat|innergemein|frankreich|italien|spanien|niederlande|polen|belgien|österreich|oesterreich|irland|luxemburg|tschechien|slowakei|schweden|dänemark|daenemark|finnland|portugal|griechenland|ungarn)\b/i.test(q);
+  const nachDE = /\b(nach\s+deutschland|nach\s+de\b|ins\s+inland|inland)\b/i.test(q) || flowEUtoDE || (cityDE && !cityEU) || (cityDE && flowEUtoDE);
+  const ausDE = /\b(aus\s+deutschland|von\s+deutschland|ins\s+ausland|in\s+(einen\s+anderen\s+)?(eu-?)?mitgliedstaat|nach\s+(österreich|oesterreich|frankreich|italien|spanien|niederlande|polen|belgien|eu-?ausland))\b/i.test(q) || flowDEtoEU;
+  const euCtx = /\b(eu-?ausland|eu-?mitgliedstaat|(anderen?\s+)?mitgliedstaat|innergemein|frankreich|italien|spanien|niederlande|holland|polen|belgien|österreich|oesterreich|irland|luxemburg|tschechien|slowakei|schweden|dänemark|daenemark|finnland|portugal|griechenland|ungarn)\b/i.test(q) || cityEU || flowEUtoDE || flowDEtoEU;
 
   const drittland = /\b(drittland|schweiz|usa|uk|großbritannien|grossbritannien|china|japan|türkei|tuerkei)\b/i.test(q);
-  const b2b = /\b(unternehmer|b2b|ust-?id|ustid|umsatzsteuer-?identifikationsnummer)\b/i.test(q);
+  const b2b = /\b(unternehmer|unternehmen|firma|gmbh|ug|ohg|kg|ag|b2b|ust-?id|ustid|umsatzsteuer-?identifikationsnummer|vat[-\s]?id)\b/i.test(q) || /\bbeide\s+(sind\s+)?unternehmer\b/i.test(q);
   const grundstueck = /\b(grundst|immobilie|gebäude|gebaeude|wohnung|bauleistung|bauträger|bautraeger)\b/i.test(q);
   const werkMitMaterial = /\bwerklieferung|montage\s+mit\s+material|einbau\s+mit\s+material\b/i.test(q);
   const werkOhneMaterial = /\bwerkleistung|reparatur|montage(?!\s*mit\s*material)|installation\b/i.test(q);
@@ -487,7 +503,84 @@ function classifyUst(q: string): UstClassification | null {
   }
 
 
-  // 10) Kein spezifischer Typ erkannt, aber USt-Trigger vorhanden
+  // 10) Sachverhalts-Router (Sicherheitsnetz) — bevor wir „unbestimmt" zurückgeben,
+  //     prüfen wir noch einmal explizit die häufigsten Warenbewegungen. So werden
+  //     Formulierungen wie „kauft eine Maschine, Amsterdam → München, beide Unternehmer,
+  //     gültige USt-IdNr., Rechnung ohne USt." nicht mehr als „Sachverhaltsart offen"
+  //     ausgegeben.
+  if (hasWare && !hasDienst && !drittland && !reihe && !uwa) {
+    // Ware bewegt sich in ein anderes EU-Land aus Deutschland → ig. Lieferung.
+    if (flowDEtoEU || (ausDE && euCtx)) {
+      const scheme = baseScheme();
+      scheme[0].body = "Warenlieferung aus Deutschland in einen anderen EU-Mitgliedstaat an einen Unternehmer → innergemeinschaftliche Lieferung (§ 6a UStG).";
+      scheme[1].body = "Steuerbar nach § 1 Abs. 1 Nr. 1 UStG (Lieferung im Inland gegen Entgelt).";
+      scheme[2].body = "Lieferort: Deutschland — Beginn der Beförderung/Versendung (§ 3 Abs. 6 UStG).";
+      scheme[3].body = "Steuerfrei nach § 4 Nr. 1b i. V. m. § 6a UStG bei gültiger USt-IdNr. des Abnehmers und Beleg-/Buchnachweis.";
+      scheme[4].body = "Bemessungsgrundlage: vereinbartes Entgelt (§ 10 UStG), aber steuerfrei.";
+      scheme[5].body = "Steuerschuldner: der deutsche Lieferer (§ 13a Abs. 1 Nr. 1 UStG) — Lieferung steuerfrei.";
+      scheme[6].body = 'Rechnung ohne deutsche USt mit Hinweis „Steuerfreie innergemeinschaftliche Lieferung" (§ 14 Abs. 4 Nr. 8 UStG).';
+      scheme[7].body = "ZM (§ 18a UStG), UStVA Zeile ig. Lieferungen, Gelangensbestätigung (§§ 17a ff. UStDV).";
+      const complete = b2b || bothUstId;
+      return {
+        type: "innergemeinschaftliche_lieferung",
+        label: "Innergemeinschaftliche Lieferung",
+        paragraph: "§ 6a UStG, § 4 Nr. 1b UStG",
+        trail: buildTrail("§ 6a UStG (ig. Lieferung, Router)"),
+        reasoning: "Warenbewegung Deutschland → EU-Mitgliedstaat an einen Unternehmer.",
+        scheme,
+        complete,
+        followUps: complete ? [] : ["Gültige USt-IdNr. des Abnehmers vorhanden?", "Warenweg belegt (Gelangensbestätigung)?"],
+        ergebnis: complete
+          ? "Steuerfreie ig. Lieferung nach § 4 Nr. 1b i. V. m. § 6a UStG. Lieferort Deutschland (§ 3 Abs. 6 UStG), keine deutsche USt. Rechnung ohne USt mit Hinweis auf Steuerfreiheit; ZM nach § 18a UStG; Nachweise §§ 17a ff. UStDV."
+          : undefined,
+      };
+    }
+    // Ware bewegt sich aus EU nach Deutschland → ig. Erwerb (Kern des Nutzer-Beispiels).
+    if (flowEUtoDE || (nachDE && euCtx) || (euCtx && !ausDE && b2b)) {
+      const scheme = baseScheme();
+      scheme[0].body = "Warenbewegung aus einem anderen EU-Mitgliedstaat nach Deutschland an einen Unternehmer für sein Unternehmen → innergemeinschaftlicher Erwerb (§ 1a UStG).";
+      scheme[1].body = "Steuerbar im Inland nach § 1 Abs. 1 Nr. 5 UStG.";
+      scheme[2].body = "Ort des Erwerbs: Ende der Beförderung/Versendung (§ 3d Satz 1 UStG) — hier Deutschland.";
+      scheme[3].body = "Steuerpflichtig 19 % (§ 12 Abs. 1 UStG); keine § 4-Befreiung einschlägig.";
+      scheme[4].body = "Bemessungsgrundlage: Entgelt der Rechnung ohne USt (§ 10 Abs. 1 UStG).";
+      scheme[5].body = "Steuerschuldner: der deutsche Erwerber (§ 13a Abs. 1 Nr. 2 UStG). Kein § 13b UStG.";
+      scheme[6].body = "Erwerbsteuer 19 % (§ 12 Abs. 1 UStG).";
+      scheme[7].body = "Vorsteuerabzug in gleicher Höhe nach § 15 Abs. 1 Satz 1 Nr. 3 UStG → wirtschaftlich neutral.";
+      const complete = b2b && (bothUstId || rechnungOhneUst);
+      return {
+        type: "innergemeinschaftlicher_erwerb",
+        label: "Innergemeinschaftlicher Erwerb",
+        paragraph: "§ 1a UStG",
+        trail: buildTrail("§ 1a UStG (ig. Erwerb, Router)"),
+        reasoning: "Ware gelangt aus einem EU-Mitgliedstaat nach Deutschland an einen Unternehmer für sein Unternehmen — ig. Erwerb (§ 1a UStG), nicht § 13b UStG.",
+        scheme,
+        complete,
+        followUps: complete ? [] : ["USt-IdNr. beider Beteiligten gültig?", "Warenweg im Inland (Deutschland) beendet?"],
+        negative: "Reverse Charge nach § 13b UStG bewusst NICHT anwenden — bei Warenbewegung greift § 1a UStG.",
+        ergebnis: complete
+          ? "Innergemeinschaftlicher Erwerb: im Inland steuerbar (§ 1 Abs. 1 Nr. 5, § 3d S. 1 UStG) und steuerpflichtig 19 % (§ 12 Abs. 1 UStG). Steuerschuldner ist der deutsche Erwerber (§ 13a Abs. 1 Nr. 2 UStG); zugleich Vorsteuerabzug in gleicher Höhe nach § 15 Abs. 1 S. 1 Nr. 3 UStG → Zahllast 0. Meldung: UStVA (ig. Erwerbe 19 %); Lieferer meldet ig. Lieferung in ZM."
+          : undefined,
+      };
+    }
+    // Reine Inlandslieferung
+    if (nachDE && !euCtx && !drittland) {
+      const scheme = baseScheme();
+      scheme[0].body = "Lieferung im Inland (§ 3 Abs. 1 UStG).";
+      scheme[2].body = "Lieferort § 3 Abs. 6 UStG — Beginn der Beförderung/Versendung.";
+      return {
+        type: "lieferung_inland",
+        label: "Inlandslieferung",
+        paragraph: "§ 3 Abs. 1, § 3 Abs. 6 UStG",
+        trail: buildTrail("§ 3 Abs. 1 UStG (Inlandslieferung)"),
+        reasoning: "Warenlieferung im Inland — Regelbesteuerung.",
+        scheme,
+        complete: b2b,
+        followUps: b2b ? [] : ["Empfänger Unternehmer oder Endkunde?"],
+      };
+    }
+  }
+
+  // 11) Kein spezifischer Typ erkannt, aber USt-Trigger vorhanden
   //     → USt-Workflow trotzdem starten (keine allgemeine „Welche Steuerart?"-Rückfrage).
   return {
     type: "unbestimmt",

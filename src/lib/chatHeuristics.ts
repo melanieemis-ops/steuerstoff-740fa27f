@@ -134,6 +134,27 @@ interface UstClassification {
   trail?: string;
 }
 
+/** Mapping vom internen UstType auf den ScenarioType der Knowledge Base. */
+function ustTypeToScenarioType(t: UstType): ScenarioType | null {
+  switch (t) {
+    case "innergemeinschaftlicher_erwerb": return "innergemeinschaftlicher_erwerb";
+    case "innergemeinschaftliche_lieferung": return "innergemeinschaftliche_lieferung";
+    case "reverse_charge": return "reverse_charge";
+    case "werklieferung": return "werklieferung";
+    case "werkleistung": return "werkleistung";
+    case "reihengeschaeft": return "reihengeschaeft";
+    case "grundstueck": return "grundstuecksleistung";
+    case "ausfuhr": return "ausfuhrlieferung";
+    case "einfuhr": return "einfuhr";
+    case "unentgeltliche_wertabgabe": return "unentgeltliche_wertabgabe";
+    case "verbringen": return "verbringen";
+    case "lieferung_inland": return "lieferung_inland";
+    case "sonstige_leistung": return "sonstige_leistung";
+    default: return null;
+  }
+}
+
+
 
 function classifyUst(q: string): UstClassification | null {
   if (!hasUstTriggers(q)) return null;

@@ -458,94 +458,60 @@ function classifyUst(q: string): UstClassification | null {
 }
 
 
+/**
+ * Erzeugt eine reine Zitat-/Vertiefungssektion aus einem KB-Eintrag.
+ * Wichtig: der Body des KB-Eintrags (der oft einen Beispiel-Sachverhalt enthält)
+ * wird bewusst NICHT in die Antwort kopiert. Es werden ausschließlich Titel,
+ * Rechtsgrundlagen und — falls vorhanden — die regelhafte Kurzbeschreibung
+ * (`short`) übernommen, damit die eigene Falllösung nicht überschrieben wird.
+ */
+function kbCitationSection(
+  e: KBEntry,
+  role: "Vertiefung" | "Alternative Regel" = "Vertiefung",
+): { title: string; body: string } {
+  const refs = e.references?.length ? `Rechtsgrundlage: ${e.references.join(", ")}` : "";
+  const rule = e.short ? e.short.trim() : "";
+  const body = [rule, refs].filter(Boolean).join("\n\n")
+    || "Regelhafte Vertiefung siehe Wissensdatenbank.";
+  return { title: `${role}: ${e.title}`, body };
+}
+
 function classifyUstSachverhalt(q: string): ChatAnswer | null {
   const c = classifyUst(q);
   if (!c) return null;
 
   // 2) NACH Klassifizierung: scenarioType bestimmen und gezielt KB-Einträge
-  //    mit demselben scenarioType laden (Paragraph/Kategorie/Keyword-Scoring
-  //    läuft nur auf dieser Kandidatenmenge).
+  //    mit demselben scenarioType laden. Diese Treffer dienen ausschließlich
+  //    als Begründung / Vertiefung — sie ersetzen niemals die eigene Falllösung.
   const scenarioType = ustTypeToScenarioType(c.type);
-  let kb = findKbMatches(q, [c.paragraph], ["Umsatzsteuer"], 2, scenarioType);
-
-  // Fallback-Overwrite: Wenn die Klassifizierung „unbestimmt" ist, der Prompt
-  // aber konkrete Angaben enthält und ein Wissensbaustein passt, wird der
-  // KB-Treffer zur Hauptantwort — kein generischer „nicht eindeutig"-Fallback.
-  const isFallback = c.type === "unbestimmt";
-  if (isFallback && kb.length === 0) {
-    // Ohne scenarioType-Filter erneut suchen (breiter, aber weiterhin USt-Kategorie).
-    kb = findKbMatches(q, [], ["Umsatzsteuer"], 2, null);
-  }
-
-  if (isFallback && kb.length > 0) {
-    const main = kb[0];
-    const alt = kb[1];
-    const refs = main.references?.length ? `\n\nRechtsgrundlage: ${main.references.join(", ")}` : "";
-    const sections: { title: string; body: string }[] = [
-      ...(c.trail ? [{ title: "Klassifizierung", body: c.trail }] : []),
-      { title: "Wahrscheinlicher Fall", body: main.title },
-      { title: "Konkrete Falllösung", body: (main.short ? `${main.short}\n\n` : "") + main.body + refs },
-    ];
-    if (alt) {
-      sections.push({
-        title: `Alternative: ${alt.title}`,
-        body: (alt.short ? `${alt.short}\n\n` : "") + alt.body
-          + (alt.references?.length ? `\n\nRechtsgrundlage: ${alt.references.join(", ")}` : ""),
-      });
-    }
-    return {
-      kind: "case",
-      summary: `USt-Prüfung: ${main.title}${main.references?.length ? ` (${main.references[0]})` : ""}.`,
-      reasoning: `Zum Prompt passt eindeutig der Wissensbaustein „${main.title}"${alt ? `; alternativ kommt „${alt.title}" in Betracht` : ""}.`,
-      sections,
-      // Rückfragen unterdrücken, wenn ein KB-Treffer die Antwort trägt.
-      followUps: undefined,
-      nextStep: "Buchung/Meldung nach der im Wissensbaustein genannten Norm ableiten (UStVA, ZM, Belegnachweise).",
-      knowledge: main.category || "Umsatzsteuer",
-      links: [
-        { label: "Wissensdatenbank öffnen", to: "/wissensdatenbank" },
-        { label: "Strukturierte Anfrage anlegen", to: "/neue-anfrage" },
-      ],
-    };
-  }
-
-  // Regelfall: konkrete Klassifizierung vorhanden.
-  // KB-Treffer wird OBEN als „Konkrete Falllösung" eingezogen (nicht nur unten angehängt).
+  const kb = findKbMatches(q, [c.paragraph], ["Umsatzsteuer"], 2, scenarioType);
   const main = kb[0];
   const alt = kb[1];
+
   const sections: { title: string; body: string }[] = [
     ...(c.trail ? [{ title: "Klassifizierung", body: c.trail }] : []),
     { title: "Sachverhaltsart", body: `${c.label} (${c.paragraph})` },
+    ...c.scheme,
+    { title: "9. Ergebnis", body: c.ergebnis ?? c.reasoning },
   ];
-  if (main) {
-    const refs = main.references?.length ? `\n\nRechtsgrundlage: ${main.references.join(", ")}` : "";
-    sections.push({
-      title: `Konkrete Falllösung: ${main.title}`,
-      body: (main.short ? `${main.short}\n\n` : "") + main.body + refs,
-    });
-  }
-  sections.push(...c.scheme, { title: "9. Ergebnis", body: c.ergebnis ?? c.reasoning });
-  if (alt) {
-    sections.push({
-      title: `Alternative: ${alt.title}`,
-      body: (alt.short ? `${alt.short}\n\n` : "") + alt.body
-        + (alt.references?.length ? `\n\nRechtsgrundlage: ${alt.references.join(", ")}` : ""),
-    });
-  }
+
+  // Wissensbausteine NUR als Zitat/Vertiefung anhängen — kein Body-Copy,
+  // kein Beispiel-Sachverhalt, keine Ersatz-Falllösung.
+  if (main) sections.push(kbCitationSection(main, "Vertiefung"));
+  if (alt) sections.push(kbCitationSection(alt, "Alternative Regel"));
 
   if (c.negative) sections.push({ title: "Nicht anwenden", body: c.negative });
-  // Rückfragen nur, wenn wirklich Pflichtangaben fehlen UND kein KB-Treffer die Lücke schließt.
-  const suppressFollowUps = c.complete || !!main;
+
+  // Rückfragen weiterhin nur unterdrücken, wenn der Sachverhalt vollständig
+  // klassifiziert ist — KB-Treffer allein reichen dafür NICHT.
   return {
     kind: "case",
     summary: c.complete
       ? `USt-Prüfung abgeschlossen: ${c.label} (${c.paragraph}).`
-      : main
-        ? `USt-Prüfung: ${c.label} (${c.paragraph}) — Falllösung aus Wissensbaustein.`
-        : `USt-Prüfung: ${c.label} (${c.paragraph}).`,
+      : `USt-Prüfung: ${c.label} (${c.paragraph}).`,
     reasoning: c.reasoning,
     sections,
-    followUps: suppressFollowUps ? undefined : c.followUps,
+    followUps: c.complete ? undefined : c.followUps,
     nextStep: c.complete
       ? "Buchung/Meldung ableiten: UStVA (ig. Erwerbe 19 %, Vorsteuer), ZM des Lieferers, Belegnachweise archivieren."
       : "Erst nach vollständiger Klassifizierung Buchung/Meldung ableiten (UStVA, ZM, ggf. § 18 Abs. 4c UStG).",
@@ -556,6 +522,7 @@ function classifyUstSachverhalt(q: string): ChatAnswer | null {
     ],
   };
 }
+
 
 
 

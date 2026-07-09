@@ -282,34 +282,31 @@ function classifyUst(q: string): UstClassification | null {
     };
   }
 
-  // 10) Rechnung ohne USt ohne weitere Hinweise → NICHT direkt § 13b, sondern klassifizieren
-  if (rechnungOhneUst || (euCtx && !hasWare && !hasDienst)) {
-    return {
-      type: "unbestimmt",
-      label: "Sachverhalt noch nicht bestimmbar",
-      paragraph: "§ 1 UStG (Systematik)",
-      reasoning:
-        "Rechnung ohne USt aus dem EU-Ausland kann viele Ursachen haben: ig. Erwerb (Ware), Reverse Charge (Dienstleistung), ig. Dreiecksgeschäft, steuerfreie Lieferung, Kleinunternehmer, Fehler des Rechnungsstellers. Erst die Sachverhaltsart entscheidet.",
-      scheme: [
-        { title: "1. Was wurde geleistet?", body: "Ware (Lieferung) oder Dienstleistung (sonstige Leistung)?" },
-        { title: "2. Warenweg", body: "Woher / wohin bewegt sich der Gegenstand? EU-Ausland → Deutschland?" },
-        { title: "3. Beteiligte", body: "B2B mit gültigen USt-IdNr.? Ansässigkeit des Leistenden?" },
-        { title: "4. Rechnungsangaben", body: "USt-IdNr., Hinweis auf § 13b oder ig. Lieferung, Ort/Datum?" },
-        { title: "5. Erst dann Norm", body: "§ 1a (ig. Erwerb) vs. § 13b (RC) vs. § 6a (ig. Lieferung) vs. § 25b (Dreieck) usw." },
-      ],
-      followUps: [
-        "Handelt es sich um Ware oder Dienstleistung?",
-        "Aus welchem Land wurde geliefert / geleistet?",
-        "Gelangt der Gegenstand physisch nach Deutschland?",
-        "Liegen gültige USt-IdNr. beider Seiten vor?",
-      ],
-      negative:
-        "Bitte nicht vorschnell auf § 13b UStG schließen — insbesondere bei Warenbewegungen ist regelmäßig § 1a UStG (ig. Erwerb) einschlägig.",
-    };
-  }
-
-  return null;
+  // 10) Kein spezifischer Typ erkannt, aber USt-Trigger vorhanden
+  //     → USt-Workflow trotzdem starten (keine allgemeine „Welche Steuerart?"-Rückfrage).
+  return {
+    type: "unbestimmt",
+    label: "Umsatzsteuerlicher Sachverhalt — Klassifizierung erforderlich",
+    paragraph: "§ 1 UStG (Systematik)",
+    reasoning:
+      "Umsatzsteuerliche Begriffe im Prompt erkannt. Die konkrete Sachverhaltsart (Lieferung, sonstige Leistung, ig. Erwerb § 1a, ig. Lieferung § 6a, Reverse Charge § 13b, Ausfuhr § 6, Einfuhr, Reihen-/Dreiecksgeschäft) ist noch nicht eindeutig — bitte die entscheidungserheblichen Angaben ergänzen.",
+    scheme: [
+      { title: "1. Was wurde geleistet?", body: "Ware (Lieferung, § 3 Abs. 1 UStG) oder Dienstleistung (sonstige Leistung, § 3 Abs. 9 UStG)?" },
+      { title: "2. Warenweg / Leistungsort", body: "Woher / wohin? Inland, EU-Ausland oder Drittland? Ort nach §§ 3, 3a–3g UStG." },
+      { title: "3. Beteiligte", body: "B2B mit gültigen USt-IdNr.? Ansässigkeit des Leistenden / Empfängers?" },
+      { title: "4. Rechnungsangaben", body: "USt ausgewiesen? Hinweis auf § 13b oder ig. Lieferung? § 14 UStG." },
+      { title: "5. Erst dann Norm", body: "§ 1a (ig. Erwerb) vs. § 13b (RC) vs. § 6a (ig. Lieferung) vs. § 25b (Dreieck) vs. § 6 (Ausfuhr) usw." },
+    ],
+    followUps: [
+      "Handelt es sich um Ware oder Dienstleistung?",
+      "Aus welchem Land wird geliefert / geleistet, wohin?",
+      "Sind beide Beteiligte Unternehmer (USt-IdNr.)?",
+    ],
+    negative:
+      "Bitte nicht vorschnell auf § 13b UStG schließen — bei Warenbewegungen ist regelmäßig § 1a UStG (ig. Erwerb) einschlägig.",
+  };
 }
+
 
 function classifyUstSachverhalt(q: string): ChatAnswer | null {
   const c = classifyUst(q);

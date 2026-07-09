@@ -814,7 +814,7 @@ function ustTriggerCount(q: string): number {
 }
 
 // Fachbegriffe, die für sich allein den USt-Workflow zwingend auslösen.
-const UST_STRONG = /\b(umsatzsteuer|ust\b|mwst|mehrwertsteuer|vorsteuer|reverse\s*charge|innergemein|ig\.?\s*(erwerb|lieferung)|ust-?id|werklieferung|werkleistung|ausfuhrlieferung|ausfuhr|einfuhr|eust|leistungsort|steuerschuldner(schaft)?|bemessungsgrundlage)\b|§\s*(13b|1a|3a|6a)|(?:^|[^a-z])(13b|1a|3a|6a)\s*ustg/i;
+const UST_STRONG = /\b(umsatzsteuer[a-zäöüß]*|ust\b|mwst|mehrwertsteuer|vorsteuer[a-zäöüß]*|reverse\s*charge|innergemein[a-zäöüß]*|ig\.?\s*(erwerb|lieferung)|ust-?id|werklieferung|werkleistung|ausfuhrlieferung|ausfuhr|einfuhr|eust|leistungsort|steuerschuldner(schaft)?|bemessungsgrundlage|grundst[a-zäöüß]*|geb(ä|ae)ude|immobilie|zwischenvermietung|vermietung|sportanlage|betriebsvorrichtung|tennishalle|bauleistung)\b|§\s*(13b|1a|3a|6a|15a?|4\s*nr\.?\s*(9a?|12)|9\b)|(?:^|[^a-z])(13b|1a|3a|6a|15a?)\s*ustg/i;
 
 function hasUstTriggers(q: string): boolean {
   // Ein starker Kernbegriff reicht, sonst mindestens zwei allgemeine Trigger.

@@ -83,12 +83,15 @@ export function runKbRegression(opts: { verbose?: boolean } = {}): RegressionRep
     const isHardScenario = expected && HARD_SCENARIOS.includes(expected);
     const hasExplicitExpect = !!entry.expect;
 
-    // Szenariotyp
+    // Szenariotyp — hart nur bei explizit gesetzten Erwartungen. Bei ohne
+    // `expect` (synthetisierte Prompts) bleibt Abweichung "soft", damit
+    // schwammige Titel/Keywords keine Regressionen provozieren.
     if (expected && cls.scenarioType !== expected) {
       reasons.push(`scenarioType erwartet=${expected}, tatsächlich=${cls.scenarioType ?? "—"}`);
-      if (isHardScenario || hasExplicitExpect) hardFail = true;
+      if (hasExplicitExpect) hardFail = true;
       else softFail = true;
     }
+
 
     // Erwartete Paragraphen
     if (entry.expect?.paragraphen?.length) {

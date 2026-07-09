@@ -62,7 +62,10 @@ interface UstClassification {
   complete?: boolean;
   /** Kompaktes Endergebnis bei vollständigem Sachverhalt */
   ergebnis?: string;
+  /** Kurze, nachvollziehbare Erkennungsspur (Signale → Norm). */
+  trail?: string;
 }
+
 
 function classifyUst(q: string): UstClassification | null {
   if (!hasUstTriggers(q)) return null;
@@ -87,7 +90,26 @@ function classifyUst(q: string): UstClassification | null {
   const bothUstId = /\b(beide|jeweils|jeder)[^.]*ust-?id/i.test(q)
     || (/(ust-?id|ustid|umsatzsteuer-?identifikationsnummer)/i.test(q) && b2b);
 
+  // Kurze, menschlich lesbare Signal-Spur für die Antwort ("Erkennung: …").
+  const signals: string[] = [];
+  if (hasWare && !hasDienst) signals.push("Ware/Lieferung");
+  else if (hasDienst && !hasWare) signals.push("sonstige Leistung");
+  else if (hasWare && hasDienst) signals.push("Ware + Leistung");
+  if (nachDE) signals.push("→ Deutschland");
+  if (ausDE) signals.push("aus Deutschland →");
+  if (euCtx) signals.push("EU-Ausland");
+  if (drittland) signals.push("Drittland");
+  if (b2b) signals.push("B2B");
+  if (bothUstId) signals.push("beide USt-IdNr.");
+  if (grundstueck) signals.push("Grundstück");
+  if (reihe) signals.push("Reihe/Dreieck");
+  if (werkMitMaterial) signals.push("Werk mit Material");
+  else if (werkOhneMaterial) signals.push("Werk ohne Material");
+  const buildTrail = (norm: string) =>
+    `Erkennung: ${signals.length ? signals.join(" · ") : "USt-Sachverhalt"} → ${norm}`;
+
   const baseScheme = (extra: { title: string; body: string }[] = []) => [
+
     { title: "1. Sachverhaltsart", body: "" }, // filled per type
     { title: "2. Steuerbarkeit", body: "§ 1 Abs. 1 UStG prüfen (Leistung im Inland, gegen Entgelt, im Rahmen des Unternehmens)." },
     { title: "3. Ort", body: "§§ 3, 3a–3g UStG — Ortsbestimmung je nach Leistungsart." },
@@ -105,7 +127,7 @@ function classifyUst(q: string): UstClassification | null {
     scheme[0].body = "Warenbewegung aus einem anderen EU-Mitgliedstaat nach Deutschland an einen Unternehmer für sein Unternehmen → innergemeinschaftlicher Erwerb (§ 1a UStG).";
     scheme[4].body = "Steuerschuldner ist der Erwerber (§ 13a Abs. 1 Nr. 2 UStG). Kein § 13b UStG — dieser gilt nur für sonstige Leistungen und einzelne Sonderfälle.";
     scheme[2].body = "Ort des Erwerbs: Ende der Beförderung/Versendung (§ 3d Satz 1 UStG) — hier Deutschland.";
-    const complete = b2b && bothUstId && transportNachDE && (rechnungOhneUst || /rechnung/i.test(q));
+    const complete = b2b && bothUstId && (transportNachDE || nachDE);
     if (complete) {
       scheme[3].body = "Steuerpflichtig 19 % (§ 12 Abs. 1 UStG) bzw. 7 % (§ 12 Abs. 2 UStG) — keine Befreiung einschlägig.";
       scheme[5].body = "Bemessungsgrundlage: Entgelt der Rechnung (§ 10 Abs. 1 UStG) ohne USt.";
@@ -116,6 +138,7 @@ function classifyUst(q: string): UstClassification | null {
       type: "innergemeinschaftlicher_erwerb",
       label: "Innergemeinschaftlicher Erwerb",
       paragraph: "§ 1a UStG",
+      trail: buildTrail("§ 1a UStG (ig. Erwerb)"),
       reasoning:
         "Ware gelangt aus einem EU-Mitgliedstaat nach Deutschland an einen Unternehmer für sein Unternehmen. Das ist ein ig. Erwerb (§ 1a UStG), kein Reverse Charge nach § 13b UStG.",
       scheme,
@@ -132,6 +155,7 @@ function classifyUst(q: string): UstClassification | null {
         ? "Innergemeinschaftlicher Erwerb im Inland steuerbar (§ 1 Abs. 1 Nr. 5, § 3d S. 1 UStG) und steuerpflichtig (19 %). Steuerschuldner ist der deutsche Erwerber (§ 13a Abs. 1 Nr. 2 UStG); zugleich Vorsteuerabzug in gleicher Höhe nach § 15 Abs. 1 S. 1 Nr. 3 UStG → Zahllast 0. Meldepflichten: Erwerb in UStVA (Zeilen ig. Erwerbe 19 %), Lieferer meldet ig. Lieferung in ZM."
         : undefined,
     };
+
   }
 
   // 2) Innergemeinschaftliche Lieferung
@@ -144,6 +168,7 @@ function classifyUst(q: string): UstClassification | null {
       type: "innergemeinschaftliche_lieferung",
       label: "Innergemeinschaftliche Lieferung",
       paragraph: "§ 6a UStG, § 4 Nr. 1b UStG",
+      trail: buildTrail("§ 6a UStG (ig. Lieferung)"),
       reasoning: "Ware verlässt Deutschland in Richtung EU-Ausland an einen Unternehmer — steuerfreie ig. Lieferung, kein § 13b UStG.",
       scheme,
       followUps: complete
@@ -158,6 +183,7 @@ function classifyUst(q: string): UstClassification | null {
         ? "Steuerbare Lieferung (§ 1 Abs. 1 Nr. 1 UStG), steuerfrei als ig. Lieferung (§ 4 Nr. 1b i. V. m. § 6a UStG). Rechnung ohne USt mit Hinweis auf Steuerbefreiung (§ 14 Abs. 4 Nr. 8 UStG). Beleg- und Buchnachweis (§§ 17a ff. UStDV) sowie ZM-Meldung (§ 18a UStG) erforderlich."
         : undefined,
     };
+
   }
 
   // 3) Reihengeschäft
@@ -169,6 +195,7 @@ function classifyUst(q: string): UstClassification | null {
       type: "reihengeschaeft",
       label: "Reihengeschäft",
       paragraph: "§ 3 Abs. 6a, § 3 Abs. 7 UStG",
+      trail: buildTrail("§ 3 Abs. 6a UStG (Reihengeschäft)"),
       reasoning: "Beteiligte, Transportverantwortung und USt-IdNr. entscheiden über die bewegte Lieferung — § 13b UStG greift hier nicht automatisch.",
       scheme,
       followUps: [
@@ -177,6 +204,7 @@ function classifyUst(q: string): UstClassification | null {
         "Handelt es sich um ein innergemeinschaftliches Dreiecksgeschäft (§ 25b UStG)?",
       ],
     };
+
   }
 
   // 4) Werklieferung / Werkleistung
@@ -187,22 +215,28 @@ function classifyUst(q: string): UstClassification | null {
       type: "werklieferung",
       label: "Werklieferung",
       paragraph: "§ 3 Abs. 4 UStG",
-      reasoning: "Wird der Hauptstoff vom leistenden Unternehmer beschafft, liegt eine Lieferung vor — ortsbestimmung nach Lieferungsregeln.",
+      trail: buildTrail("§ 3 Abs. 4 UStG (Werklieferung)"),
+      reasoning: "Wird der Hauptstoff vom leistenden Unternehmer beschafft, liegt eine Lieferung vor — Ortsbestimmung nach Lieferungsregeln.",
       scheme,
-      followUps: ["Wer beschafft Haupt- und Nebenstoffe?", "Ort der Verschaffung der Verfügungsmacht?"],
+      complete: true,
+      followUps: [],
     };
   }
   if (werkOhneMaterial) {
     const scheme = baseScheme();
     scheme[0].body = "Werkleistung: Bearbeitung/Verarbeitung fremder Gegenstände → sonstige Leistung (§ 3 Abs. 9 UStG).";
+    const complete = b2b && (euCtx || drittland || nachDE || ausDE);
     return {
       type: "werkleistung",
       label: "Werkleistung",
       paragraph: "§ 3 Abs. 9 UStG",
-      reasoning: "Wird kein Hauptstoff geliefert, liegt eine sonstige Leistung vor. § 13b UStG nur, wenn Empfänger Unternehmer und leistender im Ausland ansässig ist.",
+      trail: buildTrail("§ 3 Abs. 9 UStG (Werkleistung / sonstige Leistung)"),
+      reasoning: "Wird kein Hauptstoff geliefert, liegt eine sonstige Leistung vor. § 13b UStG nur, wenn Empfänger Unternehmer und Leistender im Ausland ansässig ist.",
       scheme,
-      followUps: ["Wo ist der Leistende ansässig?", "Empfänger Unternehmer (B2B)?"],
+      complete,
+      followUps: complete ? [] : ["Wo ist der Leistende ansässig?", "Empfänger Unternehmer (B2B)?"],
     };
+
   }
 
   // 5) Grundstück
@@ -213,10 +247,12 @@ function classifyUst(q: string): UstClassification | null {
       type: "grundstueck",
       label: "Grundstücksleistung / Grundstücksumsatz",
       paragraph: "§ 3a Abs. 3 Nr. 1, § 4 Nr. 9a, § 9, § 13b Abs. 2 Nr. 3 UStG",
+      trail: buildTrail("§ 3a Abs. 3 Nr. 1 UStG (Grundstück)"),
       reasoning: "Bei Grundstücken gelten Sonderregeln (Belegenheitsort, § 4 Nr. 9a Befreiung, Option, ggf. § 13b Abs. 2 Nr. 3).",
       scheme,
       followUps: ["Verkauf oder Vermietung?", "Wird zur Steuerpflicht optiert (§ 9 UStG)?", "Empfänger Unternehmer?"],
     };
+
   }
 
   // 6) Ausfuhr / Einfuhr
@@ -225,8 +261,10 @@ function classifyUst(q: string): UstClassification | null {
     scheme[0].body = "Ausfuhrlieferung ins Drittland (§ 6 UStG), steuerfrei nach § 4 Nr. 1a UStG bei Belegnachweis (Ausfuhrnachweis, Buchnachweis).";
     return {
       type: "ausfuhr", label: "Ausfuhrlieferung", paragraph: "§ 6, § 4 Nr. 1a UStG",
+      trail: buildTrail("§ 6 UStG (Ausfuhrlieferung)"),
       reasoning: "Ware verlässt das Zollgebiet der EU — steuerfreie Ausfuhrlieferung.", scheme,
-      followUps: ["Liegt Ausfuhrnachweis (MRN/EAD) vor?", "Buchnachweis vollständig?"],
+      complete: true,
+      followUps: [],
     };
   }
   if (hasWare && drittland && nachDE) {
@@ -234,9 +272,12 @@ function classifyUst(q: string): UstClassification | null {
     scheme[0].body = "Einfuhr aus dem Drittland → Einfuhrumsatzsteuer (§ 1 Abs. 1 Nr. 4 UStG), Vorsteuerabzug nach § 15 Abs. 1 Nr. 2 UStG.";
     return {
       type: "einfuhr", label: "Einfuhr / EUSt", paragraph: "§ 1 Abs. 1 Nr. 4, § 15 Abs. 1 Nr. 2 UStG",
+      trail: buildTrail("§ 1 Abs. 1 Nr. 4 UStG (Einfuhr / EUSt)"),
       reasoning: "Bei Wareneinfuhr aus Drittland entsteht EUSt beim Zoll — kein § 13b UStG.", scheme,
-      followUps: ["Zollbeleg / EUSt-Bescheid vorhanden?"],
+      complete: true,
+      followUps: [],
     };
+
   }
 
   // 7) Verbringen
@@ -245,6 +286,7 @@ function classifyUst(q: string): UstClassification | null {
     scheme[0].body = "Innergemeinschaftliches Verbringen eigener Ware ins EU-Ausland → einer ig. Lieferung gleichgestellt (§ 3 Abs. 1a UStG).";
     return {
       type: "verbringen", label: "Innergemeinschaftliches Verbringen", paragraph: "§ 3 Abs. 1a UStG",
+      trail: buildTrail("§ 3 Abs. 1a UStG (ig. Verbringen)"),
       reasoning: "Eigene Ware wird ohne Umsatz ins EU-Ausland verbracht — als ig. Lieferung/ig. Erwerb zu behandeln.", scheme,
       followUps: ["Zweck der Verbringung (dauerhaft / vorübergehend)?"],
     };
@@ -256,9 +298,11 @@ function classifyUst(q: string): UstClassification | null {
     scheme[0].body = "Unentgeltliche Wertabgabe (§ 3 Abs. 1b / Abs. 9a UStG) — Gleichstellung mit entgeltlicher Lieferung/Leistung.";
     return {
       type: "unentgeltliche_wertabgabe", label: "Unentgeltliche Wertabgabe", paragraph: "§ 3 Abs. 1b, Abs. 9a UStG",
+      trail: buildTrail("§ 3 Abs. 1b/9a UStG (unentgeltliche Wertabgabe)"),
       reasoning: "Privatnutzung / Entnahme aus dem Unternehmen — Bemessungsgrundlage § 10 Abs. 4 UStG.", scheme,
       followUps: ["Vorsteuerabzug bei Anschaffung möglich gewesen?", "Nutzungsanteil dokumentiert?"],
     };
+
   }
 
   // 9) Reverse Charge — nur wenn wirklich sonstige Leistung / § 13b-Fall
@@ -267,20 +311,26 @@ function classifyUst(q: string): UstClassification | null {
     const scheme = baseScheme();
     scheme[0].body = "Sonstige Leistung eines im Ausland ansässigen Unternehmers an einen inländischen Unternehmer → Reverse Charge (§ 13b Abs. 1/Abs. 2 UStG).";
     scheme[4].body = "Steuerschuldner ist der Leistungsempfänger (§ 13b Abs. 5 UStG). Rechnung ohne USt mit Hinweis 'Steuerschuldnerschaft des Leistungsempfängers'.";
+    const complete = explicitRC || (hasDienst && (euCtx || drittland) && b2b);
     return {
       type: "reverse_charge",
       label: "Reverse Charge",
       paragraph: "§ 13b UStG",
+      trail: buildTrail("§ 13b UStG (Reverse Charge)"),
       reasoning:
         "Nur bei ausdrücklich in § 13b UStG genannten Fällen (v. a. sonstige Leistungen ausländischer Unternehmer, Bauleistungen B2B, Schrott, Gebäudereinigung, Emissionshandel).",
       scheme,
-      followUps: [
-        "Handelt es sich wirklich um eine sonstige Leistung (nicht Ware)?",
-        "Ist der Leistende im Ausland ansässig?",
-        "Empfänger inländischer Unternehmer?",
-      ],
+      complete,
+      followUps: complete
+        ? []
+        : [
+            "Handelt es sich wirklich um eine sonstige Leistung (nicht Ware)?",
+            "Ist der Leistende im Ausland ansässig?",
+            "Empfänger inländischer Unternehmer?",
+          ],
     };
   }
+
 
   // 10) Kein spezifischer Typ erkannt, aber USt-Trigger vorhanden
   //     → USt-Workflow trotzdem starten (keine allgemeine „Welche Steuerart?"-Rückfrage).
@@ -288,6 +338,8 @@ function classifyUst(q: string): UstClassification | null {
     type: "unbestimmt",
     label: "Umsatzsteuerlicher Sachverhalt — Klassifizierung erforderlich",
     paragraph: "§ 1 UStG (Systematik)",
+    trail: buildTrail("Sachverhaltsart offen"),
+
     reasoning:
       "Umsatzsteuerliche Begriffe im Prompt erkannt. Die konkrete Sachverhaltsart (Lieferung, sonstige Leistung, ig. Erwerb § 1a, ig. Lieferung § 6a, Reverse Charge § 13b, Ausfuhr § 6, Einfuhr, Reihen-/Dreiecksgeschäft) ist noch nicht eindeutig — bitte die entscheidungserheblichen Angaben ergänzen.",
     scheme: [
@@ -312,10 +364,12 @@ function classifyUstSachverhalt(q: string): ChatAnswer | null {
   const c = classifyUst(q);
   if (!c) return null;
   const sections = [
+    ...(c.trail ? [{ title: "Klassifizierung", body: c.trail }] : []),
     { title: "Sachverhaltsart", body: `${c.label} (${c.paragraph})` },
     ...c.scheme,
     { title: "9. Ergebnis", body: c.ergebnis ?? c.reasoning },
   ];
+
   if (c.negative) sections.push({ title: "Nicht anwenden", body: c.negative });
   return {
     kind: "case",

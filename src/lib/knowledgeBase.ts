@@ -64,7 +64,7 @@ Review-Hinweis: Bei Mandantenfragen zuerst klären, ob eine allgemeine bilanziel
   title: "Jahresabschlussanalyse: GuV, EBIT, Kennzahlen und KSt-Korrekturen",
   short:
     "Prüfungswissen zu GuV nach § 275 Abs. 2 HGB, ordentlichem Betriebsergebnis, Rentabilitätskennzahlen, Lagerkennzahlen, Leverage-Effekt sowie vGA/vE in der Körperschaftsteuer.",
-  category: "Jahresabschlussanalyse",
+  category: "Jahresabschluss",
   source: "Interne Steuerstoff-Prüfungsvorbereitung",
   keywords:
     "guv|gesamtkostenverfahren|gkv|§ 275 hgb|betriebsergebnis|ebit|ordentliches betriebsergebnis|neutrale erträge|neutrale aufwendungen|eigenkapitalquote|eigenkapitalrentabilität|gesamtkapitalrentabilität|fremdkapitalzinssatz|leverage effekt|lagerdauer|umschlagshäufigkeit|vorräte|forderung|verbindlichkeiten|dso|dpo|körperschaftsteuer|vga|verdeckte gewinnausschüttung|ve|verdeckte einlage|§ 8 kstg|§ 8b kstg|§ 27 kstg",

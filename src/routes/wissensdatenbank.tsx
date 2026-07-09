@@ -543,7 +543,7 @@ Bei NPO zusätzlich
 const KB_ARTICLES: Article[] = KNOWLEDGE_BASE.map((e) => ({
   id: `kb-${e.id}`,
   title: e.title,
-  short: e.short,
+  short: e.short ?? e.title,
   category: e.category as Category,
   body: `${e.body}${
     e.references?.length ? `\n\nRechtsgrundlagen: ${e.references.join(", ")}` : ""

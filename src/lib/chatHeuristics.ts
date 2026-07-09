@@ -397,7 +397,8 @@ function classifyUst(q: string): UstClassification | null {
     };
   }
 
-  if (werkMitMaterial) {
+  const explicitRCEarly = /\breverse\s*charge|§\s*13b|13b\s*ustg\b/i.test(q);
+  if (werkMitMaterial && !explicitRCEarly) {
     const scheme = baseScheme();
     scheme[0].body = "Werklieferung: Unternehmer stellt aus selbst beschafftem Hauptstoff ein Werk her → Lieferung (§ 3 Abs. 4 UStG).";
     return {

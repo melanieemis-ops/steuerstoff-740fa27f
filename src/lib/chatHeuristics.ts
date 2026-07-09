@@ -441,9 +441,12 @@ function classifyUstSachverhalt(q: string): ChatAnswer | null {
   const c = classifyUst(q);
   if (!c) return null;
 
-  // 2) NACH Klassifizierung gezielt passende KB-Einträge laden
-  //    (Paragraph + Kategorie „Umsatzsteuer" statt Volltext-Ähnlichkeit).
-  const kb = findKbMatches(q, [c.paragraph], ["Umsatzsteuer"], 2);
+  // 2) NACH Klassifizierung: scenarioType bestimmen und gezielt KB-Einträge
+  //    mit demselben scenarioType laden (Paragraph/Kategorie/Keyword-Scoring
+  //    läuft nur auf dieser Kandidatenmenge).
+  const scenarioType = ustTypeToScenarioType(c.type);
+  const kb = findKbMatches(q, [c.paragraph], ["Umsatzsteuer"], 2, scenarioType);
+
 
   const sections = [
     ...(c.trail ? [{ title: "Klassifizierung", body: c.trail }] : []),

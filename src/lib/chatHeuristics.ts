@@ -337,11 +337,6 @@ function classifyUstSachverhalt(q: string): ChatAnswer | null {
       { label: "Wissensdatenbank öffnen", to: "/wissensdatenbank" },
       { label: "Strukturierte Anfrage anlegen", to: "/neue-anfrage" },
     ],
-    knowledge: "Umsatzsteuer / Prüfschema",
-    links: [
-      { label: "Wissensdatenbank öffnen", to: "/wissensdatenbank" },
-      { label: "Strukturierte Anfrage anlegen", to: "/neue-anfrage" },
-    ],
   };
 }
 

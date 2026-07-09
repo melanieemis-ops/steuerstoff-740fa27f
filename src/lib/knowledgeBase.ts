@@ -60,6 +60,43 @@ export const KNOWLEDGE_BASE: KBEntry[] = [
 Review-Hinweis: Bei Mandantenfragen zuerst klären, ob eine allgemeine bilanzielle Rücklage, eine steuerliche Spezialrücklage oder eine § 62 AO-Rücklage gemeint ist.`,
   },
 {
+id:"ust-nebenleistung-betriebsvorrichtung",
+title:"Nebenleistung oder eigenständige Betriebsvorrichtung?",
+category:"Umsatzsteuer",
+
+body:`
+
+# Prüfung
+
+## Endverbraucher
+
+Betriebsvorrichtungen
+
+teilen regelmäßig das Schicksal der Hauptleistung.
+
+→ Nebenleistung
+
+---
+
+## Unternehmer (Zwischenvermietung)
+
+Betriebsvorrichtungen können eigenständig steuerpflichtig sein.
+
+Eine Aufteilung der Leistungen ist zu prüfen.
+
+---
+
+## Typische Klausurfalle
+
+Nicht jede Lichtanlage ist automatisch Nebenleistung.
+
+Entscheidend ist,
+
+wer Leistungsempfänger ist.
+
+`
+},
+{
 id:"ust-tennishalle-zwischenvermietung",
 title:"Zwischenvermietung einer Tennishalle an Unternehmer",
 category:"Umsatzsteuer",

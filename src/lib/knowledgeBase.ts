@@ -60,6 +60,44 @@ export const KNOWLEDGE_BASE: KBEntry[] = [
 Review-Hinweis: Bei Mandantenfragen zuerst klären, ob eine allgemeine bilanzielle Rücklage, eine steuerliche Spezialrücklage oder eine § 62 AO-Rücklage gemeint ist.`,
   },
 {
+id:"ust-reverse-charge-grundstueck",
+title:"Reverse-Charge bei Grundstückslieferungen",
+category:"Umsatzsteuer",
+
+references:[
+"§13b Abs.2 Nr.3 UStG",
+"§13b Abs.5 UStG"
+],
+
+body:`
+
+# Reverse Charge
+
+Bei bestimmten Grundstückslieferungen schuldet nicht der Verkäufer,
+
+sondern der Leistungsempfänger die Umsatzsteuer.
+
+---
+
+## Bemessungsgrundlage
+
+Kaufpreis
+
+ohne Umsatzsteuer.
+
+Die Grunderwerbsteuer gehört nicht zum Entgelt.
+
+---
+
+## Klausurhinweis
+
+Immer prüfen,
+
+ob §13b UStG einschlägig ist.
+
+`
+},
+{
 id:"ust-uneinbringliche-forderung",
 title:"Uneinbringliche Forderungen (§17 UStG)",
 category:"Umsatzsteuer",

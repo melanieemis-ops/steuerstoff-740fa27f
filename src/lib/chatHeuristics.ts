@@ -247,10 +247,12 @@ function classifyUst(q: string): UstClassification | null {
       type: "grundstueck",
       label: "Grundstücksleistung / Grundstücksumsatz",
       paragraph: "§ 3a Abs. 3 Nr. 1, § 4 Nr. 9a, § 9, § 13b Abs. 2 Nr. 3 UStG",
+      trail: buildTrail("§ 3a Abs. 3 Nr. 1 UStG (Grundstück)"),
       reasoning: "Bei Grundstücken gelten Sonderregeln (Belegenheitsort, § 4 Nr. 9a Befreiung, Option, ggf. § 13b Abs. 2 Nr. 3).",
       scheme,
       followUps: ["Verkauf oder Vermietung?", "Wird zur Steuerpflicht optiert (§ 9 UStG)?", "Empfänger Unternehmer?"],
     };
+
   }
 
   // 6) Ausfuhr / Einfuhr

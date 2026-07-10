@@ -332,8 +332,12 @@ function ChatPage() {
                 />
               ))}
               {busy && (
-                <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                  <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-muted-foreground" />
+                <div
+                  data-msg
+                  className="flex items-center gap-2 rounded-2xl border border-border bg-card/60 px-4 py-3 text-xs text-muted-foreground"
+                  aria-live="polite"
+                >
+                  <span className="inline-block h-3 w-3 animate-spin rounded-full border-2 border-muted-foreground/40 border-t-foreground" />
                   steuerstoff denkt nach …
                 </div>
               )}

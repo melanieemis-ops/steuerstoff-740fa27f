@@ -30,6 +30,10 @@ const InputSchema = z.object({
   originalText: z.string().min(20).max(30000),
 });
 
+const toStringArray = z
+  .union([z.string(), z.array(z.string())])
+  .transform((v) => (Array.isArray(v) ? [v] : v).flat().map((s) => String(s).trim()).filter(Boolean));
+
 const KbSchema = z.object({
   paragraph: z.string().min(1).max(30),
   title: z.string().min(2).max(200),
@@ -39,12 +43,12 @@ const KbSchema = z.object({
   category: z.string().min(2).max(80),
   importance: z.number().int().min(1).max(10),
   ueberblick: z.string().min(10),
-  tatbestand: z.string().min(10),
-  rechtsfolge: z.string().min(10),
-  ausnahmen: z.string().min(3),
-  verknuepft: z.string().min(3),
-  praxisbeispiel: z.string().min(10),
-  merksatz: z.string().min(5),
+  tatbestand: toStringArray,
+  rechtsfolge: toStringArray,
+  ausnahmen: toStringArray,
+  verknuepft: toStringArray,
+  praxisbeispiel: toStringArray,
+  merksatz: toStringArray,
 });
 
 function slugify(s: string): string {

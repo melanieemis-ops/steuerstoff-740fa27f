@@ -886,7 +886,89 @@ function annotateWithRouter(a: ChatAnswer, router: RouterResult): ChatAnswer {
   };
 }
 
+/**
+ * Klassifiziert die Nutzeranfrage in eine von vier Kategorien:
+ *   A) Wissensfrage  — Definition / Paragraph / "Was ist …?" / "Wann …?"
+ *   B) Sachverhalt   — konkreter Mandantenfall
+ *   C) Berechnung    — Beträge, Steuer ermitteln
+ *   D) Recherche     — Norm-/Urteilssuche
+ * Wissensfragen dürfen niemals mit generischen Rückfragen beantwortet werden.
+ */
+export type QueryIntent = "wissen" | "sachverhalt" | "berechnung" | "recherche";
+
+export function classifyIntent(rawQuestion: string): QueryIntent {
+  const q = rawQuestion.toLowerCase().trim();
+
+  const sachverhaltMarker = [
+    "mandant", "mandantin", "unser mandant", "meine mandantin",
+    "die gmbh hat", "der verein hat", "die kg hat", "die ohg hat",
+    "die stiftung hat", "unsere gmbh", "rechnung erhalten",
+    "rechnung geschrieben", "wir haben verkauft", "wir haben gekauft",
+    "hat gekauft", "hat verkauft", "hat geliefert", "hat vermietet",
+    "wurde geliefert", "buchung", "buchungssatz",
+  ];
+  const looksLikeSachverhalt = sachverhaltMarker.some((m) => q.includes(m));
+
+  if (
+    /\b(berechne|berechnung|rechne\s+aus|wie\s+viel|wieviel|höhe\s+der)\b/i.test(q) ||
+    /\b(steuerlast|steuerbetrag|zahllast|vorsteuer|umsatzsteuer)\s+(für|von|ermitteln|berechnen)/i.test(q)
+  ) return "berechnung";
+
+  if (/\b(bfh|bmf|urteil|rechtsprechung|az\.|az\s+[ivx]+\s*r)/i.test(q)) return "recherche";
+
+  if (looksLikeSachverhalt) return "sachverhalt";
+
+  if (
+    /^(was\s+(ist|sind|bedeutet)|wann\s+|wie\s+funktioniert|warum\s+|welche\s+voraussetzungen|erklär|erkl[aä]re|definiere|unterschied\s+zwischen|prüfungsschema|pruefungsschema)/i.test(q) ||
+    /§\s*\d+[a-z]?/i.test(q)
+  ) return "wissen";
+
+  return "sachverhalt";
+}
+
+/**
+ * Wissensfrage-Antwort direkt aus Lexikon + Knowledge Base. Nie Rückfragen.
+ */
+function answerFromKnowledge(rawQuestion: string): ChatAnswer | null {
+  const lex = lookupLexicon(rawQuestion);
+  if (lex) return { ...lex, followUps: [], clarify: undefined, kind: lex.kind ?? "info" };
+
+  const paras = (rawQuestion.match(/§\s*\d+[a-z]?/gi) ?? []).map((s) => s.trim());
+  const hits = findKbMatches(rawQuestion, paras, [], 2, null, null);
+  if (hits.length === 0) return null;
+
+  const first = hits[0];
+  return {
+    kind: "info",
+    summary: first.short || first.title,
+    sections: kbSections(hits),
+    followUps: [],
+    knowledge: first.title,
+    paragraphs: first.references,
+    links: [{ label: "Wissensdatenbank öffnen", to: "/wissensdatenbank" }],
+    trace: [
+      { step: "Intent", detail: "Wissensfrage → Knowledge Base zuerst" },
+      { step: "KB-Treffer", detail: hits.map((h) => h.title).join(" · ") },
+    ],
+  };
+}
+
 export function generateAnswer(rawQuestion: string): ChatAnswer {
+  const intent = classifyIntent(rawQuestion);
+
+  // Wissens-/Recherchefragen: Knowledge Base zuerst, KEINE Rückfragen.
+  if (intent === "wissen" || intent === "recherche") {
+    const know = answerFromKnowledge(rawQuestion);
+    if (know) return know;
+  }
+  const stripFollowUps = intent === "wissen" || intent === "recherche";
+  const finalize = (a: ChatAnswer): ChatAnswer =>
+    stripFollowUps ? { ...a, followUps: [], clarify: undefined } : a;
+
+  return finalize(_generateAnswerEntry(rawQuestion));
+}
+
+function _generateAnswerEntry(rawQuestion: string): ChatAnswer {
   const router = routeTaxType(rawQuestion);
   // Neue Expertensystem-Pipeline ZUERST. Nur wenn sie kein belastbares
   // Ergebnis liefert, greift die Legacy-Kette.

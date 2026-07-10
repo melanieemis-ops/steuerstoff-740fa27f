@@ -30,12 +30,12 @@ type Result = {
     category: string;
     importance: number;
     ueberblick: string;
-    tatbestand: string;
-    rechtsfolge: string;
-    ausnahmen: string;
-    verknuepft: string;
-    praxisbeispiel: string;
-    merksatz: string;
+    tatbestand: string[];
+    rechtsfolge: string[];
+    ausnahmen: string[];
+    verknuepft: string[];
+    praxisbeispiel: string[];
+    merksatz: string[];
   };
 };
 
@@ -139,7 +139,7 @@ function GesetzImporterPage() {
             <summary className="cursor-pointer font-medium">Vorschau</summary>
             <div className="mt-2 space-y-2 whitespace-pre-wrap">
               <div><strong>Kurz:</strong> {result.preview.short}</div>
-              <div><strong>Merksatz:</strong> {result.preview.merksatz}</div>
+              <div><strong>Merksatz:</strong> {result.preview.merksatz.join(" · ")}</div>
               <div><strong>Keywords:</strong> {result.preview.keywords.join(", ")}</div>
               <div><strong>Referenzen:</strong> {result.preview.references.join(", ")}</div>
             </div>

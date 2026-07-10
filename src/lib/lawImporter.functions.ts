@@ -30,6 +30,15 @@ const InputSchema = z.object({
   originalText: z.string().min(20).max(30000),
 });
 
+const toStringArray = z.preprocess(
+  (v) => {
+    if (Array.isArray(v)) return v.map((x) => String(x).trim()).filter(Boolean);
+    if (typeof v === "string") return [v.trim()].filter(Boolean);
+    return v;
+  },
+  z.array(z.string().min(1)).min(1),
+);
+
 const KbSchema = z.object({
   paragraph: z.string().min(1).max(30),
   title: z.string().min(2).max(200),
@@ -39,12 +48,12 @@ const KbSchema = z.object({
   category: z.string().min(2).max(80),
   importance: z.number().int().min(1).max(10),
   ueberblick: z.string().min(10),
-  tatbestand: z.string().min(10),
-  rechtsfolge: z.string().min(10),
-  ausnahmen: z.string().min(3),
-  verknuepft: z.string().min(3),
-  praxisbeispiel: z.string().min(10),
-  merksatz: z.string().min(5),
+  tatbestand: toStringArray,
+  rechtsfolge: toStringArray,
+  ausnahmen: toStringArray,
+  verknuepft: toStringArray,
+  praxisbeispiel: toStringArray,
+  merksatz: toStringArray,
 });
 
 function slugify(s: string): string {
@@ -157,33 +166,36 @@ function buildFileContent(
     .map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
     .join("|");
 
+  const asList = (arr: string[]) =>
+    arr.length === 1 ? arr[0] : arr.map((l) => `- ${l}`).join("\n");
+
   const body = `# Kurzüberblick
 
 ${ai.ueberblick}
 
 # Tatbestandsvoraussetzungen
 
-${ai.tatbestand}
+${asList(ai.tatbestand)}
 
 # Rechtsfolge
 
-${ai.rechtsfolge}
+${asList(ai.rechtsfolge)}
 
 # Ausnahmen
 
-${ai.ausnahmen}
+${asList(ai.ausnahmen)}
 
 # Verknüpfte Paragraphen
 
-${ai.verknuepft}
+${asList(ai.verknuepft)}
 
 # Praxisbeispiel
 
-${ai.praxisbeispiel}
+${asList(ai.praxisbeispiel)}
 
 # Merksatz
 
-${ai.merksatz}
+${asList(ai.merksatz)}
 `;
 
   return `import type { KBEntry } from "@/lib/knowledgeBase";

@@ -270,16 +270,41 @@
 @media (prefers-reduced-motion: reduce) {
   .status-pulse { animation: none; box-shadow: none; opacity: 1; }
 }
-html,
-body,
-#root {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
+
+/* Chat-Seite: nur hier horizontales Scrollen unterbinden.
+   Andere Seiten behalten bewusst horizontal scrollbare Bereiche. */
+.chat-page {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: clip;
+}
+@supports not (overflow-x: clip) {
+  .chat-page {
+    overflow-x: hidden;
+  }
+}
+.chat-page * {
+  min-width: 0;
+}
+.chat-page p,
+.chat-page pre,
+.chat-page code,
+.chat-page button,
+.chat-page h1,
+.chat-page h2,
+.chat-page h3 {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.chat-page pre {
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
+

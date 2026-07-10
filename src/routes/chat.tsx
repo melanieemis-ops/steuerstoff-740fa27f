@@ -226,7 +226,7 @@ function ChatPage() {
   const canSend = input.trim().length > 0 && !busy;
 
   return (
-    <div className="chat-bg-deep min-h-screen flex flex-col">
+    <div className="chat-page chat-bg-deep min-h-screen flex flex-col" data-page="chat">
       <SiteHeader />
 
       <div className="border-b border-white/10 bg-transparent">

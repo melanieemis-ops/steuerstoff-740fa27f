@@ -187,7 +187,7 @@ function Home() {
               </p>
 
               <div className="mt-4 flex flex-wrap justify-center gap-1.5">
-                {KNOWLEDGE_TOPICS.map((t) => {
+                {VALID_KNOWLEDGE_TOPICS.map((t) => {
                   const isActive = activeTopic === t.id;
                   return (
                     <button

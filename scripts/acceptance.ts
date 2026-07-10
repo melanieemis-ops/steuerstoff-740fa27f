@@ -40,6 +40,48 @@ const CASES: TestCase[] = [
       "Ein niederländischer Unternehmer erbringt eine Werklieferung an einen deutschen Unternehmer in München. Rechnung ohne USt, gültige USt-IdNr. beider Seiten.",
     expect: ["§ 13b", "Steuerschuldner"],
   },
+  {
+    id: "kst.vGA",
+    phase: "Phase 5 — Körperschaftsteuer (vGA)",
+    prompt:
+      "Eine GmbH zahlt ihrem Gesellschafter-Geschäftsführer ein unangemessen hohes Gehalt. Liegt eine verdeckte Gewinnausschüttung vor?",
+    expect: ["verdeckte Gewinnaussch", "§ 8 Abs. 3", "KStG", "Fremdvergleich"],
+  },
+  {
+    id: "kst.hiddenContribution",
+    phase: "Phase 5 — KSt (verdeckte Einlage)",
+    prompt:
+      "Ein Gesellschafter überträgt sein Grundstück unentgeltlich (als verdeckte Einlage) auf seine GmbH. Wie ist das körperschaftsteuerlich zu behandeln?",
+    expect: ["verdeckte Einlage", "§ 8 Abs. 3", "§ 27 KStG"],
+  },
+  {
+    id: "kst.organschaft",
+    phase: "Phase 5 — KSt (Organschaft)",
+    prompt:
+      "Eine deutsche Konzernmutter und ihre 100%-Tochter-GmbH schließen einen Gewinnabführungsvertrag ab. Es liegt eine Organschaft vor. Wie wird das Einkommen zugerechnet?",
+    expect: ["Organschaft", "§ 14", "Organträger"],
+  },
+  {
+    id: "kst.contributionAccount",
+    phase: "Phase 5 — KSt (steuerliches Einlagekonto)",
+    prompt:
+      "Eine GmbH leistet eine Auszahlung aus dem steuerlichen Einlagekonto nach § 27 KStG an ihren Gesellschafter. Steuerliche Folgen?",
+    expect: ["Einlagekonto", "§ 27 KStG"],
+  },
+  {
+    id: "kst.profitDistribution",
+    phase: "Phase 5 — KSt (offene Ausschüttung)",
+    prompt:
+      "Eine GmbH beschließt eine ordentliche Gewinnausschüttung an ihren Alleingesellschafter. Wie ist der Vorgang bei Gesellschaft und Gesellschafter zu behandeln?",
+    expect: ["§ 20 Abs. 1 Nr. 1 EStG", "Kapitalertragsteuer"],
+  },
+  {
+    id: "kst.lossCarryforward",
+    phase: "Phase 5 — KSt (Verlustvortrag)",
+    prompt:
+      "Eine GmbH hat einen Verlustvortrag von 3 Mio. €. Nun werden 60 % der Anteile an einen neuen Investor veräußert. Wie wirkt § 8c KStG?",
+    expect: ["§ 8c KStG", "Verlustvortrag"],
+  },
 ];
 
 function contains(haystack: string, needles: string[]): { ok: boolean; missing: string[] } {

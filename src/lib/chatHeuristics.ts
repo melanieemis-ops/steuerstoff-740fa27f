@@ -13,7 +13,7 @@ import {
 import { routeTaxType, type RouterResult } from "./router/pipeline";
 import { TAX_TYPE_LABELS, type TaxType } from "./router/taxTypes";
 import { runExpertSystem, EXPERT_OVERRIDE_THRESHOLD } from "./expertSystem";
-import { INTERNAL_KNOWLEDGE_BASE } from "./expertSystem/knowledge/internalKnowledge";
+import { INTERNAL_KNOWLEDGE_BASE } from "./expertSystem/internalKnowledge";
 
 import { parseFacts } from "./expert/parser";
 import { evaluateSignals } from "./expert/signals";

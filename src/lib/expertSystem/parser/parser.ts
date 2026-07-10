@@ -46,7 +46,7 @@ const RE = {
   // Bilanzierung
   balanceSheetDate: /\b(bilanzstichtag|jahresabschluss|zum\s+31\.\s*12\.|31\.12\.\d{2,4}|abschlussstichtag)\b/i,
   warranty: /\b(garantie(aufwendungen|leistungen|f(ä|ae)llen?|verpflichtungen?)?|gew(ä|ae)hrleistung|nachbesserung)\b/i,
-  uncertainObligation: /\b(ungewisse[rn]?\s+verbindlichkeit(en)?|zu\s+rechnen\s+mit|erwart(et|ete[nrs]?)\s+(aufwendungen|kosten|inanspruchnahme)|drohend(er|e[nrs]?)\s+verlust|risiko|prozessrisiko)\b/i,
+  uncertainObligation: /\b(ungewisse[rn]?\s+verbindlichkeit(en)?|zu\s+rechnen|noch\s+nicht\s+fest|erwart(et|ete[nrs]?)\s+(aufwendungen|kosten|inanspruchnahme)|drohend(er|e[nrs]?)\s+verlust|risiko|prozessrisiko|inanspruchnahme)\b/i,
   economicallyCaused: /\b(wirtschaftlich\s+verursacht|verursacht\s+im\s+jahr|erfahrung(en)?\s+der\s+vergangenen)\b/i,
 
 

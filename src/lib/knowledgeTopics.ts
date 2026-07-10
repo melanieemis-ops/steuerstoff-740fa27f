@@ -821,6 +821,378 @@ Er hat dann jedoch regelmäßig keinen Vorsteuerabzug.
     module: { label: "SKR-Konverter", to: "/skr-konverter" },
     handoutCategory: "SKR42",
   },
+{
+  id: "umsatzsteuer-bautraeger-13b-vorsteuer-15a",
+  title: "Bauträger: § 13b UStG, Vorsteuerabzug und Vorsteuerberichtigung",
+  short:
+    "Umsatzsteuerliche Behandlung eines Bauträgers: steuerfreie Grundstückslieferung, Subunternehmerleistungen, fehlendes Reverse Charge und Vorsteuerberichtigung nach § 15a UStG.",
+  category: "Umsatzsteuer",
+  source:
+    "Interne Steuerstoff-Prüfungsvorbereitung – Bauträgerfall",
+  keywords:
+    "bauträger|§ 13b ustg|bauleistung|grundstückslieferung|§ 4 nr. 9a ustg|§ 9 ustg|subunternehmer|werklieferung|vorsteuerabzug|§ 15 abs. 2 ustg|§ 15a ustg|vorsteuerberichtigung|baustoffe|privatpersonen|reverse charge",
+  references: [
+    "§ 1 Abs. 1 Nr. 1 UStG",
+    "§ 3 Abs. 1 UStG",
+    "§ 3 Abs. 4 UStG",
+    "§ 3 Abs. 7 UStG",
+    "§ 4 Nr. 9 Buchst. a UStG",
+    "§ 9 UStG",
+    "§ 10 Abs. 1 UStG",
+    "§ 12 Abs. 1 UStG",
+    "§ 13 Abs. 1 Nr. 1 Buchst. a UStG",
+    "§ 13a Abs. 1 Nr. 1 UStG",
+    "§ 13b Abs. 2 Nr. 4 UStG",
+    "§ 13b Abs. 5 Satz 2 UStG",
+    "§ 15 Abs. 1 Nr. 1 UStG",
+    "§ 15 Abs. 2 Nr. 1 UStG",
+    "§ 15a Abs. 2 UStG",
+    "§ 44 UStDV",
+    "Abschn. 13b.2 und 13b.3 UStAE"
+  ],
+  body: `
+# Bauträger – Umsatzsteuer, § 13b und Vorsteuerberichtigung
+
+## 1. Ausgangssachverhalt
+
+Eine KG betreibt
+
+- einen Baustoffhandel und
+- ein Bauträgergeschäft.
+
+Sie errichtet auf eigenen Grundstücken Einfamilienhäuser und verkauft die bebauten Grundstücke anschließend an Privatpersonen.
+
+Jahresumsatz aus dem Bauträgergeschäft:
+
+8.000.000 €
+
+Subunternehmerleistungen:
+
+1.600.000 € netto
+
+zuzüglich
+
+304.000 € Umsatzsteuer.
+
+Zusätzlich werden Baustoffe im Wert von
+
+400.000 € netto
+
+zuzüglich
+
+76.000 € Vorsteuer
+
+aus dem eigenen Baustoffhandel für das Bauträgergeschäft verwendet.
+
+---
+
+# 2. Ausgangsumsätze des Bauträgers
+
+## Einheitliche Grundstückslieferung
+
+Die Errichtung eines Gebäudes auf einem eigenen Grundstück und die anschließende Veräußerung des bebauten Grundstücks bilden eine einheitliche Lieferung.
+
+Es handelt sich um eine Lieferung nach § 3 Abs. 1 UStG.
+
+Ort der Lieferung:
+
+Belegenheitsort des Grundstücks nach § 3 Abs. 7 UStG.
+
+Im Beispiel:
+
+Mettmann.
+
+## Steuerbarkeit
+
+Die Lieferung wird im Inland gegen Entgelt im Rahmen des Unternehmens ausgeführt.
+
+Sie ist daher nach § 1 Abs. 1 Nr. 1 UStG steuerbar.
+
+## Steuerbefreiung
+
+Die Veräußerung des Grundstücks ist nach
+
+§ 4 Nr. 9 Buchst. a UStG
+
+steuerfrei.
+
+Bemessungsgrundlage:
+
+8.000.000 €
+
+## Keine Option zur Steuerpflicht
+
+Eine Option nach § 9 UStG scheidet aus, wenn die Grundstücke an Privatpersonen verkauft werden.
+
+Die Erwerber verwenden das Grundstück nicht für ihr Unternehmen.
+
+Ergebnis:
+
+Die Grundstückslieferungen bleiben steuerfrei.
+
+---
+
+# 3. Subunternehmerleistungen
+
+## Art der Leistung
+
+Die Subunternehmer errichten einzelne Gewerke und verwenden dabei eigene Hauptstoffe.
+
+Damit liegen regelmäßig Werklieferungen nach § 3 Abs. 4 UStG vor.
+
+Beispiele:
+
+- Dacharbeiten mit eigenem Material
+- Maurerarbeiten mit eigenen Baustoffen
+- Fensterbau mit eigenen Fenstern
+- Heizungsanlage mit eigenem Material
+
+## Ort der Werklieferung
+
+Die Gewerke werden fest mit dem Grundstück verbunden.
+
+Ort der unbewegten Werklieferung ist der Belegenheitsort des Grundstücks.
+
+Im Beispiel:
+
+Mettmann.
+
+## Steuerbarkeit und Steuerpflicht
+
+Die Subunternehmerleistungen sind im Inland steuerbar.
+
+Die isoliert betrachteten Werklieferungen fallen nicht unter die Steuerbefreiung für die spätere Grundstückslieferung des Bauträgers.
+
+Sie sind daher mit 19 % steuerpflichtig.
+
+---
+
+# 4. Keine Steuerschuldnerschaft des Bauträgers nach § 13b
+
+## Grundsatz bei Bauleistungen
+
+Bei Bauleistungen kann der Leistungsempfänger nach § 13b Abs. 5 Satz 2 UStG Steuerschuldner werden, wenn er selbst nachhaltig Bauleistungen erbringt.
+
+## Besonderheit beim Bauträger
+
+Ein Bauträger, der ausschließlich
+
+- eigene Grundstücke bebaut und
+- die bebauten Grundstücke anschließend verkauft,
+
+erbringt gegenüber seinen Käufern grundsätzlich Grundstückslieferungen.
+
+Er erbringt nicht allein deshalb Bauleistungen im Sinne des § 13b Abs. 2 Nr. 4 UStG.
+
+Dies gilt auch dann, wenn
+
+- Kaufverträge bereits während der Bauphase geschlossen werden,
+- Käufer Sonderwünsche äußern oder
+- Käufer Einfluss auf Ausführung und Gestaltung nehmen.
+
+Entscheidend bleibt:
+
+Der Bauträger liefert ein eigenes bebautes Grundstück.
+
+## Rechtsfolge
+
+Der Bauträger wird für die empfangenen Subunternehmerleistungen grundsätzlich nicht Steuerschuldner nach § 13b Abs. 5 Satz 2 UStG.
+
+Steuerschuldner bleiben die Subunternehmer nach § 13a Abs. 1 Nr. 1 UStG.
+
+## Zahlenbeispiel
+
+Bemessungsgrundlage:
+
+1.600.000 €
+
+Umsatzsteuer:
+
+1.600.000 € × 19 %
+
+= 304.000 €
+
+Die Subunternehmer stellen Rechnungen mit offen ausgewiesener Umsatzsteuer aus.
+
+---
+
+# 5. Vorsteuerabzug aus Subunternehmerleistungen
+
+## Grundvoraussetzung
+
+Grundsätzlich liegen Leistungen für das Unternehmen vor.
+
+Damit könnte zunächst ein Vorsteuerabzug nach § 15 Abs. 1 Nr. 1 UStG in Betracht kommen.
+
+## Ausschluss wegen steuerfreier Ausgangsumsätze
+
+Die Subunternehmerleistungen stehen jedoch direkt und unmittelbar mit den steuerfreien Grundstückslieferungen an Privatpersonen in Zusammenhang.
+
+Daher greift der Vorsteuerausschluss nach
+
+§ 15 Abs. 2 Nr. 1 UStG.
+
+## Ergebnis
+
+Kein Vorsteuerabzug aus den Subunternehmerrechnungen.
+
+Nicht abziehbare Vorsteuer:
+
+304.000 €
+
+## Merksatz
+
+Steuerpflichtige Eingangsleistung
+
+plus
+
+steuerfreie Grundstückslieferung
+
+führt regelmäßig zum Ausschluss des Vorsteuerabzugs.
+
+---
+
+# 6. Baustoffe aus dem eigenen Baustoffhandel
+
+## Ursprünglicher Erwerb
+
+Die KG hatte Baustoffe für ihren Baustoffhandel erworben.
+
+Da die Umsätze des Baustoffhandels steuerpflichtig sind, war sie beim Erwerb zum vollständigen Vorsteuerabzug berechtigt.
+
+Anschaffung:
+
+400.000 € netto
+
+Vorsteuer:
+
+76.000 €
+
+## Verwendung im Bauträgergeschäft
+
+Die Baustoffe werden anschließend aus dem Baustoffhandel entnommen und in die zum Verkauf bestimmten Gebäude eingebaut.
+
+Der innerbetriebliche Übergang innerhalb desselben Unternehmens ist kein Leistungsaustausch zwischen zwei Unternehmern.
+
+Es liegt daher kein steuerbarer Innenumsatz vor.
+
+---
+
+# 7. Vorsteuerberichtigung nach § 15a Abs. 2 UStG
+
+## Einmalige Verwendung
+
+Die Baustoffe sind Wirtschaftsgüter, die nur einmalig zur Ausführung eines Umsatzes verwendet werden.
+
+Daher ist § 15a Abs. 2 UStG zu prüfen.
+
+## Ursprüngliche Verhältnisse
+
+Beim Erwerb der Baustoffe war der Vorsteuerabzug vollständig zulässig, weil sie für den steuerpflichtigen Baustoffhandel bestimmt waren.
+
+## Tatsächliche Verwendung
+
+Später werden die Baustoffe für steuerfreie Grundstückslieferungen eingesetzt.
+
+Diese Grundstückslieferungen schließen den Vorsteuerabzug nach § 15 Abs. 2 Nr. 1 UStG aus.
+
+Damit ändern sich die für den ursprünglichen Vorsteuerabzug maßgeblichen Verhältnisse.
+
+## Rechtsfolge
+
+Die ursprünglich abgezogene Vorsteuer ist nach § 15a Abs. 2 UStG zu berichtigen.
+
+Berichtigungsbetrag:
+
+76.000 €
+
+Die Berichtigung erfolgt in dem Voranmeldungszeitraum, in dem die steuerfreie Grundstückslieferung ausgeführt wird.
+
+Die Bagatellgrenzen des § 44 UStDV sind überschritten.
+
+---
+
+# Prüfungsschema Bauträger
+
+1. Ausgangsleistung bestimmen:
+   - Grundstückslieferung oder Bauleistung?
+
+2. Ort der Grundstückslieferung bestimmen.
+
+3. Steuerbefreiung nach § 4 Nr. 9 Buchst. a UStG prüfen.
+
+4. Option nach § 9 UStG prüfen:
+   - Erwerber Unternehmer?
+   - Verwendung für Unternehmen?
+
+5. Subunternehmerleistungen getrennt beurteilen.
+
+6. § 13b Abs. 2 Nr. 4 und Abs. 5 Satz 2 UStG prüfen.
+
+7. Erbringt der Bauträger selbst nachhaltig Bauleistungen?
+
+8. Vorsteuerabzug aus Subunternehmerleistungen prüfen.
+
+9. Direkter Zusammenhang mit steuerfreien Grundstückslieferungen?
+
+10. Bei früher abgezogenen Vorsteuern § 15a UStG prüfen.
+
+---
+
+# Typische Klausurfallen
+
+## Fehler 1: Bauträger automatisch als Bauleistenden behandeln
+
+Falsch:
+
+Ein Bauträger ist allein aufgrund seiner Bauträgertätigkeit nicht zwingend Bauleistender im Sinne des § 13b UStG.
+
+Richtig:
+
+Verkauft er eigene bebaute Grundstücke, erbringt er Grundstückslieferungen.
+
+---
+
+## Fehler 2: Einfluss der Käufer überbewerten
+
+Sonderwünsche und Mitspracherechte der Käufer machen die Grundstückslieferung nicht automatisch zu einer Bauleistung.
+
+---
+
+## Fehler 3: Vorsteuer aus Subunternehmerleistungen abziehen
+
+Die Leistungen stehen unmittelbar mit steuerfreien Grundstückslieferungen in Zusammenhang.
+
+Daher ist der Vorsteuerabzug ausgeschlossen.
+
+---
+
+## Fehler 4: Baustoffentnahme als steuerbaren Umsatz behandeln
+
+Die Übertragung zwischen verschiedenen Tätigkeitsbereichen desselben Unternehmens ist grundsätzlich ein nicht steuerbarer Innenumsatz.
+
+Die tatsächliche steuerliche Korrektur erfolgt über § 15a UStG.
+
+---
+
+## Fehler 5: § 15a UStG übersehen
+
+Wurden Baustoffe zunächst für steuerpflichtige Umsätze angeschafft und später für steuerfreie Grundstückslieferungen verwendet, ist der ursprüngliche Vorsteuerabzug zu berichtigen.
+
+---
+
+# Merksätze
+
+- Bauträger verkaufen regelmäßig bebaute Grundstücke.
+- Grundstückslieferungen an Privatpersonen sind regelmäßig steuerfrei.
+- Eine Option nach § 9 UStG ist bei privaten Erwerbern nicht möglich.
+- Bauträger sind nicht automatisch Bauleistende nach § 13b UStG.
+- Die Subunternehmer schulden ihre Umsatzsteuer grundsätzlich selbst.
+- Vorsteuer aus Leistungen für steuerfreie Grundstückslieferungen ist ausgeschlossen.
+- Ein innerbetrieblicher Übergang ist kein steuerbarer Umsatz.
+- Die spätere steuerfreie Verwendung kann eine Vorsteuerberichtigung nach § 15a UStG auslösen.
+`
+},
   {
     id: "datev",
     chip: "DATEV",

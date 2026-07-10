@@ -670,13 +670,13 @@ function MessageBubble({
             onClick={(event) => {
               event.preventDefault();
               event.stopPropagation();
-              copyTextToClipboard(msg.text);
+              onCopy();
             }}
-            className="mt-2 inline-flex items-center gap-1 rounded-xl px-2 py-1 text-[11px] text-primary-foreground/70 hover:bg-primary-foreground/10 hover:text-primary-foreground"
-            aria-label="Prompt kopieren"
+            className="mt-2 inline-flex items-center gap-1 rounded-xl px-2 py-1 text-[11px] text-primary-foreground/70 hover:bg-primary-foreground/10 hover:text-primary-foreground touch-manipulation"
+            aria-label="Frage kopieren"
           >
-            <Copy className="h-3 w-3" />
-            Kopieren
+            {copied ? <Check className="h-3 w-3" aria-hidden="true" /> : <Copy className="h-3 w-3" aria-hidden="true" />}
+            <span>{copied ? "Kopiert" : "Kopieren"}</span>
           </button>
         </div>
       </div>

@@ -27,12 +27,19 @@ export interface Facts {
   oneWayDistanceKm?: number;
   workDays?: number;
   vz?: number;
+  homeOfficeDays?: number;
+  travelDays?: number;
+  balanceSheetYear?: number;
 
   // Beträge
   entgelt?: number;
   kaufpreis?: number;
   lohn?: number;
   gewinn?: number;
+  provisionAmount?: number;
+  handwerkerArbeitskosten?: number;
+  haushaltsnaheArbeitskosten?: number;
+
 
   // Steuerlich relevante Vorgänge / Merkmale
   firstPlaceOfWork: Tri;

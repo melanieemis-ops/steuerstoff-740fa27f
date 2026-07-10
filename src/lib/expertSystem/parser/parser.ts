@@ -41,7 +41,14 @@ const RE = {
   donation: /\b(spende|spendet|zuwendung)\b/i,
   employment: /\b(arbeitsverh(ä|ae)ltnis|dienstverh(ä|ae)ltnis|lohn|gehalt)\b/i,
   benefitToShareholder: /\b(gesellschafter|anteilseigner).{0,40}\b(gehalt|verg(ü|ue)tung|leistung|zahlung|darlehen|bezug)\b/i,
-  disproportionate: /\b(überh(ö|oe)ht(e|es|en|er)?|unangemessen(e|es|en|er)?|un(ü|ue)blich(e|es|en|er)?)\b/i,
+  disproportionate: /\b(überh(ö|oe)ht(e|es|en|er)?|unangemessen(e|es|en|er)?|un(ü|ue)blich(e|es|en|er)?|deutlich\s+überh(ö|oe)ht)\b/i,
+
+  // Bilanzierung
+  balanceSheetDate: /\b(bilanzstichtag|jahresabschluss|zum\s+31\.\s*12\.|31\.12\.\d{2,4}|abschlussstichtag)\b/i,
+  warranty: /\b(garantie(aufwendungen|leistungen|f(ä|ae)llen?|verpflichtungen?)?|gew(ä|ae)hrleistung|nachbesserung)\b/i,
+  uncertainObligation: /\b(ungewisse[rn]?\s+verbindlichkeit(en)?|zu\s+rechnen\s+mit|erwart(et|ete[nrs]?)\s+(aufwendungen|kosten|inanspruchnahme)|drohend(er|e[nrs]?)\s+verlust|risiko|prozessrisiko)\b/i,
+  economicallyCaused: /\b(wirtschaftlich\s+verursacht|verursacht\s+im\s+jahr|erfahrung(en)?\s+der\s+vergangenen)\b/i,
+
 
   // Länder
   fromDE: /\b(aus|von|ab)\s+(deutschland|münchen|berlin|hamburg|köln|frankfurt|stuttgart)/i,

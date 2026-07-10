@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { KnowledgeSheet } from "@/components/KnowledgeSheet";
-import { KNOWLEDGE_TOPICS, type TopicId, getTopic } from "@/lib/knowledgeTopics";
+import { VALID_KNOWLEDGE_TOPICS, type TopicId, getTopic } from "@/lib/knowledgeTopics";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Button } from "@/components/ui/button";
 import { listCases, relativeTime, type CaseRecord } from "@/lib/casesStore";

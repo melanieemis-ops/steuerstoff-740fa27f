@@ -35,6 +35,8 @@ function findKbMatches(
   limit = 2,
   scenarioType?: ScenarioType | null,
   taxType?: TaxType | null,
+  source: KBEntry[] = KNOWLEDGE_BASE,
+  minScore?: number,
 ): KBEntry[] {
   const text = q.toLowerCase();
   const paraTokens = paragraphs
@@ -42,7 +44,7 @@ function findKbMatches(
     .filter(Boolean) as string[];
 
   // 1) Hierarchische Kandidaten-Filterung: erst taxType, dann scenarioType.
-  let candidates = KNOWLEDGE_BASE;
+  let candidates = source;
   if (taxType && taxType !== "unklar") {
     const byTax = candidates.filter((e) => {
       const t = resolveTaxType(e);
@@ -56,6 +58,7 @@ function findKbMatches(
     if (byScenario.length > 0) candidates = byScenario;
   }
 
+  const threshold = minScore ?? (scenarioType ? 2 : 5);
   // 2) Paragraph-/Kategorie-/Keyword-Scoring auf den Kandidaten
   const scored = candidates.map((e) => {
     let score = 0;
@@ -73,11 +76,12 @@ function findKbMatches(
     }
     return { e, score };
   })
-    .filter((x) => x.score >= (scenarioType ? 2 : 5))
+    .filter((x) => x.score >= threshold)
     .sort((a, b) => b.score - a.score)
     .slice(0, limit);
 
   return scored.map((x) => x.e);
+
 }
 
 

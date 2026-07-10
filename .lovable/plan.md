@@ -1,80 +1,37 @@
-## Ziel
+# Expertensystem-Ausbau: 5 Kernbereiche
 
-Steuerstoff Assistant wird zu einem modularen, regelbasierten Expertensystem mit strikter Pipeline
-`Input → Parser → Facts → Signals → TaxRouter → ScenarioMatcher → RuleEngine → CalculationEngine → KnowledgeEngine → AnswerBuilder`.
-Bestehende USt-Logik bleibt erhalten und wird schrittweise migriert.
+Ausbau der bestehenden Pipeline in `src/lib/expertSystem/` — keine neue Architektur, keine UI-Änderungen. Umsetzung strikt in Phasen mit Nachweis über den Acceptance-Runner (`scripts/acceptance.ts`) und im produktiven Chat.
 
-Umsetzung strikt phasenweise, credit-schonend. Jede Phase endet mit Typecheck + Regression. Keine UI-Änderungen.
+## Phase 1 — Einkommensteuer ausbauen
+Bestehende `commutingAllowanceRule` bleibt. Ergänzt werden:
+- **Signals** (`incomeTaxSignals.ts`): Reisekosten, Homeoffice, doppelte Haushaltsführung, § 35a, V+V, Kapital, Renten, private Veräußerung, Sonderausgaben, agB — jeweils erst bei mehreren zusammengehörigen Fakten.
+- **Scenarios** (`incomeTaxScenarios.ts`): employmentIncome/{commuting, homeOffice, travelExpenses, doubleHousehold}, householdServices/§35a, rentalIncome, capitalIncome, pension, privateSale.
+- **Rules** (`incomeTaxRules.ts`): je Scenario eine Rule mit Prüfschema und Rechtsgrundlagen.
+- **Calculations** (`incomeTaxCalculations.ts`): Entfernungspauschale (vorhanden), Homeoffice-Pauschale (6 €/Tag, max. 210 Tage/1.260 €), Verpflegungsmehraufwand (14/28 €), § 35a (20 %, Höchstbeträge), AfA linear, Sparer-Pauschbetrag.
+- Jahres-Rückfrage bei zeitabhängigen Beträgen, wenn `VZ` fehlt.
 
-## Phase 1 — Fundament & Trace (dieser Turn)
+## Phase 2 — Bilanzierung/Bilanzsteuerrecht neu
+Neuer Bereich `balanceSheet` als eigener `TaxType`:
+- **factModel**: `hasBalanceSheetDate`, `hasUncertainObligation`, `hasWarranty`, `provisionAmount`, `economicCauseYear`, `assetType`.
+- **Parser-Erweiterung**: „Bilanzstichtag“, „31.12.“, „Rückstellung“, „Garantie/Gewährleistung“, „ungewisse Verbindlichkeit“, „Aktivierung/Passivierung“, „AfA/Nutzungsdauer“, „ARAP/PRAP“, „Erhaltungsaufwand/Herstellungskosten“, Beträge €.
+- **balanceSheetSignals.ts**: provision.warranty, provision.pension, provision.litigation, valuation.impairment, capitalization.intangible, rap.deferral, afa.linear, gwg — jeweils Mehrfach-Fakten-Regel.
+- **balanceSheetScenarios.ts**: provisions/{warranty, pension, litigation, maintenance}, valuation/{impairment, forex}, capitalization/{intangible, goodwill}, rap/{active, passive}, fixedAssets/{afa, gwg}.
+- **balanceSheetRules.ts**: `warrantyProvisionRule` (Test 2), plus Basisrules für Pensions-, Prozess-, Instandhaltungsrückstellung, ARAP/PRAP-Grundfall, AfA-Grundfall.
+- **balanceSheetCalculations.ts**: AfA linear, Rückstellungsabzinsung (§ 6 Abs. 1 Nr. 3a EStG, 5,5 %) grob.
+- **Guard**: „GmbH + Waren verkauft“ triggert NICHT USt/KSt, wenn Bilanzstichtag + Garantie + Rückstellungsindikatoren dominieren.
 
-Neue modulare Struktur unter `src/lib/expertSystem/` aufbauen. Bestehendes `src/lib/expert/` bleibt zunächst als Legacy-Adapter erhalten und wird von der neuen Pipeline aufgerufen, damit die USt-Regression grün bleibt.
+## Verbindliche Testfälle (Phase 1 + 2)
+1. Entfernungspauschale 210×28 km → 1.898,40 €, § 9 EStG.
+2. Garantierückstellung 18.000 € zum 31.12.2025 → Rückstellung für ungewisse Verbindlichkeiten, § 249 Abs. 1 Satz 1 HGB, § 5 Abs. 1 EStG, wirtsch. Verursachung 2025, HB=StB, Aufwand gewinnmindernd.
 
-Neu angelegt:
+Beide Tests in `scripts/acceptance.ts` erweitern und mit Trace nachweisen.
 
-```text
-src/lib/expertSystem/
-  facts/factModel.ts            # normalisiertes Facts-Interface (positiv/negativ/unknown)
-  parser/parser.ts              # Entity-/Fact-Extraktion (baut auf src/lib/expert/parser.ts auf, ergänzt Personen, Rechtsformen, Beträge, Vorgänge, Dokumente)
-  parser/factNormalizer.ts      # Synonym-Mapping (erste Arbeitsstätte = firstPlaceOfWork usw.)
-  signals/signalTypes.ts
-  signals/signalEngine.ts       # gewichtete Kombinations-Signale (+1/+3/+5/+10/+15, −10)
-  signals/commonSignals.ts      # Startset: USt-Signale, ESt-Werbungskosten, Entfernungspauschale, vGA, Rückstellung
-  router/taxRouter.ts           # Multi-Score, Mindestscore, Abstand, Mehrsteuerfall
-  scenarios/scenarioMatcher.ts  # taxType → scenario → subScenario
-  rules/ruleTypes.ts
-  rules/ruleEngine.ts           # Konfliktlösung: spezielle vor allgemeiner, Priorität, Confidence
-  rules/vatRules.ts             # Adapter → bestehende src/lib/expert/rules/vatRules.ts + classifyUst
-  rules/incomeTaxRules.ts       # Entfernungspauschale als erste vollständige Regel
-  calculations/calculationEngine.ts
-  calculations/incomeTaxCalculations.ts  # calculateCommutingAllowance (0,30 €/km bis 20 km, 0,38 €/km ab 21. km, aktuelle Rechtslage)
-  knowledge/knowledgeEngine.ts  # hierarchischer Filter taxType → scenario → sub → paragraph
-  answer/answerBuilder.ts       # zwei Templates: Berechnungsfrage (5 Punkte) vs. Fallprüfung (12 Punkte)
-  trace/expertTrace.ts          # Trace-Objekt, nur im Dev sichtbar
-  pipeline.ts                   # orchestriert die 10 Ebenen
-  index.ts                      # public API: runExpertSystem(prompt) → { answer, trace }
-```
+## Nicht in diesem Turn
+Phase 3 (USt-Konsolidierung), Phase 4 (AO), Phase 5 (KStG) werden in Folge-Turns umgesetzt — der Nutzer fordert explizit Phase-für-Phase mit Test-Nachweis; Phasen 1+2 zuerst.
 
-Integration:
-
-- `src/lib/chatHeuristics.ts` ruft `runExpertSystem(prompt)` zusätzlich zur bestehenden Kette auf. Wenn das Expertensystem einen Treffer mit `confidence ≥ Schwelle` liefert, ersetzt es die bisherige USt-/Fallback-Antwort. Sonst fällt es auf die aktuelle Logik zurück. Damit keine Regression.
-- Trace nur in `import.meta.env.DEV`.
-
-Erster verbindlicher End-to-End-Test: „Arbeitnehmer, 210 Tage, 28 km, erste Tätigkeitsstätte, privater Pkw“ muss ohne Rückfrage die korrekt gestaffelte Entfernungspauschale liefern. Wird als Vitest-Case in `src/lib/expertSystem/__tests__/commutingAllowance.test.ts` abgelegt.
-
-USt-Regression (`src/lib/regressionRunner.ts`) muss unverändert grün bleiben.
-
-## Phase 2 — USt-Migration
-
-`classifyUst` aus `chatHeuristics.ts` in `expertSystem/rules/vatRules.ts` als echte Regeln überführen (Werklieferung, Werkleistung, § 6a, § 1a, § 13b, Reihen-/Dreiecksgeschäft). Der Legacy-Aufruf verschwindet erst, wenn alle bestehenden USt-Regressionstests im neuen System grün sind.
-
-## Phase 3 — Einkommensteuer breit
-
-Weitere ESt-Unterfälle: Reisekosten, Homeoffice, Arbeitszimmer, § 35a, V+V, Kapital, Rente, private Veräußerung, Gewinneinkünfte. Jeweils Signale + Regeln + ggf. Calculation.
-
-## Phase 4 — AO, Bilanz, KSt, GewSt, LSt
-
-Regeln + Signale je Steuerart, Adapter zu bestehenden Skeletten in `src/lib/expert/rules/*` bleiben Fallback.
-
-## Phase 5 — NPO, ErbSt, SchenkSt, GrESt, IStR
-
-Analog Phase 4.
-
-## Nach jeder Phase
-
-- `tsgo` Typecheck
-- Vitest (neue Cases + Regression)
-- Report pro Steuerart in Konsole
-- keine UI-Änderung
-
-## Technische Leitplanken
-
-- Keine Regel darf ausschließlich aus einem Keyword bestehen — alle Regeln verlangen ≥ 2 Fakten oder eine Fakt+Ausschluss-Kombination.
-- Fakten sind `true | false | "unknown"`, nie implizit angenommen.
-- Confidence pro Ebene, Fallback nur bei echtem Widerspruch oder fehlenden Fakten.
-- Trace nie in Prod-Antworten.
-- Bestehende Dateien in `src/lib/expert/*` bleiben unverändert bis Phase 2 abgeschlossen ist.
-
-## Deliverable dieses Turns
-
-Nur Phase 1: Verzeichnisstruktur, Grundmodule, Entfernungspauschale als erster grüner End-to-End-Fall, Integration in `chatHeuristics.ts` als non-breaking Zusatzpfad, USt-Regression unverändert grün.
+## Technisches
+- Keine UI-Datei anfassen.
+- `src/lib/router/taxTypes.ts` nur um `balanceSheet` erweitern, falls fehlt.
+- Bestehende funktionierende USt-Legacy-Logik in `chatHeuristics.ts` bleibt unverändert.
+- `EXPERT_OVERRIDE_THRESHOLD` (0.9) bleibt Gate zum Chat.
+- Nach jeder Phase: `bunx tsx scripts/acceptance.ts` ausführen, Trace zeigen.

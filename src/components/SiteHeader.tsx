@@ -1,19 +1,23 @@
 import { Link, useLocation } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Menu, X, Loader2 } from "lucide-react";
+import { useIsAdmin } from "@/hooks/useIsAdmin";
 
-const nav = [
+type NavItem = { to: string; label: string; adminOnly?: boolean };
+
+const baseNav: NavItem[] = [
   { to: "/chat", label: "Chat" },
   { to: "/neue-anfrage", label: "Neue Anfrage" },
   { to: "/fallverlauf", label: "Fallverlauf" },
   { to: "/wissensdatenbank", label: "Wissensdatenbank" },
+  { to: "/gesetz-importieren", label: "Gesetz importieren", adminOnly: true },
   { to: "/skr-konverter", label: "SKR-Konverter" },
   { to: "/csv-konverter", label: "CSV-Konverter" },
   { to: "/mittelverwendungsrechner", label: "Mittelverwendungsrechner" },
   { to: "/kfz-wertabgabe", label: "Kfz-Wertabgabe" },
   { to: "/npo-pruefassistent", label: "NPO-Prüfassistent" },
   { to: "/einstellungen", label: "Einstellungen" },
-] as const;
+];
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -21,6 +25,11 @@ export function SiteHeader() {
   const location = useLocation();
   const panelRef = useRef<HTMLDivElement | null>(null);
   const btnRef = useRef<HTMLButtonElement | null>(null);
+  const isAdmin = useIsAdmin();
+  const nav = useMemo(
+    () => baseNav.filter((n) => !n.adminOnly || isAdmin),
+    [isAdmin],
+  );
 
   // close on route change
   useEffect(() => {

@@ -135,6 +135,15 @@ export function parse(prompt: string): Facts {
   f.uncertainObligation = tri(RE.uncertainObligation.test(t));
   f.economicallyCaused = tri(RE.economicallyCaused.test(t));
 
+  f.managingDirector = tri(RE.managingDirector.test(t));
+  f.hiddenProfitDistribution = tri(RE.hiddenProfitDistribution.test(t));
+  f.hiddenContribution = tri(RE.hiddenContribution.test(t));
+  f.armsLengthFailed = tri(RE.armsLengthFailed.test(t));
+  f.taxContributionAccount = tri(RE.taxContributionAccount.test(t));
+  f.organschaft = tri(RE.organschaft.test(t));
+  f.lossCarryforward = tri(RE.lossCarryforward.test(t));
+  f.profitDistribution = tri(RE.profitDistribution.test(t));
+
 
   // Länder-Flow
   if (RE.fromDE.test(t)) f.departureCountry = "DE";

@@ -16,6 +16,8 @@ export const COMMON_SIGNALS: SignalDef[] = [
     id: "kst.vGA.pattern",
     label: "Kapitalgesellschaft + Gesellschafter + überhöhte Vergütung",
     requiredFacts: ["corporation", "shareholder", "disproportionateCompensation"],
+    // Wenn zugleich Bilanzierungsindikatoren vorliegen, verhindert der
+    // Balance-Sheet-Guard-Signal-Overshoot dennoch keine KSt-Route hier.
     taxTypeScores: { koerperschaftsteuer: 15 },
     scenarioScores: { hiddenProfitDistribution: 18 },
     explanation: "Indiziertes Muster für vGA nach § 8 Abs. 3 Satz 2 KStG.",
@@ -27,5 +29,46 @@ export const COMMON_SIGNALS: SignalDef[] = [
     excludedFacts: ["workService"],
     taxTypeScores: { umsatzsteuer: 10 },
     scenarioScores: { workDelivery: 12 },
+  },
+
+  // ─────────── Bilanzierung / Bilanzsteuerrecht ───────────
+  {
+    id: "bilanz.warrantyProvision.pattern",
+    label: "Garantie + ungewisse Verbindlichkeit + Bilanzstichtag",
+    requiredFacts: ["warranty", "uncertainObligation", "balanceSheetDate"],
+    taxTypeScores: { bilanzsteuerrecht: 20 },
+    scenarioScores: { provisions: 20, warrantyProvision: 25 },
+    explanation:
+      "Vollständiges Muster für Rückstellung nach § 249 Abs. 1 Satz 1 HGB / § 5 Abs. 1 EStG.",
+  },
+  {
+    id: "bilanz.provision.generic",
+    label: "Rückstellung ausdrücklich zum Bilanzstichtag",
+    requiredFacts: ["provision", "balanceSheetDate"],
+    taxTypeScores: { bilanzsteuerrecht: 15 },
+    scenarioScores: { provisions: 15 },
+  },
+  {
+    id: "bilanz.balanceSheetDate.solo",
+    label: "Bilanzstichtag ohne weiteren Fachtatbestand",
+    requiredFacts: ["balanceSheetDate"],
+    taxTypeScores: { bilanzsteuerrecht: 6 },
+  },
+
+  // ─────────── Einkommensteuer — weitere Muster ───────────
+  {
+    id: "est.homeOffice.pattern",
+    label: "Arbeitnehmer im Homeoffice mit Tagen",
+    requiredFacts: ["employee", "homeOffice"],
+    taxTypeScores: { einkommensteuer: 15 },
+    scenarioScores: { homeOfficeAllowance: 18 },
+  },
+  {
+    id: "est.travelExpenses.pattern",
+    label: "Arbeitnehmer + Auswärtstätigkeit / Dienstreise",
+    requiredFacts: ["employee"],
+    excludedFacts: ["firstPlaceOfWork"],
+    taxTypeScores: { einkommensteuer: 8 },
+    scenarioScores: { travelExpenses: 8 },
   },
 ];

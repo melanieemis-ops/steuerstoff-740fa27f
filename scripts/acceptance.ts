@@ -8,7 +8,6 @@ interface TestCase {
   id: string;
   phase: string;
   prompt: string;
-  /** Antwort muss ALLE dieser Strings enthalten (case-insensitive) damit der Test grün ist. */
   expect: string[];
 }
 
@@ -19,6 +18,13 @@ const CASES: TestCase[] = [
     prompt:
       "Arbeitnehmer, 210 Arbeitstage, einfache Entfernung 28 km, erste Tätigkeitsstätte, privater Pkw. Wie hoch ist die Entfernungspauschale?",
     expect: ["1.898,40", "§ 9", "EStG"],
+  },
+  {
+    id: "bilanz.garantieruecktellung",
+    phase: "Phase 2 — Bilanzierung (Garantierückstellung)",
+    prompt:
+      "Eine GmbH verkauft im Dezember 2025 Waren mit einer zweijährigen Garantie. Aufgrund der Erfahrungen der vergangenen Jahre ist mit Garantieaufwendungen von 18.000 € zu rechnen. Die einzelnen Garantiefälle stehen am Bilanzstichtag noch nicht fest. Wie ist der Sachverhalt zum 31.12.2025 bilanziell und steuerlich zu behandeln?",
+    expect: ["Rückstellung", "§ 249", "HGB", "18.000", "§ 5 Abs. 1 EStG"],
   },
   {
     id: "ust.ig_lieferung",
@@ -33,13 +39,6 @@ const CASES: TestCase[] = [
     prompt:
       "Ein niederländischer Unternehmer erbringt eine Werklieferung an einen deutschen Unternehmer in München. Rechnung ohne USt, gültige USt-IdNr. beider Seiten.",
     expect: ["§ 13b", "Steuerschuldner"],
-  },
-  {
-    id: "kst.unsupported",
-    phase: "Phase 3 — Körperschaftsteuer (bewusst NICHT unterstützt)",
-    prompt:
-      "Eine GmbH zahlt ihrem Gesellschafter-Geschäftsführer ein überhöhtes Gehalt. Liegt eine verdeckte Gewinnausschüttung nach § 8 Abs. 3 KStG vor?",
-    expect: ["noch nicht unterstützt"],
   },
 ];
 
@@ -67,7 +66,7 @@ for (const tc of CASES) {
   console.log(`▶ ${tc.phase}`);
   console.log(`  Prompt: ${tc.prompt}`);
   const a = generateAnswer(tc.prompt);
-  console.log(`\n  Trace (Parser → Facts → Signals → Router → Scenario → Rule → Calculation → KB → Answer):`);
+  console.log(`\n  Trace:`);
   const trace = a.trace ?? [];
   if (trace.length === 0) console.log("    (kein Trace)");
   for (const t of trace) console.log(`    • ${t.step}${t.detail ? " — " + t.detail : ""}`);

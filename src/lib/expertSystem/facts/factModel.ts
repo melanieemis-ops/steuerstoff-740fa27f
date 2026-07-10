@@ -27,12 +27,19 @@ export interface Facts {
   oneWayDistanceKm?: number;
   workDays?: number;
   vz?: number;
+  homeOfficeDays?: number;
+  travelDays?: number;
+  balanceSheetYear?: number;
 
   // Beträge
   entgelt?: number;
   kaufpreis?: number;
   lohn?: number;
   gewinn?: number;
+  provisionAmount?: number;
+  handwerkerArbeitskosten?: number;
+  haushaltsnaheArbeitskosten?: number;
+
 
   // Steuerlich relevante Vorgänge / Merkmale
   firstPlaceOfWork: Tri;
@@ -58,12 +65,20 @@ export interface Facts {
   benefitToShareholder: Tri;  // vGA-Indiz
   disproportionateCompensation: Tri;
 
+  // Bilanzierung / Bilanzsteuerrecht
+  balanceSheetDate: Tri;      // "Bilanzstichtag", "31.12.20XX", "zum Jahresabschluss"
+  warranty: Tri;              // Garantie / Gewährleistung
+  uncertainObligation: Tri;   // ungewisse Verbindlichkeit / Risiko / erwartete Aufwendungen
+  economicallyCaused: Tri;    // wirtschaftlich verursacht vor Stichtag
+  ordinaryBusinessActivity: Tri;
+
   // Dokumente
   invoice: Tri;
 
   // Explizite Fachbegriffe (starke Trigger)
   explicitTerms: string[];
 }
+
 
 export function emptyFacts(text: string): Facts {
   return {
@@ -101,7 +116,13 @@ export function emptyFacts(text: string): Facts {
     employmentRelation: "unknown",
     benefitToShareholder: "unknown",
     disproportionateCompensation: "unknown",
+    balanceSheetDate: "unknown",
+    warranty: "unknown",
+    uncertainObligation: "unknown",
+    economicallyCaused: "unknown",
+    ordinaryBusinessActivity: "unknown",
     invoice: "unknown",
+
     explicitTerms: [],
   };
 }

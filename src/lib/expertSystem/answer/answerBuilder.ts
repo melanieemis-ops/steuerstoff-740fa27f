@@ -45,11 +45,24 @@ export function buildAnswer(rule: RuleResult, calc: CalculationOutput | null): B
       body: `Abziehbare Entfernungspauschale: **${format(r.total)} €**.`,
     });
     summary = `Entfernungspauschale: ${format(r.total)} € (Werbungskosten, § 9 Abs. 1 Satz 3 Nr. 4 EStG).`;
+  } else if (calc?.id === "calculateHomeOfficeAllowance") {
+    const r = calc.result;
+    sections.push({ title: "Berechnung", body: `${r.formula}\n• ${r.cappedDays} Tage · 6 € = ${format(r.total)} €` });
+    sections.push({ title: "Ergebnis", body: `Homeoffice-Pauschale: **${format(r.total)} €**.` });
+    summary = `Homeoffice-Pauschale: ${format(r.total)} € (§ 4 Abs. 5 S. 1 Nr. 6c EStG).`;
+  } else if (calc?.id === "reportProvisionAmount") {
+    const r = calc.result;
+    sections.push({
+      title: "Buchung",
+      body: `${r.narrative}\nBuchungssatz: ${r.bookingEntry}\nWirkung: gewinnmindernd (Handels- und Steuerbilanz, Maßgeblichkeit).`,
+    });
+    summary = `Rückstellung für ungewisse Verbindlichkeiten aus Garantie: ${format(r.amount)} € (§ 249 Abs. 1 S. 1 HGB, § 5 Abs. 1 EStG).`;
   } else if (calc?.id === "missingInputs") {
     followUps.push(
       `Für eine belastbare Berechnung fehlen: ${calc.missing.join(", ")}.`,
     );
   }
+
 
   sections.push({
     title: "Rechtsgrundlagen",

@@ -41,7 +41,14 @@ const RE = {
   donation: /\b(spende|spendet|zuwendung)\b/i,
   employment: /\b(arbeitsverh(ä|ae)ltnis|dienstverh(ä|ae)ltnis|lohn|gehalt)\b/i,
   benefitToShareholder: /\b(gesellschafter|anteilseigner).{0,40}\b(gehalt|verg(ü|ue)tung|leistung|zahlung|darlehen|bezug)\b/i,
-  disproportionate: /\b(überh(ö|oe)ht(e|es|en|er)?|unangemessen(e|es|en|er)?|un(ü|ue)blich(e|es|en|er)?)\b/i,
+  disproportionate: /\b(überh(ö|oe)ht(e|es|en|er)?|unangemessen(e|es|en|er)?|un(ü|ue)blich(e|es|en|er)?|deutlich\s+überh(ö|oe)ht)\b/i,
+
+  // Bilanzierung
+  balanceSheetDate: /\b(bilanzstichtag|jahresabschluss|zum\s+31\.\s*12\.|31\.12\.\d{2,4}|abschlussstichtag)\b/i,
+  warranty: /\b(garantie(aufwendungen|leistungen|f(ä|ae)llen?|verpflichtungen?)?|gew(ä|ae)hrleistung|nachbesserung)\b/i,
+  uncertainObligation: /\b(ungewisse[rn]?\s+verbindlichkeit(en)?|zu\s+rechnen|noch\s+nicht\s+fest|erwart(et|ete[nrs]?)\s+(aufwendungen|kosten|inanspruchnahme)|drohend(er|e[nrs]?)\s+verlust|risiko|prozessrisiko|inanspruchnahme)\b/i,
+  economicallyCaused: /\b(wirtschaftlich\s+verursacht|verursacht\s+im\s+jahr|erfahrung(en)?\s+der\s+vergangenen)\b/i,
+
 
   // Länder
   fromDE: /\b(aus|von|ab)\s+(deutschland|münchen|berlin|hamburg|köln|frankfurt|stuttgart)/i,
@@ -114,6 +121,12 @@ export function parse(prompt: string): Facts {
   f.benefitToShareholder = tri(RE.benefitToShareholder.test(t));
   f.disproportionateCompensation = tri(RE.disproportionate.test(t));
 
+  f.balanceSheetDate = tri(RE.balanceSheetDate.test(t));
+  f.warranty = tri(RE.warranty.test(t));
+  f.uncertainObligation = tri(RE.uncertainObligation.test(t));
+  f.economicallyCaused = tri(RE.economicallyCaused.test(t));
+
+
   // Länder-Flow
   if (RE.fromDE.test(t)) f.departureCountry = "DE";
   else if (RE.fromEU.test(t)) f.departureCountry = "EU";
@@ -141,7 +154,23 @@ export function parse(prompt: string): Facts {
   if (/\bfestsetzungsverj(ä|ae)hrung\b/i.test(t)) explicit.push("festsetzungsverjährung");
   if (/\bfreie\s+r(ü|ue)cklage\b/i.test(t)) explicit.push("freieRücklage");
   if (/\bhinzurechnung\b/i.test(t)) explicit.push("hinzurechnung");
+  if (/\br(ü|ue)ckstellung/i.test(t)) explicit.push("rückstellung");
+  if (/\bgarantie/i.test(t)) explicit.push("garantie");
   f.explicitTerms = explicit;
+
+  // Bilanzstichtag-Jahr extrahieren
+  const my = t.match(/31\.\s*12\.\s*(\d{4})/);
+  if (my) f.balanceSheetYear = Number(my[1]);
+
+  // Rückstellungs-/Aufwandsbetrag: "18.000 €" / "18000 EUR"
+  const am = t.match(/(\d{1,3}(?:\.\d{3})+|\d{3,7})(?:,(\d{1,2}))?\s*(€|eur)/i);
+  if (am) {
+    const int = am[1].replace(/\./g, "");
+    const dec = am[2] ?? "0";
+    const val = Number(`${int}.${dec}`);
+    if (Number.isFinite(val)) f.provisionAmount = val;
+  }
+
 
   return normalizeFacts(f);
 }

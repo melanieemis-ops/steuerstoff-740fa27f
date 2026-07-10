@@ -938,11 +938,14 @@ function annotateWithExpertSystem(a: ChatAnswer, rawQuestion: string): ChatAnswe
     const decision = expertRoute(signals, rawQuestion);
     if (decision.primary === "unklar") return a;
     const rule = runRules(decision.primary, facts, signals);
+    const unsupported = rule.subCase === "unsupported";
     const trace: TraceStep[] = [
       ...(a.trace ?? []),
       { step: "Expertensystem: Signale", detail: signals.map((s) => s.id).join(", ") || "–" },
       { step: "Expertensystem: Steuerart", detail: `${decision.primary}${decision.secondary.length ? ` (auch: ${decision.secondary.join(", ")})` : ""}` },
-      { step: "Expertensystem: Rule", detail: `${rule.schemaId ?? "–"}${rule.subCase ? ` / ${rule.subCase}` : ""}` },
+      unsupported
+        ? { step: "Expertensystem: Rule", detail: `noch nicht unterstützt (${decision.primary})` }
+        : { step: "Expertensystem: Rule", detail: `${rule.schemaId ?? "–"}${rule.subCase ? ` / ${rule.subCase}` : ""}` },
     ];
     return { ...a, trace };
   } catch {

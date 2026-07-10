@@ -16,6 +16,26 @@ export const Route = createFileRoute("/wissensdatenbank")({
   head: () => ({ meta: [{ title: "Wissensdatenbank · steuerstoff" }] }),
 });
 
+function AdminImporterBanner() {
+  const isAdmin = useIsAdmin();
+  if (!isAdmin) return null;
+  return (
+    <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-lg border border-primary/30 bg-primary/5 p-3">
+      <div className="text-xs text-muted-foreground">
+        <span className="font-medium text-foreground">Admin:</span> Gesetzestext einfügen →
+        automatischer KB-Import. Route: <code>/gesetz-importieren</code>
+      </div>
+      <Link
+        to="/gesetz-importieren"
+        className="inline-flex items-center gap-1.5 rounded-md bg-foreground px-3 py-1.5 text-xs font-medium text-background hover:opacity-90"
+      >
+        <Upload className="h-3.5 w-3.5" />
+        Gesetz importieren
+      </Link>
+    </div>
+  );
+}
+
 const CATEGORIES = [
   "Alle",
   "Umsatzsteuer",

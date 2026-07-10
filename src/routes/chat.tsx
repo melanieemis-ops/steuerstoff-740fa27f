@@ -106,12 +106,18 @@ function ChatPage() {
     if (messages.length) saveMessages(messages);
   }, [messages]);
 
-  // auto-scroll
+  // auto-scroll: sanft zum Beginn der neuesten Antwort, nicht ans absolute Ende.
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
-    el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
-  }, [messages, busy]);
+    const nodes = el.querySelectorAll<HTMLElement>("[data-msg]");
+    const last = nodes[nodes.length - 1];
+    if (last) {
+      last.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
+    }
+  }, [messages.length, busy]);
 
   // autosize textarea
   useEffect(() => {

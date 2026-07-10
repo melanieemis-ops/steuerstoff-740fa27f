@@ -883,6 +883,34 @@ function annotateWithRouter(a: ChatAnswer, router: RouterResult): ChatAnswer {
 
 export function generateAnswer(rawQuestion: string): ChatAnswer {
   const router = routeTaxType(rawQuestion);
+  // Expertensystem-Override: wenn Regel mit hoher Confidence trifft, ersetzt
+  // die neue Pipeline die Legacy-Antwort vollständig.
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const es = require("./expertSystem") as typeof import("./expertSystem");
+    const r = es.runExpertSystem(rawQuestion);
+    if (r.answer && (r.trace.ruleConfidence ?? 0) >= es.EXPERT_OVERRIDE_THRESHOLD) {
+      const ans: ChatAnswer = {
+        summary: r.answer.summary,
+        reasoning: r.answer.reasoning,
+        sections: r.answer.sections,
+        followUps: r.answer.followUps,
+        knowledge: r.knowledge,
+        kind: "case",
+        taxType: r.answer.taxType,
+        taxTypeLabel: r.answer.taxTypeLabel,
+        scenarioType: r.answer.scenarioType,
+        paragraphs: r.answer.paragraphs,
+        trace: [
+          { step: "Expertensystem", detail: `Regel ${r.trace.matchedRule ?? "-"} (conf ${(r.trace.ruleConfidence ?? 0).toFixed(2)})` },
+          { step: "Signale", detail: r.trace.firedSignals.join(", ") || "–" },
+        ],
+      };
+      return ans;
+    }
+  } catch {
+    // Fallback auf Legacy-Kette
+  }
   const answer = _generateAnswerImpl(rawQuestion, router);
   return annotateWithExpertSystem(annotateWithRouter(answer, router), rawQuestion);
 }

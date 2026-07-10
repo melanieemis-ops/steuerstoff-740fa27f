@@ -46,7 +46,9 @@ export const HANDOUT_CATEGORIES: HandoutCategory[] = [
   "Sonstiges",
 ];
 
-export const KNOWLEDGE_TOPICS: KnowledgeTopic[] = [
+// Achtung: Diese Liste enthält historisch auch Knowledge-Base-Artikel ohne
+// chip-Feld. Für UI-Chips ausschließlich VALID_KNOWLEDGE_TOPICS verwenden.
+export const KNOWLEDGE_TOPICS: Array<KnowledgeTopic | Record<string, unknown>> = [
   {
     id: "ust",
     chip: "USt",
@@ -2896,8 +2898,49 @@ Wurden Baustoffe zunächst für steuerpflichtige Umsätze angeschafft und späte
   },
 ];
 
+/**
+ * Nur vollständig konfigurierte Themen für die UI-Chips.
+ * Filtert defensiv gegen Fremd-Einträge (z. B. Knowledge-Base-Artikel ohne
+ * chip-Feld), die versehentlich im selben Array landen. Ohne diese Validierung
+ * würden leere, klickbare Chips gerendert, deren Klick in KnowledgeSheet
+ * fehlschlägt, weil `getTopic` einen unpassenden Datensatz zurückgibt.
+ */
+function isValidTopic(t: unknown): t is KnowledgeTopic {
+  if (!t || typeof t !== "object") return false;
+  const r = t as Record<string, unknown>;
+  const nonEmpty = (v: unknown) => typeof v === "string" && v.trim().length > 0;
+  return (
+    nonEmpty(r.id) &&
+    nonEmpty(r.chip) &&
+    nonEmpty(r.title) &&
+    Array.isArray(r.checklist) &&
+    Array.isArray(r.quickActions)
+  );
+}
+
+const _seen = new Set<string>();
+const _invalid: unknown[] = [];
+export const VALID_KNOWLEDGE_TOPICS: KnowledgeTopic[] = KNOWLEDGE_TOPICS.filter(
+  (t): t is KnowledgeTopic => {
+    if (!isValidTopic(t)) {
+      _invalid.push(t);
+      return false;
+    }
+    if (_seen.has(t.id)) return false;
+    _seen.add(t.id);
+    return true;
+  },
+);
+
+if (import.meta.env.DEV && _invalid.length > 0) {
+  console.warn(
+    `[knowledgeTopics] ${_invalid.length} ungültige Topic-Chips entfernt`,
+    _invalid,
+  );
+}
+
 export function getTopic(id: TopicId): KnowledgeTopic | undefined {
-  return KNOWLEDGE_TOPICS.find((t) => t.id === id);
+  return VALID_KNOWLEDGE_TOPICS.find((t) => t.id === id);
 }
 
 // ---------- Handouts (eigene, lokal gespeichert) ----------

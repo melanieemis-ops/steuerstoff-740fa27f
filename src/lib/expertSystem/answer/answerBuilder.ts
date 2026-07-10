@@ -22,7 +22,9 @@ export function buildAnswer(rule: RuleResult, calc: CalculationOutput | null): B
   if (rule.schemaSteps?.length) {
     sections.push({
       title: "Prüfschema",
-      body: rule.schemaSteps.map((s, i) => `${i + 1}. ${s.label}`).join("\n"),
+      body: rule.schemaSteps
+        .map((s, i) => `${i + 1}. ${s.label}${s.result ? ` → ${s.result}` : ""}`)
+        .join("\n"),
     });
   }
 

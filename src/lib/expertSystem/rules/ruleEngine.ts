@@ -3,11 +3,13 @@ import type { Facts } from "../facts/factModel";
 import type { FiredSignal } from "../signals/signalTypes";
 import { INCOME_TAX_RULES } from "./incomeTaxRules";
 import { BALANCE_SHEET_RULES } from "./balanceSheetRules";
+import { CORPORATE_TAX_RULES } from "./corporateTaxRules";
 import type { RuleContext, RuleDef, RuleResult } from "./ruleTypes";
 
 const RULES_BY_TAX: Partial<Record<TaxType, RuleDef[]>> = {
   einkommensteuer: INCOME_TAX_RULES,
   bilanzsteuerrecht: BALANCE_SHEET_RULES,
+  koerperschaftsteuer: CORPORATE_TAX_RULES,
 };
 
 export function runRules(

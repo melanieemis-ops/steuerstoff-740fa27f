@@ -49,6 +49,15 @@ const RE = {
   uncertainObligation: /\b(ungewisse[rn]?\s+verbindlichkeit(en)?|zu\s+rechnen|noch\s+nicht\s+fest|erwart(et|ete[nrs]?)\s+(aufwendungen|kosten|inanspruchnahme)|drohend(er|e[nrs]?)\s+verlust|risiko|prozessrisiko|inanspruchnahme)\b/i,
   economicallyCaused: /\b(wirtschaftlich\s+verursacht|verursacht\s+im\s+jahr|erfahrung(en)?\s+der\s+vergangenen)\b/i,
 
+  managingDirector: /\b(gesch(ä|ae)ftsf(ü|ue)hrer(in)?|gesellschafter-gesch(ä|ae)ftsf(ü|ue)hrer)\b/i,
+  hiddenProfitDistribution: /\b(verdeckte\s+gewinnaussch(ü|ue)ttung|vga\b|v\.?g\.?a\.?)\b/i,
+  hiddenContribution: /\b(verdeckte\s+einlage)\b/i,
+  armsLengthFailed: /\b(fremdvergleich|drittvergleich|unangemessen|überh(ö|oe)ht|un(ü|ue)blich)\b/i,
+  taxContributionAccount: /\b(steuerlich(es|en)?\s+einlagekonto|§\s*27\s*kstg?)\b/i,
+  organschaft: /\b(organschaft|organgesellschaft|organträger|ergebnisabf(ü|ue)hrungsvertrag|eav)\b/i,
+  lossCarryforward: /\b(verlustvortrag|verlustabzug|§\s*10d\s*estg?|§\s*8c\s*kstg?|mantelkauf)\b/i,
+  profitDistribution: /\b(gewinnaussch(ü|ue)ttung|dividende|aussch(ü|ue)ttung)\b/i,
+
 
   // Länder
   fromDE: /\b(aus|von|ab)\s+(deutschland|münchen|berlin|hamburg|köln|frankfurt|stuttgart)/i,
@@ -125,6 +134,15 @@ export function parse(prompt: string): Facts {
   f.warranty = tri(RE.warranty.test(t));
   f.uncertainObligation = tri(RE.uncertainObligation.test(t));
   f.economicallyCaused = tri(RE.economicallyCaused.test(t));
+
+  f.managingDirector = tri(RE.managingDirector.test(t));
+  f.hiddenProfitDistribution = tri(RE.hiddenProfitDistribution.test(t));
+  f.hiddenContribution = tri(RE.hiddenContribution.test(t));
+  f.armsLengthFailed = tri(RE.armsLengthFailed.test(t));
+  f.taxContributionAccount = tri(RE.taxContributionAccount.test(t));
+  f.organschaft = tri(RE.organschaft.test(t));
+  f.lossCarryforward = tri(RE.lossCarryforward.test(t));
+  f.profitDistribution = tri(RE.profitDistribution.test(t));
 
 
   // Länder-Flow

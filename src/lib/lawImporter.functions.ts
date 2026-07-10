@@ -166,33 +166,36 @@ function buildFileContent(
     .map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
     .join("|");
 
+  const asList = (arr: string[]) =>
+    arr.length === 1 ? arr[0] : arr.map((l) => `- ${l}`).join("\n");
+
   const body = `# Kurzüberblick
 
 ${ai.ueberblick}
 
 # Tatbestandsvoraussetzungen
 
-${ai.tatbestand}
+${asList(ai.tatbestand)}
 
 # Rechtsfolge
 
-${ai.rechtsfolge}
+${asList(ai.rechtsfolge)}
 
 # Ausnahmen
 
-${ai.ausnahmen}
+${asList(ai.ausnahmen)}
 
 # Verknüpfte Paragraphen
 
-${ai.verknuepft}
+${asList(ai.verknuepft)}
 
 # Praxisbeispiel
 
-${ai.praxisbeispiel}
+${asList(ai.praxisbeispiel)}
 
 # Merksatz
 
-${ai.merksatz}
+${asList(ai.merksatz)}
 `;
 
   return `import type { KBEntry } from "@/lib/knowledgeBase";

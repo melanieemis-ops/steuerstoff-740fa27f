@@ -14,7 +14,7 @@
 
 import type { KBEntry } from "@/lib/knowledgeBase";
 import { estg001Steuerpflicht } from "./laws/estg/estg-001-steuerpflicht";
-
+import { estg002Einkunftsarten } from "./laws/estg/estg-002-einkunftsarten";
 export const INTERNAL_KNOWLEDGE_BASE: KBEntry[] = [
   estg001Steuerpflicht,
 ];

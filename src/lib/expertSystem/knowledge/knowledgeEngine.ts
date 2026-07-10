@@ -21,7 +21,7 @@ export function findDeepDive(
   );
   if (!citations.length) return undefined;
   return citations
-    .map((c) => `${c.entry.title ?? c.entry.id}: ${c.entry.summary ?? ""}`.trim())
+    .map((c) => `${c.entry.title ?? c.entry.id}: ${c.entry.short ?? ""}`.trim())
     .filter(Boolean)
     .join("\n\n");
 }

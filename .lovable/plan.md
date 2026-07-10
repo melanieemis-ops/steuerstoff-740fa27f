@@ -1,188 +1,80 @@
-# Steuerstoff-Expertensystem (5 Ebenen)
+## Ziel
 
-Ziel: Der Assistant entscheidet deterministisch über eine feste Pipeline
-`Parser → Signal Engine → Steuerart-Router → Regelmaschine → Knowledge Engine`.
-Die KB klassifiziert nichts mehr, sie vertieft nur. Bestehende 102/102-Regressionen
-müssen grün bleiben; neue Steuerarten starten mit „soft"-Erwartungen.
+Steuerstoff Assistant wird zu einem modularen, regelbasierten Expertensystem mit strikter Pipeline
+`Input → Parser → Facts → Signals → TaxRouter → ScenarioMatcher → RuleEngine → CalculationEngine → KnowledgeEngine → AnswerBuilder`.
+Bestehende USt-Logik bleibt erhalten und wird schrittweise migriert.
 
-Arbeit bleibt minimal-invasiv: kein Redesign, keine neuen Seiten, keine neuen
-Runtime-Deps, keine UI-Änderungen. Öffentliche API von `generateAnswer(prompt)`
-bleibt gleich.
+Umsetzung strikt phasenweise, credit-schonend. Jede Phase endet mit Typecheck + Regression. Keine UI-Änderungen.
 
-## Neue Ordnerstruktur
+## Phase 1 — Fundament & Trace (dieser Turn)
 
-```
-src/lib/expert/
-  parser.ts             # Ebene 1 — Fakten-Extraktion (Entitäten, Orte, Zeit, Beträge, Steuer-Fakten)
-  signals.ts            # Ebene 2 — Signal-Definitionen + Evaluator
-  router.ts             # Ebene 3 — Score-basierter Steuerart-Router (parallele Bewertung)
-  ruleEngine.ts         # Ebene 4 — Registry + Executor für Rule-Dateien
-  knowledge.ts          # Ebene 5 — Scoped KB-Zugriff (taxType + scenario + subCase)
-  types.ts              # gemeinsame Typen: Facts, Signal, RuleFile, RuleResult, ExpertAnswer
-  rules/
-    vatRules.ts             # bestehende USt-Logik migriert
-    incomeTaxRules.ts       # EStG (Werbungskosten, §35a, V+V, Kapital, sonstige Einkünfte)
-    corporateTaxRules.ts    # KStG-Basisschema
-    tradeTaxRules.ts        # GewStG-Basisschema
-    payrollTaxRules.ts      # LStG (geldwerter Vorteil, Sachbezug)
-    balanceSheetRules.ts    # Bilanzsteuerrecht (Rückstellung, RAP, AfA)
-    aoRules.ts              # Einspruch, Verjährung, Änderungsnormen
-    nonprofitRules.ts       # §§ 51–68 AO
-    inheritanceTaxRules.ts
-    giftTaxRules.ts
-    realEstateTransferTaxRules.ts
-    internationalTaxRules.ts
-    reorganizationTaxRules.ts   # UmwStG
-    investmentTaxRules.ts       # InvStG (Stub)
-    customsRules.ts             # Zoll (Stub)
-    energyTaxRules.ts           # (Stub)
-    insuranceTaxRules.ts        # (Stub)
-    motorVehicleTaxRules.ts     # KraftStG (Stub)
-    propertyTaxRules.ts         # GrStG (Stub)
+Neue modulare Struktur unter `src/lib/expertSystem/` aufbauen. Bestehendes `src/lib/expert/` bleibt zunächst als Legacy-Adapter erhalten und wird von der neuen Pipeline aufgerufen, damit die USt-Regression grün bleibt.
+
+Neu angelegt:
+
+```text
+src/lib/expertSystem/
+  facts/factModel.ts            # normalisiertes Facts-Interface (positiv/negativ/unknown)
+  parser/parser.ts              # Entity-/Fact-Extraktion (baut auf src/lib/expert/parser.ts auf, ergänzt Personen, Rechtsformen, Beträge, Vorgänge, Dokumente)
+  parser/factNormalizer.ts      # Synonym-Mapping (erste Arbeitsstätte = firstPlaceOfWork usw.)
+  signals/signalTypes.ts
+  signals/signalEngine.ts       # gewichtete Kombinations-Signale (+1/+3/+5/+10/+15, −10)
+  signals/commonSignals.ts      # Startset: USt-Signale, ESt-Werbungskosten, Entfernungspauschale, vGA, Rückstellung
+  router/taxRouter.ts           # Multi-Score, Mindestscore, Abstand, Mehrsteuerfall
+  scenarios/scenarioMatcher.ts  # taxType → scenario → subScenario
+  rules/ruleTypes.ts
+  rules/ruleEngine.ts           # Konfliktlösung: spezielle vor allgemeiner, Priorität, Confidence
+  rules/vatRules.ts             # Adapter → bestehende src/lib/expert/rules/vatRules.ts + classifyUst
+  rules/incomeTaxRules.ts       # Entfernungspauschale als erste vollständige Regel
+  calculations/calculationEngine.ts
+  calculations/incomeTaxCalculations.ts  # calculateCommutingAllowance (0,30 €/km bis 20 km, 0,38 €/km ab 21. km, aktuelle Rechtslage)
+  knowledge/knowledgeEngine.ts  # hierarchischer Filter taxType → scenario → sub → paragraph
+  answer/answerBuilder.ts       # zwei Templates: Berechnungsfrage (5 Punkte) vs. Fallprüfung (12 Punkte)
+  trace/expertTrace.ts          # Trace-Objekt, nur im Dev sichtbar
+  pipeline.ts                   # orchestriert die 10 Ebenen
+  index.ts                      # public API: runExpertSystem(prompt) → { answer, trace }
 ```
 
-Stubs enthalten ein Basisschema, damit die Steuerart erkannt und mit einer
-sauberen (wenn auch flachen) Prüfstruktur beantwortet wird. Kein leerer Zweig.
+Integration:
 
-## Ebene 1 — Parser (`parser.ts`)
+- `src/lib/chatHeuristics.ts` ruft `runExpertSystem(prompt)` zusätzlich zur bestehenden Kette auf. Wenn das Expertensystem einen Treffer mit `confidence ≥ Schwelle` liefert, ersetzt es die bisherige USt-/Fallback-Antwort. Sonst fällt es auf die aktuelle Logik zurück. Damit keine Regression.
+- Trace nur in `import.meta.env.DEV`.
 
-Reine Funktion `parseFacts(prompt) → Facts`.
+Erster verbindlicher End-to-End-Test: „Arbeitnehmer, 210 Tage, 28 km, erste Tätigkeitsstätte, privater Pkw“ muss ohne Rückfrage die korrekt gestaffelte Entfernungspauschale liefern. Wird als Vitest-Case in `src/lib/expertSystem/__tests__/commutingAllowance.test.ts` abgelegt.
 
-`Facts` (Beispielausschnitt):
-```
-entities:   { unternehmerDE, unternehmerEU, unternehmerDrittland,
-              arbeitnehmer, verein, stiftung, gesellschafter, finanzamt }
-orte:       { ausDE, nachDE, ausEU, nachEU, ausDrittland, nachDrittland,
-              flow: [{from,to,fromKind,toKind}] }
-zeit:       { vz, wj, stichtag, jahr }
-betraege:   { entgelt, kaufpreis, lohn, gewinn, umsatz, ak }
-steuerFakten: { rechnung, ustId, warenbewegung, lieferung, dienstleistung,
-                grundstueck, schenkung, veraeusserung, vermietung,
-                arbeitsverhaeltnis, bilanzierung, spende, betriebsvermoegen,
-                privatvermoegen, werklieferung, werkleistung, reverseCharge }
-raw:        { text, tokens }
-```
+USt-Regression (`src/lib/regressionRunner.ts`) muss unverändert grün bleiben.
 
-Nutzt und ersetzt schrittweise die verstreute Extraktion in `chatHeuristics`
-(City-Maps, Flow-Parser, `hasWare`, `euCtx` …). Trifft **keine** steuerliche
-Entscheidung.
+## Phase 2 — USt-Migration
 
-## Ebene 2 — Signal Engine (`signals.ts`)
+`classifyUst` aus `chatHeuristics.ts` in `expertSystem/rules/vatRules.ts` als echte Regeln überführen (Werklieferung, Werkleistung, § 6a, § 1a, § 13b, Reihen-/Dreiecksgeschäft). Der Legacy-Aufruf verschwindet erst, wenn alle bestehenden USt-Regressionstests im neuen System grün sind.
 
-Signal-Typ:
-```
-{ id, description, requires: (f)=>boolean, excludes: (f)=>boolean,
-  weight: Partial<Record<TaxType, number>>,
-  scenarios?: ScenarioType[], subCases?: string[] }
-```
+## Phase 3 — Einkommensteuer breit
 
-`evaluateSignals(facts) → Signal[]` liefert alle feuernden Signale mit Gewichten.
-Startumfang deckt USt (ig. Erwerb, ig. Lieferung, Werklieferung/-leistung,
-Reverse Charge, Ausfuhr, Einfuhr), ESt (erste Tätigkeitsstätte, Arbeitszimmer,
-§35a, V+V, Kapital), Bilanz (Rückstellung, RAP), AO (Einspruch, Verjährung),
-NPO, Erb/Schenkung, GrESt, IntStR ab.
+Weitere ESt-Unterfälle: Reisekosten, Homeoffice, Arbeitszimmer, § 35a, V+V, Kapital, Rente, private Veräußerung, Gewinneinkünfte. Jeweils Signale + Regeln + ggf. Calculation.
 
-## Ebene 3 — Steuerart-Router (`router.ts`)
+## Phase 4 — AO, Bilanz, KSt, GewSt, LSt
 
-`routeTaxType(signals) → { primary: TaxType, secondary: TaxType[], scores }`.
+Regeln + Signale je Steuerart, Adapter zu bestehenden Skeletten in `src/lib/expert/rules/*` bleiben Fallback.
 
-- Parallele Bewertung aller Steuerarten.
-- Mehrsteuerfall: zweiter Score ≥ 70 % des ersten UND absolut ≥ Schwellwert
-  → `secondary` befüllen (typische Kombos: KSt+Bilanz, USt+Zoll, ESt+LSt, NPO+USt).
-- Fallback `unklar` nur bei Score < Minimum-Schwelle.
+## Phase 5 — NPO, ErbSt, SchenkSt, GrESt, IStR
 
-Ersetzt das bisherige Regex-Voting in `router/taxTypes.ts`; die alte Datei bleibt
-zunächst als Dünn-Adapter, der die neue Engine aufruft, damit `regressionRunner`
-und `chatHeuristics` nicht sofort umgezogen werden müssen.
+Analog Phase 4.
 
-## Ebene 4 — Regelmaschine (`ruleEngine.ts` + `rules/*`)
+## Nach jeder Phase
 
-RuleFile-Typ:
-```
-{ taxType, scenarios: ScenarioType[],
-  subScenarios: string[],
-  decisionTree(facts, signals) → { scenario, subCase, schemaSteps[], normen[],
-                                   berechnung?, ergebnis, alternativen?,
-                                   missingFacts? },
-  kbFilter: { taxType, scenarios, subCases },
-  regressionCases: RegressionCase[] }
-```
+- `tsgo` Typecheck
+- Vitest (neue Cases + Regression)
+- Report pro Steuerart in Konsole
+- keine UI-Änderung
 
-`runRules(taxType, facts, signals) → RuleResult`. `vatRules.ts` migriert die
-bestehende `classifyUst` 1:1; alle heutigen USt-Zweige (§1a, §6a, §13b,
-Werklieferung, Reihe/Dreieck, Ausfuhr/Einfuhr) bleiben inhaltlich identisch —
-nur strukturiert als Decision-Tree-Steps. Andere Rule-Dateien liefern
-Basisschemata (Startumfang wie in altem Plan Schritt 4).
+## Technische Leitplanken
 
-## Ebene 5 — Knowledge Engine (`knowledge.ts`)
+- Keine Regel darf ausschließlich aus einem Keyword bestehen — alle Regeln verlangen ≥ 2 Fakten oder eine Fakt+Ausschluss-Kombination.
+- Fakten sind `true | false | "unknown"`, nie implizit angenommen.
+- Confidence pro Ebene, Fallback nur bei echtem Widerspruch oder fehlenden Fakten.
+- Trace nie in Prod-Antworten.
+- Bestehende Dateien in `src/lib/expert/*` bleiben unverändert bis Phase 2 abgeschlossen ist.
 
-`findKbCitations(taxType, scenario, subCase) → KBEntry[]`
-- Filtert KB strikt nach `taxType` → `scenarioType` → `subCase`.
-- Rankt nur innerhalb dieses Scopes.
-- Darf `RuleResult` niemals überschreiben; liefert reine Vertiefung
-  (Merksätze, BFH, Verwaltung, Sonderfälle, Klausurhinweise).
+## Deliverable dieses Turns
 
-## Integration in `chatHeuristics.ts`
-
-`generateAnswer(prompt)`:
-1. Lexikon-Kurzantwort (unverändert).
-2. `facts = parseFacts(prompt)`
-3. `signals = evaluateSignals(facts)`
-4. `route = routeTaxType(signals)`
-5. `ruleResult = runRules(route.primary, facts, signals)` (+ optional secondary
-   als „Auch relevant"-Hinweis)
-6. `kb = findKbCitations(route.primary, ruleResult.scenario, ruleResult.subCase)`
-7. Rendering in fester 11-Punkt-Reihenfolge (Steuerart, Sachverhaltsart,
-   Unterfall, Prüfungsschema, Normen, Prüfung, Berechnung, Ergebnis, KB,
-   Alternativen, Rückfragen — Rückfragen nur bei `missingFacts`).
-
-Rückwärtskompatibilität: bestehende NPO-/MVR-/SKR-/Kfz-Vorschaltintents bleiben
-vor Schritt 2. `classifyForRegression` wird intern auf den neuen Weg umgestellt,
-gibt aber weiter `{ scenarioType, paragraph, complete, trail }` zurück.
-
-## Regression (`regressionRunner.ts`)
-
-- Cases werden pro `TaxType` gruppiert (bereits vorhanden).
-- Zusätzlich aggregiert nach `RuleFile`.
-- Pro Rule-Datei automatisch generiert: Standard-, Grenz-, Negativ-,
-  Mehrsteuer-, Sonder-, Prüfungsfälle (`regressionCases` in der Rule-Datei).
-- Harte Baseline: **alle heutigen 102 KB-Cases bleiben grün** (USt hart, Rest
-  soft), sonst gilt der Schritt als fehlgeschlagen und wird zurückgerollt.
-- Neue Vitest-Datei `src/lib/__tests__/expert.test.ts` mit gezielten Prompts
-  pro Rule-Datei (min. 2 Positiv + 1 Negativ).
-- Dev-Toggle `window.__runKbRegression()` bleibt.
-
-## UI
-
-Keine Änderung. Trace (`taxType → scenario → subCase → schemaId → signals`)
-nur in `import.meta.env.DEV` sichtbar, produktiv unsichtbar.
-
-## Rollout in 4 kleinen Schritten (jeder Schritt = grüne Baseline)
-
-1. **Skeleton + Migration USt.** `expert/{types,parser,signals,router,ruleEngine,
-   knowledge}.ts` + `rules/vatRules.ts`. `chatHeuristics.generateAnswer` ruft
-   für `taxType === 'umsatzsteuer'` die neue Engine, sonst weiter alten Pfad.
-   102/102 grün.
-2. **ESt + AO + Bilanz + NPO Rule-Dateien** (echte Schemata) + zugehörige
-   Regressionstests. Alter Pfad wird für diese Steuerarten deaktiviert.
-3. **Erb/Schenk/GrESt/KStG/GewSt/LSt/UmwSt/IntStR** als schlanke Rule-Dateien
-   mit Basisschema (kein Stub-Text, aber flache Bäume).
-4. **Restliche Stubs** (InvStG, Zoll, EnergieStG, VersStG, KraftStG, GrStG) +
-   Aufräumen: `router/taxTypes.ts` wird zum Dünn-Adapter, alte
-   USt-Klassifizierung in `chatHeuristics` entfernt, sobald `vatRules` alle
-   USt-Regressionen bedient.
-
-## Out of scope
-
-- Keine neuen Seiten, keine UI-Anpassung, keine KB-Inhaltserweiterung.
-- Keine Änderung an Kfz-Rechner, MVR, Lexikon-Route, Wissensdatenbank-Filter.
-- Keine LLM-Anbindung; die Logik bleibt vollständig deterministisch.
-
-## Technisches
-
-- Alle Ebenen sind reine Funktionen ohne Seiteneffekte; leicht unit-testbar.
-- Keine neuen Runtime-Deps. Vitest ist als Dev-Dep akzeptabel, sonst genügt
-  der bestehende `window.__runKbRegression()`-Runner.
-- Performance: Signal-Evaluation ist O(n · Regeln); mit Kurzschluss über
-  `requires` bleibt der Aufruf auch bei tausenden KB-Einträgen konstant, weil
-  die KB erst NACH der Klassifizierung und nur im gescopten Bereich angefragt wird.
+Nur Phase 1: Verzeichnisstruktur, Grundmodule, Entfernungspauschale als erster grüner End-to-End-Fall, Integration in `chatHeuristics.ts` als non-breaking Zusatzpfad, USt-Regression unverändert grün.

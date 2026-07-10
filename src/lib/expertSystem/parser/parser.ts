@@ -154,7 +154,23 @@ export function parse(prompt: string): Facts {
   if (/\bfestsetzungsverj(ä|ae)hrung\b/i.test(t)) explicit.push("festsetzungsverjährung");
   if (/\bfreie\s+r(ü|ue)cklage\b/i.test(t)) explicit.push("freieRücklage");
   if (/\bhinzurechnung\b/i.test(t)) explicit.push("hinzurechnung");
+  if (/\br(ü|ue)ckstellung/i.test(t)) explicit.push("rückstellung");
+  if (/\bgarantie/i.test(t)) explicit.push("garantie");
   f.explicitTerms = explicit;
+
+  // Bilanzstichtag-Jahr extrahieren
+  const my = t.match(/31\.\s*12\.\s*(\d{4})/);
+  if (my) f.balanceSheetYear = Number(my[1]);
+
+  // Rückstellungs-/Aufwandsbetrag: "18.000 €" / "18000 EUR"
+  const am = t.match(/(\d{1,3}(?:\.\d{3})+|\d{3,7})(?:,(\d{1,2}))?\s*(€|eur)/i);
+  if (am) {
+    const int = am[1].replace(/\./g, "");
+    const dec = am[2] ?? "0";
+    const val = Number(`${int}.${dec}`);
+    if (Number.isFinite(val)) f.provisionAmount = val;
+  }
+
 
   return normalizeFacts(f);
 }

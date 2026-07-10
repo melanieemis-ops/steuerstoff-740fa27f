@@ -27,15 +27,16 @@ const LAW_TO_TAXTYPE: Record<string, string | undefined> = {
 
 const InputSchema = z.object({
   law: z.enum(LAWS),
-  paragraph: z.string().min(1).max(30),
-  title: z.string().min(2).max(200),
-  originalText: z.string().min(20).max(20000),
+  originalText: z.string().min(20).max(30000),
 });
 
 const KbSchema = z.object({
+  paragraph: z.string().min(1).max(30),
+  title: z.string().min(2).max(200),
   short: z.string().min(10).max(400),
   keywords: z.array(z.string().min(2)).min(2).max(20),
-  references: z.array(z.string().min(2)).min(1).max(15),
+  references: z.array(z.string().min(2)).min(1).max(20),
+  category: z.string().min(2).max(80),
   importance: z.number().int().min(1).max(10),
   ueberblick: z.string().min(10),
   tatbestand: z.string().min(10),
@@ -84,24 +85,28 @@ async function generateWithAi(input: z.infer<typeof InputSchema>): Promise<z.inf
 
   const system = `Du bist ein deutscher Steuerrechts-Experte. Du erstellst interne Knowledge-Base-Bausteine für ein Expertensystem. WICHTIG: Gib NIEMALS den Gesetzeswortlaut vollständig wieder. Fasse fachlich korrekt zusammen. Keine urheberrechtlich problematischen Vollzitate. Antworte ausschließlich als valides JSON gemäß Schema.`;
 
-  const user = `Erzeuge einen strukturierten Wissensbaustein für ${input.law} ${input.paragraph} — "${input.title}".
+  const user = `Analysiere den folgenden Gesetzestext aus dem ${input.law} vollständig automatisch.
+Erkenne selbst: Paragraph-Nummer (inkl. ggf. Buchstaben-Suffix wie 15a), Überschrift, Absätze, Nummerierungen, verwiesene Paragraphen, passende Schlagwörter, sinnvolle Kategorie und Praxisrelevanz.
 
-Originaltext (nur zur inhaltlichen Analyse, NICHT zurückgeben):
+Originaltext (nur zur inhaltlichen Analyse, NICHT vollständig zurückgeben — nur zusammenfassen):
 """
 ${input.originalText}
 """
 
 Antworte als JSON mit genau diesen Feldern:
 {
+  "paragraph": "z. B. § 15 oder § 15a (mit § und ggf. Buchstabe)",
+  "title": "Amtliche Überschrift des Paragraphen",
   "short": "1–2 Sätze Kurzbeschreibung",
   "keywords": ["...", "..."],
   "references": ["§ X ${input.law}", "..."],
+  "category": "z. B. 'Einkommensteuer' oder 'Umsatzsteuer'",
   "importance": 1-10,
   "ueberblick": "Kurzüberblick (Fließtext, 2–4 Sätze)",
-  "tatbestand": "Tatbestandsvoraussetzungen (Bullet-Liste als Markdown mit - )",
+  "tatbestand": "Tatbestandsvoraussetzungen (Markdown-Bullet-Liste mit - )",
   "rechtsfolge": "Rechtsfolge (Fließtext, ggf. Bullets)",
   "ausnahmen": "Ausnahmen (Bullet-Liste oder 'Keine')",
-  "verknuepft": "Verknüpfte Paragraphen (Liste mit Erläuterung)",
+  "verknuepft": "Verknüpfte Paragraphen mit kurzer Erläuterung",
   "praxisbeispiel": "Konkretes Beispiel (2–5 Sätze)",
   "merksatz": "Ein prägnanter Merksatz"
 }`;
@@ -142,12 +147,12 @@ Antworte als JSON mit genau diesen Feldern:
 
 function buildFileContent(
   identifier: string,
-  input: z.infer<typeof InputSchema>,
+  law: string,
   ai: z.infer<typeof KbSchema>,
   id: string,
   paragraphNumber: number,
 ): string {
-  const taxType = LAW_TO_TAXTYPE[input.law];
+  const taxType = LAW_TO_TAXTYPE[law];
   const keywordsRegex = ai.keywords
     .map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
     .join("|");
@@ -188,14 +193,14 @@ ${ai.merksatz}
 
 export const ${identifier}: KBEntry = {
   id: ${JSON.stringify(id)},
-  title: ${JSON.stringify(`${input.paragraph} ${input.law} – ${input.title}`)},
+  title: ${JSON.stringify(`${ai.paragraph} ${law} – ${ai.title}`)},
   short: ${JSON.stringify(ai.short)},
-  category: ${JSON.stringify(`Gesetze / ${input.law}`)},
-  source: ${JSON.stringify(`${input.law} — interne Zusammenfassung`)},
+  category: ${JSON.stringify(ai.category || `Gesetze / ${law}`)},
+  source: ${JSON.stringify(`${law} — interne Zusammenfassung`)},
   keywords: /(${keywordsRegex})/i,
   references: ${JSON.stringify(ai.references)},
-  law: ${JSON.stringify(input.law)},
-  paragraph: ${JSON.stringify(input.paragraph)},
+  law: ${JSON.stringify(law)},
+  paragraph: ${JSON.stringify(ai.paragraph)},
   paragraphNumber: ${paragraphNumber},
   type: "gesetz",
   importance: ${ai.importance},${taxType ? `\n  taxType: ${JSON.stringify(taxType)},` : ""}
@@ -205,17 +210,17 @@ export const ${identifier}: KBEntry = {
 }
 
 async function writeAndRegister(
-  input: z.infer<typeof InputSchema>,
+  law: string,
   ai: z.infer<typeof KbSchema>,
 ): Promise<{ filePath: string; identifier: string; id: string }> {
   const fs = await import("node:fs/promises");
   const path = await import("node:path");
 
-  const { padded, num } = parseParagraphNumber(input.paragraph);
-  const titleSlug = slugify(input.title);
-  const fileBase = `${input.law.toLowerCase()}-${padded}-${titleSlug}`;
+  const { padded, num } = parseParagraphNumber(ai.paragraph);
+  const titleSlug = slugify(ai.title);
+  const fileBase = `${law.toLowerCase()}-${padded}-${titleSlug}`;
   const id = fileBase;
-  const identifier = toIdentifier(input.law, padded, titleSlug);
+  const identifier = toIdentifier(law, padded, titleSlug);
 
   const dir = path.join(
     process.cwd(),
@@ -224,24 +229,21 @@ async function writeAndRegister(
     "expertSystem",
     "internalKnowledge",
     "laws",
-    input.law.toLowerCase(),
+    law.toLowerCase(),
   );
   await fs.mkdir(dir, { recursive: true });
   const filePath = path.join(dir, `${fileBase}.ts`);
 
-  // Existenzprüfung
   try {
     await fs.access(filePath);
     throw new Error(`Datei existiert bereits: ${fileBase}.ts — bitte anderen Titel/Paragraphen wählen.`);
   } catch (e) {
     if (e instanceof Error && e.message.startsWith("Datei existiert")) throw e;
-    // sonst: nicht vorhanden → ok
   }
 
-  const content = buildFileContent(identifier, input, ai, id, num);
+  const content = buildFileContent(identifier, law, ai, id, num);
   await fs.writeFile(filePath, content, "utf-8");
 
-  // internalKnowledge.ts aktualisieren
   const indexPath = path.join(
     process.cwd(),
     "src",
@@ -251,7 +253,7 @@ async function writeAndRegister(
     "internalKnowledge.ts",
   );
   const src = await fs.readFile(indexPath, "utf-8");
-  const importLine = `import { ${identifier} } from "./laws/${input.law.toLowerCase()}/${fileBase}";`;
+  const importLine = `import { ${identifier} } from "./laws/${law.toLowerCase()}/${fileBase}";`;
   const entryLine = `  ${identifier},`;
 
   if (src.includes(importLine)) {
@@ -294,7 +296,7 @@ export const importLawEntry = createServerFn({ method: "POST" })
   .inputValidator((input: unknown) => InputSchema.parse(input))
   .handler(async ({ data }) => {
     const ai = await generateWithAi(data);
-    const result = await writeAndRegister(data, ai);
+    const result = await writeAndRegister(data.law, ai);
     return {
       ok: true as const,
       id: result.id,

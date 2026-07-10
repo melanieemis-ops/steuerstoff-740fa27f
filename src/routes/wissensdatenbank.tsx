@@ -1,19 +1,40 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Search, X, Copy, Check, ClipboardList, FileText } from "lucide-react";
+import { BookOpen, Search, X, Copy, Check, ClipboardList, FileText, Upload } from "lucide-react";
 import { KNOWLEDGE_BASE } from "@/lib/knowledgeBase";
 import { HandoutsManager } from "@/components/HandoutsManager";
 import { listHandouts, type Handout } from "@/lib/knowledgeTopics";
+import { useIsAdmin } from "@/hooks/useIsAdmin";
 
 export const Route = createFileRoute("/wissensdatenbank")({
   component: Wissensdatenbank,
   head: () => ({ meta: [{ title: "Wissensdatenbank · steuerstoff" }] }),
 });
+
+function AdminImporterBanner() {
+  const isAdmin = useIsAdmin();
+  if (!isAdmin) return null;
+  return (
+    <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-lg border border-primary/30 bg-primary/5 p-3">
+      <div className="text-xs text-muted-foreground">
+        <span className="font-medium text-foreground">Admin:</span> Gesetzestext einfügen →
+        automatischer KB-Import. Route: <code>/gesetz-importieren</code>
+      </div>
+      <Link
+        to="/gesetz-importieren"
+        className="inline-flex items-center gap-1.5 rounded-md bg-foreground px-3 py-1.5 text-xs font-medium text-background hover:opacity-90"
+      >
+        <Upload className="h-3.5 w-3.5" />
+        Gesetz importieren
+      </Link>
+    </div>
+  );
+}
 
 const CATEGORIES = [
   "Alle",
@@ -974,6 +995,8 @@ function Wissensdatenbank() {
           <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
             Kuratierte steuerliche Inhalte, Buchungslogiken und Kanzlei-Standards.
           </p>
+          <AdminImporterBanner />
+
 
           <div className="relative mt-6">
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />

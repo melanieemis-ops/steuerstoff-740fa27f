@@ -13,7 +13,7 @@ import {
 import { routeTaxType, type RouterResult } from "./router/pipeline";
 import { TAX_TYPE_LABELS, type TaxType } from "./router/taxTypes";
 import { runExpertSystem, EXPERT_OVERRIDE_THRESHOLD } from "./expertSystem";
-import { INTERNAL_KNOWLEDGE_BASE } from "./expertSystem/knowledge/internalKnowledge";
+import { INTERNAL_KNOWLEDGE_BASE } from "./expertSystem/internalKnowledge";
 
 import { parseFacts } from "./expert/parser";
 import { evaluateSignals } from "./expert/signals";
@@ -957,6 +957,42 @@ function extractExample(body: string): string | null {
 }
 
 /**
+ * GESETZESMODUS: erkennt reine Gesetzesfragen.
+ * Trigger: § im Prompt ODER Prompt beginnt mit Gesetzesbezeichner (EStG, UStG, KStG, AO, GewStG, HGB, BGB).
+ */
+function isLawOnlyQuestion(q: string): boolean {
+  const t = q.toLowerCase();
+  if (/§\s*\d/.test(t)) return true;
+  if (/\b(estg|ustg|kstg|gewstg|erbstg|hgb|bgb|ao|aeao)\b/.test(t) && !/mandant|fall|kunde|klient/.test(t)) return true;
+  return false;
+}
+
+/** Zerlegt einen Gesetzes-Body in die Standardabschnitte des Gesetzesmodus. */
+function parseLawSections(body: string): {
+  tatbestand?: string;
+  rechtsfolge?: string;
+  ausnahmen?: string;
+  beispiel?: string;
+  merksatz?: string;
+} {
+  const pick = (re: RegExp): string | undefined => {
+    const m = body.match(re);
+    if (!m) return undefined;
+    const start = (m.index ?? 0) + m[0].length;
+    const rest = body.slice(start);
+    const next = rest.search(/\n#{1,6}\s/);
+    return (next > 0 ? rest.slice(0, next) : rest).trim() || undefined;
+  };
+  return {
+    tatbestand: pick(/#{1,6}\s*(Tatbestand(svoraussetzungen)?|Voraussetzungen)\b[^\n]*\n/i),
+    rechtsfolge: pick(/#{1,6}\s*Rechtsfolge[n]?\b[^\n]*\n/i),
+    ausnahmen: pick(/#{1,6}\s*Ausnahmen?\b[^\n]*\n/i),
+    beispiel: pick(/#{1,6}\s*(Praxisbeispiel|Beispiel)\b[^\n]*\n/i),
+    merksatz: pick(/#{1,6}\s*Merksatz\b[^\n]*\n/i),
+  };
+}
+
+/**
  * Wissensfrage-Antwort direkt aus Lexikon + Knowledge Base. Nie Rückfragen.
  * Antwortschema:
  *   1) Direkte Antwort (summary)
@@ -996,31 +1032,49 @@ function answerFromKnowledge(rawQuestion: string): ChatAnswer | null {
   const example = extractExample(body);
 
   const sections: { title: string; body: string }[] = [];
-  if (first.references?.length) {
-    sections.push({
-      title: "Gesetzesgrundlage",
-      body: first.references.join(", "),
-    });
-  }
-  if (example) {
-    sections.push({ title: "Beispiel", body: example });
-  }
-  sections.push({
-    title: `Verwendeter Wissensbaustein: ${first.title}`,
-    body:
-      (first.short ? `${first.short}\n\n` : "") +
-      body +
-      (first.references?.length ? `\n\nRechtsgrundlage: ${first.references.join(", ")}` : ""),
-  });
-  if (hits.length > 1) {
-    for (const h of hits.slice(1)) {
+
+  // GESETZESMODUS: Wenn Frage rein gesetzesbezogen ist und ein Gesetzes-Baustein trifft,
+  // folgt die Antwort dem Schema: Gesetz / Tatbestand / Rechtsfolge / Ausnahmen / Beispiel / Merksatz.
+  const lawMode = usedInternal && isLawOnlyQuestion(rawQuestion) && /gesetz/i.test(first.category ?? "");
+  if (lawMode) {
+    const law = parseLawSections(body);
+    sections.push({ title: "Gesetz", body: `${first.title}${first.references?.length ? ` — ${first.references.join(", ")}` : ""}` });
+    if (law.tatbestand) sections.push({ title: "Tatbestandsvoraussetzungen", body: law.tatbestand });
+    if (law.rechtsfolge) sections.push({ title: "Rechtsfolge", body: law.rechtsfolge });
+    if (law.ausnahmen) sections.push({ title: "Ausnahmen", body: law.ausnahmen });
+    const bsp = law.beispiel ?? example;
+    if (bsp) sections.push({ title: "Praxisbeispiel", body: bsp });
+    if (law.merksatz) sections.push({ title: "Merksatz", body: law.merksatz });
+    if (hits.length > 1) {
       sections.push({
-        title: `Weiterer Wissensbaustein: ${h.title}`,
-        body:
-          (h.short ? `${h.short}\n\n` : "") +
-          h.body +
-          (h.references?.length ? `\n\nRechtsgrundlage: ${h.references.join(", ")}` : ""),
+        title: "Verknüpfte Normen",
+        body: hits.slice(1).map((h) => `${h.title}${h.references?.length ? ` (${h.references.join(", ")})` : ""}`).join(" · "),
       });
+    }
+  } else {
+    if (first.references?.length) {
+      sections.push({ title: "Gesetzesgrundlage", body: first.references.join(", ") });
+    }
+    if (example) {
+      sections.push({ title: "Beispiel", body: example });
+    }
+    sections.push({
+      title: `Verwendeter Wissensbaustein: ${first.title}`,
+      body:
+        (first.short ? `${first.short}\n\n` : "") +
+        body +
+        (first.references?.length ? `\n\nRechtsgrundlage: ${first.references.join(", ")}` : ""),
+    });
+    if (hits.length > 1) {
+      for (const h of hits.slice(1)) {
+        sections.push({
+          title: `Weiterer Wissensbaustein: ${h.title}`,
+          body:
+            (h.short ? `${h.short}\n\n` : "") +
+            h.body +
+            (h.references?.length ? `\n\nRechtsgrundlage: ${h.references.join(", ")}` : ""),
+        });
+      }
     }
   }
 

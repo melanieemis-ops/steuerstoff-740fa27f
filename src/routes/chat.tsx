@@ -468,9 +468,9 @@ function MessageBubble({
 }) {
   if (msg.role === "user") {
     return (
-      <div className="flex justify-end">
+      <div data-msg className="flex justify-end">
         <div className="max-w-[85%] rounded-2xl rounded-tr-sm bg-primary px-4 py-3 text-primary-foreground">
-          <p className="whitespace-pre-wrap">{msg.text}</p>
+          <p className="whitespace-pre-wrap break-words text-[15px] leading-relaxed">{msg.text}</p>
           <button
             type="button"
             onClick={(event) => {
@@ -478,7 +478,7 @@ function MessageBubble({
               event.stopPropagation();
               copyTextToClipboard(msg.text);
             }}
-            className="mt-3 inline-flex items-center gap-1 rounded-xl px-2 py-1 text-xs text-primary-foreground/70 hover:bg-primary-foreground/10 hover:text-primary-foreground"
+            className="mt-2 inline-flex items-center gap-1 rounded-xl px-2 py-1 text-[11px] text-primary-foreground/70 hover:bg-primary-foreground/10 hover:text-primary-foreground"
             aria-label="Prompt kopieren"
           >
             <Copy className="h-3 w-3" />
@@ -490,14 +490,14 @@ function MessageBubble({
   }
   if (msg.role === "error") {
     return (
-      <div className="flex justify-start">
-        <div className="max-w-[90%] rounded-2xl border border-destructive/30 bg-destructive/5 p-4">
+      <div data-msg className="flex justify-start">
+        <div className="w-full max-w-[92%] rounded-2xl border border-destructive/30 bg-destructive/5 p-4">
           <div className="flex items-start gap-2">
             <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-destructive" />
-            <div className="flex-1">
-              <p className="text-sm font-medium text-foreground">{msg.text}</p>
+            <div className="min-w-0 flex-1">
+              <p className="text-sm font-medium text-foreground">Das hat gerade nicht geklappt.</p>
               <p className="mt-1 text-xs text-muted-foreground">
-                Bitte versuche es erneut oder formuliere die Frage etwas konkreter.
+                Bitte erneut versuchen oder die Frage etwas konkreter formulieren.
               </p>
               <button
                 type="button"
@@ -514,118 +514,241 @@ function MessageBubble({
     );
   }
 
-  const a = msg.answer;
   return (
-    <div className="flex justify-start">
-      <div className="max-w-[92%] space-y-3 rounded-2xl rounded-tl-md border border-border bg-card p-4 shadow-sm">
-        <p className="text-sm leading-relaxed text-foreground">{a.summary}</p>
+    <div data-msg className="flex justify-start">
+      <AssistantCard msg={msg} copied={copied} onCopy={onCopy} />
+    </div>
+  );
+}
 
-        {a.sections && a.sections.length > 0 && (
-          <div className="space-y-2">
-            {a.sections.map((s, i) => (
-              <div key={i} className="rounded-lg border border-border bg-background/40 p-3">
-                <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
-                  {s.title}
-                </p>
-                <p className="mt-1 text-sm leading-relaxed text-foreground">{s.body}</p>
-              </div>
-            ))}
-          </div>
-        )}
+// Sortiert Sections in „immer offen" vs. „einklappbar". Nummerierte
+// Prüfungsschritte werden in einem gemeinsamen Akkordeon zusammengefasst.
+const PRIMARY_TITLES = new Set(["Einordnung", "Ergebnis", "Berechnung"]);
+const COLLAPSIBLE_TITLES = new Set([
+  "Subsumtion",
+  "Prüfschema",
+  "Prüfungsschema",
+  "Rechtsgrundlagen",
+  "Vertiefung",
+  "Alternative Regel",
+  "Nicht anwenden",
+  "Buchung",
+]);
 
-        {a.reasoning && (
-          <div className="rounded-lg bg-muted/40 p-3">
-            <p className="text-[11px] uppercase tracking-wide text-muted-foreground">
-              Begründung
-            </p>
-            <p className="mt-1 text-sm text-foreground">{a.reasoning}</p>
-          </div>
-        )}
+function AssistantCard({
+  msg,
+  copied,
+  onCopy,
+}: {
+  msg: Extract<Msg, { role: "assistant" }>;
+  copied: boolean;
+  onCopy: () => void;
+}) {
+  const a = msg.answer;
+  const sections = a.sections ?? [];
+  const numbered: { title: string; body: string }[] = [];
+  const primary: { title: string; body: string }[] = [];
+  const collapsible: { title: string; body: string }[] = [];
+  let ergebnis: { title: string; body: string } | null = null;
 
-        {a.clarify && (
-          <p className="rounded-lg border border-dashed border-border bg-background/30 p-3 text-sm text-foreground">
-            {a.clarify}
-          </p>
-        )}
+  for (const s of sections) {
+    if (/^\s*\d+\.\s/.test(s.title)) {
+      // "9. Ergebnis" separat hervorheben
+      if (/ergebnis/i.test(s.title) && !ergebnis) {
+        ergebnis = { title: "Ergebnis", body: s.body };
+      } else {
+        numbered.push(s);
+      }
+      continue;
+    }
+    if (s.title === "Ergebnis" && !ergebnis) {
+      ergebnis = s;
+      continue;
+    }
+    if (PRIMARY_TITLES.has(s.title)) primary.push(s);
+    else if (COLLAPSIBLE_TITLES.has(s.title)) collapsible.push(s);
+    else collapsible.push(s);
+  }
 
-        {a.risks && a.risks.length > 0 && (
-          <div>
-            <p className="text-[11px] uppercase tracking-wide text-muted-foreground">Risiken</p>
-            <ul className="mt-1 space-y-1 text-sm text-foreground">
-              {a.risks.map((r, i) => (
-                <li key={i} className="flex gap-2">
-                  <span className="mt-1.5 inline-block h-1 w-1 shrink-0 rounded-full bg-destructive" />
-                  <span>{r}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+  // Reasoning weglassen, wenn eine Subsumtion vorhanden ist (Doppelung vermeiden).
+  const showReasoning =
+    !!a.reasoning &&
+    !sections.some((s) => /subsumtion|begründung/i.test(s.title));
 
-        {a.followUps && a.followUps.length > 0 && (
-          <div>
-            <p className="text-[11px] uppercase tracking-wide text-muted-foreground">Rückfragen</p>
-            <ul className="mt-1 space-y-1 text-sm text-foreground">
-              {a.followUps.map((r, i) => (
-                <li key={i} className="flex gap-2">
-                  <span className="mt-1.5 inline-block h-1 w-1 shrink-0 rounded-full bg-muted-foreground" />
-                  <span>{r}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {a.nextStep && (
-          <div>
-            <p className="text-[11px] uppercase tracking-wide text-muted-foreground">
-              Nächster Schritt
-            </p>
-            <p className="mt-1 text-sm text-foreground">{a.nextStep}</p>
-          </div>
-        )}
-
-        {a.links && a.links.length > 0 && (
-          <div className="flex flex-wrap gap-2 pt-1">
-            {a.links.map((l) => (
-              <Link
-                key={l.to}
-                to={l.to}
-                className="inline-flex items-center gap-1.5 rounded-md bg-foreground px-3 py-1.5 text-xs font-medium text-background hover:opacity-90"
-              >
-                {l.label}
-                <ArrowRight className="h-3 w-3" />
-              </Link>
-            ))}
-          </div>
-        )}
-
-        {a.knowledge && (
-          <p className="text-[11px] text-muted-foreground">
-            Passender Wissensbereich:{" "}
-            <Link to="/wissensdatenbank" className="underline-offset-2 hover:underline">
-              {a.knowledge}
-            </Link>
-          </p>
-        )}
-
-        <p className="border-t border-border/60 pt-2 text-[10px] leading-snug text-muted-foreground">
-          {REVIEW_HINT}
+  return (
+    <div className="w-full max-w-[94%] space-y-3 rounded-2xl rounded-tl-md border border-border bg-card p-4 shadow-sm">
+      {/* Ergebnis prominent oben */}
+      <div className="rounded-xl bg-foreground/[0.04] p-3">
+        <p className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+          Ergebnis
         </p>
+        <p className="mt-1 break-words text-[15px] font-semibold leading-snug text-foreground">
+          {ergebnis?.body ?? a.summary}
+        </p>
+      </div>
 
-        <div className="flex items-center gap-1 pt-1">
-          <button
-            type="button"
-            onClick={onCopy}
-            className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-[11px] text-muted-foreground hover:bg-accent hover:text-foreground"
-            aria-label="Antwort kopieren"
-          >
-            {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
-            {copied ? "Kopiert" : "Kopieren"}
-          </button>
+      {primary.map((s, i) => (
+        <SectionBlock key={"p" + i} title={s.title} body={s.body} />
+      ))}
+
+      {showReasoning && (
+        <SectionBlock title="Kurzbegründung" body={a.reasoning!} muted />
+      )}
+
+      {numbered.length > 0 && (
+        <Accordion title={`Prüfungsschema (${numbered.length} Schritte)`}>
+          <ol className="space-y-1.5 text-sm leading-relaxed text-foreground">
+            {numbered.map((s, i) => (
+              <li key={i} className="break-words">
+                <span className="font-medium">{s.title}</span>
+                {s.body ? <span className="text-muted-foreground"> — {s.body}</span> : null}
+              </li>
+            ))}
+          </ol>
+        </Accordion>
+      )}
+
+      {collapsible.map((s, i) => (
+        <Accordion key={"c" + i} title={s.title}>
+          <p className="whitespace-pre-wrap break-words text-sm leading-relaxed text-foreground">
+            {s.body}
+          </p>
+        </Accordion>
+      ))}
+
+      {a.clarify && (
+        <p className="rounded-lg border border-dashed border-border bg-background/30 p-3 text-sm text-foreground">
+          {a.clarify}
+        </p>
+      )}
+
+      {a.risks && a.risks.length > 0 && (
+        <Accordion title={`Risiken (${a.risks.length})`}>
+          <ul className="space-y-1 text-sm text-foreground">
+            {a.risks.map((r, i) => (
+              <li key={i} className="flex gap-2">
+                <span className="mt-1.5 inline-block h-1 w-1 shrink-0 rounded-full bg-destructive" />
+                <span className="break-words">{r}</span>
+              </li>
+            ))}
+          </ul>
+        </Accordion>
+      )}
+
+      {a.followUps && a.followUps.length > 0 && (
+        <Accordion title="Offene Punkte">
+          <ul className="space-y-1 text-sm text-foreground">
+            {a.followUps.map((r, i) => (
+              <li key={i} className="flex gap-2">
+                <span className="mt-1.5 inline-block h-1 w-1 shrink-0 rounded-full bg-muted-foreground" />
+                <span className="break-words">{r}</span>
+              </li>
+            ))}
+          </ul>
+        </Accordion>
+      )}
+
+      {a.nextStep && (
+        <div className="rounded-lg border border-border bg-background/40 p-3">
+          <p className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+            Nächster Schritt
+          </p>
+          <p className="mt-1 break-words text-sm text-foreground">{a.nextStep}</p>
         </div>
+      )}
+
+      {a.links && a.links.length > 0 && (
+        <div className="flex flex-wrap gap-2 pt-1">
+          {a.links.map((l) => (
+            <Link
+              key={l.to}
+              to={l.to}
+              className="inline-flex items-center gap-1.5 rounded-md bg-foreground px-3 py-1.5 text-xs font-medium text-background hover:opacity-90"
+            >
+              {l.label}
+              <ArrowRight className="h-3 w-3" />
+            </Link>
+          ))}
+        </div>
+      )}
+
+      {a.knowledge && (
+        <p className="text-[11px] text-muted-foreground">
+          Passender Wissensbereich:{" "}
+          <Link to="/wissensdatenbank" className="underline-offset-2 hover:underline">
+            {a.knowledge}
+          </Link>
+        </p>
+      )}
+
+      <p className="border-t border-border/60 pt-2 text-[10px] leading-snug text-muted-foreground">
+        {REVIEW_HINT}
+      </p>
+
+      <div className="flex items-center gap-1 pt-1">
+        <button
+          type="button"
+          onClick={onCopy}
+          className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-[11px] text-muted-foreground hover:bg-accent hover:text-foreground"
+          aria-label="Antwort kopieren"
+        >
+          {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+          {copied ? "Kopiert" : "Kopieren"}
+        </button>
       </div>
     </div>
+  );
+}
+
+function SectionBlock({
+  title,
+  body,
+  muted = false,
+}: {
+  title: string;
+  body: string;
+  muted?: boolean;
+}) {
+  return (
+    <div
+      className={
+        muted
+          ? "rounded-lg bg-muted/40 p-3"
+          : "rounded-lg border border-border bg-background/40 p-3"
+      }
+    >
+      <p className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+        {title}
+      </p>
+      <p className="mt-1 whitespace-pre-wrap break-words text-sm leading-relaxed text-foreground">
+        {body}
+      </p>
+    </div>
+  );
+}
+
+function Accordion({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <details className="group rounded-lg border border-border bg-background/40 [&_summary::-webkit-details-marker]:hidden">
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-2 px-3 py-2 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground hover:text-foreground">
+        <span className="truncate">{title}</span>
+        <span
+          aria-hidden
+          className="inline-block shrink-0 rounded-full border border-border px-1.5 text-[10px] font-normal text-muted-foreground group-open:hidden"
+        >
+          öffnen
+        </span>
+        <span
+          aria-hidden
+          className="hidden shrink-0 rounded-full border border-border px-1.5 text-[10px] font-normal text-muted-foreground group-open:inline-block"
+        >
+          schließen
+        </span>
+      </summary>
+      <div className="border-t border-border/60 px-3 py-2">{children}</div>
+    </details>
+  );
+}
   );
 }
 

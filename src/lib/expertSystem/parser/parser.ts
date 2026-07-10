@@ -121,6 +121,12 @@ export function parse(prompt: string): Facts {
   f.benefitToShareholder = tri(RE.benefitToShareholder.test(t));
   f.disproportionateCompensation = tri(RE.disproportionate.test(t));
 
+  f.balanceSheetDate = tri(RE.balanceSheetDate.test(t));
+  f.warranty = tri(RE.warranty.test(t));
+  f.uncertainObligation = tri(RE.uncertainObligation.test(t));
+  f.economicallyCaused = tri(RE.economicallyCaused.test(t));
+
+
   // Länder-Flow
   if (RE.fromDE.test(t)) f.departureCountry = "DE";
   else if (RE.fromEU.test(t)) f.departureCountry = "EU";

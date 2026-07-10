@@ -18,3 +18,7 @@ import { estg002Einkunftsarten } from "./laws/estg/estg-002-einkunftsarten";
 export const INTERNAL_KNOWLEDGE_BASE: KBEntry[] = [
   estg001Steuerpflicht,
 ];
+export const INTERNAL_KNOWLEDGE_BASE: KBEntry[] = [
+  estg001Steuerpflicht,
+  estg002Einkunftsarten,
+];

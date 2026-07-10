@@ -329,7 +329,7 @@ function ChatPage() {
             </p>
           </div>
           <div className="flex shrink-0 items-center gap-2">
-            {hasMessages && (
+            {(hasMessages || phase !== "welcome") && (
               <button
                 type="button"
                 onClick={newChat}

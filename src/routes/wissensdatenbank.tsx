@@ -1,14 +1,15 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Search, X, Copy, Check, ClipboardList, FileText } from "lucide-react";
+import { BookOpen, Search, X, Copy, Check, ClipboardList, FileText, Upload } from "lucide-react";
 import { KNOWLEDGE_BASE } from "@/lib/knowledgeBase";
 import { HandoutsManager } from "@/components/HandoutsManager";
 import { listHandouts, type Handout } from "@/lib/knowledgeTopics";
+import { useIsAdmin } from "@/hooks/useIsAdmin";
 
 export const Route = createFileRoute("/wissensdatenbank")({
   component: Wissensdatenbank,
@@ -974,6 +975,8 @@ function Wissensdatenbank() {
           <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
             Kuratierte steuerliche Inhalte, Buchungslogiken und Kanzlei-Standards.
           </p>
+          <AdminImporterBanner />
+
 
           <div className="relative mt-6">
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />

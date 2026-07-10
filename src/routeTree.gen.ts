@@ -15,6 +15,7 @@ import { Route as NpoPruefassistentRouteImport } from './routes/npo-pruefassiste
 import { Route as NeueAnfrageRouteImport } from './routes/neue-anfrage'
 import { Route as MittelverwendungsrechnerRouteImport } from './routes/mittelverwendungsrechner'
 import { Route as KfzWertabgabeRouteImport } from './routes/kfz-wertabgabe'
+import { Route as GesetzImportierenRouteImport } from './routes/gesetz-importieren'
 import { Route as FallverlaufRouteImport } from './routes/fallverlauf'
 import { Route as EinstellungenRouteImport } from './routes/einstellungen'
 import { Route as CsvKonverterRouteImport } from './routes/csv-konverter'
@@ -51,6 +52,11 @@ const MittelverwendungsrechnerRoute =
 const KfzWertabgabeRoute = KfzWertabgabeRouteImport.update({
   id: '/kfz-wertabgabe',
   path: '/kfz-wertabgabe',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GesetzImportierenRoute = GesetzImportierenRouteImport.update({
+  id: '/gesetz-importieren',
+  path: '/gesetz-importieren',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FallverlaufRoute = FallverlaufRouteImport.update({
@@ -90,6 +96,7 @@ export interface FileRoutesByFullPath {
   '/csv-konverter': typeof CsvKonverterRoute
   '/einstellungen': typeof EinstellungenRoute
   '/fallverlauf': typeof FallverlaufRoute
+  '/gesetz-importieren': typeof GesetzImportierenRoute
   '/kfz-wertabgabe': typeof KfzWertabgabeRoute
   '/mittelverwendungsrechner': typeof MittelverwendungsrechnerRoute
   '/neue-anfrage': typeof NeueAnfrageRoute
@@ -104,6 +111,7 @@ export interface FileRoutesByTo {
   '/csv-konverter': typeof CsvKonverterRoute
   '/einstellungen': typeof EinstellungenRoute
   '/fallverlauf': typeof FallverlaufRoute
+  '/gesetz-importieren': typeof GesetzImportierenRoute
   '/kfz-wertabgabe': typeof KfzWertabgabeRoute
   '/mittelverwendungsrechner': typeof MittelverwendungsrechnerRoute
   '/neue-anfrage': typeof NeueAnfrageRoute
@@ -119,6 +127,7 @@ export interface FileRoutesById {
   '/csv-konverter': typeof CsvKonverterRoute
   '/einstellungen': typeof EinstellungenRoute
   '/fallverlauf': typeof FallverlaufRoute
+  '/gesetz-importieren': typeof GesetzImportierenRoute
   '/kfz-wertabgabe': typeof KfzWertabgabeRoute
   '/mittelverwendungsrechner': typeof MittelverwendungsrechnerRoute
   '/neue-anfrage': typeof NeueAnfrageRoute
@@ -135,6 +144,7 @@ export interface FileRouteTypes {
     | '/csv-konverter'
     | '/einstellungen'
     | '/fallverlauf'
+    | '/gesetz-importieren'
     | '/kfz-wertabgabe'
     | '/mittelverwendungsrechner'
     | '/neue-anfrage'
@@ -149,6 +159,7 @@ export interface FileRouteTypes {
     | '/csv-konverter'
     | '/einstellungen'
     | '/fallverlauf'
+    | '/gesetz-importieren'
     | '/kfz-wertabgabe'
     | '/mittelverwendungsrechner'
     | '/neue-anfrage'
@@ -163,6 +174,7 @@ export interface FileRouteTypes {
     | '/csv-konverter'
     | '/einstellungen'
     | '/fallverlauf'
+    | '/gesetz-importieren'
     | '/kfz-wertabgabe'
     | '/mittelverwendungsrechner'
     | '/neue-anfrage'
@@ -178,6 +190,7 @@ export interface RootRouteChildren {
   CsvKonverterRoute: typeof CsvKonverterRoute
   EinstellungenRoute: typeof EinstellungenRoute
   FallverlaufRoute: typeof FallverlaufRoute
+  GesetzImportierenRoute: typeof GesetzImportierenRoute
   KfzWertabgabeRoute: typeof KfzWertabgabeRoute
   MittelverwendungsrechnerRoute: typeof MittelverwendungsrechnerRoute
   NeueAnfrageRoute: typeof NeueAnfrageRoute
@@ -231,6 +244,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof KfzWertabgabeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/gesetz-importieren': {
+      id: '/gesetz-importieren'
+      path: '/gesetz-importieren'
+      fullPath: '/gesetz-importieren'
+      preLoaderRoute: typeof GesetzImportierenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/fallverlauf': {
       id: '/fallverlauf'
       path: '/fallverlauf'
@@ -282,6 +302,7 @@ const rootRouteChildren: RootRouteChildren = {
   CsvKonverterRoute: CsvKonverterRoute,
   EinstellungenRoute: EinstellungenRoute,
   FallverlaufRoute: FallverlaufRoute,
+  GesetzImportierenRoute: GesetzImportierenRoute,
   KfzWertabgabeRoute: KfzWertabgabeRoute,
   MittelverwendungsrechnerRoute: MittelverwendungsrechnerRoute,
   NeueAnfrageRoute: NeueAnfrageRoute,

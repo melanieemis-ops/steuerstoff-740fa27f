@@ -57,6 +57,12 @@ export interface KBEntry {
   testPrompt?: string;
   /** Optionale Erwartungen für die Regressionsprüfung. */
   expect?: KBExpectation;
+  /** Optionale Metadaten für importierte Gesetzesbausteine. */
+  law?: string;
+  paragraph?: string;
+  paragraphNumber?: number;
+  type?: "gesetz" | "verwaltung" | "rechtsprechung" | "praxis";
+  importance?: number;
 }
 
 /** TaxType eines KB-Eintrags — explizit oder heuristisch aus category/title/id. */

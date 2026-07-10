@@ -9,16 +9,18 @@
 //   - Rechtsprechung (BFH, EuGH)
 //   - Kanzleistandards, DATEV-Praxiswissen
 //
-// Struktur ist bewusst identisch zu KBEntry, damit der bestehende
-// Scoring-/Filter-Code wiederverwendet werden kann.
+// AUTOMATISCH GEPFLEGT: Der Gesetzes-Importer (Seite /gesetz-importieren)
+// ergänzt Imports und Einträge zwischen den GENERATED-Markern alphabetisch.
 
 import type { KBEntry } from "@/lib/knowledgeBase";
+// GENERATED-IMPORTS-START
 import { estg001Steuerpflicht } from "./laws/estg/estg-001-steuerpflicht";
 import { estg002Einkunftsarten } from "./laws/estg/estg-002-einkunftsarten";
+// GENERATED-IMPORTS-END
+
 export const INTERNAL_KNOWLEDGE_BASE: KBEntry[] = [
-  estg001Steuerpflicht,
-];
-export const INTERNAL_KNOWLEDGE_BASE: KBEntry[] = [
+  // GENERATED-ENTRIES-START
   estg001Steuerpflicht,
   estg002Einkunftsarten,
+  // GENERATED-ENTRIES-END
 ];

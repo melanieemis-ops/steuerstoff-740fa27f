@@ -13,6 +13,8 @@ import {
 import { routeTaxType, type RouterResult } from "./router/pipeline";
 import { TAX_TYPE_LABELS, type TaxType } from "./router/taxTypes";
 import { runExpertSystem, EXPERT_OVERRIDE_THRESHOLD } from "./expertSystem";
+import { INTERNAL_KNOWLEDGE_BASE } from "./expertSystem/knowledge/internalKnowledge";
+
 import { parseFacts } from "./expert/parser";
 import { evaluateSignals } from "./expert/signals";
 import { routeTaxType as expertRoute } from "./expert/router";
@@ -968,8 +970,13 @@ function answerFromKnowledge(rawQuestion: string): ChatAnswer | null {
   if (lex) return { ...lex, followUps: [], clarify: undefined, kind: lex.kind ?? "info" };
 
   const paras = (rawQuestion.match(/§\s*\d+[a-z]?/gi) ?? []).map((s) => s.trim());
-  const hits = findKbMatches(rawQuestion, paras, [], 2, null, null);
+  // Priorität: interne KB (Gesetze, Verwaltungsanweisungen, Rechtsprechung) vor öffentlicher KB.
+  const internalHits = findKbMatches(rawQuestion, paras, [], 2, null, null, INTERNAL_KNOWLEDGE_BASE, 2);
+  const publicHits = findKbMatches(rawQuestion, paras, [], 2, null, null);
+  const hits = internalHits.length > 0 ? internalHits : publicHits;
   if (hits.length === 0) return null;
+  const usedInternal = internalHits.length > 0;
+
 
   const first = hits[0];
   const body = first.body ?? "";

@@ -78,17 +78,34 @@ function uid() {
   return Math.random().toString(36).slice(2, 10);
 }
 
+type Phase = "welcome" | "starting" | "active";
+const GREETING_TEXT = "Wie kann ich dir helfen?";
+
 function ChatPage() {
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [phase, setPhase] = useState<Phase>("welcome");
+  const [welcomeLeaving, setWelcomeLeaving] = useState(false);
+  const [showGreetingBubble, setShowGreetingBubble] = useState(false);
+  const [dots, setDots] = useState(false);
+  const [typed, setTyped] = useState("");
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const startingRef = useRef(false);
+  const timersRef = useRef<number[]>([]);
+
+  function clearTimers() {
+    for (const id of timersRef.current) window.clearTimeout(id);
+    timersRef.current = [];
+  }
 
   // hydrate once
   useEffect(() => {
-    setMessages(loadMessages());
+    const m = loadMessages();
+    setMessages(m);
+    if (m.length > 0) setPhase("active");
     // Dev-Modus: KB-Regression per Konsole ausführbar machen.
     if (import.meta.env.DEV && typeof window !== "undefined") {
       void import("@/lib/regressionRunner").then((m) => {
@@ -98,7 +115,71 @@ function ChatPage() {
         console.info("[steuerstoff] KB-Regression verfügbar: window.__runKbRegression()");
       });
     }
+    return () => clearTimers();
   }, []);
+
+  function prefersReducedMotion() {
+    return (
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    );
+  }
+
+  function startWelcomeFlow() {
+    if (startingRef.current || phase !== "welcome") return;
+    startingRef.current = true;
+    setWelcomeLeaving(true);
+    const t1 = window.setTimeout(() => {
+      setPhase("starting");
+      setShowGreetingBubble(true);
+      if (prefersReducedMotion()) {
+        setDots(false);
+        setTyped(GREETING_TEXT);
+        setPhase("active");
+        const tf = window.setTimeout(() => textareaRef.current?.focus(), 60);
+        timersRef.current.push(tf);
+        return;
+      }
+      setDots(true);
+      const t2 = window.setTimeout(() => {
+        setDots(false);
+        const text = GREETING_TEXT;
+        let i = 0;
+        const step = () => {
+          i++;
+          setTyped(text.slice(0, i));
+          if (i < text.length) {
+            const tn = window.setTimeout(step, 42);
+            timersRef.current.push(tn);
+          } else {
+            const tf = window.setTimeout(() => {
+              setPhase("active");
+              textareaRef.current?.focus();
+            }, 180);
+            timersRef.current.push(tf);
+          }
+        };
+        const t3 = window.setTimeout(step, 150);
+        timersRef.current.push(t3);
+      }, 900);
+      timersRef.current.push(t2);
+    }, 260);
+    timersRef.current.push(t1);
+  }
+
+  function skipWelcomeAndAsk(text: string) {
+    clearTimers();
+    startingRef.current = true;
+    setWelcomeLeaving(true);
+    setShowGreetingBubble(false);
+    setDots(false);
+    setTyped("");
+    const t = window.setTimeout(() => {
+      setPhase("active");
+      void ask(text);
+    }, 240);
+    timersRef.current.push(t);
+  }
 
 
   // persist

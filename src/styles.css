@@ -308,3 +308,30 @@
   overflow-x: auto;
 }
 
+
+/* Typing indicator (three dots) und blinkender Caret für Startanimation */
+.typing-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: hsl(var(--muted-foreground));
+  opacity: 0.35;
+  animation: typing-dot-blink 1200ms infinite ease-in-out;
+}
+@keyframes typing-dot-blink {
+  0%, 80%, 100% { opacity: 0.25; transform: translateY(0); }
+  40% { opacity: 1; transform: translateY(-2px); }
+}
+.typing-caret {
+  display: inline-block;
+  margin-left: 1px;
+  animation: typing-caret-blink 900ms steps(1) infinite;
+  color: hsl(var(--muted-foreground));
+}
+@keyframes typing-caret-blink {
+  50% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .typing-dot, .typing-caret { animation: none; opacity: 0.6; }
+}

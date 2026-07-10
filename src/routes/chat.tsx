@@ -78,17 +78,34 @@ function uid() {
   return Math.random().toString(36).slice(2, 10);
 }
 
+type Phase = "welcome" | "starting" | "active";
+const GREETING_TEXT = "Wie kann ich dir helfen?";
+
 function ChatPage() {
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [phase, setPhase] = useState<Phase>("welcome");
+  const [welcomeLeaving, setWelcomeLeaving] = useState(false);
+  const [showGreetingBubble, setShowGreetingBubble] = useState(false);
+  const [dots, setDots] = useState(false);
+  const [typed, setTyped] = useState("");
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const startingRef = useRef(false);
+  const timersRef = useRef<number[]>([]);
+
+  function clearTimers() {
+    for (const id of timersRef.current) window.clearTimeout(id);
+    timersRef.current = [];
+  }
 
   // hydrate once
   useEffect(() => {
-    setMessages(loadMessages());
+    const m = loadMessages();
+    setMessages(m);
+    if (m.length > 0) setPhase("active");
     // Dev-Modus: KB-Regression per Konsole ausführbar machen.
     if (import.meta.env.DEV && typeof window !== "undefined") {
       void import("@/lib/regressionRunner").then((m) => {
@@ -98,7 +115,71 @@ function ChatPage() {
         console.info("[steuerstoff] KB-Regression verfügbar: window.__runKbRegression()");
       });
     }
+    return () => clearTimers();
   }, []);
+
+  function prefersReducedMotion() {
+    return (
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    );
+  }
+
+  function startWelcomeFlow() {
+    if (startingRef.current || phase !== "welcome") return;
+    startingRef.current = true;
+    setWelcomeLeaving(true);
+    const t1 = window.setTimeout(() => {
+      setPhase("starting");
+      setShowGreetingBubble(true);
+      if (prefersReducedMotion()) {
+        setDots(false);
+        setTyped(GREETING_TEXT);
+        setPhase("active");
+        const tf = window.setTimeout(() => textareaRef.current?.focus(), 60);
+        timersRef.current.push(tf);
+        return;
+      }
+      setDots(true);
+      const t2 = window.setTimeout(() => {
+        setDots(false);
+        const text = GREETING_TEXT;
+        let i = 0;
+        const step = () => {
+          i++;
+          setTyped(text.slice(0, i));
+          if (i < text.length) {
+            const tn = window.setTimeout(step, 42);
+            timersRef.current.push(tn);
+          } else {
+            const tf = window.setTimeout(() => {
+              setPhase("active");
+              textareaRef.current?.focus();
+            }, 180);
+            timersRef.current.push(tf);
+          }
+        };
+        const t3 = window.setTimeout(step, 150);
+        timersRef.current.push(t3);
+      }, 900);
+      timersRef.current.push(t2);
+    }, 260);
+    timersRef.current.push(t1);
+  }
+
+  function skipWelcomeAndAsk(text: string) {
+    clearTimers();
+    startingRef.current = true;
+    setWelcomeLeaving(true);
+    setShowGreetingBubble(false);
+    setDots(false);
+    setTyped("");
+    const t = window.setTimeout(() => {
+      setPhase("active");
+      void ask(text);
+    }, 240);
+    timersRef.current.push(t);
+  }
 
 
   // persist
@@ -203,7 +284,15 @@ function ChatPage() {
   }
 
   function newChat() {
+    clearTimers();
     setMessages([]);
+    setPhase("welcome");
+    setWelcomeLeaving(false);
+    setShowGreetingBubble(false);
+    setDots(false);
+    setTyped("");
+    setInput("");
+    startingRef.current = false;
     if (typeof window !== "undefined") window.localStorage.removeItem(STORAGE_KEY);
   }
 
@@ -240,7 +329,7 @@ function ChatPage() {
             </p>
           </div>
           <div className="flex shrink-0 items-center gap-2">
-            {hasMessages && (
+            {(hasMessages || phase !== "welcome") && (
               <button
                 type="button"
                 onClick={newChat}
@@ -261,9 +350,26 @@ function ChatPage() {
         style={{ overscrollBehavior: "contain" }}
       >
         <div className="mx-auto w-full max-w-3xl px-4 py-6 pb-[160px] md:pb-[180px]">
-          {!hasMessages ? (
-            <div className="space-y-6">
-              <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+          {phase === "welcome" ? (
+            <div
+              className={`space-y-6 transition-all duration-300 ease-out ${
+                welcomeLeaving ? "pointer-events-none translate-y-2 opacity-0" : "opacity-100"
+              }`}
+              aria-hidden={welcomeLeaving}
+            >
+              <div
+                role="button"
+                tabIndex={0}
+                aria-label="Chat starten"
+                onClick={startWelcomeFlow}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    startWelcomeFlow();
+                  }
+                }}
+                className="w-full cursor-pointer rounded-2xl border border-border bg-card p-5 text-left shadow-sm transition-transform hover:border-foreground/25 active:scale-[0.99]"
+              >
                 <div className="flex items-start gap-3">
                   <span
                     className="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full"
@@ -276,7 +382,9 @@ function ChatPage() {
                       Hallo, ich bin der steuerstoff Chat. Stell mir eine steuerliche Frage
                       oder beschreibe einen Kanzlei-Sachverhalt.
                     </p>
-                    <p className="mt-2 text-[11px] text-muted-foreground">{REVIEW_HINT}</p>
+                    <p className="mt-2 text-[11px] text-muted-foreground">
+                      Tippe hier, um zu starten.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -290,7 +398,13 @@ function ChatPage() {
                     <button
                       key={s}
                       type="button"
-                      onClick={() => (s.endsWith("?") ? ask(s) : setInput(s + ": "))}
+                      onClick={() => {
+                        if (s.endsWith("?")) skipWelcomeAndAsk(s);
+                        else {
+                          setInput(s + ": ");
+                          skipWelcomeAndAsk("");
+                        }
+                      }}
                       className="rounded-full border border-border bg-background px-3 py-1.5 text-xs text-foreground transition-colors hover:bg-accent"
                     >
                       {s}
@@ -308,7 +422,7 @@ function ChatPage() {
                     <button
                       key={q}
                       type="button"
-                      onClick={() => ask(q)}
+                      onClick={() => skipWelcomeAndAsk(q)}
                       className="group flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 text-left text-sm text-foreground transition-colors hover:bg-accent"
                     >
                       <span className="min-w-0 truncate">{q}</span>
@@ -320,6 +434,58 @@ function ChatPage() {
             </div>
           ) : (
             <div className="space-y-4">
+              {showGreetingBubble && (
+                <div data-msg className="flex justify-start animate-in fade-in duration-300">
+                  <div className="w-full max-w-[94%] rounded-2xl rounded-tl-md border border-border bg-card p-4 shadow-sm">
+                    <div className="flex items-start gap-3">
+                      <span
+                        className="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full"
+                        style={{ background: "var(--gradient-accent)" }}
+                      >
+                        <Sparkles className="h-3.5 w-3.5 text-background" />
+                      </span>
+                      <div className="min-w-0 flex-1">
+                        {dots ? (
+                          <span
+                            role="status"
+                            aria-label="steuerstoff schreibt"
+                            className="inline-flex items-center gap-1 py-1"
+                          >
+                            {prefersReducedMotion() ? (
+                              <span className="text-sm text-muted-foreground">
+                                steuerstoff schreibt …
+                              </span>
+                            ) : (
+                              <>
+                                <span className="typing-dot" style={{ animationDelay: "0ms" }} />
+                                <span className="typing-dot" style={{ animationDelay: "160ms" }} />
+                                <span className="typing-dot" style={{ animationDelay: "320ms" }} />
+                              </>
+                            )}
+                          </span>
+                        ) : (
+                          <>
+                            <p
+                              aria-hidden={phase !== "active"}
+                              className="whitespace-pre-wrap break-words text-[15px] leading-relaxed text-foreground"
+                            >
+                              {typed}
+                              {phase === "starting" && typed.length < GREETING_TEXT.length && (
+                                <span className="typing-caret" aria-hidden>|</span>
+                              )}
+                            </p>
+                            {phase === "active" && (
+                              <p className="sr-only" aria-live="polite">
+                                {GREETING_TEXT}
+                              </p>
+                            )}
+                          </>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
               {messages.map((m) => (
                 <MessageBubble
                   key={m.id}

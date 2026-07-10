@@ -1035,8 +1035,10 @@ function answerFromKnowledge(rawQuestion: string): ChatAnswer | null {
     links: [{ label: "Wissensdatenbank öffnen", to: "/wissensdatenbank" }],
     trace: [
       { step: "Intent", detail: "Wissensfrage → Knowledge Base zuerst" },
+      { step: "Quelle", detail: usedInternal ? "Interne Wissensdatenbank (Gesetz/Verwaltung/Rechtsprechung)" : "Öffentliche Wissensdatenbank" },
       { step: "KB-Treffer", detail: hits.map((h) => h.title).join(" · ") },
       { step: "Antwortschema", detail: "Direkte Antwort → Gesetz → Begründung → Beispiel → Wissensbaustein" },
+
     ],
   };
 }

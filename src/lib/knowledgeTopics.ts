@@ -2921,7 +2921,7 @@ function isValidTopic(t: unknown): t is KnowledgeTopic {
 const _seen = new Set<string>();
 const _invalid: unknown[] = [];
 export const VALID_KNOWLEDGE_TOPICS: KnowledgeTopic[] = KNOWLEDGE_TOPICS.filter(
-  (t) => {
+  (t): t is KnowledgeTopic => {
     if (!isValidTopic(t)) {
       _invalid.push(t);
       return false;

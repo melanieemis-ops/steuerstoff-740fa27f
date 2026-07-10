@@ -72,6 +72,544 @@ export const KNOWLEDGE_TOPICS: KnowledgeTopic[] = [
     handoutCategory: "USt",
   },
 {
+  id: "umsatzsteuer-fassadenerneuerung-bauleistung-jpoer-geruest",
+  title: "Fassadenerneuerung: § 13b UStG, jPöR, Gerüstbau und Vertragsstrafe",
+  short:
+    "Komplexer Umsatzsteuerfall zur Fassadenerneuerung mit öffentlichem Auftraggeber, Fliesenleger, Gerüstbauer, Leistungsbeistellung, Anzahlungen und Vorsteuerabzug.",
+  category: "Umsatzsteuer",
+  source:
+    "Interne Steuerstoff-Prüfungsvorbereitung – Fassadenerneuerung",
+  keywords:
+    "fassadenerneuerung|fassadenverkleidung|§ 13b ustg|bauleistung|juristische person öffentlichen rechts|bundesagentur für arbeit|werklieferung|werkleistung|fliesenleger|gerüstbauer|leistungsbeistellung|vertragsstrafe|schadensersatz|anzahlung|vorsteuerabzug|reverse charge",
+  references: [
+    "§ 1 Abs. 1 Nr. 1 UStG",
+    "§ 2 Abs. 3 UStG",
+    "§ 3 Abs. 4 UStG",
+    "§ 3 Abs. 9 UStG",
+    "§ 3a Abs. 3 Nr. 1 UStG",
+    "§ 3 Abs. 7 UStG",
+    "§ 10 Abs. 1 UStG",
+    "§ 12 Abs. 1 UStG",
+    "§ 13 Abs. 1 Nr. 1 Buchst. a UStG",
+    "§ 13a Abs. 1 Nr. 1 UStG",
+    "§ 13b Abs. 2 Nr. 4 UStG",
+    "§ 13b Abs. 5 Satz 2 UStG",
+    "§ 14c UStG",
+    "§ 15 Abs. 1 Satz 1 Nr. 1 UStG",
+    "§ 15 Abs. 1 Satz 1 Nr. 4 UStG",
+    "§ 15 Abs. 2 UStG",
+    "Abschn. 1.4 UStAE",
+    "Abschn. 10.1 UStAE",
+    "Abschn. 13b.2 UStAE",
+    "Abschn. 13b.3 UStAE"
+  ],
+  body: `
+# Fassadenerneuerung – komplexer Umsatzsteuerfall
+
+## 1. Sachverhalt im Überblick
+
+Eine KG übernimmt für die Bundesagentur für Arbeit die Verkleidung eines Dienstgebäudes mit Granitplatten.
+
+Auftragssumme:
+
+500.000 € netto.
+
+Die KG
+
+- beschafft die Granitfliesen,
+- beauftragt einen selbständigen Fliesenleger mit den Verlegearbeiten,
+- beauftragt einen Gerüstbauer,
+- stellt dem Gerüstbauer eigene Hilfskräfte zur Verfügung.
+
+Zu prüfen sind:
+
+- Ausgangsleistung der KG,
+- Verlegeleistung des Fliesenlegers,
+- Gerüstbauleistung,
+- Leistungsbeistellung,
+- Vertragsstrafe,
+- Anzahlungen,
+- Steuerschuldnerschaft
+- und Vorsteuerabzug.
+
+---
+
+# 2. Fassadenverkleidung durch die KG
+
+## Art der Leistung
+
+Die KG bringt selbst beschaffte Granitfliesen an dem Gebäude an.
+
+Die Granitfliesen bestimmen den wirtschaftlichen Gehalt der Leistung und stellen Hauptstoffe dar.
+
+Damit liegt eine Werklieferung nach § 3 Abs. 4 UStG vor.
+
+## Einschaltung von Subunternehmern
+
+Die KG schuldet gegenüber der Bundesagentur das fertige Werk.
+
+Dass sie sich zur Ausführung eines Fliesenlegers bedient, ist unschädlich.
+
+Der Fliesenleger ist umsatzsteuerlich Erfüllungsgehilfe der KG.
+
+## Zeitpunkt der Leistung
+
+Die Werklieferung ist mit der Abnahme des fertigen Werks ausgeführt.
+
+Im Beispiel:
+
+10.09.
+
+## Ort der Leistung
+
+Der Ort der unbewegten Werklieferung befindet sich am Belegenheitsort des Gebäudes.
+
+Im Beispiel:
+
+Wuppertal.
+
+## Steuerbarkeit und Steuerpflicht
+
+Die Werklieferung ist im Inland steuerbar und mangels Steuerbefreiung mit 19 % steuerpflichtig.
+
+Bemessungsgrundlage:
+
+500.000 €
+
+Umsatzsteuer:
+
+500.000 € × 19 %
+
+= 95.000 €
+
+---
+
+# 3. Keine Steuerschuldnerschaft der Bundesagentur
+
+## § 13b Abs. 2 Nr. 1 UStG
+
+Diese Vorschrift greift nicht, weil die KG kein im Ausland ansässiger Unternehmer ist.
+
+## § 13b Abs. 2 Nr. 4 UStG
+
+Die Bundesagentur erhält die Leistung für ihren hoheitlichen Bereich.
+
+Sie empfängt die Leistung nicht im Rahmen eines Betriebs gewerblicher Art, der selbst nachhaltig Bauleistungen erbringt.
+
+Daher wird sie nicht Steuerschuldner nach § 13b Abs. 5 Satz 2 UStG.
+
+## Rechtsfolge
+
+Steuerschuldner bleibt die KG nach § 13a Abs. 1 Nr. 1 UStG.
+
+Die KG muss
+
+95.000 € Umsatzsteuer
+
+anmelden und abführen.
+
+---
+
+# 4. Fehlerhafter Reverse-Charge-Hinweis
+
+Die KG stellt eine Rechnung ohne Umsatzsteuerausweis aus und weist fälschlich auf die Steuerschuldnerschaft der Bundesagentur hin.
+
+## Folge
+
+Der Hinweis ist sachlich falsch.
+
+Da jedoch keine Umsatzsteuer offen ausgewiesen wurde, entsteht keine zusätzliche Steuerschuld nach § 14c UStG.
+
+Die KG schuldet dennoch die gesetzlich entstandene Umsatzsteuer von 95.000 €.
+
+## Merksatz
+
+Falscher Reverse-Charge-Hinweis
+
+ohne offenen Steuerausweis
+
+führt nicht automatisch zu § 14c UStG.
+
+---
+
+# 5. Verlegearbeiten des Fliesenlegers
+
+## Art der Leistung
+
+Die KG stellt sämtliche Granitfliesen und damit die Hauptstoffe zur Verfügung.
+
+Der Fliesenleger führt ausschließlich die Verlegearbeiten aus.
+
+Damit liegt keine Werklieferung, sondern eine Werkleistung und somit eine sonstige Leistung nach § 3 Abs. 9 UStG vor.
+
+## Zeitpunkt
+
+Die Leistung ist mit Beendigung der Verlegearbeiten ausgeführt.
+
+Im Beispiel:
+
+30.08.
+
+## Ort
+
+Die Leistung steht unmittelbar mit einem Grundstück in Zusammenhang.
+
+Ort der Leistung ist Wuppertal.
+
+## Steuerbarkeit
+
+Die Leistung ist im Inland steuerbar und steuerpflichtig.
+
+---
+
+# 6. Reverse Charge für die Verlegearbeiten
+
+## Bauleistung
+
+Das Verlegen von Granitfliesen an einer Gebäudefassade dient der Instandhaltung oder Änderung eines Bauwerks.
+
+Es handelt sich um eine Bauleistung nach § 13b Abs. 2 Nr. 4 UStG.
+
+## Leistungsempfänger
+
+Die KG erbringt selbst Bauleistungen.
+
+Daher schuldet sie als Leistungsempfängerin die Umsatzsteuer nach § 13b Abs. 5 Satz 2 UStG.
+
+## Bemessungsgrundlage
+
+160.000 €
+
+Umsatzsteuer:
+
+160.000 € × 19 %
+
+= 30.400 €
+
+## Steuerentstehung ohne Rechnung
+
+Der Fliesenleger stellt trotz Aufforderung zunächst keine Rechnung aus.
+
+Bei Leistungen nach § 13b UStG entsteht die Steuer spätestens nach den gesetzlichen Sonderregeln.
+
+Da die Leistung am 30.08. ausgeführt wurde und keine Rechnung vorliegt, ist die Umsatzsteuer im Voranmeldungszeitraum September zu erfassen.
+
+## Vorsteuerabzug
+
+Die KG kann die nach § 13b UStG geschuldete Steuer nach § 15 Abs. 1 Satz 1 Nr. 4 UStG als Vorsteuer abziehen.
+
+Vorsteuer:
+
+30.400 €
+
+Für diesen Vorsteuerabzug ist eine Rechnung nicht zwingende Voraussetzung.
+
+Voraussetzung bleibt:
+
+- Leistung für das Unternehmen
+- kein Ausschluss nach § 15 Abs. 2 UStG.
+
+Da die Verlegeleistung unmittelbar für den steuerpflichtigen Fassadenumsatz verwendet wird, besteht der Vorsteuerabzug vollständig.
+
+## Merksatz
+
+Bei § 13b-Umsätzen ist der Vorsteuerabzug nach § 15 Abs. 1 Satz 1 Nr. 4 UStG grundsätzlich auch ohne Rechnung möglich.
+
+---
+
+# 7. Gerüstbauleistung
+
+## Art der Leistung
+
+Der Gerüstbauer errichtet und entfernt das Baugerüst.
+
+Es handelt sich um eine Werkleistung und damit um eine sonstige Leistung nach § 3 Abs. 9 UStG.
+
+## Zeitpunkt
+
+Die Leistung ist mit Abschluss der geschuldeten Arbeiten ausgeführt.
+
+Im Beispiel:
+
+Abbau des Gerüsts im August.
+
+## Ort
+
+Die Gerüstbauleistung steht mit dem Grundstück in Zusammenhang.
+
+Ort:
+
+Wuppertal.
+
+## Steuerbarkeit und Steuerpflicht
+
+Die Leistung ist im Inland steuerbar und mit 19 % steuerpflichtig.
+
+---
+
+# 8. Personalgestellung als Leistungsbeistellung
+
+Die KG stellt dem Gerüstbauer fünf eigene Hilfskräfte zur Verfügung.
+
+Diese werden ausschließlich auf der Baustelle eingesetzt und weiterhin von der KG bezahlt.
+
+## Beurteilung
+
+Die Personalgestellung erfolgt lediglich zur Unterstützung der Leistung des Gerüstbauers.
+
+Sie nimmt nicht an einem eigenständigen Leistungsaustausch teil.
+
+Es handelt sich um eine nicht steuerbare Leistungsbeistellung.
+
+## Folge
+
+Das vereinbarte Entgelt für die Gerüstbauleistung wird durch die Personalgestellung nicht gemindert.
+
+---
+
+# 9. Kein Reverse Charge beim Gerüstbau
+
+Nach der im Fall zugrunde gelegten Verwaltungsauffassung stellt das bloße Auf- und Abbauen eines Gerüsts keine Bauleistung im Sinne des § 13b Abs. 2 Nr. 4 UStG dar.
+
+Daher geht die Steuerschuld nicht auf die KG über.
+
+Steuerschuldner bleibt der Gerüstbauer nach § 13a Abs. 1 Nr. 1 UStG.
+
+## Bemessungsgrundlage
+
+Ursprüngliches Entgelt:
+
+100.000 €
+
+Preisnachlass:
+
+10 %
+
+Endgültiges Nettoentgelt:
+
+90.000 €
+
+Umsatzsteuer:
+
+90.000 € × 19 %
+
+= 17.100 €
+
+---
+
+# 10. Vertragsstrafe
+
+Der Gerüstbauer führt die Arbeiten nicht fristgerecht aus.
+
+Die KG kürzt deshalb die Abschlusszahlung um eine vereinbarte Vertragsstrafe von
+
+5.000 €.
+
+## Umsatzsteuerliche Beurteilung
+
+Die Vertragsstrafe wird wegen nicht ordnungsgemäßer Erfüllung gezahlt.
+
+Sie hat Schadensersatzcharakter.
+
+Es liegt insoweit kein Leistungsaustausch vor.
+
+## Keine Entgeltminderung
+
+Die Vertragsstrafe mindert nicht das Entgelt für die Gerüstbauleistung.
+
+Bemessungsgrundlage bleibt:
+
+90.000 €
+
+Umsatzsteuer bleibt:
+
+17.100 €
+
+## Merksatz
+
+Echter Schadensersatz mindert die umsatzsteuerliche Bemessungsgrundlage nicht.
+
+---
+
+# 11. Anzahlung beim Gerüstbauer
+
+Im Mai wird eine Anzahlung gezahlt:
+
+10.000 € netto
+
+zuzüglich
+
+1.900 € Umsatzsteuer.
+
+Der Gerüstbauer stellt eine ordnungsgemäße Anzahlungsrechnung aus.
+
+## Vorsteuerabzug aus der Anzahlung
+
+Die KG kann die Vorsteuer bereits im Voranmeldungszeitraum Mai abziehen, wenn
+
+- eine ordnungsgemäße Anzahlungsrechnung vorliegt und
+- die Zahlung geleistet wurde.
+
+Vorsteuer Mai:
+
+1.900 €
+
+## Restlicher Vorsteuerabzug
+
+Gesamte Umsatzsteuer:
+
+17.100 €
+
+abzüglich Vorsteuer aus Anzahlung:
+
+1.900 €
+
+verbleibende Vorsteuer:
+
+15.200 €
+
+Diese ist im Voranmeldungszeitraum der Leistungsausführung abziehbar.
+
+Im Beispiel:
+
+August.
+
+---
+
+# 12. Zahlungsrechnung
+
+Schlussrechnung:
+
+90.000 € netto
+
++ 17.100 € Umsatzsteuer
+
+= 107.100 € brutto
+
+abzüglich Anzahlung:
+
+10.000 € netto
+
++ 1.900 € Umsatzsteuer
+
+= 11.900 €
+
+verbleibende Abschlussforderung:
+
+95.200 €
+
+abzüglich Vertragsstrafe:
+
+5.000 €
+
+tatsächliche Überweisung:
+
+90.200 €
+
+Die Vertragsstrafe verändert die umsatzsteuerliche Bemessungsgrundlage nicht.
+
+---
+
+# Prüfungsschema Fassadenerneuerung
+
+## Für jede einzelne Leistung getrennt prüfen
+
+1. Wer leistet an wen?
+
+2. Lieferung, Werklieferung oder sonstige Leistung?
+
+3. Wer stellt die Hauptstoffe?
+
+4. Wann ist die Leistung ausgeführt?
+
+5. Wo liegt der Leistungsort?
+
+6. Ist die Leistung steuerbar und steuerpflichtig?
+
+7. Greift § 13b UStG?
+
+8. Wer ist Steuerschuldner?
+
+9. Wie hoch ist die Bemessungsgrundlage?
+
+10. Wann entsteht die Steuer?
+
+11. Ist der Vorsteuerabzug möglich?
+
+12. Liegt eine Rechnung oder Anzahlungsrechnung vor?
+
+13. Liegt Entgeltminderung oder echter Schadensersatz vor?
+
+---
+
+# Typische Klausurfallen
+
+## Fehler 1: Jeder Fassadenauftrag ist automatisch Reverse Charge
+
+Falsch.
+
+Es muss geprüft werden, ob der Leistungsempfänger die Voraussetzungen des § 13b Abs. 5 UStG erfüllt.
+
+Eine juristische Person des öffentlichen Rechts im hoheitlichen Bereich wird nicht allein durch den Bezug der Bauleistung zum Bauleistenden.
+
+---
+
+## Fehler 2: Hauptstoffe übersehen
+
+Stellt der Auftragnehmer die Hauptstoffe, liegt regelmäßig eine Werklieferung vor.
+
+Stellt der Auftraggeber die Hauptstoffe, liegt regelmäßig eine Werkleistung vor.
+
+---
+
+## Fehler 3: Fehlende Rechnung verhindert § 13b-Vorsteuerabzug
+
+Falsch.
+
+Für den Vorsteuerabzug nach § 15 Abs. 1 Satz 1 Nr. 4 UStG ist eine Rechnung grundsätzlich keine materielle Voraussetzung.
+
+---
+
+## Fehler 4: Gerüstbau automatisch als Bauleistung behandeln
+
+Nach der im Fall verwendeten Verwaltungsauffassung ist das bloße Auf- und Abbauen eines Gerüsts keine Bauleistung im Sinne des § 13b Abs. 2 Nr. 4 UStG.
+
+---
+
+## Fehler 5: Personalgestellung als Gegenleistung behandeln
+
+Werden eigene Arbeitnehmer lediglich zur Unterstützung des Auftragnehmers bereitgestellt, kann eine nicht steuerbare Leistungsbeistellung vorliegen.
+
+---
+
+## Fehler 6: Vertragsstrafe vom Entgelt abziehen
+
+Eine Vertragsstrafe wegen verspäteter oder mangelhafter Leistung kann echten Schadensersatz darstellen.
+
+Dann mindert sie die Bemessungsgrundlage nicht.
+
+---
+
+## Fehler 7: Anzahlungs-Vorsteuer zu spät abziehen
+
+Bei ordnungsgemäßer Anzahlungsrechnung und Zahlung kann die Vorsteuer bereits vor Ausführung der Leistung abgezogen werden.
+
+---
+
+# Merksätze
+
+- Eigene Hauptstoffe des Auftragnehmers sprechen für eine Werklieferung.
+- Hauptstoffe des Auftraggebers sprechen für eine Werkleistung.
+- § 13b UStG ist für jede Leistungsbeziehung getrennt zu prüfen.
+- Eine jPöR im hoheitlichen Bereich ist nicht automatisch Steuerschuldner nach § 13b UStG.
+- Ein falscher Reverse-Charge-Hinweis ohne offenen Steuerausweis löst nicht automatisch § 14c UStG aus.
+- Bei § 13b kann der Vorsteuerabzug grundsätzlich ohne Rechnung möglich sein.
+- Echte Vertragsstrafen sind Schadensersatz und keine Entgeltminderung.
+- Anzahlungs-Vorsteuer entsteht bei Rechnung und Zahlung.
+- Leistungsbeistellungen sind kein selbständiger Leistungsaustausch.
+`
+},
+{
   id: "reverse-charge-13b-abs-2-nr-1-bis-4-ustg",
   title: "Reverse Charge nach § 13b Abs. 2 Nr. 1–4 UStG",
   short:

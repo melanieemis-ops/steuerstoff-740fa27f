@@ -30,9 +30,14 @@ const InputSchema = z.object({
   originalText: z.string().min(20).max(30000),
 });
 
-const toStringArray = z
-  .union([z.string(), z.array(z.string())])
-  .transform((v) => (Array.isArray(v) ? [v] : v).flat().map((s) => String(s).trim()).filter(Boolean));
+const toStringArray = z.preprocess(
+  (v) => {
+    if (Array.isArray(v)) return v.map((x) => String(x).trim()).filter(Boolean);
+    if (typeof v === "string") return [v.trim()].filter(Boolean);
+    return v;
+  },
+  z.array(z.string().min(1)).min(1),
+);
 
 const KbSchema = z.object({
   paragraph: z.string().min(1).max(30),

@@ -1,36 +1,41 @@
 // Ebene 4 — Registry und Executor für Rule-Dateien.
+//
+// WICHTIG: Es gibt bewusst KEINE Platzhalter-Rule-Dateien.
+// Steuerarten ohne echte, getestete Regel-Logik werden als
+// "noch nicht unterstützt" markiert und laufen in den Fallback,
+// der genau das ausweist — damit die Antwort nicht suggeriert,
+// es gäbe ein geprüftes Regelwerk, wo keines ist.
 
 import type { Facts, FiredSignal, RuleFile, RuleResult, TaxType } from "./types";
 import { vatRules } from "./rules/vatRules";
 import { incomeTaxRules } from "./rules/incomeTaxRules";
-import { corporateTaxRules } from "./rules/corporateTaxRules";
-import { tradeTaxRules } from "./rules/tradeTaxRules";
-import { payrollTaxRules } from "./rules/payrollTaxRules";
-import { balanceSheetRules } from "./rules/balanceSheetRules";
-import { aoRules } from "./rules/aoRules";
-import { nonprofitRules } from "./rules/nonprofitRules";
-import { inheritanceTaxRules } from "./rules/inheritanceTaxRules";
-import { giftTaxRules } from "./rules/giftTaxRules";
-import { realEstateTransferTaxRules } from "./rules/realEstateTransferTaxRules";
-import { internationalTaxRules } from "./rules/internationalTaxRules";
-import { reorganizationTaxRules } from "./rules/reorganizationTaxRules";
 import { fallbackRule } from "./rules/fallbackRule";
 
+/** Steuerarten mit echter, deterministischer Rule-Datei. */
 export const RULE_REGISTRY: Partial<Record<TaxType, RuleFile>> = {
   umsatzsteuer: vatRules,
   einkommensteuer: incomeTaxRules,
-  koerperschaftsteuer: corporateTaxRules,
-  gewerbesteuer: tradeTaxRules,
-  lohnsteuer: payrollTaxRules,
-  bilanzsteuerrecht: balanceSheetRules,
-  abgabenordnung: aoRules,
-  gemeinnuetzigkeit: nonprofitRules,
-  erbschaftsteuer: inheritanceTaxRules,
-  schenkungsteuer: giftTaxRules,
-  grunderwerbsteuer: realEstateTransferTaxRules,
-  internationales_steuerrecht: internationalTaxRules,
-  umwandlungssteuer: reorganizationTaxRules,
 };
+
+/** Alles, was der Router erkennen kann, aber (noch) keine Rules hat. */
+export const UNSUPPORTED_TAX_TYPES: TaxType[] = [
+  "koerperschaftsteuer",
+  "gewerbesteuer",
+  "lohnsteuer",
+  "bilanzsteuerrecht",
+  "abgabenordnung",
+  "gemeinnuetzigkeit",
+  "erbschaftsteuer",
+  "schenkungsteuer",
+  "grunderwerbsteuer",
+  "umwandlungssteuer",
+  "internationales_steuerrecht",
+  "sonstige",
+];
+
+export function isSupportedTaxType(taxType: TaxType): boolean {
+  return Boolean(RULE_REGISTRY[taxType]);
+}
 
 export function runRules(taxType: TaxType, facts: Facts, signals: FiredSignal[]): RuleResult {
   const rule = RULE_REGISTRY[taxType];

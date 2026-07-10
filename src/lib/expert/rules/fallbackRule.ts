@@ -1,5 +1,8 @@
-// Basisschema für Steuerarten ohne feinjustierte Rule-Datei.
-// Liefert ein flaches Prüfschema, damit die Antwortstruktur konsistent bleibt.
+// Fallback für Steuerarten OHNE echte Rule-Datei.
+// Statt ein hübsches Schein-Schema zu erfinden, wird ausdrücklich
+// ausgewiesen, dass für diese Steuerart noch keine geprüfte Logik
+// vorliegt. So kann die Chat-UI (und der Regressionstest) das
+// erkennen und ehrlich zurückmelden.
 
 import { TAX_TYPE_LABELS } from "../../router/taxTypes";
 import type { Facts, FiredSignal, RuleResult, TaxType } from "../types";
@@ -9,16 +12,13 @@ export function fallbackRule(taxType: TaxType, _f: Facts, _s: FiredSignal[]): Ru
   return {
     taxType,
     scenario: null,
-    subCase: null,
-    schemaId: `fallback:${taxType}`,
-    schemaSteps: [
-      { id: "sachverhalt", label: "Sachverhalt und Beteiligte klären" },
-      { id: "norm", label: "Einschlägige Vorschrift identifizieren" },
-      { id: "tatbestand", label: "Tatbestandsmerkmale prüfen" },
-      { id: "rechtsfolge", label: "Rechtsfolge ableiten" },
-    ],
+    subCase: "unsupported",
+    schemaId: `unsupported:${taxType}`,
+    schemaSteps: [],
     normen: [],
-    ergebnis: `Klassifiziert als ${label}. Für eine belastbare Falllösung werden die konkreten Fakten geprüft.`,
-    missingFacts: ["Bitte konkretisieren Sie den Sachverhalt (Beteiligte, Zeitraum, Beträge)."],
+    ergebnis:
+      `Für die Steuerart „${label}“ ist im Expertensystem derzeit keine geprüfte Regel hinterlegt. ` +
+      `Antworten in diesem Bereich stützen sich ausschließlich auf die Wissensdatenbank und sind nicht regelbasiert validiert.`,
+    missingFacts: [`Rule-Datei für ${label} noch nicht implementiert.`],
   };
 }

@@ -10,7 +10,16 @@ function decideInt(ctx: RuleContext): RuleResult {
   let narrative =
     "Bei grenzüberschreitenden Sachverhalten ist die Steuerpflicht in beiden Staaten zu prüfen. Eine bestehende Doppelbesteuerung wird über bilaterale Doppelbesteuerungsabkommen (DBA) oder unilateral über § 34c EStG / § 26 KStG vermieden (Anrechnung oder Freistellung).";
 
-  if (/dba|doppelbesteuerungsabkommen|doppelbesteuerung/i.test(t)) {
+  if (/wegzug/i.test(t)) {
+    sub = "wegzugsbesteuerung";
+    headline = "Wegzugsbesteuerung (§ 6 AStG)";
+    legalRefs.push("§ 6 AStG", "§ 17 EStG");
+    schemaSteps.push(
+      { id: "tatbestand", label: "Beendigung der unbeschränkten Steuerpflicht bei > 1 %-Beteiligung" },
+      { id: "fiktive-veraeu", label: "Fiktive Veräußerung der Anteile (§ 17 EStG i.V.m. § 6 AStG)" },
+      { id: "stundung", label: "Stundung nach § 6 Abs. 4 AStG (Ratenzahlung 7 Jahre)" },
+    );
+  } else if (/dba|doppelbesteuerungsabkommen|doppelbesteuerung/i.test(t)) {
     sub = "dba";
     headline = "Doppelbesteuerungsabkommen (DBA)";
     legalRefs.push("DBA i.V.m. OECD-MA", "§ 34c EStG");
@@ -48,15 +57,6 @@ function decideInt(ctx: RuleContext): RuleResult {
       { id: "passive-einkuenfte", label: "Passive, niedrig besteuerte Einkünfte (< 25 %)" },
       { id: "hinzurechnungsbetrag", label: "Hinzurechnungsbetrag nach § 10 AStG" },
     );
-  } else if (/wegzug/i.test(t)) {
-    sub = "wegzugsbesteuerung";
-    headline = "Wegzugsbesteuerung (§ 6 AStG)";
-    legalRefs.push("§ 6 AStG", "§ 17 EStG");
-    schemaSteps.push(
-      { id: "tatbestand", label: "Beendigung der unbeschränkten Steuerpflicht bei > 1 %-Beteiligung" },
-      { id: "fiktive-veraeu", label: "Fiktive Veräußerung der Anteile (§ 17 EStG i.V.m. § 6 AStG)" },
-      { id: "stundung", label: "Stundung nach § 6 Abs. 4 AStG (Ratenzahlung 7 Jahre)" },
-    );
   }
 
   return {
@@ -80,7 +80,7 @@ const mod: RuleModule = {
     /\bdba\b/i,
     /betriebsst(ä|ae)tte/i,
     /quellensteuer/i,
-    /ans(ä|ae)ssigkeit/i,
+    /ans(ä|ae)ssig/i,
     /grenzg(ä|ae)nger/i,
     /wegzug/i,
     /verrechnungspreis/i,

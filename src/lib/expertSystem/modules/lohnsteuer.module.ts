@@ -10,7 +10,7 @@ function decideLSt(ctx: RuleContext): RuleResult {
   let narrative =
     "Die Lohnsteuer ist eine Erhebungsform der Einkommensteuer. Der Arbeitgeber behält sie bei jeder Lohnzahlung ein (§ 38 EStG) und meldet sie beim Betriebsstättenfinanzamt an (§ 41a EStG). Bemessungsgrundlage ist der steuerpflichtige Arbeitslohn einschließlich geldwerter Vorteile.";
 
-  if (/(firmenwagen|dienstwagen|1\s*%[-\s]?regelung)/i.test(t)) {
+  if (/(firmenwagen|dienstwagen|1[\s-]*%[-\s]*regelung|bruttolistenpreis)/i.test(t)) {
     sub = "firmenwagen";
     headline = "Firmenwagen — 1-%-Regelung / Fahrtenbuch";
     legalRefs.push("§ 8 Abs. 2 Satz 2–5 EStG", "§ 6 Abs. 1 Nr. 4 Satz 2 EStG");
@@ -65,11 +65,9 @@ function decideLSt(ctx: RuleContext): RuleResult {
 const mod: RuleModule = {
   taxType: "lohnsteuer",
   taxLabel: "Lohnsteuer",
-  weakTriggers: [/\blohn\b/i, /\bgehalt\b/i, /arbeitgeber/i, /arbeitslohn/i],
+  weakTriggers: [/\blohn/i, /\bgehalt\b/i, /arbeitgeber/i, /arbeitslohn/i, /\barbeitnehmer\b/i],
   mediumTriggers: [
     /elstam/i,
-    /firmenwagen/i,
-    /1\s*%[-\s]?regelung/i,
     /sachbezug/i,
     /geldwerter\s+vorteil/i,
     /steuerklasse/i,
@@ -78,11 +76,14 @@ const mod: RuleModule = {
     /geringf(ü|ue)gig/i,
     /lohnsteueranmeldung/i,
     /lohnkonto/i,
-    /dienstwagen/i,
+    /bruttolistenpreis/i,
   ],
   strongTriggers: [
     /lohnsteuer/i,
     /\blstg?\b/i,
+    /firmenwagen/i,
+    /dienstwagen/i,
+    /1[\s-]*%[-\s]*regelung/i,
     /§\s*(38|39|39a|39e|40|40a|41|41a|42|42d)\s*estg\b/i,
   ],
   exclusiveTriggers: [/lohnsteuer/i],

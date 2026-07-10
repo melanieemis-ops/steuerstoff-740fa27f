@@ -167,7 +167,10 @@ function ChatPage() {
   }
 
   function handleKeyDown(e: KeyboardEvent<HTMLTextAreaElement>) {
-    if (e.key === "Enter" && !e.shiftKey) {
+    // Enter sendet, Shift+Enter erzeugt Zeilenumbruch. Auf Touch-Geräten
+    // bleibt Enter = Zeilenumbruch, damit die Bildschirmtastatur nicht
+    // ungewollt sendet.
+    if (e.key === "Enter" && !e.shiftKey && !(e.nativeEvent as { isComposing?: boolean }).isComposing) {
       const isFine =
         typeof window !== "undefined" && window.matchMedia("(pointer: fine)").matches;
       if (isFine) {

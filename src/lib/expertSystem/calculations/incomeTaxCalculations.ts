@@ -34,6 +34,24 @@ export function calculateCommutingAllowance(
   };
 }
 
+/** Homeoffice-Pauschale ab VZ 2023: 6 €/Tag, max. 210 Tage, max. 1.260 €. */
+export interface HomeOfficeResult {
+  total: number;
+  cappedDays: number;
+  formula: string;
+  legalBasis: string[];
+}
+export function calculateHomeOfficeAllowance(days: number): HomeOfficeResult {
+  const d = Math.max(0, Math.min(210, Math.floor(days)));
+  const total = Math.min(1260, d * 6);
+  return {
+    total: round2(total),
+    cappedDays: d,
+    formula: "min(Tage, 210) · 6 € (Höchstbetrag 1.260 €)",
+    legalBasis: ["§ 4 Abs. 5 Satz 1 Nr. 6c EStG", "§ 9 Abs. 5 Satz 1 EStG"],
+  };
+}
+
 function round2(n: number): number {
   return Math.round(n * 100) / 100;
 }

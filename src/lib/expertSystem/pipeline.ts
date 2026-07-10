@@ -7,7 +7,7 @@ import { parse } from "./parser/parser";
 import { evaluateSignals } from "./signals/signalEngine";
 import { matchScenario } from "./scenarios/scenarioMatcher";
 import { runCalculation, type CalculationOutput } from "./calculations/calculationEngine";
-import { findDeepDive } from "./knowledge/knowledgeEngine";
+import { findDeepDive } from "./internalKnowledge/knowledgeEngine";
 import { buildAnswer, type BuiltAnswer } from "./answer/answerBuilder";
 import { ALL_MODULES } from "./modules/registry";
 import { scoreModules, pickBest } from "./modules/scoring";

@@ -284,7 +284,15 @@ function ChatPage() {
   }
 
   function newChat() {
+    clearTimers();
     setMessages([]);
+    setPhase("welcome");
+    setWelcomeLeaving(false);
+    setShowGreetingBubble(false);
+    setDots(false);
+    setTyped("");
+    setInput("");
+    startingRef.current = false;
     if (typeof window !== "undefined") window.localStorage.removeItem(STORAGE_KEY);
   }
 

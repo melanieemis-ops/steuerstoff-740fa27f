@@ -749,7 +749,5 @@ function Accordion({ title, children }: { title: string; children: React.ReactNo
     </details>
   );
 }
-  );
-}
 
 export default ChatPage;

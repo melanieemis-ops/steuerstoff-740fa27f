@@ -64,6 +64,14 @@ export interface Facts {
   employmentRelation: Tri;
   benefitToShareholder: Tri;  // vGA-Indiz
   disproportionateCompensation: Tri;
+  managingDirector: Tri;        // Geschäftsführer
+  hiddenProfitDistribution: Tri; // vGA explizit
+  hiddenContribution: Tri;       // verdeckte Einlage
+  armsLengthFailed: Tri;         // Fremdvergleich nicht bestanden
+  taxContributionAccount: Tri;   // steuerliches Einlagekonto § 27 KStG
+  organschaft: Tri;              // Organschaft § 14 KStG
+  lossCarryforward: Tri;         // Verlustvortrag § 10d EStG / § 8c KStG
+  profitDistribution: Tri;       // Ausschüttung / Dividende
 
   // Bilanzierung / Bilanzsteuerrecht
   balanceSheetDate: Tri;      // "Bilanzstichtag", "31.12.20XX", "zum Jahresabschluss"
@@ -116,6 +124,14 @@ export function emptyFacts(text: string): Facts {
     employmentRelation: "unknown",
     benefitToShareholder: "unknown",
     disproportionateCompensation: "unknown",
+    managingDirector: "unknown",
+    hiddenProfitDistribution: "unknown",
+    hiddenContribution: "unknown",
+    armsLengthFailed: "unknown",
+    taxContributionAccount: "unknown",
+    organschaft: "unknown",
+    lossCarryforward: "unknown",
+    profitDistribution: "unknown",
     balanceSheetDate: "unknown",
     warranty: "unknown",
     uncertainObligation: "unknown",

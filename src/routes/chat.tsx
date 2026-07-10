@@ -727,7 +727,7 @@ function SectionBlock({
   );
 }
 
-function Accordion({ title, children }: { title: string; children: React.ReactNode }) {
+function Accordion({ title, children }: { title: string; children: ReactNode }) {
   return (
     <details className="group rounded-lg border border-border bg-background/40 [&_summary::-webkit-details-marker]:hidden">
       <summary className="flex cursor-pointer list-none items-center justify-between gap-2 px-3 py-2 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground hover:text-foreground">

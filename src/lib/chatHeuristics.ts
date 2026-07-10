@@ -954,21 +954,11 @@ export function generateAnswer(rawQuestion: string): ChatAnswer {
  */
 function annotateWithExpertSystem(a: ChatAnswer, rawQuestion: string): ChatAnswer {
   try {
-    // Lazy import um Zyklen zu vermeiden
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const { parseFacts } = require("./expert/parser") as typeof import("./expert/parser");
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const { evaluateSignals } = require("./expert/signals") as typeof import("./expert/signals");
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const { routeTaxType: expertRoute } = require("./expert/router") as typeof import("./expert/router");
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const { runRules } = require("./expert/ruleEngine") as typeof import("./expert/ruleEngine");
-
     const facts = parseFacts(rawQuestion);
     const signals = evaluateSignals(facts);
     const decision = expertRoute(signals, rawQuestion);
     if (decision.primary === "unklar") return a;
-    const rule = runRules(decision.primary, facts, signals);
+    const rule = runExpertLegacyRules(decision.primary, facts, signals);
     const unsupported = rule.subCase === "unsupported";
     const trace: TraceStep[] = [
       ...(a.trace ?? []),

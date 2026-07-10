@@ -957,6 +957,42 @@ function extractExample(body: string): string | null {
 }
 
 /**
+ * GESETZESMODUS: erkennt reine Gesetzesfragen.
+ * Trigger: § im Prompt ODER Prompt beginnt mit Gesetzesbezeichner (EStG, UStG, KStG, AO, GewStG, HGB, BGB).
+ */
+function isLawOnlyQuestion(q: string): boolean {
+  const t = q.toLowerCase();
+  if (/§\s*\d/.test(t)) return true;
+  if (/\b(estg|ustg|kstg|gewstg|erbstg|hgb|bgb|ao|aeao)\b/.test(t) && !/mandant|fall|kunde|klient/.test(t)) return true;
+  return false;
+}
+
+/** Zerlegt einen Gesetzes-Body in die Standardabschnitte des Gesetzesmodus. */
+function parseLawSections(body: string): {
+  tatbestand?: string;
+  rechtsfolge?: string;
+  ausnahmen?: string;
+  beispiel?: string;
+  merksatz?: string;
+} {
+  const pick = (re: RegExp): string | undefined => {
+    const m = body.match(re);
+    if (!m) return undefined;
+    const start = (m.index ?? 0) + m[0].length;
+    const rest = body.slice(start);
+    const next = rest.search(/\n#{1,6}\s/);
+    return (next > 0 ? rest.slice(0, next) : rest).trim() || undefined;
+  };
+  return {
+    tatbestand: pick(/#{1,6}\s*(Tatbestand(svoraussetzungen)?|Voraussetzungen)\b[^\n]*\n/i),
+    rechtsfolge: pick(/#{1,6}\s*Rechtsfolge[n]?\b[^\n]*\n/i),
+    ausnahmen: pick(/#{1,6}\s*Ausnahmen?\b[^\n]*\n/i),
+    beispiel: pick(/#{1,6}\s*(Praxisbeispiel|Beispiel)\b[^\n]*\n/i),
+    merksatz: pick(/#{1,6}\s*Merksatz\b[^\n]*\n/i),
+  };
+}
+
+/**
  * Wissensfrage-Antwort direkt aus Lexikon + Knowledge Base. Nie Rückfragen.
  * Antwortschema:
  *   1) Direkte Antwort (summary)

@@ -12,6 +12,11 @@ import {
 } from "./knowledgeBase";
 import { routeTaxType, type RouterResult } from "./router/pipeline";
 import { TAX_TYPE_LABELS, type TaxType } from "./router/taxTypes";
+import { runExpertSystem, EXPERT_OVERRIDE_THRESHOLD } from "./expertSystem";
+import { parseFacts } from "./expert/parser";
+import { evaluateSignals } from "./expert/signals";
+import { routeTaxType as expertRoute } from "./expert/router";
+import { runRules as runExpertLegacyRules } from "./expert/ruleEngine";
 
 
 /**
@@ -883,14 +888,42 @@ function annotateWithRouter(a: ChatAnswer, router: RouterResult): ChatAnswer {
 
 export function generateAnswer(rawQuestion: string): ChatAnswer {
   const router = routeTaxType(rawQuestion);
-  // Expertensystem-Override: wenn Regel mit hoher Confidence trifft, ersetzt
-  // die neue Pipeline die Legacy-Antwort vollständig.
+  // Neue Expertensystem-Pipeline ZUERST. Nur wenn sie kein belastbares
+  // Ergebnis liefert, greift die Legacy-Kette.
   try {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const es = require("./expertSystem") as typeof import("./expertSystem");
-    const r = es.runExpertSystem(rawQuestion);
-    if (r.answer && (r.trace.ruleConfidence ?? 0) >= es.EXPERT_OVERRIDE_THRESHOLD) {
-      const ans: ChatAnswer = {
+    const r = runExpertSystem(rawQuestion);
+    const resolved =
+      r.answer && (r.trace.ruleConfidence ?? 0) >= EXPERT_OVERRIDE_THRESHOLD;
+    if (resolved && r.answer) {
+      const trace: TraceStep[] = [
+        { step: "Entry", detail: "generateAnswer → runExpertSystem" },
+        {
+          step: "Parser: Facts",
+          detail:
+            Object.entries(r.trace.parsedFacts)
+              .filter(([, v]) => v !== undefined && v !== "unknown")
+              .map(([k, v]) => `${k}=${v}`)
+              .join(", ") || "–",
+        },
+        { step: "Signale", detail: r.trace.firedSignals.join(", ") || "–" },
+        {
+          step: "Router: Scores",
+          detail:
+            Object.entries(r.trace.taxRoute.scores ?? {})
+              .map(([k, v]) => `${k}:${v}`)
+              .join(", ") || "–",
+        },
+        {
+          step: "Scenario",
+          detail: `${r.trace.scenario ?? "–"} / ${r.trace.subScenario ?? "–"}`,
+        },
+        {
+          step: "Rule",
+          detail: `${r.trace.matchedRule ?? "-"} (conf ${(r.trace.ruleConfidence ?? 0).toFixed(2)})`,
+        },
+        { step: "Answer", detail: "Expertensystem-Ergebnis, Legacy übersprungen" },
+      ];
+      return {
         summary: r.answer.summary,
         reasoning: r.answer.reasoning,
         sections: r.answer.sections,
@@ -901,15 +934,13 @@ export function generateAnswer(rawQuestion: string): ChatAnswer {
         taxTypeLabel: r.answer.taxTypeLabel,
         scenarioType: r.answer.scenarioType,
         paragraphs: r.answer.paragraphs,
-        trace: [
-          { step: "Expertensystem", detail: `Regel ${r.trace.matchedRule ?? "-"} (conf ${(r.trace.ruleConfidence ?? 0).toFixed(2)})` },
-          { step: "Signale", detail: r.trace.firedSignals.join(", ") || "–" },
-        ],
+        trace,
       };
-      return ans;
     }
-  } catch {
-    // Fallback auf Legacy-Kette
+  } catch (err) {
+    // Nur echte Laufzeitfehler landen hier — sichtbar in der Konsole,
+    // damit die Pipeline-Integration nicht mehr stumm ausfällt.
+    console.error("[expertSystem] runExpertSystem failed:", err);
   }
   const answer = _generateAnswerImpl(rawQuestion, router);
   return annotateWithExpertSystem(annotateWithRouter(answer, router), rawQuestion);
@@ -923,21 +954,11 @@ export function generateAnswer(rawQuestion: string): ChatAnswer {
  */
 function annotateWithExpertSystem(a: ChatAnswer, rawQuestion: string): ChatAnswer {
   try {
-    // Lazy import um Zyklen zu vermeiden
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const { parseFacts } = require("./expert/parser") as typeof import("./expert/parser");
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const { evaluateSignals } = require("./expert/signals") as typeof import("./expert/signals");
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const { routeTaxType: expertRoute } = require("./expert/router") as typeof import("./expert/router");
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const { runRules } = require("./expert/ruleEngine") as typeof import("./expert/ruleEngine");
-
     const facts = parseFacts(rawQuestion);
     const signals = evaluateSignals(facts);
     const decision = expertRoute(signals, rawQuestion);
     if (decision.primary === "unklar") return a;
-    const rule = runRules(decision.primary, facts, signals);
+    const rule = runExpertLegacyRules(decision.primary, facts, signals);
     const unsupported = rule.subCase === "unsupported";
     const trace: TraceStep[] = [
       ...(a.trace ?? []),

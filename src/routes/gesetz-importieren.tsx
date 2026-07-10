@@ -30,12 +30,12 @@ type Result = {
     category: string;
     importance: number;
     ueberblick: string;
-    tatbestand: string;
-    rechtsfolge: string;
-    ausnahmen: string;
-    verknuepft: string;
-    praxisbeispiel: string;
-    merksatz: string;
+    tatbestand: string[];
+    rechtsfolge: string[];
+    ausnahmen: string[];
+    verknuepft: string[];
+    praxisbeispiel: string[];
+    merksatz: string[];
   };
 };
 

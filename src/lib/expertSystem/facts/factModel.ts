@@ -116,7 +116,13 @@ export function emptyFacts(text: string): Facts {
     employmentRelation: "unknown",
     benefitToShareholder: "unknown",
     disproportionateCompensation: "unknown",
+    balanceSheetDate: "unknown",
+    warranty: "unknown",
+    uncertainObligation: "unknown",
+    economicallyCaused: "unknown",
+    ordinaryBusinessActivity: "unknown",
     invoice: "unknown",
+
     explicitTerms: [],
   };
 }

@@ -65,12 +65,20 @@ export interface Facts {
   benefitToShareholder: Tri;  // vGA-Indiz
   disproportionateCompensation: Tri;
 
+  // Bilanzierung / Bilanzsteuerrecht
+  balanceSheetDate: Tri;      // "Bilanzstichtag", "31.12.20XX", "zum Jahresabschluss"
+  warranty: Tri;              // Garantie / Gewährleistung
+  uncertainObligation: Tri;   // ungewisse Verbindlichkeit / Risiko / erwartete Aufwendungen
+  economicallyCaused: Tri;    // wirtschaftlich verursacht vor Stichtag
+  ordinaryBusinessActivity: Tri;
+
   // Dokumente
   invoice: Tri;
 
   // Explizite Fachbegriffe (starke Trigger)
   explicitTerms: string[];
 }
+
 
 export function emptyFacts(text: string): Facts {
   return {

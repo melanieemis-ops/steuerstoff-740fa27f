@@ -296,19 +296,26 @@ function ChatPage() {
     if (typeof window !== "undefined") window.localStorage.removeItem(STORAGE_KEY);
   }
 
+  function markCopied(id: string) {
+    setCopiedId(id);
+    setTimeout(() => setCopiedId((c) => (c === id ? null : c)), 1500);
+  }
+
   function copyAnswer(id: string, a: ChatAnswer) {
     const parts: string[] = [a.summary];
     if (a.reasoning) parts.push("\nBegründung: " + a.reasoning);
     if (a.risks?.length) parts.push("\nRisiken:\n- " + a.risks.join("\n- "));
     if (a.followUps?.length) parts.push("\nRückfragen:\n- " + a.followUps.join("\n- "));
     if (a.nextStep) parts.push("\nNächster Schritt: " + a.nextStep);
-    const text = parts.join("\n");
-    if (typeof navigator !== "undefined" && navigator.clipboard) {
-      navigator.clipboard.writeText(text).then(() => {
-        setCopiedId(id);
-        setTimeout(() => setCopiedId((c) => (c === id ? null : c)), 1500);
-      });
-    }
+    copyTextToClipboard(parts.join("\n")).then((ok) => {
+      if (ok) markCopied(id);
+    });
+  }
+
+  function copyUserPrompt(id: string, text: string) {
+    copyTextToClipboard(text).then((ok) => {
+      if (ok) markCopied(id);
+    });
   }
 
   const hasMessages = messages.length > 0;

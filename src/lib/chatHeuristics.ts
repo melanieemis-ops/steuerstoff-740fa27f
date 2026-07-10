@@ -884,8 +884,44 @@ function annotateWithRouter(a: ChatAnswer, router: RouterResult): ChatAnswer {
 export function generateAnswer(rawQuestion: string): ChatAnswer {
   const router = routeTaxType(rawQuestion);
   const answer = _generateAnswerImpl(rawQuestion, router);
-  return annotateWithRouter(answer, router);
+  return annotateWithExpertSystem(annotateWithRouter(answer, router), rawQuestion);
 }
+
+/**
+ * Ebene 1–5 Expertensystem (Parser → Signals → Router → Rules → Knowledge).
+ * Läuft parallel und ergänzt Trace + Steuerart-Score, ohne die bewährte
+ * Antwort-Auswahl zu überschreiben. Sobald ein Sub-Router (USt/ESt/…) eine
+ * ausgereifte Rule-Datei hat, kann er hier verdrahtet werden.
+ */
+function annotateWithExpertSystem(a: ChatAnswer, rawQuestion: string): ChatAnswer {
+  try {
+    // Lazy import um Zyklen zu vermeiden
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const { parseFacts } = require("./expert/parser") as typeof import("./expert/parser");
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const { evaluateSignals } = require("./expert/signals") as typeof import("./expert/signals");
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const { routeTaxType: expertRoute } = require("./expert/router") as typeof import("./expert/router");
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const { runRules } = require("./expert/ruleEngine") as typeof import("./expert/ruleEngine");
+
+    const facts = parseFacts(rawQuestion);
+    const signals = evaluateSignals(facts);
+    const decision = expertRoute(signals, rawQuestion);
+    if (decision.primary === "unklar") return a;
+    const rule = runRules(decision.primary, facts, signals);
+    const trace: TraceStep[] = [
+      ...(a.trace ?? []),
+      { step: "Expertensystem: Signale", detail: signals.map((s) => s.id).join(", ") || "–" },
+      { step: "Expertensystem: Steuerart", detail: `${decision.primary}${decision.secondary.length ? ` (auch: ${decision.secondary.join(", ")})` : ""}` },
+      { step: "Expertensystem: Rule", detail: `${rule.schemaId ?? "–"}${rule.subCase ? ` / ${rule.subCase}` : ""}` },
+    ];
+    return { ...a, trace };
+  } catch {
+    return a;
+  }
+}
+
 
 function _generateAnswerImpl(rawQuestion: string, router: RouterResult): ChatAnswer {
 

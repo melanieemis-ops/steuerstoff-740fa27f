@@ -296,19 +296,26 @@ function ChatPage() {
     if (typeof window !== "undefined") window.localStorage.removeItem(STORAGE_KEY);
   }
 
+  function markCopied(id: string) {
+    setCopiedId(id);
+    setTimeout(() => setCopiedId((c) => (c === id ? null : c)), 1500);
+  }
+
   function copyAnswer(id: string, a: ChatAnswer) {
     const parts: string[] = [a.summary];
     if (a.reasoning) parts.push("\nBegründung: " + a.reasoning);
     if (a.risks?.length) parts.push("\nRisiken:\n- " + a.risks.join("\n- "));
     if (a.followUps?.length) parts.push("\nRückfragen:\n- " + a.followUps.join("\n- "));
     if (a.nextStep) parts.push("\nNächster Schritt: " + a.nextStep);
-    const text = parts.join("\n");
-    if (typeof navigator !== "undefined" && navigator.clipboard) {
-      navigator.clipboard.writeText(text).then(() => {
-        setCopiedId(id);
-        setTimeout(() => setCopiedId((c) => (c === id ? null : c)), 1500);
-      });
-    }
+    copyTextToClipboard(parts.join("\n")).then((ok) => {
+      if (ok) markCopied(id);
+    });
+  }
+
+  function copyUserPrompt(id: string, text: string) {
+    copyTextToClipboard(text).then((ok) => {
+      if (ok) markCopied(id);
+    });
   }
 
   const hasMessages = messages.length > 0;
@@ -491,7 +498,10 @@ function ChatPage() {
                   key={m.id}
                   msg={m}
                   copied={copiedId === m.id}
-                  onCopy={() => m.role === "assistant" && copyAnswer(m.id, m.answer)}
+                  onCopy={() => {
+                    if (m.role === "assistant") copyAnswer(m.id, m.answer);
+                    else if (m.role === "user") copyUserPrompt(m.id, m.text);
+                  }}
                   onRetry={() => {
                     if (m.role === "error") ask(messageTextById(messages, m.retryOf) ?? "", m.id);
                   }}
@@ -581,45 +591,63 @@ function messageTextById(msgs: Msg[], id: string): string | null {
   if (m && m.role === "user") return m.text;
   return null;
 }
-function copyTextToClipboard(text: string) {
+async function copyTextToClipboard(text: string): Promise<boolean> {
   const value = String(text ?? "");
-  if (!value) return;
+  if (!value) return false;
 
-  const textarea = document.createElement("textarea");
-  textarea.value = value;
-  textarea.setAttribute("readonly", "");
-  textarea.style.position = "fixed";
-  textarea.style.top = "0";
-  textarea.style.left = "0";
-  textarea.style.width = "2px";
-  textarea.style.height = "2px";
-  textarea.style.opacity = "0";
-
-  document.body.appendChild(textarea);
-  textarea.focus();
-  textarea.select();
-  textarea.setSelectionRange(0, value.length);
-
-  let ok = false;
-
+  // 1) Modern async Clipboard API (funktioniert auf iOS Safari 13.4+ innerhalb
+  //    eines Nutzer-Gestures und ist die zuverlässigste Variante).
   try {
-    ok = document.execCommand("copy");
+    if (
+      typeof navigator !== "undefined" &&
+      navigator.clipboard &&
+      typeof navigator.clipboard.writeText === "function" &&
+      (typeof window === "undefined" || window.isSecureContext !== false)
+    ) {
+      await navigator.clipboard.writeText(value);
+      return true;
+    }
   } catch {
-    ok = false;
+    /* Fallback unten */
   }
 
-  document.body.removeChild(textarea);
+  // 2) iOS-Safari-Fallback: contentEditable + Range/Selection (execCommand).
+  if (typeof document === "undefined") return false;
+  const el = document.createElement("span");
+  el.textContent = value;
+  el.setAttribute("contenteditable", "true");
+  el.style.position = "fixed";
+  el.style.top = "0";
+  el.style.left = "0";
+  el.style.opacity = "0";
+  el.style.whiteSpace = "pre-wrap";
+  document.body.appendChild(el);
 
-  if (!ok && navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(value).catch(() => {
-      window.prompt("Prompt kopieren:", value);
-    });
-    return;
+  let ok = false;
+  try {
+    const selection = window.getSelection();
+    const range = document.createRange();
+    range.selectNodeContents(el);
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    (el as HTMLElement).focus();
+    ok = document.execCommand("copy");
+    selection?.removeAllRanges();
+  } catch {
+    ok = false;
+  } finally {
+    document.body.removeChild(el);
   }
 
   if (!ok) {
-    window.prompt("Prompt kopieren:", value);
+    try {
+      window.prompt("Kopieren mit Cmd/Ctrl+C, dann Enter:", value);
+      ok = true;
+    } catch {
+      ok = false;
+    }
   }
+  return ok;
 }
 function MessageBubble({
   msg,
@@ -642,13 +670,13 @@ function MessageBubble({
             onClick={(event) => {
               event.preventDefault();
               event.stopPropagation();
-              copyTextToClipboard(msg.text);
+              onCopy();
             }}
-            className="mt-2 inline-flex items-center gap-1 rounded-xl px-2 py-1 text-[11px] text-primary-foreground/70 hover:bg-primary-foreground/10 hover:text-primary-foreground"
-            aria-label="Prompt kopieren"
+            className="mt-2 inline-flex items-center gap-1 rounded-xl px-2 py-1 text-[11px] text-primary-foreground/70 hover:bg-primary-foreground/10 hover:text-primary-foreground touch-manipulation"
+            aria-label="Frage kopieren"
           >
-            <Copy className="h-3 w-3" />
-            Kopieren
+            {copied ? <Check className="h-3 w-3" aria-hidden="true" /> : <Copy className="h-3 w-3" aria-hidden="true" />}
+            <span>{copied ? "Kopiert" : "Kopieren"}</span>
           </button>
         </div>
       </div>

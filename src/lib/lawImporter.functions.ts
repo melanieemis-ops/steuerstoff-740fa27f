@@ -146,12 +146,19 @@ Antworte als JSON mit genau diesen Feldern:
   const data = (await res.json()) as { choices?: Array<{ message?: { content?: string } }> };
   const content = data.choices?.[0]?.message?.content ?? "";
   let parsed: unknown;
-  try {
-    parsed = JSON.parse(content);
-  } catch {
-    throw new Error("AI-Antwort war kein valides JSON.");
-  }
-  return KbSchema.parse(parsed);
+
+try {
+  parsed = JSON.parse(content);
+} catch {
+  throw new Error("AI-Antwort war kein valides JSON");
+}
+
+const normalized =
+  Array.isArray(parsed) && parsed.length > 0
+    ? parsed[0]
+    : parsed;
+
+return KbSchema.parse(normalized);
 }
 
 function buildFileContent(

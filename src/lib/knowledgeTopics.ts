@@ -46,7 +46,9 @@ export const HANDOUT_CATEGORIES: HandoutCategory[] = [
   "Sonstiges",
 ];
 
-export const KNOWLEDGE_TOPICS: KnowledgeTopic[] = [
+// Achtung: Diese Liste enthält historisch auch Knowledge-Base-Artikel ohne
+// chip-Feld. Für UI-Chips ausschließlich VALID_KNOWLEDGE_TOPICS verwenden.
+export const KNOWLEDGE_TOPICS: Array<KnowledgeTopic | Record<string, unknown>> = [
   {
     id: "ust",
     chip: "USt",

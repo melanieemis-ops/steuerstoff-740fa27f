@@ -53,7 +53,7 @@ export const SIGNAL_DEFS: SignalDef[] = [
     id: "ust.einfuhr",
     description: "Einfuhr (§ 1 Abs. 1 Nr. 4 UStG, Drittland→DE)",
     requires: (f) => !!(f.steuerFakten.lieferung && f.orte.ausDrittland),
-    weight: { umsatzsteuer: 10, zoll: 5 },
+    weight: { umsatzsteuer: 10 },
     scenarios: ["einfuhr"],
   },
   {

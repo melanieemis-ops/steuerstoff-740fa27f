@@ -498,7 +498,10 @@ function ChatPage() {
                   key={m.id}
                   msg={m}
                   copied={copiedId === m.id}
-                  onCopy={() => m.role === "assistant" && copyAnswer(m.id, m.answer)}
+                  onCopy={() => {
+                    if (m.role === "assistant") copyAnswer(m.id, m.answer);
+                    else if (m.role === "user") copyUserPrompt(m.id, m.text);
+                  }}
                   onRetry={() => {
                     if (m.role === "error") ask(messageTextById(messages, m.retryOf) ?? "", m.id);
                   }}

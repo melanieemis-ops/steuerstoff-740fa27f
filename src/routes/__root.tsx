@@ -12,6 +12,7 @@ import appCss from "../styles.css?url";
 import { GlobalSwipeArea, SectionDots, MobileBottomNav } from "@/components/MobileNav";
 import { PullToRefresh } from "@/components/PullToRefresh";
 import { ScrollToBottom } from "@/components/ScrollToBottom";
+import { PwaStatus } from "@/components/PwaStatus";
 
 function NotFoundComponent() {
   return (
@@ -103,10 +104,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
       { title: "steuerstoff — KI-Steuer-Arbeitsassistent für Kanzleien" },
       { name: "description", content: "steuerstoff strukturiert steuerliche Sachverhalte, erkennt fehlende Angaben und erstellt Rückfragen, Buchungsvorschläge und Review-Dokumentation für deutsche Kanzleien." },
       { name: "author", content: "steuerstoff" },
+      { name: "theme-color", content: "#0F172A" },
+      { name: "application-name", content: "steuerstoff" },
+      { name: "apple-mobile-web-app-capable", content: "yes" },
+      { name: "mobile-web-app-capable", content: "yes" },
+      { name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" },
+      { name: "apple-mobile-web-app-title", content: "steuerstoff" },
+      { name: "format-detection", content: "telephone=no" },
       { property: "og:title", content: "steuerstoff — KI-Steuer-Arbeitsassistent für Kanzleien" },
       { property: "og:description", content: "steuerstoff strukturiert steuerliche Sachverhalte, erkennt fehlende Angaben und erstellt Rückfragen, Buchungsvorschläge und Review-Dokumentation für deutsche Kanzleien." },
       { property: "og:type", content: "website" },
@@ -118,10 +126,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/CjQopLmSORNbez2iC4oaUmefOTs1/social-images/social-1779019056799-58A18C81-365C-40F4-8127-765D2429813C.webp" },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
+      { rel: "manifest", href: "/manifest.webmanifest" },
+      { rel: "icon", href: "/favicon.ico", sizes: "any" },
+      { rel: "icon", type: "image/png", sizes: "32x32", href: "/icons/favicon-32.png" },
+      { rel: "icon", type: "image/png", sizes: "16x16", href: "/icons/favicon-16.png" },
+      { rel: "apple-touch-icon", sizes: "180x180", href: "/icons/apple-touch-icon.png" },
     ],
   }),
   shellComponent: RootShell,
@@ -170,6 +180,7 @@ function RootComponent() {
           <div aria-hidden className="md:hidden h-16" />
           <ScrollToBottom />
           <MobileBottomNav />
+          <PwaStatus />
         </GlobalSwipeArea>
       </PullToRefresh>
     </QueryClientProvider>

@@ -118,7 +118,7 @@ export interface ChatAnswer {
   /** Optionale Folgefrage am Ende ("Meinst du …?"). */
   clarify?: string;
   /** Kompakter Antworttyp — UI kann Prüfkarte schlanker rendern. */
-  kind?: "info" | "case" | "npo" | "mvr";
+  kind?: "info" | "case" | "npo";
   /** Debug-Trace der Klassifizierungsentscheidung (Dev-Modus). */
   trace?: TraceStep[];
   /** Erkannter Sachverhaltstyp, wenn USt-Klassifizierung durchgeführt wurde. */

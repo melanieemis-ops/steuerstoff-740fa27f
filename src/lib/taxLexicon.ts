@@ -592,7 +592,6 @@ const LEXICON: LexEntry[] = [
       ],
       links: [
         { label: "NPO-Rücklage prüfen", to: "/npo-pruefassistent" },
-        { label: "Mittelverwendungsrechner öffnen", to: "/mittelverwendungsrechner" },
         KB_LINK,
       ],
       knowledge: "Rücklage — Grundlagen und Abgrenzungen",
@@ -669,7 +668,7 @@ const LEXICON: LexEntry[] = [
       summary:
         "Zeitnahe Mittelverwendung (§ 55 Abs. 1 Nr. 5 AO): Mittel einer gemeinnützigen Körperschaft müssen spätestens in den zwei auf den Zufluss folgenden Kalender-/Wirtschaftsjahren für satzungsmäßige Zwecke verwendet werden.",
       links: [
-        { label: "Mittelverwendungsrechner öffnen", to: "/mittelverwendungsrechner" },
+        { label: "NPO-Prüfassistent öffnen", to: "/npo-pruefassistent" },
         KB_LINK,
       ],
       knowledge: "NPO / Mittelverwendung",
@@ -682,7 +681,7 @@ const LEXICON: LexEntry[] = [
       summary:
         "Freie Rücklage (§ 62 Abs. 1 Nr. 3 AO): bis zu 1/3 des Überschusses der Vermögensverwaltung + 10 % der sonstigen zeitnah zu verwendenden Mittel. Nicht ausgeschöpfte Beträge sind in den zwei Folgejahren nachholbar.",
       links: [
-        { label: "Mittelverwendungsrechner öffnen", to: "/mittelverwendungsrechner" },
+        { label: "NPO-Prüfassistent öffnen", to: "/npo-pruefassistent" },
         KB_LINK,
       ],
       knowledge: "NPO / Mittelverwendung",
@@ -695,7 +694,7 @@ const LEXICON: LexEntry[] = [
       summary:
         "Rücklagenspiegel: tabellarische Übersicht aller Rücklagen einer gemeinnützigen Körperschaft (Art, Anfangsbestand, Zuführung, Auflösung, Endbestand). Dokumentations- und Prüfungsgrundlage für die Mittelverwendung.",
       links: [
-        { label: "Mittelverwendungsrechner öffnen", to: "/mittelverwendungsrechner" },
+        { label: "NPO-Prüfassistent öffnen", to: "/npo-pruefassistent" },
         KB_LINK,
       ],
       knowledge: "NPO / Mittelverwendung",
@@ -708,7 +707,7 @@ const LEXICON: LexEntry[] = [
       summary:
         "Verwendungsüberhang: rechnerischer Saldo aus zeitnah zu verwendenden Mitteln ./. Verwendung ./. zulässigen Rücklagen ./. Vermögenszuführungen ./. Mittelvortrag. Ein positiver Wert ist Prüfanlass, führt aber nicht automatisch zum Verlust der Gemeinnützigkeit (§ 63 Abs. 4 AO).",
       links: [
-        { label: "Mittelverwendungsrechner öffnen", to: "/mittelverwendungsrechner" },
+        { label: "NPO-Prüfassistent öffnen", to: "/npo-pruefassistent" },
         KB_LINK,
       ],
       knowledge: "NPO / Mittelverwendung",

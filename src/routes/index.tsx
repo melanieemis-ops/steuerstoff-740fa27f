@@ -46,14 +46,6 @@ const heroModules = [
     to: "/skr-konverter" as const,
   },
   {
-    icon: Calculator,
-    title: "Mittelverwendungsrechner",
-    desc: "Zeitnahe Mittelverwendung, Rücklagen und Verwendungsüberhang für NPOs berechnen.",
-    cta: "MVR berechnen",
-    accent: "var(--violet)",
-    to: "/mittelverwendungsrechner" as const,
-  },
-  {
     icon: ShieldCheck,
     title: "NPO-Prüfassistent",
     desc: "Sphären, Zweckbetrieb, Rücklagen und gemeinnützigkeitsrechtliche Risiken strukturieren.",
@@ -119,14 +111,6 @@ const quickstart = [
     cta: "SKR-Konto umwandeln",
     accent: "var(--magenta)",
     to: "/skr-konverter" as const,
-  },
-  {
-    icon: Calculator,
-    title: "Mittelverwendungsrechnung",
-    desc: "Zeitnahe Mittelverwendung, Rücklagen und Verwendungsüberhang.",
-    cta: "Mittelverwendung berechnen",
-    accent: "var(--violet)",
-    to: "/mittelverwendungsrechner" as const,
   },
 ];
 

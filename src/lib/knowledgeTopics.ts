@@ -4324,7 +4324,6 @@ Er hat dann jedoch regelmäßig keinen Vorsteuerabzug.
     quickActions: [
       { label: "NPO-Prüfassistent öffnen", to: "/npo-pruefassistent" },
       { label: "Sphäre prüfen", to: "/npo-pruefassistent" },
-      { label: "Mittelverwendung berechnen", to: "/mittelverwendungsrechner" },
     ],
     module: { label: "NPO-Prüfassistent", to: "/npo-pruefassistent" },
     handoutCategory: "NPO",

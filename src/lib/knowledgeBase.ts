@@ -150,7 +150,7 @@ Review-Hinweis: Bei Mandantenfragen zuerst klären, ob eine allgemeine bilanziel
     "Die Regierungskoalition plant zum 01.01.2027 eine Einkommensteuerreform zur Entlastung kleiner und mittlerer Einkommen. Vorgesehen sind unter anderem höhere Freibeträge, mehr Kindergeld, ein höherer Arbeitnehmer-Pauschbetrag und eine Abflachung des Einkommensteuertarifs. Zur Gegenfinanzierung sollen Spitzeneinkommen stärker belastet sowie einzelne Steuervergünstigungen reduziert werden. Es handelt sich noch nicht um geltendes Recht.",
 
   category:
-    "Einkommensteuer / Steuerpolitik / Gesetzgebungsverfahren / Reformplanung / Aktuelle Entwicklungen",
+    "Einkommensteuer",
 
   topicType: "politische-reformplanung",
 

@@ -14,6 +14,44 @@ import {
   Sparkles,
 } from "lucide-react";
 import { generateAnswer, REVIEW_HINT, type ChatAnswer } from "@/lib/chatHeuristics";
+import { useServerFn } from "@tanstack/react-start";
+import { askChat } from "@/lib/ai/chat.functions";
+
+function toChatAnswer(ai: Awaited<ReturnType<typeof askChat>>): ChatAnswer {
+  const sourceLine = ai.sources && ai.sources.length > 0
+    ? ai.sources
+        .map((s) => (s.reference ? `${s.title} (${s.reference})` : s.title))
+        .join(" · ")
+    : undefined;
+  const knowledgeParts = [ai.knowledge ?? undefined, sourceLine ? `Quellen: ${sourceLine}` : undefined].filter(
+    Boolean,
+  ) as string[];
+  return {
+    summary: ai.summary,
+    reasoning: ai.reasoning ?? undefined,
+    sections: ai.sections?.length ? ai.sections : undefined,
+    risks: ai.risks?.length ? ai.risks : undefined,
+    followUps: ai.followUps?.length ? ai.followUps : undefined,
+    nextStep: ai.nextStep ?? undefined,
+    knowledge: knowledgeParts.length ? knowledgeParts.join("\n") : undefined,
+    sources: ai.sources?.length ? ai.sources : undefined,
+    confidence: ai.confidence,
+    needsHumanReview: ai.needsHumanReview,
+  };
+}
+
+function withFallbackMarker(a: ChatAnswer): ChatAnswer {
+  return {
+    ...a,
+    fromFallback: true,
+    knowledge: [
+      "Diese Antwort wurde aus der lokalen Wissenslogik erzeugt (KI-Modell nicht erreichbar).",
+      a.knowledge ?? "",
+    ]
+      .filter(Boolean)
+      .join("\n"),
+  };
+}
 
 export const Route = createFileRoute("/chat")({
   component: ChatPage,
@@ -208,6 +246,8 @@ function ChatPage() {
     ta.style.height = Math.min(ta.scrollHeight, 180) + "px";
   }, [input]);
 
+  const askChatFn = useServerFn(askChat);
+
   async function ask(text: string, retryOf?: string) {
     const trimmed = text.trim();
     if (!trimmed || busy) return;
@@ -218,24 +258,40 @@ function ChatPage() {
     });
     setInput("");
     setBusy(true);
+
+    // Baue kompakten Verlauf (letzte 10 Nachrichten, nur user/assistant).
+    const priorMsgs = messages.filter((m) => m.role === "user" || m.role === "assistant");
+    const history = priorMsgs.slice(-10).map((m) =>
+      m.role === "user"
+        ? { role: "user" as const, content: m.text }
+        : { role: "assistant" as const, content: m.answer.summary },
+    );
+
     try {
-      // small delay to feel like a real response
-      await new Promise((r) => setTimeout(r, 350));
-      const answer = generateAnswer(trimmed);
-      const aiMsg: Msg = { id: uid(), role: "assistant", answer, t: Date.now() };
+      const ai = await askChatFn({ data: { message: trimmed, history } });
+      const aiMsg: Msg = { id: uid(), role: "assistant", answer: toChatAnswer(ai), t: Date.now() };
       setMessages((prev) => [...prev, aiMsg]);
-    } catch {
-      const errMsg: Msg = {
-        id: uid(),
-        role: "error",
-        text: "Antwort konnte nicht erstellt werden.",
-        t: Date.now(),
-        retryOf: userMsg.id,
-      };
-      setMessages((prev) => [...prev, errMsg]);
+    } catch (err) {
+      // Fallback auf lokale Heuristik, damit der Nutzer nicht leer ausgeht.
+      console.warn("[steuerstoff-chat] AI unavailable, using local fallback:", (err as Error).message);
+      try {
+        const fallback = withFallbackMarker(generateAnswer(trimmed));
+        const aiMsg: Msg = { id: uid(), role: "assistant", answer: fallback, t: Date.now() };
+        setMessages((prev) => [...prev, aiMsg]);
+      } catch {
+        const errMsg: Msg = {
+          id: uid(),
+          role: "error",
+          text:
+            (err as Error).message ||
+            "Antwort konnte nicht erstellt werden. Bitte erneut versuchen.",
+          t: Date.now(),
+          retryOf: userMsg.id,
+        };
+        setMessages((prev) => [...prev, errMsg]);
+      }
     } finally {
       setBusy(false);
-      // refocus on desktop only
       if (typeof window !== "undefined" && window.matchMedia("(pointer: fine)").matches) {
         textareaRef.current?.focus();
       }
@@ -279,22 +335,12 @@ function ChatPage() {
   }
 
   function regenerate() {
-    // last user message
     for (let i = messages.length - 1; i >= 0; i--) {
       const m = messages[i];
       if (m.role === "user") {
-        // remove assistant messages after this user msg
-        setMessages((prev) => prev.slice(0, i + 1));
-        setBusy(true);
-        setTimeout(async () => {
-          await new Promise((r) => setTimeout(r, 250));
-          const answer = generateAnswer(m.text);
-          setMessages((prev) => [
-            ...prev,
-            { id: uid(), role: "assistant", answer, t: Date.now() },
-          ]);
-          setBusy(false);
-        }, 0);
+        // Remove this user msg and everything after; ask() re-appends it.
+        setMessages((prev) => prev.slice(0, i));
+        void ask(m.text);
         return;
       }
     }

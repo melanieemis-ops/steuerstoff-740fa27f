@@ -36,12 +36,19 @@ export interface AnalysisInput {
   title: string;
   topic: string;
   description: string;
+  presetKnowledge?: {
+    answer: string;
+    explanation: string;
+    references?: string[];
+    curatedReviewedAt?: string;
+  };
 }
 
 export interface KnowledgeAnswer {
   answer: string;
   explanation: string;
   references?: string[];
+  curatedReviewedAt?: string;
 }
 
 export interface Analysis {

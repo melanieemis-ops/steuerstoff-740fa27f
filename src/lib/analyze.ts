@@ -36,12 +36,19 @@ export interface AnalysisInput {
   title: string;
   topic: string;
   description: string;
+  presetKnowledge?: {
+    answer: string;
+    explanation: string;
+    references?: string[];
+    curatedReviewedAt?: string;
+  };
 }
 
 export interface KnowledgeAnswer {
   answer: string;
   explanation: string;
   references?: string[];
+  curatedReviewedAt?: string;
 }
 
 export interface Analysis {
@@ -398,12 +405,15 @@ function buildCaseAnswers(input: AnalysisInput, r: CaseRule): Record<AnswerMode,
 function buildKnowledgeAnswers(input: AnalysisInput, k: KnowledgeAnswer): Record<AnswerMode, string> {
   const refs = k.references?.length ? `\n\nRechtsgrundlage: ${k.references.join(", ")}` : "";
   const kurz = `${k.answer}\n\n${k.explanation}${refs}`;
+  const notAvailable =
+    "Für dieses kuratierte Wissensbeispiel ist dieser Antwortmodus nicht erforderlich.";
+  const isCurated = Boolean(k.curatedReviewedAt);
   return {
     kurz,
     pruefnotiz: `FACHHINWEIS — ${input.title}\n\nFrage:\n${input.description.trim()}\n\nAntwort:\n${k.answer}\n\nErläuterung:\n${k.explanation}${refs}`,
     mandant: `Sehr geehrte Damen und Herren,\n\ngern beantworten wir Ihre Frage:\n\n${k.answer}\n\n${k.explanation}${refs}\n\nFür Rückfragen stehen wir Ihnen gern zur Verfügung.\n\nMit freundlichen Grüßen\nIhre Kanzlei`,
-    rueckfrage: kurz,
-    buchung: kurz,
+    rueckfrage: isCurated ? notAvailable : kurz,
+    buchung: isCurated ? notAvailable : kurz,
   };
 }
 
@@ -414,6 +424,29 @@ export function riskLabel(r: Risk): string {
 }
 
 export function analyze(input: AnalysisInput): Analysis {
+  // 0) Kuratiertes Beispiel? — vor allen Keyword- und Fallregeln.
+  if (input.presetKnowledge) {
+    const pk = input.presetKnowledge;
+    const knowledge: KnowledgeAnswer = {
+      answer: pk.answer,
+      explanation: pk.explanation,
+      references: pk.references,
+      curatedReviewedAt: pk.curatedReviewedAt,
+    };
+    return {
+      kind: "wissen",
+      risk: "gruen",
+      riskReason: "Kuratiertes Lern- und Demonstrationsbeispiel.",
+      summary: knowledge.answer,
+      missing: [],
+      questions: [],
+      recommendation: knowledge.explanation,
+      knowledge,
+      answers: buildKnowledgeAnswers(input, knowledge),
+    };
+  }
+
+
   // 1) Wissensfrage?
   if (isLikelyKnowledge(input)) {
     const rule = pickKnowledgeRule(input);

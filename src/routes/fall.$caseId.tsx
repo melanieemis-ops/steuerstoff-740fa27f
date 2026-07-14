@@ -158,13 +158,20 @@ function FallPage() {
             <>
               {/* Direkte Antwort */}
               <div className="mt-6 rounded-2xl border border-border bg-card p-5 shadow-card-soft">
-                <p className="text-[11px] uppercase tracking-wide text-muted-foreground">
-                  Antwort
-                </p>
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <p className="text-[11px] uppercase tracking-wide text-muted-foreground">
+                    Antwort
+                  </p>
+                  {a.knowledge.curatedReviewedAt ? (
+                    <span className="inline-flex items-center gap-1 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-medium text-emerald-700">
+                      Kuratiertes Beispiel · fachlich geprüft am {a.knowledge.curatedReviewedAt}
+                    </span>
+                  ) : null}
+                </div>
                 <p className="mt-1 text-base font-medium leading-relaxed text-foreground sm:text-lg">
                   {a.knowledge.answer}
                 </p>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-3 whitespace-pre-wrap text-sm leading-relaxed text-muted-foreground">
                   {a.knowledge.explanation}
                 </p>
                 {a.knowledge.references?.length ? (
@@ -180,6 +187,7 @@ function FallPage() {
                   </div>
                 ) : null}
               </div>
+
 
               {/* Frage zur Referenz */}
               <div className="mt-4 rounded-2xl border border-border bg-card p-4 shadow-card-soft">

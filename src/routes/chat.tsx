@@ -18,14 +18,6 @@ import { useServerFn } from "@tanstack/react-start";
 import { askChat } from "@/lib/ai/chat.functions";
 
 function toChatAnswer(ai: Awaited<ReturnType<typeof askChat>>): ChatAnswer {
-  const sourceLine = ai.sources && ai.sources.length > 0
-    ? ai.sources
-        .map((s) => (s.reference ? `${s.title} (${s.reference})` : s.title))
-        .join(" · ")
-    : undefined;
-  const knowledgeParts = [ai.knowledge ?? undefined, sourceLine ? `Quellen: ${sourceLine}` : undefined].filter(
-    Boolean,
-  ) as string[];
   return {
     summary: ai.summary,
     reasoning: ai.reasoning ?? undefined,
@@ -33,7 +25,7 @@ function toChatAnswer(ai: Awaited<ReturnType<typeof askChat>>): ChatAnswer {
     risks: ai.risks?.length ? ai.risks : undefined,
     followUps: ai.followUps?.length ? ai.followUps : undefined,
     nextStep: ai.nextStep ?? undefined,
-    knowledge: knowledgeParts.length ? knowledgeParts.join("\n") : undefined,
+    knowledge: ai.knowledge ?? undefined,
     sources: ai.sources?.length ? ai.sources : undefined,
     confidence: ai.confidence,
     needsHumanReview: ai.needsHumanReview,
@@ -931,12 +923,38 @@ function AssistantCard({
         </div>
       )}
 
+      {a.sources && a.sources.length > 0 && (
+        <Accordion title={`Verwendete Wissensquellen (${a.sources.length})`}>
+          <ul className="space-y-2 text-sm text-foreground">
+            {a.sources.map((s, i) => (
+              <li key={s.id ?? i} className="rounded-md border border-border/60 bg-background/40 p-2">
+                <p className="break-words font-medium">{s.title}</p>
+                {s.reference && (
+                  <p className="mt-0.5 text-xs text-muted-foreground">{s.reference}</p>
+                )}
+                {s.excerpt && (
+                  <p className="mt-1 whitespace-pre-wrap break-words text-xs leading-snug text-muted-foreground">
+                    „{s.excerpt}"
+                  </p>
+                )}
+              </li>
+            ))}
+          </ul>
+        </Accordion>
+      )}
+
       {a.knowledge && (
         <p className="text-[11px] text-muted-foreground">
           Passender Wissensbereich:{" "}
           <Link to="/wissensdatenbank" className="underline-offset-2 hover:underline">
             {a.knowledge}
           </Link>
+        </p>
+      )}
+
+      {a.fromFallback && (
+        <p className="rounded-md border border-amber-500/30 bg-amber-500/10 px-2 py-1 text-[11px] text-amber-700 dark:text-amber-300">
+          Diese Antwort stammt aus der lokalen Fallback-Wissenslogik (KI-Modell nicht erreichbar).
         </p>
       )}
 

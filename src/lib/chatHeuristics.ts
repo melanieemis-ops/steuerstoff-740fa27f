@@ -129,8 +129,8 @@ export interface ChatAnswer {
   taxType?: TaxType;
   /** Menschenlesbares Label der Steuerart. */
   taxTypeLabel?: string;
-  /** Quellen (aus KI-Antwort). */
-  sources?: { title: string; reference?: string | null }[];
+  /** Quellen (aus KI-Antwort / semantischer Retrieval-Suche). */
+  sources?: { id?: string; title: string; reference?: string | null; excerpt?: string | null }[];
   /** Selbsteinschätzung der KI. */
   confidence?: "low" | "medium" | "high";
   /** Empfehlung, den Fall menschlich prüfen zu lassen. */

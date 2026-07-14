@@ -242,9 +242,26 @@ function ChatPage() {
     }
   }
 
+  function activateChatImmediately() {
+    clearTimers();
+    startingRef.current = true;
+    setWelcomeLeaving(false);
+    setShowGreetingBubble(false);
+    setDots(false);
+    setTyped("");
+    setPhase("active");
+  }
+
+  function submitMessage(text: string) {
+    const trimmed = text.trim();
+    if (!trimmed || busy) return;
+    if (phase !== "active") activateChatImmediately();
+    void ask(trimmed);
+  }
+
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    ask(input);
+    submitMessage(input);
   }
 
   function handleKeyDown(e: KeyboardEvent<HTMLTextAreaElement>) {
@@ -256,7 +273,7 @@ function ChatPage() {
         typeof window !== "undefined" && window.matchMedia("(pointer: fine)").matches;
       if (isFine) {
         e.preventDefault();
-        ask(input);
+        submitMessage(input);
       }
     }
   }

@@ -1,11 +1,17 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { createCase } from "@/lib/casesStore";
+import {
+  CURATED_TOPICS,
+  EXAMPLES_BY_TOPIC,
+  findCuratedExample,
+  type CuratedExample,
+} from "@/lib/curatedExamples";
 import { ArrowRight, Sparkles } from "lucide-react";
 
 export const Route = createFileRoute("/neue-anfrage")({
@@ -13,48 +19,28 @@ export const Route = createFileRoute("/neue-anfrage")({
   head: () => ({ meta: [{ title: "Neue Anfrage · steuerstoff" }] }),
 });
 
-const TOPICS = ["USt", "NPO", "SKR03", "SKR42", "DATEV", "Abgrenzung", "Buchhaltung", "Sonstiges"];
-
-const EXAMPLES = [
-  {
-    title: "Wie viel Umsatzsteuer bezahlt man auf Strom?",
-    topic: "USt",
-    description: "Wie viel Umsatzsteuer bezahlt man auf Strom?",
-  },
-  {
-    title: "Was bedeutet Reverse Charge?",
-    topic: "USt",
-    description: "Was bedeutet Reverse Charge?",
-  },
-  {
-    title: "Bewirtungsbeleg ohne Teilnehmerangaben",
-    topic: "USt",
-    description:
-      "Restaurantrechnung 184,50 € brutto vom 14.03.2025. Auf dem Beleg fehlen Teilnehmernamen und konkreter Anlass. Frage: Vorsteuerabzug und 70-%-Regel.",
-  },
-  {
-    title: "Hostingrechnung über Jahreswechsel",
-    topic: "Abgrenzung",
-    description:
-      "Rechnung 1.200 € netto, Leistungszeitraum 01.10.2024 – 30.09.2025. Bildung ARAP zum 31.12. erforderlich.",
-  },
-];
+const TOPICS = [...CURATED_TOPICS];
 
 function NeueAnfrage() {
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
-  const [topic, setTopic] = useState("USt");
+  const [topic, setTopic] = useState<string>("USt");
   const [description, setDescription] = useState("");
+  const [selectedExampleId, setSelectedExampleId] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const canSubmit = description.trim().length >= 5;
+  const visibleExamples = useMemo<CuratedExample[]>(
+    () => EXAMPLES_BY_TOPIC[topic] ?? [],
+    [topic],
+  );
 
-  function loadExample(i: number) {
-    const ex = EXAMPLES[i];
-    setTitle(ex.title);
-    setTopic(ex.topic);
-    setDescription(ex.description);
+  function loadExample(example: CuratedExample) {
+    setTitle(example.title);
+    setTopic(example.topic);
+    setDescription(example.description);
+    setSelectedExampleId(example.id);
   }
 
   function handleSubmit(e: React.FormEvent) {
@@ -67,13 +53,40 @@ function NeueAnfrage() {
     setSubmitting(true);
     try {
       const desc = description.trim();
+      const trimmedTitle = title.trim();
+
+      // Kuratierte Musterantwort nur, wenn die Auswahl unverändert ist.
+      let presetKnowledge: Parameters<typeof createCase>[0]["presetKnowledge"];
+      if (selectedExampleId) {
+        const example = findCuratedExample(selectedExampleId);
+        if (
+          example &&
+          example.topic === topic &&
+          example.title === trimmedTitle &&
+          example.description === desc
+        ) {
+          presetKnowledge = {
+            answer: example.answer,
+            explanation: example.explanation,
+            references: example.references,
+            curatedReviewedAt: example.lastReviewed,
+          };
+        }
+      }
+
       const derivedTitle =
-        title.trim().length >= 3
-          ? title.trim()
+        trimmedTitle.length >= 3
+          ? trimmedTitle
           : desc.length > 80
             ? desc.slice(0, 77).trimEnd() + "…"
             : desc;
-      const rec = createCase({ title: derivedTitle, topic, description: desc });
+
+      const rec = createCase({
+        title: derivedTitle,
+        topic,
+        description: desc,
+        presetKnowledge,
+      });
       navigate({ to: "/fall/$caseId", params: { caseId: rec.id } });
     } catch (err) {
       setSubmitting(false);
@@ -106,7 +119,10 @@ function NeueAnfrage() {
               <Input
                 id="title"
                 value={title}
-                onChange={(e) => setTitle(e.target.value)}
+                onChange={(e) => {
+                  setTitle(e.target.value);
+                  setSelectedExampleId(null);
+                }}
                 placeholder="z. B. Bewirtungsbeleg 03/2025 oder leer lassen"
                 className="mt-1.5"
                 maxLength={200}
@@ -122,7 +138,10 @@ function NeueAnfrage() {
                   <button
                     type="button"
                     key={t}
-                    onClick={() => setTopic(t)}
+                    onClick={() => {
+                      setTopic(t);
+                      setSelectedExampleId(null);
+                    }}
                     className={
                       "rounded-full border px-3 py-1 text-xs transition-colors " +
                       (topic === t
@@ -143,7 +162,10 @@ function NeueAnfrage() {
               <Textarea
                 id="description"
                 value={description}
-                onChange={(e) => setDescription(e.target.value)}
+                onChange={(e) => {
+                  setDescription(e.target.value);
+                  setSelectedExampleId(null);
+                }}
                 placeholder={
                   "Wissensfrage, z. B. „Wie viel Umsatzsteuer fällt auf Strom an?“\n\n" +
                   "Oder Sachverhalt: Beteiligte, Zeitraum, Beträge, Belege, offene Punkte …"
@@ -173,23 +195,37 @@ function NeueAnfrage() {
           </form>
 
           <div className="mt-8">
-            <h2 className="text-sm font-medium text-foreground">Beispiele</h2>
-            <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-4">
-              {EXAMPLES.map((ex, i) => (
-                <button
-                  key={ex.title}
-                  type="button"
-                  onClick={() => loadExample(i)}
-                  className="rounded-xl border border-border bg-card p-3 text-left text-xs text-muted-foreground shadow-card-soft transition-colors hover:border-foreground/30 hover:text-foreground"
-                >
-                  <span className="mb-1 inline-block rounded border border-border bg-background px-1.5 py-0.5 text-[10px] uppercase tracking-wide">
-                    {ex.topic}
-                  </span>
-                  <p className="text-sm font-medium text-foreground">{ex.title}</p>
-                  <p className="mt-1 line-clamp-2">{ex.description}</p>
-                </button>
-              ))}
-            </div>
+            <h2 className="text-sm font-medium text-foreground">Beispiele für {topic}</h2>
+            {visibleExamples.length === 0 ? (
+              <p className="mt-2 text-xs text-muted-foreground">
+                Für diesen Themenbereich sind aktuell keine Beispiele hinterlegt.
+              </p>
+            ) : (
+              <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
+                {visibleExamples.map((ex) => {
+                  const isSelected = selectedExampleId === ex.id;
+                  return (
+                    <button
+                      key={ex.id}
+                      type="button"
+                      onClick={() => loadExample(ex)}
+                      className={
+                        "rounded-xl border p-3 text-left text-xs shadow-card-soft transition-colors " +
+                        (isSelected
+                          ? "border-foreground/60 bg-card text-foreground"
+                          : "border-border bg-card text-muted-foreground hover:border-foreground/30 hover:text-foreground")
+                      }
+                    >
+                      <span className="mb-1 inline-block rounded border border-border bg-background px-1.5 py-0.5 text-[10px] uppercase tracking-wide">
+                        {ex.topic}
+                      </span>
+                      <p className="text-sm font-medium text-foreground">{ex.title}</p>
+                      <p className="mt-1 line-clamp-2">{ex.description}</p>
+                    </button>
+                  );
+                })}
+              </div>
+            )}
           </div>
         </div>
       </main>

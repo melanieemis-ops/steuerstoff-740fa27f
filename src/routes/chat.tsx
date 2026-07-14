@@ -338,8 +338,8 @@ function ChatPage() {
     for (let i = messages.length - 1; i >= 0; i--) {
       const m = messages[i];
       if (m.role === "user") {
-        setMessages((prev) => prev.slice(0, i + 1));
-        // Reuse the AI-backed ask() so regeneration also runs through the model.
+        // Remove this user msg and everything after; ask() re-appends it.
+        setMessages((prev) => prev.slice(0, i));
         void ask(m.text);
         return;
       }

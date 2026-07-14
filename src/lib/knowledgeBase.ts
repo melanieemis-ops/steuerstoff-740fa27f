@@ -63,6 +63,7 @@ export interface KBEntry {
   paragraphNumber?: number;
   type?: "gesetz" | "verwaltung" | "rechtsprechung" | "praxis";
   importance?: number;
+  [key: string]: unknown;
 }
 
 /** TaxType eines KB-Eintrags — explizit oder heuristisch aus category/title/id. */
@@ -5075,6 +5076,7 @@ Mögliche Bezugseinheiten sind beispielsweise:
 - Wohnfläche,
 - Nutzfläche,
 - Grundstücksfläche
+`
 },
 {
   id: "ust-reverse-charge-steuersatz-bmg-vorsteuerabzug",

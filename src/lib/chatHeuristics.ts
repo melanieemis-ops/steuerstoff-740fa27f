@@ -118,7 +118,7 @@ export interface ChatAnswer {
   /** Optionale Folgefrage am Ende ("Meinst du …?"). */
   clarify?: string;
   /** Kompakter Antworttyp — UI kann Prüfkarte schlanker rendern. */
-  kind?: "info" | "case" | "npo" | "mvr";
+  kind?: "info" | "case" | "npo";
   /** Debug-Trace der Klassifizierungsentscheidung (Dev-Modus). */
   trace?: TraceStep[];
   /** Erkannter Sachverhaltstyp, wenn USt-Klassifizierung durchgeführt wurde. */
@@ -807,11 +807,10 @@ function steuerstoffInfoAnswer(): ChatAnswer {
   return {
     kind: "info",
     summary:
-      "steuerstoff ist dein steuerlicher KI-Arbeitsassistent für deutsche Steuerkanzleien. Du kannst einfache Fragen stellen oder konkrete Sachverhalte prüfen lassen – z. B. NPO-Sphären, SKR42-Konten, Mittelverwendung, Rücklagen, Kfz-Wertabgaben, Umsatzsteuer oder Jahresabschluss-Themen.",
+      "steuerstoff ist dein steuerlicher KI-Arbeitsassistent für deutsche Steuerkanzleien. Du kannst einfache Fragen stellen oder konkrete Sachverhalte prüfen lassen – z. B. NPO-Sphären, SKR42-Konten, Kfz-Wertabgaben, Umsatzsteuer oder Jahresabschluss-Themen.",
     sections: [
       { title: "Steuer-Chat", body: "Einfache Fragen oder Sachverhalte beschreiben — steuerstoff gibt eine erste Einordnung, nennt offene Punkte und verweist auf passende Module." },
       { title: "NPO-Prüfassistent", body: "Sphären, Zweckbetrieb, Vermögensverwaltung, wirtschaftlicher Geschäftsbetrieb, Spenden, Zuschüsse, Mittelweitergabe und gemeinnützigkeitsrechtliche Risiken." },
-      { title: "Mittelverwendungsrechner", body: "Zeitnahe Mittelverwendung, 45.000-€-Grenze, Rücklagen nach § 62 AO, Mittelvortrag, Rücklagenspiegel, Verwendungsüberhang." },
       { title: "SKR-Konverter", body: "SKR03-Konten und Buchungstexte in passende SKR42-Konten überführen — mit NPO-Sphärenlogik." },
       { title: "Kfz-Wertabgaben-Rechner", body: "Private Kfz-Nutzung nach 1-%-Methode, Fahrten Wohnung/Betrieb (0,03 %), USt-Aufteilung und Kostendeckelung." },
       { title: "Wissensdatenbank", body: "Handouts, Kanzlei-Standards, Steuerwissen, DATEV-Logiken, NPO-Wissen und Prüfhinweise." },
@@ -824,7 +823,6 @@ function steuerstoffInfoAnswer(): ChatAnswer {
       { label: "Neue Frage stellen", to: "/chat" },
       { label: "NPO-Prüfassistent öffnen", to: "/npo-pruefassistent" },
       { label: "SKR-Konverter öffnen", to: "/skr-konverter" },
-      { label: "Mittelverwendungsrechner öffnen", to: "/mittelverwendungsrechner" },
       { label: "Wissensdatenbank öffnen", to: "/wissensdatenbank" },
       { label: "Kfz-Wertabgabe berechnen", to: "/kfz-wertabgabe" },
     ],
@@ -1406,7 +1404,6 @@ function _generateAnswerImpl(rawQuestion: string, router: RouterResult): ChatAns
         "Soll ich die Abgrenzung im NPO-Kontext (§ 62 AO) oder bei einer Kapitalgesellschaft vertiefen?",
       links: [
         { label: "NPO-Rücklage prüfen", to: "/npo-pruefassistent" },
-        { label: "Mittelverwendungsrechner öffnen", to: "/mittelverwendungsrechner" },
       ],
       knowledge: "Bilanzielle Abgrenzung",
     };
@@ -1444,7 +1441,6 @@ function _generateAnswerImpl(rawQuestion: string, router: RouterResult): ChatAns
         "Meinst du eine allgemeine steuerliche Rücklage oder eine Rücklage bei einer gemeinnützigen Organisation?",
       links: [
         { label: "NPO-Rücklage prüfen", to: "/npo-pruefassistent" },
-        { label: "Mittelverwendungsrechner öffnen", to: "/mittelverwendungsrechner" },
         { label: "Wissensdatenbank öffnen", to: "/wissensdatenbank" },
       ],
       knowledge: "Rücklage — Grundlagen",
@@ -1471,7 +1467,7 @@ function _generateAnswerImpl(rawQuestion: string, router: RouterResult): ChatAns
     )
   ) {
     return {
-      kind: "mvr",
+      kind: "npo",
       summary:
         "Mittel gemeinnütziger Körperschaften müssen grundsätzlich zeitnah verwendet werden: Zufluss im Jahr X bis Ende des zweiten Folgejahres (X+2) für satzungsmäßige Zwecke.",
       reasoning:
@@ -1484,8 +1480,8 @@ function _generateAnswerImpl(rawQuestion: string, router: RouterResult): ChatAns
         "Wann ist der Mittelzufluss erfolgt?",
         "Sind bereits Rücklagen gebildet und dokumentiert?",
       ],
-      nextStep: "Im Mittelverwendungsrechner Zufluss, Verwendung und Rücklagen erfassen.",
-      links: [{ label: "Im Mittelverwendungsrechner berechnen", to: "/mittelverwendungsrechner" }],
+      nextStep: "Sphäre, Zufluss, Verwendung und Rücklagen im NPO-Prüfassistenten strukturieren.",
+      links: [{ label: "NPO-Prüfassistent öffnen", to: "/npo-pruefassistent" }],
       knowledge: "NPO / Mittelverwendung",
     };
   }

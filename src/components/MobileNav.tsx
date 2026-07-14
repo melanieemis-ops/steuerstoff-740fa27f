@@ -1,6 +1,6 @@
 import { Link, useLocation, useNavigate } from "@tanstack/react-router";
 import { useRef } from "react";
-import { Home, FilePlus, ArrowRightLeft, Calculator, ShieldCheck, MessageSquare } from "lucide-react";
+import { Home, FilePlus, ArrowRightLeft, ShieldCheck, MessageSquare } from "lucide-react";
 import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
 
 export const SECTIONS = [
@@ -10,7 +10,7 @@ export const SECTIONS = [
   { to: "/fallverlauf", label: "Verlauf", short: "Verlauf" },
   { to: "/wissensdatenbank", label: "Wissen", short: "Wissen" },
   { to: "/skr-konverter", label: "SKR", short: "SKR" },
-  { to: "/mittelverwendungsrechner", label: "MVR", short: "MVR" },
+  
   { to: "/kfz-wertabgabe", label: "Kfz", short: "Kfz" },
   { to: "/npo-pruefassistent", label: "NPO", short: "NPO" },
   { to: "/einstellungen", label: "Einstellungen", short: "Mehr" },
@@ -97,7 +97,7 @@ export function MobileBottomNav() {
     { to: "/", label: "Home", Icon: Home },
     { to: "/neue-anfrage", label: "Anfrage", Icon: FilePlus },
     { to: "/skr-konverter", label: "SKR", Icon: ArrowRightLeft },
-    { to: "/mittelverwendungsrechner", label: "MVR", Icon: Calculator },
+    
     { to: "/npo-pruefassistent", label: "NPO", Icon: ShieldCheck },
   ] as const;
   const loc = useLocation();

@@ -424,6 +424,29 @@ export function riskLabel(r: Risk): string {
 }
 
 export function analyze(input: AnalysisInput): Analysis {
+  // 0) Kuratiertes Beispiel? — vor allen Keyword- und Fallregeln.
+  if (input.presetKnowledge) {
+    const pk = input.presetKnowledge;
+    const knowledge: KnowledgeAnswer = {
+      answer: pk.answer,
+      explanation: pk.explanation,
+      references: pk.references,
+      curatedReviewedAt: pk.curatedReviewedAt,
+    };
+    return {
+      kind: "wissen",
+      risk: "gruen",
+      riskReason: "Kuratiertes Lern- und Demonstrationsbeispiel.",
+      summary: knowledge.answer,
+      missing: [],
+      questions: [],
+      recommendation: knowledge.explanation,
+      knowledge,
+      answers: buildKnowledgeAnswers(input, knowledge),
+    };
+  }
+
+
   // 1) Wissensfrage?
   if (isLikelyKnowledge(input)) {
     const rule = pickKnowledgeRule(input);

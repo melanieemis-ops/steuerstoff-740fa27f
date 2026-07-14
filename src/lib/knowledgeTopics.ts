@@ -291,6 +291,497 @@ Bei Reverse Charge ist grundsätzlich nur das Nettoentgelt auszuweisen.
 `
 },
 {
+  id: "entgeltlicher-verzicht-niessbrauch-vermietetes-grundstueck",
+
+  title:
+    "Entgeltlicher Verzicht auf Nießbrauch an einem vermieteten Grundstück",
+
+  short:
+    "Das Entgelt für den Verzicht auf ein Nießbrauchsrecht an einem vermieteten Privatgrundstück kann eine steuerbare Entschädigung für künftig entgehende Vermietungseinnahmen nach § 24 Nr. 1 Buchst. a EStG sein.",
+
+  category:
+    "Einkommensteuer / Vermietung und Verpachtung / Nießbrauch / Entschädigungen / Rechtsprechung",
+
+  source:
+    "BFH, Urteil vom 10.10.2025 – IX R 4/24, ECLI:DE:BFH:2025:U.101025.IXR4.24.0",
+
+  decisionDate: "2025-10-10",
+
+  court: "Bundesfinanzhof, IX. Senat",
+
+  caseNumber: "IX R 4/24",
+
+  keywords:
+    "nießbrauch|niessbrauch|nießbrauchsrecht|verzicht auf nießbrauch|ablösung nießbrauch|ablösezahlung|entschädigung|entgehende einnahmen|vermietung und verpachtung|privatvermögen|wirtschaftsgut|surrogationsprinzip|freiwilliger verzicht|drucksituation|zwangssituation|private veräußerungsgeschäfte|§ 24 nr. 1 buchst. a estg|§ 21 estg|§ 23 estg|§ 34 estg|§ 100 bgb|§ 1030 bgb|bfh ix r 4/24",
+
+  references: [
+    "§ 2 Abs. 1 Satz 1 Nr. 6 EStG",
+    "§ 21 Abs. 1 Satz 1 Nr. 1 EStG",
+    "§ 24 Nr. 1 Buchst. a EStG",
+    "§ 22 Nr. 2 EStG",
+    "§ 23 Abs. 1 Satz 1 Nr. 2 EStG",
+    "§ 23 Abs. 2 EStG",
+    "§ 34 Abs. 1 EStG",
+    "§ 34 Abs. 2 Nr. 2 EStG",
+    "§ 99 Abs. 3 BGB",
+    "§ 100 BGB",
+    "§ 1030 Abs. 1 BGB",
+    "§ 1036 Abs. 1 BGB",
+    "BFH, Urteil vom 10.10.2025 – IX R 4/24",
+    "FG Münster, Urteil vom 12.12.2023 – 6 K 2489/22 E, EFG 2024, 392"
+  ],
+
+  officialSources: [
+    "https://www.bundesfinanzhof.de/de/entscheidung/entscheidungen-online/detail/STRE202520349/",
+    "https://www.gesetze-im-internet.de/estg/__24.html",
+    "https://www.gesetze-im-internet.de/estg/__21.html",
+    "https://www.gesetze-im-internet.de/estg/__23.html",
+    "https://www.gesetze-im-internet.de/estg/__34.html",
+    "https://www.gesetze-im-internet.de/bgb/__100.html",
+    "https://www.gesetze-im-internet.de/bgb/__1030.html"
+  ],
+
+  body: `
+# Entgeltlicher Verzicht auf ein Nießbrauchsrecht an einem vermieteten Grundstück
+
+## 1. Entscheidung
+
+### BFH, Urteil vom 10.10.2025 – IX R 4/24
+
+Das Entgelt für den Verzicht auf die Ausübung eines Nießbrauchsrechts an einem dem Privatvermögen zugehörigen Grundstück ist eine steuerbare Entschädigung gemäß § 24 Nr. 1 Buchst. a EStG, wenn
+
+1. der Nießbraucher das Grundstück im Zeitpunkt des Verzichts tatsächlich vermietet,
+2. die Vermietungseinkünfte dem Nießbraucher persönlich steuerlich zuzurechnen sind und
+3. die Zahlung wirtschaftlich die künftig entgehenden Einnahmen aus Vermietung und Verpachtung ersetzt.
+
+Die Entschädigung gehört in diesem Fall zu den Einkünften aus Vermietung und Verpachtung gemäß § 24 Nr. 1 Buchst. a EStG in Verbindung mit § 21 Abs. 1 Satz 1 Nr. 1 EStG.
+
+---
+
+# 2. Zentraler Lernsatz
+
+**Verzichtet ein Nießbraucher gegen Entgelt auf sein Nießbrauchsrecht an einem von ihm tatsächlich vermieteten Privatgrundstück, ist die Ablösezahlung als Entschädigung für künftig entgehende Mieteinnahmen nach § 24 Nr. 1 Buchst. a EStG in Verbindung mit § 21 Abs. 1 Satz 1 Nr. 1 EStG steuerbar.**
+
+---
+
+# 3. Prüfungsschema
+
+## Schritt 1: Besteht ein Nießbrauchsrecht?
+
+### Rechtsgrundlagen
+
+§ 1030 Abs. 1 BGB und § 100 BGB.
+
+Nach § 1030 Abs. 1 BGB kann eine Sache in der Weise belastet werden, dass der Berechtigte die Nutzungen der Sache ziehen darf.
+
+Zu den Nutzungen gehören gemäß § 100 BGB insbesondere die Früchte einer Sache und die Vorteile, welche der Gebrauch der Sache gewährt.
+
+Bei einem Grundstück gehören hierzu auch die durch Vermietung erzielten Mieteinnahmen.
+
+### Prüfungssatz
+
+**Der Nießbrauch berechtigt den Nießbraucher nach § 1030 Abs. 1 BGB dazu, die Nutzungen des Grundstücks im Sinne des § 100 BGB zu ziehen.**
+
+---
+
+## Schritt 2: Gehört das Nießbrauchsrecht zum Privatvermögen?
+
+Die Entscheidung betrifft ein Nießbrauchsrecht, das sich im Zeitpunkt des entgeltlichen Verzichts im Privatvermögen des Nießbrauchers befand.
+
+### Prüfungshinweis
+
+Befindet sich das Nießbrauchsrecht im Betriebsvermögen, sind zunächst die Folgen innerhalb der jeweiligen Gewinneinkunftsart zu prüfen.
+
+---
+
+## Schritt 3: Hat der Nießbraucher das Grundstück tatsächlich vermietet?
+
+Der Nießbraucher muss das Grundstück im Zeitpunkt des Verzichts tatsächlich zur Erzielung von Einkünften aus Vermietung und Verpachtung nutzen.
+
+Nicht ausreichend ist allein die abstrakte Möglichkeit, das Grundstück aufgrund des Nießbrauchsrechts vermieten zu dürfen.
+
+### Lernsatz
+
+**Für die Anwendung des BFH-Urteils muss das Grundstück im Zeitpunkt des Verzichts tatsächlich durch den Nießbraucher vermietet sein.**
+
+### Offene Rechtsfrage
+
+Der BFH hat ausdrücklich nicht entschieden, ob § 24 Nr. 1 Buchst. a EStG auch anwendbar ist, wenn das Grundstück im Zeitpunkt des Verzichts nicht vermietet ist.
+
+In einem solchen Fall darf der Chatbot daher keine gesicherte Steuerbarkeit nach diesem Urteil behaupten.
+
+---
+
+## Schritt 4: Sind die Vermietungseinkünfte dem Nießbraucher zuzurechnen?
+
+Die Einkünfte aus Vermietung und Verpachtung müssen dem Nießbraucher persönlich steuerlich zuzurechnen sein.
+
+Dies setzt regelmäßig voraus, dass der Nießbraucher
+
+- im Außenverhältnis selbst als Vermieter auftritt,
+- die Mietverträge im eigenen Namen abschließt,
+- die Vermieterrechte und -pflichten trägt und
+- die Mieteinnahmen für eigene Rechnung erzielt.
+
+### Rechtsgrundlage
+
+§ 21 Abs. 1 Satz 1 Nr. 1 EStG.
+
+### Lernsatz
+
+**Eine Entschädigung nach § 24 Nr. 1 Buchst. a EStG kann nur derjenigen Person zugerechnet werden, der auch die ersetzten Einnahmen steuerlich zuzurechnen gewesen wären.**
+
+---
+
+## Schritt 5: Wofür wird die Zahlung geleistet?
+
+Es ist zwischen zwei Fallgruppen zu unterscheiden.
+
+### Fallgruppe A: Ersatz für entgehende Einnahmen
+
+Wird die Zahlung dafür geleistet, dass dem Nießbraucher infolge des Verzichts künftig Mieteinnahmen entgehen, liegt eine Entschädigung nach § 24 Nr. 1 Buchst. a EStG vor.
+
+### Fallgruppe B: Ersatz für den Verlust eines Wirtschaftsguts
+
+Wird die Zahlung dagegen ausschließlich für den Verlust oder die Aufgabe des Nießbrauchsrechts als Wirtschaftsgut geleistet, ohne dass damit steuerbare Einnahmen ersetzt werden, ist § 24 Nr. 1 Buchst. a EStG grundsätzlich nicht erfüllt.
+
+### Abgrenzungssatz
+
+**Entscheidend ist, ob die Zahlung die künftig entgehenden Einnahmen oder lediglich den Verlust des Wirtschaftsguts ausgleichen soll.**
+
+---
+
+# 4. Bedeutung des Nießbrauchsrechts als Wirtschaftsgut
+
+Das Nießbrauchsrecht an einer Immobilie ist ein selbständiges Wirtschaftsgut.
+
+Allein die Eigenschaft als Wirtschaftsgut schließt die Anwendung des § 24 Nr. 1 Buchst. a EStG jedoch nicht aus.
+
+Wird das Nießbrauchsrecht tatsächlich zur Vermietung genutzt, bildet die Erzielung der Mieteinnahmen nach Auffassung des BFH den wirtschaftlichen Kern des Rechts.
+
+Bei einem vermieteten Grundstück lassen sich daher
+
+- die Aufgabe des Nießbrauchsrechts und
+- der Ersatz der dadurch künftig entgehenden Mieteinnahmen
+
+nicht ohne Weiteres voneinander trennen.
+
+### Lernsatz
+
+**Bei einem tatsächlich vermieteten Grundstück ist die Einkunftserzielung der wirtschaftliche Kern des Nießbrauchsrechts.**
+
+---
+
+# 5. Entschädigung nach § 24 Nr. 1 Buchst. a EStG
+
+## Gesetzliche Voraussetzung
+
+Nach § 24 Nr. 1 Buchst. a EStG gehören zu den Einkünften im Sinne des § 2 Abs. 1 EStG auch Entschädigungen, die als Ersatz für entgangene oder entgehende Einnahmen gewährt werden.
+
+## Kausale Verknüpfung
+
+Zwischen
+
+- der Entschädigungszahlung und
+- den entgangenen oder künftig entgehenden Einnahmen
+
+muss ein ursächlicher wirtschaftlicher Zusammenhang bestehen.
+
+### Prüfungssatz
+
+**Die Entschädigung muss an die Stelle der ohne den Verzicht weiter zufließenden Mieteinnahmen treten.**
+
+---
+
+# 6. § 24 EStG begründet keine neue Einkunftsart
+
+§ 24 EStG erweitert die sieben Einkunftsarten des § 2 Abs. 1 EStG nicht.
+
+Die Vorschrift stellt vielmehr klar, welcher Einkunftsart eine Ersatzleistung zuzuordnen ist.
+
+Die Entschädigung erhält steuerlich grundsätzlich die Qualifikation der Einnahmen, an deren Stelle sie tritt.
+
+### Surrogationsprinzip
+
+Die Ersatzleistung folgt steuerlich den ersetzten Einnahmen.
+
+Im vorliegenden Zusammenhang gilt deshalb:
+
+Entgangene Mieteinnahmen  
+→ Einkünfte aus Vermietung und Verpachtung gemäß § 21 EStG
+
+Entschädigung für diese Mieteinnahmen  
+→ ebenfalls Einkünfte aus Vermietung und Verpachtung gemäß § 24 Nr. 1 Buchst. a in Verbindung mit § 21 Abs. 1 Satz 1 Nr. 1 EStG.
+
+### Lernsatz
+
+**Die Entschädigung wird grundsätzlich derselben Einkunftsart zugeordnet wie die Einnahmen, die durch sie ersetzt werden.**
+
+---
+
+# 7. Positive und negative Wirkung des § 24 EStG
+
+## Positive Wirkung
+
+§ 24 Nr. 1 Buchst. a EStG bestimmt, zu welcher Einkunftsart eine Entschädigung gehört.
+
+## Negative Wirkung
+
+Wären die entgangenen Einnahmen selbst nicht steuerbar, kann auch die dafür geleistete Entschädigung grundsätzlich nicht allein aufgrund des § 24 Nr. 1 Buchst. a EStG steuerbar werden.
+
+### Lernsatz
+
+**Eine Entschädigung darf nicht unter weitergehenden Voraussetzungen besteuert werden als die Einnahmen, an deren Stelle sie tritt.**
+
+---
+
+# 8. Freiwilliger Verzicht
+
+Für die Steuerbarkeit nach § 24 Nr. 1 Buchst. a EStG ist nicht erforderlich, dass der Nießbraucher
+
+- unter rechtlichem Druck,
+- unter wirtschaftlichem Druck oder
+- unter tatsächlichem Zwang
+
+auf das Nießbrauchsrecht verzichtet.
+
+Auch ein freiwillig vereinbarter entgeltlicher Verzicht kann steuerbar sein.
+
+### Prüfungssatz
+
+**Eine Druck- oder Zwangssituation ist kein Tatbestandsmerkmal des § 24 Nr. 1 Buchst. a EStG.**
+
+---
+
+# 9. Abgrenzung zur Tarifermäßigung nach § 34 EStG
+
+Die Steuerbarkeit der Entschädigung und die Tarifermäßigung sind getrennt zu prüfen.
+
+## Erste Prüfung
+
+Ist die Zahlung nach § 24 Nr. 1 Buchst. a EStG steuerbar?
+
+## Zweite Prüfung
+
+Liegen zusätzlich die Voraussetzungen für eine Tarifermäßigung nach § 34 Abs. 1 und Abs. 2 Nr. 2 EStG vor?
+
+Eine mögliche Druck- oder Zwangssituation betrifft nach der BFH-Entscheidung nicht die grundsätzliche Steuerbarkeit der Zahlung.
+
+Sie kann vielmehr im Rahmen der gesonderten Prüfung des § 34 EStG Bedeutung erlangen.
+
+### Lernsatz
+
+**§ 24 EStG entscheidet über die Steuerbarkeit; § 34 EStG entscheidet gesondert über eine mögliche Tarifermäßigung.**
+
+### Achtung
+
+Die Bezeichnung einer Zahlung als Entschädigung führt nicht automatisch zu einer ermäßigten Besteuerung nach § 34 EStG.
+
+Insbesondere müssen die Voraussetzungen der Zusammenballung und die weiteren Anforderungen des § 34 EStG geprüft werden.
+
+---
+
+# 10. Abgrenzung zum privaten Veräußerungsgeschäft
+
+Das Finanzamt hatte die Ablösung des Nießbrauchsrechts ursprünglich als privates Veräußerungsgeschäft nach
+
+- § 22 Nr. 2 EStG und
+- § 23 Abs. 1 Satz 1 Nr. 2 EStG
+
+behandelt.
+
+Der BFH musste diese Frage nicht abschließend entscheiden.
+
+## Grund
+
+Nach § 23 Abs. 2 EStG sind Einkünfte aus privaten Veräußerungsgeschäften gegenüber anderen Einkunftsarten subsidiär.
+
+Ist die Zahlung bereits nach § 24 Nr. 1 Buchst. a EStG in Verbindung mit § 21 Abs. 1 Satz 1 Nr. 1 EStG den Einkünften aus Vermietung und Verpachtung zuzuordnen, kommt eine Besteuerung nach § 23 EStG nicht mehr vorrangig in Betracht.
+
+### Lernsatz
+
+**Die Besteuerung nach § 24 Nr. 1 Buchst. a in Verbindung mit § 21 EStG geht einer Einordnung als privates Veräußerungsgeschäft vor, § 23 Abs. 2 EStG.**
+
+---
+
+# 11. Rechtsprechungsänderung
+
+## Frühere Auffassung
+
+Nach der früheren Rechtsprechung des X. Senats wurde die Gegenleistung für den Verzicht auf ein im Privatvermögen befindliches Nießbrauchsrecht grundsätzlich nicht als Entschädigung für entgehende Einnahmen behandelt.
+
+Insbesondere:
+
+BFH, Urteil vom 25.11.1992 – X R 34/89.
+
+## Neue Auffassung
+
+Der IX. Senat behandelt das Entgelt nunmehr jedenfalls dann als steuerbare Entschädigung, wenn
+
+- der Nießbraucher selbst tatsächlich vermietet,
+- ihm die Vermietungseinkünfte steuerlich zuzurechnen sind und
+- die Zahlung die künftig entgehenden Mieteinnahmen ersetzt.
+
+Der X. Senat hat mitgeteilt, dass er an seiner bisherigen entgegenstehenden Auffassung nicht mehr festhält.
+
+### Prüfungssatz
+
+**BFH IX R 4/24 stellt für tatsächlich vermietete Privatgrundstücke eine Rechtsprechungsänderung gegenüber BFH X R 34/89 dar.**
+
+---
+
+# 12. Sachverhalt der BFH-Entscheidung
+
+Der Steuerpflichtigen war im Wege eines Vermächtnisses ein lebenslanges Nießbrauchsrecht an einem Grundstück zugewendet worden.
+
+Sie vermietete das Grundstück zunächst an einen fremden Dritten und erzielte Einkünfte aus Vermietung und Verpachtung.
+
+Ab dem Jahr 2012 gehörte das Nießbrauchsrecht wegen der Vermietung an eine Personengesellschaft, deren Komplementärin sie war, zu ihrem Sonderbetriebsvermögen.
+
+Nach ihrem Ausscheiden aus der Gesellschaft im Jahr 2018 wurde das Nießbrauchsrecht wieder in das Privatvermögen überführt.
+
+Die Mieteinnahmen gehörten anschließend erneut zu den Einkünften aus Vermietung und Verpachtung.
+
+Im November 2019 verzichtete die Steuerpflichtige gegen Zahlung einer Entschädigung auf das Nießbrauchsrecht.
+
+Das Finanzamt behandelte den Vorgang zunächst als privates Veräußerungsgeschäft.
+
+Das Finanzgericht gab der Klage statt.
+
+Der BFH hob das Urteil des Finanzgerichts auf und verwies die Sache zurück.
+
+Nach Auffassung des BFH war die Entschädigung im Umfang des entgeltlichen Teils grundsätzlich nach § 24 Nr. 1 Buchst. a in Verbindung mit § 21 Abs. 1 Satz 1 Nr. 1 EStG steuerbar.
+
+---
+
+# 13. Entgeltlicher und unentgeltlicher Teil
+
+Übersteigt die gezahlte Ablösesumme den tatsächlichen Wert des Nießbrauchsrechts, kann die Zahlung in
+
+- einen entgeltlichen Teil und
+- einen unentgeltlichen Teil
+
+aufzuteilen sein.
+
+Nur der als Entschädigung geleistete entgeltliche Teil ist nach den Grundsätzen des BFH als Ersatz für entgehende Einnahmen zu beurteilen.
+
+Ein übersteigender unentgeltlicher Teil kann schenkungsteuerlich zu untersuchen sein.
+
+### Prüfungshinweis
+
+**Ablösesumme und objektiver Wert des Nießbrauchsrechts sind miteinander zu vergleichen.**
+
+---
+
+# 14. Nicht automatisch übertragbare Fälle
+
+Das Urteil darf nicht ohne weitere Prüfung auf sämtliche Ablösungen von Nutzungsrechten übertragen werden.
+
+Gesondert zu beurteilen sind insbesondere:
+
+- ein nicht vermietetes Grundstück,
+- ein ausschließlich selbstgenutztes Grundstück,
+- der Verzicht auf ein bloßes Wohnrecht,
+- ein Nießbrauchsrecht ohne steuerbare laufende Einnahmen,
+- ein Nießbrauchsrecht im Betriebsvermögen,
+- eine Zahlung, die ausschließlich den Vermögensverlust ausgleicht,
+- ein unentgeltlicher Verzicht,
+- eine Zahlung, die teilweise Schenkungscharakter besitzt.
+
+### Lernsatz
+
+**Nicht jede Ablösung eines Nießbrauchsrechts ist steuerbar; entscheidend sind die tatsächliche Einkunftserzielung und der Zweck der Zahlung.**
+
+---
+
+# 15. Prüfungssichere Formulierung
+
+**Die Zahlung für den entgeltlichen Verzicht auf das Nießbrauchsrecht stellt eine Entschädigung im Sinne des § 24 Nr. 1 Buchst. a EStG dar. Der Steuerpflichtige hat das Grundstück im Zeitpunkt des Verzichts aufgrund seines Nießbrauchsrechts tatsächlich im eigenen Namen vermietet, sodass ihm die Einkünfte aus Vermietung und Verpachtung gemäß § 21 Abs. 1 Satz 1 Nr. 1 EStG persönlich zuzurechnen waren. Die Ablösezahlung tritt wirtschaftlich an die Stelle der künftig entgehenden Mieteinnahmen. Sie ist daher den Einkünften aus Vermietung und Verpachtung zuzuordnen. Eine rechtliche, wirtschaftliche oder tatsächliche Drucksituation ist für die Steuerbarkeit nach § 24 Nr. 1 Buchst. a EStG nicht erforderlich. Eine mögliche Tarifermäßigung ist gesondert nach § 34 EStG zu prüfen.**
+
+---
+
+# 16. Kompakte Lernsätze
+
+1. Das Nießbrauchsrecht berechtigt nach § 1030 Abs. 1 BGB zur Ziehung der Nutzungen im Sinne des § 100 BGB.
+
+2. Zu den Nutzungen eines Grundstücks können die durch Vermietung erzielten Mieteinnahmen gehören.
+
+3. Das Nießbrauchsrecht an einer Immobilie ist ein selbständiges Wirtschaftsgut.
+
+4. § 24 Nr. 1 Buchst. a EStG erfasst Entschädigungen für entgangene oder künftig entgehende Einnahmen.
+
+5. Zwischen der Entschädigung und den entgehenden Einnahmen muss ein kausaler wirtschaftlicher Zusammenhang bestehen.
+
+6. Die ersetzten Einnahmen müssen dem Empfänger der Entschädigung persönlich steuerlich zuzurechnen gewesen sein.
+
+7. Der Nießbraucher muss für eine Zurechnung der Vermietungseinkünfte regelmäßig selbst als Vermieter auftreten und die Mietverträge im eigenen Namen abschließen.
+
+8. Verzichtet der Nießbraucher auf ein von ihm tatsächlich zur Vermietung genutztes Nießbrauchsrecht, kann die Zahlung die künftig entgehenden Mieteinnahmen ersetzen.
+
+9. Die Ablösezahlung gehört dann nach § 24 Nr. 1 Buchst. a in Verbindung mit § 21 Abs. 1 Satz 1 Nr. 1 EStG zu den Einkünften aus Vermietung und Verpachtung.
+
+10. Die Entschädigung folgt nach dem Surrogationsprinzip der Einkunftsart der ersetzten Einnahmen.
+
+11. § 24 EStG erweitert die Einkunftsarten des § 2 Abs. 1 EStG nicht.
+
+12. Wären die ersetzten Einnahmen nicht steuerbar, kann § 24 Nr. 1 Buchst. a EStG allein keine Steuerbarkeit begründen.
+
+13. Wird nur der Verlust eines Wirtschaftsguts vergütet und werden keine steuerbaren Einnahmen ersetzt, ist § 24 Nr. 1 Buchst. a EStG grundsätzlich nicht erfüllt.
+
+14. Bei einem tatsächlich vermieteten Grundstück ist nach BFH IX R 4/24 die Erzielung der Mieteinnahmen der wirtschaftliche Kern des Nießbrauchsrechts.
+
+15. Eine Druck- oder Zwangssituation ist für die Steuerbarkeit nach § 24 Nr. 1 Buchst. a EStG nicht erforderlich.
+
+16. Auch ein freiwilliger entgeltlicher Verzicht kann nach § 24 Nr. 1 Buchst. a EStG steuerbar sein.
+
+17. Eine mögliche Tarifermäßigung ist gesondert nach § 34 Abs. 1 und Abs. 2 Nr. 2 EStG zu prüfen.
+
+18. Die Einordnung nach § 24 Nr. 1 Buchst. a in Verbindung mit § 21 EStG geht wegen § 23 Abs. 2 EStG einer Besteuerung als privates Veräußerungsgeschäft vor.
+
+19. Der BFH hat nicht entschieden, wie der Verzicht zu behandeln ist, wenn der Nießbraucher das Grundstück im Zeitpunkt des Verzichts nicht tatsächlich vermietet.
+
+20. BFH IX R 4/24 ändert für tatsächlich vermietete Grundstücke die frühere Rechtsprechung des BFH X R 34/89.
+
+21. Der steuerbare Betrag ist auf den entgeltlichen Teil der Ablösezahlung zu begrenzen.
+
+22. Ein die Gegenleistung übersteigender unentgeltlicher Teil kann gesondert schenkungsteuerlich zu prüfen sein.
+
+---
+
+# 17. Antwortlogik für den Steuerstoff-Chatbot
+
+Bei Fragen zur Ablösung eines Nießbrauchsrechts soll der Chatbot folgende Punkte abfragen:
+
+1. Handelt es sich um ein Grundstück oder ein anderes Wirtschaftsgut?
+
+2. Befindet sich das Nießbrauchsrecht im Privatvermögen oder im Betriebsvermögen?
+
+3. Hat der Nießbraucher das Grundstück im Zeitpunkt des Verzichts tatsächlich vermietet?
+
+4. Ist der Nießbraucher selbst im Außenverhältnis als Vermieter aufgetreten?
+
+5. Hat er die Mietverträge im eigenen Namen geschlossen?
+
+6. Waren ihm die Vermietungseinkünfte steuerlich zuzurechnen?
+
+7. Wird die Zahlung für künftig entgehende Mieteinnahmen oder nur für den Verlust des Nießbrauchsrechts geleistet?
+
+8. Ist die Zahlung vollständig entgeltlich oder teilweise unentgeltlich?
+
+9. Ist eine Einordnung nach § 24 Nr. 1 Buchst. a in Verbindung mit § 21 Abs. 1 Satz 1 Nr. 1 EStG möglich?
+
+10. Ist wegen § 23 Abs. 2 EStG eine Prüfung des privaten Veräußerungsgeschäfts nachrangig?
+
+11. Liegen zusätzlich die Voraussetzungen einer Tarifermäßigung nach § 34 EStG vor?
+
+---
+
+# 18. Kurzantwort des Chatbots
+
+**Nach BFH IX R 4/24 ist das Entgelt für den Verzicht auf ein Nießbrauchsrecht an einem Privatgrundstück als Entschädigung nach § 24 Nr. 1 Buchst. a EStG steuerbar, wenn der Nießbraucher das Grundstück im Zeitpunkt des Verzichts tatsächlich selbst vermietet und ihm die Vermietungseinkünfte nach § 21 Abs. 1 Satz 1 Nr. 1 EStG zuzurechnen sind. Die Zahlung ersetzt dann die künftig entgehenden Mieteinnahmen. Eine Druck- oder Zwangssituation ist für die Steuerbarkeit nicht erforderlich. Ob eine Tarifermäßigung nach § 34 EStG möglich ist, muss gesondert geprüft werden.**
+`
+},
+{
   id: "umsatzsteuer-emissionszertifikate-13b-nr-6",
   title: "Emissionszertifikate: Reverse Charge nach § 13b Abs. 2 Nr. 6 UStG",
   short:

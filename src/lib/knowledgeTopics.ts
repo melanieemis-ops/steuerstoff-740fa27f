@@ -975,6 +975,1440 @@ Bei Vorauszahlungen kann die Steuer bereits früher entstehen.
 `
 },
 {
+  id: "pruefungssaetze-bilanzierung-vorsteuer-gemeinnuetzigkeit",
+
+  title:
+    "Prüfungssichere Lernsätze: Bilanzierung, Vorsteuer und Gemeinnützigkeit",
+
+  short:
+    "Gesetzlich geprüfte Lernsätze zu Buchführung, Bilanzierung, Anlage- und Umlaufvermögen, Bewertung, Anschaffungs- und Herstellungskosten, Abschreibungen, Rückstellungen, Vorsteuer sowie den vier steuerlichen Bereichen gemeinnütziger Körperschaften.",
+
+  category:
+    "Rechnungswesen / Handelsrecht / Umsatzsteuer / Gemeinnützigkeit",
+
+  source:
+    "Interne Steuerstoff-Wissensdatenbank – Rechtsstand 14.07.2026",
+
+  keywords:
+    "bilanzierungspflicht|buchführungspflicht|vollständigkeitsgebot|saldierungsverbot|verrechnungsverbot|anlagevermögen|umlaufvermögen|vorsteuer|vorsteuerüberhang|forderung finanzamt|anschaffungskosten|herstellungskosten|abschreibung|niederstwertprinzip|wertaufholung|rückstellung|verbindlichkeit|guv|umsatzerlöse|umsatzsteuer|gemeinnützigkeit|ideeller bereich|vermögensverwaltung|zweckbetrieb|wirtschaftlicher geschäftsbetrieb|tatsächliche geschäftsführung|vier sphären|§ 238 hgb|§ 242 hgb|§ 246 hgb|§ 247 hgb|§ 249 hgb|§ 252 hgb|§ 253 hgb|§ 255 hgb|§ 266 hgb|§ 275 hgb|§ 277 hgb|§ 63 ao|§ 64 ao|§ 65 ao|§ 5 kstg|§ 12 ustg",
+
+  references: [
+    "§ 238 Abs. 1 HGB",
+    "§ 242 Abs. 1 bis 3 HGB",
+    "§ 246 Abs. 1 und 2 HGB",
+    "§ 247 Abs. 1 und 2 HGB",
+    "§ 249 Abs. 1 HGB",
+    "§ 252 Abs. 1 HGB",
+    "§ 253 Abs. 1, 3, 4 und 5 HGB",
+    "§ 255 Abs. 1 und 2 HGB",
+    "§ 266 Abs. 2 B. II. HGB",
+    "§ 275 HGB",
+    "§ 277 Abs. 1 HGB",
+    "§ 9b Abs. 1 EStG",
+    "§ 15 Abs. 1 UStG",
+    "§ 1 Abs. 1 Nr. 1 UStG",
+    "§ 2 Abs. 1 UStG",
+    "§ 12 Abs. 2 Nr. 8 Buchst. a UStG",
+    "§ 14 AO",
+    "§ 59 AO",
+    "§ 63 Abs. 1, 3 und 4 AO",
+    "§ 64 Abs. 1 und 3 AO",
+    "§§ 65 bis 68 AO",
+    "§ 5 Abs. 1 Nr. 9 KStG",
+    "AEAO zu § 63 Nr. 1"
+  ],
+
+  officialSources: [
+    "https://www.gesetze-im-internet.de/hgb/",
+    "https://www.gesetze-im-internet.de/estg/",
+    "https://www.gesetze-im-internet.de/ustg_1980/",
+    "https://www.gesetze-im-internet.de/ao_1977/",
+    "https://www.gesetze-im-internet.de/kstg_1977/",
+    "https://ao.bundesfinanzministerium.de/ao/2025/Abgabenordnung/Zweiter-Teil/Dritter-Abschnitt/Paragraf-63/inhalt.html"
+  ],
+
+  body: `
+# Prüfungssichere Lernsätze zu Bilanzierung, Vorsteuer und Gemeinnützigkeit
+
+Die nachfolgenden Aussagen sind als kurze Lernsätze für Klausuren und zur Verwendung durch den Steuerstoff-Chatbot formuliert.
+
+Wichtig:
+
+Einige verbreitete Kurzfassungen sind zu pauschal oder enthalten ungenaue Fundstellen. Der Chatbot soll deshalb ausschließlich die nachfolgenden, korrigierten Fassungen verwenden.
+
+---
+
+# Teil A: Grundlagen der Bilanzierung
+
+## 1. Buchführungspflicht
+
+### Rechtsgrundlage
+
+§ 238 Abs. 1 HGB.
+
+### Lernsatz
+
+Jeder Kaufmann ist verpflichtet, Bücher zu führen und darin seine Handelsgeschäfte sowie die Lage seines Vermögens nach den Grundsätzen ordnungsmäßiger Buchführung ersichtlich zu machen.
+
+### Kurzfassung
+
+**Kaufmann bedeutet grundsätzlich Buchführungspflicht nach § 238 Abs. 1 HGB.**
+
+### Prüfungshinweis
+
+Von der handelsrechtlichen Buchführungspflicht können insbesondere Einzelkaufleute unter den Voraussetzungen des § 241a HGB befreit sein.
+
+---
+
+## 2. Aufstellung von Bilanz und Gewinn- und Verlustrechnung
+
+### Rechtsgrundlage
+
+§ 242 Abs. 1 bis 3 HGB.
+
+### Regelungen
+
+§ 242 Abs. 1 HGB:
+
+Der Kaufmann hat
+
+- zu Beginn seines Handelsgewerbes eine Eröffnungsbilanz und
+- für den Schluss jedes Geschäftsjahres eine Schlussbilanz
+
+aufzustellen.
+
+§ 242 Abs. 2 HGB:
+
+Der Kaufmann hat für den Schluss jedes Geschäftsjahres eine Gegenüberstellung der Aufwendungen und Erträge des Geschäftsjahres aufzustellen.
+
+Dies ist die Gewinn- und Verlustrechnung.
+
+§ 242 Abs. 3 HGB:
+
+Bilanz und Gewinn- und Verlustrechnung bilden gemeinsam den Jahresabschluss.
+
+### Lernsatz
+
+**Die Bilanz beruht auf § 242 Abs. 1 HGB, die GuV auf § 242 Abs. 2 HGB. Zusammen bilden sie nach § 242 Abs. 3 HGB den Jahresabschluss.**
+
+---
+
+## 3. Vollständigkeitsgebot
+
+### Rechtsgrundlage
+
+§ 246 Abs. 1 Satz 1 HGB.
+
+### Lernsatz
+
+Der Jahresabschluss muss grundsätzlich sämtliche
+
+- Vermögensgegenstände,
+- Schulden,
+- Rechnungsabgrenzungsposten,
+- Aufwendungen und
+- Erträge
+
+enthalten, soweit gesetzlich nichts anderes bestimmt ist.
+
+### Prüfungssatz
+
+**Alle bilanzierungsfähigen Vermögensgegenstände und Schulden sind vollständig in den Jahresabschluss aufzunehmen, § 246 Abs. 1 Satz 1 HGB.**
+
+### Ergänzung
+
+§ 246 Abs. 1 HGB regelt außerdem die wirtschaftliche Zurechnung.
+
+Ein Vermögensgegenstand ist grundsätzlich beim Eigentümer zu bilanzieren.
+
+Ist er jedoch wirtschaftlich einer anderen Person zuzurechnen, muss der wirtschaftliche Eigentümer ihn bilanzieren.
+
+---
+
+## 4. Saldierungs- beziehungsweise Verrechnungsverbot
+
+### Rechtsgrundlage
+
+§ 246 Abs. 2 Satz 1 HGB.
+
+### Lernsatz
+
+Posten der Aktivseite dürfen grundsätzlich nicht mit Posten der Passivseite verrechnet werden.
+
+Aufwendungen dürfen grundsätzlich nicht mit Erträgen verrechnet werden.
+
+### Prüfungssatz
+
+**Forderungen und Verbindlichkeiten sowie Aufwendungen und Erträge sind grundsätzlich getrennt auszuweisen, § 246 Abs. 2 Satz 1 HGB.**
+
+### Einschränkung
+
+Das Verrechnungsverbot gilt nicht ausnahmslos.
+
+§ 246 Abs. 2 Satz 2 HGB enthält insbesondere eine besondere Verrechnungsvorschrift für bestimmte Vermögensgegenstände, die ausschließlich der Erfüllung von Altersversorgungsverpflichtungen oder vergleichbaren langfristigen Verpflichtungen dienen.
+
+---
+
+# Teil B: Anlage- und Umlaufvermögen
+
+## 5. Gliederung der Bilanz
+
+### Rechtsgrundlage
+
+§ 247 Abs. 1 HGB.
+
+### Lernsatz
+
+In der Bilanz sind insbesondere gesondert auszuweisen:
+
+- Anlagevermögen,
+- Umlaufvermögen,
+- Eigenkapital,
+- Schulden und
+- Rechnungsabgrenzungsposten.
+
+### Wichtige Korrektur
+
+§ 247 Abs. 1 HGB enthält die grundsätzliche Gliederung in Anlage- und Umlaufvermögen.
+
+§ 247 Abs. 2 HGB definiert ausschließlich das Anlagevermögen.
+
+§ 247 Abs. 2 HGB ist keine Definition des Umlaufvermögens.
+
+---
+
+## 6. Anlagevermögen
+
+### Rechtsgrundlage
+
+§ 247 Abs. 2 HGB.
+
+### Gesetzliche Definition
+
+Beim Anlagevermögen sind nur die Gegenstände auszuweisen, die bestimmt sind, dauernd dem Geschäftsbetrieb zu dienen.
+
+### Lernsatz
+
+**Dient ein Vermögensgegenstand dauerhaft dem Geschäftsbetrieb, gehört er zum Anlagevermögen, § 247 Abs. 2 HGB.**
+
+### Beispiele
+
+- Betriebsgrundstücke,
+- Betriebsgebäude,
+- Maschinen,
+- dauerhaft eingesetzte Fahrzeuge,
+- Betriebs- und Geschäftsausstattung,
+- langfristig gehaltene Beteiligungen.
+
+### Entscheidend
+
+Maßgebend ist nicht allein die Art des Gegenstands, sondern seine betriebliche Zweckbestimmung.
+
+Ein Fahrzeug kann daher Anlagevermögen oder Umlaufvermögen sein.
+
+Beispiel:
+
+- dauerhaft eingesetzter Firmenwagen: Anlagevermögen,
+- Fahrzeug eines Autohändlers zum Weiterverkauf: Umlaufvermögen.
+
+---
+
+## 7. Umlaufvermögen
+
+Das Umlaufvermögen wird in § 247 Abs. 2 HGB nicht ausdrücklich definiert.
+
+Es umfasst grundsätzlich Vermögensgegenstände, die nicht dazu bestimmt sind, dem Geschäftsbetrieb dauerhaft zu dienen.
+
+### Lernsatz
+
+**Was nicht dauerhaft dem Geschäftsbetrieb dienen soll und nicht einem anderen Bilanzposten zuzuordnen ist, gehört regelmäßig zum Umlaufvermögen.**
+
+### Gliederung bei Kapitalgesellschaften
+
+§ 266 Abs. 2 B HGB nennt insbesondere:
+
+1. Vorräte,
+2. Forderungen und sonstige Vermögensgegenstände,
+3. Wertpapiere,
+4. Kassenbestand, Bundesbankguthaben, Guthaben bei Kreditinstituten und Schecks.
+
+### Achtung
+
+Nicht jede Forderung gehört zwingend zum Umlaufvermögen.
+
+Ein langfristig gewährtes Darlehen kann bei entsprechender Dauerhalteabsicht zum Finanzanlagevermögen gehören.
+
+Gewöhnliche Forderungen aus Lieferungen und Leistungen gehören dagegen regelmäßig zum Umlaufvermögen.
+
+---
+
+# Teil C: Allgemeine Bewertungsgrundsätze
+
+## 8. Bilanzidentität
+
+### Rechtsgrundlage
+
+§ 252 Abs. 1 Nr. 1 HGB.
+
+### Lernsatz
+
+Die Wertansätze in der Eröffnungsbilanz eines Geschäftsjahres müssen mit den Wertansätzen der Schlussbilanz des vorhergehenden Geschäftsjahres übereinstimmen.
+
+### Kurzform
+
+**Schlussbilanz des Vorjahres gleich Eröffnungsbilanz des Folgejahres.**
+
+---
+
+## 9. Fortführungsgrundsatz
+
+### Rechtsgrundlage
+
+§ 252 Abs. 1 Nr. 2 HGB.
+
+### Lernsatz
+
+Bei der Bewertung ist grundsätzlich von der Fortführung der Unternehmenstätigkeit auszugehen, sofern keine tatsächlichen oder rechtlichen Umstände entgegenstehen.
+
+### Kurzform
+
+**Bewertet wird grundsätzlich unter der Annahme, dass das Unternehmen fortgeführt wird.**
+
+---
+
+## 10. Einzelbewertungsgrundsatz
+
+### Rechtsgrundlage
+
+§ 252 Abs. 1 Nr. 3 HGB.
+
+### Lernsatz
+
+Vermögensgegenstände und Schulden sind zum Abschlussstichtag grundsätzlich einzeln zu bewerten.
+
+### Kurzform
+
+**Jeder Vermögensgegenstand und jede Schuld werden grundsätzlich einzeln bewertet.**
+
+---
+
+## 11. Vorsichtsprinzip
+
+### Rechtsgrundlage
+
+§ 252 Abs. 1 Nr. 4 HGB.
+
+### Lernsatz
+
+Bei der Bewertung ist vorsichtig zu verfahren.
+
+Alle vorhersehbaren Risiken und Verluste, die bis zum Abschlussstichtag entstanden sind, sind zu berücksichtigen, selbst wenn sie erst zwischen Abschlussstichtag und Aufstellung des Jahresabschlusses bekannt werden.
+
+---
+
+## 12. Realisationsprinzip
+
+### Rechtsgrundlage
+
+§ 252 Abs. 1 Nr. 4 Halbsatz 2 HGB.
+
+### Lernsatz
+
+Gewinne dürfen erst berücksichtigt werden, wenn sie am Abschlussstichtag realisiert sind.
+
+### Kurzform
+
+**Unrealisierte Gewinne dürfen nicht ausgewiesen werden.**
+
+### Wichtige Korrektur
+
+Das Realisationsprinzip steht nicht in § 252 Abs. 1 Nr. 5 HGB.
+
+Es ist Bestandteil von § 252 Abs. 1 Nr. 4 HGB.
+
+---
+
+## 13. Imparitätsprinzip
+
+### Rechtsgrundlage
+
+§ 252 Abs. 1 Nr. 4 HGB.
+
+### Lernsatz
+
+Vorhersehbare Verluste sind bereits zu berücksichtigen, bevor sie endgültig realisiert sind.
+
+Unrealisierte Gewinne dürfen dagegen grundsätzlich nicht ausgewiesen werden.
+
+### Kurzform
+
+**Verluste früh, Gewinne erst bei Realisation.**
+
+### Wichtige Korrektur
+
+Das Imparitätsprinzip steht ebenfalls in § 252 Abs. 1 Nr. 4 HGB und nicht in Nr. 6.
+
+---
+
+## 14. Periodengerechte Abgrenzung
+
+### Rechtsgrundlage
+
+§ 252 Abs. 1 Nr. 5 HGB.
+
+### Lernsatz
+
+Aufwendungen und Erträge sind unabhängig von den Zeitpunkten der entsprechenden Zahlungen dem Geschäftsjahr zuzuordnen, zu dem sie wirtschaftlich gehören.
+
+### Kurzform
+
+**Nicht der Zahlungszeitpunkt, sondern die wirtschaftliche Zugehörigkeit entscheidet.**
+
+---
+
+## 15. Bewertungsstetigkeit
+
+### Rechtsgrundlage
+
+§ 252 Abs. 1 Nr. 6 HGB.
+
+### Lernsatz
+
+Die auf den vorhergehenden Jahresabschluss angewandten Bewertungsmethoden sind grundsätzlich beizubehalten.
+
+### Kurzform
+
+**Einmal gewählte Bewertungsmethoden sind grundsätzlich stetig anzuwenden.**
+
+---
+
+# Teil D: Anschaffungs- und Herstellungskosten
+
+## 16. Bewertungsobergrenze
+
+### Rechtsgrundlage
+
+§ 253 Abs. 1 Satz 1 HGB.
+
+### Lernsatz
+
+Vermögensgegenstände dürfen grundsätzlich höchstens mit den Anschaffungs- oder Herstellungskosten, vermindert um erforderliche Abschreibungen, angesetzt werden.
+
+### Kurzform
+
+**Anschaffungs- beziehungsweise Herstellungskosten bilden grundsätzlich die Bewertungsobergrenze.**
+
+---
+
+## 17. Anschaffungskosten
+
+### Rechtsgrundlage
+
+§ 255 Abs. 1 HGB.
+
+### Definition
+
+Anschaffungskosten sind die Aufwendungen, die geleistet werden, um einen Vermögensgegenstand
+
+1. zu erwerben und
+2. ihn in einen betriebsbereiten Zustand zu versetzen,
+
+soweit die Aufwendungen dem Vermögensgegenstand einzeln zugeordnet werden können.
+
+### Berechnungsschema
+
+Anschaffungspreis  
++ Anschaffungsnebenkosten  
++ nachträgliche Anschaffungskosten  
+./. Anschaffungspreisminderungen  
+= Anschaffungskosten
+
+### Beispiele für Anschaffungsnebenkosten
+
+- Transportkosten,
+- Frachtkosten,
+- Montagekosten,
+- Maklerkosten,
+- Notarkosten,
+- Grunderwerbsteuer,
+- Zulassungs- und Überführungskosten.
+
+---
+
+## 18. Herstellungskosten
+
+### Rechtsgrundlage
+
+§ 255 Abs. 2 HGB.
+
+### Lernsatz
+
+Herstellungskosten sind die Aufwendungen, die durch
+
+- den Verbrauch von Gütern und
+- die Inanspruchnahme von Diensten
+
+für die Herstellung, Erweiterung oder wesentliche Verbesserung eines Vermögensgegenstands entstehen.
+
+### Kurzform
+
+**Anschaffung bedeutet Erwerb; Herstellung bedeutet eigenes Schaffen, Erweitern oder wesentliches Verbessern.**
+
+---
+
+## 19. Abziehbare Vorsteuer und Anschaffungskosten
+
+### Rechtsgrundlagen
+
+§ 15 Abs. 1 UStG und für die steuerliche Gewinnermittlung ausdrücklich § 9b Abs. 1 EStG.
+
+### Lernsatz
+
+Vorsteuer, die nach § 15 UStG abgezogen werden kann, gehört nicht zu den Anschaffungs- oder Herstellungskosten.
+
+### Beispiel
+
+Nettokaufpreis Maschine:
+
+10.000 Euro.
+
+Umsatzsteuer:
+
+1.900 Euro.
+
+Voller Vorsteuerabzug möglich.
+
+Anschaffungskosten:
+
+10.000 Euro.
+
+Die Vorsteuer von 1.900 Euro wird als Forderung gegenüber dem Finanzamt behandelt.
+
+---
+
+## 20. Nicht abziehbare Vorsteuer
+
+### Rechtsgrundlagen
+
+§ 255 Abs. 1 beziehungsweise Abs. 2 HGB sowie § 9b Abs. 1 EStG im Umkehrschluss für die Steuerbilanz.
+
+### Lernsatz
+
+Nicht abziehbare Umsatzsteuer gehört zu den Anschaffungs- oder Herstellungskosten, soweit sie dem Erwerb oder der Herstellung des Vermögensgegenstands unmittelbar zuzurechnen ist.
+
+### Beispiel
+
+Nettokaufpreis:
+
+10.000 Euro.
+
+Umsatzsteuer:
+
+1.900 Euro.
+
+Kein Vorsteuerabzug möglich.
+
+Anschaffungskosten:
+
+11.900 Euro.
+
+### Einschränkung
+
+Nicht abziehbare Umsatzsteuer ist nicht immer zwingend zu aktivieren.
+
+Betrifft sie einen sofort abzugsfähigen Aufwand, gehört auch die nicht abziehbare Umsatzsteuer grundsätzlich zu diesem Aufwand.
+
+---
+
+# Teil E: Abschreibungen und Wertminderungen
+
+## 21. Planmäßige Abschreibung
+
+### Rechtsgrundlage
+
+§ 253 Abs. 3 Satz 1 HGB.
+
+### Lernsatz
+
+Bei Vermögensgegenständen des Anlagevermögens mit zeitlich begrenzter Nutzungsdauer sind die Anschaffungs- oder Herstellungskosten planmäßig auf die Geschäftsjahre der voraussichtlichen Nutzungsdauer zu verteilen.
+
+### Kurzform
+
+**Abnutzbares Anlagevermögen muss planmäßig abgeschrieben werden.**
+
+---
+
+## 22. Außerplanmäßige Abschreibung im Anlagevermögen
+
+### Rechtsgrundlage
+
+§ 253 Abs. 3 Satz 5 HGB.
+
+### Lernsatz
+
+Bei einer voraussichtlich dauernden Wertminderung ist ein Vermögensgegenstand des Anlagevermögens auf den niedrigeren beizulegenden Wert abzuschreiben.
+
+### Finanzanlagen
+
+Bei Finanzanlagen darf gemäß § 253 Abs. 3 Satz 6 HGB auch bei einer voraussichtlich nicht dauernden Wertminderung eine außerplanmäßige Abschreibung vorgenommen werden.
+
+---
+
+## 23. Niederstwertprinzip im Umlaufvermögen
+
+### Rechtsgrundlage
+
+§ 253 Abs. 4 HGB.
+
+### Lernsatz
+
+Vermögensgegenstände des Umlaufvermögens sind auf den niedrigeren Börsen- oder Marktpreis beziehungsweise den niedrigeren beizulegenden Wert abzuschreiben.
+
+### Kurzform
+
+**Im Umlaufvermögen gilt das strenge Niederstwertprinzip.**
+
+### Prüfungshinweis
+
+Anders als beim gewöhnlichen Anlagevermögen muss die Wertminderung im Umlaufvermögen nicht dauerhaft sein.
+
+---
+
+## 24. Wertaufholungsgebot
+
+### Rechtsgrundlage
+
+§ 253 Abs. 5 Satz 1 HGB.
+
+### Lernsatz
+
+Fällt der Grund für eine frühere außerplanmäßige Abschreibung weg, muss grundsätzlich eine Zuschreibung vorgenommen werden.
+
+### Bewertungsobergrenze
+
+Die fortgeführten Anschaffungs- oder Herstellungskosten dürfen nicht überschritten werden.
+
+### Ausnahme
+
+Für einen entgeltlich erworbenen Geschäfts- oder Firmenwert besteht nach § 253 Abs. 5 Satz 2 HGB ein Wertaufholungsverbot.
+
+### Kurzform
+
+**Fällt der Abschreibungsgrund weg, muss grundsätzlich bis höchstens zu den fortgeführten AK oder HK zugeschrieben werden.**
+
+---
+
+# Teil F: Rückstellungen und Verbindlichkeiten
+
+## 25. Rückstellungen für ungewisse Verbindlichkeiten
+
+### Rechtsgrundlage
+
+§ 249 Abs. 1 Satz 1 HGB.
+
+### Lernsatz
+
+Für ungewisse Verbindlichkeiten sind Rückstellungen zu bilden.
+
+Ungewiss kann insbesondere sein:
+
+- ob die Verpflichtung überhaupt besteht,
+- in welcher Höhe sie besteht oder
+- wann sie erfüllt werden muss.
+
+### Beispiele
+
+- Prozessrisiken,
+- Gewährleistungsverpflichtungen,
+- ausstehende Rechnungen mit unklarer Höhe,
+- ungewisse Steuerverpflichtungen.
+
+---
+
+## 26. Drohverlustrückstellungen
+
+### Rechtsgrundlage
+
+§ 249 Abs. 1 Satz 1 HGB.
+
+### Lernsatz
+
+Für drohende Verluste aus schwebenden Geschäften muss handelsrechtlich eine Rückstellung gebildet werden.
+
+### Kurzform
+
+**Übersteigt bei einem noch nicht vollständig erfüllten Vertrag die eigene Leistungspflicht den erwarteten Anspruch, ist der drohende Verlust zurückzustellen.**
+
+---
+
+## 27. Abgrenzung Rückstellung und Verbindlichkeit
+
+### Lernsatz
+
+Ist eine Verpflichtung dem Grunde und der Höhe nach hinreichend sicher, wird grundsätzlich eine Verbindlichkeit ausgewiesen.
+
+Ist die Verpflichtung dem Grunde, der Höhe oder dem Zeitpunkt nach ungewiss, kommt eine Rückstellung in Betracht.
+
+### Kurzform
+
+**Sicher und bestimmbar bedeutet regelmäßig Verbindlichkeit; ungewiss bedeutet regelmäßig Rückstellung.**
+
+### Achtung
+
+Der Kurzsatz ersetzt nicht die Prüfung, ob bereits eine Außenverpflichtung vorliegt.
+
+---
+
+# Teil G: Gewinn- und Verlustrechnung
+
+## 28. Pflicht zur Aufstellung der GuV
+
+### Rechtsgrundlage
+
+§ 242 Abs. 2 HGB.
+
+### Lernsatz
+
+Der Kaufmann hat für den Schluss jedes Geschäftsjahres die Aufwendungen und Erträge in einer Gewinn- und Verlustrechnung gegenüberzustellen.
+
+---
+
+## 29. Gliederung der GuV bei Kapitalgesellschaften
+
+### Rechtsgrundlage
+
+§ 275 Abs. 1 HGB.
+
+### Lernsatz
+
+Kapitalgesellschaften stellen die Gewinn- und Verlustrechnung in Staffelform auf.
+
+Zulässig sind:
+
+- Gesamtkostenverfahren oder
+- Umsatzkostenverfahren.
+
+### Achtung
+
+§ 275 HGB gehört zu den ergänzenden Vorschriften für Kapitalgesellschaften und bestimmte gleichgestellte Gesellschaften.
+
+---
+
+## 30. Umsatzsteuer und Umsatzerlöse
+
+### Rechtsgrundlage
+
+§ 277 Abs. 1 HGB.
+
+### Lernsatz
+
+Umsatzerlöse werden nach Abzug von
+
+- Erlösschmälerungen,
+- Umsatzsteuer und
+- sonstigen unmittelbar mit dem Umsatz verbundenen Steuern
+
+ausgewiesen.
+
+### Kurzform
+
+**Die vereinnahmte Umsatzsteuer ist kein Umsatzerlös, sondern grundsätzlich eine Verbindlichkeit gegenüber dem Finanzamt.**
+
+### Wichtige Korrektur
+
+§ 277 HGB enthält keine allgemeine Definition sämtlicher Aufwendungen und Erträge.
+
+Die Vorschrift regelt einzelne Posten der GuV, insbesondere die Umsatzerlöse.
+
+---
+
+## 31. Umsatzsteuer ist nicht immer erfolgsneutral
+
+Die Aussage „Umsatzsteuer ist niemals Aufwand“ ist zu pauschal.
+
+Richtig ist:
+
+- abziehbare Vorsteuer ist grundsätzlich eine Forderung und kein Aufwand,
+- vereinnahmte Umsatzsteuer ist grundsätzlich eine Verbindlichkeit und kein Ertrag,
+- nicht abziehbare Vorsteuer kann jedoch Aufwand oder Bestandteil der Anschaffungs- beziehungsweise Herstellungskosten sein.
+
+### Prüfungssatz
+
+**Nur abzugsfähige Vorsteuer und ordnungsgemäß geschuldete Umsatzsteuer sind grundsätzlich erfolgsneutral.**
+
+---
+
+# Teil H: Bilanzielle Behandlung der Vorsteuer
+
+## 32. Entstehung des Vorsteuerabzugs
+
+### Rechtsgrundlage
+
+§ 15 Abs. 1 UStG.
+
+### Lernsatz
+
+Der Unternehmer kann die gesetzlich geschuldete Steuer für Leistungen eines anderen Unternehmers als Vorsteuer abziehen, wenn die gesetzlichen Voraussetzungen erfüllt sind.
+
+Dazu gehören insbesondere:
+
+- Unternehmereigenschaft des Leistungsempfängers,
+- Leistung durch einen anderen Unternehmer,
+- Leistungsbezug für das Unternehmen,
+- gesetzlich geschuldete Umsatzsteuer,
+- ordnungsgemäße Rechnung, soweit gesetzlich erforderlich.
+
+---
+
+## 33. Vorsteuer als Forderung
+
+### Rechtsgrundlagen
+
+§ 246 Abs. 1 Satz 1 HGB,  
+§ 266 Abs. 2 B. II. 4 HGB und  
+§ 15 Abs. 1 UStG.
+
+### Lernsatz
+
+Ein Vorsteueranspruch ist handelsrechtlich als Forderung gegenüber dem Finanzamt zu behandeln.
+
+Bei Kapitalgesellschaften erfolgt der Ausweis regelmäßig unter:
+
+**Sonstige Vermögensgegenstände gemäß § 266 Abs. 2 B. II. 4 HGB.**
+
+### Wichtige Korrektur
+
+Die Vorsteuerforderung gehört nicht zu den Forderungen aus Lieferungen und Leistungen.
+
+Der Schuldner ist das Finanzamt und nicht ein Kunde aus einer Lieferung oder Leistung.
+
+---
+
+## 34. Vorsteuer und Umlaufvermögen
+
+### Rechtsgrundlagen
+
+§ 247 Abs. 1 HGB und § 266 Abs. 2 B. II. 4 HGB.
+
+### Lernsatz
+
+Vorsteuerforderungen gehören regelmäßig zum Umlaufvermögen, weil sie nicht dazu bestimmt sind, dem Geschäftsbetrieb dauerhaft zu dienen.
+
+### Kurzform
+
+**Vorsteuerüberhang bedeutet regelmäßig Forderung gegenüber dem Finanzamt und damit sonstiger Vermögensgegenstand des Umlaufvermögens.**
+
+---
+
+## 35. Vorsteuerüberhang
+
+### Lernsatz
+
+Übersteigen die abziehbaren Vorsteuerbeträge die geschuldete Umsatzsteuer, besteht grundsätzlich ein Vorsteuerüberhang beziehungsweise Umsatzsteuererstattungsanspruch.
+
+Dieser ist auf der Aktivseite der Bilanz auszuweisen.
+
+### Bilanzposten
+
+Sonstige Vermögensgegenstände:
+
+§ 266 Abs. 2 B. II. 4 HGB.
+
+---
+
+## 36. Umsatzsteuerzahllast
+
+Übersteigt die geschuldete Umsatzsteuer die abziehbaren Vorsteuerbeträge, besteht eine Umsatzsteuerzahllast.
+
+Diese ist auf der Passivseite als Verbindlichkeit auszuweisen.
+
+Bei Kapitalgesellschaften kommt regelmäßig der Posten
+
+**Sonstige Verbindlichkeiten, davon aus Steuern**
+
+nach § 266 Abs. 3 C. 8 HGB in Betracht.
+
+---
+
+## 37. Zentraler Prüfungssatz zur Vorsteuer
+
+**Abziehbare Vorsteuer ist kein Aufwand, sondern zunächst eine Forderung gegenüber dem Finanzamt. Ein Vorsteuerüberhang wird als sonstiger Vermögensgegenstand des Umlaufvermögens ausgewiesen, § 15 Abs. 1 UStG in Verbindung mit § 246 Abs. 1 und § 266 Abs. 2 B. II. 4 HGB.**
+
+---
+
+# Teil I: Grundlagen der Gemeinnützigkeit
+
+## 38. Steuerbegünstigung gemeinnütziger Körperschaften
+
+### Rechtsgrundlagen
+
+§§ 51 bis 68 AO und § 5 Abs. 1 Nr. 9 KStG.
+
+### Lernsatz
+
+Körperschaften, die nach ihrer Satzung und tatsächlichen Geschäftsführung ausschließlich und unmittelbar gemeinnützigen, mildtätigen oder kirchlichen Zwecken dienen, sind grundsätzlich von der Körperschaftsteuer befreit.
+
+### Einschränkung
+
+Die Steuerbefreiung erstreckt sich grundsätzlich nicht auf steuerpflichtige wirtschaftliche Geschäftsbetriebe, die keine Zweckbetriebe sind.
+
+---
+
+## 39. Tatsächliche Geschäftsführung
+
+### Rechtsgrundlage
+
+§ 63 Abs. 1 AO.
+
+### Lernsatz
+
+Die tatsächliche Geschäftsführung muss
+
+- auf die ausschließliche und unmittelbare Erfüllung der steuerbegünstigten Zwecke gerichtet sein und
+- den gemeinnützigkeitsrechtlichen Vorgaben der Satzung entsprechen.
+
+### Prüfungssatz
+
+**Nicht nur die Satzung, sondern auch das tatsächliche Handeln der Körperschaft muss gemeinnützig sein, § 63 Abs. 1 AO.**
+
+### Folge eines Verstoßes
+
+Weicht die tatsächliche Geschäftsführung von den gemeinnützigkeitsrechtlichen Satzungsvorgaben ab, können die Voraussetzungen der Steuerbegünstigung entfallen.
+
+---
+
+## 40. Maßgeblichkeit der tatsächlichen Mittelverwendung
+
+### Rechtsgrundlage
+
+§ 63 Abs. 1 AO.
+
+### Lernsatz
+
+Für die Gemeinnützigkeit ist entscheidend, wie die Körperschaft ihre Mittel tatsächlich verwendet.
+
+Eine bloße Absicht oder eine entsprechende Formulierung in der Satzung genügt nicht.
+
+### Kurzform
+
+**Entscheidend ist die tatsächliche Verwendung der Mittel, nicht nur die erklärte Absicht.**
+
+---
+
+## 41. Nachweis durch ordnungsmäßige Aufzeichnungen
+
+### Rechtsgrundlage
+
+§ 63 Abs. 3 AO.
+
+### Lernsatz
+
+Die Körperschaft muss durch ordnungsmäßige Aufzeichnungen über ihre Einnahmen und Ausgaben nachweisen, dass ihre tatsächliche Geschäftsführung den gemeinnützigkeitsrechtlichen Anforderungen entspricht.
+
+### Nachweise nach dem AEAO
+
+Hierzu gehören insbesondere:
+
+- Einnahmen- und Ausgabenaufstellungen,
+- Tätigkeitsberichte,
+- Vermögensübersichten,
+- Nachweise über die Bildung und Entwicklung von Rücklagen,
+- Belege über die tatsächliche Mittelverwendung.
+
+### Wichtige Korrektur
+
+Die Nachweis- und Aufzeichnungspflicht ergibt sich aus § 63 Abs. 3 AO.
+
+§ 63 Abs. 4 AO enthält keine allgemeine Verpflichtung zur getrennten Aufzeichnung der vier Tätigkeitsbereiche.
+
+---
+
+## 42. Bedeutung des § 63 Abs. 4 AO
+
+### Rechtsgrundlage
+
+§ 63 Abs. 4 AO.
+
+### Lernsatz
+
+Hat eine Körperschaft Mittel ohne ausreichende gesetzliche Grundlage angesammelt, kann das Finanzamt eine angemessene Frist zur Verwendung der Mittel setzen.
+
+Verwendet die Körperschaft die Mittel innerhalb dieser Frist für steuerbegünstigte Zwecke, gilt die tatsächliche Geschäftsführung insoweit als ordnungsgemäß.
+
+### Kurzform
+
+**§ 63 Abs. 4 AO ist eine Heilungsregelung für unzulässig angesammelte Mittel und keine Vorschrift über die Vier-Sphären-Buchhaltung.**
+
+---
+
+# Teil J: Die vier steuerlichen Bereiche
+
+## 43. Vier-Sphären-Modell
+
+Die Tätigkeit einer gemeinnützigen Körperschaft wird in der Praxis in folgende Bereiche gegliedert:
+
+1. ideeller Bereich,
+2. Vermögensverwaltung,
+3. Zweckbetrieb,
+4. steuerpflichtiger wirtschaftlicher Geschäftsbetrieb.
+
+### Gesetzliche Einordnung
+
+Die Begriffe ergeben sich insbesondere aus:
+
+- § 14 AO,
+- § 64 AO,
+- §§ 65 bis 68 AO,
+- § 5 Abs. 1 Nr. 9 KStG.
+
+### Lernsatz
+
+**Jeder Geschäftsvorfall einer gemeinnützigen Körperschaft muss dem zutreffenden steuerlichen Tätigkeitsbereich zugeordnet werden.**
+
+---
+
+## 44. Getrennte Aufzeichnung der Tätigkeitsbereiche
+
+Die AO enthält in § 63 Abs. 3 die Pflicht, die ordnungsgemäße tatsächliche Geschäftsführung durch Aufzeichnungen nachzuweisen.
+
+Damit
+
+- die Mittelverwendung,
+- die Steuerbefreiung und
+- die Ergebnisse steuerpflichtiger wirtschaftlicher Geschäftsbetriebe
+
+nachvollziehbar sind, müssen die Einnahmen und Ausgaben den jeweiligen Tätigkeitsbereichen sachgerecht zugeordnet werden.
+
+### Lernsatz
+
+**Ideeller Bereich, Vermögensverwaltung, Zweckbetrieb und steuerpflichtiger wirtschaftlicher Geschäftsbetrieb sind buchhalterisch beziehungsweise rechnerisch nachvollziehbar voneinander abzugrenzen.**
+
+### Rechtsgrundlagen
+
+§ 63 Abs. 3 AO,  
+AEAO zu § 63 Nr. 1 sowie  
+§ 64 Abs. 1 AO.
+
+---
+
+# Teil K: Ideeller Bereich
+
+## 45. Begriff
+
+Zum ideellen Bereich gehören Tätigkeiten, mit denen die Körperschaft unmittelbar ihre steuerbegünstigten Satzungszwecke verfolgt, ohne dass ein steuerpflichtiger wirtschaftlicher Geschäftsbetrieb oder eine Vermögensverwaltung vorliegt.
+
+### Typische Einnahmen
+
+- echte Mitgliedsbeiträge,
+- Spenden,
+- Zuschüsse ohne Leistungsaustausch,
+- Erbschaften,
+- Schenkungen,
+- bestimmte Umlagen.
+
+---
+
+## 46. Körperschaftsteuer im ideellen Bereich
+
+### Rechtsgrundlage
+
+§ 5 Abs. 1 Nr. 9 KStG.
+
+### Lernsatz
+
+Einnahmen und Tätigkeiten des ideellen Bereichs werden grundsätzlich von der Körperschaftsteuerbefreiung der gemeinnützigen Körperschaft erfasst.
+
+---
+
+## 47. Umsatzsteuer im ideellen Bereich
+
+### Rechtsgrundlage
+
+§ 1 Abs. 1 Nr. 1 UStG.
+
+### Lernsatz
+
+Echte Mitgliedsbeiträge und echte Spenden sind nicht umsatzsteuerbar, wenn ihnen keine konkrete Leistung der Körperschaft gegenübersteht.
+
+### Wichtig
+
+Nicht jede Einnahme, die buchhalterisch dem ideellen Bereich zugeordnet wird, ist allein deshalb umsatzsteuerlich nicht steuerbar.
+
+Entscheidend ist, ob ein Leistungsaustausch vorliegt.
+
+### Prüfungssatz
+
+**Ohne Leistung gegen Gegenleistung liegt grundsätzlich kein steuerbarer Umsatz nach § 1 Abs. 1 Nr. 1 UStG vor.**
+
+---
+
+# Teil L: Vermögensverwaltung
+
+## 48. Begriff der Vermögensverwaltung
+
+### Rechtsgrundlage
+
+§ 14 AO.
+
+### Lernsatz
+
+Vermögensverwaltung liegt regelmäßig vor, wenn vorhandenes Vermögen genutzt wird.
+
+Typische Beispiele sind:
+
+- verzinsliche Anlage von Kapitalvermögen,
+- langfristige Vermietung von unbeweglichem Vermögen,
+- Verpachtung eigenen Vermögens.
+
+### Abgrenzung
+
+Eine Tätigkeit wird zum wirtschaftlichen Geschäftsbetrieb, wenn sie über die bloße Nutzung und Verwaltung des eigenen Vermögens hinausgeht.
+
+---
+
+## 49. Körperschaftsteuer bei Vermögensverwaltung
+
+### Rechtsgrundlage
+
+§ 5 Abs. 1 Nr. 9 KStG in Verbindung mit § 14 AO.
+
+### Lernsatz
+
+Die gewöhnliche Vermögensverwaltung einer gemeinnützigen Körperschaft wird grundsätzlich von der Körperschaftsteuerbefreiung erfasst.
+
+---
+
+## 50. Umsatzsteuer bei Vermögensverwaltung
+
+Die körperschaftsteuerliche Steuerbefreiung führt nicht automatisch zur Umsatzsteuerfreiheit.
+
+Beispiele:
+
+- Grundstücksvermietung kann nach § 4 Nr. 12 UStG steuerfrei sein,
+- bestimmte Kapitalumsätze können nach § 4 Nr. 8 UStG steuerfrei sein,
+- andere Leistungen können steuerpflichtig sein.
+
+### Lernsatz
+
+**Körperschaftsteuerliche Vermögensverwaltung und umsatzsteuerliche Steuerfreiheit sind getrennt zu prüfen.**
+
+---
+
+# Teil M: Zweckbetrieb
+
+## 51. Allgemeiner Zweckbetrieb
+
+### Rechtsgrundlage
+
+§ 65 AO.
+
+Ein Zweckbetrieb liegt vor, wenn alle drei Voraussetzungen erfüllt sind:
+
+1. Der wirtschaftliche Geschäftsbetrieb dient in seiner Gesamtrichtung der Verwirklichung der steuerbegünstigten Satzungszwecke.
+2. Die steuerbegünstigten Zwecke können nur durch einen solchen Geschäftsbetrieb erreicht werden.
+3. Der Geschäftsbetrieb tritt zu nicht begünstigten Betrieben derselben oder ähnlicher Art nicht stärker in Wettbewerb, als es zur Erfüllung der steuerbegünstigten Zwecke unvermeidbar ist.
+
+### Merksatz
+
+**Satzungszweck, Erforderlichkeit und unvermeidbarer Wettbewerb bilden die drei Voraussetzungen des § 65 AO.**
+
+---
+
+## 52. Besondere Zweckbetriebe
+
+Besondere Zweckbetriebe ergeben sich insbesondere aus:
+
+- § 66 AO: Wohlfahrtspflege,
+- § 67 AO: Krankenhäuser,
+- § 67a AO: sportliche Veranstaltungen,
+- § 68 AO: gesetzlich aufgezählte einzelne Zweckbetriebe.
+
+### Lernsatz
+
+**Vor der Prüfung des allgemeinen § 65 AO ist zu prüfen, ob bereits ein besonderer Zweckbetrieb nach §§ 66 bis 68 AO vorliegt.**
+
+---
+
+## 53. Körperschaftsteuer beim Zweckbetrieb
+
+### Rechtsgrundlagen
+
+§ 5 Abs. 1 Nr. 9 KStG und § 64 Abs. 1 AO.
+
+### Lernsatz
+
+Ein Zweckbetrieb gehört zur steuerbegünstigten Tätigkeit der Körperschaft.
+
+Seine Besteuerungsgrundlagen unterliegen grundsätzlich nicht der Körperschaft- und Gewerbesteuerpflicht eines steuerpflichtigen wirtschaftlichen Geschäftsbetriebs.
+
+---
+
+## 54. Umsatzsteuer beim Zweckbetrieb
+
+### Rechtsgrundlagen
+
+§ 1 Abs. 1 Nr. 1 UStG und § 12 Abs. 2 Nr. 8 Buchst. a UStG.
+
+### Lernsatz
+
+Leistungen eines Zweckbetriebs sind nicht automatisch umsatzsteuerfrei.
+
+Liegt ein steuerbarer und steuerpflichtiger Leistungsaustausch vor, muss der anzuwendende Steuersatz geprüft werden.
+
+### Ermäßigter Steuersatz
+
+Der ermäßigte Steuersatz nach § 12 Abs. 2 Nr. 8 Buchst. a UStG kann angewendet werden, wenn die dort genannten zusätzlichen Voraussetzungen erfüllt sind.
+
+### Prüfungssatz
+
+**Zweckbetrieb bedeutet Körperschaftsteuerbegünstigung, aber nicht automatisch Umsatzsteuerfreiheit oder automatisch sieben Prozent Umsatzsteuer.**
+
+---
+
+# Teil N: Wirtschaftlicher Geschäftsbetrieb
+
+## 55. Definition
+
+### Rechtsgrundlage
+
+§ 14 Satz 1 AO.
+
+Ein wirtschaftlicher Geschäftsbetrieb ist eine
+
+- selbständige,
+- nachhaltige Tätigkeit,
+
+durch die Einnahmen oder andere wirtschaftliche Vorteile erzielt werden und die über den Rahmen einer Vermögensverwaltung hinausgeht.
+
+### Nicht erforderlich
+
+Eine Gewinnerzielungsabsicht ist nach § 14 AO nicht erforderlich.
+
+Eine Beteiligung am allgemeinen wirtschaftlichen Verkehr ist ebenfalls nicht zwingend erforderlich.
+
+### Lernsatz
+
+**Für einen wirtschaftlichen Geschäftsbetrieb genügt eine selbständige, nachhaltige und über die Vermögensverwaltung hinausgehende Einnahmetätigkeit.**
+
+---
+
+## 56. Körperschaft- und Gewerbesteuerpflicht
+
+### Rechtsgrundlage
+
+§ 64 Abs. 1 AO.
+
+### Lernsatz
+
+Unterhält eine steuerbegünstigte Körperschaft einen wirtschaftlichen Geschäftsbetrieb, der kein Zweckbetrieb ist, entfällt die Steuerbegünstigung insoweit für die diesem Geschäftsbetrieb zuzurechnenden Besteuerungsgrundlagen.
+
+### Kurzform
+
+**Der steuerpflichtige wirtschaftliche Geschäftsbetrieb ist körperschaft- und gewerbesteuerlich grundsätzlich steuerpflichtig, ohne dass dadurch automatisch die gesamte Gemeinnützigkeit entfällt.**
+
+---
+
+## 57. Einnahmengrenze von 50.000 Euro
+
+### Rechtsgrundlage
+
+§ 64 Abs. 3 AO.
+
+### Lernsatz
+
+Übersteigen die Einnahmen einschließlich Umsatzsteuer aus sämtlichen wirtschaftlichen Geschäftsbetrieben, die keine Zweckbetriebe sind, insgesamt nicht 50.000 Euro im Jahr, unterliegen die diesen Geschäftsbetrieben zuzurechnenden Besteuerungsgrundlagen nicht der Körperschaft- und Gewerbesteuer.
+
+### Wichtig
+
+Maßgebend sind die Einnahmen einschließlich Umsatzsteuer, nicht der Gewinn.
+
+Mehrere steuerpflichtige wirtschaftliche Geschäftsbetriebe werden für die Grenze zusammengerechnet.
+
+### Freigrenze
+
+Die Grenze ist eine Freigrenze und kein Freibetrag.
+
+Wird sie überschritten, wird nicht lediglich der übersteigende Einnahmenbetrag betrachtet.
+
+### Zentrale Einschränkung
+
+§ 64 Abs. 3 AO betrifft nur Körperschaft- und Gewerbesteuer.
+
+Die Vorschrift enthält keine Umsatzsteuerbefreiung.
+
+---
+
+## 58. Umsatzsteuer beim wirtschaftlichen Geschäftsbetrieb
+
+### Rechtsgrundlagen
+
+§ 1 Abs. 1 Nr. 1 und § 2 Abs. 1 UStG.
+
+### Lernsatz
+
+Umsätze des wirtschaftlichen Geschäftsbetriebs sind umsatzsteuerbar, wenn
+
+1. die Körperschaft insoweit als Unternehmer handelt und
+2. eine Lieferung oder sonstige Leistung gegen Entgelt im Inland ausführt.
+
+### Weitere Prüfung
+
+Anschließend sind insbesondere zu prüfen:
+
+- Steuerbefreiung nach § 4 UStG,
+- Steuersatz nach § 12 UStG,
+- Kleinunternehmerregelung nach § 19 UStG,
+- Steuerschuldnerschaft,
+- Vorsteuerabzug.
+
+### Prüfungssatz
+
+**Die Einnahmengrenze des § 64 Abs. 3 AO hat keinen unmittelbaren Einfluss auf die Umsatzsteuer.**
+
+---
+
+# Teil O: Steuerliche Folgen der vier Bereiche
+
+## 59. Ideeller Bereich
+
+### Körperschaftsteuer
+
+Grundsätzlich steuerbefreit nach § 5 Abs. 1 Nr. 9 KStG.
+
+### Umsatzsteuer
+
+Echte Spenden und echte Mitgliedsbeiträge sind mangels Leistungsaustauschs regelmäßig nicht steuerbar, § 1 Abs. 1 Nr. 1 UStG.
+
+---
+
+## 60. Vermögensverwaltung
+
+### Körperschaftsteuer
+
+Grundsätzlich von der Steuerbefreiung erfasst, § 5 Abs. 1 Nr. 9 KStG in Verbindung mit § 14 AO.
+
+### Umsatzsteuer
+
+Gesondert zu prüfen.
+
+Je nach Tätigkeit steuerpflichtig oder nach § 4 UStG steuerfrei.
+
+---
+
+## 61. Zweckbetrieb
+
+### Körperschaftsteuer
+
+Grundsätzlich steuerbegünstigt, § 5 Abs. 1 Nr. 9 KStG in Verbindung mit §§ 64 bis 68 AO.
+
+### Umsatzsteuer
+
+Nicht automatisch steuerfrei.
+
+Der ermäßigte Steuersatz nach § 12 Abs. 2 Nr. 8 Buchst. a UStG kann unter den dort genannten Voraussetzungen anwendbar sein.
+
+---
+
+## 62. Steuerpflichtiger wirtschaftlicher Geschäftsbetrieb
+
+### Körperschaft- und Gewerbesteuer
+
+Grundsätzlich steuerpflichtig nach § 64 Abs. 1 AO.
+
+Die Einnahmengrenze des § 64 Abs. 3 AO ist zu prüfen.
+
+### Umsatzsteuer
+
+Bei Vorliegen der Voraussetzungen des § 1 Abs. 1 Nr. 1 UStG grundsätzlich steuerbar.
+
+Steuerbefreiungen und Steuersatz sind gesondert zu prüfen.
+
+---
+
+# Teil P: Kompakte Lernsatz-Sammlung
+
+1. Jeder Kaufmann ist grundsätzlich nach § 238 Abs. 1 HGB zur Buchführung verpflichtet.
+
+2. Die Bilanz beruht auf § 242 Abs. 1 HGB, die GuV auf § 242 Abs. 2 HGB.
+
+3. Bilanz und GuV bilden nach § 242 Abs. 3 HGB den Jahresabschluss.
+
+4. Der Jahresabschluss muss nach § 246 Abs. 1 HGB grundsätzlich sämtliche Vermögensgegenstände, Schulden, Aufwendungen und Erträge enthalten.
+
+5. Aktiv- und Passivposten sowie Aufwendungen und Erträge dürfen nach § 246 Abs. 2 Satz 1 HGB grundsätzlich nicht verrechnet werden.
+
+6. Anlagevermögen sind nach § 247 Abs. 2 HGB die Gegenstände, die dauerhaft dem Geschäftsbetrieb dienen sollen.
+
+7. § 247 Abs. 2 HGB definiert nicht das Umlaufvermögen, sondern das Anlagevermögen.
+
+8. Typische Forderungen aus Lieferungen und Leistungen gehören regelmäßig zum Umlaufvermögen.
+
+9. Ein Vorsteueranspruch ist regelmäßig ein sonstiger Vermögensgegenstand nach § 266 Abs. 2 B. II. 4 HGB.
+
+10. Das Realisationsprinzip steht in § 252 Abs. 1 Nr. 4 HGB.
+
+11. Das Imparitätsprinzip steht ebenfalls in § 252 Abs. 1 Nr. 4 HGB.
+
+12. § 252 Abs. 1 Nr. 5 HGB enthält die periodengerechte Abgrenzung.
+
+13. Anschaffungs- und Herstellungskosten bilden nach § 253 Abs. 1 Satz 1 HGB grundsätzlich die Bewertungsobergrenze.
+
+14. Anschaffungskosten werden nach § 255 Abs. 1 HGB ermittelt.
+
+15. Herstellungskosten werden nach § 255 Abs. 2 HGB ermittelt.
+
+16. Abziehbare Vorsteuer gehört nach § 9b Abs. 1 EStG nicht zu den Anschaffungs- oder Herstellungskosten.
+
+17. Nicht abziehbare Vorsteuer kann Bestandteil der Anschaffungs- oder Herstellungskosten sein.
+
+18. Abnutzbares Anlagevermögen ist nach § 253 Abs. 3 Satz 1 HGB planmäßig abzuschreiben.
+
+19. Im Umlaufvermögen gilt nach § 253 Abs. 4 HGB das strenge Niederstwertprinzip.
+
+20. Fällt der Grund einer außerplanmäßigen Abschreibung weg, besteht grundsätzlich das Wertaufholungsgebot nach § 253 Abs. 5 HGB.
+
+21. Für ungewisse Verbindlichkeiten und drohende Verluste aus schwebenden Geschäften sind nach § 249 Abs. 1 HGB Rückstellungen zu bilden.
+
+22. Ist eine Verpflichtung sicher und hinreichend bestimmbar, wird grundsätzlich eine Verbindlichkeit ausgewiesen.
+
+23. Ist eine Verpflichtung dem Grunde, der Höhe oder dem Zeitpunkt nach ungewiss, kommt eine Rückstellung in Betracht.
+
+24. Umsatzsteuer wird nach § 277 Abs. 1 HGB nicht als Bestandteil der Umsatzerlöse ausgewiesen.
+
+25. Abziehbare Vorsteuer ist grundsätzlich kein Aufwand, sondern eine Forderung gegenüber dem Finanzamt.
+
+26. Ein Vorsteuerüberhang wird regelmäßig als sonstiger Vermögensgegenstand im Umlaufvermögen ausgewiesen.
+
+27. Die tatsächliche Geschäftsführung einer gemeinnützigen Körperschaft muss nach § 63 Abs. 1 AO der Satzung und den gemeinnützigkeitsrechtlichen Anforderungen entsprechen.
+
+28. Die ordnungsgemäße tatsächliche Geschäftsführung ist nach § 63 Abs. 3 AO durch ordnungsmäßige Aufzeichnungen nachzuweisen.
+
+29. § 63 Abs. 4 AO regelt keine Vier-Sphären-Buchhaltung, sondern eine Frist zur Verwendung unzulässig angesammelter Mittel.
+
+30. Die vier steuerlichen Bereiche sind ideeller Bereich, Vermögensverwaltung, Zweckbetrieb und steuerpflichtiger wirtschaftlicher Geschäftsbetrieb.
+
+31. Echte Spenden und echte Mitgliedsbeiträge sind mangels Leistungsaustauschs regelmäßig nicht umsatzsteuerbar, § 1 Abs. 1 Nr. 1 UStG.
+
+32. Vermögensverwaltung ist von einem wirtschaftlichen Geschäftsbetrieb nach § 14 AO abzugrenzen.
+
+33. Ein Zweckbetrieb muss die Voraussetzungen des § 65 AO oder eines besonderen Zweckbetriebs nach §§ 66 bis 68 AO erfüllen.
+
+34. Ein Zweckbetrieb ist nicht automatisch umsatzsteuerfrei.
+
+35. Der ermäßigte Steuersatz nach § 12 Abs. 2 Nr. 8 Buchst. a UStG ist bei Zweckbetrieben nur unter den gesetzlichen Voraussetzungen anwendbar.
+
+36. Ein steuerpflichtiger wirtschaftlicher Geschäftsbetrieb führt nach § 64 Abs. 1 AO grundsätzlich zur Körperschaft- und Gewerbesteuerpflicht der ihm zuzurechnenden Besteuerungsgrundlagen.
+
+37. Die Einnahmengrenze nach § 64 Abs. 3 AO beträgt 50.000 Euro einschließlich Umsatzsteuer.
+
+38. Die Grenze des § 64 Abs. 3 AO betrifft Körperschaft- und Gewerbesteuer, nicht die Umsatzsteuer.
+
+39. Die umsatzsteuerliche Behandlung ist für jeden Tätigkeitsbereich gesondert nach dem UStG zu prüfen.
+
+40. Körperschaftsteuerliche Steuerbegünstigung bedeutet nicht automatisch Umsatzsteuerfreiheit.
+`
+},
+{
   id: "umsatzsteuer-anlagegold-option-13b-nr-9",
   title: "Anlagegold: Option und Reverse Charge nach § 13b Abs. 2 Nr. 9 UStG",
   short:

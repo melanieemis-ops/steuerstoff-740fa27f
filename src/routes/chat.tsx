@@ -242,9 +242,26 @@ function ChatPage() {
     }
   }
 
+  function activateChatImmediately() {
+    clearTimers();
+    startingRef.current = true;
+    setWelcomeLeaving(false);
+    setShowGreetingBubble(false);
+    setDots(false);
+    setTyped("");
+    setPhase("active");
+  }
+
+  function submitMessage(text: string) {
+    const trimmed = text.trim();
+    if (!trimmed || busy) return;
+    if (phase !== "active") activateChatImmediately();
+    void ask(trimmed);
+  }
+
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    ask(input);
+    submitMessage(input);
   }
 
   function handleKeyDown(e: KeyboardEvent<HTMLTextAreaElement>) {
@@ -256,7 +273,7 @@ function ChatPage() {
         typeof window !== "undefined" && window.matchMedia("(pointer: fine)").matches;
       if (isFine) {
         e.preventDefault();
-        ask(input);
+        submitMessage(input);
       }
     }
   }
@@ -406,10 +423,12 @@ function ChatPage() {
                       key={s}
                       type="button"
                       onClick={() => {
-                        if (s.endsWith("?")) skipWelcomeAndAsk(s);
-                        else {
+                        if (s.endsWith("?")) {
+                          submitMessage(s);
+                        } else {
                           setInput(s + ": ");
-                          skipWelcomeAndAsk("");
+                          activateChatImmediately();
+                          setTimeout(() => textareaRef.current?.focus(), 0);
                         }
                       }}
                       className="rounded-full border border-border bg-background px-3 py-1.5 text-xs text-foreground transition-colors hover:bg-accent"
@@ -429,7 +448,7 @@ function ChatPage() {
                     <button
                       key={q}
                       type="button"
-                      onClick={() => skipWelcomeAndAsk(q)}
+                      onClick={() => submitMessage(q)}
                       className="group flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 text-left text-sm text-foreground transition-colors hover:bg-accent"
                     >
                       <span className="min-w-0 truncate">{q}</span>

@@ -14,6 +14,44 @@ import {
   Sparkles,
 } from "lucide-react";
 import { generateAnswer, REVIEW_HINT, type ChatAnswer } from "@/lib/chatHeuristics";
+import { useServerFn } from "@tanstack/react-start";
+import { askChat } from "@/lib/ai/chat.functions";
+
+function toChatAnswer(ai: Awaited<ReturnType<typeof askChat>>): ChatAnswer {
+  const sourceLine = ai.sources && ai.sources.length > 0
+    ? ai.sources
+        .map((s) => (s.reference ? `${s.title} (${s.reference})` : s.title))
+        .join(" · ")
+    : undefined;
+  const knowledgeParts = [ai.knowledge ?? undefined, sourceLine ? `Quellen: ${sourceLine}` : undefined].filter(
+    Boolean,
+  ) as string[];
+  return {
+    summary: ai.summary,
+    reasoning: ai.reasoning ?? undefined,
+    sections: ai.sections?.length ? ai.sections : undefined,
+    risks: ai.risks?.length ? ai.risks : undefined,
+    followUps: ai.followUps?.length ? ai.followUps : undefined,
+    nextStep: ai.nextStep ?? undefined,
+    knowledge: knowledgeParts.length ? knowledgeParts.join("\n") : undefined,
+    sources: ai.sources?.length ? ai.sources : undefined,
+    confidence: ai.confidence,
+    needsHumanReview: ai.needsHumanReview,
+  };
+}
+
+function withFallbackMarker(a: ChatAnswer): ChatAnswer {
+  return {
+    ...a,
+    fromFallback: true,
+    knowledge: [
+      "Diese Antwort wurde aus der lokalen Wissenslogik erzeugt (KI-Modell nicht erreichbar).",
+      a.knowledge ?? "",
+    ]
+      .filter(Boolean)
+      .join("\n"),
+  };
+}
 
 export const Route = createFileRoute("/chat")({
   component: ChatPage,

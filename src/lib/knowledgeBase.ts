@@ -141,6 +141,1072 @@ export const KNOWLEDGE_BASE: KBEntry[] = [
 Review-Hinweis: Bei Mandantenfragen zuerst klären, ob eine allgemeine bilanzielle Rücklage, eine steuerliche Spezialrücklage oder eine § 62 AO-Rücklage gemeint ist.`,
   },
 {
+  id: "einkommensteuerreform-2027-koalitionsausschuss-juli-2026",
+
+  title:
+    "Einkommensteuerreform 2027 – Ergebnisse des Koalitionsausschusses vom 02.07.2026",
+
+  short:
+    "Die Regierungskoalition plant zum 01.01.2027 eine Einkommensteuerreform zur Entlastung kleiner und mittlerer Einkommen. Vorgesehen sind unter anderem höhere Freibeträge, mehr Kindergeld, ein höherer Arbeitnehmer-Pauschbetrag und eine Abflachung des Einkommensteuertarifs. Zur Gegenfinanzierung sollen Spitzeneinkommen stärker belastet sowie einzelne Steuervergünstigungen reduziert werden. Es handelt sich noch nicht um geltendes Recht.",
+
+  category:
+    "Einkommensteuer / Steuerpolitik / Gesetzgebungsverfahren / Reformplanung / Aktuelle Entwicklungen",
+
+  topicType: "politische-reformplanung",
+
+  sourceDate: "2026-07-02",
+
+  verifiedAt: "2026-07-14",
+
+  plannedEffectiveDate: "2027-01-01",
+
+  plannedFullEffectFrom: "2028-01-01",
+
+  status:
+    "Beschluss des Koalitionsausschusses – noch kein verabschiedetes Gesetz",
+
+  legalStatus: {
+    enacted: false,
+    cabinetDraftAvailable: false,
+    governmentDraftAvailable: false,
+    bundestagApproved: false,
+    bundesratApproved: false,
+    publishedInFederalGazette: false,
+    bindingLaw: false
+  },
+
+  warning:
+    "Die dargestellten Maßnahmen sind politische Reformpläne. Bundestag und gegebenenfalls Bundesrat müssen den gesetzlichen Änderungen noch zustimmen. Beträge, Voraussetzungen, Anwendungszeitpunkte und Übergangsregelungen können sich im Gesetzgebungsverfahren ändern.",
+
+  keywords:
+    "einkommensteuerreform 2027|steuerreform 2027|koalitionsausschuss juli 2026|programm für aufschwung und beschäftigung|grundfreibetrag 2027|grundfreibetrag 2028|12900 euro|kindergeld 272 euro|arbeitnehmer-pauschbetrag 1430 euro|reichensteuer 45 prozent|reichensteuer 47 prozent|zve 250000|zve 280000|minijob pauschalsteuer 5 prozent|handwerkerleistungen 15 prozent|handwerkerbonus 900 euro|sonntagszuschlag|feiertagszuschlag|grundlohn 75 euro|§ 3b estg|abfindung neue beschäftigung|steuerentlastung familien|kleine und mittlere einkommen|gesetzgebungsverfahren|politischer plan|noch kein geltendes recht",
+
+  references: [
+    "§ 3b EStG",
+    "§ 9a Satz 1 Nr. 1 Buchst. a EStG",
+    "§ 24 Nr. 1 Buchst. a EStG",
+    "§ 32a Abs. 1 EStG",
+    "§ 32 Abs. 6 EStG",
+    "§ 34 Abs. 1 und Abs. 2 Nr. 2 EStG",
+    "§ 35a Abs. 3 EStG",
+    "§ 40a Abs. 2 EStG",
+    "§ 66 Abs. 1 EStG",
+    "Ergebnisse des Koalitionsausschusses vom 02.07.2026",
+    "Programm für Aufschwung und Beschäftigung",
+    "BMF-Information zur Einkommensteuerreform vom 02.07.2026"
+  ],
+
+  officialSources: [
+    "https://www.bundesregierung.de/resource/blob/2196306/2445592/344cc50b4c10a5939658e3fc0a5fd93f/2026-07-02-koaausschuss-data.pdf?download=1",
+    "https://www.bundesfinanzministerium.de/Content/DE/Standardartikel/Themen/Steuern/koalitionsausschuss-einigung-auf-steuerentlastung.html",
+    "https://www.bundesregierung.de/breg-de/aktuelles/reformen-rente-arbeitsmarkt-steuern-2445598",
+    "https://www.gesetze-im-internet.de/estg/__3b.html",
+    "https://www.gesetze-im-internet.de/estg/__9a.html",
+    "https://www.gesetze-im-internet.de/estg/__32a.html",
+    "https://www.gesetze-im-internet.de/estg/__35a.html",
+    "https://www.gesetze-im-internet.de/estg/__40a.html",
+    "https://www.gesetze-im-internet.de/estg/__66.html"
+  ],
+
+  currentLaw2026: {
+    grundfreibetragSingle: 12348,
+    grundfreibetragJointAssessmentTariffEquivalent: 24696,
+    kindergeldMonthlyPerChild: 259,
+    employeeLumpSum: 1230,
+    richTaxRate: 45,
+    richTaxThresholdSingle: 277826,
+    minijobFlatTaxRatePercent: 2,
+    craftsmanTaxReductionPercent: 20,
+    craftsmanMaximumTaxReduction: 1200,
+    section3bMaximumBasicHourlyWage: 50
+  },
+
+  plannedChanges: [
+    {
+      measure: "Grundfreibetrag",
+      currentValue2026: "12.348 €",
+      plannedValue2028: "voraussichtlich 12.900 €",
+      implementation: "voraussichtlich zweistufig in den Jahren 2027 und 2028",
+      legalBasisCurrent: "§ 32a Abs. 1 Satz 2 Nr. 1 EStG",
+      status: "Betrag noch nicht endgültig festgelegt",
+      note:
+        "Bei Anwendung des Splittingverfahrens entspricht der steuerfreie Tarifbereich grundsätzlich dem Doppelten des Grundfreibetrags."
+    },
+
+    {
+      measure: "Kinderfreibetrag",
+      currentValue2026: "geltender Betrag nach § 32 Abs. 6 EStG",
+      plannedValue2028: "Erhöhung vorgesehen",
+      implementation: "voraussichtlich zweistufig",
+      legalBasisCurrent: "§ 32 Abs. 6 EStG",
+      status: "Konkreter Betrag noch nicht endgültig festgelegt",
+      note:
+        "Die endgültige Bezifferung soll insbesondere unter Berücksichtigung des Existenzminimumberichts erfolgen."
+    },
+
+    {
+      measure: "Kindergeld",
+      currentValue2026: "259 € monatlich je Kind",
+      plannedValue2028: "voraussichtlich 272 € monatlich je Kind",
+      implementation: "voraussichtlich zweistufig in den Jahren 2027 und 2028",
+      legalBasisCurrent: "§ 66 Abs. 1 EStG",
+      status: "Betrag noch nicht endgültig festgelegt"
+    },
+
+    {
+      measure: "Arbeitnehmer-Pauschbetrag",
+      currentValue2026: "1.230 € jährlich",
+      plannedValue2028: "voraussichtlich 1.430 € jährlich",
+      change: "+ 200 €",
+      legalBasisCurrent: "§ 9a Satz 1 Nr. 1 Buchst. a EStG",
+      status: "Betrag noch nicht endgültig festgelegt"
+    },
+
+    {
+      measure: "Einkommensteuertarif",
+      currentValue2026:
+        "geltender Tarif gemäß § 32a Abs. 1 EStG; Spitzensteuersatz von 42 % derzeit ab 69.879 € zvE",
+      plannedValue:
+        "Abflachung der zweiten Progressionszone und Rechtsverschiebung des Spitzensteuersatzes",
+      plannedThreshold:
+        "42 % sollen nach den bisherigen Planungen erst ab 70.600 € zvE greifen",
+      legalBasisCurrent: "§ 32a Abs. 1 EStG",
+      status:
+        "Tarifformel und endgültige Grenzbeträge müssen gesetzlich festgelegt werden"
+    },
+
+    {
+      measure: "Reichensteuer – erste Stufe",
+      currentValue2026:
+        "45 % ab einem zu versteuernden Einkommen von 277.826 €",
+      plannedValue2027:
+        "45 % ab einem zu versteuernden Einkommen von 250.000 €",
+      legalBasisCurrent: "§ 32a Abs. 1 Satz 2 Nr. 5 EStG",
+      purpose: "Gegenfinanzierung der Entlastungsmaßnahmen",
+      status:
+        "Geplante Absenkung der Einkommensgrenze; noch nicht geltendes Recht"
+    },
+
+    {
+      measure: "Reichensteuer – neue zweite Stufe",
+      currentValue2026: "keine gesonderte 47-%-Tarifstufe",
+      plannedValue2027:
+        "47 % ab einem zu versteuernden Einkommen von 280.000 €",
+      legalBasisPlanned:
+        "voraussichtliche Änderung des Einkommensteuertarifs in § 32a EStG",
+      purpose: "Gegenfinanzierung der Entlastungsmaßnahmen",
+      status: "Neue Tarifstufe bislang nur politisch vereinbart"
+    },
+
+    {
+      measure: "Pauschalsteuer bei Minijobs",
+      currentValue2026: "2 % des Arbeitsentgelts",
+      plannedValue2027: "5 % des Arbeitsentgelts",
+      legalBasisCurrent: "§ 40a Abs. 2 EStG",
+      taxpayer:
+        "Die Pauschalsteuer wird grundsätzlich vom Arbeitgeber erhoben",
+      status: "Geplante Erhöhung; noch nicht geltendes Recht"
+    },
+
+    {
+      measure: "Steuerermäßigung für Handwerkerleistungen",
+      currentValue2026:
+        "20 % der begünstigten Arbeitskosten, höchstens 1.200 € jährlich",
+      plannedValue2027:
+        "15 % der begünstigten Arbeitskosten, höchstens 900 € jährlich",
+      legalBasisCurrent: "§ 35a Abs. 3 EStG",
+      excludedCosts:
+        "Materialkosten sind grundsätzlich nicht begünstigt",
+      affectedMeasures:
+        "Renovierungs-, Erhaltungs- und Modernisierungsmaßnahmen",
+      status:
+        "Geplante Reduzierung einer Steuervergünstigung; noch nicht geltendes Recht"
+    },
+
+    {
+      measure: "Steuerfreie Sonn- und Feiertagszuschläge",
+      currentValue2026:
+        "Berechnung der Steuerfreiheit grundsätzlich höchstens auf Basis eines Grundlohns von 50 € je Stunde",
+      plannedValue2027:
+        "Erhöhung der Obergrenze auf einen Grundlohn von 75 € je Stunde",
+      legalBasisCurrent: "§ 3b Abs. 1 und Abs. 2 Satz 1 EStG",
+      plannedEffectiveDate: "2027-01-01",
+      status: "Geplante Erhöhung; noch nicht geltendes Recht",
+      warning:
+        "Der Koalitionsbeschluss bezieht sich ausdrücklich auf Sonn- und Feiertagszuschläge. Daraus darf ohne Gesetzestext nicht automatisch geschlossen werden, dass sämtliche Regelungen für Nachtzuschläge ebenfalls geändert werden."
+    },
+
+    {
+      measure:
+        "Beitragsfreiheit tarifvertraglicher Sonn- und Feiertagszuschläge",
+      currentValue2026:
+        "Beitragsrecht richtet sich nach den geltenden sozialversicherungsrechtlichen Vorschriften",
+      plannedValue2027:
+        "Steuerfreie Zuschläge im Regelungsbereich eines Tarifvertrags sollen vollständig beitragsfrei gestellt werden",
+      legalBasisPlanned:
+        "sozialversicherungsrechtliche Umsetzung noch offen",
+      status:
+        "Konkrete gesetzliche Ausgestaltung und Abgrenzung noch nicht bekannt"
+    },
+
+    {
+      measure: "Steuerliche Begünstigung von Abfindungen",
+      currentValue2026:
+        "Entschädigungen können unter den Voraussetzungen der §§ 24 und 34 EStG tarifbegünstigt sein",
+      plannedValue2027:
+        "Zusätzliche steuerliche Privilegierung bei zügiger Aufnahme einer neuen Erwerbstätigkeit",
+      principle:
+        "Der Vorteil soll umso größer sein, je schneller eine neue Beschäftigung aufgenommen wird",
+      legalBasisCurrent:
+        "insbesondere § 24 Nr. 1 Buchst. a und § 34 Abs. 1, Abs. 2 Nr. 2 EStG",
+      legalBasisPlanned:
+        "noch nicht benannt",
+      status:
+        "Keine konkreten Fristen, Berechnungsformeln oder Tatbestandsvoraussetzungen veröffentlicht"
+    }
+  ],
+
+  body: `
+# Einkommensteuerreform 2027
+
+## Ergebnisse des Koalitionsausschusses vom 02.07.2026
+
+# 1. Rechtsstand
+
+Die Regierungskoalition hat Anfang Juli 2026 ein „Programm für Aufschwung und Beschäftigung“ beschlossen.
+
+Ein wesentlicher Bestandteil ist eine geplante Reform der Einkommensteuer.
+
+Die Reform soll
+
+- zum 01.01.2027 in Kraft treten und
+- ab dem Jahr 2028 ihre volle Entlastungswirkung erreichen.
+
+Das jährliche Entlastungsvolumen soll insgesamt rund 10 Mrd. € betragen.
+
+## Achtung
+
+Bei den Ergebnissen des Koalitionsausschusses handelt es sich noch nicht um geltendes Recht.
+
+Erforderlich sind insbesondere:
+
+1. die Erarbeitung eines Gesetzentwurfs,
+
+2. das parlamentarische Gesetzgebungsverfahren,
+
+3. die Zustimmung des Bundestags,
+
+4. je nach Ausgestaltung die Beteiligung beziehungsweise Zustimmung des Bundesrats,
+
+5. die Ausfertigung und
+
+6. die Verkündung im Bundesgesetzblatt.
+
+Bis dahin können
+
+- Beträge,
+- Einkommensgrenzen,
+- Tatbestandsvoraussetzungen,
+- Anwendungszeitpunkte,
+- Übergangsregelungen und
+- Gegenfinanzierungsmaßnahmen
+
+geändert, ergänzt oder gestrichen werden.
+
+### Zentraler Lernsatz
+
+**Der Beschluss des Koalitionsausschusses ist eine politische Einigung, aber noch keine unmittelbar anwendbare Rechtsgrundlage.**
+
+---
+
+# 2. Zielsetzung der Reform
+
+Die Reform soll vor allem
+
+- Steuerpflichtige mit kleinen Einkommen,
+- Steuerpflichtige mit mittleren Einkommen,
+- Familien mit Kindern und
+- gewerbliche Personenunternehmen
+
+entlasten.
+
+Die Entlastung soll insbesondere durch folgende Maßnahmen erreicht werden:
+
+1. Erhöhung des Grundfreibetrags,
+
+2. Erhöhung des Kinderfreibetrags,
+
+3. Erhöhung des Kindergelds,
+
+4. Erhöhung des Arbeitnehmer-Pauschbetrags,
+
+5. Abflachung der zweiten Progressionszone und
+
+6. Verschiebung des Beginns des Spitzensteuersatzes.
+
+### Lernsatz
+
+**Der Schwerpunkt der geplanten Einkommensteuerreform liegt auf der Entlastung kleiner und mittlerer Einkommen sowie von Familien mit Kindern.**
+
+---
+
+# 3. Grundfreibetrag
+
+## Geltendes Recht 2026
+
+Der Grundfreibetrag beträgt im Jahr 2026
+
+**12.348 €**
+
+für einzeln veranlagte Steuerpflichtige.
+
+### Rechtsgrundlage
+
+§ 32a Abs. 1 Satz 2 Nr. 1 EStG.
+
+Bis zur Höhe des Grundfreibetrags beträgt die tarifliche Einkommensteuer grundsätzlich 0 €.
+
+Bei zusammen veranlagten Ehegatten oder Lebenspartnern wirkt sich der Grundfreibetrag aufgrund des Splittingverfahrens grundsätzlich doppelt aus.
+
+Dies entspricht für 2026 einem Betrag von
+
+12.348 € × 2 = 24.696 €.
+
+## Reformplanung
+
+Der Grundfreibetrag soll voraussichtlich in zwei Stufen bis zum Jahr 2028 auf
+
+**12.900 €**
+
+angehoben werden.
+
+Bei entsprechender Anwendung des Splittingtarifs würde dies rechnerisch einem Betrag von
+
+12.900 € × 2 = 25.800 €
+
+entsprechen.
+
+## Vorläufigkeit
+
+Der endgültige Grundfreibetrag soll erst
+
+- im Gesetzgebungsverfahren und
+- nach Vorliegen des Existenzminimumberichts
+
+festgelegt werden.
+
+### Lernsatz
+
+**Der für 2028 genannte Grundfreibetrag von 12.900 € ist bislang ein voraussichtlicher Planwert und noch kein gesetzlich festgelegter Betrag.**
+
+---
+
+# 4. Kindergeld
+
+## Geltendes Recht 2026
+
+Das Kindergeld beträgt im Jahr 2026
+
+**259 € monatlich für jedes Kind.**
+
+### Rechtsgrundlage
+
+§ 66 Abs. 1 EStG.
+
+## Reformplanung
+
+Das Kindergeld soll voraussichtlich in zwei Stufen bis zum Jahr 2028 auf
+
+**272 € monatlich für jedes Kind**
+
+angehoben werden.
+
+## Veränderung
+
+272 €  
+./. 259 €  
+= 13 € monatliche Erhöhung je Kind
+
+Jährliche rechnerische Mehrleistung je Kind:
+
+13 € × 12 Monate = 156 €.
+
+### Achtung
+
+Auch der geplante Betrag von 272 € ist noch nicht abschließend gesetzlich festgelegt.
+
+### Lernsatz
+
+**Das Kindergeld soll nach den Reformplänen bis 2028 voraussichtlich von 259 € auf 272 € monatlich je Kind steigen.**
+
+---
+
+# 5. Kinderfreibetrag
+
+Neben dem Kindergeld soll auch der Kinderfreibetrag erhöht werden.
+
+### Rechtsgrundlage des geltenden Rechts
+
+§ 32 Abs. 6 EStG.
+
+Die konkrete Höhe des künftigen Kinderfreibetrags wurde im Koalitionsbeschluss noch nicht abschließend festgelegt.
+
+Sie soll insbesondere unter Berücksichtigung des Existenzminimumberichts bestimmt werden.
+
+### Lernsatz
+
+**Kindergeld und Kinderfreibetrag sollen erhöht werden; die endgültigen Beträge werden erst im Gesetzgebungsverfahren festgelegt.**
+
+---
+
+# 6. Arbeitnehmer-Pauschbetrag
+
+## Geltendes Recht 2026
+
+Der Arbeitnehmer-Pauschbetrag beträgt
+
+**1.230 € jährlich.**
+
+### Rechtsgrundlage
+
+§ 9a Satz 1 Nr. 1 Buchst. a EStG.
+
+Der Pauschbetrag wird bei den Einkünften aus nichtselbständiger Arbeit berücksichtigt, soweit keine höheren Werbungskosten nachgewiesen werden.
+
+## Reformplanung
+
+Der Arbeitnehmer-Pauschbetrag soll voraussichtlich um 200 € erhöht werden.
+
+Geplanter Betrag:
+
+1.230 € + 200 € = **1.430 €**.
+
+### Bedeutung
+
+Arbeitnehmer mit tatsächlichen Werbungskosten unterhalb des Pauschbetrags können von der Erhöhung profitieren, ohne einzelne Aufwendungen nachweisen zu müssen.
+
+### Lernsatz
+
+**Der Arbeitnehmer-Pauschbetrag soll voraussichtlich von 1.230 € auf 1.430 € steigen.**
+
+### Achtung
+
+Der Betrag von 1.430 € ist noch nicht endgültig gesetzlich festgelegt.
+
+---
+
+# 7. Abflachung des Einkommensteuertarifs
+
+Die zweite Progressionszone des Einkommensteuertarifs soll abgeflacht werden.
+
+Gleichzeitig soll die Einkommensgrenze, ab der der Spitzensteuersatz von 42 % greift, nach rechts verschoben werden.
+
+Nach den bisherigen Angaben soll der Spitzensteuersatz von 42 % künftig erst ab einem zu versteuernden Einkommen von etwa
+
+**70.600 €**
+
+greifen.
+
+### Rechtsgrundlage des geltenden Tarifs
+
+§ 32a Abs. 1 EStG.
+
+### Bedeutung
+
+Eine Rechtsverschiebung bedeutet, dass der höhere Steuersatz erst bei einem höheren zu versteuernden Einkommen erreicht wird.
+
+### Lernsatz
+
+**Die geplante Tarifverschiebung soll den sogenannten Mittelstandsbauch abmildern und den Spitzensteuersatz etwas später einsetzen lassen.**
+
+---
+
+# 8. Entlastungsbeispiel für Familien
+
+Nach einer Berechnung des Bundesministeriums der Finanzen soll ab dem Jahr 2028 eine vierköpfige Familie
+
+- mit zwei Kindern und
+- zwei mittleren Einkommen beziehungsweise einem Haushaltseinkommen von etwa 60.000 €
+
+gegenüber dem heutigen Stand um mehr als
+
+**600 € jährlich**
+
+entlastet werden.
+
+### Achtung
+
+Dabei handelt es sich um eine Modellrechnung beziehungsweise erste Schätzung.
+
+Die tatsächliche Entlastung hängt unter anderem ab von
+
+- der endgültigen Tarifformel,
+- dem individuellen zu versteuernden Einkommen,
+- der Veranlagungsart,
+- der Anzahl der Kinder,
+- dem Kinderfreibetrag,
+- dem Kindergeld,
+- den Sozialversicherungsbeiträgen und
+- den persönlichen Abzugsbeträgen.
+
+### Lernsatz
+
+**Die angekündigte Entlastung von mehr als 600 € ist ein Berechnungsbeispiel und kein pauschaler Anspruch jedes Vierpersonenhaushalts.**
+
+---
+
+# 9. Gegenfinanzierung durch Änderung der Reichensteuer
+
+Die Entlastungen sollen insbesondere durch eine stärkere Belastung sehr hoher Einkommen mitfinanziert werden.
+
+## Geltendes Recht 2026
+
+Der Steuersatz von 45 % gilt derzeit ab einem zu versteuernden Einkommen von
+
+**277.826 €.**
+
+### Rechtsgrundlage
+
+§ 32a Abs. 1 Satz 2 Nr. 5 EStG.
+
+## Reformplanung: erste Stufe
+
+Ab einem zu versteuernden Einkommen von
+
+**250.000 €**
+
+soll künftig ein Steuersatz von
+
+**45 %**
+
+gelten.
+
+## Reformplanung: neue zweite Stufe
+
+Ab einem zu versteuernden Einkommen von
+
+**280.000 €**
+
+soll künftig ein Steuersatz von
+
+**47 %**
+
+gelten.
+
+### Übersicht
+
+Bis unter 250.000 € zvE:
+
+Anwendung des allgemeinen Einkommensteuertarifs.
+
+Ab 250.000 € zvE:
+
+45 % Reichensteuersatz.
+
+Ab 280.000 € zvE:
+
+47 % neue erhöhte Tarifstufe.
+
+### Achtung
+
+Die genaue Tarifformel, der Umgang mit dem Splittingverfahren sowie Übergangs- und Rundungsregelungen müssen erst gesetzlich geregelt werden.
+
+### Lernsatz
+
+**Die Reichensteuer soll künftig zweistufig ausgestaltet werden: 45 % ab 250.000 € und 47 % ab 280.000 € zu versteuerndem Einkommen.**
+
+---
+
+# 10. Pauschalsteuer bei Minijobs
+
+## Geltendes Recht
+
+Der Arbeitgeber kann die Lohnsteuer bei einer geringfügigen Beschäftigung unter den gesetzlichen Voraussetzungen mit einem einheitlichen Pauschsteuersatz von
+
+**2 %**
+
+des Arbeitsentgelts erheben.
+
+### Rechtsgrundlage
+
+§ 40a Abs. 2 EStG.
+
+## Reformplanung
+
+Der Pauschalsteuersatz soll von
+
+2 % auf **5 %**
+
+angehoben werden.
+
+### Bedeutung
+
+Die Maßnahme betrifft grundsätzlich die vom Arbeitgeber zu tragende beziehungsweise zu erhebende Pauschalsteuer.
+
+Sie bedeutet nicht automatisch, dass dem Minijobber unmittelbar 5 % vom Arbeitsentgelt abgezogen werden.
+
+Ob und in welchem Umfang der Arbeitgeber die Pauschalsteuer arbeitsrechtlich auf den Arbeitnehmer abwälzen kann, ist gesondert zu beurteilen.
+
+### Lernsatz
+
+**Der Pauschalsteuersatz für Minijobs soll nach den Reformplänen von 2 % auf 5 % steigen.**
+
+---
+
+# 11. Handwerkerleistungen
+
+## Geltendes Recht
+
+Für die Inanspruchnahme von Handwerkerleistungen für
+
+- Renovierungsmaßnahmen,
+- Erhaltungsmaßnahmen und
+- Modernisierungsmaßnahmen
+
+kann eine Steuerermäßigung beansprucht werden.
+
+Die Ermäßigung beträgt
+
+**20 % der begünstigten Aufwendungen, höchstens 1.200 € jährlich.**
+
+### Rechtsgrundlage
+
+§ 35a Abs. 3 EStG.
+
+Begünstigt sind grundsätzlich Arbeits-, Maschinen- und Fahrtkosten.
+
+Materialkosten sind grundsätzlich nicht begünstigt.
+
+## Reformplanung
+
+Die Steuerermäßigung soll reduziert werden auf
+
+**15 % der begünstigten Aufwendungen, höchstens 900 € jährlich.**
+
+### Beispiel geltendes Recht
+
+Begünstigte Arbeitskosten: 5.000 €
+
+5.000 € × 20 % = 1.000 € Steuerermäßigung.
+
+### Beispiel geplantes Recht
+
+5.000 € × 15 % = 750 € Steuerermäßigung.
+
+### Maximalbetrag
+
+Geltendes Recht:
+
+maximal 1.200 €.
+
+Geplante Reform:
+
+maximal 900 €.
+
+### Lernsatz
+
+**Die Steuerermäßigung für Handwerkerleistungen soll von 20 % beziehungsweise maximal 1.200 € auf 15 % beziehungsweise maximal 900 € reduziert werden.**
+
+---
+
+# 12. Sonn- und Feiertagszuschläge
+
+## Geltendes Recht
+
+Zuschläge für tatsächlich geleistete
+
+- Sonntagsarbeit,
+- Feiertagsarbeit und
+- Nachtarbeit
+
+können unter den Voraussetzungen des § 3b EStG steuerfrei sein.
+
+Für die Berechnung der Steuerfreiheit ist der Grundlohn derzeit grundsätzlich höchstens mit
+
+**50 € je Stunde**
+
+anzusetzen.
+
+### Rechtsgrundlage
+
+§ 3b Abs. 1 und Abs. 2 Satz 1 EStG.
+
+## Reformplanung
+
+Für steuerlich begünstigte Sonn- und Feiertagszuschläge soll die Obergrenze zum 01.01.2027 auf einen Stundenlohn von
+
+**75 €**
+
+angehoben werden.
+
+### Achtung
+
+Der politische Beschluss nennt ausdrücklich Sonn- und Feiertagszuschläge.
+
+Ohne konkreten Gesetzestext darf nicht unterstellt werden, dass die Erhöhung automatisch in gleicher Weise auf sämtliche Nachtzuschläge übertragen wird.
+
+### Lernsatz
+
+**Die Grundlohngrenze für steuerlich begünstigte Sonn- und Feiertagszuschläge soll zum 01.01.2027 von 50 € auf 75 € je Stunde steigen.**
+
+---
+
+# 13. Beitragsfreiheit tarifvertraglicher Zuschläge
+
+Gleichzeitig sollen steuerfreie Sonn- und Feiertagszuschläge im Regelungsbereich eines Tarifvertrags vollständig beitragsfrei gestellt werden.
+
+Diese Maßnahme betrifft nicht nur das Einkommensteuerrecht, sondern insbesondere das Sozialversicherungsrecht.
+
+Noch offen sind unter anderem:
+
+- die konkrete gesetzliche Grundlage,
+- der Begriff des maßgebenden Tarifvertrags,
+- die Behandlung allgemeinverbindlicher Tarifverträge,
+- die Behandlung arbeitsvertraglicher Bezugnahmeklauseln,
+- die genaue Höhe der Beitragsfreiheit und
+- das Verhältnis zur steuerrechtlichen Grundlohngrenze.
+
+### Lernsatz
+
+**Die geplante Beitragsfreiheit tarifvertraglicher Zuschläge bedarf einer eigenständigen sozialversicherungsrechtlichen Regelung.**
+
+---
+
+# 14. Steuerliche Begünstigung von Abfindungen
+
+Abfindungszahlungen sollen künftig besonders begünstigt werden, wenn nach der Beendigung eines Arbeitsverhältnisses zügig eine neue Erwerbstätigkeit aufgenommen wird.
+
+Nach der politischen Einigung soll gelten:
+
+**Je schneller eine neue Beschäftigung aufgenommen wird, desto größer soll der steuerliche Vorteil sein.**
+
+## Geltendes Recht
+
+Entschädigungen können bereits nach geltendem Recht unter bestimmten Voraussetzungen tarifbegünstigt sein.
+
+### Rechtsgrundlagen
+
+§ 24 Nr. 1 Buchst. a EStG  
+in Verbindung mit  
+§ 34 Abs. 1 und Abs. 2 Nr. 2 EStG.
+
+## Noch offene Fragen
+
+Nicht veröffentlicht wurden bislang insbesondere:
+
+1. Innerhalb welcher Frist eine neue Beschäftigung aufgenommen werden muss.
+
+2. Ob die Frist tage-, wochen- oder monatsweise berechnet wird.
+
+3. Wie hoch die jeweilige Steuerbegünstigung sein soll.
+
+4. Ob eine Vollzeitbeschäftigung erforderlich ist.
+
+5. Ob auch Teilzeitbeschäftigungen oder selbständige Tätigkeiten genügen.
+
+6. Ob eine Mindestdauer der neuen Erwerbstätigkeit vorgesehen wird.
+
+7. Wie mit Probezeitkündigungen umzugehen ist.
+
+8. Ob die neue Begünstigung neben der Tarifermäßigung des § 34 EStG angewendet werden kann.
+
+9. Ob Höchstbeträge oder Einkommensgrenzen eingeführt werden.
+
+### Lernsatz
+
+**Eine konkrete Berechnung der geplanten Abfindungsbegünstigung ist derzeit nicht möglich, weil noch keine gesetzlichen Tatbestandsmerkmale oder Berechnungsformeln veröffentlicht wurden.**
+
+---
+
+# 15. Übersicht: geltendes Recht und Reformplanung
+
+## Grundfreibetrag
+
+Geltendes Recht 2026:
+
+12.348 €.
+
+Plan 2028:
+
+voraussichtlich 12.900 €.
+
+## Kindergeld
+
+Geltendes Recht 2026:
+
+259 € monatlich je Kind.
+
+Plan 2028:
+
+voraussichtlich 272 € monatlich je Kind.
+
+## Arbeitnehmer-Pauschbetrag
+
+Geltendes Recht 2026:
+
+1.230 €.
+
+Plan:
+
+voraussichtlich 1.430 €.
+
+## Reichensteuer
+
+Geltendes Recht 2026:
+
+45 % ab 277.826 € zvE.
+
+Plan:
+
+45 % ab 250.000 € zvE;  
+47 % ab 280.000 € zvE.
+
+## Minijob-Pauschalsteuer
+
+Geltendes Recht:
+
+2 %.
+
+Plan:
+
+5 %.
+
+## Handwerkerleistungen
+
+Geltendes Recht:
+
+20 %, maximal 1.200 €.
+
+Plan:
+
+15 %, maximal 900 €.
+
+## Grundlohngrenze Sonn- und Feiertagszuschläge
+
+Geltendes Recht:
+
+50 € je Stunde.
+
+Plan ab 01.01.2027:
+
+75 € je Stunde.
+
+## Abfindungen
+
+Geltendes Recht:
+
+Tarifbegünstigung gegebenenfalls nach §§ 24, 34 EStG.
+
+Plan:
+
+zusätzliche Begünstigung bei schneller Aufnahme einer neuen Erwerbstätigkeit; konkrete Ausgestaltung offen.
+
+---
+
+# 16. Prüfungssichere Einordnung
+
+## Frage
+
+Sind die genannten Reformmaßnahmen bereits anzuwenden?
+
+## Antwort
+
+Nein.
+
+Die Ergebnisse des Koalitionsausschusses stellen zunächst eine politische Einigung dar.
+
+Sie entfalten keine unmittelbare Außenwirkung gegenüber Steuerpflichtigen und Finanzbehörden.
+
+Erst ein ordnungsgemäß beschlossenes, ausgefertigtes und im Bundesgesetzblatt verkündetes Gesetz kann die bestehenden gesetzlichen Regelungen ändern.
+
+### Prüfungssatz
+
+**Die im Koalitionsausschuss vereinbarten Maßnahmen sind mangels abgeschlossenen Gesetzgebungsverfahrens noch nicht anzuwenden. Maßgeblich bleibt bis zum Inkrafttreten einer gesetzlichen Neuregelung das geltende Einkommensteuergesetz.**
+
+---
+
+# 17. Kompakte Lernsätze
+
+1. Die Einkommensteuerreform soll zum 01.01.2027 beginnen und ab 2028 ihre volle Wirkung entfalten.
+
+2. Das geplante Entlastungsvolumen beträgt rund 10 Mrd. € jährlich.
+
+3. Der Schwerpunkt liegt auf kleinen und mittleren Einkommen sowie Familien mit Kindern.
+
+4. Der Grundfreibetrag soll bis 2028 voraussichtlich auf 12.900 € steigen.
+
+5. Der Betrag von 12.900 € ist noch nicht endgültig gesetzlich festgelegt.
+
+6. Das Kindergeld soll bis 2028 voraussichtlich auf 272 € monatlich je Kind steigen.
+
+7. Der Arbeitnehmer-Pauschbetrag soll voraussichtlich von 1.230 € auf 1.430 € steigen.
+
+8. Auch der Kinderfreibetrag soll erhöht werden; die genaue Höhe ist noch offen.
+
+9. Die zweite Progressionszone soll abgeflacht werden.
+
+10. Der Spitzensteuersatz von 42 % soll künftig etwas später einsetzen.
+
+11. Die Reichensteuer soll künftig zweistufig ausgestaltet werden.
+
+12. Ein Steuersatz von 45 % soll ab 250.000 € zvE gelten.
+
+13. Ein Steuersatz von 47 % soll ab 280.000 € zvE gelten.
+
+14. Der Minijob-Pauschalsteuersatz soll von 2 % auf 5 % steigen.
+
+15. Die Steuerermäßigung für Handwerkerleistungen soll auf 15 % und maximal 900 € sinken.
+
+16. Materialkosten sind bei § 35a Abs. 3 EStG grundsätzlich nicht begünstigt.
+
+17. Die Grundlohngrenze für begünstigte Sonn- und Feiertagszuschläge soll auf 75 € steigen.
+
+18. Die Erhöhung auf 75 € soll zum 01.01.2027 erfolgen.
+
+19. Tarifvertraglich geregelte steuerfreie Zuschläge sollen vollständig beitragsfrei werden.
+
+20. Die sozialversicherungsrechtliche Umsetzung der Beitragsfreiheit ist noch offen.
+
+21. Abfindungen sollen bei schneller Aufnahme einer neuen Erwerbstätigkeit zusätzlich steuerlich begünstigt werden.
+
+22. Für die geplante Abfindungsbegünstigung existieren noch keine konkreten Berechnungsregeln.
+
+23. Die Reformpläne sind noch kein geltendes Recht.
+
+24. Bundestag und gegebenenfalls Bundesrat müssen den Änderungen noch zustimmen.
+
+25. Die Reformmaßnahmen dürfen erst nach Inkrafttreten der gesetzlichen Neuregelungen angewendet werden.
+
+---
+
+# 18. Antwortlogik für den Steuerstoff-Chatbot
+
+Bei Fragen zur Einkommensteuerreform 2027 muss der Chatbot zunächst unterscheiden:
+
+## A. Frage nach geltendem Recht
+
+Bei Fragen wie
+
+- „Wie hoch ist der Grundfreibetrag?“
+- „Wie hoch ist das Kindergeld?“
+- „Wie hoch ist der Arbeitnehmer-Pauschbetrag?“
+- „Wie hoch ist die Minijob-Pauschalsteuer?“
+- „Wie hoch ist der Handwerkerbonus?“
+
+muss der Chatbot grundsätzlich den aktuell geltenden Rechtsstand nennen.
+
+Anschließend kann er ergänzend auf die geplante Reform hinweisen.
+
+## B. Frage nach der Reformplanung
+
+Bei Fragen wie
+
+- „Was soll sich 2027 ändern?“
+- „Wie hoch soll der Grundfreibetrag 2028 sein?“
+- „Wird die Reichensteuer erhöht?“
+- „Was plant die Koalition bei Handwerkerleistungen?“
+
+muss der Chatbot ausdrücklich darauf hinweisen, dass es sich um eine politische Planung und noch nicht um geltendes Recht handelt.
+
+## C. Frage nach einer konkreten Steuerberechnung für 2027 oder 2028
+
+Solange der endgültige Gesetzestext nicht vorliegt, darf der Chatbot keine verbindliche Steuerberechnung auf Grundlage der Reformpläne vornehmen.
+
+Er darf lediglich
+
+- eine unverbindliche Modellrechnung,
+- eine Szenarioberechnung oder
+- einen Vergleich anhand der veröffentlichten Planwerte
+
+erstellen.
+
+Die Berechnung muss deutlich als vorläufig gekennzeichnet werden.
+
+---
+
+# 19. Pflichtformulierungen des Chatbots
+
+Der Chatbot soll Formulierungen verwenden wie:
+
+- „Nach dem derzeitigen Beschlussstand ist vorgesehen …“
+
+- „Die Regierungskoalition plant …“
+
+- „Voraussichtlich soll der Betrag …“
+
+- „Die endgültige gesetzliche Ausgestaltung bleibt abzuwarten.“
+
+- „Es handelt sich noch nicht um geltendes Recht.“
+
+- „Maßgeblich bleibt bis zum Inkrafttreten einer Neuregelung der aktuelle Gesetzesstand.“
+
+Der Chatbot darf nicht formulieren:
+
+- „Ab 2027 beträgt der Grundfreibetrag sicher …“
+
+- „Das neue Gesetz schreibt bereits vor …“
+
+- „Die Reichensteuer beträgt ab 2027 definitiv …“
+
+- „Der Handwerkerbonus wurde bereits auf 900 € reduziert.“
+
+- „Minijobs werden bereits mit 5 % besteuert.“
+
+---
+
+# 20. Kurzantwort des Chatbots
+
+**Die Regierungskoalition plant zum 01.01.2027 eine Reform der Einkommensteuer, die ab 2028 ihre volle Wirkung entfalten soll. Vorgesehen sind insbesondere ein höherer Grundfreibetrag, ein höheres Kindergeld, ein höherer Arbeitnehmer-Pauschbetrag und eine Abflachung des Einkommensteuertarifs. Zur Gegenfinanzierung sollen ab 250.000 € zvE 45 % und ab 280.000 € zvE 47 % Einkommensteuer gelten. Außerdem sollen die Minijob-Pauschalsteuer von 2 % auf 5 % steigen und die Steuerermäßigung für Handwerkerleistungen auf 15 % beziehungsweise maximal 900 € sinken. Die Grundlohngrenze für begünstigte Sonn- und Feiertagszuschläge soll auf 75 € steigen. Es handelt sich bislang um einen Beschluss des Koalitionsausschusses und noch nicht um geltendes Recht.**
+
+---
+
+# 21. Warnhinweis für den Chatbot
+
+Der Chatbot darf die Reformpläne nicht als bereits verabschiedetes Recht darstellen.
+
+Insbesondere die geplanten Werte
+
+- 12.900 € Grundfreibetrag,
+- 272 € Kindergeld,
+- 1.430 € Arbeitnehmer-Pauschbetrag,
+- 45 % ab 250.000 € zvE,
+- 47 % ab 280.000 € zvE,
+- 5 % Minijob-Pauschalsteuer,
+- 15 % beziehungsweise 900 € für Handwerkerleistungen und
+- 75 € Grundlohngrenze bei Sonn- und Feiertagszuschlägen
+
+sind bis zum Abschluss des Gesetzgebungsverfahrens als vorläufige Planwerte zu kennzeichnen.
+
+Bei einer späteren Gesetzesänderung muss dieser KB-Eintrag aktualisiert oder durch einen Eintrag zum endgültigen Gesetz ersetzt werden.
+`,
+
+  chatbotRules: [
+    "Geltendes Recht und Reformplanung immer getrennt darstellen.",
+    "Die Reform nicht als bereits beschlossenes und verkündetes Gesetz bezeichnen.",
+    "Bei den Beträgen 12.900 €, 272 € und 1.430 € immer auf deren Vorläufigkeit hinweisen.",
+    "Bei einer konkreten Berechnung für 2027 oder 2028 ausdrücklich auf den vorläufigen Charakter hinweisen.",
+    "Die neue Abfindungsbegünstigung nicht berechnen, solange keine gesetzliche Berechnungsformel veröffentlicht wurde.",
+    "Die geplante 75-€-Grenze nicht ohne Weiteres auf Nachtzuschläge übertragen.",
+    "Beim Minijob darauf hinweisen, dass § 40a Abs. 2 EStG grundsätzlich eine Pauschalsteuer des Arbeitgebers regelt.",
+    "Bei Handwerkerleistungen zwischen Arbeitskosten und nicht begünstigten Materialkosten unterscheiden.",
+    "Bei Ehegatten die Auswirkungen des Splittingverfahrens nur unter Vorbehalt der endgültigen Tarifregelung darstellen.",
+    "Nach Veröffentlichung eines Gesetzentwurfs die Beträge, Normen und Anwendungsregelungen erneut prüfen."
+  ],
+
+  updateTriggers: [
+    "Veröffentlichung eines Referentenentwurfs",
+    "Veröffentlichung eines Regierungsentwurfs",
+    "Kabinettsbeschluss",
+    "Beschluss des Deutschen Bundestags",
+    "Beteiligung oder Zustimmung des Bundesrats",
+    "Veröffentlichung des Existenzminimumberichts",
+    "Verkündung im Bundesgesetzblatt",
+    "Veröffentlichung eines BMF-Schreibens zur Anwendung",
+    "Änderung des geplanten Inkrafttretens",
+    "Änderung der Tarifgrenzen oder Entlastungsbeträge"
+  ]
+},
+{
   id: "gemeinnuetzigkeit-liquidationsphase",
 
   title:

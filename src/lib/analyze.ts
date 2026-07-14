@@ -405,12 +405,15 @@ function buildCaseAnswers(input: AnalysisInput, r: CaseRule): Record<AnswerMode,
 function buildKnowledgeAnswers(input: AnalysisInput, k: KnowledgeAnswer): Record<AnswerMode, string> {
   const refs = k.references?.length ? `\n\nRechtsgrundlage: ${k.references.join(", ")}` : "";
   const kurz = `${k.answer}\n\n${k.explanation}${refs}`;
+  const notAvailable =
+    "Für dieses kuratierte Wissensbeispiel ist dieser Antwortmodus nicht erforderlich.";
+  const isCurated = Boolean(k.curatedReviewedAt);
   return {
     kurz,
     pruefnotiz: `FACHHINWEIS — ${input.title}\n\nFrage:\n${input.description.trim()}\n\nAntwort:\n${k.answer}\n\nErläuterung:\n${k.explanation}${refs}`,
     mandant: `Sehr geehrte Damen und Herren,\n\ngern beantworten wir Ihre Frage:\n\n${k.answer}\n\n${k.explanation}${refs}\n\nFür Rückfragen stehen wir Ihnen gern zur Verfügung.\n\nMit freundlichen Grüßen\nIhre Kanzlei`,
-    rueckfrage: kurz,
-    buchung: kurz,
+    rueckfrage: isCurated ? notAvailable : kurz,
+    buchung: isCurated ? notAvailable : kurz,
   };
 }
 

@@ -423,10 +423,12 @@ function ChatPage() {
                       key={s}
                       type="button"
                       onClick={() => {
-                        if (s.endsWith("?")) skipWelcomeAndAsk(s);
-                        else {
+                        if (s.endsWith("?")) {
+                          submitMessage(s);
+                        } else {
                           setInput(s + ": ");
-                          skipWelcomeAndAsk("");
+                          activateChatImmediately();
+                          setTimeout(() => textareaRef.current?.focus(), 0);
                         }
                       }}
                       className="rounded-full border border-border bg-background px-3 py-1.5 text-xs text-foreground transition-colors hover:bg-accent"

@@ -1216,7 +1216,7 @@ Bei einer späteren Gesetzesänderung muss dieser KB-Eintrag aktualisiert oder d
     "Der Eintritt in die Liquidation führt nach derzeit noch nicht abschließend geklärter Rechtslage nicht zwingend automatisch zum Verlust der Gemeinnützigkeit. Entscheidend sind insbesondere die tatsächliche Geschäftsführung, die fortbestehende Vermögensbindung, die ordnungsgemäße Gläubigerbefriedigung und die abschließende Auskehr des Restvermögens an den steuerbegünstigten Anfallsberechtigten.",
 
   category:
-    "NPO",
+    "NPO / Gemeinnützigkeit",
 
   legalStatus: {
     status: "BFH-Verfahren anhängig",

@@ -246,6 +246,8 @@ function ChatPage() {
     ta.style.height = Math.min(ta.scrollHeight, 180) + "px";
   }, [input]);
 
+  const askChatFn = useServerFn(askChat);
+
   async function ask(text: string, retryOf?: string) {
     const trimmed = text.trim();
     if (!trimmed || busy) return;
@@ -256,24 +258,40 @@ function ChatPage() {
     });
     setInput("");
     setBusy(true);
+
+    // Baue kompakten Verlauf (letzte 10 Nachrichten, nur user/assistant).
+    const priorMsgs = messages.filter((m) => m.role === "user" || m.role === "assistant");
+    const history = priorMsgs.slice(-10).map((m) =>
+      m.role === "user"
+        ? { role: "user" as const, content: m.text }
+        : { role: "assistant" as const, content: m.answer.summary },
+    );
+
     try {
-      // small delay to feel like a real response
-      await new Promise((r) => setTimeout(r, 350));
-      const answer = generateAnswer(trimmed);
-      const aiMsg: Msg = { id: uid(), role: "assistant", answer, t: Date.now() };
+      const ai = await askChatFn({ data: { message: trimmed, history } });
+      const aiMsg: Msg = { id: uid(), role: "assistant", answer: toChatAnswer(ai), t: Date.now() };
       setMessages((prev) => [...prev, aiMsg]);
-    } catch {
-      const errMsg: Msg = {
-        id: uid(),
-        role: "error",
-        text: "Antwort konnte nicht erstellt werden.",
-        t: Date.now(),
-        retryOf: userMsg.id,
-      };
-      setMessages((prev) => [...prev, errMsg]);
+    } catch (err) {
+      // Fallback auf lokale Heuristik, damit der Nutzer nicht leer ausgeht.
+      console.warn("[steuerstoff-chat] AI unavailable, using local fallback:", (err as Error).message);
+      try {
+        const fallback = withFallbackMarker(generateAnswer(trimmed));
+        const aiMsg: Msg = { id: uid(), role: "assistant", answer: fallback, t: Date.now() };
+        setMessages((prev) => [...prev, aiMsg]);
+      } catch {
+        const errMsg: Msg = {
+          id: uid(),
+          role: "error",
+          text:
+            (err as Error).message ||
+            "Antwort konnte nicht erstellt werden. Bitte erneut versuchen.",
+          t: Date.now(),
+          retryOf: userMsg.id,
+        };
+        setMessages((prev) => [...prev, errMsg]);
+      }
     } finally {
       setBusy(false);
-      // refocus on desktop only
       if (typeof window !== "undefined" && window.matchMedia("(pointer: fine)").matches) {
         textareaRef.current?.focus();
       }

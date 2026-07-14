@@ -335,22 +335,12 @@ function ChatPage() {
   }
 
   function regenerate() {
-    // last user message
     for (let i = messages.length - 1; i >= 0; i--) {
       const m = messages[i];
       if (m.role === "user") {
-        // remove assistant messages after this user msg
         setMessages((prev) => prev.slice(0, i + 1));
-        setBusy(true);
-        setTimeout(async () => {
-          await new Promise((r) => setTimeout(r, 250));
-          const answer = generateAnswer(m.text);
-          setMessages((prev) => [
-            ...prev,
-            { id: uid(), role: "assistant", answer, t: Date.now() },
-          ]);
-          setBusy(false);
-        }, 0);
+        // Reuse the AI-backed ask() so regeneration also runs through the model.
+        void ask(m.text);
         return;
       }
     }

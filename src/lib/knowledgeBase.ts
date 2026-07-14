@@ -5075,6 +5075,7 @@ Mögliche Bezugseinheiten sind beispielsweise:
 - Wohnfläche,
 - Nutzfläche,
 - Grundstücksfläche
+`
 },
 {
   id: "ust-reverse-charge-steuersatz-bmg-vorsteuerabzug",

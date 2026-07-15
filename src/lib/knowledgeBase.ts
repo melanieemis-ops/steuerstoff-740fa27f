@@ -1216,7 +1216,7 @@ Bei einer späteren Gesetzesänderung muss dieser KB-Eintrag aktualisiert oder d
     "Private wirtschaftliche, familiäre oder sonstige eigennützige Interessen des Stifters können die Selbstlosigkeit einer Stiftung ausschließen, wenn die Stiftung vorrangig diesen Interessen dient. Erforderlich ist eine Gesamtwürdigung und Abwägung zwischen der Förderung der Allgemeinheit und den Vorteilen des Stifters oder ihm nahestehender Personen. Ein bloßer Verstoß gegen eine stiftungsrechtliche Satzungsregelung zum Erhalt des Stiftungsvermögens führt dagegen nicht automatisch zu einem Verstoß gegen § 63 Abs. 1 AO.",
 
   category:
-    "Gemeinnützigkeit / Stiftungen / Selbstlosigkeit / tatsächliche Geschäftsführung / unternehmensverbundene Stiftung",
+    "NPO / Gemeinnützigkeit",
 
   topicType: "bfh-rechtsprechung",
 

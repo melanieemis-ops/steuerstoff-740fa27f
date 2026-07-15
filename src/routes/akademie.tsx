@@ -22,6 +22,12 @@ import {
   getLearningStatistics,
   loadLearningProgress,
 } from "@/lib/learningProgress";
+import { useState } from "react";
+import {
+  getUserName,
+  hasUserName,
+  saveUserName,
+} from "@/lib/profile";
 
 export const Route = createFileRoute("/akademie")({
   component: AkademiePage,

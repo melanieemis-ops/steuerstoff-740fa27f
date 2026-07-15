@@ -1,142 +1,357 @@
 import { Link, useLocation } from "@tanstack/react-router";
-import { useEffect, useMemo, useRef, useState } from "react";
-import { Menu, X, Loader2 } from "lucide-react";
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
+import {
+  ArrowRightLeft,
+  Car,
+  Database,
+  FilePlus2,
+  FileSpreadsheet,
+  FileUp,
+  GraduationCap,
+  History,
+  Loader2,
+  Menu,
+  MessageSquare,
+  Settings,
+  ShieldCheck,
+  X,
+  type LucideIcon,
+} from "lucide-react";
+
 import { useIsAdmin } from "@/hooks/useIsAdmin";
 
-type NavItem = { to: string; label: string; adminOnly?: boolean };
+type NavItem = {
+  to: string;
+  label: string;
+  Icon: LucideIcon;
+  adminOnly?: boolean;
+};
 
 const baseNav: NavItem[] = [
-  { to: "/chat", label: "Chat" },
-  { to: "/neue-anfrage", label: "Neue Anfrage" },
-  { to: "/fallverlauf", label: "Fallverlauf" },
-  { to: "/wissensdatenbank", label: "Wissensdatenbank" },
-  { to: "/gesetz-importieren", label: "Gesetz importieren", adminOnly: true },
-  { to: "/skr-konverter", label: "SKR-Konverter" },
-  { to: "/csv-konverter", label: "CSV-Konverter" },
-  
-  { to: "/kfz-wertabgabe", label: "Kfz-Wertabgabe" },
-  { to: "/npo-pruefassistent", label: "NPO-Prüfassistent" },
-  { to: "/einstellungen", label: "Einstellungen" },
+  {
+    to: "/chat",
+    label: "Chat",
+    Icon: MessageSquare,
+  },
+  {
+    to: "/lernen",
+    label: "Lernen",
+    Icon: GraduationCap,
+  },
+  {
+    to: "/neue-anfrage",
+    label: "Neue Anfrage",
+    Icon: FilePlus2,
+  },
+  {
+    to: "/fallverlauf",
+    label: "Fallverlauf",
+    Icon: History,
+  },
+  {
+    to: "/wissensdatenbank",
+    label: "Wissensdatenbank",
+    Icon: Database,
+  },
+  {
+    to: "/gesetz-importieren",
+    label: "Gesetz importieren",
+    Icon: FileUp,
+    adminOnly: true,
+  },
+  {
+    to: "/skr-konverter",
+    label: "SKR-Konverter",
+    Icon: ArrowRightLeft,
+  },
+  {
+    to: "/csv-konverter",
+    label: "CSV-Konverter",
+    Icon: FileSpreadsheet,
+  },
+  {
+    to: "/kfz-wertabgabe",
+    label: "Kfz-Wertabgabe",
+    Icon: Car,
+  },
+  {
+    to: "/npo-pruefassistent",
+    label: "NPO-Prüfassistent",
+    Icon: ShieldCheck,
+  },
+  {
+    to: "/einstellungen",
+    label: "Einstellungen",
+    Icon: Settings,
+  },
 ];
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
-  const [refreshing, setRefreshing] = useState(false);
+  const [refreshing, setRefreshing] =
+    useState(false);
+
   const location = useLocation();
-  const panelRef = useRef<HTMLDivElement | null>(null);
-  const btnRef = useRef<HTMLButtonElement | null>(null);
+  const panelRef = useRef<HTMLDivElement | null>(
+    null,
+  );
+  const buttonRef =
+    useRef<HTMLButtonElement | null>(null);
+
   const isAdmin = useIsAdmin();
-  const nav = useMemo(
-    () => baseNav.filter((n) => !n.adminOnly || isAdmin),
+
+  const navigation = useMemo(
+    () =>
+      baseNav.filter(
+        (item) => !item.adminOnly || isAdmin,
+      ),
     [isAdmin],
   );
 
-  // close on route change
   useEffect(() => {
     setOpen(false);
   }, [location.pathname]);
 
-  // mark body + notify pull-to-refresh
   useEffect(() => {
-    if (typeof document === "undefined") return;
-    document.body.dataset.menuOpen = open ? "true" : "false";
-    if (open && typeof window !== "undefined") {
-      window.dispatchEvent(new CustomEvent("steuerstoff:menu-open"));
+    if (typeof document === "undefined") {
+      return;
     }
+
+    document.body.dataset.menuOpen = open
+      ? "true"
+      : "false";
+
+    if (open && typeof window !== "undefined") {
+      window.dispatchEvent(
+        new CustomEvent("steuerstoff:menu-open"),
+      );
+    }
+
+    return () => {
+      document.body.dataset.menuOpen = "false";
+    };
   }, [open]);
 
-  // header spinner reflects pull-to-refresh state
   useEffect(() => {
-    const onRefresh = (e: Event) => {
-      const ce = e as CustomEvent<boolean>;
-      setRefreshing(Boolean(ce.detail));
+    const handleRefresh = (event: Event) => {
+      const customEvent =
+        event as CustomEvent<boolean>;
+
+      setRefreshing(Boolean(customEvent.detail));
     };
-    window.addEventListener("steuerstoff:refreshing", onRefresh);
-    return () => window.removeEventListener("steuerstoff:refreshing", onRefresh);
+
+    window.addEventListener(
+      "steuerstoff:refreshing",
+      handleRefresh,
+    );
+
+    return () => {
+      window.removeEventListener(
+        "steuerstoff:refreshing",
+        handleRefresh,
+      );
+    };
   }, []);
 
-  // close on outside tap / scroll / escape when open
   useEffect(() => {
-    if (!open) return;
-    const onPointer = (e: PointerEvent) => {
-      const t = e.target as Node | null;
-      if (panelRef.current?.contains(t)) return;
-      if (btnRef.current?.contains(t)) return;
+    if (!open) {
+      return;
+    }
+
+    const handlePointerDown = (
+      event: PointerEvent,
+    ) => {
+      const target = event.target as Node | null;
+
+      if (panelRef.current?.contains(target)) {
+        return;
+      }
+
+      if (buttonRef.current?.contains(target)) {
+        return;
+      }
+
       setOpen(false);
     };
-    const onScroll = () => setOpen(false);
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
+
+    const handleEscape = (
+      event: KeyboardEvent,
+    ) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+      }
     };
-    window.addEventListener("pointerdown", onPointer, true);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("keydown", onKey);
+
+    window.addEventListener(
+      "pointerdown",
+      handlePointerDown,
+      true,
+    );
+
+    window.addEventListener(
+      "keydown",
+      handleEscape,
+    );
+
     return () => {
-      window.removeEventListener("pointerdown", onPointer, true);
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("keydown", onKey);
+      window.removeEventListener(
+        "pointerdown",
+        handlePointerDown,
+        true,
+      );
+
+      window.removeEventListener(
+        "keydown",
+        handleEscape,
+      );
     };
   }, [open]);
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border/70 bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
       <div className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between gap-3 px-4 sm:h-16 sm:px-6">
-        <Link to="/" className="flex items-center gap-2 shrink-0">
-          <span className="inline-block h-2.5 w-2.5 rounded-full" style={{ background: "var(--gradient-accent)" }} />
-          <span className="text-base sm:text-lg font-semibold tracking-tight text-foreground lowercase">
+        <Link
+          to="/"
+          className="flex min-w-0 shrink items-center gap-2"
+        >
+          <span
+            className="inline-block h-2.5 w-2.5 shrink-0 rounded-full"
+            style={{
+              background:
+                "var(--gradient-accent)",
+            }}
+            aria-hidden="true"
+          />
+
+          <span className="shrink-0 text-base font-semibold lowercase tracking-tight text-foreground sm:text-lg">
             steuerstoff
           </span>
-          <span className="text-[11px] sm:text-xs font-normal tracking-tight text-muted-foreground/80 whitespace-nowrap">
+
+          <span className="hidden whitespace-nowrap text-[11px] font-normal tracking-tight text-muted-foreground/80 min-[390px]:inline sm:text-xs">
             by Melanie Misakian
           </span>
+
           <span
             aria-hidden={!refreshing}
-            className={`inline-flex h-4 w-4 items-center justify-center transition-opacity ${
-              refreshing ? "opacity-100" : "opacity-0"
-            }`}
+            className={[
+              "inline-flex h-4 w-4 shrink-0 items-center justify-center transition-opacity",
+              refreshing
+                ? "opacity-100"
+                : "opacity-0",
+            ].join(" ")}
           >
             <Loader2 className="h-3.5 w-3.5 animate-spin text-muted-foreground" />
           </span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-1">
-          {nav.map((n) => (
+        <nav className="hidden min-w-0 items-center gap-1 overflow-x-auto md:flex">
+          {navigation.map((item) => (
             <Link
-              key={n.to}
-              to={n.to}
-              className="rounded-md px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
-              activeProps={{ className: "rounded-md px-3 py-1.5 text-sm text-foreground bg-accent" }}
+              key={item.to}
+              to={item.to}
+              className="shrink-0 whitespace-nowrap rounded-md px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+              activeProps={{
+                className:
+                  "shrink-0 whitespace-nowrap rounded-md bg-accent px-3 py-1.5 text-sm text-foreground",
+              }}
             >
-              {n.label}
+              {item.label}
             </Link>
           ))}
         </nav>
 
         <button
-          ref={btnRef}
+          ref={buttonRef}
           type="button"
-          aria-label="Menü"
+          aria-label={
+            open
+              ? "Menü schließen"
+              : "Menü öffnen"
+          }
           aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-          className="md:hidden inline-flex h-9 w-9 items-center justify-center rounded-md border border-border text-foreground"
+          onClick={() =>
+            setOpen((current) => !current)
+          }
+          className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-foreground transition-colors hover:bg-accent md:hidden"
         >
-          {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+          {open ? (
+            <X className="h-4 w-4" />
+          ) : (
+            <Menu className="h-4 w-4" />
+          )}
         </button>
       </div>
 
       {open && (
-        <div ref={panelRef} className="md:hidden border-t border-border bg-background">
-          <nav className="mx-auto flex w-full max-w-6xl flex-col px-4 py-2">
-            {nav.map((n) => (
-              <Link
-                key={n.to}
-                to={n.to}
-                onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent"
-              >
-                {n.label}
-              </Link>
-            ))}
+        <div
+          ref={panelRef}
+          data-no-swipe="true"
+          className="border-t border-border bg-background shadow-lg md:hidden"
+        >
+          <nav
+            className="mx-auto flex max-h-[calc(100dvh-3.5rem)] w-full max-w-6xl flex-col gap-1 overflow-y-auto px-4 py-3 pb-[calc(env(safe-area-inset-bottom)+1rem)]"
+            aria-label="Hauptmenü"
+          >
+            {navigation.map(
+              ({ to, label, Icon }) => {
+                const active =
+                  location.pathname === to ||
+                  (to !== "/" &&
+                    location.pathname.startsWith(
+                      to,
+                    ));
+
+                return (
+                  <Link
+                    key={to}
+                    to={to}
+                    onClick={() => setOpen(false)}
+                    className={[
+                      "flex items-center gap-3 rounded-2xl px-3 py-3 text-sm font-medium transition-colors",
+                      active
+                        ? "bg-foreground text-background"
+                        : "text-foreground hover:bg-accent",
+                    ].join(" ")}
+                  >
+                    <span
+                      className={[
+                        "inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl",
+                        active
+                          ? "bg-background/15"
+                          : "bg-muted",
+                      ].join(" ")}
+                    >
+                      <Icon
+                        className="h-4 w-4"
+                        aria-hidden="true"
+                      />
+                    </span>
+
+                    <span className="min-w-0 flex-1">
+                      {label}
+                    </span>
+
+                    {to === "/lernen" && (
+                      <span
+                        className={[
+                          "rounded-full px-2 py-0.5 text-[10px] font-semibold",
+                          active
+                            ? "bg-background/15 text-background"
+                            : "bg-emerald-100 text-emerald-700",
+                        ].join(" ")}
+                      >
+                        Neu
+                      </span>
+                    )}
+                  </Link>
+                );
+              },
+            )}
           </nav>
         </div>
       )}

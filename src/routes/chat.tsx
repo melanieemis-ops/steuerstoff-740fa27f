@@ -16,20 +16,6 @@ import {
 import { generateAnswer, REVIEW_HINT, type ChatAnswer } from "@/lib/chatHeuristics";
 
 
-function toChatAnswer(ai: Awaited<ReturnType<typeof askChat>>): ChatAnswer {
-  return {
-    summary: ai.summary,
-    reasoning: ai.reasoning ?? undefined,
-    sections: ai.sections?.length ? ai.sections : undefined,
-    risks: ai.risks?.length ? ai.risks : undefined,
-    followUps: ai.followUps?.length ? ai.followUps : undefined,
-    nextStep: ai.nextStep ?? undefined,
-    knowledge: ai.knowledge ?? undefined,
-    sources: ai.sources?.length ? ai.sources : undefined,
-    confidence: ai.confidence,
-    needsHumanReview: ai.needsHumanReview,
-  };
-}
 
 function withFallbackMarker(a: ChatAnswer): ChatAnswer {
   return {

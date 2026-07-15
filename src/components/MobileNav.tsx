@@ -21,7 +21,7 @@ export const SECTIONS = [
     short: "Chat",
   },
   {
-    to: "/lernen",
+    to: "/akademie",
     label: "Lernen",
     short: "Lernen",
   },

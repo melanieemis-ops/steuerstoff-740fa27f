@@ -22,6 +22,7 @@ import { Route as CsvKonverterRouteImport } from './routes/csv-konverter'
 import { Route as ChatRouteImport } from './routes/chat'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as FallCaseIdRouteImport } from './routes/fall.$caseId'
+import { Route as ApiChatRouteImport } from './routes/api/chat'
 
 const WissensdatenbankRoute = WissensdatenbankRouteImport.update({
   id: '/wissensdatenbank',
@@ -89,6 +90,11 @@ const FallCaseIdRoute = FallCaseIdRouteImport.update({
   path: '/fall/$caseId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiChatRoute = ApiChatRouteImport.update({
+  id: '/api/chat',
+  path: '/api/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -103,6 +109,7 @@ export interface FileRoutesByFullPath {
   '/npo-pruefassistent': typeof NpoPruefassistentRoute
   '/skr-konverter': typeof SkrKonverterRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
+  '/api/chat': typeof ApiChatRoute
   '/fall/$caseId': typeof FallCaseIdRoute
 }
 export interface FileRoutesByTo {
@@ -118,6 +125,7 @@ export interface FileRoutesByTo {
   '/npo-pruefassistent': typeof NpoPruefassistentRoute
   '/skr-konverter': typeof SkrKonverterRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
+  '/api/chat': typeof ApiChatRoute
   '/fall/$caseId': typeof FallCaseIdRoute
 }
 export interface FileRoutesById {
@@ -134,6 +142,7 @@ export interface FileRoutesById {
   '/npo-pruefassistent': typeof NpoPruefassistentRoute
   '/skr-konverter': typeof SkrKonverterRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
+  '/api/chat': typeof ApiChatRoute
   '/fall/$caseId': typeof FallCaseIdRoute
 }
 export interface FileRouteTypes {
@@ -151,6 +160,7 @@ export interface FileRouteTypes {
     | '/npo-pruefassistent'
     | '/skr-konverter'
     | '/wissensdatenbank'
+    | '/api/chat'
     | '/fall/$caseId'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -166,6 +176,7 @@ export interface FileRouteTypes {
     | '/npo-pruefassistent'
     | '/skr-konverter'
     | '/wissensdatenbank'
+    | '/api/chat'
     | '/fall/$caseId'
   id:
     | '__root__'
@@ -181,6 +192,7 @@ export interface FileRouteTypes {
     | '/npo-pruefassistent'
     | '/skr-konverter'
     | '/wissensdatenbank'
+    | '/api/chat'
     | '/fall/$caseId'
   fileRoutesById: FileRoutesById
 }
@@ -197,6 +209,7 @@ export interface RootRouteChildren {
   NpoPruefassistentRoute: typeof NpoPruefassistentRoute
   SkrKonverterRoute: typeof SkrKonverterRoute
   WissensdatenbankRoute: typeof WissensdatenbankRoute
+  ApiChatRoute: typeof ApiChatRoute
   FallCaseIdRoute: typeof FallCaseIdRoute
 }
 
@@ -293,6 +306,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FallCaseIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/chat': {
+      id: '/api/chat'
+      path: '/api/chat'
+      fullPath: '/api/chat'
+      preLoaderRoute: typeof ApiChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -309,6 +329,7 @@ const rootRouteChildren: RootRouteChildren = {
   NpoPruefassistentRoute: NpoPruefassistentRoute,
   SkrKonverterRoute: SkrKonverterRoute,
   WissensdatenbankRoute: WissensdatenbankRoute,
+  ApiChatRoute: ApiChatRoute,
   FallCaseIdRoute: FallCaseIdRoute,
 }
 export const routeTree = rootRouteImport

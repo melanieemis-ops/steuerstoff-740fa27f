@@ -4,7 +4,7 @@
 // können. Es gibt bewusst KEINEN Vektorstore/API-Aufruf – alles lokal.
 
 import { KNOWLEDGE_BASE, kbKeywordsToRegExp, type KBEntry } from "@/lib/knowledgeBase";
-import { TAX_LEXICON } from "@/lib/taxLexicon";
+
 import { INTERNAL_KNOWLEDGE_BASE } from "@/lib/expertSystem/internalKnowledge";
 
 export type KbHit = {

@@ -305,7 +305,7 @@ function RootComponent() {
         data-app-root
         className="w-full min-w-0 max-w-full overflow-x-clip"
       >
-        <PullToRefresh onRefresh={handleRefresh}>
+  
           <GlobalSwipeArea>
             <SectionDots />
 
@@ -320,7 +320,7 @@ function RootComponent() {
             <MobileBottomNav />
             <PwaStatus />
           </GlobalSwipeArea>
-        </PullToRefresh>
+      
 
         <MobileWelcomeScreen />
       </div>

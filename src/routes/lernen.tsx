@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import {
   ArrowRight,
   BookOpen,
@@ -49,6 +49,21 @@ export const Route = createFileRoute("/lernen")({
 
 const SESSION_SIZE = 10;
 
+function createRandomSession(): LearningQuestion[] {
+  const shuffled = [...learningQuestions];
+
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(Math.random() * (index + 1));
+
+    [shuffled[index], shuffled[randomIndex]] = [
+      shuffled[randomIndex],
+      shuffled[index],
+    ];
+  }
+
+  return shuffled.slice(0, SESSION_SIZE);
+}
+
 const STATUS_LABELS: Record<LearningStatus, string> = {
   unseen: "Noch nicht begonnen",
   red: "Noch üben",
@@ -65,10 +80,9 @@ const STATUS_STYLES: Record<LearningStatus, string> = {
   green: "bg-green-600 text-white",
 };
 
-function LearningPage() {
-  const sessionQuestions = useMemo(
-    () => learningQuestions.slice(0, SESSION_SIZE),
-    [],
+const [sessionQuestions, setSessionQuestions] =
+  useState<LearningQuestion[]>(() =>
+    createRandomSession(),
   );
 
   const [progress, setProgress] =
@@ -144,14 +158,15 @@ function LearningPage() {
   }
 
   function restartSession() {
-    setCurrentIndex(0);
-    setSelectedAnswer(null);
-    setChecked(false);
-    setShowHint(false);
-    setSessionCorrect(0);
-    setSessionWrong(0);
-    setCompleted(false);
-  }
+  setSessionQuestions(createRandomSession());
+  setCurrentIndex(0);
+  setSelectedAnswer(null);
+  setChecked(false);
+  setShowHint(false);
+  setSessionCorrect(0);
+  setSessionWrong(0);
+  setCompleted(false);
+}
 
   function resetAllProgress() {
     if (

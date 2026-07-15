@@ -22,6 +22,7 @@ import {
   type LearningQuestion,
 } from "@/data/learningQuestions";
 
+
 import {
   getLearningStatistics,
   loadLearningProgress,
@@ -82,9 +83,10 @@ const STATUS_STYLES: Record<LearningStatus, string> = {
 
 function LearningPage() {
   const [sessionQuestions, setSessionQuestions] =
-  useState<LearningQuestion[]>(() =>
-    createRandomSession(),
-  );
+    useState<LearningQuestion[]>(() =>
+      createRandomSession(),
+    );
+
 
   const [progress, setProgress] =
     useState<LearningProgressState>(() =>

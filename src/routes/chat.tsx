@@ -14,8 +14,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { generateAnswer, REVIEW_HINT, type ChatAnswer } from "@/lib/chatHeuristics";
-import { useServerFn } from "@tanstack/react-start";
-import { askChat } from "@/lib/ai/chat.functions";
+
 
 function toChatAnswer(ai: Awaited<ReturnType<typeof askChat>>): ChatAnswer {
   return {

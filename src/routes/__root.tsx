@@ -15,7 +15,6 @@ import {
   SectionDots,
   MobileBottomNav,
 } from "@/components/MobileNav";
-import { PullToRefresh } from "@/components/PullToRefresh";
 import { ScrollToBottom } from "@/components/ScrollToBottom";
 import { PwaStatus } from "@/components/PwaStatus";
 import { MobileWelcomeScreen } from "@/components/MobileWelcomeScreen";

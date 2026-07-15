@@ -80,7 +80,8 @@ const STATUS_STYLES: Record<LearningStatus, string> = {
   green: "bg-green-600 text-white",
 };
 
-const [sessionQuestions, setSessionQuestions] =
+function LearningPage() {
+  const [sessionQuestions, setSessionQuestions] =
   useState<LearningQuestion[]>(() =>
     createRandomSession(),
   );
@@ -158,15 +159,15 @@ const [sessionQuestions, setSessionQuestions] =
   }
 
   function restartSession() {
-  setSessionQuestions(createRandomSession());
-  setCurrentIndex(0);
-  setSelectedAnswer(null);
-  setChecked(false);
-  setShowHint(false);
-  setSessionCorrect(0);
-  setSessionWrong(0);
-  setCompleted(false);
-}
+    setSessionQuestions(createRandomSession());
+    setCurrentIndex(0);
+    setSelectedAnswer(null);
+    setChecked(false);
+    setShowHint(false);
+    setSessionCorrect(0);
+    setSessionWrong(0);
+    setCompleted(false);
+  }
 
   function resetAllProgress() {
     if (

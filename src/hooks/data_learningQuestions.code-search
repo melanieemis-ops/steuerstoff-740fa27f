@@ -1,0 +1,9 @@
+# Query: data/learningQuestions
+# ContextLines: 1
+
+1 Ergebnis - 1 Datei
+
+src/routes/lernen.tsx:
+  22    type LearningQuestion,
+  23: } from "import { learningQuestions } from "@/data";";
+  24  

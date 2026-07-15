@@ -1,4 +1,4 @@
-@import "tailwindcss" source;
+@import "tailwindcss";
 @source "../src";
 @import "tw-animate-css";
 
@@ -103,11 +103,6 @@
   --sidebar-border: oklch(0.9 0.018 85);
   --sidebar-ring: oklch(0.55 0.15 305);
 }
-Bibliothek
-/
-dark-mode-styles.css
-
-
 .dark {
   --background: oklch(0.16 0.018 265);
   --foreground: oklch(0.96 0.008 85);
@@ -228,6 +223,7 @@ body,
     rgba(255, 255, 255, 0.035)
   );
 }
+
 
 @layer base {
   * {

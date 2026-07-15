@@ -169,9 +169,37 @@ function handleSaveName() {
                 </div>
 
                 <div className="mt-8">
-                  <p className="text-sm font-medium text-muted-foreground">
-                    Willkommen zurück, Melanie
-                  </p>
+                  {needsName ? (
+  <div className="mt-2 max-w-sm">
+
+    <p className="text-sm font-medium text-muted-foreground">
+      Willkommen 👋
+    </p>
+
+    <p className="mt-2 text-sm text-muted-foreground">
+      Wie dürfen wir dich nennen?
+    </p>
+
+    <input
+      value={inputName}
+      onChange={(e) => setInputName(e.target.value)}
+      placeholder="Dein Name"
+      className="mt-4 w-full rounded-2xl border border-border bg-background px-4 py-3 outline-none focus:ring-2 focus:ring-primary"
+    />
+
+    <button
+      onClick={handleSaveName}
+      className="mt-3 w-full rounded-2xl bg-foreground px-4 py-3 font-semibold text-background transition hover:opacity-90"
+    >
+      Weiter
+    </button>
+
+  </div>
+) : (
+  <p className="text-sm font-medium text-muted-foreground">
+    Willkommen zurück, {userName} 👋
+  </p>
+)}
                   <h2 className="mt-2 max-w-2xl text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl">
                     Heute ist ein guter Tag, um Steuerrecht zu meistern.
                   </h2>

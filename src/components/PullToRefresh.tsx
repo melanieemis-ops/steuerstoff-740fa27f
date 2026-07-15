@@ -1,34 +1,72 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
 
-type Status = "idle" | "pull" | "ready" | "loading" | "done";
+type Status =
+  | "idle"
+  | "pull"
+  | "ready"
+  | "loading"
+  | "done";
 
-const FORM_TAGS = new Set(["INPUT", "TEXTAREA", "SELECT", "BUTTON", "OPTION"]);
-function isFormTarget(el: EventTarget | null): boolean {
-  if (!(el instanceof Element)) return false;
-  if (FORM_TAGS.has(el.tagName)) return true;
-  if (
-    el.closest(
-      'input,textarea,select,button,[contenteditable="true"],[role="textbox"],[role="combobox"],[role="listbox"],[role="slider"]',
-    )
-  )
+type Direction =
+  | "unknown"
+  | "vertical"
+  | "blocked";
+
+const FORM_TAGS = new Set([
+  "INPUT",
+  "TEXTAREA",
+  "SELECT",
+  "BUTTON",
+  "OPTION",
+]);
+
+const THRESHOLD = 64;
+const MAX_PULL = 96;
+const DECISION_THRESHOLD = 10;
+const RATIO_LOCK = 1.25;
+const REFRESH_TIMEOUT = 6000;
+
+function isFormTarget(
+  target: EventTarget | null,
+): boolean {
+  if (!(target instanceof Element)) {
+    return false;
+  }
+
+  if (FORM_TAGS.has(target.tagName)) {
     return true;
-  return false;
+  }
+
+  return Boolean(
+    target.closest(
+      [
+        "input",
+        "textarea",
+        "select",
+        "button",
+        '[contenteditable="true"]',
+        '[role="textbox"]',
+        '[role="combobox"]',
+        '[role="listbox"]',
+        '[role="slider"]',
+        '[data-no-pull-refresh="true"]',
+      ].join(","),
+    ),
+  );
 }
 
-const THRESHOLD = 75;
-const MAX_PULL = 110;
-const DECISION_THRESHOLD = 12;
-const RATIO_LOCK = 1.5;
+function isAtPageTop(): boolean {
+  return (
+    window.scrollY <= 1 &&
+    document.documentElement.scrollTop <= 1
+  );
+}
 
-type Direction = "unknown" | "vertical" | "blocked";
-
-/**
- * Pull-to-Refresh with direction lock.
- * - Only engages at scrollY <= 0 AND when the gesture is clearly vertical
- *   (|dy| > |dx| * 1.5 after ~12 px movement).
- * - Horizontal / diagonal gestures are blocked → swipe-nav can run normally.
- * - Never preventDefault → vertical scrolling stays untouched.
- */
 export function PullToRefresh({
   onRefresh,
   children,
@@ -36,7 +74,8 @@ export function PullToRefresh({
   onRefresh: () => void | Promise<void>;
   children: ReactNode;
 }) {
-  const [status, setStatus] = useState<Status>("idle");
+  const [status, setStatus] =
+    useState<Status>("idle");
   const [pull, setPull] = useState(0);
 
   const onRefreshRef = useRef(onRefresh);
@@ -44,14 +83,69 @@ export function PullToRefresh({
 
   const startX = useRef(0);
   const startY = useRef(0);
-  const direction = useRef<Direction>("unknown");
-  const engaged = useRef(false); // committed to pull-to-refresh
-  const refreshing = useRef(false);
   const pullRef = useRef(0);
+
+  const direction =
+    useRef<Direction>("unknown");
+  const engaged = useRef(false);
+  const refreshing = useRef(false);
   const rafRef = useRef<number | null>(null);
+  const doneTimerRef =
+    useRef<number | null>(null);
 
   useEffect(() => {
-    const reset = () => {
+    const cancelFrame = () => {
+      if (rafRef.current !== null) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
+      }
+    };
+
+    const cancelDoneTimer = () => {
+      if (doneTimerRef.current !== null) {
+        window.clearTimeout(
+          doneTimerRef.current,
+        );
+        doneTimerRef.current = null;
+      }
+    };
+
+    const publishRefreshing = (
+      value: boolean,
+    ) => {
+      window.dispatchEvent(
+        new CustomEvent(
+          "steuerstoff:refreshing",
+          {
+            detail: value,
+          },
+        ),
+      );
+    };
+
+    const updatePull = (
+      nextPull: number,
+      nextStatus: Status,
+    ) => {
+      pullRef.current = nextPull;
+      cancelFrame();
+
+      rafRef.current =
+        requestAnimationFrame(() => {
+          setPull(nextPull);
+          setStatus(nextStatus);
+          rafRef.current = null;
+        });
+    };
+
+    const resetGesture = (
+      force = false,
+    ) => {
+      if (refreshing.current && !force) {
+        return;
+      }
+
+      cancelFrame();
       engaged.current = false;
       direction.current = "unknown";
       pullRef.current = 0;
@@ -59,140 +153,344 @@ export function PullToRefresh({
       setStatus("idle");
     };
 
-    const onTouchStart = (e: TouchEvent) => {
-      if (refreshing.current) return;
-      if (e.touches.length !== 1) {
-        direction.current = "blocked";
-        return;
-      }
-      if (window.scrollY > 0) {
-        direction.current = "blocked";
-        return;
-      }
-      if (typeof document !== "undefined" && document.body.dataset.menuOpen === "true") {
-        direction.current = "blocked";
-        return;
-      }
-      if (isFormTarget(e.target)) {
-        direction.current = "blocked";
-        return;
-      }
-      const t = e.touches[0];
-      startX.current = t.clientX;
-      startY.current = t.clientY;
-      direction.current = "unknown";
+    const blockGesture = () => {
       engaged.current = false;
+      direction.current = "blocked";
+      pullRef.current = 0;
+      setPull(0);
+      setStatus("idle");
     };
 
-    const onTouchMove = (e: TouchEvent) => {
-      if (refreshing.current) return;
-      if (direction.current === "blocked") return;
-      if (e.touches.length > 1) {
-        reset();
-        direction.current = "blocked";
+    const onTouchStart = (
+      event: TouchEvent,
+    ) => {
+      if (refreshing.current) {
         return;
       }
-      const t = e.touches[0];
-      const dx = t.clientX - startX.current;
-      const dy = t.clientY - startY.current;
-      const ax = Math.abs(dx);
-      const ay = Math.abs(dy);
 
-      // direction lock
-      if (direction.current === "unknown") {
-        if (ax < DECISION_THRESHOLD && ay < DECISION_THRESHOLD) return;
-        if (ay > ax * RATIO_LOCK && dy > 0) {
-          direction.current = "vertical";
-          engaged.current = true;
-        } else {
-          // horizontal or diagonal → leave it to swipe-nav / scroll
-          direction.current = "blocked";
+      resetGesture();
+
+      if (
+        event.touches.length !== 1 ||
+        !isAtPageTop() ||
+        document.body.dataset.menuOpen ===
+          "true" ||
+        isFormTarget(event.target)
+      ) {
+        blockGesture();
+        return;
+      }
+
+      const touch = event.touches[0];
+
+      startX.current = touch.clientX;
+      startY.current = touch.clientY;
+      direction.current = "unknown";
+    };
+
+    const onTouchMove = (
+      event: TouchEvent,
+    ) => {
+      if (
+        refreshing.current ||
+        direction.current === "blocked"
+      ) {
+        return;
+      }
+
+      if (event.touches.length !== 1) {
+        blockGesture();
+        return;
+      }
+
+      const touch = event.touches[0];
+      const dx =
+        touch.clientX - startX.current;
+      const dy =
+        touch.clientY - startY.current;
+      const absX = Math.abs(dx);
+      const absY = Math.abs(dy);
+
+      if (
+        direction.current === "unknown"
+      ) {
+        if (
+          absX < DECISION_THRESHOLD &&
+          absY < DECISION_THRESHOLD
+        ) {
           return;
         }
+
+        const clearlyDownward =
+          dy > 0 &&
+          absY > absX * RATIO_LOCK &&
+          isAtPageTop();
+
+        if (!clearlyDownward) {
+          blockGesture();
+          return;
+        }
+
+        direction.current = "vertical";
+        engaged.current = true;
       }
 
-      if (!engaged.current) return;
-      if (window.scrollY > 0) {
-        reset();
+      if (
+        !engaged.current ||
+        !isAtPageTop()
+      ) {
+        resetGesture();
         return;
       }
+
+      /*
+       * Sobald die Geste eindeutig als
+       * Pull-to-refresh erkannt wurde,
+       * übernehmen wir sie selbst.
+       * Dadurch konkurriert sie nicht mehr
+       * mit dem iOS-Gummiband.
+       */
+      if (event.cancelable) {
+        event.preventDefault();
+      }
+
       if (dy <= 0) {
-        pullRef.current = 0;
-        if (rafRef.current) cancelAnimationFrame(rafRef.current);
-        rafRef.current = requestAnimationFrame(() => {
-          setPull(0);
-          setStatus("idle");
-        });
+        updatePull(0, "idle");
         return;
       }
-      const damped = Math.min(MAX_PULL, dy * 0.5);
-      pullRef.current = damped;
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-      rafRef.current = requestAnimationFrame(() => {
-        setPull(damped);
-        setStatus(damped >= THRESHOLD ? "ready" : "pull");
-      });
+
+      const damped = Math.min(
+        MAX_PULL,
+        dy * 0.58,
+      );
+
+      updatePull(
+        damped,
+        damped >= THRESHOLD
+          ? "ready"
+          : "pull",
+      );
     };
 
-    const onTouchEnd = async () => {
-      if (refreshing.current) return;
-      const wasEngaged = engaged.current;
-      const finalPull = pullRef.current;
+    const finishGesture = async () => {
+      if (refreshing.current) {
+        return;
+      }
+
+      const shouldRefresh =
+        engaged.current &&
+        pullRef.current >= THRESHOLD;
+
       engaged.current = false;
       direction.current = "unknown";
-      if (!wasEngaged) return;
-      if (finalPull >= THRESHOLD) {
-        refreshing.current = true;
-        setStatus("loading");
-        setPull(48);
-        pullRef.current = 48;
-        if (typeof window !== "undefined") {
-          window.dispatchEvent(new CustomEvent("steuerstoff:refreshing", { detail: true }));
+
+      if (!shouldRefresh) {
+        updatePull(0, "idle");
+        return;
+      }
+
+      refreshing.current = true;
+      cancelDoneTimer();
+      setStatus("loading");
+      setPull(44);
+      pullRef.current = 44;
+      publishRefreshing(true);
+
+      let timeoutId: number | undefined;
+
+      const timeoutPromise =
+        new Promise<void>((_, reject) => {
+          timeoutId = window.setTimeout(
+            () =>
+              reject(
+                new Error(
+                  "Pull-to-refresh timeout",
+                ),
+              ),
+            REFRESH_TIMEOUT,
+          );
+        });
+
+      try {
+        await Promise.race([
+          Promise.resolve(
+            onRefreshRef.current(),
+          ),
+          timeoutPromise,
+        ]);
+      } catch {
+        // Auch bei einem Ladefehler darf
+        // die Oberfläche niemals hängen.
+      } finally {
+        if (timeoutId !== undefined) {
+          window.clearTimeout(timeoutId);
         }
-        const timeout = new Promise<void>((_, rej) =>
-          window.setTimeout(() => rej(new Error("timeout")), 5000),
-        );
-        try {
-          await Promise.race([Promise.resolve(onRefreshRef.current()), timeout]);
-          setStatus("done");
-        } catch {
-          setStatus("done");
-        } finally {
-          refreshing.current = false;
-          setPull(0);
-          pullRef.current = 0;
-          if (typeof window !== "undefined") {
-            window.dispatchEvent(new CustomEvent("steuerstoff:refreshing", { detail: false }));
-          }
-          window.setTimeout(() => setStatus("idle"), 900);
-        }
-      } else {
-        setPull(0);
-        pullRef.current = 0;
-        setStatus("idle");
+
+        refreshing.current = false;
+        publishRefreshing(false);
+        setStatus("done");
+        setPull(36);
+        pullRef.current = 36;
+
+        doneTimerRef.current =
+          window.setTimeout(() => {
+            setPull(0);
+            pullRef.current = 0;
+            setStatus("idle");
+            doneTimerRef.current = null;
+          }, 550);
       }
     };
 
-    const onCancel = () => {
-      if (!refreshing.current) reset();
+    const onTouchEnd = () => {
+      void finishGesture();
+    };
+
+    const onTouchCancel = () => {
+      resetGesture();
+    };
+
+    const onPageInterruption = () => {
+      refreshing.current = false;
+      publishRefreshing(false);
+      resetGesture(true);
+    };
+
+    const onVisibilityChange = () => {
+      if (document.hidden) {
+        onPageInterruption();
+      }
+    };
+
+    const onScroll = () => {
+      if (
+        !refreshing.current &&
+        !isAtPageTop() &&
+        engaged.current
+      ) {
+        resetGesture();
+      }
     };
 
     const onMenuOpen = () => {
-      if (!refreshing.current) reset();
+      resetGesture();
     };
 
-    window.addEventListener("touchstart", onTouchStart, { passive: true });
-    window.addEventListener("touchmove", onTouchMove, { passive: true });
-    window.addEventListener("touchend", onTouchEnd, { passive: true });
-    window.addEventListener("touchcancel", onCancel, { passive: true });
-    window.addEventListener("steuerstoff:menu-open", onMenuOpen);
+    window.addEventListener(
+      "touchstart",
+      onTouchStart,
+      {
+        passive: true,
+        capture: true,
+      },
+    );
+
+    window.addEventListener(
+      "touchmove",
+      onTouchMove,
+      {
+        passive: false,
+        capture: true,
+      },
+    );
+
+    window.addEventListener(
+      "touchend",
+      onTouchEnd,
+      {
+        passive: true,
+        capture: true,
+      },
+    );
+
+    window.addEventListener(
+      "touchcancel",
+      onTouchCancel,
+      {
+        passive: true,
+        capture: true,
+      },
+    );
+
+    window.addEventListener(
+      "scroll",
+      onScroll,
+      { passive: true },
+    );
+
+    window.addEventListener(
+      "blur",
+      onPageInterruption,
+    );
+
+    window.addEventListener(
+      "pagehide",
+      onPageInterruption,
+    );
+
+    window.addEventListener(
+      "steuerstoff:menu-open",
+      onMenuOpen,
+    );
+
+    document.addEventListener(
+      "visibilitychange",
+      onVisibilityChange,
+    );
+
     return () => {
-      window.removeEventListener("touchstart", onTouchStart);
-      window.removeEventListener("touchmove", onTouchMove);
-      window.removeEventListener("touchend", onTouchEnd);
-      window.removeEventListener("touchcancel", onCancel);
-      window.removeEventListener("steuerstoff:menu-open", onMenuOpen);
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      window.removeEventListener(
+        "touchstart",
+        onTouchStart,
+        true,
+      );
+
+      window.removeEventListener(
+        "touchmove",
+        onTouchMove,
+        true,
+      );
+
+      window.removeEventListener(
+        "touchend",
+        onTouchEnd,
+        true,
+      );
+
+      window.removeEventListener(
+        "touchcancel",
+        onTouchCancel,
+        true,
+      );
+
+      window.removeEventListener(
+        "scroll",
+        onScroll,
+      );
+
+      window.removeEventListener(
+        "blur",
+        onPageInterruption,
+      );
+
+      window.removeEventListener(
+        "pagehide",
+        onPageInterruption,
+      );
+
+      window.removeEventListener(
+        "steuerstoff:menu-open",
+        onMenuOpen,
+      );
+
+      document.removeEventListener(
+        "visibilitychange",
+        onVisibilityChange,
+      );
+
+      cancelFrame();
+      cancelDoneTimer();
+      publishRefreshing(false);
     };
   }, []);
 
@@ -205,44 +503,66 @@ export function PullToRefresh({
           ? "Loslassen zum Aktualisieren"
           : "Zum Aktualisieren ziehen";
 
-  const visible = pull > 0 || status === "loading" || status === "done";
-  const easing = "transform 220ms cubic-bezier(0.22, 1, 0.36, 1)";
+  const visible =
+    pull > 0 ||
+    status === "loading" ||
+    status === "done";
+
+  const indicatorOffset =
+    status === "pull" ||
+    status === "ready"
+      ? Math.max(8, pull - 10)
+      : status === "loading"
+        ? 28
+        : status === "done"
+          ? 22
+          : -44;
 
   return (
     <>
-      {visible && (
-        <div
-          aria-hidden={!visible}
-          className="pointer-events-none fixed left-0 right-0 top-0 z-40 flex justify-center md:hidden"
-          style={{
-            transform: `translate3d(0, ${Math.max(8, pull - 8)}px, 0)`,
-            transition: status === "pull" || status === "ready" ? "none" : easing,
-          }}
-        >
-          <div className="mt-2 inline-flex items-center gap-2 rounded-full border border-border bg-card/95 px-3 py-1 text-[11px] text-foreground shadow-sm backdrop-blur">
-            <span
-              className={`inline-block h-3 w-3 rounded-full border-2 border-foreground/30 ${
-                status === "loading" ? "animate-spin border-t-foreground" : ""
-              }`}
-              style={{
-                transform:
-                  status === "pull" || status === "ready"
-                    ? `rotate(${Math.min(360, (pull / THRESHOLD) * 360)}deg)`
-                    : undefined,
-              }}
-            />
-            <span>{label}</span>
-          </div>
-        </div>
-      )}
       <div
+        aria-hidden={!visible}
+        className={[
+          "pointer-events-none fixed left-0 right-0 top-0 z-[70] flex justify-center md:hidden",
+          visible
+            ? "opacity-100"
+            : "opacity-0",
+        ].join(" ")}
         style={{
-          transform: `translate3d(0, ${pull * 0.4}px, 0)`,
-          transition: status === "pull" || status === "ready" ? "none" : easing,
+          transform: `translate3d(0, ${indicatorOffset}px, 0)`,
+          transition:
+            status === "pull" ||
+            status === "ready"
+              ? "none"
+              : "transform 220ms cubic-bezier(0.22, 1, 0.36, 1), opacity 180ms ease",
         }}
       >
-        {children}
+        <div className="mt-[calc(env(safe-area-inset-top)+0.5rem)] inline-flex items-center gap-2 rounded-full border border-border bg-card/95 px-3 py-1.5 text-[11px] font-medium text-foreground shadow-sm backdrop-blur">
+          <span
+            className={[
+              "inline-block h-3 w-3 rounded-full border-2 border-foreground/25",
+              status === "loading"
+                ? "animate-spin border-t-foreground"
+                : "",
+            ].join(" ")}
+            style={{
+              transform:
+                status === "pull" ||
+                status === "ready"
+                  ? `rotate(${Math.min(
+                      360,
+                      (pull / THRESHOLD) *
+                        360,
+                    )}deg)`
+                  : undefined,
+            }}
+          />
+
+          <span>{label}</span>
+        </div>
       </div>
+
+      {children}
     </>
   );
 }

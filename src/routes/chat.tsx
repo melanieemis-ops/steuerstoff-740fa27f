@@ -223,7 +223,7 @@ function ChatPage() {
     ta.style.height = Math.min(ta.scrollHeight, 180) + "px";
   }, [input]);
 
-  const askChatFn = useServerFn(askChat);
+
 
   async function ask(text: string, retryOf?: string) {
     const trimmed = text.trim();

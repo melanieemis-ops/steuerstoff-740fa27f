@@ -1207,6 +1207,890 @@ Bei einer späteren Gesetzesänderung muss dieser KB-Eintrag aktualisiert oder d
   ]
 },
 {
+  id: "bfh-v-r-11-24-gemeinnuetzigkeit-unternehmensverbundene-stiftung",
+
+  title:
+    "Gemeinnützigkeit einer unternehmensverbundenen Stiftung – private Interessen des Stifters",
+
+  short:
+    "Private wirtschaftliche, familiäre oder sonstige eigennützige Interessen des Stifters können die Selbstlosigkeit einer Stiftung ausschließen, wenn die Stiftung vorrangig diesen Interessen dient. Erforderlich ist eine Gesamtwürdigung und Abwägung zwischen der Förderung der Allgemeinheit und den Vorteilen des Stifters oder ihm nahestehender Personen. Ein bloßer Verstoß gegen eine stiftungsrechtliche Satzungsregelung zum Erhalt des Stiftungsvermögens führt dagegen nicht automatisch zu einem Verstoß gegen § 63 Abs. 1 AO.",
+
+  category:
+    "Gemeinnützigkeit / Stiftungen / Selbstlosigkeit / tatsächliche Geschäftsführung / unternehmensverbundene Stiftung",
+
+  topicType: "bfh-rechtsprechung",
+
+  decision: {
+    court: "Bundesfinanzhof",
+    senate: "V. Senat",
+    date: "2025-12-04",
+    fileNumber: "V R 11/24",
+    proceedingOutcome:
+      "Aufhebung und Zurückverweisung an das Finanzgericht zur weiteren Sachverhaltsaufklärung",
+    publication:
+      "Kommentierte Nachricht NWB 21/2026, Seite 1368"
+  },
+
+  status:
+    "BFH-Entscheidung mit Zurückverweisung – endgültige gemeinnützigkeitsrechtliche Beurteilung des Einzelfalls noch offen",
+
+  warning:
+    "Der BFH hat nicht abschließend festgestellt, dass die Stiftung ihre Gemeinnützigkeit verloren hat. Das Finanzgericht muss im zweiten Rechtsgang insbesondere prüfen, ob die Stiftung vorrangig eigenwirtschaftliche, familiäre oder sonstige eigennützige Interessen der Stifterin verfolgte.",
+
+  keywords:
+    "BFH V R 11/24|gemeinnützige Stiftung|unternehmensverbundene Stiftung|Selbstlosigkeit|§ 55 AO|§ 55 Abs. 1 AO|eigenwirtschaftliche Zwecke|private Interessen des Stifters|familiäre Interessen|Pflichtteilsansprüche|Pflichtteil vermeiden|nahestehende Personen|Stifterinteresse|Konzernfinanzierung|Finanzierungsgesellschaft|Stimmbindungsvereinbarung|Zustiftung|Zuwendung|Sonderbetriebsausgabenabzug|Stiftungsvermögen|Vermögenserhaltung|§ 63 AO|§ 63 Abs. 1 AO|tatsächliche Geschäftsführung|Satzungsverstoß|§§ 51 bis 68 AO|§ 5 Abs. 1 Nr. 9 KStG|Gemeinnützigkeitsverlust|Stiftungsrat|Grundstockvermögen|verbindliche Auskunft",
+
+  references: [
+    "§ 5 Abs. 1 Nr. 9 KStG",
+    "§ 51 AO",
+    "§ 52 AO",
+    "§ 55 Abs. 1 AO",
+    "§ 56 AO",
+    "§ 57 AO",
+    "§ 60 AO",
+    "§ 60a AO",
+    "§ 63 Abs. 1 AO",
+    "§§ 51 bis 68 AO",
+    "§ 272 Abs. 2 Nr. 4 HGB",
+    "BFH, Urteil vom 04.12.2025 – V R 11/24",
+    "NWB 21/2026, Seite 1368"
+  ],
+
+  coreStatements: [
+    {
+      statement:
+        "Private Interessen des Stifters können die Selbstlosigkeit der Stiftung ausschließen.",
+      legalBasis: "§ 55 Abs. 1 AO",
+      explanation:
+        "Dies gilt sowohl für wirtschaftliche Interessen als auch für sonstige eigennützige oder familiäre Interessen."
+    },
+    {
+      statement:
+        "Nicht jedes private Motiv des Stifters führt automatisch zum Verlust der Gemeinnützigkeit.",
+      legalBasis: "§ 55 Abs. 1 AO",
+      explanation:
+        "Entscheidend ist, ob die Stiftung in erster Linie eigenwirtschaftliche Zwecke verfolgt."
+    },
+    {
+      statement:
+        "Erforderlich ist eine Abwägung zwischen Allgemeininteresse und privaten Vorteilen.",
+      legalBasis: "§ 55 Abs. 1 AO",
+      explanation:
+        "Die Förderung der Allgemeinheit muss gegenüber den eigenwirtschaftlichen Vorteilen des Stifters oder nahestehender Personen überwiegen."
+    },
+    {
+      statement:
+        "Auch familiäre oder ideelle Motive können gemeinnützigkeitsschädlich sein.",
+      legalBasis: "§ 55 Abs. 1 AO",
+      explanation:
+        "Ein Interesse am Erhalt des familiären Unternehmens oder am Ausschluss von Pflichtteilsberechtigten kann ein eigennütziges Interesse darstellen."
+    },
+    {
+      statement:
+        "Ein bloßer Verstoß gegen eine stiftungsrechtliche Vermögenserhaltungsklausel führt nicht automatisch zum Verlust der Gemeinnützigkeit.",
+      legalBasis: "§ 63 Abs. 1 AO",
+      explanation:
+        "Gemeinnützigkeitsrechtlich maßgeblich sind Verstöße gegen die Vorgaben der §§ 51 bis 68 AO."
+    },
+    {
+      statement:
+        "Nicht jede Satzungsbestimmung ist zugleich eine gemeinnützigkeitsrechtliche Vorgabe.",
+      legalBasis: "§ 63 Abs. 1 AO",
+      explanation:
+        "Satzungsregelungen, die ausschließlich dem Stiftungsrecht entstammen und nicht durch die Abgabenordnung vorgegeben sind, sind für die Steuerbefreiung nicht ohne Weiteres maßgeblich."
+    }
+  ],
+
+  facts: {
+    foundation:
+      "Rechtsfähige, im Jahr 2015 errichtete und anerkannte gemeinnützige Stiftung bürgerlichen Rechts.",
+
+    founder:
+      "Die Stifterin übertrug Geld und Aktien einer AG auf die Stiftung und behielt über Stimmbindungsvereinbarungen erheblichen Einfluss auf die gesellschaftsrechtliche Nutzung der Beteiligung.",
+
+    corporateStructure:
+      "Die Stiftung hielt Aktien an einer AG, die als Finanzierungsgesellschaft innerhalb eines Konzerns eingesetzt wurde. Weitere Beteiligte waren insbesondere eine GmbH, die A-Gesellschaft und B.",
+
+    financingFunction:
+      "Die Stimmbindungsvereinbarungen sollten darauf hinwirken, die Finanzierungsfunktion der AG im Konzern der GmbH zu fördern.",
+
+    contributions:
+      "Die Stifterin leistete Zustiftungen und Zuwendungen an die Stiftung. Die Verwendung war daran geknüpft, dass die Mittel in die bereits von der Stiftung gehaltene AG investiert wurden.",
+
+    flowOfFunds:
+      "Die Stiftung zahlte Beträge in die Kapitalrücklage der AG ein, nachdem ihr jeweils am selben Tag entsprechende Beträge von der Stifterin als Zustiftung zugeflossen waren.",
+
+    taxAdvantage:
+      "Durch die Übertragung der Mittel auf die Stiftung konnte die Stifterin einen ansonsten nicht möglichen Sonderbetriebsausgabenabzug von bis zu 1 Mio. € geltend machen.",
+
+    successionInterest:
+      "Es bestand der Verdacht, dass die Gestaltung zugleich dazu dienen sollte, Pflichtteilsansprüche der Kinder faktisch auszuschließen und das Unternehmensvermögen im Konzern zu sichern.",
+
+    foundationGovernance:
+      "Dem Stiftungsrat gehörte ausschließlich die Stifterin an. Der Stiftungsvorstand wurde zur Umsetzung der von der Stifterin vorgegebenen Investitionen ermächtigt und unwiderruflich angewiesen."
+  },
+
+  disputedIssues: [
+    "Verfolgte die Stiftung tatsächlich selbstlos gemeinnützige Zwecke?",
+    "Diente die Stiftung vorrangig der Finanzierung und Sicherung des Konzerns?",
+    "Standen private, wirtschaftliche oder familiäre Interessen der Stifterin im Vordergrund?",
+    "Sollten Pflichtteilsansprüche der Kinder faktisch ausgeschlossen werden?",
+    "Waren die GmbH oder B der Stifterin nahestehende Personen?",
+    "War der steuerliche Sonderbetriebsausgabenabzug ein wesentlicher Zweck der Gestaltung?",
+    "Führte die Investition in die AG zu einem gemeinnützigkeitsschädlichen Vermögensverstoß?",
+    "Ist ein Verstoß gegen eine Satzungsklausel zum Erhalt des Stiftungsvermögens steuerlich erheblich?"
+  ],
+
+  body: `
+# Gemeinnützigkeit einer unternehmensverbundenen Stiftung
+
+## BFH vom 04.12.2025 – V R 11/24
+
+# 1. Kernaussage
+
+Private Interessen des Stifters können die Gemeinnützigkeit einer Stiftung ausschließen.
+
+Dies gilt insbesondere für
+
+- wirtschaftliche Interessen,
+- steuerliche Interessen,
+- familiäre Interessen und
+- sonstige eigennützige Interessen.
+
+Entscheidend ist jedoch nicht allein, ob bei der Gründung oder Finanzierung der Stiftung auch private Motive vorhanden waren.
+
+Maßgeblich ist vielmehr, ob die Stiftung
+
+**in erster Linie eigenwirtschaftliche Zwecke**
+
+verfolgt.
+
+### Rechtsgrundlage
+
+§ 55 Abs. 1 AO.
+
+---
+
+# 2. Selbstlosigkeit nach § 55 Abs. 1 AO
+
+Eine Körperschaft handelt selbstlos, wenn sie nicht in erster Linie eigenwirtschaftliche Zwecke verfolgt.
+
+Eigenwirtschaftliche Zwecke können sein:
+
+- eigene wirtschaftliche Interessen der Körperschaft,
+- wirtschaftliche Interessen ihrer Mitglieder,
+- wirtschaftliche Interessen des Stifters,
+- mittelbare Interessen nahestehender Personen,
+- familiäre Interessen oder
+- sonstige eigennützige Interessen.
+
+### Lernsatz
+
+**Eine gemeinnützige Stiftung darf nicht vorrangig als Instrument zur Förderung privater Interessen ihres Stifters oder nahestehender Personen eingesetzt werden, § 55 Abs. 1 AO.**
+
+---
+
+# 3. Bedeutung des Ausdrucks „in erster Linie“
+
+Die Formulierung „in erster Linie“ bedeutet, dass nicht jedes private Interesse automatisch schädlich ist.
+
+Private Vorteile können unschädlich sein, wenn sie lediglich
+
+- untergeordnet,
+- reflexartig,
+- nebensächlich oder
+- bloße Folge der gemeinnützigen Tätigkeit
+
+sind.
+
+Gemeinnützigkeitsschädlich wird die Gestaltung, wenn die privaten Interessen
+
+- überwiegen,
+- die Stiftungstätigkeit prägen oder
+- den eigentlichen Schwerpunkt der Tätigkeit darstellen.
+
+### Lernsatz
+
+**Nicht jeder private Nebeneffekt ist gemeinnützigkeitsschädlich. Schädlich ist die vorrangige Förderung privater Interessen.**
+
+---
+
+# 4. Erforderliche Interessenabwägung
+
+Für die Prüfung der Selbstlosigkeit ist eine Gesamtwürdigung erforderlich.
+
+Dabei sind insbesondere gegenüberzustellen:
+
+## Gemeinnützige Interessen
+
+- tatsächliche Förderung der Allgemeinheit,
+- Verwirklichung der steuerbegünstigten Satzungszwecke,
+- Umfang der gemeinnützigen Mittelverwendung,
+- Zahl und Bedeutung der geförderten Projekte,
+- tatsächlicher Nutzen für die Allgemeinheit.
+
+## Private oder eigenwirtschaftliche Interessen
+
+- Erhalt oder Finanzierung eines Familienunternehmens,
+- Konzernfinanzierung,
+- Sicherung des Lebenswerks des Stifters oder dessen Familie,
+- steuerliche Sonderausgaben- oder Betriebsausgabenvorteile,
+- Ausschluss von Pflichtteilsberechtigten,
+- Erhalt von Einfluss- und Stimmrechten,
+- Förderung nahestehender Personen oder Unternehmen.
+
+### Prüfungsfrage
+
+**Überwiegt die Förderung der Allgemeinheit gegenüber den Vorteilen des Stifters und der ihm nahestehenden Personen?**
+
+### Lernsatz
+
+**Die Selbstlosigkeit ist anhand einer Abwägung zwischen Allgemeininteresse und privaten Vorteilen zu beurteilen.**
+
+---
+
+# 5. Interesse am Erhalt des Lebenswerks
+
+Die Stifterin berief sich unter anderem darauf, das persönliche Lebenswerk ihres verstorbenen Ehemanns erhalten zu wollen.
+
+Ein solches Motiv ist nicht zwingend ein unmittelbares wirtschaftliches Interesse.
+
+Es kann aber ein
+
+- familiäres,
+- ideelles oder
+- sonstiges eigennütziges Interesse
+
+darstellen.
+
+Auch nicht unmittelbar wirtschaftliche Interessen können daher für die Prüfung des § 55 Abs. 1 AO relevant sein.
+
+### Lernsatz
+
+**§ 55 Abs. 1 AO erfasst nicht nur finanzielle Eigeninteressen, sondern auch sonstige eigennützige oder familiäre Interessen.**
+
+---
+
+# 6. Pflichtteilsansprüche als mögliches Eigeninteresse
+
+Nach dem Sachverhalt bestand die Möglichkeit, dass die Stiftungskonstruktion dazu dienen sollte, Vermögen dem Zugriff pflichtteilsberechtigter Kinder zu entziehen.
+
+Das Verhältnis der Stifterin zu den Kindern soll zerrüttet gewesen sein.
+
+Die Übertragung des Vermögens auf die Stiftung konnte dazu führen, dass
+
+- das Vermögen nicht an die Kinder gelangt,
+- künftige Pflichtteilsansprüche faktisch reduziert oder ausgeschlossen werden,
+- die Beteiligungen innerhalb der gewünschten Unternehmensstruktur verbleiben.
+
+Ein solches Ziel stellt kein gemeinnützigkeitsrechtliches Allgemeininteresse dar.
+
+Es kann vielmehr ein privates familiäres Eigeninteresse der Stifterin sein.
+
+### Lernsatz
+
+**Die Nutzung einer gemeinnützigen Stiftung zur Vermeidung oder Reduzierung von Pflichtteilsansprüchen kann ein die Selbstlosigkeit ausschließendes Eigeninteresse darstellen.**
+
+### Achtung
+
+Der BFH hat nicht abschließend festgestellt, dass tatsächlich ein Pflichtteilsausschluss beabsichtigt war.
+
+Das Finanzgericht muss die Motivation und die wirtschaftlichen Auswirkungen im zweiten Rechtsgang aufklären.
+
+---
+
+# 7. Unternehmenssicherung und Konzernfinanzierung
+
+Die Stiftung hielt eine Beteiligung an einer AG.
+
+Diese AG sollte als Finanzierungsgesellschaft eines Konzerns dienen.
+
+Die von der Stifterin geleisteten Zustiftungen und Zuwendungen wurden unter der Bedingung geleistet, dass die Stiftung die Mittel in die AG investiert.
+
+Die AG verwendete ihre Mittel insbesondere für Darlehen an Konzern- und Tochtergesellschaften.
+
+Damit stellt sich die Frage, ob die Stiftung tatsächlich
+
+- die Allgemeinheit förderte oder
+- vorrangig als Finanzierungsinstrument für den Konzern eingesetzt wurde.
+
+### Lernsatz
+
+**Wird eine gemeinnützige Stiftung vorrangig zur Finanzierung oder Sicherung eines Unternehmensverbunds eingesetzt, kann dies gegen die Selbstlosigkeit nach § 55 Abs. 1 AO sprechen.**
+
+---
+
+# 8. Steuerlicher Vorteil der Stifterin
+
+Durch die Zuwendung an die Stiftung konnte die Stifterin einen steuerlichen Abzug geltend machen, der bei einer unmittelbaren Finanzierung des Unternehmens nicht möglich gewesen wäre.
+
+Nach dem mitgeteilten Sachverhalt ging es um einen Sonderbetriebsausgabenabzug in Höhe von bis zu 1 Mio. €.
+
+Der steuerliche Vorteil allein führt nicht zwingend zum Verlust der Gemeinnützigkeit.
+
+Er ist aber in die Gesamtwürdigung einzubeziehen.
+
+Zu prüfen ist insbesondere:
+
+- War die steuerliche Abziehbarkeit nur eine Nebenfolge?
+- Oder war der steuerliche Vorteil ein wesentlicher Grund für die Gestaltung?
+- Wäre die Zuwendung auch ohne den Steuervorteil erfolgt?
+- Wurden die Mittel tatsächlich gemeinnützig verwendet?
+- Dienten die Mittel unmittelbar oder mittelbar der Konzernfinanzierung?
+
+### Lernsatz
+
+**Ein steuerlicher Vorteil des Stifters ist nicht automatisch gemeinnützigkeitsschädlich, kann aber ein Indiz für eine eigennützige Zwecksetzung sein.**
+
+---
+
+# 9. Nahestehende Personen
+
+Für die Prüfung der Selbstlosigkeit sind nicht nur unmittelbare Vorteile des Stifters zu berücksichtigen.
+
+Einzubeziehen sind auch mittelbare Vorteile von
+
+- Familienangehörigen,
+- Gesellschaftern,
+- beherrschten Unternehmen,
+- wirtschaftlich verbundenen Unternehmen und
+- sonstigen nahestehenden Personen.
+
+Der BFH gab dem Finanzgericht auf, insbesondere zu prüfen, ob
+
+- die GmbH und/oder
+- B
+
+der Stifterin nahestehende Personen waren.
+
+### Lernsatz
+
+**Auch die mittelbare Förderung nahestehender Personen oder Unternehmen kann eine eigenwirtschaftliche Zweckverfolgung nach § 55 Abs. 1 AO darstellen.**
+
+---
+
+# 10. Bedeutung der Stimmbindungsvereinbarung
+
+Die Stiftung übernahm eine Stimmbindungsvereinbarung, die inhaltlich der zuvor zwischen der Stifterin und der GmbH bestehenden Vereinbarung entsprach.
+
+Ziel der einheitlichen Stimmausübung war es, die Finanzierungsfunktion der AG innerhalb des Konzerns zu fördern.
+
+Die Stimmbindungsvereinbarung kann ein Indiz dafür sein, dass die Beteiligung der Stiftung nicht ausschließlich als gewöhnliche Vermögensanlage gehalten wurde.
+
+Zu prüfen ist vielmehr, ob die Stiftung gesellschaftsrechtlich in eine vorgegebene Konzernstrategie eingebunden war.
+
+### Lernsatz
+
+**Stimmbindungsvereinbarungen können ein Indiz dafür sein, dass eine Stiftung Beteiligungen nicht unabhängig, sondern zur Förderung privater Unternehmensinteressen hält.**
+
+---
+
+# 11. Stellung der Stifterin in den Stiftungsorganen
+
+Dem Stiftungsrat gehörte ausschließlich die Stifterin an.
+
+Der Stiftungsvorstand wurde ermächtigt und unwiderruflich angewiesen, die von der Stifterin gewünschten Investitionen umzusetzen.
+
+Dies kann gegen eine eigenständige Entscheidungsbildung der Stiftung sprechen.
+
+Für die Gesamtwürdigung sind daher insbesondere relevant:
+
+- Zusammensetzung der Stiftungsorgane,
+- personelle Unabhängigkeit,
+- Weisungsrechte der Stifterin,
+- tatsächliche Entscheidungsfreiheit des Vorstands,
+- mögliche Interessenkonflikte,
+- dokumentierte Abwägung zwischen Stiftung und Konzerninteressen.
+
+### Lernsatz
+
+**Beherrscht der Stifter die Stiftungsorgane und gibt er konkrete Investitionsentscheidungen vor, kann dies ein Indiz für eine vorrangige Förderung seiner privaten Interessen sein.**
+
+---
+
+# 12. Tatsächliche Geschäftsführung nach § 63 Abs. 1 AO
+
+Nach § 63 Abs. 1 AO muss die tatsächliche Geschäftsführung der Körperschaft auf die ausschließliche und unmittelbare Erfüllung der steuerbegünstigten Zwecke gerichtet sein.
+
+Die tatsächliche Geschäftsführung muss daher mit den gemeinnützigkeitsrechtlichen Anforderungen der Abgabenordnung übereinstimmen.
+
+### Rechtsgrundlage
+
+§ 63 Abs. 1 AO.
+
+### Lernsatz
+
+**Die tatsächliche Geschäftsführung muss den steuerbegünstigten Satzungszwecken und den Vorgaben der §§ 51 bis 68 AO entsprechen.**
+
+---
+
+# 13. Verstoß gegen die Vermögenserhaltungsklausel
+
+Die Stiftungssatzung bestimmte, dass das Stiftungsvermögen in seinem Bestand erhalten werden müsse.
+
+Das Finanzgericht hatte angenommen, die Einzahlungen in das Eigenkapital der AG verstießen gegen diesen Grundsatz und führten deshalb zum Verlust der Steuerbefreiung.
+
+Der BFH widersprach dieser Beurteilung.
+
+Ein allgemeiner steuerlicher Grundsatz, nach dem eine gemeinnützige Stiftung ihr Vermögen stets ungeschmälert erhalten müsse, existiert im Gemeinnützigkeitsrecht nicht.
+
+### Lernsatz
+
+**Ein allgemeiner gemeinnützigkeitsrechtlicher Grundsatz der ungeschmälerten Erhaltung des Stiftungsvermögens besteht nicht.**
+
+---
+
+# 14. Nicht jeder Satzungsverstoß ist gemeinnützigkeitsschädlich
+
+Ein Verstoß gegen eine Satzungsbestimmung führt nur dann zur Versagung der Gemeinnützigkeit, wenn die verletzte Regelung für das Gemeinnützigkeitsrecht maßgeblich ist.
+
+Relevant sind insbesondere die Vorgaben der
+
+§§ 51 bis 68 AO.
+
+Eine rein stiftungsrechtliche Regelung zum Erhalt des Stiftungsvermögens ist nicht automatisch eine steuerliche Gemeinnützigkeitsvoraussetzung.
+
+### Lernsatz
+
+**Verstöße gegen Satzungsbestimmungen, die nicht durch die §§ 51 bis 68 AO vorgegeben sind, führen nicht ohne Weiteres zum Verlust der Steuerbefreiung nach § 5 Abs. 1 Nr. 9 KStG.**
+
+---
+
+# 15. Abgrenzung: Stiftungsrecht und Gemeinnützigkeitsrecht
+
+## Stiftungsrecht
+
+Das Stiftungsrecht betrifft unter anderem:
+
+- Erhalt des Grundstockvermögens,
+- Organpflichten,
+- Verwaltung des Stiftungsvermögens,
+- staatliche Stiftungsaufsicht,
+- Zulässigkeit von Vermögensumschichtungen.
+
+## Gemeinnützigkeitsrecht
+
+Das Gemeinnützigkeitsrecht betrifft insbesondere:
+
+- Förderung steuerbegünstigter Zwecke,
+- Ausschließlichkeit,
+- Unmittelbarkeit,
+- Selbstlosigkeit,
+- Vermögensbindung,
+- zeitnahe Mittelverwendung,
+- ordnungsgemäße tatsächliche Geschäftsführung.
+
+### Lernsatz
+
+**Ein stiftungsrechtlicher Verstoß ist nicht automatisch ein gemeinnützigkeitsrechtlicher Verstoß. Beide Rechtsgebiete sind getrennt zu prüfen.**
+
+---
+
+# 16. Vermögensbindung und Vermögenserhaltung
+
+Die Begriffe dürfen nicht verwechselt werden.
+
+## Vermögensbindung
+
+Die gemeinnützigkeitsrechtliche Vermögensbindung betrifft insbesondere die Verwendung des Vermögens bei
+
+- Auflösung,
+- Aufhebung oder
+- Wegfall der steuerbegünstigten Zwecke.
+
+Sie soll verhindern, dass gemeinnützig gebundenes Vermögen anschließend privat verteilt wird.
+
+## Vermögenserhaltung
+
+Die stiftungsrechtliche Vermögenserhaltung betrifft die Frage, ob das Grundstockvermögen dauerhaft erhalten werden muss.
+
+### Merksatz
+
+**Gemeinnützigkeitsrechtliche Vermögensbindung ist nicht dasselbe wie stiftungsrechtliche Vermögenserhaltung.**
+
+---
+
+# 17. Formelle Satzungsmäßigkeit und tatsächliche Geschäftsführung
+
+Die Stiftung hatte zunächst einen Feststellungsbescheid über die formelle Satzungsmäßigkeit erhalten.
+
+Dieser Bescheid beantwortet grundsätzlich die Frage, ob die Satzung die gemeinnützigkeitsrechtlichen Voraussetzungen erfüllt.
+
+Davon zu unterscheiden ist die tatsächliche Geschäftsführung.
+
+### Formelle Satzungsmäßigkeit
+
+§ 60 AO und § 60a AO.
+
+Prüfung der Satzung anhand ihres Wortlauts.
+
+### Tatsächliche Geschäftsführung
+
+§ 63 AO.
+
+Prüfung, wie die Stiftung ihre Tätigkeit tatsächlich ausübt und ihre Mittel tatsächlich verwendet.
+
+### Lernsatz
+
+**Ein Feststellungsbescheid nach § 60a AO schützt nicht vor einer späteren Prüfung, ob die tatsächliche Geschäftsführung den gemeinnützigkeitsrechtlichen Anforderungen entspricht.**
+
+---
+
+# 18. Ergebnis des BFH
+
+Der BFH konnte nicht abschließend entscheiden, ob die Stiftung in den Jahren 2015 bis 2017 selbstlos tätig war.
+
+Das Finanzgericht muss im zweiten Rechtsgang weitere Feststellungen treffen.
+
+Es muss insbesondere prüfen:
+
+1. Welche wirtschaftlichen Ziele verfolgte die Stifterin?
+
+2. Welche familiären Interessen bestanden?
+
+3. Sollte das Konzernunternehmen dauerhaft gesichert werden?
+
+4. Sollten Pflichtteilsansprüche ausgeschlossen oder reduziert werden?
+
+5. Welche steuerlichen Vorteile waren mit der Gestaltung verbunden?
+
+6. Diente die Stiftung vorrangig als Finanzierungsgesellschaft?
+
+7. Welche Vorteile entstanden der GmbH, B oder anderen nahestehenden Personen?
+
+8. In welchem Umfang wurde tatsächlich die Allgemeinheit gefördert?
+
+9. Überwog die Förderung der Allgemeinheit die privaten Vorteile?
+
+### Lernsatz
+
+**Bei einer unternehmensverbundenen Stiftung entscheidet eine Gesamtwürdigung aller wirtschaftlichen, familiären, steuerlichen und gemeinnützigen Umstände.**
+
+---
+
+# 19. Streitjahr 2018
+
+Für das Jahr 2018 hatte das Finanzgericht die Steuerbefreiung wegen eines vermeintlichen Verstoßes gegen den Grundsatz der Erhaltung des Stiftungsvermögens versagt.
+
+Diese Begründung hielt der BFH für rechtsfehlerhaft.
+
+Die Sache wurde jedoch auch für 2018 zurückverwiesen.
+
+Das bedeutet:
+
+Die Steuerbefreiung steht nicht automatisch fest.
+
+Das Finanzgericht muss weiterhin prüfen, ob andere gemeinnützigkeitsrechtliche Verstöße vorliegen.
+
+### Lernsatz
+
+**Die Zurückweisung der Begründung des Finanzgerichts bedeutet nicht automatisch, dass die Stiftung für 2018 gemeinnützig war.**
+
+---
+
+# 20. Prüfungsschema für unternehmensverbundene Stiftungen
+
+## Schritt 1: Steuerbegünstigter Satzungszweck
+
+Liegt ein steuerbegünstigter Zweck nach §§ 52 bis 54 AO vor?
+
+## Schritt 2: Formelle Satzungsmäßigkeit
+
+Entspricht die Satzung den §§ 59, 60 und 61 AO?
+
+## Schritt 3: Ausschließlichkeit
+
+Verfolgt die Stiftung ausschließlich steuerbegünstigte Zwecke, § 56 AO?
+
+## Schritt 4: Unmittelbarkeit
+
+Verwirklicht die Stiftung ihre Zwecke unmittelbar, § 57 AO?
+
+## Schritt 5: Selbstlosigkeit
+
+Verfolgt die Stiftung nicht in erster Linie eigenwirtschaftliche Zwecke, § 55 Abs. 1 AO?
+
+## Schritt 6: Private Interessen
+
+Bestehen wirtschaftliche, steuerliche, familiäre oder sonstige eigennützige Interessen des Stifters?
+
+## Schritt 7: Nahestehende Personen
+
+Werden verbundene Unternehmen, Familienangehörige oder sonstige nahestehende Personen gefördert?
+
+## Schritt 8: Interessenabwägung
+
+Überwiegt die tatsächliche Förderung der Allgemeinheit gegenüber den privaten Vorteilen?
+
+## Schritt 9: Tatsächliche Geschäftsführung
+
+Entspricht die tatsächliche Geschäftsführung § 63 Abs. 1 AO?
+
+## Schritt 10: Art des Satzungsverstoßes
+
+Betrifft ein festgestellter Satzungsverstoß eine Vorgabe der §§ 51 bis 68 AO oder lediglich das allgemeine Stiftungsrecht?
+
+---
+
+# 21. Indizien für eine gemeinnützigkeitsschädliche Eigennützigkeit
+
+Folgende Umstände können gegen die Selbstlosigkeit sprechen:
+
+- Stiftung dient als Finanzierungsgesellschaft des Familienkonzerns,
+- Zuwendungen sind zwingend in bestimmte Konzerngesellschaften zu investieren,
+- der Stifter kontrolliert allein den Stiftungsrat,
+- der Vorstand ist an Weisungen des Stifters gebunden,
+- Stimmbindungsverträge sichern Unternehmensinteressen,
+- Konzernunternehmen erhalten Darlehen oder Eigenkapital,
+- die Gestaltung führt zu erheblichen Steuervorteilen,
+- Pflichtteilsberechtigte sollen vom Vermögen ausgeschlossen werden,
+- nahestehende Personen werden mittelbar begünstigt,
+- gemeinnützige Projekte treten wirtschaftlich deutlich in den Hintergrund.
+
+### Achtung
+
+Keines dieser Indizien führt isoliert zwingend zum Verlust der Gemeinnützigkeit.
+
+Erforderlich bleibt eine Gesamtwürdigung.
+
+---
+
+# 22. Indizien für eine weiterhin selbstlose Stiftung
+
+Für die Selbstlosigkeit können sprechen:
+
+- unabhängige Stiftungsorgane,
+- keine Weisungsgebundenheit gegenüber dem Stifter,
+- marktübliche Konditionen bei Geschäften mit verbundenen Unternehmen,
+- dokumentierte Investitionsentscheidungen im Interesse der Stiftung,
+- angemessene Risikostreuung,
+- tatsächliche und umfangreiche Förderung gemeinnütziger Projekte,
+- private Vorteile nur als unbedeutende Nebenfolge,
+- keine unangemessene Begünstigung nahestehender Personen,
+- transparente Offenlegung der Unternehmensverbindungen,
+- nachvollziehbare gemeinnützige Anlagestrategie.
+
+---
+
+# 23. Gestaltungsberatung
+
+Bei der Errichtung und Betreuung einer unternehmensverbundenen Stiftung sollten insbesondere dokumentiert werden:
+
+1. die gemeinnützige Motivation des Stifters,
+
+2. die wirtschaftliche Begründung der Beteiligungsstruktur,
+
+3. die Unabhängigkeit der Stiftungsorgane,
+
+4. die Angemessenheit aller Geschäfte mit verbundenen Unternehmen,
+
+5. die Verwendung der Erträge für gemeinnützige Zwecke,
+
+6. mögliche Pflichtteils- und Nachfolgeinteressen,
+
+7. steuerliche Vorteile des Stifters,
+
+8. Interessenkonflikte innerhalb der Stiftungsorgane,
+
+9. Auswahl und Überwachung von Investitionen,
+
+10. die Abwägung zwischen Vermögensertrag und Anlagerisiko.
+
+### Lernsatz
+
+**Je enger eine gemeinnützige Stiftung personell und wirtschaftlich mit einem Unternehmen verbunden ist, desto sorgfältiger müssen Entscheidungsprozesse, Fremdüblichkeit und Gemeinwohlorientierung dokumentiert werden.**
+
+---
+
+# 24. Verbindliche Auskunft
+
+Bei komplexen Gestaltungen kann eine verbindliche Auskunft gegenüber dem Finanzamt sinnvoll sein.
+
+Dabei sollten sämtliche relevanten Umstände vollständig offengelegt werden, insbesondere:
+
+- Beteiligungsverhältnisse,
+- familiäre Beziehungen,
+- Stimmbindungsverträge,
+- Finanzierungsvorgänge,
+- Pflichtteilsmotive,
+- steuerliche Abzugsmöglichkeiten,
+- Weisungs- und Kontrollrechte,
+- geplante Mittelverwendung.
+
+### Lernsatz
+
+**Eine verbindliche Auskunft schützt nur, wenn der maßgebliche Sachverhalt vollständig und zutreffend offengelegt wird.**
+
+---
+
+# 25. Kompakte Lernsätze
+
+1. Eine Stiftung ist nur selbstlos, wenn sie nicht in erster Linie eigenwirtschaftliche Zwecke verfolgt, § 55 Abs. 1 AO.
+
+2. Eigenwirtschaftliche Zwecke können auch mittelbare Interessen des Stifters betreffen.
+
+3. Neben wirtschaftlichen Interessen sind auch familiäre oder sonstige eigennützige Interessen zu berücksichtigen.
+
+4. Private Motive führen nicht automatisch zum Verlust der Gemeinnützigkeit.
+
+5. Entscheidend ist, ob die private Zweckverfolgung gegenüber der Förderung der Allgemeinheit überwiegt.
+
+6. Erforderlich ist eine Gesamtwürdigung aller Umstände.
+
+7. Die Sicherung eines Familienunternehmens kann ein privates Eigeninteresse darstellen.
+
+8. Der faktische Ausschluss von Pflichtteilsansprüchen kann gegen die Selbstlosigkeit sprechen.
+
+9. Eine steuerlich vorteilhafte Gestaltung ist ein mögliches Indiz für Eigennützigkeit.
+
+10. Ein steuerlicher Vorteil allein schließt die Gemeinnützigkeit nicht zwingend aus.
+
+11. Auch Vorteile nahestehender Personen sind in die Prüfung einzubeziehen.
+
+12. Die Nutzung einer Stiftung als Konzernfinanzierungsinstrument kann gemeinnützigkeitsschädlich sein.
+
+13. Stimmbindungsverträge können auf eine Förderung privater Unternehmensinteressen hindeuten.
+
+14. Die alleinige Kontrolle eines Stiftungsorgans durch den Stifter kann ein relevantes Indiz sein.
+
+15. Die tatsächliche Geschäftsführung muss den Vorgaben der §§ 51 bis 68 AO entsprechen, § 63 Abs. 1 AO.
+
+16. Nicht jeder Satzungsverstoß führt zum Verlust der Gemeinnützigkeit.
+
+17. Nur gemeinnützigkeitsrechtlich relevante Verstöße sind für § 5 Abs. 1 Nr. 9 KStG entscheidend.
+
+18. Ein stiftungsrechtlicher Verstoß ist nicht automatisch ein steuerrechtlicher Gemeinnützigkeitsverstoß.
+
+19. Ein allgemeiner steuerlicher Grundsatz der ungeschmälerten Erhaltung des Stiftungsvermögens besteht nicht.
+
+20. Vermögensbindung und Vermögenserhaltung sind voneinander zu unterscheiden.
+
+21. Ein Feststellungsbescheid nach § 60a AO betrifft die Satzung und ersetzt nicht die Prüfung der tatsächlichen Geschäftsführung.
+
+22. Bei unternehmensverbundenen Stiftungen ist die Fremdüblichkeit aller Geschäftsbeziehungen besonders wichtig.
+
+23. Die Förderung der Allgemeinheit muss gegenüber den privaten Vorteilen überwiegen.
+
+24. Der BFH hat die Gemeinnützigkeit im Streitfall nicht abschließend beurteilt.
+
+25. Das Finanzgericht muss den Sachverhalt im zweiten Rechtsgang weiter aufklären.
+
+---
+
+# 26. Prüfungssicherer Antwortsatz
+
+**Nach § 55 Abs. 1 AO handelt eine Stiftung nur selbstlos, wenn sie nicht in erster Linie eigenwirtschaftliche Zwecke verfolgt. Private wirtschaftliche, familiäre oder sonstige eigennützige Interessen des Stifters können daher die Gemeinnützigkeit ausschließen, wenn sie gegenüber der tatsächlichen Förderung der Allgemeinheit überwiegen. Erforderlich ist eine Gesamtwürdigung aller Umstände. Ein bloßer Verstoß gegen eine stiftungsrechtliche Satzungsregelung zum Erhalt des Stiftungsvermögens führt dagegen nicht automatisch zu einem Verstoß gegen § 63 Abs. 1 AO, sofern die verletzte Regelung nicht auf den gemeinnützigkeitsrechtlichen Vorgaben der §§ 51 bis 68 AO beruht.**
+
+---
+
+# 27. Kurzantwort des Steuerstoff-Chatbots
+
+**Der BFH hat entschieden, dass auch private wirtschaftliche, familiäre oder sonstige eigennützige Interessen des Stifters die Selbstlosigkeit einer Stiftung ausschließen können. Maßgeblich ist, ob die Stiftung nach einer Gesamtwürdigung in erster Linie diese privaten Interessen oder überwiegend die Allgemeinheit fördert, § 55 Abs. 1 AO. Bei einer unternehmensverbundenen Stiftung sind insbesondere Konzernfinanzierung, Steuervorteile, Pflichtteilsinteressen, Stimmbindungen und Vorteile nahestehender Personen zu prüfen. Ein bloßer Verstoß gegen eine rein stiftungsrechtliche Vermögenserhaltungsklausel führt dagegen nicht automatisch zum Verlust der Gemeinnützigkeit nach § 63 Abs. 1 AO. Der BFH hat den Fall zur weiteren Sachverhaltsaufklärung an das Finanzgericht zurückverwiesen.**
+
+---
+
+# 28. Fehlervermeidung
+
+Der Chatbot darf nicht pauschal behaupten:
+
+- „Jedes private Motiv des Stifters führt zum Verlust der Gemeinnützigkeit.“
+
+- „Eine Unternehmensbeteiligung ist für eine gemeinnützige Stiftung unzulässig.“
+
+- „Jede Investition in ein verbundenes Unternehmen ist gemeinnützigkeitsschädlich.“
+
+- „Jeder Satzungsverstoß führt zum Entzug der Gemeinnützigkeit.“
+
+- „Stiftungsvermögen darf niemals umgeschichtet werden.“
+
+- „Der BFH hat der Stiftung endgültig die Gemeinnützigkeit entzogen.“
+
+Richtig ist:
+
+- Private Interessen sind im Rahmen einer Gesamtwürdigung zu prüfen.
+
+- Unternehmensbeteiligungen sind nicht grundsätzlich unzulässig.
+
+- Geschäfte mit verbundenen Unternehmen müssen insbesondere fremdüblich und am Stiftungsinteresse orientiert sein.
+
+- Nur gemeinnützigkeitsrechtlich relevante Verstöße führen zur Versagung der Steuerbefreiung.
+
+- Der BFH hat die Sache an das Finanzgericht zurückverwiesen.
+
+---
+
+# 29. Entscheidungslogik für den Chatbot
+
+Bei einer Frage zu einer unternehmensverbundenen Stiftung soll der Chatbot folgende Reihenfolge verwenden:
+
+1. Welchen gemeinnützigen Zweck verfolgt die Stiftung?
+
+2. Welche Unternehmen oder Beteiligungen hält die Stiftung?
+
+3. Welche Beziehungen bestehen zwischen Stifter, Stiftung und Unternehmen?
+
+4. Erhält ein verbundenes Unternehmen Darlehen, Eigenkapital oder sonstige Vorteile?
+
+5. Sind die Konditionen fremdüblich?
+
+6. Welche steuerlichen Vorteile erhält der Stifter?
+
+7. Bestehen familiäre Nachfolge- oder Pflichtteilsinteressen?
+
+8. Wer kontrolliert Vorstand und Stiftungsrat?
+
+9. Ist der Vorstand tatsächlich unabhängig?
+
+10. Überwiegt die Allgemeinwohlförderung gegenüber den privaten Vorteilen?
+
+11. Liegt ein Verstoß gegen die §§ 51 bis 68 AO vor?
+
+12. Oder betrifft der mögliche Verstoß ausschließlich das allgemeine Stiftungsrecht?
+
+Erst danach darf eine Einschätzung zur Selbstlosigkeit und Gemeinnützigkeit erfolgen.
+`,
+
+  chatbotRules: [
+    "Nicht jedes private Motiv automatisch als gemeinnützigkeitsschädlich behandeln.",
+    "Immer prüfen, ob die Stiftung in erster Linie eigenwirtschaftliche Zwecke verfolgt.",
+    "Zwischen unmittelbaren und mittelbaren Vorteilen unterscheiden.",
+    "Auch familiäre und sonstige eigennützige Interessen berücksichtigen.",
+    "Vorteile nahestehender Personen und verbundener Unternehmen einbeziehen.",
+    "Eine Gesamtwürdigung und Interessenabwägung vornehmen.",
+    "Unternehmensbeteiligungen nicht pauschal als unzulässig bezeichnen.",
+    "Zwischen stiftungsrechtlicher Vermögenserhaltung und gemeinnützigkeitsrechtlicher Vermögensbindung unterscheiden.",
+    "Einen Satzungsverstoß nur dann als gemeinnützigkeitsschädlich werten, wenn er eine Vorgabe der §§ 51 bis 68 AO betrifft.",
+    "Den Feststellungsbescheid nach § 60a AO von der Prüfung der tatsächlichen Geschäftsführung nach § 63 AO unterscheiden.",
+    "Bei BFH V R 11/24 immer auf die Zurückverweisung und die noch offene endgültige Beurteilung hinweisen.",
+    "Keine abschließende Behauptung über den Verlust oder Fortbestand der Gemeinnützigkeit des konkreten Streitfalls treffen."
+  ],
+
+  answerTemplates: {
+    coreAnswer:
+      "Private wirtschaftliche, familiäre oder sonstige eigennützige Interessen des Stifters können die Selbstlosigkeit einer Stiftung nach § 55 Abs. 1 AO ausschließen. Entscheidend ist, ob die Stiftung nach einer Gesamtwürdigung in erster Linie diese privaten Interessen oder überwiegend die Allgemeinheit fördert.",
+
+    statuteViolation:
+      "Ein Verstoß gegen eine Satzungsbestimmung führt nicht automatisch zum Verlust der Gemeinnützigkeit. Nach § 63 Abs. 1 AO ist entscheidend, ob die tatsächliche Geschäftsführung gegen die gemeinnützigkeitsrechtlichen Vorgaben der §§ 51 bis 68 AO verstößt.",
+
+    foundationAssets:
+      "Das Gemeinnützigkeitsrecht enthält keinen allgemeinen Grundsatz, nach dem das Stiftungsvermögen stets ungeschmälert erhalten bleiben muss. Die stiftungsrechtliche Vermögenserhaltung ist von der gemeinnützigkeitsrechtlichen Vermögensbindung zu unterscheiden.",
+
+    proceduralStatus:
+      "Der BFH hat nicht abschließend über die Gemeinnützigkeit entschieden, sondern die Sache zur weiteren Sachverhaltsaufklärung an das Finanzgericht zurückverwiesen."
+  },
+
+  updateTriggers: [
+    "Veröffentlichung des vollständigen BFH-Urteils in amtlicher Sammlung",
+    "Veröffentlichung im Bundessteuerblatt",
+    "Entscheidung des Finanzgerichts im zweiten Rechtsgang",
+    "Erneutes Revisionsverfahren zum selben Sachverhalt",
+    "BMF-Schreiben zu unternehmensverbundenen Stiftungen",
+    "Änderung der §§ 55 oder 63 AO",
+    "Änderung des Stiftungsrechts zur Vermögenserhaltung",
+    "Neue BFH-Rechtsprechung zu Pflichtteilsinteressen bei gemeinnützigen Stiftungen"
+  ]
+},
+{
   id: "gemeinnuetzigkeit-liquidationsphase",
 
   title:

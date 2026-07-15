@@ -91,6 +91,21 @@ const ACADEMY_FEATURES = [
 ];
 
 function AkademiePage() {
+const [userName, setUserName] = useState(getUserName());
+
+const [inputName, setInputName] = useState("");
+
+const needsName = !hasUserName();
+
+function handleSaveName() {
+  const trimmed = inputName.trim();
+
+  if (!trimmed) return;
+
+  saveUserName(trimmed);
+
+  setUserName(trimmed);
+}
   const progress = loadLearningProgress();
 
   const statistics = getLearningStatistics(

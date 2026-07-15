@@ -91,14 +91,6 @@ export function searchKb(query: string, min = 6, max = 10): KbHit[] {
   const all: KBEntry[] = [
     ...KNOWLEDGE_BASE,
     ...INTERNAL_KNOWLEDGE_BASE,
-    ...TAX_LEXICON.map<KBEntry>((l) => ({
-      id: `lex:${l.term.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
-      title: l.term,
-      short: l.short,
-      category: "Steuerlexikon",
-      body: [l.short, l.long].filter(Boolean).join("\n\n"),
-      references: l.references,
-    })),
   ];
 
   const scored = all

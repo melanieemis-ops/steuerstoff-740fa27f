@@ -537,7 +537,8 @@ export function PullToRefresh({
               : "transform 220ms cubic-bezier(0.22, 1, 0.36, 1), opacity 180ms ease",
         }}
       >
-        <div className="mt-[calc(env(safe-area-inset-top)+0.5rem)] inline-flex items-center gap-2 rounded-full border border-border bg-card/95 px-3 py-1.5 text-[11px] font-medium text-foreground shadow-sm backdrop-blur">
+        <div 
+        className="mt-[calc(env(safe-area-inset-top)+0.5rem)] inline-flex items-center gap-2 rounded-full border border-border bg-card/95 px-3 py-1.5 text-[11px] font-medium text-foreground shadow-sm backdrop-blur">
           <span
             className={[
               "inline-block h-3 w-3 rounded-full border-2 border-foreground/25",

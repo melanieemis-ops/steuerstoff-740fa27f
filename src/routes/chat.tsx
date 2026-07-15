@@ -14,23 +14,8 @@ import {
   Sparkles,
 } from "lucide-react";
 import { generateAnswer, REVIEW_HINT, type ChatAnswer } from "@/lib/chatHeuristics";
-import { useServerFn } from "@tanstack/react-start";
-import { askChat } from "@/lib/ai/chat.functions";
 
-function toChatAnswer(ai: Awaited<ReturnType<typeof askChat>>): ChatAnswer {
-  return {
-    summary: ai.summary,
-    reasoning: ai.reasoning ?? undefined,
-    sections: ai.sections?.length ? ai.sections : undefined,
-    risks: ai.risks?.length ? ai.risks : undefined,
-    followUps: ai.followUps?.length ? ai.followUps : undefined,
-    nextStep: ai.nextStep ?? undefined,
-    knowledge: ai.knowledge ?? undefined,
-    sources: ai.sources?.length ? ai.sources : undefined,
-    confidence: ai.confidence,
-    needsHumanReview: ai.needsHumanReview,
-  };
-}
+
 
 function withFallbackMarker(a: ChatAnswer): ChatAnswer {
   return {
@@ -238,12 +223,13 @@ function ChatPage() {
     ta.style.height = Math.min(ta.scrollHeight, 180) + "px";
   }, [input]);
 
-  const askChatFn = useServerFn(askChat);
+
 
   async function ask(text: string, retryOf?: string) {
     const trimmed = text.trim();
     if (!trimmed || busy) return;
     const userMsg: Msg = { id: uid(), role: "user", text: trimmed, t: Date.now() };
+    const assistantId = uid();
     setMessages((prev) => {
       const base = retryOf ? prev.filter((m) => m.id !== retryOf) : prev;
       return [...base, userMsg];
@@ -251,21 +237,115 @@ function ChatPage() {
     setInput("");
     setBusy(true);
 
-    // Baue kompakten Verlauf (letzte 10 Nachrichten, nur user/assistant).
+    // Kompakter Verlauf: nur die letzten 8 user/assistant-Turns.
     const priorMsgs = messages.filter((m) => m.role === "user" || m.role === "assistant");
-    const history = priorMsgs.slice(-10).map((m) =>
+    const history = priorMsgs.slice(-8).map((m) =>
       m.role === "user"
         ? { role: "user" as const, content: m.text }
         : { role: "assistant" as const, content: m.answer.summary },
     );
 
+    let assistantInserted = false;
+    let accumulated = "";
+
     try {
-      const ai = await askChatFn({ data: { message: trimmed, history } });
-      const aiMsg: Msg = { id: uid(), role: "assistant", answer: toChatAnswer(ai), t: Date.now() };
-      setMessages((prev) => [...prev, aiMsg]);
+      const resp = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: trimmed, history }),
+      });
+      if (!resp.ok || !resp.body) {
+        throw new Error(`HTTP ${resp.status}`);
+      }
+      const reader = resp.body.getReader();
+      const decoder = new TextDecoder();
+      let buf = "";
+      let meta: { sources?: Array<{ id: string; title: string; reference: string | null; excerpt: string }>; model?: string } = {};
+      // eslint-disable-next-line no-constant-condition
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
+        buf += decoder.decode(value, { stream: true });
+        // Meta-Sentinel erst nach vollständigem Chunk suchen.
+        const metaIdx = buf.indexOf("<<STEUERSTOFF_META>>");
+        const errIdx = buf.indexOf("<<STEUERSTOFF_ERROR>>");
+        let visible = buf;
+        if (metaIdx !== -1) visible = buf.slice(0, metaIdx);
+        else if (errIdx !== -1) visible = buf.slice(0, errIdx);
+        if (visible !== accumulated) {
+          accumulated = visible;
+          const summarySoFar = accumulated.trimStart();
+          if (!assistantInserted && summarySoFar.length > 0) {
+            assistantInserted = true;
+            setMessages((prev) => [
+              ...prev,
+              {
+                id: assistantId,
+                role: "assistant",
+                answer: { summary: summarySoFar, confidence: "medium", needsHumanReview: false } as ChatAnswer,
+                t: Date.now(),
+              },
+            ]);
+          } else if (assistantInserted) {
+            setMessages((prev) =>
+              prev.map((m) =>
+                m.id === assistantId && m.role === "assistant"
+                  ? { ...m, answer: { ...m.answer, summary: summarySoFar } }
+                  : m,
+              ),
+            );
+          }
+        }
+        if (metaIdx !== -1 && buf.length >= metaIdx + "<<STEUERSTOFF_META>>".length) {
+          const metaJson = buf.slice(metaIdx + "<<STEUERSTOFF_META>>".length);
+          try { meta = JSON.parse(metaJson); } catch { /* wait for more */ }
+        }
+        if (errIdx !== -1) {
+          throw new Error(buf.slice(errIdx + "<<STEUERSTOFF_ERROR>>".length).trim() || "Streamfehler");
+        }
+      }
+
+      const finalSummary = accumulated.trim();
+      if (!finalSummary) throw new Error("Leere Antwort vom Modell.");
+      const sources = Array.isArray(meta.sources) ? meta.sources : [];
+      if (!assistantInserted) {
+        setMessages((prev) => [
+          ...prev,
+          {
+            id: assistantId,
+            role: "assistant",
+            answer: {
+              summary: finalSummary,
+              sources: sources.length ? sources : undefined,
+              confidence: "medium",
+              needsHumanReview: sources.length === 0,
+            } as ChatAnswer,
+            t: Date.now(),
+          },
+        ]);
+      } else {
+        setMessages((prev) =>
+          prev.map((m) =>
+            m.id === assistantId && m.role === "assistant"
+              ? {
+                  ...m,
+                  answer: {
+                    ...m.answer,
+                    summary: finalSummary,
+                    sources: sources.length ? sources : m.answer.sources,
+                    needsHumanReview: sources.length === 0 ? true : m.answer.needsHumanReview,
+                  },
+                }
+              : m,
+          ),
+        );
+      }
     } catch (err) {
-      // Fallback auf lokale Heuristik, damit der Nutzer nicht leer ausgeht.
       console.warn("[steuerstoff-chat] AI unavailable, using local fallback:", (err as Error).message);
+      // Falls ein leerer Assistenten-Bubble bereits gerendert wurde, wieder entfernen.
+      if (assistantInserted) {
+        setMessages((prev) => prev.filter((m) => m.id !== assistantId));
+      }
       try {
         const fallback = withFallbackMarker(generateAnswer(trimmed));
         const aiMsg: Msg = { id: uid(), role: "assistant", answer: fallback, t: Date.now() };
@@ -289,6 +369,7 @@ function ChatPage() {
       }
     }
   }
+
 
   function activateChatImmediately() {
     clearTimers();

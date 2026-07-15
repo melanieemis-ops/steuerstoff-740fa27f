@@ -217,7 +217,7 @@ function handleSaveName() {
                 </div>
 
                 <Link
-                  to="/lernen"
+                  to="/lerngebiete"
                   className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-foreground px-5 py-3.5 text-sm font-semibold text-background shadow-sm transition-all hover:-translate-y-0.5 hover:opacity-90 sm:w-auto"
                 >
                   Lerneinheit starten

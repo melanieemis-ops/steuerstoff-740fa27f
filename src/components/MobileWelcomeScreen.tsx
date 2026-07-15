@@ -140,8 +140,8 @@ export function MobileWelcomeScreen() {
         transition: dragging
           ? "none"
           : reducedMotion
-            ? "transform 120ms ease, opacity 100ms ease"
-            : "transform 700ms cubic-bezier(0.22, 1, 0.36, 1), opacity 450ms ease",
+            ? "transform 50ms ease, opacity 100ms ease"
+            : "transform 50ms cubic-bezier(0.22, 1, 0.36, 1), opacity 450ms ease",
       }}
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}

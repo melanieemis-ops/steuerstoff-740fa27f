@@ -1,4 +1,4 @@
-@import "tailwindcss" source(none);
+@import "tailwindcss" source;
 @source "../src";
 @import "tw-animate-css";
 
@@ -102,6 +102,131 @@
   --sidebar-accent-foreground: oklch(0.28 0.05 265);
   --sidebar-border: oklch(0.9 0.018 85);
   --sidebar-ring: oklch(0.55 0.15 305);
+}
+Bibliothek
+/
+dark-mode-styles.css
+
+
+.dark {
+  --background: oklch(0.16 0.018 265);
+  --foreground: oklch(0.96 0.008 85);
+
+  --card: oklch(0.205 0.018 265);
+  --card-foreground: oklch(0.96 0.008 85);
+
+  --popover: oklch(0.205 0.018 265);
+  --popover-foreground: oklch(0.96 0.008 85);
+
+  --primary: oklch(0.9 0.015 85);
+  --primary-foreground: oklch(0.18 0.025 265);
+
+  --secondary: oklch(0.25 0.018 265);
+  --secondary-foreground: oklch(0.94 0.008 85);
+
+  --muted: oklch(0.245 0.015 265);
+  --muted-foreground: oklch(0.7 0.018 265);
+
+  --accent: oklch(0.275 0.02 265);
+  --accent-foreground: oklch(0.96 0.008 85);
+
+  --destructive: oklch(0.62 0.22 27);
+  --destructive-foreground: oklch(0.98 0.005 85);
+
+  --border: oklch(0.31 0.018 265);
+  --input: oklch(0.29 0.018 265);
+  --ring: oklch(0.7 0.17 305);
+
+  --sidebar: oklch(0.18 0.018 265);
+  --sidebar-foreground: oklch(0.96 0.008 85);
+  --sidebar-primary: oklch(0.9 0.015 85);
+  --sidebar-primary-foreground: oklch(0.18 0.025 265);
+  --sidebar-accent: oklch(0.26 0.018 265);
+  --sidebar-accent-foreground: oklch(0.96 0.008 85);
+  --sidebar-border: oklch(0.31 0.018 265);
+  --sidebar-ring: oklch(0.7 0.17 305);
+
+  --gradient-accent: linear-gradient(
+    135deg,
+    oklch(0.72 0.2 340),
+    oklch(0.67 0.19 295) 50%,
+    oklch(0.76 0.12 215)
+  );
+
+  --shadow-card:
+    0 1px 2px oklch(0 0 0 / 0.18),
+    0 12px 32px -16px oklch(0 0 0 / 0.5);
+}
+
+html {
+  transition:
+    background-color 220ms ease,
+    color 220ms ease;
+}
+
+body,
+[data-app-root],
+.bg-background,
+.bg-card {
+  transition:
+    background-color 220ms ease,
+    color 220ms ease,
+    border-color 220ms ease;
+}
+
+.dark .bg-grid-subtle {
+  background-image:
+    linear-gradient(
+      to right,
+      oklch(0.96 0.008 85 / 0.045) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      oklch(0.96 0.008 85 / 0.045) 1px,
+      transparent 1px
+    );
+}
+
+.dark .steuerstoff-mobile-welcome {
+  background:
+    radial-gradient(
+      circle at 50% 28%,
+      rgba(161, 109, 255, 0.12),
+      transparent 28%
+    ),
+    linear-gradient(
+      180deg,
+      #15171d 0%,
+      #101217 55%,
+      #0c0e12 100%
+    );
+  color: #f4f6fb;
+}
+
+.dark .steuerstoff-welcome-byline,
+.dark .steuerstoff-welcome-copy p,
+.dark .steuerstoff-welcome-open {
+  color: rgba(232, 237, 247, 0.62);
+}
+
+.dark .steuerstoff-welcome-handle {
+  background: rgba(232, 237, 247, 0.18);
+}
+
+.dark .steuerstoff-welcome-logo {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 24px 56px -28px rgba(0, 0, 0, 0.75),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.dark .steuerstoff-welcome-logo::before {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.11),
+    rgba(255, 255, 255, 0.035)
+  );
 }
 
 @layer base {

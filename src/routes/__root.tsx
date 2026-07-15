@@ -1,4 +1,7 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import {
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
 import {
   Outlet,
   Link,
@@ -7,6 +10,10 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
+import {
+  useEffect,
+  type ReactNode,
+} from "react";
 
 import appCss from "../styles.css?url";
 
@@ -18,19 +25,27 @@ import {
 import { ScrollToBottom } from "@/components/ScrollToBottom";
 import { PwaStatus } from "@/components/PwaStatus";
 import { MobileWelcomeScreen } from "@/components/MobileWelcomeScreen";
+import {
+  applyTheme,
+  getThemeMode,
+  watchSystemTheme,
+} from "@/lib/theme";
 
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
+        <h1 className="text-7xl font-bold text-foreground">
+          404
+        </h1>
 
         <h2 className="mt-4 text-xl font-semibold text-foreground">
           Seite nicht gefunden
         </h2>
 
         <p className="mt-2 text-sm text-muted-foreground">
-          Dieser Bereich existiert noch nicht oder wurde verschoben.
+          Dieser Bereich existiert noch nicht oder wurde
+          verschoben.
         </p>
 
         <div className="mt-6 flex flex-wrap justify-center gap-2">
@@ -73,7 +88,7 @@ function ErrorComponent({
 
   const tryAgain = () => {
     try {
-      router.invalidate();
+      void router.invalidate();
     } catch {
       // Fehler beim Zurücksetzen ignorieren.
     }
@@ -95,8 +110,9 @@ function ErrorComponent({
         </h1>
 
         <p className="mt-2 text-sm text-muted-foreground">
-          Die Ansicht konnte nicht sauber geladen werden. Bitte erneut
-          versuchen oder zur Startseite zurückkehren.
+          Die Ansicht konnte nicht sauber geladen werden.
+          Bitte erneut versuchen oder zur Startseite
+          zurückkehren.
         </p>
 
         <div className="mt-6 flex flex-wrap justify-center gap-2">
@@ -129,7 +145,9 @@ function ErrorComponent({
 }
 
 export const Route =
-  createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  createRootRouteWithContext<{
+    queryClient: QueryClient;
+  }>()({
     head: () => ({
       meta: [
         {
@@ -264,7 +282,11 @@ export const Route =
     errorComponent: ErrorComponent,
   });
 
-function RootShell({ children }: { children: React.ReactNode }) {
+function RootShell({
+  children,
+}: {
+  children: ReactNode;
+}) {
   return (
     <html lang="de">
       <head>
@@ -280,47 +302,66 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
-  const { queryClient } = Route.useRouteContext();
-  const router = useRouter();
+  const { queryClient } =
+    Route.useRouteContext();
 
-  const handleRefresh = async () => {
-    try {
-      if (typeof window !== "undefined") {
-        window.dispatchEvent(
-          new CustomEvent("steuerstoff:refresh"),
-        );
-      }
+  useEffect(() => {
+    const applyCurrentTheme = () => {
+      applyTheme(getThemeMode());
+    };
 
-      await router.invalidate();
-    } catch {
-      if (typeof window !== "undefined") {
-        window.location.reload();
-      }
-    }
-  };
+    applyCurrentTheme();
+
+    const stopWatchingSystem =
+      watchSystemTheme(() => {
+        if (
+          getThemeMode() === "system"
+        ) {
+          applyCurrentTheme();
+        }
+      });
+
+    const handleThemeChange = () => {
+      applyCurrentTheme();
+    };
+
+    window.addEventListener(
+      "steuerstoff:theme",
+      handleThemeChange,
+    );
+
+    return () => {
+      stopWatchingSystem();
+
+      window.removeEventListener(
+        "steuerstoff:theme",
+        handleThemeChange,
+      );
+    };
+  }, []);
 
   return (
-    <QueryClientProvider client={queryClient}>
+    <QueryClientProvider
+      client={queryClient}
+    >
       <div
         data-app-root
         className="w-full min-w-0 max-w-full overflow-x-clip"
       >
-  
-          <GlobalSwipeArea>
-            <SectionDots />
+        <GlobalSwipeArea>
+          <SectionDots />
 
-            <Outlet />
+          <Outlet />
 
-            <div
-              aria-hidden="true"
-              className="h-16 md:hidden"
-            />
+          <div
+            aria-hidden="true"
+            className="h-16 md:hidden"
+          />
 
-            <ScrollToBottom />
-            <MobileBottomNav />
-            <PwaStatus />
-          </GlobalSwipeArea>
-      
+          <ScrollToBottom />
+          <MobileBottomNav />
+          <PwaStatus />
+        </GlobalSwipeArea>
 
         <MobileWelcomeScreen />
       </div>

@@ -117,5 +117,3 @@ function MagazinPage() {
     </div>
   );
 }
-
-export default MagazinPage;

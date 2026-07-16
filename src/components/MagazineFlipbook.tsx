@@ -31,6 +31,8 @@ export function MagazineFlipbook() {
 
   useEffect(() => {
     if (!isFullscreen) {
+      document.body.style.overflow = "";
+      document.body.style.touchAction = "";
       return;
     }
 
@@ -40,8 +42,14 @@ export function MagazineFlipbook() {
       }
     };
 
+    document.body.style.overflow = "hidden";
+    document.body.style.touchAction = "none";
     window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.touchAction = "";
+      window.removeEventListener("keydown", onKeyDown);
+    };
   }, [isFullscreen]);
 
   const turnToPage = (nextIndex: number) => {
@@ -145,7 +153,7 @@ export function MagazineFlipbook() {
             <img
               src={magazinePages[pageIndex].src}
               alt={magazinePages[pageIndex].alt}
-              className="absolute inset-0 h-full w-full object-contain transition-transform duration-700 ease-in-out"
+              className="absolute inset-0 h-full w-full object-contain transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
               style={{
                 transform: pageTransform,
                 transformOrigin:
@@ -231,6 +239,7 @@ export function MagazineFlipbook() {
       {isFullscreen ? (
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-3 sm:p-6"
+          style={{ overscrollBehavior: "contain" }}
           role="dialog"
           aria-modal="true"
           aria-label="Magazinseite im Vollbild"

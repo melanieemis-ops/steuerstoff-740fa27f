@@ -7,6 +7,7 @@ import {
 } from "react";
 import {
   ArrowRightLeft,
+  BookOpenText,
   Car,
   Database,
   FilePlus2,
@@ -54,17 +55,22 @@ const baseNav: NavItem[] = [
     label: "Fallverlauf",
     Icon: History,
   },
-  {
-    to: "/wissensdatenbank",
-    label: "Wissensdatenbank",
-    Icon: Database,
-  },
-  {
-    to: "/gesetz-importieren",
-    label: "Gesetz importieren",
-    Icon: FileUp,
-    adminOnly: true,
-  },
+{
+  to: "/wissensdatenbank",
+  label: "Wissensdatenbank",
+  Icon: Database,
+},
+{
+  to: "/magazin",
+  label: "Magazin",
+  Icon: BookOpenText,
+},
+{
+  to: "/gesetz-importieren",
+  label: "Gesetz importieren",
+  Icon: FileUp,
+  adminOnly: true,
+},
   {
     to: "/skr-konverter",
     label: "SKR-Konverter",

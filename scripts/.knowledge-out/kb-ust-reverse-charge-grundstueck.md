@@ -5,11 +5,11 @@ category: Umsatzsteuer
 references: §13b Abs.2 Nr.3 UStG, §13b Abs.5 UStG
 ---
 
-# Reverse-Charge bei Grundstückslieferungen
+⇨ Reverse-Charge bei Grundstückslieferungen
 
 
 
-# Reverse Charge
+⇨ Reverse Charge
 
 Bei bestimmten Grundstückslieferungen schuldet nicht der Verkäufer,
 
@@ -17,7 +17,7 @@ sondern der Leistungsempfänger die Umsatzsteuer.
 
 ---
 
-## Bemessungsgrundlage
+► Bemessungsgrundlage
 
 Kaufpreis
 
@@ -27,7 +27,7 @@ Die Grunderwerbsteuer gehört nicht zum Entgelt.
 
 ---
 
-## Klausurhinweis
+► Klausurhinweis
 
 Immer prüfen,
 

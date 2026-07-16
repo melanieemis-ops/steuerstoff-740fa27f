@@ -5,11 +5,11 @@ category: Umsatzsteuer
 references: §17 UStG
 ---
 
-# Uneinbringliche Forderungen (§17 UStG)
+⇨ Uneinbringliche Forderungen (§17 UStG)
 
 
 
-# Uneinbringliche Forderungen
+⇨ Uneinbringliche Forderungen
 
 Wird eine Forderung uneinbringlich,
 
@@ -17,7 +17,7 @@ ist die Bemessungsgrundlage nach §17 UStG zu berichtigen.
 
 ---
 
-## Typischer Fall
+► Typischer Fall
 
 Eröffnung des Insolvenzverfahrens.
 
@@ -25,7 +25,7 @@ Ab diesem Zeitpunkt gelten offene Forderungen regelmäßig als uneinbringlich.
 
 ---
 
-## Folge
+► Folge
 
 Die Umsatzsteuer wird berichtigt.
 
@@ -37,7 +37,7 @@ soweit die Forderung uneinbringlich geworden ist.
 
 ---
 
-## Prüfung
+► Prüfung
 
 1. Forderung entstanden?
 

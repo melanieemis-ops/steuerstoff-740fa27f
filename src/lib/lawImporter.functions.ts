@@ -176,31 +176,31 @@ function buildFileContent(
   const asList = (arr: string[]) =>
     arr.length === 1 ? arr[0] : arr.map((l) => `- ${l}`).join("\n");
 
-  const body = `# Kurzüberblick
+  const body = `⇨ Kurzüberblick
 
 ${ai.ueberblick}
 
-# Tatbestandsvoraussetzungen
+⇨ Tatbestandsvoraussetzungen
 
 ${asList(ai.tatbestand)}
 
-# Rechtsfolge
+⇨ Rechtsfolge
 
 ${asList(ai.rechtsfolge)}
 
-# Ausnahmen
+⇨ Ausnahmen
 
 ${asList(ai.ausnahmen)}
 
-# Verknüpfte Paragraphen
+⇨ Verknüpfte Paragraphen
 
 ${asList(ai.verknuepft)}
 
-# Praxisbeispiel
+⇨ Praxisbeispiel
 
 ${asList(ai.praxisbeispiel)}
 
-# Merksatz
+⇨ Merksatz
 
 ${asList(ai.merksatz)}
 `;

@@ -5,11 +5,11 @@ category: Umsatzsteuer
 references: §15 Abs.1b UStG
 ---
 
-# Vollständige Zuordnung eines gemischt genutzten Gebäudes
+⇨ Vollständige Zuordnung eines gemischt genutzten Gebäudes
 
 
 
-# Vollzuordnung
+⇨ Vollzuordnung
 
 Ordnet der Unternehmer das gesamte Gebäude seinem Unternehmen zu,
 
@@ -19,7 +19,7 @@ wie das Gebäude für unternehmerische Umsätze verwendet wird.
 
 ---
 
-## Laufende Kosten
+► Laufende Kosten
 
 Sind die Aufwendungen nicht eindeutig zuordenbar,
 
@@ -27,7 +27,7 @@ erfolgt die Aufteilung regelmäßig nach dem Verhältnis der Nutzflächen.
 
 ---
 
-## Merksatz
+► Merksatz
 
 Vollständige Zuordnung
 

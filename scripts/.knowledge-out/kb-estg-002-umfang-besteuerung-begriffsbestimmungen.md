@@ -9,14 +9,14 @@ source: Gesetze im Internet – Einkommensteuergesetz, § 2 EStG
 references: § 2 EStG, §§ 4 bis 7k EStG, § 8 EStG, § 9 EStG, § 9a EStG, § 10 EStG, § 10a EStG, § 13 Abs. 3 EStG, §§ 13 bis 24 EStG, § 20 Abs. 9 EStG, § 22 EStG, § 31 EStG, § 32 Abs. 6 EStG, § 32a EStG, § 32c EStG, § 32d EStG, § 34c EStG, § 43 Abs. 5 EStG, § 84 EStG
 ---
 
-# § 2 EStG – Umfang der Besteuerung und Begriffsbestimmungen
+⇨ § 2 EStG – Umfang der Besteuerung und Begriffsbestimmungen
 
 _Definiert die sieben Einkunftsarten, die Gewinn- und Überschusseinkünfte sowie die Berechnung vom Gesamtbetrag der Einkünfte bis zur festzusetzenden Einkommensteuer._
 
 
-# § 2 EStG – Umfang der Besteuerung und Begriffsbestimmungen
+⇨ § 2 EStG – Umfang der Besteuerung und Begriffsbestimmungen
 
-## Gesetz
+► Gesetz
 
 § 2 EStG ist die zentrale Grundnorm für den Aufbau der Einkommensteuer.
 
@@ -32,44 +32,44 @@ Die Vorschrift regelt insbesondere:
 
 ---
 
-# 1. Die sieben Einkunftsarten
+⇨ 1. Die sieben Einkunftsarten
 
 Nach § 2 Abs. 1 EStG unterliegen sieben Einkunftsarten der Einkommensteuer.
 
-## Gewinneinkunftsarten
+► Gewinneinkunftsarten
 
 1. Einkünfte aus Land- und Forstwirtschaft,
 2. Einkünfte aus Gewerbebetrieb,
 3. Einkünfte aus selbständiger Arbeit.
 
-## Überschusseinkunftsarten
+► Überschusseinkunftsarten
 
 4. Einkünfte aus nichtselbständiger Arbeit,
 5. Einkünfte aus Kapitalvermögen,
 6. Einkünfte aus Vermietung und Verpachtung,
 7. sonstige Einkünfte im Sinne des § 22 EStG.
 
-## Bedeutung
+► Bedeutung
 
 Nur Einkünfte, die einer der sieben Einkunftsarten zugeordnet werden können, unterliegen grundsätzlich der Einkommensteuer.
 
 Reine Vermögensmehrungen außerhalb der gesetzlichen Einkunftsarten sind grundsätzlich nicht steuerbar, soweit keine besondere Vorschrift eingreift.
 
-## Zuordnung
+► Zuordnung
 
 Die konkrete Zuordnung zu einer Einkunftsart richtet sich nach den §§ 13 bis 24 EStG.
 
 ---
 
-# 2. Einkünfte bei unbeschränkter und beschränkter Steuerpflicht
+⇨ 2. Einkünfte bei unbeschränkter und beschränkter Steuerpflicht
 
-## Unbeschränkte Steuerpflicht
+► Unbeschränkte Steuerpflicht
 
 Bei unbeschränkter Einkommensteuerpflicht werden grundsätzlich sämtliche inländischen und ausländischen Einkünfte erfasst.
 
 Dies entspricht dem sogenannten Welteinkommensprinzip.
 
-## Beschränkte Steuerpflicht
+► Beschränkte Steuerpflicht
 
 Bei beschränkter Einkommensteuerpflicht werden grundsätzlich nur die inländischen Einkünfte erfasst.
 
@@ -77,11 +77,11 @@ Welche Einkünfte als inländische Einkünfte gelten, bestimmt sich insbesondere
 
 ---
 
-# 3. Gewinn- und Überschusseinkünfte
+⇨ 3. Gewinn- und Überschusseinkünfte
 
 § 2 Abs. 2 EStG unterscheidet zwei Arten der Einkünfteermittlung.
 
-## Gewinneinkünfte
+► Gewinneinkünfte
 
 Bei
 
@@ -93,7 +93,7 @@ sind die Einkünfte der Gewinn.
 
 Der Gewinn wird insbesondere nach den §§ 4 bis 7k und § 13a EStG ermittelt.
 
-## Grundformel
+► Grundformel
 
 Gewinn:
 
@@ -101,7 +101,7 @@ Betriebseinnahmen
 minus Betriebsausgaben  
 gleich Gewinn oder Verlust.
 
-## Typische Gewinnermittlungsarten
+► Typische Gewinnermittlungsarten
 
 - Betriebsvermögensvergleich,
 - Einnahmenüberschussrechnung,
@@ -109,11 +109,11 @@ gleich Gewinn oder Verlust.
 
 ---
 
-## Überschusseinkünfte
+► Überschusseinkünfte
 
 Bei den übrigen Einkunftsarten sind die Einkünfte grundsätzlich der Überschuss der Einnahmen über die Werbungskosten.
 
-## Grundformel
+► Grundformel
 
 Einnahmen  
 minus Werbungskosten  
@@ -127,7 +127,7 @@ Dies betrifft insbesondere:
 
 ---
 
-# 4. Besonderheit bei Einkünften aus Kapitalvermögen
+⇨ 4. Besonderheit bei Einkünften aus Kapitalvermögen
 
 Bei Einkünften aus Kapitalvermögen tritt grundsätzlich der Sparer-Pauschbetrag nach § 20 Abs. 9 EStG an die Stelle des tatsächlichen Werbungskostenabzugs.
 
@@ -135,7 +135,7 @@ Die allgemeinen Vorschriften der §§ 9 und 9a EStG sind insoweit grundsätzlich
 
 Eine Ausnahme kann sich insbesondere aus § 32d Abs. 2 EStG ergeben.
 
-## Merksatz
+► Merksatz
 
 Bei Kapitaleinkünften gilt grundsätzlich:
 
@@ -143,13 +143,13 @@ Kein Abzug tatsächlicher Werbungskosten, sondern Sparer-Pauschbetrag.
 
 ---
 
-# 5. Berechnungsschema der Einkommensteuer
+⇨ 5. Berechnungsschema der Einkommensteuer
 
 § 2 Abs. 3 bis 6 EStG enthält die zentrale Berechnungskette der Einkommensteuer.
 
 ---
 
-## Stufe 1: Einkünfte
+► Stufe 1: Einkünfte
 
 Zunächst werden die Einkünfte aus jeder einzelnen Einkunftsart ermittelt.
 
@@ -161,7 +161,7 @@ Beispiel:
 
 ---
 
-## Stufe 2: Summe der Einkünfte
+► Stufe 2: Summe der Einkünfte
 
 Die positiven und negativen Einkünfte werden zusammengerechnet.
 
@@ -174,7 +174,7 @@ gleich 95.000 € Summe der Einkünfte.
 
 ---
 
-## Stufe 3: Gesamtbetrag der Einkünfte
+► Stufe 3: Gesamtbetrag der Einkünfte
 
 Von der Summe der Einkünfte werden abgezogen:
 
@@ -182,7 +182,7 @@ Von der Summe der Einkünfte werden abgezogen:
 - Entlastungsbetrag für Alleinerziehende,
 - Freibetrag nach § 13 Abs. 3 EStG.
 
-## Formel
+► Formel
 
 Summe der Einkünfte  
 minus Altersentlastungsbetrag  
@@ -192,14 +192,14 @@ gleich Gesamtbetrag der Einkünfte.
 
 ---
 
-## Stufe 4: Einkommen
+► Stufe 4: Einkommen
 
 Vom Gesamtbetrag der Einkünfte werden insbesondere abgezogen:
 
 - Sonderausgaben und
 - außergewöhnliche Belastungen.
 
-## Formel
+► Formel
 
 Gesamtbetrag der Einkünfte  
 minus Sonderausgaben  
@@ -208,14 +208,14 @@ gleich Einkommen.
 
 ---
 
-## Stufe 5: Zu versteuerndes Einkommen
+► Stufe 5: Zu versteuerndes Einkommen
 
 Vom Einkommen werden insbesondere abgezogen:
 
 - Freibeträge nach § 32 Abs. 6 EStG und
 - sonstige vom Einkommen abzuziehende Beträge.
 
-## Formel
+► Formel
 
 Einkommen  
 minus Kinderfreibetrag und Betreuungsfreibetrag  
@@ -226,7 +226,7 @@ Das zu versteuernde Einkommen ist die Bemessungsgrundlage für die tarifliche Ei
 
 ---
 
-## Stufe 6: Tarifliche Einkommensteuer
+► Stufe 6: Tarifliche Einkommensteuer
 
 Auf das zu versteuernde Einkommen wird der Einkommensteuertarif angewendet.
 
@@ -234,7 +234,7 @@ Die tarifliche Einkommensteuer ergibt sich grundsätzlich nach § 32a EStG.
 
 ---
 
-## Stufe 7: Festzusetzende Einkommensteuer
+► Stufe 7: Festzusetzende Einkommensteuer
 
 Die tarifliche Einkommensteuer wird anschließend korrigiert.
 
@@ -246,7 +246,7 @@ Zu berücksichtigen sind insbesondere:
 - Hinzurechnung von Kindergeld in den Fällen des § 31 EStG,
 - Hinzurechnung bestimmter Zulagen nach § 10a EStG.
 
-## Vereinfachte Formel
+► Vereinfachte Formel
 
 Tarifliche Einkommensteuer  
 minus Steuerermäßigungen  
@@ -256,9 +256,9 @@ gleich festzusetzende Einkommensteuer.
 
 ---
 
-# 6. Vollständiges Berechnungsschema
+⇨ 6. Vollständiges Berechnungsschema
 
-## Einkommensteuerliche Ermittlung
+► Einkommensteuerliche Ermittlung
 
 1. Einkünfte aus Land- und Forstwirtschaft
 2. plus Einkünfte aus Gewerbebetrieb
@@ -297,7 +297,7 @@ gleich festzusetzende Einkommensteuer.
 
 ---
 
-# 7. Zahlenbeispiel
+⇨ 7. Zahlenbeispiel
 
 Ein Steuerpflichtiger erzielt:
 
@@ -305,7 +305,7 @@ Ein Steuerpflichtiger erzielt:
 - Einkünfte aus nichtselbständiger Arbeit: 30.000 €
 - Verlust aus Vermietung und Verpachtung: 10.000 €
 
-## Summe der Einkünfte
+► Summe der Einkünfte
 
 80.000 €  
 plus 30.000 €  
@@ -314,7 +314,7 @@ gleich 100.000 €.
 
 Der Steuerpflichtige erhält einen Entlastungsbetrag für Alleinerziehende von beispielhaft 4.260 €.
 
-## Gesamtbetrag der Einkünfte
+► Gesamtbetrag der Einkünfte
 
 100.000 €  
 minus 4.260 €  
@@ -328,7 +328,7 @@ Außergewöhnliche Belastungen:
 
 2.000 €.
 
-## Einkommen
+► Einkommen
 
 95.740 €  
 minus 8.000 €  
@@ -337,7 +337,7 @@ gleich 85.740 €.
 
 Kinderfreibeträge und weitere Abzüge bleiben im Beispiel unberücksichtigt.
 
-## Zu versteuerndes Einkommen
+► Zu versteuerndes Einkommen
 
 85.740 €.
 
@@ -345,7 +345,7 @@ Auf diesen Betrag ist der Einkommensteuertarif anzuwenden.
 
 ---
 
-# 8. Außersteuerliche Rechtsnormen
+⇨ 8. Außersteuerliche Rechtsnormen
 
 § 2 Abs. 5a EStG enthält besondere Regeln für außersteuerliche Gesetze, die an Begriffe wie
 
@@ -357,7 +357,7 @@ Auf diesen Betrag ist der Einkommensteuertarif anzuwenden.
 
 anknüpfen.
 
-## Hinzurechnungen
+► Hinzurechnungen
 
 Für außersteuerliche Zwecke können insbesondere hinzuzurechnen sein:
 
@@ -365,20 +365,20 @@ Für außersteuerliche Zwecke können insbesondere hinzuzurechnen sein:
 - bestimmte Kapitalerträge nach § 43 Abs. 5 EStG,
 - steuerfreie Teileinkünfte nach § 3 Nr. 40 EStG.
 
-## Kürzungen
+► Kürzungen
 
 Abzuziehen sind gegebenenfalls:
 
 - nicht abziehbare Beträge nach § 3c Abs. 2 EStG,
 - Kinderbetreuungskosten nach § 10 Abs. 1 Nr. 5 EStG.
 
-## Hintergrund
+► Hintergrund
 
 Außersteuerliche Leistungen sollen nicht allein dadurch beeinflusst werden, dass bestimmte Einkünfte steuerlich pauschal oder teilweise steuerfrei behandelt werden.
 
 ---
 
-# 9. Innersteuerliche Anknüpfung nach § 2 Abs. 5b EStG
+⇨ 9. Innersteuerliche Anknüpfung nach § 2 Abs. 5b EStG
 
 Soweit Vorschriften des Einkommensteuergesetzes selbst an die Begriffe
 
@@ -390,7 +390,7 @@ Soweit Vorschriften des Einkommensteuergesetzes selbst an die Begriffe
 
 anknüpfen, sind bestimmte Kapitalerträge nach § 32d Abs. 1 und § 43 Abs. 5 EStG grundsätzlich nicht einzubeziehen.
 
-## Merksatz
+► Merksatz
 
 § 2 Abs. 5a EStG betrifft außersteuerliche Rechtsnormen.
 
@@ -398,19 +398,19 @@ anknüpfen, sind bestimmte Kapitalerträge nach § 32d Abs. 1 und § 43 Abs. 5 E
 
 ---
 
-# 10. Festzusetzende Einkommensteuer nach § 2 Abs. 6 EStG
+⇨ 10. Festzusetzende Einkommensteuer nach § 2 Abs. 6 EStG
 
 Die festzusetzende Einkommensteuer entspricht nicht zwingend der tariflichen Einkommensteuer.
 
 Die tarifliche Steuer wird unter anderem verändert durch:
 
-## Minderungen
+► Minderungen
 
 - Unterschiedsbetrag nach § 32c EStG,
 - anrechenbare ausländische Steuern,
 - Steuerermäßigungen.
 
-## Erhöhungen
+► Erhöhungen
 
 - Steuer nach § 32d Abs. 3 und 4 EStG,
 - Steuer nach § 34c Abs. 5 EStG,
@@ -418,7 +418,7 @@ Die tarifliche Steuer wird unter anderem verändert durch:
 - Zulage nach Abschnitt XI,
 - Kindergeld in den Fällen des Familienleistungsausgleichs.
 
-## Bedeutung
+► Bedeutung
 
 Erst die festzusetzende Einkommensteuer ist der Betrag, der im Steuerbescheid festgesetzt wird.
 
@@ -430,17 +430,17 @@ Davon zu unterscheiden sind noch:
 
 ---
 
-# 11. Einkommensteuer als Jahressteuer
+⇨ 11. Einkommensteuer als Jahressteuer
 
 Nach § 2 Abs. 7 EStG ist die Einkommensteuer eine Jahressteuer.
 
-## Rechtsfolge
+► Rechtsfolge
 
 Die Besteuerungsgrundlagen werden grundsätzlich für jedes Kalenderjahr gesondert ermittelt.
 
 Der Veranlagungszeitraum entspricht regelmäßig dem Kalenderjahr.
 
-## Wechsel der Steuerpflicht
+► Wechsel der Steuerpflicht
 
 Besteht innerhalb eines Kalenderjahres zunächst beschränkte und später unbeschränkte Steuerpflicht oder umgekehrt, werden die während der beschränkten Steuerpflicht erzielten inländischen Einkünfte in die Veranlagung zur unbeschränkten Steuerpflicht einbezogen.
 
@@ -448,7 +448,7 @@ Es erfolgt grundsätzlich keine Trennung in zwei eigenständige Jahresveranlagun
 
 ---
 
-# 12. Ehegatten und Lebenspartner
+⇨ 12. Ehegatten und Lebenspartner
 
 Nach § 2 Abs. 8 EStG gelten die Regelungen des Einkommensteuergesetzes über
 
@@ -460,15 +460,15 @@ entsprechend für
 - Lebenspartner und
 - Lebenspartnerschaften.
 
-## Rechtsfolge
+► Rechtsfolge
 
 Steuerliche Regelungen wie insbesondere die Zusammenveranlagung können unter den gesetzlichen Voraussetzungen auch für Lebenspartnerschaften gelten.
 
 ---
 
-# 13. Prüfungsschema zu § 2 EStG
+⇨ 13. Prüfungsschema zu § 2 EStG
 
-## Schritt 1: Steuerpflicht prüfen
+► Schritt 1: Steuerpflicht prüfen
 
 Liegt
 
@@ -477,51 +477,51 @@ Liegt
 
 vor?
 
-## Schritt 2: Einkunftsart bestimmen
+► Schritt 2: Einkunftsart bestimmen
 
 Ist der Sachverhalt einer der sieben Einkunftsarten zuzuordnen?
 
-## Schritt 3: Art der Einkünfteermittlung bestimmen
+► Schritt 3: Art der Einkünfteermittlung bestimmen
 
 Handelt es sich um
 
 - Gewinneinkünfte oder
 - Überschusseinkünfte?
 
-## Schritt 4: Einkünfte je Einkunftsart ermitteln
+► Schritt 4: Einkünfte je Einkunftsart ermitteln
 
 - Betriebseinnahmen minus Betriebsausgaben oder
 - Einnahmen minus Werbungskosten.
 
-## Schritt 5: Summe der Einkünfte bilden
+► Schritt 5: Summe der Einkünfte bilden
 
 Positive und negative Einkünfte zusammenrechnen.
 
-## Schritt 6: Gesamtbetrag der Einkünfte ermitteln
+► Schritt 6: Gesamtbetrag der Einkünfte ermitteln
 
 Abzugsbeträge nach § 2 Abs. 3 EStG berücksichtigen.
 
-## Schritt 7: Einkommen ermitteln
+► Schritt 7: Einkommen ermitteln
 
 Sonderausgaben und außergewöhnliche Belastungen abziehen.
 
-## Schritt 8: Zu versteuerndes Einkommen ermitteln
+► Schritt 8: Zu versteuerndes Einkommen ermitteln
 
 Freibeträge und weitere gesetzliche Abzüge berücksichtigen.
 
-## Schritt 9: Tarifliche Einkommensteuer berechnen
+► Schritt 9: Tarifliche Einkommensteuer berechnen
 
 Tarif nach § 32a EStG anwenden.
 
-## Schritt 10: Festzusetzende Einkommensteuer ermitteln
+► Schritt 10: Festzusetzende Einkommensteuer ermitteln
 
 Steuerermäßigungen, Anrechnungen und Hinzurechnungen berücksichtigen.
 
 ---
 
-# 14. Typische Klausurfallen
+⇨ 14. Typische Klausurfallen
 
-## Fehler 1: Einkünfte und Einnahmen gleichsetzen
+► Fehler 1: Einkünfte und Einnahmen gleichsetzen
 
 Falsch:
 
@@ -533,7 +533,7 @@ Einkünfte ergeben sich erst nach Abzug von Betriebsausgaben oder Werbungskosten
 
 ---
 
-## Fehler 2: Gewinneinkünfte und Überschusseinkünfte verwechseln
+► Fehler 2: Gewinneinkünfte und Überschusseinkünfte verwechseln
 
 Falsch:
 
@@ -545,7 +545,7 @@ Bei Gewerbebetrieb wird der Gewinn als Betriebseinnahmen minus Betriebsausgaben 
 
 ---
 
-## Fehler 3: Gesamtbetrag der Einkünfte mit dem Einkommen verwechseln
+► Fehler 3: Gesamtbetrag der Einkünfte mit dem Einkommen verwechseln
 
 Falsch:
 
@@ -557,7 +557,7 @@ Vom Gesamtbetrag der Einkünfte sind insbesondere Sonderausgaben und außergewö
 
 ---
 
-## Fehler 4: Einkommen und zu versteuerndes Einkommen gleichsetzen
+► Fehler 4: Einkommen und zu versteuerndes Einkommen gleichsetzen
 
 Falsch:
 
@@ -569,7 +569,7 @@ Vom Einkommen sind noch Freibeträge und weitere gesetzliche Abzüge vorzunehmen
 
 ---
 
-## Fehler 5: Tarifliche und festzusetzende Einkommensteuer gleichsetzen
+► Fehler 5: Tarifliche und festzusetzende Einkommensteuer gleichsetzen
 
 Falsch:
 
@@ -581,7 +581,7 @@ Die tarifliche Einkommensteuer wird noch um Steuerermäßigungen, Anrechnungen u
 
 ---
 
-## Fehler 6: Kapitalerträge immer in sämtliche Berechnungsgrößen einbeziehen
+► Fehler 6: Kapitalerträge immer in sämtliche Berechnungsgrößen einbeziehen
 
 Falsch:
 
@@ -593,7 +593,7 @@ Richtig:
 
 ---
 
-## Fehler 7: Zwei getrennte Veranlagungen bei Wechsel der Steuerpflicht
+► Fehler 7: Zwei getrennte Veranlagungen bei Wechsel der Steuerpflicht
 
 Falsch:
 
@@ -605,7 +605,7 @@ Die inländischen Einkünfte aus dem Zeitraum der beschränkten Steuerpflicht we
 
 ---
 
-# 15. Merksätze
+⇨ 15. Merksätze
 
 - § 2 EStG ist das Grundgerüst der Einkommensteuerberechnung.
 

@@ -4,13 +4,13 @@ title: Umsatzsteuer
 category: Wissensthema (USt)
 ---
 
-# Umsatzsteuer
+⇨ Umsatzsteuer
 
 Steuerbarkeit, Befreiung, Satz, Vorsteuer
 
 Steuerbarkeit, Steuerbefreiung, Steuersatz, Vorsteuerabzug und Sonderfälle strukturiert prüfen.
 
-## Checkliste
+► Checkliste
 - Steuerbarer Umsatz?
 - Steuerfrei oder steuerpflichtig?
 - 7 % oder 19 %?

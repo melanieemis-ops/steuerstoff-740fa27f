@@ -6,14 +6,14 @@ source: Interne Steuerstoff-Prüfungsvorbereitung
 references: § 16 Abs. 4 EStG, § 18 Abs. 3 EStG, § 34 Abs. 2 Nr. 1 EStG, § 34 Abs. 3 EStG
 ---
 
-# Praxisveräußerung: Freibetrag (§ 16 Abs. 4 EStG) und Tarifermäßigung (§ 34 Abs. 3 EStG)
+⇨ Praxisveräußerung: Freibetrag (§ 16 Abs. 4 EStG) und Tarifermäßigung (§ 34 Abs. 3 EStG)
 
 _Steuerliche Begünstigungen bei der Veräußerung einer freiberuflichen Praxis: Freibetrag, Tarifermäßigung und Prüfungsschema._
 
 
-# Praxisveräußerung: Freibetrag und Tarifermäßigung
+⇨ Praxisveräußerung: Freibetrag und Tarifermäßigung
 
-## Grundsatz
+► Grundsatz
 
 Veräußert ein Freiberufler seine gesamte Praxis, können unter bestimmten Voraussetzungen zwei steuerliche Begünstigungen in Anspruch genommen werden:
 
@@ -22,7 +22,7 @@ Veräußert ein Freiberufler seine gesamte Praxis, können unter bestimmten Vora
 
 Beide Begünstigungen dienen dazu, die steuerliche Belastung des einmaligen Veräußerungsgewinns zu reduzieren.
 
-## Freibetrag nach § 16 Abs. 4 EStG
+► Freibetrag nach § 16 Abs. 4 EStG
 
 Der Freibetrag beträgt grundsätzlich:
 
@@ -36,7 +36,7 @@ Voraussetzungen:
 
 Der Freibetrag gilt auch bei der Veräußerung einer freiberuflichen Praxis (§ 18 Abs. 3 EStG).
 
-## Kürzung des Freibetrags
+► Kürzung des Freibetrags
 
 Der Freibetrag wird gekürzt,
 
@@ -76,7 +76,7 @@ Freibetrag:
 
 Ab einem Veräußerungsgewinn von 181.000 Euro entfällt der Freibetrag vollständig.
 
-## Tarifermäßigung nach § 34 Abs. 3 EStG
+► Tarifermäßigung nach § 34 Abs. 3 EStG
 
 Zusätzlich kann auf Antrag die Tarifermäßigung nach § 34 Abs. 3 EStG beansprucht werden.
 
@@ -89,7 +89,7 @@ Voraussetzungen:
 
 Die Tarifermäßigung kann nur einmal im Leben beansprucht werden.
 
-## Berechnung
+► Berechnung
 
 Zunächst:
 
@@ -109,7 +109,7 @@ mindestens jedoch
 
 14 %.
 
-## Zweck der Tarifermäßigung
+► Zweck der Tarifermäßigung
 
 Die Tarifermäßigung soll die Progressionswirkung vermeiden,
 
@@ -117,7 +117,7 @@ die entsteht,
 
 wenn ein hoher Veräußerungsgewinn in einem einzigen Veranlagungszeitraum zufließt.
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Liegt eine Betriebs- oder Praxisveräußerung vor?
 
@@ -133,7 +133,7 @@ wenn ein hoher Veräußerungsgewinn in einem einzigen Veranlagungszeitraum zufli
 
 7. Ermäßigten Steuersatz anwenden.
 
-## Beispiel
+► Beispiel
 
 Praxisverkauf:
 
@@ -150,7 +150,7 @@ Steuerlich begünstigter Gewinn:
 
 Dieser Gewinn wird anschließend nach § 34 Abs. 3 EStG mit dem ermäßigten Steuersatz besteuert.
 
-## Rechtsfolgen
+► Rechtsfolgen
 
 Freibetrag:
 
@@ -165,7 +165,7 @@ mindestens 14 %.
 
 Beide Begünstigungen können grundsätzlich miteinander kombiniert werden.
 
-## Prüfungsmerksätze
+► Prüfungsmerksätze
 
 Der Freibetrag beträgt grundsätzlich 45.000 Euro.
 
@@ -179,7 +179,7 @@ mindestens jedoch 14 %.
 
 Beide Vergünstigungen können nur einmal im Leben beansprucht werden.
 
-## Klausurtipp
+► Klausurtipp
 
 Typische Prüfungsfalle:
 

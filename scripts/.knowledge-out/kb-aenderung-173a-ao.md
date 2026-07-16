@@ -6,7 +6,7 @@ source: Internes Handout — AO § 173a / Festsetzungsfrist.
 references: § 173a AO, § 169 Abs. 1, Abs. 2 S. 1 Nr. 2 AO, § 170 Abs. 2 Nr. 1 AO
 ---
 
-# Änderung nach § 173a AO — Schreib- und Rechenfehler
+⇨ Änderung nach § 173a AO — Schreib- und Rechenfehler
 
 _Zwingende Änderung von Steuerbescheiden bei rechtserheblichen Schreib-/Rechenfehlern des Steuerpflichtigen — nur innerhalb der Festsetzungsfrist._
 

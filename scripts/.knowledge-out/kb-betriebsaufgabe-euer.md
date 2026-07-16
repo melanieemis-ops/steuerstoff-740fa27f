@@ -6,7 +6,7 @@ source: Internes Handout — EStG / Betriebsaufgabe.
 references: § 4 Abs. 1, 3 EStG, § 6 Abs. 1 Nr. 5 EStG, § 11 EStG, § 15 Abs. 1 EStG, § 16 Abs. 3, 3b EStG, § 18 Abs. 3 EStG, § 34 Abs. 1, 2 Nr. 1 EStG, §§ 7, 8, 9 GewStG
 ---
 
-# Betriebsaufgabe, EÜR-Übergang & Aufgabegewinn
+⇨ Betriebsaufgabe, EÜR-Übergang & Aufgabegewinn
 
 _Aufgabeerklärung (§ 16 Abs. 3b EStG), Übergang zur Bilanzierung, Fünftelregelung und Behandlung der stillen Reserven._
 

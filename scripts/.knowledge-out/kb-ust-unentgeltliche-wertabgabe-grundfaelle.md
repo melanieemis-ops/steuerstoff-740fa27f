@@ -6,12 +6,12 @@ source: Interne Steuerstoff-Prüfungsvorbereitung
 references: § 3 Abs. 1b UStG, § 3 Abs. 9a UStG, § 1 Abs. 1 UStG, § 3a UStG, § 10 Abs. 4 UStG, § 12 UStG, § 13a UStG
 ---
 
-# Unentgeltliche Wertabgaben – Grundfälle (§ 3 Abs. 1b und 3 Abs. 9a UStG)
+⇨ Unentgeltliche Wertabgaben – Grundfälle (§ 3 Abs. 1b und 3 Abs. 9a UStG)
 
 _Systematische Prüfung der unentgeltlichen Wertabgabe bei Entnahmen, Schenkungen, Privatverwendungen und unentgeltlichen Dienstleistungen._
 
 
-# Unentgeltliche Wertabgaben
+⇨ Unentgeltliche Wertabgaben
 
 Die unentgeltliche Wertabgabe dient dazu, einen zuvor gewährten Vorsteuerabzug auszugleichen, wenn Gegenstände oder Leistungen anschließend privat oder außerunternehmerisch verwendet werden.
 
@@ -22,11 +22,11 @@ Es wird unterschieden zwischen:
 
 ---
 
-# Fall 1a – Material für eigenes Mietobjekt
+⇨ Fall 1a – Material für eigenes Mietobjekt
 
 Ein Elektriker entnimmt Kabel und Stecker aus seinem Lager und verwendet sie für ein ertragsteuerliches Privatvermögen zugeordnetes Mietwohnhaus.
 
-## Lösung
+► Lösung
 
 Das Mietwohnhaus gehört umsatzsteuerlich weiterhin zum Unternehmen (§ 2 UStG), da es der Erzielung von Einnahmen dient.
 
@@ -44,7 +44,7 @@ Privatvermögen im Ertragsteuerrecht bedeutet nicht automatisch Privatvermögen 
 
 ---
 
-# Fall 1b – iPad für private Nutzung
+⇨ Fall 1b – iPad für private Nutzung
 
 Ein zu 100 % dem Unternehmen zugeordnetes iPad wird
 
@@ -58,7 +58,7 @@ privat genutzt.
 
 Beim Kauf wurde die gesamte Vorsteuer abgezogen.
 
-## Lösung
+► Lösung
 
 Die private Nutzung stellt eine unentgeltliche Wertabgabe nach
 
@@ -80,11 +80,11 @@ Ergebnis:
 
 ---
 
-# Fall 1c – Gartenplanung durch Arbeitnehmer
+⇨ Fall 1c – Gartenplanung durch Arbeitnehmer
 
 Arbeitnehmer planen unentgeltlich den Garten des privaten Einfamilienhauses ihres Arbeitgebers.
 
-## Lösung
+► Lösung
 
 Es handelt sich um eine unentgeltliche sonstige Leistung.
 
@@ -102,11 +102,11 @@ Ergebnis:
 
 ---
 
-# Fall 1d – Geschenk eines Goldarmbands
+⇨ Fall 1d – Geschenk eines Goldarmbands
 
 Ein Juwelier schenkt seiner Tochter ein Goldarmband.
 
-## Lösung
+► Lösung
 
 Die Schenkung stellt eine unentgeltliche Lieferung dar.
 
@@ -124,7 +124,7 @@ Ergebnis:
 
 ---
 
-# Fall 2 – Unentgeltliche Dacheindeckung
+⇨ Fall 2 – Unentgeltliche Dacheindeckung
 
 Ein Dachdecker deckt unentgeltlich das Mietwohnhaus seiner Ehefrau.
 
@@ -140,7 +140,7 @@ Gesamtkosten:
 
 6.500 €
 
-## Lösung
+► Lösung
 
 Es handelt sich um eine unentgeltliche Werkleistung.
 
@@ -172,14 +172,14 @@ Umsatzsteuer:
 
 ---
 
-# Fall 3 – Dienstjubiläum
+⇨ Fall 3 – Dienstjubiläum
 
 Ein Arbeitnehmer erhält
 
 - einen Neuwagen
 - zusätzlich 600 € Bargeld.
 
-## Neuwagen
+► Neuwagen
 
 Der Wagen wird ausschließlich verschenkt.
 
@@ -190,7 +190,7 @@ Ergebnis:
 - kein Vorsteuerabzug
 - keine Wertabgabenbesteuerung
 
-## Bargeld
+► Bargeld
 
 Die Hingabe von Geld stellt keine Lieferung und keine sonstige Leistung dar.
 
@@ -200,7 +200,7 @@ Ergebnis:
 
 ---
 
-# Prüfungsschema
+⇨ Prüfungsschema
 
 1. Lieferung oder sonstige Leistung?
 
@@ -218,7 +218,7 @@ Ergebnis:
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 § 3 Abs. 1b UStG
 
@@ -236,7 +236,7 @@ Die Bemessungsgrundlage sind regelmäßig die Selbstkosten bzw. entstandenen Aus
 
 ---
 
-# Klausurtipps
+⇨ Klausurtipps
 
 Prüfungsfalle Nr. 1:
 

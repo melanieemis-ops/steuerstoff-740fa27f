@@ -7,14 +7,14 @@ source: Gesetze im Internet – Einkommensteuergesetz (§ 2 EStG)
 references: § 2 EStG, §§ 4–7k EStG, §§ 8–9a EStG, § 13 Abs. 3 EStG, § 20 Abs. 9 EStG, § 22 EStG, § 32a EStG, § 32 Abs. 6 EStG, § 32d EStG, § 43 Abs. 5 EStG, § 49 EStG
 ---
 
-# § 2 EStG – Umfang der Besteuerung und Begriffsbestimmungen
+⇨ § 2 EStG – Umfang der Besteuerung und Begriffsbestimmungen
 
 _Regelt die sieben Einkunftsarten sowie den Aufbau der einkommensteuerlichen Bemessungsgrundlage._
 
 
-# § 2 EStG – Umfang der Besteuerung
+⇨ § 2 EStG – Umfang der Besteuerung
 
-## Kurzüberblick
+► Kurzüberblick
 
 Der Paragraph bildet das Grundgerüst der Einkommensteuer.
 
@@ -26,7 +26,7 @@ Er bestimmt
 
 ---
 
-# Die sieben Einkunftsarten
+⇨ Die sieben Einkunftsarten
 
 Das Einkommensteuerrecht kennt sieben Einkunftsarten:
 
@@ -42,7 +42,7 @@ Welche Vorschriften für die jeweilige Einkunftsart gelten, bestimmen die §§ 1
 
 ---
 
-# Gewinn oder Überschuss
+⇨ Gewinn oder Überschuss
 
 Bei
 
@@ -58,7 +58,7 @@ Einnahmen minus Werbungskosten (§§ 8–9a EStG).
 
 ---
 
-# Aufbau der Einkommensteuer
+⇨ Aufbau der Einkommensteuer
 
 Die Einkommensermittlung erfolgt stufenweise:
 
@@ -71,7 +71,7 @@ Erst das zu versteuernde Einkommen bildet die Bemessungsgrundlage für die tarif
 
 ---
 
-# Kapitalvermögen
+⇨ Kapitalvermögen
 
 Für Einkünfte aus Kapitalvermögen gelten Sonderregelungen.
 
@@ -79,7 +79,7 @@ Insbesondere ist § 20 Abs. 9 EStG zu beachten.
 
 ---
 
-# Jahressteuer
+⇨ Jahressteuer
 
 Die Einkommensteuer ist eine Jahressteuer.
 
@@ -87,7 +87,7 @@ Die Besteuerungsgrundlagen werden grundsätzlich für jedes Kalenderjahr gesonde
 
 ---
 
-# Praxisbeispiel
+⇨ Praxisbeispiel
 
 Eine natürliche Person erzielt
 
@@ -103,7 +103,7 @@ Nach Berücksichtigung der gesetzlichen Abzugsbeträge ergibt sich schließlich 
 
 ---
 
-# Merksatz
+⇨ Merksatz
 
 § 2 EStG beantwortet drei Kernfragen:
 

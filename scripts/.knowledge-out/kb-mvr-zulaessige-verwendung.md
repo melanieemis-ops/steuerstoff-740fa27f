@@ -6,7 +6,7 @@ source: Internes Arbeitspapier — Zulässige Verwendung.
 references: § 55 AO, § 58 Nr. 1 AO
 ---
 
-# Zulässige Mittelverwendung
+⇨ Zulässige Mittelverwendung
 
 _Mittelverwendung ist zulässig, wenn sie satzungsmäßigen steuerbegünstigten Zwecken dient._
 

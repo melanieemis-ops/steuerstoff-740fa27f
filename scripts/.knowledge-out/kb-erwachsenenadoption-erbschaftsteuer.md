@@ -6,20 +6,20 @@ source: Interne Steuerstoff-Prüfungsvorbereitung
 references: § 1772 BGB, § 15 Abs. 1 ErbStG, § 15 Abs. 1a ErbStG, BFH II R 46/08
 ---
 
-# Erwachsenenadoption und Erbschaftsteuer
+⇨ Erwachsenenadoption und Erbschaftsteuer
 
 _Steuerliche Folgen der schwachen Erwachsenenadoption bei der Erbschaft- und Schenkungsteuer._
 
 
-# Schwache Erwachsenenadoption
+⇨ Schwache Erwachsenenadoption
 
-## Grundsatz
+► Grundsatz
 
 Bei der schwachen Erwachsenenadoption bleibt das Verwandtschaftsverhältnis zu den leiblichen Eltern bestehen.
 
 Steuerlich wird der Adoptierte dennoch gegenüber dem Adoptierenden wie ein leibliches Kind behandelt.
 
-## Erbschaftsteuer
+► Erbschaftsteuer
 
 Der Adoptierte gehört gegenüber dem Adoptierenden zur Steuerklasse I.
 
@@ -31,17 +31,17 @@ Folgen:
 - Freibetrag wie Kind
 - günstigere Steuersätze
 
-## Leibliche Eltern
+► Leibliche Eltern
 
 Auch gegenüber den leiblichen Eltern bleibt die Steuerklasse I bestehen.
 
 Die Adoption führt insoweit zu keinem Verlust der steuerlichen Begünstigungen.
 
-## Einkommensteuer
+► Einkommensteuer
 
 Die Erwachsenenadoption hat grundsätzlich keine unmittelbaren Auswirkungen auf die Einkommensteuer.
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Liegt eine Erwachsenenadoption vor?
 
@@ -51,7 +51,7 @@ Die Erwachsenenadoption hat grundsätzlich keine unmittelbaren Auswirkungen auf 
 
 4. Steuerklasse nach § 15 ErbStG bestimmen.
 
-## Prüfungsmerksatz
+► Prüfungsmerksatz
 
 Erwachsenenadoption:
 

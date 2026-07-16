@@ -5,7 +5,7 @@ category: DATEV
 source: Internes Team-Handout — DATEV ProChecklisten.
 ---
 
-# DATEV ProChecklisten — laufende Nutzung und Mandatswissen
+⇨ DATEV ProChecklisten — laufende Nutzung und Mandatswissen
 
 _Checkliste während der Arbeit nutzen, nicht erst am Ende abhaken. Standardprozess + Mandatswissen + Vertretungssicherheit._
 

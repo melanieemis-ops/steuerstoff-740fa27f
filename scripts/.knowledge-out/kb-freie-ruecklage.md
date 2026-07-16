@@ -6,7 +6,7 @@ source: Internes Zusatzarbeitspapier — Freie Rücklage gUG → gGmbH.
 references: § 62 Abs. 1 Nr. 3 AO, § 55 AO, § 5a Abs. 3 GmbHG
 ---
 
-# Freie Rücklage (§ 62 Abs. 1 Nr. 3 AO)
+⇨ Freie Rücklage (§ 62 Abs. 1 Nr. 3 AO)
 
 _Bis zu 1/3 des VV-Überschusses + 10 % der sonstigen zeitnah zu verwendenden Mittel; Nachholung in zwei Folgejahren._
 

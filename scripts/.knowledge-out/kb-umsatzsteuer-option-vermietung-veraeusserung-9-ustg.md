@@ -6,14 +6,14 @@ source: Interne Steuerstoff-Wissensdatenbank – Grundstücksumsätze und Option
 references: § 4 Nr. 9 Buchst. a UStG, § 4 Nr. 12 Satz 1 Buchst. a UStG, § 9 Abs. 1 UStG, § 9 Abs. 2 UStG, § 9 Abs. 3 UStG, § 13b Abs. 2 Nr. 3 UStG, § 13b Abs. 5 UStG, § 14a Abs. 5 UStG, § 14c UStG, § 15 Abs. 1 UStG, § 15 Abs. 2 UStG, § 15 Abs. 4 UStG, § 15a UStG, § 27 Abs. 2 UStG, Abschn. 9.1 UStAE, Abschn. 9.2 UStAE, Abschn. 13b.11 UStAE, Abschn. 13b.12 UStAE, Abschn. 13b.14 UStAE, Abschn. 15a.2 UStAE
 ---
 
-# Option zur Umsatzsteuer bei Grundstücksvermietung und Grundstücksveräußerung
+⇨ Option zur Umsatzsteuer bei Grundstücksvermietung und Grundstücksveräußerung
 
 _Prüfung des Verzichts auf die Steuerbefreiung nach § 9 UStG bei Vermietung und Veräußerung von Grundstücken einschließlich § 9 Abs. 2, Altgebäuderegelung des § 27 Abs. 2, notarieller Option und Reverse Charge nach § 13b UStG._
 
 
-# Option zur Umsatzsteuer bei Grundstücksvermietung und Grundstücksveräußerung
+⇨ Option zur Umsatzsteuer bei Grundstücksvermietung und Grundstücksveräußerung
 
-## 1. Grundidee der Option
+► 1. Grundidee der Option
 
 Bestimmte Umsätze sind nach § 4 UStG grundsätzlich von der Umsatzsteuer befreit.
 
@@ -36,7 +36,7 @@ Sie verändert lediglich die umsatzsteuerliche Behandlung eines nach § 4 UStG g
 
 ---
 
-# 2. Grundvoraussetzungen des § 9 Abs. 1 UStG
+⇨ 2. Grundvoraussetzungen des § 9 Abs. 1 UStG
 
 Eine Option ist nur bei den ausdrücklich in § 9 Abs. 1 UStG genannten Steuerbefreiungen möglich.
 
@@ -53,7 +53,7 @@ Zusätzlich muss der Umsatz
 
 ausgeführt werden.
 
-## Nicht ausreichend
+► Nicht ausreichend
 
 Eine Option ist grundsätzlich nicht möglich bei einer Leistung
 
@@ -62,7 +62,7 @@ Eine Option ist grundsätzlich nicht möglich bei einer Leistung
 - an einen Arbeitnehmer für dessen privaten Bedarf,
 - an eine juristische Person für einen ausschließlich nichtunternehmerischen Bereich.
 
-## Merksatz
+► Merksatz
 
 § 9 Abs. 1 UStG verlangt immer:
 
@@ -70,7 +70,7 @@ Eine Option ist grundsätzlich nicht möglich bei einer Leistung
 
 ---
 
-# 3. Option ist umsatzbezogen
+⇨ 3. Option ist umsatzbezogen
 
 Der Unternehmer kann grundsätzlich für jeden einzelnen optionsfähigen Umsatz entscheiden, ob er auf die Steuerbefreiung verzichtet.
 
@@ -88,7 +88,7 @@ Eine einheitliche Option für das gesamte Unternehmen ist nicht erforderlich.
 
 ---
 
-# 4. Option bei Grundstücksvermietung
+⇨ 4. Option bei Grundstücksvermietung
 
 Die Vermietung und Verpachtung von Grundstücken ist grundsätzlich nach § 4 Nr. 12 Satz 1 Buchst. a UStG steuerfrei.
 
@@ -96,7 +96,7 @@ Eine Option kann zunächst nach § 9 Abs. 1 UStG in Betracht kommen.
 
 Zusätzlich gilt für Grundstücksvermietungen die besondere Einschränkung des § 9 Abs. 2 UStG.
 
-## Prüfung der Vermietungsoption
+► Prüfung der Vermietungsoption
 
 1. Liegt eine steuerfreie Grundstücksvermietung nach § 4 Nr. 12 UStG vor?
 2. Erfolgt die Vermietung an einen anderen Unternehmer?
@@ -106,13 +106,13 @@ Zusätzlich gilt für Grundstücksvermietungen die besondere Einschränkung des 
 
 ---
 
-# 5. Erste Stufe: Steuerfreie Grundstücksvermietung
+⇨ 5. Erste Stufe: Steuerfreie Grundstücksvermietung
 
 Zunächst muss tatsächlich ein nach § 4 Nr. 12 UStG steuerfreier Vermietungsumsatz vorliegen.
 
 Ist der Umsatz bereits kraft Gesetzes steuerpflichtig, wird § 9 UStG nicht benötigt.
 
-## Bereits steuerpflichtige Vermietungsumsätze
+► Bereits steuerpflichtige Vermietungsumsätze
 
 Hierzu können insbesondere gehören:
 
@@ -121,19 +121,19 @@ Hierzu können insbesondere gehören:
 - Vermietung von Fahrzeugabstellplätzen außerhalb einer einheitlichen steuerfreien Grundstücksvermietung,
 - bestimmte kurzfristige Campingplatzvermietungen.
 
-## Merksatz
+► Merksatz
 
 Nur ein steuerfreier Umsatz kann durch Option steuerpflichtig werden.
 
 ---
 
-# 6. Zweite Stufe: Vermietung an einen Unternehmer
+⇨ 6. Zweite Stufe: Vermietung an einen Unternehmer
 
 Der Mieter muss Unternehmer im Sinne des § 2 UStG sein.
 
 Bei einer unmittelbaren Vermietung an eine Privatperson ist die Option nach § 9 Abs. 1 UStG ausgeschlossen.
 
-## Beispiel
+► Beispiel
 
 V vermietet eine Wohnung unmittelbar an eine Privatperson.
 
@@ -143,13 +143,13 @@ Eine Option ist nicht möglich, weil der Leistungsempfänger kein Unternehmer is
 
 ---
 
-# 7. Dritte Stufe: Bezug für das Unternehmen des Mieters
+⇨ 7. Dritte Stufe: Bezug für das Unternehmen des Mieters
 
 Der Mieter muss die Mietleistung für sein Unternehmen beziehen.
 
 Die bloße Unternehmereigenschaft des Mieters reicht nicht aus.
 
-## Beispiel
+► Beispiel
 
 V vermietet eine Ferienwohnung an einen selbständigen Rechtsanwalt, der sie ausschließlich privat nutzt.
 
@@ -161,13 +161,13 @@ Eine Option nach § 9 Abs. 1 UStG ist nicht möglich.
 
 ---
 
-# 8. Einschränkung nach § 9 Abs. 2 UStG
+⇨ 8. Einschränkung nach § 9 Abs. 2 UStG
 
 Bei der Vermietung oder Verpachtung eines Grundstücks ist die Option nur zulässig, soweit der Leistungsempfänger das Grundstück ausschließlich für Umsätze verwendet oder zu verwenden beabsichtigt, die den Vorsteuerabzug nicht ausschließen.
 
 Entscheidend ist die Nutzung durch den Mieter.
 
-## Vorsteuerunschädliche Nutzung
+► Vorsteuerunschädliche Nutzung
 
 Vorsteuerunschädlich sind insbesondere Nutzungen für
 
@@ -177,7 +177,7 @@ Vorsteuerunschädlich sind insbesondere Nutzungen für
 - innergemeinschaftliche Lieferungen,
 - andere Umsätze, die nach § 15 Abs. 3 UStG den Vorsteuerabzug nicht ausschließen.
 
-## Vorsteuerschädliche Nutzung
+► Vorsteuerschädliche Nutzung
 
 Vorsteuerschädlich sind insbesondere Nutzungen für
 
@@ -190,13 +190,13 @@ Vorsteuerschädlich sind insbesondere Nutzungen für
 
 ---
 
-# 9. Maßgeblich ist die Verwendung des Mieters
+⇨ 9. Maßgeblich ist die Verwendung des Mieters
 
 Für § 9 Abs. 2 UStG ist nicht entscheidend, welche Umsätze der Vermieter ausführt.
 
 Entscheidend ist, wofür der Mieter das Grundstück tatsächlich verwendet oder nachweisbar zu verwenden beabsichtigt.
 
-## Beispiel
+► Beispiel
 
 V vermietet Büroräume an einen Rechtsanwalt.
 
@@ -208,7 +208,7 @@ V kann die Vermietung steuerpflichtig behandeln.
 
 ---
 
-# 10. Vermietung an einen Arzt
+⇨ 10. Vermietung an einen Arzt
 
 V vermietet Praxisräume an einen Arzt.
 
@@ -222,7 +222,7 @@ Eine Ausnahme kann nur in Betracht kommen, wenn die Altgebäuderegelung des § 2
 
 ---
 
-# 11. Vermietung an eine Bank
+⇨ 11. Vermietung an eine Bank
 
 V vermietet Geschäftsräume an eine Bank.
 
@@ -234,7 +234,7 @@ Auch hier kann eine Altgebäuderegelung gesondert zu prüfen sein.
 
 ---
 
-# 12. Vermietung an einen Rechtsanwalt
+⇨ 12. Vermietung an einen Rechtsanwalt
 
 V vermietet Büroräume an einen Rechtsanwalt.
 
@@ -244,7 +244,7 @@ Da die Nutzung den Vorsteuerabzug nicht ausschließt, kann V unter den Vorausset
 
 ---
 
-# 13. Vermietung an eine Behörde
+⇨ 13. Vermietung an eine Behörde
 
 V vermietet Räume unmittelbar an eine Behörde, die diese für hoheitliche beziehungsweise nichtunternehmerische Tätigkeiten nutzt.
 
@@ -256,11 +256,11 @@ Eine Option ist daher nicht möglich.
 
 ---
 
-# 14. Zwischenvermietung
+⇨ 14. Zwischenvermietung
 
 Besondere Vorsicht ist bei einer Vermietungskette erforderlich.
 
-## Beispiel
+► Beispiel
 
 V1 vermietet ein Gebäude an V2.
 
@@ -278,7 +278,7 @@ Eine Ausnahme kann bei einem Altgebäude nach § 27 Abs. 2 UStG bestehen.
 
 ---
 
-# 15. Räumliche Aufteilung
+⇨ 15. Räumliche Aufteilung
 
 Werden verschiedene Grundstücksteile unterschiedlich genutzt, ist die Option grundsätzlich für jeden selbständig nutzbaren Grundstücksteil gesondert zu prüfen.
 
@@ -291,7 +291,7 @@ Selbständig nutzbare Grundstücksteile können sein:
 - Praxisräume,
 - räumlich abgrenzbare Hallenbereiche.
 
-## Beispiel
+► Beispiel
 
 Ein Gebäude wird vermietet:
 
@@ -309,11 +309,11 @@ Die Option kann auf das 2. Obergeschoss beschränkt werden.
 
 ---
 
-# 16. Zeitlich unterschiedliche Nutzung
+⇨ 16. Zeitlich unterschiedliche Nutzung
 
 Auch zeitlich unterschiedliche Nutzungen können getrennt zu beurteilen sein.
 
-## Beispiel
+► Beispiel
 
 Eine Halle wird zunächst steuerpflichtig an einen Produktionsbetrieb vermietet.
 
@@ -327,7 +327,7 @@ Die Änderung der Nutzung kann insbesondere Auswirkungen haben auf
 
 ---
 
-# 17. Gemischte Verwendung
+⇨ 17. Gemischte Verwendung
 
 Nutzt der Mieter dieselben Räume sowohl für
 
@@ -338,7 +338,7 @@ ist § 9 Abs. 2 UStG besonders sorgfältig zu prüfen.
 
 Nach dem Gesetz wird grundsätzlich eine ausschließliche Verwendung für vorsteuerunschädliche Umsätze verlangt.
 
-## Bagatellgrenze der Finanzverwaltung
+► Bagatellgrenze der Finanzverwaltung
 
 Nach der Verwaltungsauffassung kann eine geringfügige vorsteuerschädliche Nutzung unschädlich sein.
 
@@ -350,7 +350,7 @@ Sie ersetzt nicht die grundsätzliche Prüfung der tatsächlichen Verwendung.
 
 ---
 
-# 18. Nachweis der Verwendung
+⇨ 18. Nachweis der Verwendung
 
 Der Vermieter muss die Voraussetzungen der Option nachweisen können.
 
@@ -366,7 +366,7 @@ Geeignete Nachweise können sein:
 - Angaben zu steuerfreien und steuerpflichtigen Umsätzen,
 - jährliche Bestätigung bei unsicherer oder wechselnder Nutzung.
 
-## Empfehlenswerte Mietvertragsklausel
+► Empfehlenswerte Mietvertragsklausel
 
 Der Mieter bestätigt, dass er die Mietflächen ausschließlich für Umsätze verwendet, die den Vorsteuerabzug nicht ausschließen.
 
@@ -374,7 +374,7 @@ Der Mieter verpflichtet sich, Änderungen der Nutzung unverzüglich mitzuteilen.
 
 ---
 
-# 19. Rechtsfolge einer wirksamen Vermietungsoption
+⇨ 19. Rechtsfolge einer wirksamen Vermietungsoption
 
 Ist die Option wirksam, wird die Vermietung als steuerpflichtig behandelt.
 
@@ -390,7 +390,7 @@ Der Vermieter kann die mit dem steuerpflichtigen Vermietungsumsatz zusammenhäng
 
 ---
 
-# 20. Altgebäuderegelung nach § 27 Abs. 2 UStG
+⇨ 20. Altgebäuderegelung nach § 27 Abs. 2 UStG
 
 § 27 Abs. 2 UStG enthält eine Übergangsregelung für bestimmte ältere Gebäude.
 
@@ -400,7 +400,7 @@ Das bedeutet:
 
 Die Nutzung des Mieters für vorsteuerschädliche Umsätze verhindert die Option dann nicht.
 
-## Wichtig
+► Wichtig
 
 § 27 Abs. 2 UStG beseitigt nur die Einschränkung des § 9 Abs. 2 UStG.
 
@@ -413,7 +413,7 @@ Der Umsatz muss daher weiterhin
 
 ausgeführt werden.
 
-## Besonders wichtiger Merksatz
+► Besonders wichtiger Merksatz
 
 § 27 Abs. 2 UStG ist keine zusätzliche Voraussetzung für eine normale Option.
 
@@ -421,7 +421,7 @@ Die Vorschrift ist nur eine Ausnahme für Altfälle, in denen § 9 Abs. 2 UStG d
 
 ---
 
-# 21. Altfall: Nutzung zu Wohnzwecken
+⇨ 21. Altfall: Nutzung zu Wohnzwecken
 
 § 9 Abs. 2 UStG ist nicht anzuwenden, wenn
 
@@ -429,7 +429,7 @@ Die Vorschrift ist nur eine Ausnahme für Altfälle, in denen § 9 Abs. 2 UStG d
 2. das Gebäude vor dem 1. April 1985 fertiggestellt wurde und
 3. mit seiner Errichtung vor dem 1. Juni 1984 begonnen wurde.
 
-## Beispiel
+► Beispiel
 
 V1 vermietet ein altes Wohngebäude an den Unternehmer V2.
 
@@ -443,13 +443,13 @@ Sind die Altgebäudevoraussetzungen erfüllt, ist § 9 Abs. 2 UStG nicht anzuwen
 
 V1 kann dann grundsätzlich nach § 9 Abs. 1 UStG optieren.
 
-## Achtung
+► Achtung
 
 Die unmittelbare Vermietung durch V2 an die Privatpersonen bleibt nicht optionsfähig, weil die Privatpersonen keine Unternehmer sind.
 
 ---
 
-# 22. Altfall: Andere nichtunternehmerische Endnutzung
+⇨ 22. Altfall: Andere nichtunternehmerische Endnutzung
 
 § 9 Abs. 2 UStG ist nicht anzuwenden, wenn
 
@@ -461,7 +461,7 @@ Dies kann insbesondere bei bestimmten Vermietungsketten mit einer nichtunternehm
 
 ---
 
-# 23. Altfall: Andere vorsteuerschädliche Nutzung
+⇨ 23. Altfall: Andere vorsteuerschädliche Nutzung
 
 Für andere vorsteuerschädliche Nutzungen ist § 9 Abs. 2 UStG nicht anzuwenden, wenn
 
@@ -478,9 +478,9 @@ Typische Nutzer können sein:
 
 ---
 
-# 24. Übersicht der Altgebäudegrenzen
+⇨ 24. Übersicht der Altgebäudegrenzen
 
-## Wohnzwecke
+► Wohnzwecke
 
 Fertigstellung:
 
@@ -490,7 +490,7 @@ Beginn der Errichtung:
 
 vor dem 1. Juni 1984.
 
-## Andere nichtunternehmerische Zwecke
+► Andere nichtunternehmerische Zwecke
 
 Fertigstellung:
 
@@ -500,7 +500,7 @@ Beginn der Errichtung:
 
 vor dem 1. Juni 1984.
 
-## Sonstige vorsteuerschädliche Zwecke
+► Sonstige vorsteuerschädliche Zwecke
 
 Fertigstellung:
 
@@ -512,7 +512,7 @@ vor dem 11. November 1993.
 
 ---
 
-# 25. Beginn der Errichtung
+⇨ 25. Beginn der Errichtung
 
 Als Beginn der Errichtung kann nach der Verwaltungsauffassung insbesondere der früheste der folgenden Zeitpunkte gelten:
 
@@ -530,7 +530,7 @@ Nicht ausreichend sind grundsätzlich allein:
 
 ---
 
-# 26. Anbau, Aufstockung und umfassende Sanierung
+⇨ 26. Anbau, Aufstockung und umfassende Sanierung
 
 Wird durch einen Anbau oder eine Aufstockung ertragsteuerlich ein selbständiges Wirtschaftsgut geschaffen, ist für diesen Gebäudeteil die Altgebäuderegelung gesondert zu prüfen.
 
@@ -540,37 +540,37 @@ Ein altes Stammgebäude kann daher unter die Altfallregelung fallen, während ei
 
 ---
 
-# 27. Entscheidungsschema Vermietung
+⇨ 27. Entscheidungsschema Vermietung
 
-## Schritt 1
+► Schritt 1
 
 Liegt ein steuerfreier Vermietungsumsatz nach § 4 Nr. 12 UStG vor?
 
 - Nein: § 9 UStG wird nicht benötigt.
 - Ja: weiter mit Schritt 2.
 
-## Schritt 2
+► Schritt 2
 
 Wird an einen anderen Unternehmer vermietet?
 
 - Nein: Option nach § 9 Abs. 1 UStG nicht möglich.
 - Ja: weiter mit Schritt 3.
 
-## Schritt 3
+► Schritt 3
 
 Bezieht der Mieter die Leistung für sein Unternehmen?
 
 - Nein: Option nach § 9 Abs. 1 UStG nicht möglich.
 - Ja: weiter mit Schritt 4.
 
-## Schritt 4
+► Schritt 4
 
 Verwendet der Mieter das Grundstück für Umsätze, die den Vorsteuerabzug nicht ausschließen?
 
 - Ja: Option nach § 9 Abs. 1 und 2 UStG möglich.
 - Nein: weiter mit Schritt 5.
 
-## Schritt 5
+► Schritt 5
 
 Greift die Altgebäuderegelung nach § 27 Abs. 2 UStG?
 
@@ -579,7 +579,7 @@ Greift die Altgebäuderegelung nach § 27 Abs. 2 UStG?
 
 ---
 
-# 28. Fachlich falscher Prüfungsweg
+⇨ 28. Fachlich falscher Prüfungsweg
 
 Nicht richtig wäre folgende Prüfung:
 
@@ -592,13 +592,13 @@ Verwendet der Mieter das Grundstück vorsteuerunschädlich, ist die Option berei
 
 ---
 
-# 29. Option bei Grundstücksveräußerung
+⇨ 29. Option bei Grundstücksveräußerung
 
 Grundstücksveräußerungen, die unter das Grunderwerbsteuergesetz fallen, sind grundsätzlich nach § 4 Nr. 9 Buchst. a UStG steuerfrei.
 
 Der Verkäufer kann unter den Voraussetzungen des § 9 Abs. 1 UStG auf die Steuerbefreiung verzichten.
 
-## Grundvoraussetzungen
+► Grundvoraussetzungen
 
 1. Steuerfreier Grundstücksumsatz nach § 4 Nr. 9 Buchst. a UStG,
 2. Veräußerung an einen anderen Unternehmer,
@@ -607,13 +607,13 @@ Der Verkäufer kann unter den Voraussetzungen des § 9 Abs. 1 UStG auf die Steue
 
 ---
 
-# 30. § 9 Abs. 2 UStG gilt nicht für den Grundstücksverkauf
+⇨ 30. § 9 Abs. 2 UStG gilt nicht für den Grundstücksverkauf
 
 Die zusätzliche Nutzungsvoraussetzung des § 9 Abs. 2 UStG betrifft insbesondere die Vermietung und Verpachtung von Grundstücken.
 
 Bei der Veräußerung eines Grundstücks ist daher grundsätzlich nicht zu prüfen, ob der Erwerber das Grundstück ausschließlich für vorsteuerunschädliche Umsätze verwendet.
 
-## Trotzdem wichtig
+► Trotzdem wichtig
 
 Die spätere Verwendung des Grundstücks kann für den Vorsteuerabzug des Erwerbers und für eine mögliche Vorsteuerberichtigung nach § 15a UStG bedeutsam sein.
 
@@ -621,11 +621,11 @@ Sie ist jedoch keine Voraussetzung für die Wirksamkeit der Option des Verkäufe
 
 ---
 
-# 31. Option nur an einen Unternehmer
+⇨ 31. Option nur an einen Unternehmer
 
 Auch bei einer Grundstücksveräußerung muss der Erwerber Unternehmer sein und das Grundstück für sein Unternehmen erwerben.
 
-## Beispiel
+► Beispiel
 
 V verkauft ein Grundstück an eine Privatperson.
 
@@ -635,7 +635,7 @@ Eine Option ist mangels Unternehmereigenschaft des Erwerbers nicht möglich.
 
 ---
 
-# 32. Form der Option bei Grundstücksveräußerungen
+⇨ 32. Form der Option bei Grundstücksveräußerungen
 
 Bei einer Grundstücksveräußerung außerhalb eines Zwangsversteigerungsverfahrens kann die Option nur in dem notariell zu beurkundenden Vertrag erklärt werden, der der Grundstückslieferung zugrunde liegt.
 
@@ -643,7 +643,7 @@ Ein erst später erklärter Verzicht ist grundsätzlich unwirksam.
 
 Dies gilt auch dann, wenn die spätere Erklärung erneut notariell beurkundet wird.
 
-## Empfehlenswerte Gestaltung
+► Empfehlenswerte Gestaltung
 
 Der notarielle Vertrag sollte eindeutig bestimmen, dass
 
@@ -653,7 +653,7 @@ Der notarielle Vertrag sollte eindeutig bestimmen, dass
 
 ---
 
-# 33. Vorsorgliche Option
+⇨ 33. Vorsorgliche Option
 
 Die Parteien können einen Grundstücksumsatz beispielsweise zunächst als Geschäftsveräußerung im Ganzen beurteilen.
 
@@ -663,9 +663,9 @@ Die vorsorgliche Option sollte bereits im ursprünglichen notariellen Vertrag ei
 
 ---
 
-# 34. Keine nachträgliche Option
+⇨ 34. Keine nachträgliche Option
 
-## Beispiel
+► Beispiel
 
 Ein Grundstück wird im Januar steuerfrei veräußert.
 
@@ -679,7 +679,7 @@ Auch eine spätere notarielle Ergänzungsurkunde heilt das Fehlen der Option im 
 
 ---
 
-# 35. Rücknahme der Option
+⇨ 35. Rücknahme der Option
 
 Auch die Rücknahme einer im notariellen Grundstückskaufvertrag erklärten Option ist formell eingeschränkt.
 
@@ -695,7 +695,7 @@ Bei der Vertragsgestaltung sollte deshalb vor Beurkundung geklärt werden:
 
 ---
 
-# 36. Option im Zwangsversteigerungsverfahren
+⇨ 36. Option im Zwangsversteigerungsverfahren
 
 Bei einer Grundstückslieferung im Zwangsversteigerungsverfahren kann der Vollstreckungsschuldner gegenüber dem Ersteher auf die Steuerbefreiung verzichten.
 
@@ -705,54 +705,54 @@ Nach diesem Zeitpunkt ist eine Option nicht mehr möglich.
 
 ---
 
-# 37. Entscheidungsschema Grundstücksveräußerung
+⇨ 37. Entscheidungsschema Grundstücksveräußerung
 
-## Schritt 1
+► Schritt 1
 
 Liegt ein nach § 4 Nr. 9 Buchst. a UStG steuerfreier Grundstücksumsatz vor?
 
 - Nein: keine Option nach § 9 erforderlich.
 - Ja: weiter mit Schritt 2.
 
-## Schritt 2
+► Schritt 2
 
 Ist der Erwerber Unternehmer?
 
 - Nein: Option nicht möglich.
 - Ja: weiter mit Schritt 3.
 
-## Schritt 3
+► Schritt 3
 
 Erwirbt er das Grundstück für sein Unternehmen?
 
 - Nein: Option nicht möglich.
 - Ja: weiter mit Schritt 4.
 
-## Schritt 4
+► Schritt 4
 
 Liegt ein Zwangsversteigerungsverfahren vor?
 
-### Nein
+⇶  Nein
 
 Die Option muss im zugrunde liegenden notariellen Vertrag erklärt werden.
 
-### Ja
+⇶  Ja
 
 Die Option muss spätestens bis zur Aufforderung zur Abgabe von Geboten erklärt werden.
 
-## Ergebnis
+► Ergebnis
 
 Sind die Voraussetzungen erfüllt, kann der Verkäufer nach § 9 Abs. 1 und 3 UStG wirksam optieren.
 
 ---
 
-# 38. Reverse Charge beim Grundstücksverkauf
+⇨ 38. Reverse Charge beim Grundstücksverkauf
 
 Wird ein unter das Grunderwerbsteuergesetz fallender Grundstücksumsatz aufgrund einer Option steuerpflichtig behandelt, schuldet regelmäßig der Leistungsempfänger die Umsatzsteuer.
 
 Rechtsgrundlage ist § 13b Abs. 2 Nr. 3 in Verbindung mit § 13b Abs. 5 UStG.
 
-## Folgen
+► Folgen
 
 Der Verkäufer
 
@@ -768,7 +768,7 @@ Der Erwerber
 
 ---
 
-# 39. Rechnung beim optierten Grundstücksverkauf
+⇨ 39. Rechnung beim optierten Grundstücksverkauf
 
 Die Rechnung beziehungsweise Abrechnung sollte den Hinweis enthalten:
 
@@ -776,7 +776,7 @@ Die Rechnung beziehungsweise Abrechnung sollte den Hinweis enthalten:
 
 Ein gesonderter Umsatzsteuerausweis durch den Verkäufer ist grundsätzlich zu vermeiden.
 
-## Gefahr des offenen Steuerausweises
+► Gefahr des offenen Steuerausweises
 
 Weist der Verkäufer trotz Reverse Charge Umsatzsteuer offen aus, kann er diese Steuer zusätzlich nach § 14c UStG schulden.
 
@@ -784,7 +784,7 @@ Der offene Steuerausweis führt nicht dazu, dass die Steuerschuld des Erwerbers 
 
 ---
 
-# 40. Beispiel: Steuerpflichtiger Grundstücksverkauf
+⇨ 40. Beispiel: Steuerpflichtiger Grundstücksverkauf
 
 V verkauft ein betriebliches Grundstück für 1.000.000 Euro an den Unternehmer E.
 
@@ -792,7 +792,7 @@ E erwirbt das Grundstück für sein Unternehmen.
 
 Im notariellen Kaufvertrag verzichtet V ausdrücklich auf die Steuerbefreiung nach § 4 Nr. 9 Buchst. a UStG.
 
-## Lösung
+► Lösung
 
 Der Verzicht ist nach § 9 Abs. 1 und 3 UStG grundsätzlich wirksam.
 
@@ -812,11 +812,11 @@ V stellt eine Rechnung beziehungsweise Abrechnung ohne gesonderten Umsatzsteuera
 
 ---
 
-# 41. Beispiel: Verkauf an eine Privatperson
+⇨ 41. Beispiel: Verkauf an eine Privatperson
 
 V verkauft eine Eigentumswohnung an eine Privatperson.
 
-## Lösung
+► Lösung
 
 Die Grundstückslieferung ist grundsätzlich nach § 4 Nr. 9 Buchst. a UStG steuerfrei.
 
@@ -824,7 +824,7 @@ Eine Option ist nicht möglich, da die Lieferung nicht an einen Unternehmer für
 
 ---
 
-# 42. Grundstückskauf und Vorsteuer des Erwerbers
+⇨ 42. Grundstückskauf und Vorsteuer des Erwerbers
 
 Die wirksame Option führt nicht automatisch dazu, dass der Erwerber zum Vorsteuerabzug berechtigt ist.
 
@@ -832,7 +832,7 @@ Der Erwerber muss die allgemeinen Voraussetzungen des § 15 UStG erfüllen.
 
 Verwendet der Erwerber das Grundstück für vorsteuerschädliche Umsätze, kann der Vorsteuerabzug ganz oder teilweise ausgeschlossen sein.
 
-## Beispiel
+► Beispiel
 
 Ein Arzt erwirbt eine Praxisimmobilie aus einem optierten Grundstückskauf.
 
@@ -844,21 +844,21 @@ Die Option des Verkäufers kann trotzdem wirksam sein.
 
 ---
 
-# 43. Unterschied Vermietung und Veräußerung
+⇨ 43. Unterschied Vermietung und Veräußerung
 
-## Vermietung
+► Vermietung
 
 Zusätzlich zu § 9 Abs. 1 UStG ist grundsätzlich § 9 Abs. 2 UStG zu prüfen.
 
 Entscheidend ist die Verwendung des Mieters.
 
-## Veräußerung
+► Veräußerung
 
 § 9 Abs. 2 UStG ist grundsätzlich nicht anzuwenden.
 
 Dafür gelten die besonderen Form- und Zeitvorgaben des § 9 Abs. 3 UStG.
 
-## Merksatz
+► Merksatz
 
 Vermietung:
 
@@ -870,7 +870,7 @@ Veräußerung:
 
 ---
 
-# 44. Vorsteuerberichtigung nach § 15a UStG
+⇨ 44. Vorsteuerberichtigung nach § 15a UStG
 
 Eine Option kann den ursprünglichen Vorsteuerabzug ermöglichen.
 
@@ -878,7 +878,7 @@ Eine Option kann den ursprünglichen Vorsteuerabzug ermöglichen.
 
 Bei Grundstücken beträgt der Berichtigungszeitraum grundsätzlich zehn Jahre.
 
-## Typische Änderungen
+► Typische Änderungen
 
 - steuerpflichtige Vermietung wird steuerfrei,
 - steuerfreie Vermietung wird steuerpflichtig,
@@ -889,11 +889,11 @@ Bei Grundstücken beträgt der Berichtigungszeitraum grundsätzlich zehn Jahre.
 
 ---
 
-# 45. Wechsel des Mieters
+⇨ 45. Wechsel des Mieters
 
 Die Option ist für jedes Mietverhältnis neu zu prüfen.
 
-## Beispiel
+► Beispiel
 
 Ein Büro wird zunächst steuerpflichtig an einen Rechtsanwalt vermietet.
 
@@ -905,11 +905,11 @@ Der Wechsel kann außerdem eine Vorsteuerberichtigung nach § 15a UStG auslösen
 
 ---
 
-# 46. Änderung der Tätigkeit des Mieters
+⇨ 46. Änderung der Tätigkeit des Mieters
 
 Auch während eines bestehenden Mietvertrags kann sich die Verwendung ändern.
 
-## Beispiel
+► Beispiel
 
 Ein Mieter erbringt zunächst ausschließlich steuerpflichtige Beratungsleistungen.
 
@@ -924,9 +924,9 @@ Der Vermieter muss prüfen:
 
 ---
 
-# 47. Typische Fehler bei der Vermietungsoption
+⇨ 47. Typische Fehler bei der Vermietungsoption
 
-## Fehler 1: Nur die Unternehmereigenschaft prüfen
+► Fehler 1: Nur die Unternehmereigenschaft prüfen
 
 Es reicht nicht, dass der Mieter Unternehmer ist.
 
@@ -934,13 +934,13 @@ Der Mietgegenstand muss für dessen Unternehmen bezogen werden.
 
 ---
 
-## Fehler 2: Verwendung des Mieters nicht prüfen
+► Fehler 2: Verwendung des Mieters nicht prüfen
 
 Bei der Vermietung ist die tatsächliche oder beabsichtigte Nutzung des Mieters entscheidend.
 
 ---
 
-## Fehler 3: § 27 Abs. 2 UStG immer verlangen
+► Fehler 3: § 27 Abs. 2 UStG immer verlangen
 
 § 27 Abs. 2 UStG ist keine allgemeine Optionsvoraussetzung.
 
@@ -948,7 +948,7 @@ Die Vorschrift ist nur eine Altgebäude-Ausnahme.
 
 ---
 
-## Fehler 4: Altgebäude macht Vermietung an Privatperson optionsfähig
+► Fehler 4: Altgebäude macht Vermietung an Privatperson optionsfähig
 
 Auch bei einem Altgebäude muss § 9 Abs. 1 UStG erfüllt sein.
 
@@ -956,13 +956,13 @@ Eine unmittelbare Vermietung an eine Privatperson ist grundsätzlich nicht optio
 
 ---
 
-## Fehler 5: Gesamtes Gebäude einheitlich beurteilen
+► Fehler 5: Gesamtes Gebäude einheitlich beurteilen
 
 Selbständig nutzbare Gebäudeteile müssen getrennt geprüft werden.
 
 ---
 
-## Fehler 6: 5-Prozent-Grenze als Gesetz behandeln
+► Fehler 6: 5-Prozent-Grenze als Gesetz behandeln
 
 Die Bagatellgrenze beruht auf der Verwaltungsauffassung.
 
@@ -970,7 +970,7 @@ Ausgangspunkt des Gesetzes ist die ausschließliche vorsteuerunschädliche Verwe
 
 ---
 
-## Fehler 7: Nachweise des Mieters nicht einholen
+► Fehler 7: Nachweise des Mieters nicht einholen
 
 Der Vermieter trägt das Risiko einer unwirksamen Option.
 
@@ -978,21 +978,21 @@ Die Nutzung sollte deshalb dokumentiert werden.
 
 ---
 
-# 48. Typische Fehler beim Grundstücksverkauf
+⇨ 48. Typische Fehler beim Grundstücksverkauf
 
-## Fehler 1: § 9 Abs. 2 UStG beim Verkauf anwenden
+► Fehler 1: § 9 Abs. 2 UStG beim Verkauf anwenden
 
 Die besondere Verwendungsvoraussetzung gilt grundsätzlich für Grundstücksvermietungen, nicht für Grundstücksveräußerungen.
 
 ---
 
-## Fehler 2: Option erst nach dem Notarvertrag erklären
+► Fehler 2: Option erst nach dem Notarvertrag erklären
 
 Die Option muss grundsätzlich bereits im zugrunde liegenden notariellen Vertrag enthalten sein.
 
 ---
 
-## Fehler 3: Umsatzsteuer offen ausweisen
+► Fehler 3: Umsatzsteuer offen ausweisen
 
 Bei einem optierten Grundstücksumsatz schuldet regelmäßig der Erwerber die Steuer nach § 13b UStG.
 
@@ -1000,7 +1000,7 @@ Ein offener Steuerausweis kann zu einer zusätzlichen Steuerschuld nach § 14c U
 
 ---
 
-## Fehler 4: Geschäftsveräußerung im Ganzen nicht prüfen
+► Fehler 4: Geschäftsveräußerung im Ganzen nicht prüfen
 
 Liegt eine nicht steuerbare Geschäftsveräußerung im Ganzen vor, ist eine Option grundsätzlich nicht erforderlich.
 
@@ -1008,13 +1008,13 @@ Eine vorsorgliche Option im Notarvertrag kann jedoch sinnvoll sein.
 
 ---
 
-## Fehler 5: Vorsteuerabzug des Erwerbers unterstellen
+► Fehler 5: Vorsteuerabzug des Erwerbers unterstellen
 
 Die wirksame Option des Verkäufers bedeutet nicht automatisch, dass der Erwerber die Steuer als Vorsteuer abziehen darf.
 
 ---
 
-# 49. Kompakte Checkliste Vermietung
+⇨ 49. Kompakte Checkliste Vermietung
 
 1. Liegt eine Grundstücksvermietung vor?
 2. Ist sie nach § 4 Nr. 12 UStG steuerfrei?
@@ -1031,7 +1031,7 @@ Die wirksame Option des Verkäufers bedeutet nicht automatisch, dass der Erwerbe
 
 ---
 
-# 50. Kompakte Checkliste Grundstücksverkauf
+⇨ 50. Kompakte Checkliste Grundstücksverkauf
 
 1. Liegt eine Grundstückslieferung vor?
 2. Fällt sie unter das Grunderwerbsteuergesetz?
@@ -1050,7 +1050,7 @@ Die wirksame Option des Verkäufers bedeutet nicht automatisch, dass der Erwerbe
 
 ---
 
-# 51. Formulierungshilfe Vermietung – Option möglich
+⇨ 51. Formulierungshilfe Vermietung – Option möglich
 
 Die Vermietung des Grundstücks ist gemäß § 4 Nr. 12 Satz 1 Buchstabe a UStG grundsätzlich steuerfrei.
 
@@ -1064,7 +1064,7 @@ Der Vermietungsumsatz wird aufgrund der Option steuerpflichtig behandelt.
 
 ---
 
-# 52. Formulierungshilfe Vermietung – Option ausgeschlossen
+⇨ 52. Formulierungshilfe Vermietung – Option ausgeschlossen
 
 Die Vermietung ist nach § 4 Nr. 12 Satz 1 Buchstabe a UStG steuerfrei.
 
@@ -1076,7 +1076,7 @@ Da auch die Übergangsregelung des § 27 Abs. 2 UStG nicht eingreift, ist die Op
 
 ---
 
-# 53. Formulierungshilfe Altgebäude
+⇨ 53. Formulierungshilfe Altgebäude
 
 Die Vermietung erfolgt an einen Unternehmer für dessen Unternehmen.
 
@@ -1090,7 +1090,7 @@ Die Option ist unter den Voraussetzungen des § 9 Abs. 1 UStG möglich.
 
 ---
 
-# 54. Formulierungshilfe Grundstücksveräußerung
+⇨ 54. Formulierungshilfe Grundstücksveräußerung
 
 Die Grundstückslieferung fällt unter das Grunderwerbsteuergesetz und ist grundsätzlich nach § 4 Nr. 9 Buchstabe a UStG steuerfrei.
 
@@ -1106,7 +1106,7 @@ Die Umsatzsteuer wird gemäß § 13b Abs. 2 Nr. 3 und Abs. 5 UStG vom Leistungse
 
 ---
 
-# 55. Zentrale Merksätze
+⇨ 55. Zentrale Merksätze
 
 - Nur eine gesetzlich optionsfähige Steuerbefreiung kann nach § 9 UStG abgewählt werden.
 - Der Leistungsempfänger muss Unternehmer sein.

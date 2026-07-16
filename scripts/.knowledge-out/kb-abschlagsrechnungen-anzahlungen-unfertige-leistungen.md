@@ -6,14 +6,14 @@ source: Interne Steuerstoff-Prüfungsvorbereitung
 references: § 13 Abs. 1 Nr. 1 Buchst. a UStG, § 14 Abs. 5 UStG, § 14c UStG, § 17 UStG, § 255 Abs. 2 HGB
 ---
 
-# Abschlagsrechnungen, Anzahlungen und unfertige Leistungen
+⇨ Abschlagsrechnungen, Anzahlungen und unfertige Leistungen
 
 _Umsatzsteuerliche und bilanzielle Behandlung von Anzahlungen, Abschlagsrechnungen, Schlussrechnungen und unfertigen Leistungen._
 
 
-# Abschlagsrechnungen, Anzahlungen und unfertige Leistungen
+⇨ Abschlagsrechnungen, Anzahlungen und unfertige Leistungen
 
-## Grundsatz
+► Grundsatz
 
 Bei Anzahlungen, Abschlagszahlungen und Teilzahlungen ist zwischen
 
@@ -25,7 +25,7 @@ zu unterscheiden.
 
 Diese Bereiche folgen unterschiedlichen steuerlichen Grundsätzen.
 
-## Umsatzsteuer bei Anzahlungen
+► Umsatzsteuer bei Anzahlungen
 
 Die Umsatzsteuer entsteht bereits,
 
@@ -53,7 +53,7 @@ Rechtsgrundlage:
 
 § 13 Abs. 1 Nr. 1 Buchst. a UStG.
 
-## Abschlagsrechnung
+► Abschlagsrechnung
 
 Eine Abschlagsrechnung wird vor vollständiger Leistungserbringung erstellt.
 
@@ -69,7 +69,7 @@ Außerdem muss die zukünftige Leistung eindeutig beschrieben werden.
 
 Mehrere Abschlagszahlungen dürfen in einer Rechnung zusammengefasst werden.
 
-## Schlussrechnung
+► Schlussrechnung
 
 Nach vollständiger Leistung wird die Schlussrechnung erstellt.
 
@@ -90,7 +90,7 @@ Rechtsgrundlage:
 
 § 14 Abs. 5 UStG.
 
-## Fehlerhafte Schlussrechnung
+► Fehlerhafte Schlussrechnung
 
 Werden erhaltene Anzahlungen nicht abgezogen,
 
@@ -98,7 +98,7 @@ kann eine unrichtige Steuer nach § 14c UStG entstehen.
 
 Der Unternehmer schuldet dann den zu hoch ausgewiesenen Steuerbetrag.
 
-## Nicht ausgeführte Leistung
+► Nicht ausgeführte Leistung
 
 Wird die Leistung später nicht erbracht,
 
@@ -108,7 +108,7 @@ Rechtsgrundlage:
 
 § 17 UStG.
 
-## Bilanzierung von Anzahlungen
+► Bilanzierung von Anzahlungen
 
 Bilanzsteuerlich gilt:
 
@@ -118,7 +118,7 @@ Sie werden passiviert.
 
 Eine Gewinnrealisierung erfolgt dadurch noch nicht.
 
-## Unfertige Leistungen
+► Unfertige Leistungen
 
 Unfertige Leistungen sind zum Bilanzstichtag mit ihren Herstellungskosten zu aktivieren.
 
@@ -130,7 +130,7 @@ Zu den Herstellungskosten gehören sämtliche Aufwendungen,
 
 die unmittelbar oder mittelbar für die Herstellung entstanden sind.
 
-## Keine Saldierung
+► Keine Saldierung
 
 Erhaltene Anzahlungen dürfen nicht mit den unfertigen Leistungen verrechnet werden.
 
@@ -146,7 +146,7 @@ Erhaltene Anzahlungen
 
 Eine Saldierung ist nach herrschender Meinung unzulässig.
 
-## Bestandsveränderungen
+► Bestandsveränderungen
 
 Im Gesamtkostenverfahren werden Bestandsveränderungen der unfertigen Leistungen gesondert ausgewiesen.
 
@@ -156,7 +156,7 @@ Sie bleiben erfolgsneutral,
 
 bis die Leistung tatsächlich erbracht wird.
 
-## Gewinnrealisierung
+► Gewinnrealisierung
 
 Die Gewinnrealisierung erfolgt grundsätzlich erst,
 
@@ -169,7 +169,7 @@ wurde.
 
 Eine Teilgewinnrealisierung kommt nur bei entsprechender Teilleistung und Abrechnung in Betracht.
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Liegt eine Anzahlung oder Abschlagszahlung vor?
 
@@ -195,7 +195,7 @@ Keine Saldierung.
 
 → Keine Gewinnrealisierung.
 
-## Rechtsfolgen
+► Rechtsfolgen
 
 Umsatzsteuer:
 
@@ -211,7 +211,7 @@ Gewinn:
 
 Erst mit Leistungserbringung und Abrechnung.
 
-## Prüfungsmerksätze
+► Prüfungsmerksätze
 
 Anzahlung
 
@@ -235,7 +235,7 @@ Schlussrechnung:
 
 Anzahlungen und Umsatzsteuer müssen abgesetzt werden.
 
-## Klausurtipp
+► Klausurtipp
 
 Typische Prüfungsfallen:
 

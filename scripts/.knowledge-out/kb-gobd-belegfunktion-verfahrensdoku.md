@@ -6,7 +6,7 @@ source: Internes Schulungspapier GoBD (Teil I) — Belegwesen, IKS, Verfahrensdo
 references: § 146 AO, § 257 HGB, GoBD Rn. 61 ff., 151 ff.
 ---
 
-# GoBD — Belegfunktion und Verfahrensdokumentation
+⇨ GoBD — Belegfunktion und Verfahrensdokumentation
 
 _Keine Buchung ohne Beleg, Grund-/Journal-/Kontenfunktion sichern, Verfahrensdokumentation als Pflichtbestandteil._
 

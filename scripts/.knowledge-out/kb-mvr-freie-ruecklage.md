@@ -6,7 +6,7 @@ source: Internes Arbeitspapier — Freie Rücklage (Bemessungsgrundlagen).
 references: § 62 Abs. 1 Nr. 3 AO
 ---
 
-# Freie Rücklage
+⇨ Freie Rücklage
 
 _Die freie Rücklage ist flexibel, aber die jährliche Zuführung ist begrenzt._
 

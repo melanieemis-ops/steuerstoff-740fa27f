@@ -6,7 +6,7 @@ source: EStG
 references: § 1 EStG
 ---
 
-# § 1 EStG – Steuerpflicht
+⇨ § 1 EStG – Steuerpflicht
 
 _Regelt die unbeschränkte und beschränkte Einkommensteuerpflicht._
 

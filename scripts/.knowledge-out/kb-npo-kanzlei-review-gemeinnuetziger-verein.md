@@ -6,7 +6,7 @@ source: Interne Steuerstoff-Review-Vorlage – Gemeinnütziger Verein
 references: §§ 51–68 AO, § 52 AO, § 55 AO, § 60 AO, § 60a AO, § 62 AO, § 63 AO, § 64 AO, § 10b EStG, § 50 EStDV
 ---
 
-# Kanzlei-Review: gemeinnütziger Verein mit Spenden, Beiträgen, Sommerfest, Zuschüssen und Rücklagen
+⇨ Kanzlei-Review: gemeinnütziger Verein mit Spenden, Beiträgen, Sommerfest, Zuschüssen und Rücklagen
 
 _Strukturierte Review-Vorlage für gemeinnützige Vereine mit Sphärenprüfung, Gemeinnützigkeitsrisiken, Spendenbescheinigungen, Rückfragen und Buchungshinweisen._
 

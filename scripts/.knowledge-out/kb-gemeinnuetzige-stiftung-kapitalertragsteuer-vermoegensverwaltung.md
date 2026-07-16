@@ -6,14 +6,14 @@ source: Interne Steuerstoff-Prüfungsvorbereitung
 references: § 5 Abs. 1 Nr. 9 KStG, § 3 Nr. 6 GewStG, § 44a EStG, § 44b EStG, § 36a EStG
 ---
 
-# Kapitalertragsteuer bei gemeinnützigen Stiftungen (Vermögensverwaltung)
+⇨ Kapitalertragsteuer bei gemeinnützigen Stiftungen (Vermögensverwaltung)
 
 _Behandlung der Kapitalertragsteuer (KESt) bei steuerfreien gemeinnützigen Stiftungen ohne wirtschaftlichen Geschäftsbetrieb._
 
 
-# Kapitalertragsteuer bei gemeinnützigen Stiftungen
+⇨ Kapitalertragsteuer bei gemeinnützigen Stiftungen
 
-## Grundsatz
+► Grundsatz
 
 Gemeinnützige Stiftungen sind für den ideellen Bereich und die steuerfreie Vermögensverwaltung grundsätzlich von der Körperschaftsteuer und Gewerbesteuer befreit.
 
@@ -22,7 +22,7 @@ Rechtsgrundlagen:
 - § 5 Abs. 1 Nr. 9 KStG
 - § 3 Nr. 6 GewStG
 
-## Kapitalertragsteuer
+► Kapitalertragsteuer
 
 Auf Kapitalerträge wird häufig zunächst Kapitalertragsteuer einbehalten.
 
@@ -32,7 +32,7 @@ wenn der Bank oder Depotbank die Gemeinnützigkeit nicht rechtzeitig nachgewiese
 
 Der Steuerabzug erfolgt nach § 44a EStG.
 
-## Erstattung
+► Erstattung
 
 Die Stiftung kann die einbehaltene Kapitalertragsteuer auf Antrag zurückerhalten.
 
@@ -42,7 +42,7 @@ Voraussetzungen:
 - Antrag beim zuständigen Finanzamt
 - Voraussetzungen der §§ 36a und 44b EStG erfüllt
 
-## Behandlung in der Vermögensverwaltung
+► Behandlung in der Vermögensverwaltung
 
 Im steuerfreien Bereich der Vermögensverwaltung gilt:
 
@@ -52,7 +52,7 @@ Ebenso stellt die spätere Erstattung keine steuerpflichtige Einnahme dar.
 
 Die Kapitalertragsteuer beeinflusst deshalb die steuerliche Gewinnermittlung nicht.
 
-## Behandlung in der EÜR
+► Behandlung in der EÜR
 
 In der Einnahmenüberschussrechnung werden weder
 
@@ -66,7 +66,7 @@ als Betriebsausgabe oder Betriebseinnahme erfasst.
 
 Es handelt sich lediglich um Vermögensbewegungen.
 
-## Buchungslogik
+► Buchungslogik
 
 Steuerfreie Vermögensverwaltung:
 
@@ -86,7 +86,7 @@ Diese Buchungen betreffen ausschließlich die Vermögensrechnung.
 
 Eine Auswirkung auf die EÜR erfolgt nicht.
 
-## Wirtschaftlicher Geschäftsbetrieb
+► Wirtschaftlicher Geschäftsbetrieb
 
 Anders ist die Behandlung,
 
@@ -94,7 +94,7 @@ wenn Kapitalerträge dem steuerpflichtigen wirtschaftlichen Geschäftsbetrieb zu
 
 Dann sind die allgemeinen steuerlichen Vorschriften zu beachten und die Kapitalertragsteuer kann im Rahmen der steuerlichen Gewinnermittlung Bedeutung erlangen.
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Liegt eine gemeinnützige Körperschaft vor?
 
@@ -113,7 +113,7 @@ Dann sind die allgemeinen steuerlichen Vorschriften zu beachten und die Kapitale
 
 6. Hat die Zahlung Auswirkungen auf die EÜR?
 
-## Rechtsfolgen
+► Rechtsfolgen
 
 Ideeller Bereich:
 
@@ -133,7 +133,7 @@ Steuerpflichtiger wirtschaftlicher Geschäftsbetrieb:
 
 Gesonderte steuerliche Prüfung erforderlich.
 
-## Prüfungsmerksätze
+► Prüfungsmerksätze
 
 Gemeinnützige Stiftung + steuerfreie Vermögensverwaltung
 
@@ -155,7 +155,7 @@ keine Betriebseinnahme.
 
 Die EÜR bleibt unberührt.
 
-## Klausurtipp
+► Klausurtipp
 
 Typische Prüfungsfalle:
 

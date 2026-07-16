@@ -6,15 +6,15 @@ source: Steuer-Repetitor Verfahrensrecht – Übungsklausur August 2025
 references: § 118 AO, § 122 AO, § 124 AO, § 125 AO, § 162 AO, § 172 AO, § 347 AO, § 355 AO, § 357 AO, § 358 AO, § 364b AO, § 110 AO, AEAO zu § 364b AO
 ---
 
-# Fristsetzung nach § 364b AO, Einspruch und Wiedereinsetzung
+⇨ Fristsetzung nach § 364b AO, Einspruch und Wiedereinsetzung
 
 _Prüfung der Rechtmäßigkeit einer Fristsetzung nach § 364b AO sowie der Auswirkungen auf Einspruchsverfahren, Präklusion, Wiedereinsetzung und schlichte Änderung._
 
 
 
-# Fristsetzung nach § 364b AO
+⇨ Fristsetzung nach § 364b AO
 
-## Zweck
+► Zweck
 
 § 364b AO ermöglicht dem Finanzamt, den Steuerpflichtigen aufzufordern,
 
@@ -29,9 +29,9 @@ Nach Ablauf dieser Frist können verspätete Angaben im Einspruchsverfahren ausg
 
 ---
 
-# Prüfung der Fristsetzung
+⇨ Prüfung der Fristsetzung
 
-## 1. Liegt ein Verwaltungsakt vor?
+► 1. Liegt ein Verwaltungsakt vor?
 
 Die Fristsetzung ist ein Verwaltungsakt (§ 118 AO), wenn
 
@@ -41,7 +41,7 @@ Die Fristsetzung ist ein Verwaltungsakt (§ 118 AO), wenn
 
 ---
 
-## 2. Einspruch gegen die Fristsetzung
+► 2. Einspruch gegen die Fristsetzung
 
 Zu prüfen sind:
 
@@ -51,7 +51,7 @@ Zu prüfen sind:
 - Beschwer (§ 350 AO)
 - Rechtsschutzbedürfnis
 
-### Besonderheit
+⇶  Besonderheit
 
 Nach der BFH-Rechtsprechung fehlt regelmäßig das Rechtsschutzbedürfnis.
 
@@ -66,7 +66,7 @@ Ein isolierter Einspruch gegen die Fristsetzung bleibt daher regelmäßig erfolg
 
 ---
 
-# Voraussetzungen des § 364b AO
+⇨ Voraussetzungen des § 364b AO
 
 Das Finanzamt muss
 
@@ -78,7 +78,7 @@ Das Finanzamt muss
 
 ---
 
-# Rechtsfolge
+⇨ Rechtsfolge
 
 Werden Tatsachen oder Beweismittel verspätet eingereicht,
 
@@ -92,9 +92,9 @@ Dies betrifft insbesondere
 
 ---
 
-# Wiedereinsetzung (§ 110 AO)
+⇨ Wiedereinsetzung (§ 110 AO)
 
-## Voraussetzungen
+► Voraussetzungen
 
 Es muss
 
@@ -105,7 +105,7 @@ Es muss
 
 vorliegen.
 
-### Kein fehlendes Verschulden
+⇶  Kein fehlendes Verschulden
 
 Nicht ausreichend sind insbesondere
 
@@ -118,7 +118,7 @@ Diese Umstände stellen regelmäßig einfache Fahrlässigkeit dar.
 
 ---
 
-# Auswirkungen im Einspruchsverfahren
+⇨ Auswirkungen im Einspruchsverfahren
 
 Gehen Steuererklärung oder Beweismittel erst nach Ablauf der Frist ein,
 
@@ -128,7 +128,7 @@ Das Finanzamt entscheidet hierüber nach pflichtgemäßem Ermessen.
 
 ---
 
-# Schlichte Änderung (§ 172 AO)
+⇨ Schlichte Änderung (§ 172 AO)
 
 Auch durch einen Antrag auf schlichte Änderung können Tatsachen,
 
@@ -140,7 +140,7 @@ Die Präklusionswirkung bleibt bestehen.
 
 ---
 
-# Schätzung (§ 162 AO)
+⇨ Schätzung (§ 162 AO)
 
 Wird keine Steuererklärung abgegeben,
 
@@ -156,7 +156,7 @@ sein.
 
 ---
 
-# Prüfungsschema
+⇨ Prüfungsschema
 
 1. Einspruchsverfahren anhängig?
 2. Fristsetzung nach § 364b AO?
@@ -170,9 +170,9 @@ sein.
 
 ---
 
-# Klausurfallen
+⇨ Klausurfallen
 
-## Fehler 1
+► Fehler 1
 
 Annahme, dass gegen jede Fristsetzung erfolgreich Einspruch eingelegt werden kann.
 
@@ -182,7 +182,7 @@ Regelmäßig fehlt das Rechtsschutzbedürfnis.
 
 ---
 
-## Fehler 2
+► Fehler 2
 
 Urlaub genügt für Wiedereinsetzung.
 
@@ -192,7 +192,7 @@ Urlaub schließt eigenes Verschulden regelmäßig nicht aus.
 
 ---
 
-## Fehler 3
+► Fehler 3
 
 Verspätete Steuererklärung muss immer berücksichtigt werden.
 
@@ -202,7 +202,7 @@ Falsch.
 
 ---
 
-## Fehler 4
+► Fehler 4
 
 Schlichte Änderung beseitigt die Präklusion.
 
@@ -212,7 +212,7 @@ Falsch.
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 - § 364b AO dient der Verfahrensbeschleunigung.
 - Präklusion setzt eine wirksame Fristsetzung voraus.

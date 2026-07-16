@@ -6,14 +6,14 @@ source: Interne Steuerstoff-Prüfungsvorbereitung
 references: § 4 Abs. 7 EStG, § 4 Abs. 5 Nr. 6b EStG, § 9 EStG, § 129 AO, BFH VIII R 6/24
 ---
 
-# Häusliches Arbeitszimmer: Aufzeichnungspflicht nach § 4 Abs. 7 EStG
+⇨ Häusliches Arbeitszimmer: Aufzeichnungspflicht nach § 4 Abs. 7 EStG
 
 _BFH VIII R 6/24: Zeitnahe Aufzeichnungspflicht für Selbständige, Unterschiede zu Arbeitnehmern und Prüfungsschema._
 
 
-# Häusliches Arbeitszimmer
+⇨ Häusliches Arbeitszimmer
 
-## Grundsatz
+► Grundsatz
 
 Die besondere Aufzeichnungspflicht des § 4 Abs. 7 EStG gilt ausschließlich für Steuerpflichtige mit Gewinneinkünften.
 
@@ -25,7 +25,7 @@ Sie betrifft insbesondere:
 
 Nicht betroffen sind Arbeitnehmer, die Aufwendungen als Werbungskosten nach § 9 EStG geltend machen.
 
-## Arbeitnehmer
+► Arbeitnehmer
 
 Arbeitnehmer müssen keine zeitnahen Einzelaufzeichnungen führen.
 
@@ -37,7 +37,7 @@ Erforderlich sind lediglich:
 
 Die BFH-Rechtsprechung zur Aufzeichnungspflicht ist auf Arbeitnehmer nicht übertragbar.
 
-## Selbständige
+► Selbständige
 
 Nach dem BFH-Urteil VIII R 6/24 gilt:
 
@@ -62,13 +62,13 @@ Nicht ausreichend sind:
 - nachträgliche Excel-Listen
 - erst bei Erstellung der Steuererklärung erstellte Übersichten
 
-## Jahrespauschale
+► Jahrespauschale
 
 Wird ab VZ 2023 die Jahrespauschale genutzt,
 
 entfällt die besondere Aufzeichnungspflicht nach § 4 Abs. 7 EStG.
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Liegt ein häusliches Arbeitszimmer nach § 4 Abs. 5 Nr. 6b EStG vor?
 
@@ -80,7 +80,7 @@ entfällt die besondere Aufzeichnungspflicht nach § 4 Abs. 7 EStG.
 
 5. Wird stattdessen die Jahrespauschale genutzt?
 
-## Rechtsfolge
+► Rechtsfolge
 
 Verstoß gegen § 4 Abs. 7 EStG:
 
@@ -90,7 +90,7 @@ Ausnahme:
 
 Eine offenbare Unrichtigkeit kann ggf. nach § 129 AO berichtigt werden.
 
-## Prüfungsmerksätze
+► Prüfungsmerksätze
 
 Selbständige:
 Zeitnahe Einzelaufzeichnung zwingend.

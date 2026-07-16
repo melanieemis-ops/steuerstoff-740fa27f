@@ -6,14 +6,14 @@ source: Interne Steuerstoff-Prüfungsvorbereitung – Steuerbefreiungen und Ausf
 references: § 1 Abs. 1 Nr. 1 UStG, § 3 Abs. 1 UStG, § 3 Abs. 6a UStG, § 3 Abs. 7 UStG, § 4 Nr. 1 Buchst. a UStG, § 4 Nr. 9 Buchst. a UStG, § 4 Nr. 12 Buchst. a UStG, § 6 Abs. 1 Nr. 1 UStG, § 6 Abs. 1 Nr. 2 UStG, § 6 Abs. 2 Nr. 1 UStG, § 6 Abs. 4 UStG, § 9 UStG, § 15 Abs. 2 UStG, § 15 Abs. 3 UStG, § 2 GrEStG, UStDV – Nachweisvorschriften für Ausfuhrlieferungen, UStAE zu §§ 3, 4 und 6 UStG
 ---
 
-# Steuerbefreiungen: Ausfuhrlieferungen, Reihengeschäfte und Grundstücksumsätze
+⇨ Steuerbefreiungen: Ausfuhrlieferungen, Reihengeschäfte und Grundstücksumsätze
 
 _Systematik der Umsatzsteuerbefreiungen, Ausfuhrlieferungen nach §§ 4 Nr. 1 Buchst. a, 6 UStG, Zuordnung der Beförderung im Reihengeschäft und Grundstücksumsätze nach § 4 Nr. 9 Buchst. a UStG._
 
 
-# Steuerbefreiungen im Umsatzsteuerrecht
+⇨ Steuerbefreiungen im Umsatzsteuerrecht
 
-## 1. Ausgangspunkt
+► 1. Ausgangspunkt
 
 Eine Steuerbefreiung wird erst geprüft, wenn zuvor ein steuerbarer Umsatz festgestellt wurde.
 
@@ -36,11 +36,11 @@ Merksatz:
 
 ---
 
-# 2. Einteilung der Steuerbefreiungen
+⇨ 2. Einteilung der Steuerbefreiungen
 
 Steuerbefreiungen lassen sich insbesondere danach unterscheiden, ob der Vorsteuerabzug erhalten bleibt.
 
-## Steuerbefreiungen mit Vorsteuerabzug
+► Steuerbefreiungen mit Vorsteuerabzug
 
 Bei bestimmten steuerfreien Umsätzen bleibt der Vorsteuerabzug erhalten.
 
@@ -52,7 +52,7 @@ Wichtige Beispiele:
 
 Die Steuerbefreiung des Ausgangsumsatzes führt hier nicht zum Vorsteuerausschluss.
 
-## Steuerbefreiungen ohne Vorsteuerabzug
+► Steuerbefreiungen ohne Vorsteuerabzug
 
 Bei zahlreichen Steuerbefreiungen führt § 15 Abs. 2 UStG zum Ausschluss des Vorsteuerabzugs.
 
@@ -63,7 +63,7 @@ Typische Beispiele:
 - Heilbehandlungen,
 - Versicherungs- und Finanzumsätze.
 
-## Rückausnahme nach § 15 Abs. 3 UStG
+► Rückausnahme nach § 15 Abs. 3 UStG
 
 Bei bestimmten steuerfreien Umsätzen bleibt der Vorsteuerabzug ausnahmsweise erhalten.
 
@@ -74,7 +74,7 @@ Deshalb muss nach Feststellung einer Steuerbefreiung immer zusätzlich geprüft 
 
 ---
 
-# 3. Option zur Steuerpflicht nach § 9 UStG
+⇨ 3. Option zur Steuerpflicht nach § 9 UStG
 
 Bei bestimmten Steuerbefreiungen kann der Unternehmer auf die Steuerbefreiung verzichten.
 
@@ -101,9 +101,9 @@ Merksatz:
 
 ---
 
-# 4. Ausfuhrlieferungen
+⇨ 4. Ausfuhrlieferungen
 
-## Rechtsgrundlage
+► Rechtsgrundlage
 
 Ausfuhrlieferungen sind nach
 
@@ -118,7 +118,7 @@ Die Prüfung erfolgt in zwei Stufen:
 
 ---
 
-# 5. Allgemeine Voraussetzungen einer Ausfuhrlieferung
+⇨ 5. Allgemeine Voraussetzungen einer Ausfuhrlieferung
 
 Eine Ausfuhrlieferung setzt grundsätzlich voraus:
 
@@ -129,7 +129,7 @@ Eine Ausfuhrlieferung setzt grundsätzlich voraus:
 - die Erfüllung der Voraussetzungen des § 6 UStG,
 - einen ordnungsgemäßen Ausfuhrnachweis.
 
-## Drittlandsgebiet
+► Drittlandsgebiet
 
 Drittlandsgebiet ist das Gebiet, das nicht zum umsatzsteuerrechtlichen Gemeinschaftsgebiet gehört.
 
@@ -140,7 +140,7 @@ Beispiele:
 - USA,
 - Vereinigtes Königreich, soweit keine Sonderregelung eingreift.
 
-## Bewegte Lieferung
+► Bewegte Lieferung
 
 Die Steuerbefreiung kann grundsätzlich nur die Lieferung erfassen, der die Beförderung oder Versendung zugeordnet wird.
 
@@ -148,9 +148,9 @@ Eine unbewegte bzw. ruhende Lieferung ist nicht als Ausfuhrlieferung steuerfrei.
 
 ---
 
-# 6. Ausfuhrlieferung nach § 6 Abs. 1 Nr. 1 UStG
+⇨ 6. Ausfuhrlieferung nach § 6 Abs. 1 Nr. 1 UStG
 
-## Grundfall
+► Grundfall
 
 § 6 Abs. 1 Nr. 1 UStG betrifft insbesondere den Fall, dass der liefernde Unternehmer den Gegenstand selbst in das Drittlandsgebiet befördert oder versendet.
 
@@ -161,7 +161,7 @@ Voraussetzungen:
 3. Gegenstand gelangt tatsächlich in das Drittlandsgebiet,
 4. Ausfuhrnachweis liegt vor.
 
-## Sitz des Abnehmers
+► Sitz des Abnehmers
 
 Bei § 6 Abs. 1 Nr. 1 UStG ist es grundsätzlich nicht erforderlich, dass der Abnehmer seinen Sitz im Ausland hat.
 
@@ -169,15 +169,15 @@ Entscheidend ist vor allem:
 
 Der Liefergegenstand gelangt tatsächlich in das Drittlandsgebiet.
 
-## Prüfungssatz
+► Prüfungssatz
 
 Der Unternehmer befördert oder versendet den Liefergegenstand im Rahmen einer bewegten Lieferung in das Drittlandsgebiet. Damit liegt bei ordnungsgemäßem Nachweis eine steuerfreie Ausfuhrlieferung nach § 4 Nr. 1 Buchst. a UStG in Verbindung mit § 6 Abs. 1 Nr. 1 UStG vor.
 
 ---
 
-# 7. Ausfuhrlieferung nach § 6 Abs. 1 Nr. 2 UStG
+⇨ 7. Ausfuhrlieferung nach § 6 Abs. 1 Nr. 2 UStG
 
-## Grundfall
+► Grundfall
 
 § 6 Abs. 1 Nr. 2 UStG betrifft insbesondere den Fall, dass der Abnehmer den Gegenstand in das Drittlandsgebiet befördert oder versendet.
 
@@ -189,33 +189,33 @@ Voraussetzungen:
 4. Abnehmer ist ausländischer Abnehmer,
 5. Ausfuhrnachweis liegt vor.
 
-## Ausländischer Abnehmer
+► Ausländischer Abnehmer
 
 Der Abnehmer muss die Voraussetzungen des § 6 Abs. 2 UStG erfüllen.
 
 Typischerweise handelt es sich um einen Abnehmer mit Sitz oder Wohnsitz im Ausland.
 
-## Prüfungssatz
+► Prüfungssatz
 
 Der Abnehmer befördert oder versendet den Liefergegenstand in das Drittlandsgebiet und ist ausländischer Abnehmer im Sinne des § 6 Abs. 2 UStG. Bei ordnungsgemäßem Nachweis ist die Lieferung nach § 4 Nr. 1 Buchst. a UStG in Verbindung mit § 6 Abs. 1 Nr. 2 UStG steuerfrei.
 
 ---
 
-# 8. Unterschied zwischen § 6 Abs. 1 Nr. 1 und Nr. 2 UStG
+⇨ 8. Unterschied zwischen § 6 Abs. 1 Nr. 1 und Nr. 2 UStG
 
-## § 6 Abs. 1 Nr. 1 UStG
+► § 6 Abs. 1 Nr. 1 UStG
 
 Der Lieferer befördert oder versendet.
 
 Ein ausländischer Abnehmer ist grundsätzlich nicht erforderlich.
 
-## § 6 Abs. 1 Nr. 2 UStG
+► § 6 Abs. 1 Nr. 2 UStG
 
 Der Abnehmer befördert oder versendet.
 
 Der Abnehmer muss grundsätzlich ausländischer Abnehmer sein.
 
-## Merksatz
+► Merksatz
 
 - Lieferer transportiert → Nr. 1
 - Abnehmer transportiert → Nr. 2
@@ -223,7 +223,7 @@ Der Abnehmer muss grundsätzlich ausländischer Abnehmer sein.
 
 ---
 
-# 9. Nachweis der Ausfuhr
+⇨ 9. Nachweis der Ausfuhr
 
 Die Steuerbefreiung setzt einen ordnungsgemäßen Nachweis voraus.
 
@@ -251,9 +251,9 @@ Merksatz:
 
 ---
 
-# 10. Ausfuhrlieferung im Reihengeschäft
+⇨ 10. Ausfuhrlieferung im Reihengeschäft
 
-## Begriff des Reihengeschäfts
+► Begriff des Reihengeschäfts
 
 Ein Reihengeschäft liegt vor, wenn
 
@@ -281,7 +281,7 @@ Obwohl nur eine Warenbewegung stattfindet, liegen zwei Lieferungen vor:
 
 ---
 
-# 11. Nur eine bewegte Lieferung
+⇨ 11. Nur eine bewegte Lieferung
 
 In einem Reihengeschäft gibt es nur eine Warenbewegung.
 
@@ -297,13 +297,13 @@ Merksatz:
 
 ---
 
-# 12. Zuordnung der Beförderung oder Versendung
+⇨ 12. Zuordnung der Beförderung oder Versendung
 
 Die entscheidende Frage lautet:
 
 **Wer übernimmt die Beförderung oder Versendung?**
 
-## Beförderung durch den ersten Unternehmer
+► Beförderung durch den ersten Unternehmer
 
 Befördert oder versendet A den Gegenstand, wird die Warenbewegung regelmäßig der Lieferung A an B zugeordnet.
 
@@ -311,7 +311,7 @@ Dann kann die Lieferung A an B die steuerfreie Ausfuhrlieferung sein.
 
 Die Lieferung B an C ist anschließend als ruhende Lieferung gesondert zu beurteilen.
 
-## Beförderung durch den letzten Abnehmer
+► Beförderung durch den letzten Abnehmer
 
 Befördert oder versendet C den Gegenstand, wird die Warenbewegung regelmäßig der Lieferung B an C zugeordnet.
 
@@ -319,7 +319,7 @@ Dann kann die Lieferung B an C die steuerfreie Ausfuhrlieferung sein.
 
 Die Lieferung A an B ist eine ruhende Lieferung.
 
-## Beförderung durch den Zwischenhändler
+► Beförderung durch den Zwischenhändler
 
 Befördert oder versendet B den Gegenstand, muss § 3 Abs. 6a UStG besonders sorgfältig geprüft werden.
 
@@ -336,7 +336,7 @@ Entscheidend können sein:
 
 ---
 
-# 13. Drittlandsfall und Umsatzsteuer-Identifikationsnummer
+⇨ 13. Drittlandsfall und Umsatzsteuer-Identifikationsnummer
 
 Auch in einem Reihengeschäft mit Drittlandsbezug ist die Zuordnung der bewegten Lieferung genau zu prüfen.
 
@@ -348,22 +348,22 @@ Klausurhinweis:
 
 ---
 
-# 14. Prüfungsschema Ausfuhrlieferung im Reihengeschäft
+⇨ 14. Prüfungsschema Ausfuhrlieferung im Reihengeschäft
 
-## Schritt 1: Reihengeschäft feststellen
+► Schritt 1: Reihengeschäft feststellen
 
 - mehrere Umsatzgeschäfte,
 - derselbe Gegenstand,
 - unmittelbare Beförderung vom ersten Lieferer zum letzten Abnehmer.
 
-## Schritt 2: Lieferbeziehungen auflisten
+► Schritt 2: Lieferbeziehungen auflisten
 
 Beispiel:
 
 - Lieferung A an B
 - Lieferung B an C
 
-## Schritt 3: Warenbewegung bestimmen
+► Schritt 3: Warenbewegung bestimmen
 
 Wer befördert oder versendet?
 
@@ -371,34 +371,34 @@ Wer befördert oder versendet?
 - B?
 - C?
 
-## Schritt 4: Bewegte Lieferung zuordnen
+► Schritt 4: Bewegte Lieferung zuordnen
 
 § 3 Abs. 6a UStG prüfen.
 
-## Schritt 5: Ort der bewegten Lieferung bestimmen
+► Schritt 5: Ort der bewegten Lieferung bestimmen
 
 Ort ist grundsätzlich dort, wo die Beförderung oder Versendung beginnt.
 
-## Schritt 6: Steuerbarkeit prüfen
+► Schritt 6: Steuerbarkeit prüfen
 
 § 1 Abs. 1 Nr. 1 UStG.
 
-## Schritt 7: Ausfuhrlieferung prüfen
+► Schritt 7: Ausfuhrlieferung prüfen
 
 - § 6 Abs. 1 Nr. 1 UStG oder
 - § 6 Abs. 1 Nr. 2 UStG.
 
-## Schritt 8: Ausfuhrnachweis prüfen
+► Schritt 8: Ausfuhrnachweis prüfen
 
 § 6 Abs. 4 UStG und Nachweisvorschriften.
 
-## Schritt 9: Ruhende Lieferung beurteilen
+► Schritt 9: Ruhende Lieferung beurteilen
 
 Ort nach § 3 Abs. 7 UStG bestimmen und Steuerpflicht gesondert prüfen.
 
 ---
 
-# 15. Beispiel: Reihengeschäft Deutschland – Türkei
+⇨ 15. Beispiel: Reihengeschäft Deutschland – Türkei
 
 A aus Dortmund verkauft eine Ware an B aus Nordkirchen.
 
@@ -406,7 +406,7 @@ B verkauft dieselbe Ware an C in Istanbul weiter.
 
 Die Ware wird unmittelbar von Dortmund nach Istanbul transportiert.
 
-## Variante 1: A transportiert
+► Variante 1: A transportiert
 
 Die Warenbewegung wird regelmäßig der Lieferung A an B zugeordnet.
 
@@ -414,7 +414,7 @@ Diese Lieferung kann als Ausfuhrlieferung steuerfrei sein.
 
 Die Lieferung B an C ist eine ruhende Lieferung.
 
-## Variante 2: C transportiert
+► Variante 2: C transportiert
 
 Die Warenbewegung wird regelmäßig der Lieferung B an C zugeordnet.
 
@@ -422,7 +422,7 @@ Diese Lieferung kann als Ausfuhrlieferung steuerfrei sein.
 
 Die Lieferung A an B ist eine ruhende Lieferung.
 
-## Variante 3: B transportiert
+► Variante 3: B transportiert
 
 B ist Zwischenhändler.
 
@@ -439,9 +439,9 @@ Nur die zugeordnete bewegte Lieferung kann als Ausfuhrlieferung steuerfrei sein.
 
 ---
 
-# 16. Grundstücksumsätze nach § 4 Nr. 9 Buchst. a UStG
+⇨ 16. Grundstücksumsätze nach § 4 Nr. 9 Buchst. a UStG
 
-## Grundsatz
+► Grundsatz
 
 Umsätze, die unter das Grunderwerbsteuergesetz fallen, sind nach
 
@@ -462,7 +462,7 @@ Maßgeblich ist, ob der Umsatz seinem Typ nach unter das Grunderwerbsteuergesetz
 
 ---
 
-# 17. Begünstigte Grundstücksumsätze
+⇨ 17. Begünstigte Grundstücksumsätze
 
 Begünstigt sind insbesondere Lieferungen von
 
@@ -481,7 +481,7 @@ Die Lieferung ist grundsätzlich nach § 4 Nr. 9 Buchst. a UStG steuerfrei.
 
 ---
 
-# 18. Grundstücksbegriff und Betriebsvorrichtungen
+⇨ 18. Grundstücksbegriff und Betriebsvorrichtungen
 
 Der Grundstücksbegriff richtet sich nach den einschlägigen gesetzlichen Vorschriften.
 
@@ -502,7 +502,7 @@ Die Veräußerung einer Betriebsvorrichtung kann umsatzsteuerpflichtig sein, obw
 
 ---
 
-# 19. Keine Steuerbefreiung für reine Bauleistungen
+⇨ 19. Keine Steuerbefreiung für reine Bauleistungen
 
 Die Errichtung eines Bauwerks auf einem fremden Grundstück ist grundsätzlich keine Grundstückslieferung, die unter das Grunderwerbsteuergesetz fällt.
 
@@ -514,7 +514,7 @@ Merksatz:
 
 ---
 
-# 20. Option bei Grundstücksumsätzen
+⇨ 20. Option bei Grundstücksumsätzen
 
 Bei einem nach § 4 Nr. 9 Buchst. a UStG steuerfreien Grundstücksumsatz kann unter den Voraussetzungen des § 9 UStG zur Steuerpflicht optiert werden.
 
@@ -531,13 +531,13 @@ Bei Veräußerung an Privatpersonen ist eine Option regelmäßig nicht möglich.
 
 ---
 
-# 21. Vorsteuerfolgen
+⇨ 21. Vorsteuerfolgen
 
-## Steuerfreie Grundstückslieferung
+► Steuerfreie Grundstückslieferung
 
 Steht eine Eingangsleistung unmittelbar mit einer steuerfreien Grundstückslieferung in Zusammenhang, ist der Vorsteuerabzug grundsätzlich nach § 15 Abs. 2 UStG ausgeschlossen.
 
-## Steuerfreie Ausfuhrlieferung
+► Steuerfreie Ausfuhrlieferung
 
 Bei einer steuerfreien Ausfuhrlieferung bleibt der Vorsteuerabzug grundsätzlich erhalten.
 
@@ -548,9 +548,9 @@ Darin liegt ein wesentlicher Unterschied:
 
 ---
 
-# 22. Prüfungsübersicht
+⇨ 22. Prüfungsübersicht
 
-## Ausfuhrlieferung
+► Ausfuhrlieferung
 
 1. Lieferung?
 2. Ort im Inland?
@@ -563,7 +563,7 @@ Darin liegt ein wesentlicher Unterschied:
 9. Steuerbefreiung nach § 4 Nr. 1 Buchst. a UStG?
 10. Vorsteuerabzug erhalten?
 
-## Grundstückslieferung
+► Grundstückslieferung
 
 1. Lieferung?
 2. Grundstück oder grundstücksgleiches Recht?
@@ -575,9 +575,9 @@ Darin liegt ein wesentlicher Unterschied:
 
 ---
 
-# 23. Typische Klausurfallen
+⇨ 23. Typische Klausurfallen
 
-## Fehler 1: Steuerbefreiung vor der Steuerbarkeit prüfen
+► Fehler 1: Steuerbefreiung vor der Steuerbarkeit prüfen
 
 Falsch:
 
@@ -589,7 +589,7 @@ Zunächst prüfen, ob überhaupt ein steuerbarer Umsatz nach § 1 Abs. 1 Nr. 1 U
 
 ---
 
-## Fehler 2: Jede Lieferung ins Ausland als Ausfuhrlieferung behandeln
+► Fehler 2: Jede Lieferung ins Ausland als Ausfuhrlieferung behandeln
 
 Falsch:
 
@@ -601,7 +601,7 @@ Der Gegenstand muss tatsächlich in das Drittlandsgebiet gelangen.
 
 ---
 
-## Fehler 3: Ausländischen Abnehmer immer verlangen
+► Fehler 3: Ausländischen Abnehmer immer verlangen
 
 Ein ausländischer Abnehmer ist nicht in jedem Ausfuhrfall zwingend erforderlich.
 
@@ -609,7 +609,7 @@ Er ist insbesondere bei § 6 Abs. 1 Nr. 2 UStG zu prüfen.
 
 ---
 
-## Fehler 4: Im Reihengeschäft mehrere Ausfuhrlieferungen annehmen
+► Fehler 4: Im Reihengeschäft mehrere Ausfuhrlieferungen annehmen
 
 Nur eine Lieferung kann die bewegte Lieferung sein.
 
@@ -617,31 +617,31 @@ Daher kann grundsätzlich auch nur eine Lieferung als Ausfuhrlieferung steuerfre
 
 ---
 
-## Fehler 5: Ruhende Lieferung vergessen
+► Fehler 5: Ruhende Lieferung vergessen
 
 Nach Zuordnung der Warenbewegung muss die andere Lieferung als ruhende Lieferung gesondert beurteilt werden.
 
 ---
 
-## Fehler 6: Ausfuhrnachweis übersehen
+► Fehler 6: Ausfuhrnachweis übersehen
 
 Selbst wenn die Ware tatsächlich ausgeführt wurde, muss der Unternehmer die Voraussetzungen nachweisen.
 
 ---
 
-## Fehler 7: Bauleistung und Grundstückslieferung verwechseln
+► Fehler 7: Bauleistung und Grundstückslieferung verwechseln
 
 Die Errichtung eines Gebäudes auf fremdem Grund ist nicht automatisch nach § 4 Nr. 9 Buchst. a UStG steuerfrei.
 
 ---
 
-## Fehler 8: Betriebsvorrichtungen mit dem Grundstück gleichbehandeln
+► Fehler 8: Betriebsvorrichtungen mit dem Grundstück gleichbehandeln
 
 Betriebsvorrichtungen können einen eigenständig steuerpflichtigen Umsatz darstellen.
 
 ---
 
-## Fehler 9: Vorsteuerfolge nicht prüfen
+► Fehler 9: Vorsteuerfolge nicht prüfen
 
 Nach jeder Steuerbefreiung muss geprüft werden:
 
@@ -651,7 +651,7 @@ Nach jeder Steuerbefreiung muss geprüft werden:
 
 ---
 
-# 24. Merksätze
+⇨ 24. Merksätze
 
 - Erst Steuerbarkeit, dann Steuerbefreiung.
 - Ausfuhrlieferungen sind steuerfrei, der Vorsteuerabzug bleibt grundsätzlich erhalten.

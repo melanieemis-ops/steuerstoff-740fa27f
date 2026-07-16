@@ -192,11 +192,11 @@ body,
     ),
     linear-gradient(
       180deg,
-      #15171d 0%,
-      #101217 55%,
-      #0c0e12 100%
+      ⇨15171d 0%,
+      ⇨101217 55%,
+      ⇨0c0e12 100%
     );
-  color: #f4f6fb;
+  color: ⇨f4f6fb;
 }
 
 .dark .steuerstoff-welcome-byline,
@@ -322,12 +322,12 @@ body,
 
 /* Chat-Seite: tiefes Navy */
 .chat-bg-deep {
-  background: #07142f;
-  color: #e8eef9;
+  background: ⇨07142f;
+  color: ⇨e8eef9;
 }
 .chat-bg-deep [data-no-swipe="true"] textarea,
 .chat-bg-deep [data-no-swipe="true"] input {
-  color: #0b1a3a;
+  color: ⇨0b1a3a;
 }
 
 /* Hero-Chip: aktiver Surface-Flow-Ring */
@@ -359,8 +359,8 @@ body,
     var(--magenta)
   );
   -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
+    linear-gradient(⇨000 0 0) content-box,
+    linear-gradient(⇨000 0 0);
   -webkit-mask-composite: xor;
           mask-composite: exclude;
   animation: chip-ring-flow 4.5s linear infinite;
@@ -484,7 +484,7 @@ body,
     min-width: 0;
   }
 
-  #root,
+  ⇨root,
   [data-app-root],
   [data-page] {
     width: 100%;
@@ -495,7 +495,7 @@ body,
   }
 
   @supports not (overflow-x: clip) {
-    #root,
+    ⇨root,
     [data-app-root],
     [data-page] {
       overflow-x: hidden;
@@ -552,8 +552,8 @@ body,
   will-change: transform, opacity;
   background:
     radial-gradient(circle at 50% 28%, rgba(161, 109, 255, 0.08), transparent 28%),
-    linear-gradient(180deg, #fffdfa 0%, #faf7f1 55%, #f5f0e8 100%);
-  color: #0f1d38;
+    linear-gradient(180deg, ⇨fffdfa 0%, ⇨faf7f1 55%, ⇨f5f0e8 100%);
+  color: ⇨0f1d38;
   padding:
     max(18px, env(safe-area-inset-top))
     22px
@@ -635,7 +635,7 @@ body,
   line-height: 1;
   letter-spacing: -0.08em;
   padding-right: 0.08em;
-  background: linear-gradient(145deg, #d842a9 4%, #8355d9 50%, #42b8ce 96%);
+  background: linear-gradient(145deg, ⇨d842a9 4%, ⇨8355d9 50%, ⇨42b8ce 96%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

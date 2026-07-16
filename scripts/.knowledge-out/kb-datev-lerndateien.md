@@ -5,7 +5,7 @@ category: DATEV
 source: Internes Handout — Lerndateien, Buchungsvorschläge & Automatisierung.
 ---
 
-# DATEV Lerndateien & Buchungsvorschläge
+⇨ DATEV Lerndateien & Buchungsvorschläge
 
 _Kriterien richtig wählen, Sternchen-Platzhalter, automatisiertes Buchen, AS1-Spalte und Aufräumen bestehender Bestände._
 

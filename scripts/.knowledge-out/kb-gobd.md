@@ -6,7 +6,7 @@ source: BMF-Schreiben zu den GoBD; kanzleiinterne Arbeitshinweise.
 references: BMF-Schreiben GoBD, § 145 ff. AO, § 147 Abs. 6 AO, § 238 ff. HGB
 ---
 
-# GoBD – digitale Buchführung und Aufbewahrung
+⇨ GoBD – digitale Buchführung und Aufbewahrung
 
 _Grundsätze für elektronische Buchführung, digitale Belege, Aufbewahrung, Verfahrensdokumentation und Datenzugriff._
 

@@ -6,7 +6,7 @@ source: Internes NPO-Arbeitspapier — Rücklagen, offene Punkte, Nachweise.
 references: § 55 Abs. 1 Nr. 5 AO, § 62 Abs. 1 Nr. 1–4 AO, § 63 Abs. 4 AO
 ---
 
-# NPO — Rücklagen, Audit-Risiken und offene Punkte
+⇨ NPO — Rücklagen, Audit-Risiken und offene Punkte
 
 _Konkrete Planung, projektbezogene/Investitions-/Infrastruktur-/Audit-Rücklagen, Darlegungslast, Nachforderungen._
 

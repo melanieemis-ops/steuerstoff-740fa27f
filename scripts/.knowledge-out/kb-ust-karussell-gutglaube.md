@@ -6,7 +6,7 @@ source: Weimann, Umsatzsteuer in der Praxis, 15. Aufl. — kanzleiintern aufbere
 references: § 15 UStG, EuGH 12.01.2006, C-354/03 u. a. (Optigen), EuGH 06.07.2006, C-439/04 u. C-440/04 (Kittel/Recolta), BFH 19.04.2007, V R 48/04, BStBl. II 2009, 315
 ---
 
-# Umsatzsteuerkarussell & Vertrauensschutz beim Vorsteuerabzug
+⇨ Umsatzsteuerkarussell & Vertrauensschutz beim Vorsteuerabzug
 
 _Vorsteuerabzug bleibt für gutgläubige Unternehmer erhalten — entfällt bei Wissen/Wissen-müssen um Einbeziehung in MwSt-Betrug._
 

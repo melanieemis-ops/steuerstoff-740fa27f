@@ -6,7 +6,7 @@ source: Internes Handout — Forderungsbewertung und Wertaufhellung.
 references: § 6 Abs. 1 Nr. 2 EStG, § 247 Abs. 2 HGB, § 252 Abs. 1 Nr. 3, 4 HGB, § 253 Abs. 1 S. 1 HGB, § 17 Abs. 2 Nr. 1 UStG, R 6.1 Abs. 2 EStR
 ---
 
-# Kundenforderungen — Bewertung, EWB, PWB, USt-Korrektur
+⇨ Kundenforderungen — Bewertung, EWB, PWB, USt-Korrektur
 
 _Forderungen mit Nennwert; Einzelbewertung vor Pauschalwertberichtigung; bei PWB USt herausrechnen (§ 17 Abs. 2 UStG); Wertaufhellung beachten._
 

@@ -6,7 +6,7 @@ source: Internes Arbeitspapier — Aufbau MVR.
 references: § 55 AO, § 63 AO
 ---
 
-# Mittelverwendungsrechnung
+⇨ Mittelverwendungsrechnung
 
 _Die MVR dokumentiert die zeitnahe und satzungsgemäße Mittelverwendung._
 

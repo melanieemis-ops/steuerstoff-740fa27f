@@ -4,13 +4,13 @@ title: Nebenleistung oder eigenständige Betriebsvorrichtung?
 category: Umsatzsteuer
 ---
 
-# Nebenleistung oder eigenständige Betriebsvorrichtung?
+⇨ Nebenleistung oder eigenständige Betriebsvorrichtung?
 
 
 
-# Prüfung
+⇨ Prüfung
 
-## Endverbraucher
+► Endverbraucher
 
 Betriebsvorrichtungen
 
@@ -20,7 +20,7 @@ teilen regelmäßig das Schicksal der Hauptleistung.
 
 ---
 
-## Unternehmer (Zwischenvermietung)
+► Unternehmer (Zwischenvermietung)
 
 Betriebsvorrichtungen können eigenständig steuerpflichtig sein.
 
@@ -28,7 +28,7 @@ Eine Aufteilung der Leistungen ist zu prüfen.
 
 ---
 
-## Typische Klausurfalle
+► Typische Klausurfalle
 
 Nicht jede Lichtanlage ist automatisch Nebenleistung.
 

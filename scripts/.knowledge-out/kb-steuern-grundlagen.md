@@ -6,7 +6,7 @@ source: Allgemeines Grundlagenwissen (interne Aufbereitung).
 references: § 3 AO
 ---
 
-# Steuern — Grundlagen und Systematik
+⇨ Steuern — Grundlagen und Systematik
 
 _Was Steuern sind, Abgrenzung zu Gebühren/Beiträgen, Steuerarten im deutschen Steuersystem._
 

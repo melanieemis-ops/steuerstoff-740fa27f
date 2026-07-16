@@ -6,7 +6,7 @@ source: Internes Handout — Rückstellungen / USt / Mitunternehmerschaft.
 references: § 13b Abs. 1, 2 UStG, § 15 UStG, § 25b UStG, UStAE 13b.1 ff.
 ---
 
-# Reverse Charge (§ 13b UStG) — Grundschema & Anwendungsfälle
+⇨ Reverse Charge (§ 13b UStG) — Grundschema & Anwendungsfälle
 
 _Leistender stellt netto, Empfänger schuldet die USt; Vorsteuerabzug gleichzeitig möglich._
 

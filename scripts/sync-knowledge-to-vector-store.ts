@@ -71,7 +71,7 @@ function pushKb(e: KBEntry, ns: string) {
     if (refs.length) front.push(`references: ${refs.join(", ")}`);
     const kws = kwToString(e.keywords);
     const md =
-      `---\n${front.join("\n")}\n---\n\n# ${e.title}\n\n` +
+      `---\n${front.join("\n")}\n---\n\n⇨ ${e.title}\n\n` +
       (e.short ? `_${e.short}_\n\n` : "") +
       (e.body ?? "") +
       (kws ? `\n\n<!-- keywords: ${kws} -->\n` : "");
@@ -93,11 +93,11 @@ if (Array.isArray(lexRaw)) {
       const title = item.aliases?.[0] ?? "Lexikon";
       const id = `lex-${slugify(title)}`;
       const sections = (item.answer.sections ?? [])
-        .map((s) => `## ${s.title}\n\n${s.body}`)
+        .map((s) => `► ${s.title}\n\n${s.body}`)
         .join("\n\n");
       const md =
         `---\nid: ${id}\ntitle: ${title}\ncategory: Steuerlexikon\naliases: ${item.aliases.join(", ")}\n---\n\n` +
-        `# ${title}\n\n${item.answer.summary ?? ""}\n\n` +
+        `⇨ ${title}\n\n${item.answer.summary ?? ""}\n\n` +
         (item.answer.reasoning ? `${item.answer.reasoning}\n\n` : "") +
         sections;
       files.push({ name: `${id}.md`, content: md });
@@ -115,9 +115,9 @@ for (const t of KNOWLEDGE_TOPICS as Array<Record<string, unknown>>) {
     const id = `topic-${slugify(String(t.id ?? t.title))}`;
     const md =
       `---\nid: ${id}\ntitle: ${t.title}\ncategory: Wissensthema (${t.handoutCategory ?? "-"})\n---\n\n` +
-      `# ${t.title}\n\n${t.subtitle ?? ""}\n\n${t.summary}\n\n` +
+      `⇨ ${t.title}\n\n${t.subtitle ?? ""}\n\n${t.summary}\n\n` +
       (Array.isArray(t.checklist) && t.checklist.length
-        ? `## Checkliste\n${(t.checklist as string[]).map((c) => `- ${c}`).join("\n")}\n`
+        ? `► Checkliste\n${(t.checklist as string[]).map((c) => `- ${c}`).join("\n")}\n`
         : "");
     files.push({ name: `${id}.md`, content: md });
   } catch (err) {

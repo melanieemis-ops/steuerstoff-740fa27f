@@ -6,7 +6,7 @@ source: beck-chat Arbeitsnotiz – Anzahlungen und Herstellungskosten
 references: HGB, Bilanzierung, Jahresabschluss
 ---
 
-# Bilanzierung: Erhaltene Anzahlungen und Herstellungskosten
+⇨ Bilanzierung: Erhaltene Anzahlungen und Herstellungskosten
 
 _Erhaltene Anzahlungen werden nicht von aktivierten Herstellungskosten abgezogen, sondern grundsätzlich passiviert._
 

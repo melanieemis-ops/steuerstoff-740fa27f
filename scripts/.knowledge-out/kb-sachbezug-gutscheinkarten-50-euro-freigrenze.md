@@ -6,14 +6,14 @@ source: Interne Steuerstoff-Prüfungsvorbereitung
 references: § 8 Abs. 2 Satz 11 EStG, § 2 Abs. 1 Nr. 10 ZAG, BMF-Schreiben Sachbezüge, BFH Sachbezüge
 ---
 
-# Sachbezüge: Gutscheinkarten bis 50 €
+⇨ Sachbezüge: Gutscheinkarten bis 50 €
 
 _Steuerfreie Gutscheinkarten nach § 8 Abs. 2 Satz 11 EStG: Voraussetzungen, 50-Euro-Freigrenze und ZAG-Kriterien._
 
 
-# Gutscheinkarten als Sachbezug
+⇨ Gutscheinkarten als Sachbezug
 
-## Grundsatz
+► Grundsatz
 
 Gutscheinkarten können steuerfrei an Arbeitnehmer ausgegeben werden, wenn sie die Voraussetzungen eines begünstigten Sachbezugs erfüllen.
 
@@ -24,7 +24,7 @@ Typische Anlässe:
 - Jubiläum
 - Anerkennung besonderer Leistungen
 
-## Begünstigte Gutscheinkarten
+► Begünstigte Gutscheinkarten
 
 Grundsätzlich können begünstigt sein:
 
@@ -35,13 +35,13 @@ Grundsätzlich können begünstigt sein:
 
 Voraussetzung ist, dass die Gutscheinkarte ausschließlich zum Bezug von Waren oder Dienstleistungen berechtigt.
 
-## Voraussetzungen
+► Voraussetzungen
 
 Die Gutscheinkarte muss die Voraussetzungen des § 2 Abs. 1 Nr. 10 ZAG erfüllen.
 
 Begünstigt sind insbesondere:
 
-### Closed-Loop-Karten
+⇶  Closed-Loop-Karten
 
 Einlösbar ausschließlich bei einem Händler.
 
@@ -51,23 +51,23 @@ Beispiele:
 
 Diese sind grundsätzlich begünstigt.
 
-### Controlled-Loop-Karten
+⇶  Controlled-Loop-Karten
 
 Einlösbar bei einem begrenzten Kreis von Akzeptanzstellen im Inland.
 
 Auch diese können steuerlich begünstigt sein.
 
-### Amazon
+⇶  Amazon
 
 Amazon-Gutscheine sind nur begünstigt, wenn sie ausschließlich für Eigenprodukte von Amazon verwendet werden können.
 
 Sind sie auch für Marketplace-Händler bzw. Fremdanbieter verwendbar, liegt regelmäßig keine begünstigte Sachzuwendung vor.
 
-### Netflix
+⇶  Netflix
 
 Netflix-Gutscheine sind grundsätzlich begünstigt, wenn sie ausschließlich für Streaming-Leistungen von Netflix eingesetzt werden können.
 
-## Weitere Voraussetzungen
+► Weitere Voraussetzungen
 
 Die Gutscheinkarte muss:
 
@@ -85,7 +85,7 @@ Nicht zulässig sind insbesondere:
 - Devisengeschäfte
 - allgemeine Zahlungsfunktion
 
-## 50-Euro-Freigrenze
+► 50-Euro-Freigrenze
 
 Die Freigrenze beträgt:
 
@@ -103,7 +103,7 @@ sondern der gesamte Sachbezug steuerpflichtig.
 
 Es handelt sich um eine Freigrenze und nicht um einen Freibetrag.
 
-## Werbungskosten oder Lohn?
+► Werbungskosten oder Lohn?
 
 Die Gutscheinkarte stellt keinen steuerpflichtigen Arbeitslohn dar,
 
@@ -113,7 +113,7 @@ wenn
 - die Freigrenze eingehalten wird,
 - die Zusätzlichkeitsvoraussetzung erfüllt ist.
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Liegt eine Gutscheinkarte oder Geldkarte vor?
 
@@ -129,7 +129,7 @@ wenn
 
 7. Freigrenze von 50 Euro eingehalten?
 
-## Amazon-Gutscheine
+► Amazon-Gutscheine
 
 Besondere Vorsicht:
 
@@ -141,7 +141,7 @@ Nicht begünstigt:
 - Fremdanbieter
 - allgemeine Zahlungsfunktion
 
-## Prüfungsmerksätze
+► Prüfungsmerksätze
 
 50 Euro sind eine Freigrenze.
 
@@ -157,7 +157,7 @@ Closed-Loop und Controlled-Loop können begünstigt sein.
 
 Amazon-Gutscheine immer besonders prüfen.
 
-## Klausurtipp
+► Klausurtipp
 
 Bei Gutscheinen immer folgende Reihenfolge prüfen:
 

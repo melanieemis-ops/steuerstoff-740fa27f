@@ -674,7 +674,7 @@ function ChatPage() {
 
       <form
         onSubmit={handleSubmit}
-        className="fixed inset-x-0 bottom-0 z-30 border-t border-white/10 bg-[#07142f]/95 backdrop-blur pb-[calc(env(safe-area-inset-bottom)+64px)] md:pb-3"
+        className="fixed inset-x-0 bottom-0 z-30 border-t border-white/10 bg-[⇨07142f]/95 backdrop-blur pb-[calc(env(safe-area-inset-bottom)+64px)] md:pb-3"
         data-no-swipe="true"
       >
         <div className="mx-auto w-full max-w-3xl px-3 pt-3">

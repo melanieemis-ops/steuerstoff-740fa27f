@@ -6,14 +6,14 @@ source: Interne Steuerstoff-Wissensdatenbank – Bewertung bebauter Grundstücke
 references: § 9 BewG, § 151 Abs. 1 und 2 BewG, § 157 BewG, § 176 BewG, § 177 BewG, § 179 BewG, § 180 BewG, § 181 BewG, § 182 BewG, § 183 BewG, § 184 BewG, § 185 BewG, § 186 BewG, § 187 BewG, § 188 BewG, §§ 189 bis 191 BewG, § 198 BewG, Anlage 21 BewG, Anlage 22 BewG, Anlage 23 BewG, R B 181.1 ErbStR, R B 182 ErbStR, R B 183 ErbStR, R B 184 ErbStR, R B 185 ErbStR, R B 186 ErbStR, R B 187 ErbStR, R B 188 ErbStR, R B 198 ErbStR
 ---
 
-# Bewertung bebauter Grundstücke nach §§ 181 bis 198 BewG
+⇨ Bewertung bebauter Grundstücke nach §§ 181 bis 198 BewG
 
 _Erbschaft- und Schenkungsteuer: Grundstücksarten, Verfahrenszuordnung, Vergleichswertverfahren, Ertragswertverfahren, Feststellung des Grundbesitzwerts und Nachweis eines niedrigeren gemeinen Werts._
 
 
-# Bewertung bebauter Grundstücke nach §§ 181 bis 198 BewG
+⇨ Bewertung bebauter Grundstücke nach §§ 181 bis 198 BewG
 
-## 1. Ziel der Bedarfsbewertung
+► 1. Ziel der Bedarfsbewertung
 
 Für Zwecke der Erbschaft- und Schenkungsteuer wird der Grundbesitzwert eines Grundstücks gesondert festgestellt.
 
@@ -34,7 +34,7 @@ Ungewöhnliche oder persönliche Verhältnisse bleiben grundsätzlich außer Bet
 
 ---
 
-# 2. Bewertungsstichtag
+⇨ 2. Bewertungsstichtag
 
 Maßgebend sind die tatsächlichen und rechtlichen Verhältnisse am Bewertungsstichtag.
 
@@ -55,13 +55,13 @@ Insbesondere sind stichtagsbezogen festzustellen:
 - Bodenrichtwert,
 - Liegenschaftszinssatz.
 
-## Merksatz
+► Merksatz
 
 **Bewertet wird nicht nach der späteren Nutzung, sondern nach den Verhältnissen am Bewertungsstichtag.**
 
 ---
 
-# 3. Gesonderte Feststellung nach § 151 BewG
+⇨ 3. Gesonderte Feststellung nach § 151 BewG
 
 Der Grundbesitzwert wird grundsätzlich durch einen gesonderten Feststellungsbescheid festgestellt.
 
@@ -74,13 +74,13 @@ Der Feststellungsbescheid enthält insbesondere:
 3. die Zurechnung,
 4. bei mehreren Beteiligten die Höhe der jeweiligen Anteile.
 
-## Beispiel
+► Beispiel
 
 Ein Grundstück gehört dem Erblasser zu 60 Prozent und seiner Ehefrau zu 40 Prozent.
 
 Für den Erwerb von Todes wegen ist grundsätzlich nur der dem Erblasser zuzurechnende Anteil von 60 Prozent festzustellen und dem Erwerber zuzurechnen.
 
-## Wichtig
+► Wichtig
 
 Einwendungen gegen
 
@@ -95,7 +95,7 @@ Der spätere Erbschaftsteuerbescheid übernimmt diese Feststellungen als Grundla
 
 ---
 
-# 4. Begriff des bebauten Grundstücks
+⇨ 4. Begriff des bebauten Grundstücks
 
 Ein Grundstück gilt grundsätzlich als bebaut, wenn sich darauf benutzbare Gebäude befinden.
 
@@ -107,7 +107,7 @@ Ist ein Gebäude auf Dauer nicht mehr benutzbar, kann das Grundstück bewertungs
 
 ---
 
-# 5. Grundstücksarten nach § 181 BewG
+⇨ 5. Grundstücksarten nach § 181 BewG
 
 Bei bebauten Grundstücken sind sechs Grundstücksarten zu unterscheiden:
 
@@ -122,7 +122,7 @@ Die Grundstücksart entscheidet darüber, welches Bewertungsverfahren anzuwenden
 
 ---
 
-# 6. Ein- und Zweifamilienhäuser
+⇨ 6. Ein- und Zweifamilienhäuser
 
 Ein- und Zweifamilienhäuser sind Wohngrundstücke,
 
@@ -134,7 +134,7 @@ Eine Mitbenutzung für betriebliche, berufliche oder öffentliche Zwecke ist uns
 - sie weniger als 50 Prozent der Wohn- und Nutzfläche umfasst und
 - die Eigenart als Ein- oder Zweifamilienhaus nicht wesentlich beeinträchtigt wird.
 
-## Beispiel
+► Beispiel
 
 Ein Gebäude enthält
 
@@ -145,7 +145,7 @@ Die betriebliche Nutzung beträgt weniger als 50 Prozent der Gesamtfläche.
 
 Bleibt die Eigenart als Wohnhaus erhalten, kann ein Einfamilienhaus vorliegen.
 
-## Bewertungsverfahren
+► Bewertungsverfahren
 
 Ein- und Zweifamilienhäuser werden grundsätzlich im Vergleichswertverfahren bewertet.
 
@@ -153,7 +153,7 @@ Liegt kein geeigneter Vergleichswert oder Vergleichsfaktor vor, erfolgt die Bewe
 
 ---
 
-# 7. Mietwohngrundstücke
+⇨ 7. Mietwohngrundstücke
 
 Mietwohngrundstücke sind Grundstücke,
 
@@ -162,7 +162,7 @@ Mietwohngrundstücke sind Grundstücke,
 
 Maßgebend ist das Verhältnis der Wohnfläche zur gesamten Wohn- und Nutzfläche.
 
-## Beispiel
+► Beispiel
 
 Ein Mehrfamilienhaus verfügt über
 
@@ -173,7 +173,7 @@ Der Wohnanteil beträgt 90 Prozent.
 
 Das Grundstück ist grundsätzlich ein Mietwohngrundstück.
 
-## Bewertungsverfahren
+► Bewertungsverfahren
 
 Mietwohngrundstücke werden zwingend im Ertragswertverfahren bewertet.
 
@@ -183,7 +183,7 @@ In diesem Fall muss eine übliche beziehungsweise marktübliche Miete ermittelt 
 
 ---
 
-# 8. Wohnungseigentum
+⇨ 8. Wohnungseigentum
 
 Wohnungseigentum ist das Sondereigentum an einer Wohnung in Verbindung mit dem Miteigentumsanteil am gemeinschaftlichen Eigentum.
 
@@ -194,7 +194,7 @@ Hierzu gehören beispielsweise:
 - gemeinschaftliche Gebäudeteile,
 - gemeinschaftliche Anlagen.
 
-## Bewertungsverfahren
+► Bewertungsverfahren
 
 Wohnungseigentum wird grundsätzlich im Vergleichswertverfahren bewertet.
 
@@ -202,7 +202,7 @@ Ist mangels geeigneter Daten kein Vergleichswertverfahren möglich, kommt das Sa
 
 ---
 
-# 9. Teileigentum
+⇨ 9. Teileigentum
 
 Teileigentum ist das Sondereigentum an nicht zu Wohnzwecken dienenden Räumen eines Gebäudes in Verbindung mit dem Miteigentumsanteil am gemeinschaftlichen Eigentum.
 
@@ -214,7 +214,7 @@ Beispiele:
 - gewerblich genutzte Einheit,
 - separat gebildetes Teileigentum an sonstigen Räumen.
 
-## Bewertungsverfahren
+► Bewertungsverfahren
 
 Teileigentum wird grundsätzlich im Vergleichswertverfahren bewertet.
 
@@ -222,7 +222,7 @@ Liegt kein geeigneter Vergleichswert vor, erfolgt die Bewertung im Sachwertverfa
 
 ---
 
-# 10. Geschäftsgrundstücke
+⇨ 10. Geschäftsgrundstücke
 
 Geschäftsgrundstücke sind Grundstücke,
 
@@ -238,7 +238,7 @@ Beispiele:
 - Verwaltungsgebäude,
 - betrieblich vermietete Gewerbeimmobilie.
 
-## Bewertungsverfahren
+► Bewertungsverfahren
 
 Kann für das Geschäftsgrundstück eine übliche Miete am örtlichen Grundstücksmarkt ermittelt werden, ist das Ertragswertverfahren anzuwenden.
 
@@ -246,7 +246,7 @@ Kann keine übliche Miete ermittelt werden, ist das Sachwertverfahren anzuwenden
 
 ---
 
-# 11. Gemischt genutzte Grundstücke
+⇨ 11. Gemischt genutzte Grundstücke
 
 Gemischt genutzte Grundstücke dienen
 
@@ -265,7 +265,7 @@ Insbesondere handelt es sich nicht um ein gemischt genutztes Grundstück, wenn b
 
 vorliegt.
 
-## Bewertungsverfahren
+► Bewertungsverfahren
 
 Kann eine übliche Miete ermittelt werden, ist das Ertragswertverfahren anzuwenden.
 
@@ -273,7 +273,7 @@ Kann keine übliche Miete ermittelt werden, ist das Sachwertverfahren anzuwenden
 
 ---
 
-# 12. Sonstige bebaute Grundstücke
+⇨ 12. Sonstige bebaute Grundstücke
 
 Sonstige bebaute Grundstücke sind Grundstücke, die unter keine andere Grundstücksart des § 181 BewG fallen.
 
@@ -286,13 +286,13 @@ Beispiele können sein:
 - besondere öffentliche Gebäude,
 - Grundstücke mit ungewöhnlicher Bebauung.
 
-## Bewertungsverfahren
+► Bewertungsverfahren
 
 Sonstige bebaute Grundstücke werden im Sachwertverfahren bewertet.
 
 ---
 
-# 13. Abgrenzung nach Wohn- und Nutzfläche
+⇨ 13. Abgrenzung nach Wohn- und Nutzfläche
 
 Die Abgrenzung der Grundstücksarten erfolgt regelmäßig nach dem Verhältnis von
 
@@ -301,7 +301,7 @@ Die Abgrenzung der Grundstücksarten erfolgt regelmäßig nach dem Verhältnis v
 
 Die Flächen sind nach den jeweils maßgebenden gesetzlichen Grundsätzen zu bestimmen.
 
-## Grundformel
+► Grundformel
 
 Wohnanteil:
 
@@ -311,7 +311,7 @@ Betrieblicher beziehungsweise öffentlicher Anteil:
 
 betriebliche oder öffentliche Nutzfläche / gesamte Wohn- und Nutzfläche × 100
 
-## Beispiel
+► Beispiel
 
 Wohnfläche:
 
@@ -335,7 +335,7 @@ Es kann ein gemischt genutztes Grundstück vorliegen.
 
 ---
 
-# 14. Verfahrenszuordnung nach § 182 BewG
+⇨ 14. Verfahrenszuordnung nach § 182 BewG
 
 Das Bewertungsgesetz kennt für bebaute Grundstücke drei Bewertungsverfahren:
 
@@ -349,9 +349,9 @@ Das anzuwendende Verfahren ergibt sich aus der Grundstücksart und der Verfügba
 
 ---
 
-# 15. Übersicht der Bewertungsverfahren
+⇨ 15. Übersicht der Bewertungsverfahren
 
-## Vergleichswertverfahren
+► Vergleichswertverfahren
 
 Grundsätzlich für:
 
@@ -364,7 +364,7 @@ Voraussetzung:
 
 Es liegen geeignete Vergleichspreise oder Vergleichsfaktoren vor.
 
-## Ertragswertverfahren
+► Ertragswertverfahren
 
 Zwingend für:
 
@@ -377,7 +377,7 @@ Außerdem für:
 
 wenn eine übliche Miete ermittelt werden kann.
 
-## Sachwertverfahren
+► Sachwertverfahren
 
 Anzuwenden für:
 
@@ -385,7 +385,7 @@ Anzuwenden für:
 - Geschäftsgrundstücke und gemischt genutzte Grundstücke, wenn keine übliche Miete ermittelt werden kann,
 - sonstige bebaute Grundstücke.
 
-## Merksatz
+► Merksatz
 
 **Vergleich möglich: Vergleichswert.**
 
@@ -395,7 +395,7 @@ Anzuwenden für:
 
 ---
 
-# 16. Prüfungsschema Grundstücksart
+⇨ 16. Prüfungsschema Grundstücksart
 
 1. Liegt ein bebautes Grundstück vor?
 2. Enthält das Grundstück höchstens zwei Wohnungen?
@@ -409,7 +409,7 @@ Anzuwenden für:
 
 ---
 
-# 17. Vergleichswertverfahren nach § 183 BewG
+⇨ 17. Vergleichswertverfahren nach § 183 BewG
 
 Beim Vergleichswertverfahren wird der Wert des Grundstücks aus tatsächlich beobachteten Grundstücksverkäufen abgeleitet.
 
@@ -431,7 +431,7 @@ Wertbeeinflussende Merkmale können insbesondere sein:
 
 ---
 
-# 18. Vergleichspreise
+⇨ 18. Vergleichspreise
 
 Vorrangig sind die von den zuständigen Gutachterausschüssen ermittelten und mitgeteilten Vergleichspreise zu verwenden.
 
@@ -441,7 +441,7 @@ Sie müssen jedoch hinsichtlich der wesentlichen wertbeeinflussenden Merkmale hi
 
 Erhebliche Abweichungen können durch geeignete Zu- oder Abschläge berücksichtigt werden, sofern dies nach den Marktdaten zulässig und nachvollziehbar ist.
 
-## Grundformel
+► Grundformel
 
 Angepasster Vergleichspreis  
 × maßgebende Bezugsgröße  
@@ -449,7 +449,7 @@ Angepasster Vergleichspreis
 
 ---
 
-# 19. Vergleichsfaktoren
+⇨ 19. Vergleichsfaktoren
 
 Anstelle einzelner Vergleichspreise können Vergleichsfaktoren verwendet werden.
 

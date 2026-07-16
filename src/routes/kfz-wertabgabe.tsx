@@ -268,9 +268,9 @@ function buildExport(vehicles: Vehicle[]): string {
     lines.push(`  mit Vorsteuer belastet netto: ${fmtEUR(c.vatVehicleCostsNet)}`);
     lines.push(`  50-%-Deckel: ${fmtEUR(c.maxVatBaseByCostCap)}`);
     lines.push("5) DATEV-Buchungswerte");
-    lines.push(`  # 8921 0 BMG: ${fmtEUR(c.vatBase8921)}`);
-    lines.push(`  # 8921 0 USt 19 %: ${fmtEUR(c.vatDue)}`);
-    lines.push(`  # 8924 0 Betrag: ${fmtEUR(c.amount8924)}`);
+    lines.push(`  ⇨ 8921 0 BMG: ${fmtEUR(c.vatBase8921)}`);
+    lines.push(`  ⇨ 8921 0 USt 19 %: ${fmtEUR(c.vatDue)}`);
+    lines.push(`  ⇨ 8924 0 Betrag: ${fmtEUR(c.amount8924)}`);
     lines.push(`  Gesamtwert vor Deckel: ${fmtEUR(c.totalBeforeCap)}`);
     lines.push(`  Gesamtwert nach Deckel: ${fmtEUR(c.totalAfterCap)}`);
     if (c.warnings.length) {
@@ -287,9 +287,9 @@ function buildExport(vehicles: Vehicle[]): string {
     lines.push("");
     lines.push("Gesamtsummen");
     lines.push("-".repeat(48));
-    lines.push(`  Summe BMG # 8921 0: ${fmtEUR(sum8921Base)}`);
+    lines.push(`  Summe BMG ⇨ 8921 0: ${fmtEUR(sum8921Base)}`);
     lines.push(`  Summe USt 19 %: ${fmtEUR(sum8921Vat)}`);
-    lines.push(`  Summe # 8924 0: ${fmtEUR(sum8924)}`);
+    lines.push(`  Summe ⇨ 8924 0: ${fmtEUR(sum8924)}`);
     lines.push(`  Summe Fahrten W/B: ${fmtEUR(sumCommute)}`);
     lines.push(`  Gesamte private Kfz-Nutzung: ${fmtEUR(sumTotal)}`);
   }
@@ -433,7 +433,7 @@ function Page() {
           <div className="mx-auto w-full max-w-5xl px-4 py-6 sm:px-6 sm:py-8">
             <div className="flex items-center gap-2 text-xs text-muted-foreground">
               <Car className="h-3.5 w-3.5" />
-              <span>DATEV · Umsatzsteuer · # 8921 0 / # 8924 0</span>
+              <span>DATEV · Umsatzsteuer · ⇨ 8921 0 / ⇨ 8924 0</span>
             </div>
             <h1 className="mt-2 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
               Kfz-Wertabgaben-Rechner
@@ -613,9 +613,9 @@ function Page() {
                   <div className="rounded-lg border border-border/70 bg-background/40 p-3">
                     <ResultRow label="BMG nach 1-%-Methode" value={fmtEUR(c.vatBaseBeforeCap)} />
                     <ResultRow label="50 % der mit VSt belasteten Kosten" value={fmtEUR(c.maxVatBaseByCostCap)} />
-                    <ResultRow label="Tatsächliche BMG # 8921 0" value={fmtEUR(c.vatBase8921)} strong />
+                    <ResultRow label="Tatsächliche BMG ⇨ 8921 0" value={fmtEUR(c.vatBase8921)} strong />
                     <ResultRow label="abzuführende USt 19 %" value={fmtEUR(c.vatDue)} />
-                    <ResultRow label="Anteil ohne USt # 8924 0" value={fmtEUR(c.amount8924)} strong />
+                    <ResultRow label="Anteil ohne USt ⇨ 8924 0" value={fmtEUR(c.amount8924)} strong />
                   </div>
                 </div>
 
@@ -643,17 +643,17 @@ function Page() {
                   <SectionTitle no="7">DATEV-Buchungshinweise</SectionTitle>
                   <div className="space-y-2 text-sm">
                     <div className="rounded-lg border border-border/70 bg-background/40 p-3">
-                      <div className="font-medium"># 8921 0 — Unentgeltliche Wertabgaben Kfz 19 % USt</div>
+                      <div className="font-medium">⇨ 8921 0 — Unentgeltliche Wertabgaben Kfz 19 % USt</div>
                       <ResultRow label="BMG" value={fmtEUR(c.vatBase8921)} />
                       <ResultRow label="abzuführende USt 19 %" value={fmtEUR(c.vatDue)} />
                     </div>
                     <div className="rounded-lg border border-border/70 bg-background/40 p-3">
-                      <div className="font-medium"># 8924 0 — Unentgeltliche Wertabgaben Kfz ohne USt</div>
+                      <div className="font-medium">⇨ 8924 0 — Unentgeltliche Wertabgaben Kfz ohne USt</div>
                       <ResultRow label="Betrag" value={fmtEUR(c.amount8924)} />
                     </div>
                     <div className="rounded-lg border border-dashed border-border bg-background/40 p-3 text-xs text-muted-foreground">
                       Fahrten Wohnung/Betrieb: außerbilanzielle Korrektur gemäß Berechnung buchen
-                      per <strong>#4679 0 an #4680 0</strong>.
+                      per <strong>⇨4679 0 an ⇨4680 0</strong>.
                     </div>
                   </div>
                 </div>
@@ -688,9 +688,9 @@ function Page() {
           {vehicles.length > 1 && (
             <article className="rounded-2xl border border-border bg-card p-4 sm:p-6">
               <h2 className="mb-3 text-base font-semibold">Gesamtsummen aller Fahrzeuge</h2>
-              <ResultRow label="Summe BMG # 8921 0" value={fmtEUR(totals.b)} />
+              <ResultRow label="Summe BMG ⇨ 8921 0" value={fmtEUR(totals.b)} />
               <ResultRow label="Summe USt 19 %" value={fmtEUR(totals.vat)} />
-              <ResultRow label="Summe # 8924 0" value={fmtEUR(totals.a8924)} />
+              <ResultRow label="Summe ⇨ 8924 0" value={fmtEUR(totals.a8924)} />
               <ResultRow label="Summe Fahrten W/B" value={fmtEUR(totals.commute)} />
               <ResultRow label="Gesamte private Kfz-Nutzung" value={fmtEUR(totals.tot)} strong />
             </article>

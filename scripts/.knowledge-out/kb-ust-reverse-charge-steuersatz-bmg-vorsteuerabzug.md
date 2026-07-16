@@ -6,16 +6,16 @@ source: Interne Steuerstoff-Wissensdatenbank – Umsatzsteuer, Rechtsstand Juli 
 references: § 1 Abs. 1 Nr. 1 UStG, § 2 UStG, § 3 UStG, § 3a Abs. 2 UStG, § 3g UStG, § 4 UStG, § 9 UStG, § 10 UStG, § 12 UStG, § 13b UStG, § 14 UStG, § 14a UStG, § 14c UStG, § 15 Abs. 1 UStG, § 15 Abs. 1a UStG, § 15 Abs. 1b UStG, § 15 Abs. 2 UStG, § 15 Abs. 3 UStG, § 15 Abs. 4 UStG, § 15a UStG, § 16 Abs. 6 UStG, § 17 UStG, § 18 Abs. 4a UStG, § 19 UStG, Anlage 2 UStG, Anlage 3 UStG, Anlage 4 UStG, Abschn. 10.1 UStAE, Abschn. 12 UStAE, Abschn. 13b.1 bis 13b.15 UStAE, Abschn. 15.2 UStAE, Abschn. 15.12 UStAE, Abschn. 15.15 UStAE, Abschn. 15.16 UStAE, Abschn. 15.17 UStAE, Abschn. 15.23 UStAE
 ---
 
-# Reverse Charge, Steuersatz, Bemessungsgrundlage und Vorsteuerabzug
+⇨ Reverse Charge, Steuersatz, Bemessungsgrundlage und Vorsteuerabzug
 
 _Umsatzsteuerliche Prüfung von § 13b UStG, Steuersätzen, Bemessungsgrundlage, Unternehmenszuordnung, Vorsteuerabzug, Ausschlussumsätzen und Vorsteueraufteilung._
 
 
-# Reverse Charge, Steuersatz, Bemessungsgrundlage und Vorsteuerabzug
+⇨ Reverse Charge, Steuersatz, Bemessungsgrundlage und Vorsteuerabzug
 
-# Teil A: Steuerschuldnerschaft des Leistungsempfängers nach § 13b UStG
+⇨ Teil A: Steuerschuldnerschaft des Leistungsempfängers nach § 13b UStG
 
-## 1. Grundprinzip
+► 1. Grundprinzip
 
 Grundsätzlich schuldet der leistende Unternehmer die Umsatzsteuer.
 
@@ -29,7 +29,7 @@ Dieses Verfahren wird bezeichnet als:
 - Umkehr der Steuerschuldnerschaft,
 - Steuerschuldnerschaft des Leistungsempfängers.
 
-## Rechtsfolgen
+► Rechtsfolgen
 
 Der leistende Unternehmer
 
@@ -43,7 +43,7 @@ Der Leistungsempfänger
 - meldet sie in seiner Umsatzsteuer-Voranmeldung an,
 - kann sie bei Vorliegen der Voraussetzungen gleichzeitig als Vorsteuer abziehen.
 
-## Merksatz
+► Merksatz
 
 § 13b UStG führt nicht zu einer Steuerbefreiung.
 
@@ -53,7 +53,7 @@ Lediglich die Person des Steuerschuldners ändert sich.
 
 ---
 
-# 2. Grundprüfung des § 13b UStG
+⇨ 2. Grundprüfung des § 13b UStG
 
 Vor Anwendung des Reverse-Charge-Verfahrens ist zu prüfen:
 
@@ -66,7 +66,7 @@ Vor Anwendung des Reverse-Charge-Verfahrens ist zu prüfen:
 7. Wann entsteht die Steuer?
 8. Besteht beim Leistungsempfänger ein Vorsteuerabzug?
 
-## Wichtig
+► Wichtig
 
 § 13b UStG greift grundsätzlich nur bei im Inland steuerpflichtigen Umsätzen.
 
@@ -79,7 +79,7 @@ entsteht keine deutsche Umsatzsteuer nach § 13b UStG.
 
 ---
 
-# 3. Sonstige Leistungen aus dem übrigen Gemeinschaftsgebiet
+⇨ 3. Sonstige Leistungen aus dem übrigen Gemeinschaftsgebiet
 
 Nach § 13b Abs. 1 UStG schuldet der Leistungsempfänger die Steuer für eine sonstige Leistung, wenn
 
@@ -87,7 +87,7 @@ Nach § 13b Abs. 1 UStG schuldet der Leistungsempfänger die Steuer für eine so
 2. der Leistungsort nach § 3a Abs. 2 UStG im Inland liegt und
 3. die Leistung im Inland steuerpflichtig ist.
 
-## Typische Fälle
+► Typische Fälle
 
 - Beratungsleistungen,
 - Werbeleistungen,
@@ -98,7 +98,7 @@ Nach § 13b Abs. 1 UStG schuldet der Leistungsempfänger die Steuer für eine so
 - Rechts- und Steuerberatung,
 - digitale B2B-Dienstleistungen.
 
-## Beispiel
+► Beispiel
 
 Ein französischer Unternehmer erbringt eine Beratungsleistung an einen deutschen Unternehmer.
 
@@ -112,13 +112,13 @@ Der deutsche Leistungsempfänger schuldet die Umsatzsteuer nach § 13b Abs. 1 un
 
 ---
 
-# 4. Entstehung der Steuer nach § 13b Abs. 1 UStG
+⇨ 4. Entstehung der Steuer nach § 13b Abs. 1 UStG
 
 Bei Leistungen nach § 13b Abs. 1 UStG entsteht die Steuer mit Ablauf des Voranmeldungszeitraums, in dem die Leistung ausgeführt wurde.
 
 Auf den Zeitpunkt der Rechnungsausstellung kommt es grundsätzlich nicht an.
 
-## Beispiel
+► Beispiel
 
 Die Beratungsleistung wird am 15. März ausgeführt.
 
@@ -126,7 +126,7 @@ Die Rechnung wird erst am 10. April ausgestellt.
 
 Die Umsatzsteuer entsteht mit Ablauf des Voranmeldungszeitraums März.
 
-## Merksatz
+► Merksatz
 
 § 13b Abs. 1 UStG:
 
@@ -134,7 +134,7 @@ Die Umsatzsteuer entsteht mit Ablauf des Voranmeldungszeitraums März.
 
 ---
 
-# 5. Umsätze nach § 13b Abs. 2 Nr. 1 UStG
+⇨ 5. Umsätze nach § 13b Abs. 2 Nr. 1 UStG
 
 § 13b Abs. 2 Nr. 1 UStG erfasst insbesondere
 
@@ -145,7 +145,7 @@ die von einem im Ausland ansässigen Unternehmer im Inland ausgeführt werden un
 
 Nicht erfasst wird grundsätzlich eine reine Lieferung eines Gegenstands, soweit kein anderer Tatbestand des § 13b UStG eingreift.
 
-## Typische Fälle
+► Typische Fälle
 
 - Montage einer Anlage durch einen ausländischen Unternehmer,
 - Errichtung eines Messestands,
@@ -155,7 +155,7 @@ Nicht erfasst wird grundsätzlich eine reine Lieferung eines Gegenstands, soweit
 
 ---
 
-# 6. Im Ausland ansässiger Unternehmer
+⇨ 6. Im Ausland ansässiger Unternehmer
 
 Ein Unternehmer ist grundsätzlich im Ausland ansässig, wenn er im Inland weder
 
@@ -169,13 +169,13 @@ hat.
 
 Eine inländische Betriebsstätte verhindert die Anwendung des § 13b UStG nur, wenn diese Betriebsstätte an der konkreten Leistung beteiligt ist.
 
-## Besonderheit Grundstücksvermietung
+► Besonderheit Grundstücksvermietung
 
 Besitzt ein ausländischer Unternehmer lediglich ein im Inland gelegenes Grundstück und vermietet dieses steuerpflichtig, wird er allein durch den Grundstücksbesitz grundsätzlich nicht zu einem im Inland ansässigen Unternehmer.
 
 ---
 
-# 7. Sicherungsübereignete Gegenstände
+⇨ 7. Sicherungsübereignete Gegenstände
 
 § 13b Abs. 2 Nr. 2 UStG erfasst die Lieferung eines sicherungsübereigneten Gegenstands
 
@@ -183,7 +183,7 @@ Besitzt ein ausländischer Unternehmer lediglich ein im Inland gelegenes Grundst
 - an den Sicherungsnehmer
 - außerhalb eines Insolvenzverfahrens.
 
-## Wichtig
+► Wichtig
 
 Die bloße Sicherungsübereignung ist regelmäßig noch keine Lieferung.
 
@@ -198,7 +198,7 @@ Für die erste Lieferung kann § 13b Abs. 2 Nr. 2 UStG gelten.
 
 ---
 
-# 8. Grundstücksumsätze
+⇨ 8. Grundstücksumsätze
 
 § 13b Abs. 2 Nr. 3 UStG erfasst steuerpflichtige Umsätze, die unter das Grunderwerbsteuergesetz fallen.
 
@@ -206,13 +206,13 @@ Grundstücksveräußerungen sind grundsätzlich nach § 4 Nr. 9 Buchst. a UStG s
 
 Erst wenn wirksam nach § 9 Abs. 1 und Abs. 3 UStG zur Steuerpflicht optiert wurde, kann § 13b Abs. 2 Nr. 3 UStG eingreifen.
 
-## Rechtsfolge
+► Rechtsfolge
 
 Bei wirksamer Option schuldet grundsätzlich der Erwerber die Umsatzsteuer.
 
 Der Verkäufer stellt regelmäßig eine Nettorechnung aus.
 
-## Merksatz
+► Merksatz
 
 Grundstücksverkauf:
 
@@ -220,7 +220,7 @@ Grundstücksverkauf:
 
 ---
 
-# 9. Bauleistungen
+⇨ 9. Bauleistungen
 
 § 13b Abs. 2 Nr. 4 UStG erfasst Bauleistungen.
 
@@ -236,7 +236,7 @@ Hierzu gehören insbesondere Leistungen zur
 
 eines Bauwerks.
 
-## Regelmäßig keine Bauleistungen
+► Regelmäßig keine Bauleistungen
 
 Nicht erfasst werden insbesondere reine
 
@@ -246,13 +246,13 @@ Nicht erfasst werden insbesondere reine
 - Bauüberwachungsleistungen,
 - Gutachterleistungen.
 
-## Leistungsempfänger
+► Leistungsempfänger
 
 Der Leistungsempfänger schuldet die Steuer nur, wenn er selbst nachhaltig Bauleistungen erbringt.
 
 Als Nachweis dient regelmäßig eine gültige Bescheinigung des Finanzamts nach dem Vordruck USt 1 TG.
 
-## Wichtig
+► Wichtig
 
 Die konkrete empfangene Bauleistung muss nicht zwingend für einen eigenen Bauauftrag weiterverwendet werden.
 
@@ -260,7 +260,7 @@ Entscheidend ist grundsätzlich die nachhaltige Tätigkeit des Leistungsempfäng
 
 ---
 
-# 10. Gebäudereinigungsleistungen
+⇨ 10. Gebäudereinigungsleistungen
 
 § 13b Abs. 2 Nr. 8 UStG erfasst die Reinigung von Gebäuden und Gebäudeteilen.
 
@@ -278,11 +278,11 @@ Als Nachweis kann ebenfalls eine entsprechende Bescheinigung des Finanzamts verw
 
 ---
 
-# 11. Weitere Umsätze nach § 13b Abs. 2 UStG
+⇨ 11. Weitere Umsätze nach § 13b Abs. 2 UStG
 
 § 13b Abs. 2 UStG erfasst außerdem insbesondere:
 
-## Nr. 5
+► Nr. 5
 
 Bestimmte Lieferungen von
 
@@ -293,11 +293,11 @@ Bestimmte Lieferungen von
 
 Die genauen Voraussetzungen hängen insbesondere von der Ansässigkeit und der Wiederverkäufereigenschaft der Beteiligten ab.
 
-## Nr. 6
+► Nr. 6
 
 Übertragung bestimmter Emissionsberechtigungen und Emissionszertifikate.
 
-## Nr. 7
+► Nr. 7
 
 Lieferungen der in Anlage 3 UStG bezeichneten Gegenstände.
 
@@ -309,15 +309,15 @@ Hierzu gehören insbesondere bestimmte
 - Kunststoffabfälle,
 - Glasabfälle.
 
-## Nr. 8
+► Nr. 8
 
 Gebäudereinigungsleistungen an einen nachhaltig tätigen Gebäudereiniger.
 
-## Nr. 9
+► Nr. 9
 
 Bestimmte Lieferungen von Gold.
 
-## Nr. 10
+► Nr. 10
 
 Lieferungen von
 
@@ -330,40 +330,40 @@ wenn die gesetzliche Entgeltgrenze von mindestens 5.000 Euro innerhalb eines wir
 
 Nachträgliche Entgeltminderungen bleiben für die Prüfung der Grenze grundsätzlich unberücksichtigt.
 
-## Nr. 11
+► Nr. 11
 
 Lieferungen der in Anlage 4 UStG bezeichneten Metalle, wenn die gesetzliche Entgeltgrenze von mindestens 5.000 Euro erreicht wird.
 
-## Nr. 12
+► Nr. 12
 
 Bestimmte Telekommunikationsleistungen, insbesondere wenn der Leistungsempfänger als Wiederverkäufer der Telekommunikationsleistungen anzusehen ist.
 
 ---
 
-# 12. Entstehung der Steuer bei § 13b Abs. 2 UStG
+⇨ 12. Entstehung der Steuer bei § 13b Abs. 2 UStG
 
 In den Fällen des § 13b Abs. 2 UStG entsteht die Steuer grundsätzlich
 
 1. mit Ausstellung der Rechnung,
 2. spätestens jedoch mit Ablauf des Kalendermonats, der auf die Ausführung der Leistung folgt.
 
-## Beispiel
+► Beispiel
 
 Eine Bauleistung wird am 18. März ausgeführt.
 
-### Rechnung am 25. März
+⇶  Rechnung am 25. März
 
 Die Steuer entsteht im März.
 
-### Rechnung am 15. April
+⇶  Rechnung am 15. April
 
 Die Steuer entsteht im April.
 
-### Rechnung erst im Juni
+⇶  Rechnung erst im Juni
 
 Die Steuer entsteht spätestens mit Ablauf des Monats April.
 
-## Merksatz
+► Merksatz
 
 § 13b Abs. 2 UStG:
 
@@ -371,7 +371,7 @@ Die Steuer entsteht spätestens mit Ablauf des Monats April.
 
 ---
 
-# 13. Teilleistungen und Anzahlungen
+⇨ 13. Teilleistungen und Anzahlungen
 
 Teilleistungen sind auch im Rahmen des § 13b UStG möglich.
 
@@ -388,7 +388,7 @@ Eine bloße Vorausrechnung ohne Zahlung löst grundsätzlich noch keine Anzahlun
 
 ---
 
-# 14. Rechnung bei Reverse Charge
+⇨ 14. Rechnung bei Reverse Charge
 
 Die Rechnung muss grundsätzlich die allgemeinen Pflichtangaben der §§ 14 und 14a UStG enthalten.
 
@@ -400,7 +400,7 @@ Alternativ kann im internationalen Geschäftsverkehr beispielsweise angegeben we
 
 **Reverse Charge**
 
-## Wichtig
+► Wichtig
 
 Der Hinweis ist eine Rechnungspflicht.
 
@@ -408,7 +408,7 @@ Das Fehlen des Hinweises verhindert die gesetzlich eintretende Steuerschuldnersc
 
 ---
 
-# 15. Unrichtiger Umsatzsteuerausweis
+⇨ 15. Unrichtiger Umsatzsteuerausweis
 
 Weist der leistende Unternehmer trotz Anwendung des § 13b UStG Umsatzsteuer gesondert aus, kann er diese nach § 14c UStG schulden.
 
@@ -416,7 +416,7 @@ Der Leistungsempfänger schuldet gleichzeitig weiterhin die Steuer nach § 13b U
 
 Die offen ausgewiesene Steuer ist beim Leistungsempfänger grundsätzlich keine gesetzlich geschuldete Steuer und daher nicht als Vorsteuer abziehbar.
 
-## Erforderliche Korrektur
+► Erforderliche Korrektur
 
 - Rechnung durch den Aussteller berichtigen,
 - zu Unrecht berechnete Umsatzsteuer zurückzahlen,
@@ -424,7 +424,7 @@ Die offen ausgewiesene Steuer ist beim Leistungsempfänger grundsätzlich keine 
 
 ---
 
-# 16. Kleinunternehmer und § 13b UStG
+⇨ 16. Kleinunternehmer und § 13b UStG
 
 Auch ein Kleinunternehmer kann als Leistungsempfänger Steuerschuldner nach § 13b UStG werden.
 
@@ -434,17 +434,17 @@ Der Kleinunternehmer muss die Umsatzsteuer anmelden und abführen.
 
 Mangels allgemeiner Vorsteuerabzugsberechtigung kann er die Steuer regelmäßig nicht gleichzeitig als Vorsteuer abziehen.
 
-## Leistender Kleinunternehmer
+► Leistender Kleinunternehmer
 
 Wird die Leistung vom leistenden Unternehmer wirksam nach der Kleinunternehmerregelung steuerfrei ausgeführt, kommt grundsätzlich keine Steuerschuldumkehr nach § 13b UStG in Betracht.
 
 ---
 
-# 17. Bezug für den nichtunternehmerischen Bereich
+⇨ 17. Bezug für den nichtunternehmerischen Bereich
 
 Die Steuerschuldnerschaft kann unter den gesetzlichen Voraussetzungen auch eintreten, wenn der Unternehmer die Leistung für seinen nichtunternehmerischen oder privaten Bereich bezieht.
 
-## Beispiel
+► Beispiel
 
 Ein deutscher Einzelunternehmer lässt sein privates Einfamilienhaus durch einen ausländischen Unternehmer renovieren.
 
@@ -454,13 +454,13 @@ Der deutsche Unternehmer kann nach § 13b UStG Steuerschuldner werden, obwohl di
 
 Ein Vorsteuerabzug besteht wegen der privaten Verwendung jedoch nicht.
 
-## Besonderheit
+► Besonderheit
 
 Für bestimmte Leistungen und für Leistungen an juristische Personen des öffentlichen Rechts bestehen gesetzliche Sonderregelungen und Ausnahmen.
 
 ---
 
-# 18. Vorsteuerabzug aus Reverse-Charge-Umsätzen
+⇨ 18. Vorsteuerabzug aus Reverse-Charge-Umsätzen
 
 Der Leistungsempfänger kann die von ihm nach § 13b UStG geschuldete Steuer nach § 15 Abs. 1 Satz 1 Nr. 4 UStG als Vorsteuer abziehen, wenn
 
@@ -470,7 +470,7 @@ Der Leistungsempfänger kann die von ihm nach § 13b UStG geschuldete Steuer nac
 
 Eine Rechnung mit gesondertem Umsatzsteuerausweis ist für diesen Vorsteuerabzug nicht erforderlich.
 
-## Wichtig
+► Wichtig
 
 Steuerschuld und Vorsteuerabzug sind getrennt zu prüfen.
 
@@ -481,7 +481,7 @@ Ein Unternehmer kann daher
 
 ---
 
-# 19. Beispiel: Arzt bezieht Beratungsleistung
+⇨ 19. Beispiel: Arzt bezieht Beratungsleistung
 
 Ein in Deutschland tätiger Arzt bezieht eine Beratungsleistung von einem französischen Unternehmer.
 
@@ -493,25 +493,25 @@ Verwendet er die Beratungsleistung ausschließlich für steuerfreie Heilbehandlu
 
 ---
 
-# Teil B: Steuersätze nach § 12 UStG
+⇨ Teil B: Steuersätze nach § 12 UStG
 
-# 20. Prüfungsreihenfolge
+⇨ 20. Prüfungsreihenfolge
 
-## Schritt 1
+► Schritt 1
 
 Prüfen, ob ein ermäßigter Steuersatz nach § 12 Abs. 2 oder einer Sondervorschrift anzuwenden ist.
 
-## Schritt 2
+► Schritt 2
 
 Ist keine Ermäßigung einschlägig, gilt der Regelsteuersatz nach § 12 Abs. 1 UStG.
 
-## Merksatz
+► Merksatz
 
 **Zuerst 7 Prozent prüfen, sonst 19 Prozent.**
 
 ---
 
-# 21. Regelsteuersatz
+⇨ 21. Regelsteuersatz
 
 Der Regelsteuersatz beträgt 19 Prozent der Bemessungsgrundlage.
 
@@ -529,7 +529,7 @@ Typische Beispiele:
 
 ---
 
-# 22. Ermäßigter Steuersatz
+⇨ 22. Ermäßigter Steuersatz
 
 Der ermäßigte Steuersatz beträgt grundsätzlich 7 Prozent.
 
@@ -539,7 +539,7 @@ Die Begünstigungen sind grundsätzlich eng auszulegen.
 
 ---
 
-# 23. Gegenstände der Anlage 2 UStG
+⇨ 23. Gegenstände der Anlage 2 UStG
 
 § 12 Abs. 2 Nr. 1 UStG erfasst insbesondere Lieferungen der in Anlage 2 UStG genannten Gegenstände.
 
@@ -558,7 +558,7 @@ Typische Beispiele sind:
 - Brennholz,
 - Bücher und bestimmte Druckerzeugnisse.
 
-## Achtung
+► Achtung
 
 Nicht automatisch begünstigt sind beispielsweise:
 
@@ -573,7 +573,7 @@ Maßgeblich ist die genaue Warenbezeichnung in Anlage 2 UStG.
 
 ---
 
-# 24. Vermietung begünstigter Gegenstände
+⇨ 24. Vermietung begünstigter Gegenstände
 
 Die Vermietung bestimmter in Anlage 2 UStG genannter Gegenstände kann ebenfalls dem ermäßigten Steuersatz unterliegen.
 
@@ -581,15 +581,15 @@ Es ist jedoch immer zu prüfen, ob die konkrete Vermietung ausdrücklich von § 
 
 ---
 
-# 25. Personenbeförderung
+⇨ 25. Personenbeförderung
 
 Für bestimmte Personenbeförderungsleistungen gilt der ermäßigte Steuersatz.
 
-## Schienenbahnverkehr
+► Schienenbahnverkehr
 
 Die Personenbeförderung im Schienenbahnverkehr kann unabhängig von der Länge der Beförderungsstrecke dem ermäßigten Steuersatz unterliegen.
 
-## Andere Beförderungsmittel
+► Andere Beförderungsmittel
 
 Bei Beförderungen insbesondere durch
 
@@ -607,7 +607,7 @@ Hin- und Rückfahrt sind grundsätzlich jeweils gesondert zu beurteilen.
 
 ---
 
-# 26. Kurzfristige Beherbergung
+⇨ 26. Kurzfristige Beherbergung
 
 Die kurzfristige Vermietung von Wohn- und Schlafräumen zur Beherbergung von Fremden unterliegt grundsätzlich dem ermäßigten Steuersatz.
 
@@ -620,7 +620,7 @@ Dies betrifft insbesondere:
 
 Auch die kurzfristige Vermietung von Campingflächen kann begünstigt sein.
 
-## Wichtig
+► Wichtig
 
 Zusatzleistungen sind gesondert zu beurteilen.
 
@@ -628,7 +628,7 @@ Nicht jede Nebenleistung des Hotels unterliegt automatisch dem ermäßigten Steu
 
 ---
 
-# 27. Restaurant- und Verpflegungsdienstleistungen ab 2026
+⇨ 27. Restaurant- und Verpflegungsdienstleistungen ab 2026
 
 Seit dem 1. Januar 2026 unterliegen Restaurant- und Verpflegungsdienstleistungen hinsichtlich der Abgabe von Speisen grundsätzlich dem ermäßigten Steuersatz von 7 Prozent.
 
@@ -642,11 +642,11 @@ Dies betrifft insbesondere:
 - Kita- und Schulverpflegung,
 - Krankenhausverpflegung.
 
-## Getränke
+► Getränke
 
 Die Abgabe von Getränken bleibt grundsätzlich vom ermäßigten Steuersatz ausgenommen und unterliegt regelmäßig 19 Prozent.
 
-## Kombiangebote
+► Kombiangebote
 
 Enthält ein Gesamtpreis sowohl
 
@@ -659,7 +659,7 @@ Für bestimmte Pauschal- und Kombiangebote lässt die Finanzverwaltung Vereinfac
 
 ---
 
-# 28. Beispiel Steuersatz
+⇨ 28. Beispiel Steuersatz
 
 Ein Restaurant berechnet:
 
@@ -675,9 +675,9 @@ Die Umsätze müssen nach Steuersätzen getrennt aufgezeichnet und abgerechnet w
 
 ---
 
-# Teil C: Bemessungsgrundlage nach § 10 UStG
+⇨ Teil C: Bemessungsgrundlage nach § 10 UStG
 
-# 29. Grundsatz
+⇨ 29. Grundsatz
 
 Die Umsatzsteuer wird bei Lieferungen und sonstigen Leistungen grundsätzlich nach dem Entgelt bemessen.
 
@@ -685,7 +685,7 @@ Entgelt ist alles, was den Wert der Gegenleistung bildet, die der leistende Unte
 
 Die gesetzlich geschuldete Umsatzsteuer selbst gehört nicht zum Entgelt.
 
-## Formel
+► Formel
 
 Bruttogegenleistung  
 ./. enthaltene Umsatzsteuer  
@@ -693,21 +693,21 @@ Bruttogegenleistung
 
 ---
 
-# 30. Berechnung aus einem Bruttopreis
+⇨ 30. Berechnung aus einem Bruttopreis
 
-## Steuersatz 19 Prozent
+► Steuersatz 19 Prozent
 
 Bruttobetrag / 1,19 = Bemessungsgrundlage.
 
 Bruttobetrag - Bemessungsgrundlage = Umsatzsteuer.
 
-## Steuersatz 7 Prozent
+► Steuersatz 7 Prozent
 
 Bruttobetrag / 1,07 = Bemessungsgrundlage.
 
 Bruttobetrag - Bemessungsgrundlage = Umsatzsteuer.
 
-## Steuerfreier oder nicht steuerbarer Umsatz
+► Steuerfreier oder nicht steuerbarer Umsatz
 
 Es wird keine Umsatzsteuer herausgerechnet.
 
@@ -715,7 +715,7 @@ Der Divisor beträgt rechnerisch 1.
 
 ---
 
-# 31. Beispiel
+⇨ 31. Beispiel
 
 Vereinbarter Bruttopreis:
 
@@ -733,7 +733,7 @@ Berechnung:
 
 ---
 
-# 32. Bedeutung der Rechnung
+⇨ 32. Bedeutung der Rechnung
 
 Für die Ermittlung der gesetzlich richtigen Bemessungsgrundlage ist die Bezeichnung in der Rechnung nicht allein entscheidend.
 
@@ -745,7 +745,7 @@ Auch wenn die Rechnung Umsatzsteuer nicht oder falsch ausweist, ist zu ermitteln
 
 ---
 
-# 33. Bestandteile des Entgelts
+⇨ 33. Bestandteile des Entgelts
 
 Zum Entgelt gehören grundsätzlich:
 
@@ -767,7 +767,7 @@ Zum Entgelt gehören grundsätzlich:
 
 ---
 
-# 34. Nebenleistungen
+⇨ 34. Nebenleistungen
 
 Vergütungen für unselbständige Nebenleistungen teilen grundsätzlich das umsatzsteuerliche Schicksal der Hauptleistung.
 
@@ -784,7 +784,7 @@ Die Vergütung für die Nebenleistung gehört grundsätzlich zur Bemessungsgrund
 
 ---
 
-# 35. Auslagenersatz
+⇨ 35. Auslagenersatz
 
 Auslagen, die der Unternehmer im eigenen Namen tätigt und seinem Kunden weiterberechnet, gehören grundsätzlich zum Entgelt.
 
@@ -803,7 +803,7 @@ Eine bloße Bezeichnung als „Auslagenersatz“ ändert daran nichts.
 
 ---
 
-# 36. Durchlaufende Posten
+⇨ 36. Durchlaufende Posten
 
 Nicht zum Entgelt gehören durchlaufende Posten.
 
@@ -822,7 +822,7 @@ Typische Fälle können sein:
 - Grundbuchkosten,
 - Gebühren, bei denen der Kunde selbst unmittelbarer Schuldner ist.
 
-## Merksatz
+► Merksatz
 
 Eigener Name oder eigene Schuld:
 
@@ -834,19 +834,19 @@ Fremder Name und fremde Rechnung:
 
 ---
 
-# 37. Trinkgeld
+⇨ 37. Trinkgeld
 
-## Trinkgeld an den Unternehmer
+► Trinkgeld an den Unternehmer
 
 Ein freiwilliges Trinkgeld an den Unternehmer kann zum Entgelt gehören, wenn es im unmittelbaren Zusammenhang mit der Leistung steht.
 
-## Trinkgeld an einen Arbeitnehmer
+► Trinkgeld an einen Arbeitnehmer
 
 Ein freiwilliges Trinkgeld, das unmittelbar dem Arbeitnehmer gewährt wird, gehört grundsätzlich nicht zum Entgelt des Unternehmers.
 
 ---
 
-# 38. Entgelt von dritter Seite
+⇨ 38. Entgelt von dritter Seite
 
 Die Gegenleistung muss nicht zwingend vom Leistungsempfänger selbst gezahlt werden.
 
@@ -855,7 +855,7 @@ Auch die Zahlung eines Dritten kann Entgelt sein, wenn
 - sie für die konkrete Leistung gezahlt wird und
 - sie der Förderung oder Vergütung des Leistungsempfängers dient.
 
-## Beispiel
+► Beispiel
 
 Unternehmer A liefert eine Maschine an B.
 
@@ -867,7 +867,7 @@ Die Bemessungsgrundlage kann insgesamt 3.000 Euro betragen.
 
 ---
 
-# 39. Zahlungen ohne Entgeltcharakter
+⇨ 39. Zahlungen ohne Entgeltcharakter
 
 Nicht zur Bemessungsgrundlage gehören insbesondere:
 
@@ -879,7 +879,7 @@ Nicht zur Bemessungsgrundlage gehören insbesondere:
 - durchlaufende Posten,
 - freiwillige Trinkgelder an Arbeitnehmer.
 
-## Achtung Schadensersatz
+► Achtung Schadensersatz
 
 Nur echter Schadensersatz ist kein Entgelt.
 
@@ -887,7 +887,7 @@ Besteht zwischen Zahlung und Leistung ein unmittelbarer Zusammenhang, kann sogen
 
 ---
 
-# 40. Tausch
+⇨ 40. Tausch
 
 Beim Tausch besteht die Gegenleistung nicht in Geld, sondern in einer Lieferung.
 
@@ -897,7 +897,7 @@ Der Wert des jeweils anderen Umsatzes bildet grundsätzlich das Entgelt für den
 
 Die Umsatzsteuer gehört nicht zum Entgelt.
 
-## Prüfung
+► Prüfung
 
 Für beide Leistungen getrennt prüfen:
 
@@ -912,7 +912,7 @@ Für beide Leistungen getrennt prüfen:
 
 ---
 
-# 41. Tauschähnlicher Umsatz
+⇨ 41. Tauschähnlicher Umsatz
 
 Ein tauschähnlicher Umsatz liegt vor, wenn mindestens eine der ausgetauschten Leistungen eine sonstige Leistung ist.
 
@@ -926,11 +926,11 @@ Auch hier ist jeder Umsatz gesondert zu beurteilen.
 
 ---
 
-# 42. Tausch mit Baraufgabe
+⇨ 42. Tausch mit Baraufgabe
 
 Erfolgt zusätzlich zu einer Sach- oder Dienstleistung eine Geldzahlung, liegt ein Tausch beziehungsweise tauschähnlicher Umsatz mit Baraufgabe vor.
 
-## Beteiligter, der die Baraufgabe erhält
+► Beteiligter, der die Baraufgabe erhält
 
 Wert des anderen Umsatzes  
 + erhaltene Baraufgabe  
@@ -938,7 +938,7 @@ Wert des anderen Umsatzes
 ./. Umsatzsteuer  
 = Bemessungsgrundlage
 
-## Beteiligter, der die Baraufgabe zahlt
+► Beteiligter, der die Baraufgabe zahlt
 
 Wert des anderen Umsatzes  
 ./. geleistete Baraufgabe  
@@ -948,9 +948,9 @@ Wert des anderen Umsatzes
 
 ---
 
-# Teil D: Bezug für das Unternehmen und Zuordnung
+⇨ Teil D: Bezug für das Unternehmen und Zuordnung
 
-# 43. Leistungsbezug für das Unternehmen
+⇨ 43. Leistungsbezug für das Unternehmen
 
 Eine Leistung wird für das Unternehmen bezogen, wenn sie dazu bestimmt ist, der wirtschaftlichen beziehungsweise unternehmerischen Tätigkeit des Leistungsempfängers zu dienen.
 
@@ -960,7 +960,7 @@ Eine spätere tatsächliche Nutzungsänderung kann eine Vorsteuerberichtigung na
 
 ---
 
-# 44. Verbrauchbare Gegenstände und sonstige Leistungen
+⇨ 44. Verbrauchbare Gegenstände und sonstige Leistungen
 
 Bei verbrauchbaren Gegenständen und sonstigen Leistungen ist grundsätzlich eine direkte Zuordnung zur beabsichtigten Verwendung vorzunehmen.
 
@@ -979,11 +979,11 @@ Ein freies Zuordnungswahlrecht wie bei einem einheitlichen Investitionsgegenstan
 
 ---
 
-# 45. Einheitlicher Gegenstand
+⇨ 45. Einheitlicher Gegenstand
 
 Wird ein einheitlicher Gegenstand sowohl unternehmerisch als auch privat genutzt, ist der Umfang der unternehmerischen Nutzung zu bestimmen.
 
-## Unternehmerische Nutzung unter 10 Prozent
+► Unternehmerische Nutzung unter 10 Prozent
 
 Beträgt die unternehmerische Nutzung weniger als 10 Prozent, gilt der Gegenstand grundsätzlich nicht als für das Unternehmen bezogen.
 
@@ -991,7 +991,7 @@ Folge:
 
 Kein Vorsteuerabzug.
 
-## Unternehmerische Nutzung mindestens 10 Prozent
+► Unternehmerische Nutzung mindestens 10 Prozent
 
 Bei einer unternehmerischen Nutzung von mindestens 10 Prozent kann grundsätzlich ein Zuordnungswahlrecht bestehen.
 
@@ -1005,13 +1005,13 @@ zuordnen.
 
 ---
 
-# 46. Vollständige Zuordnung
+⇨ 46. Vollständige Zuordnung
 
 Wird der Gegenstand vollständig dem Unternehmen zugeordnet, kann die Vorsteuer unter den weiteren Voraussetzungen grundsätzlich vollständig abziehbar sein.
 
 Die spätere private Nutzung kann dann als unentgeltliche Wertabgabe steuerpflichtig sein.
 
-## Beispiel
+► Beispiel
 
 Ein Pkw wird zu 70 Prozent unternehmerisch und zu 30 Prozent privat genutzt.
 
@@ -1023,7 +1023,7 @@ Die Privatnutzung ist anschließend umsatzsteuerlich als unentgeltliche Wertabga
 
 ---
 
-# 47. Teilweise Zuordnung
+⇨ 47. Teilweise Zuordnung
 
 Der Unternehmer kann einen gemischt genutzten Gegenstand grundsätzlich nur im Umfang der unternehmerischen Nutzung dem Unternehmen zuordnen.
 
@@ -1035,7 +1035,7 @@ Folgen:
 
 ---
 
-# 48. Nichtwirtschaftliche Tätigkeit im engeren Sinne
+⇨ 48. Nichtwirtschaftliche Tätigkeit im engeren Sinne
 
 Bei einer gemischten Nutzung für
 
@@ -1056,7 +1056,7 @@ Nur der dem wirtschaftlichen Unternehmensteil zuzurechnende Anteil kann zum Vors
 
 ---
 
-# 49. Gemischt genutzte Grundstücke
+⇨ 49. Gemischt genutzte Grundstücke
 
 Für Grundstücke gilt die Sonderregelung des § 15 Abs. 1b UStG.
 
@@ -1069,15 +1069,15 @@ genutzt, ist die Vorsteuer grundsätzlich nur im Umfang der unternehmerischen Nu
 
 Dies gilt auch dann, wenn das Grundstück vollständig dem Unternehmen zugeordnet wurde.
 
-## Folge
+► Folge
 
 Die private Nutzung führt hinsichtlich des bereits vom Vorsteuerabzug ausgeschlossenen Anteils grundsätzlich nicht zusätzlich zu einer Wertabgabenbesteuerung.
 
 ---
 
-# Teil E: Voraussetzungen des Vorsteuerabzugs
+⇨ Teil E: Voraussetzungen des Vorsteuerabzugs
 
-# 50. Grundschema nach § 15 Abs. 1 Satz 1 Nr. 1 UStG
+⇨ 50. Grundschema nach § 15 Abs. 1 Satz 1 Nr. 1 UStG
 
 Für den Vorsteuerabzug aus einer normalen Eingangsleistung sind grundsätzlich fünf Voraussetzungen zu prüfen:
 
@@ -1093,7 +1093,7 @@ Anschließend ist zu prüfen, ob sie tatsächlich abziehbar ist.
 
 ---
 
-# 51. Unternehmereigenschaft des Leistungsempfängers
+⇨ 51. Unternehmereigenschaft des Leistungsempfängers
 
 Der Leistungsempfänger muss Unternehmer im Sinne des § 2 UStG sein.
 
@@ -1113,7 +1113,7 @@ Der Sitz des Leistungsempfängers ist für seine Unternehmereigenschaft grundsä
 
 ---
 
-# 52. Gesetzlich geschuldete Steuer
+⇨ 52. Gesetzlich geschuldete Steuer
 
 Abziehbar ist nur gesetzlich geschuldete Umsatzsteuer.
 
@@ -1124,7 +1124,7 @@ Die Eingangsleistung muss nach dem deutschen Umsatzsteuerrecht
 
 sein.
 
-## Keine abziehbare Vorsteuer
+► Keine abziehbare Vorsteuer
 
 Keine abziehbare Vorsteuer liegt grundsätzlich vor bei
 
@@ -1134,7 +1134,7 @@ Keine abziehbare Vorsteuer liegt grundsätzlich vor bei
 - Umsatzsteuer auf einen steuerfreien Umsatz,
 - Umsatzsteuer mit falschem Leistungsort.
 
-## Grundsatz
+► Grundsatz
 
 Vorsteuerabzug höchstens in Höhe
 
@@ -1145,7 +1145,7 @@ Der niedrigere Betrag ist maßgeblich.
 
 ---
 
-# 53. Fremdwährungen
+⇨ 53. Fremdwährungen
 
 Ist die Rechnung in einer fremden Währung ausgestellt, ist die Umsatzsteuer nach den gesetzlichen Vorschriften in Euro umzurechnen.
 
@@ -1153,7 +1153,7 @@ Maßgeblich sind insbesondere § 16 Abs. 6 UStG und die hierzu ergangenen Verwal
 
 ---
 
-# 54. Unternehmereigenschaft des Leistenden
+⇨ 54. Unternehmereigenschaft des Leistenden
 
 Der leistende Unternehmer muss Unternehmer im Sinne des § 2 UStG sein.
 
@@ -1165,17 +1165,17 @@ Ein allgemeiner Gutglaubensschutz allein wegen einer formal ordnungsgemäßen Re
 
 ---
 
-# 55. Leistungsbezug für das Unternehmen
+⇨ 55. Leistungsbezug für das Unternehmen
 
 Die Leistung muss für das Unternehmen des Leistungsempfängers bestimmt sein.
 
 Maßgeblich ist die beabsichtigte Verwendung im Zeitpunkt des Leistungsbezugs.
 
-## Für das Unternehmen
+► Für das Unternehmen
 
 Eine Leistung wird für das Unternehmen bezogen, wenn sie objektiv dazu bestimmt ist, der Erbringung entgeltlicher unternehmerischer Leistungen zu dienen.
 
-## Nicht für das Unternehmen
+► Nicht für das Unternehmen
 
 Kein Vorsteuerabzug besteht bei einem ausschließlichen Leistungsbezug für
 
@@ -1186,7 +1186,7 @@ Kein Vorsteuerabzug besteht bei einem ausschließlichen Leistungsbezug für
 
 ---
 
-# 56. Zusammenhang mit dem Ausgangsumsatz
+⇨ 56. Zusammenhang mit dem Ausgangsumsatz
 
 Die Eingangsleistung muss einem beabsichtigten Ausgangsumsatz oder der wirtschaftlichen Gesamttätigkeit zugeordnet werden.
 
@@ -1198,7 +1198,7 @@ Dann ist die Gesamttätigkeit des Unternehmers maßgeblich.
 
 ---
 
-# 57. Ordnungsgemäße Rechnung
+⇨ 57. Ordnungsgemäße Rechnung
 
 Der Leistungsempfänger muss grundsätzlich im Besitz einer Rechnung nach §§ 14 und 14a UStG sein.
 
@@ -1216,7 +1216,7 @@ Zu den Pflichtangaben gehören insbesondere:
 - Steuersatz,
 - Steuerbetrag.
 
-## Besonders wichtig
+► Besonders wichtig
 
 § 14 Abs. 4 Nr. 7 und 8 UStG verlangt insbesondere Angaben zum
 
@@ -1228,7 +1228,7 @@ Fehlen wesentliche Angaben, ist der Vorsteuerabzug grundsätzlich gefährdet.
 
 ---
 
-# 58. Rechnungsberichtigung
+⇨ 58. Rechnungsberichtigung
 
 Eine fehlerhafte Rechnung kann grundsätzlich berichtigt werden.
 
@@ -1245,7 +1245,7 @@ Voraussetzung ist grundsätzlich, dass das ursprüngliche Dokument bereits besti
 
 ---
 
-# 59. Zeitpunkt des Vorsteuerabzugs
+⇨ 59. Zeitpunkt des Vorsteuerabzugs
 
 Der Vorsteuerabzug ist grundsätzlich in dem Voranmeldungszeitraum vorzunehmen, in dem
 
@@ -1254,7 +1254,7 @@ Der Vorsteuerabzug ist grundsätzlich in dem Voranmeldungszeitraum vorzunehmen, 
 
 Der Zeitpunkt der Zahlung ist grundsätzlich unerheblich.
 
-## Merksatz
+► Merksatz
 
 Normale Eingangsleistung:
 
@@ -1262,7 +1262,7 @@ Normale Eingangsleistung:
 
 ---
 
-# 60. Vorsteuerabzug bei Anzahlungen
+⇨ 60. Vorsteuerabzug bei Anzahlungen
 
 Vor Ausführung der Leistung kann ein Vorsteuerabzug aus einer Anzahlung möglich sein, wenn
 
@@ -1270,7 +1270,7 @@ Vor Ausführung der Leistung kann ein Vorsteuerabzug aus einer Anzahlung möglic
 2. die Zahlung tatsächlich geleistet wurde und
 3. die spätere Leistung hinreichend bestimmt ist.
 
-## Merksatz
+► Merksatz
 
 Anzahlung:
 
@@ -1280,19 +1280,19 @@ Die Leistung ist noch nicht ausgeführt.
 
 ---
 
-# 61. Weitere abziehbare Vorsteuerbeträge
+⇨ 61. Weitere abziehbare Vorsteuerbeträge
 
 Neben der normalen Eingangsrechnung nach § 15 Abs. 1 Satz 1 Nr. 1 UStG können insbesondere abziehbar sein:
 
-## Einfuhrumsatzsteuer
+► Einfuhrumsatzsteuer
 
 § 15 Abs. 1 Satz 1 Nr. 2 UStG.
 
-## Steuer auf den innergemeinschaftlichen Erwerb
+► Steuer auf den innergemeinschaftlichen Erwerb
 
 § 15 Abs. 1 Satz 1 Nr. 3 UStG.
 
-## Steuer nach § 13b UStG
+► Steuer nach § 13b UStG
 
 § 15 Abs. 1 Satz 1 Nr. 4 UStG.
 
@@ -1302,21 +1302,21 @@ Die übrigen Voraussetzungen, insbesondere der Leistungsbezug für das Unternehm
 
 ---
 
-# Teil F: Ausschluss vom Vorsteuerabzug
+⇨ Teil F: Ausschluss vom Vorsteuerabzug
 
-# 62. Abzugsfähigkeit und Abziehbarkeit
+⇨ 62. Abzugsfähigkeit und Abziehbarkeit
 
 Es ist zwischen zwei Prüfungsebenen zu unterscheiden:
 
-## Abzugsfähig
+► Abzugsfähig
 
 Die Voraussetzungen des § 15 Abs. 1 UStG sind erfüllt.
 
-## Tatsächlich abziehbar
+► Tatsächlich abziehbar
 
 Es greift kein Ausschluss nach § 15 Abs. 1a, Abs. 1b oder Abs. 2 UStG beziehungsweise ein Ausschluss wird durch § 15 Abs. 3 UStG aufgehoben.
 
-## Merksatz
+► Merksatz
 
 Zuerst:
 
@@ -1328,7 +1328,7 @@ Danach:
 
 ---
 
-# 63. Ausschluss nach § 15 Abs. 2 UStG
+⇨ 63. Ausschluss nach § 15 Abs. 2 UStG
 
 Der Vorsteuerabzug ist grundsätzlich ausgeschlossen, wenn die Eingangsleistung für Umsätze verwendet wird, die den Vorsteuerabzug ausschließen.
 
@@ -1341,13 +1341,13 @@ Maßgeblich ist die beabsichtigte Verwendung im Zeitpunkt des Leistungsbezugs.
 
 ---
 
-# 64. Steuerpflichtige Ausgangsumsätze
+⇨ 64. Steuerpflichtige Ausgangsumsätze
 
 Wird die Eingangsleistung für steuerpflichtige Ausgangsumsätze verwendet, besteht grundsätzlich kein Ausschluss nach § 15 Abs. 2 UStG.
 
 Dies gilt auch, wenn ein ursprünglich steuerfreier Umsatz aufgrund einer wirksamen Option nach § 9 UStG steuerpflichtig behandelt wird.
 
-## Beispiel
+► Beispiel
 
 Ein Vermieter optiert wirksam zur Umsatzsteuer.
 
@@ -1357,7 +1357,7 @@ Die Vorsteuer kann grundsätzlich abziehbar sein.
 
 ---
 
-# 65. Steuerfreie Ausgangsumsätze
+⇨ 65. Steuerfreie Ausgangsumsätze
 
 Wird die Eingangsleistung für steuerfreie Umsätze verwendet, ist die Vorsteuer grundsätzlich nicht abziehbar.
 
@@ -1371,7 +1371,7 @@ Typische Ausschlussumsätze sind:
 
 ---
 
-# 66. Rückausschluss nach § 15 Abs. 3 UStG
+⇨ 66. Rückausschluss nach § 15 Abs. 3 UStG
 
 § 15 Abs. 3 UStG hebt den Ausschluss des § 15 Abs. 2 UStG für bestimmte steuerfreie Umsätze wieder auf.
 
@@ -1385,7 +1385,7 @@ Typische Fälle sind insbesondere:
 - bestimmte Umsätze für die See- und Luftfahrt,
 - bestimmte Finanzumsätze mit Bezug zum Drittlandsgebiet.
 
-## Merksatz
+► Merksatz
 
 Steuerfrei bedeutet nicht automatisch:
 
@@ -1395,7 +1395,7 @@ Es muss immer § 15 Abs. 3 UStG geprüft werden.
 
 ---
 
-# 67. Steuerfreie Umsätze nach § 4 Nr. 1 bis 7 UStG
+⇨ 67. Steuerfreie Umsätze nach § 4 Nr. 1 bis 7 UStG
 
 Bei vielen Steuerbefreiungen nach § 4 Nr. 1 bis 7 UStG bleibt der Vorsteuerabzug erhalten.
 
@@ -1408,7 +1408,7 @@ Die Vorsteuer ist damit
 
 ---
 
-# 68. Sonstige Steuerbefreiungen
+⇨ 68. Sonstige Steuerbefreiungen
 
 Bei zahlreichen Steuerbefreiungen nach § 4 Nr. 8 bis 29 UStG ist der Vorsteuerabzug grundsätzlich ausgeschlossen.
 
@@ -1426,35 +1426,35 @@ Die konkrete Steuerbefreiung ist daher stets einzeln zu prüfen.
 
 ---
 
-# 69. Umsätze im Ausland
+⇨ 69. Umsätze im Ausland
 
 Ein im Ausland ausgeführter Ausgangsumsatz ist in Deutschland nicht steuerbar.
 
 Für den Vorsteuerabzug ist zu prüfen, wie der Umsatz bei einer hypothetischen Ausführung im Inland behandelt würde.
 
-## Hypothetisch steuerpflichtig
+► Hypothetisch steuerpflichtig
 
 Die Vorsteuer kann grundsätzlich abziehbar sein.
 
-## Hypothetisch steuerfrei und vorsteuerschädlich
+► Hypothetisch steuerfrei und vorsteuerschädlich
 
 Die Vorsteuer ist grundsätzlich ausgeschlossen.
 
-## Hypothetisch steuerfrei mit Rückausschluss
+► Hypothetisch steuerfrei mit Rückausschluss
 
 Die Vorsteuer kann dennoch abziehbar sein.
 
 ---
 
-# 70. Nicht steuerbare Tätigkeiten
+⇨ 70. Nicht steuerbare Tätigkeiten
 
 Bei einer nicht steuerbaren Tätigkeit ist zu unterscheiden:
 
-## Wirtschaftliche Tätigkeit mit ausländischem Leistungsort
+► Wirtschaftliche Tätigkeit mit ausländischem Leistungsort
 
 Ein Vorsteuerabzug kann möglich sein, wenn der Umsatz bei Ausführung im Inland zum Vorsteuerabzug berechtigen würde.
 
-## Nichtwirtschaftliche Tätigkeit
+► Nichtwirtschaftliche Tätigkeit
 
 Bei einer Tätigkeit außerhalb des umsatzsteuerlichen Unternehmens fehlt grundsätzlich bereits der Leistungsbezug für das Unternehmen.
 
@@ -1462,34 +1462,34 @@ Die Eingangsleistung ist insoweit nicht abzugsfähig.
 
 ---
 
-# Teil G: Aufteilung von Vorsteuerbeträgen
+⇨ Teil G: Aufteilung von Vorsteuerbeträgen
 
-# 71. Direkte Zuordnung
+⇨ 71. Direkte Zuordnung
 
 Vorsteuerbeträge sind zunächst unmittelbar den Ausgangsumsätzen zuzuordnen.
 
-## Ausschließlich Abzugsumsätze
+► Ausschließlich Abzugsumsätze
 
 Die Vorsteuer ist vollständig abziehbar.
 
-## Ausschließlich Ausschlussumsätze
+► Ausschließlich Ausschlussumsätze
 
 Die Vorsteuer ist nicht abziehbar.
 
-## Gemischter Zusammenhang
+► Gemischter Zusammenhang
 
 Ist keine direkte Zuordnung möglich, ist eine Aufteilung nach § 15 Abs. 4 UStG vorzunehmen.
 
 ---
 
-# 72. Voraussetzung der Vorsteueraufteilung
+⇨ 72. Voraussetzung der Vorsteueraufteilung
 
 Eine Aufteilung ist erforderlich, wenn eine Eingangsleistung gleichzeitig verwendet wird für
 
 - Umsätze, die zum Vorsteuerabzug berechtigen, und
 - Umsätze, die den Vorsteuerabzug ausschließen.
 
-## Beispiel
+► Beispiel
 
 Ein Steuerberater erzielt
 
@@ -1502,7 +1502,7 @@ Die Vorsteuer ist nach einem sachgerechten Maßstab aufzuteilen.
 
 ---
 
-# 73. Sachgerechte Schätzung
+⇨ 73. Sachgerechte Schätzung
 
 Die Aufteilung erfolgt nach einer sachgerechten Schätzung.
 
@@ -1521,13 +1521,13 @@ Der gewählte Schlüssel muss den wirtschaftlichen Zusammenhang möglichst genau
 
 ---
 
-# 74. Umsatzschlüssel
+⇨ 74. Umsatzschlüssel
 
 Eine Aufteilung nach dem Verhältnis der Umsätze ist grundsätzlich nur zulässig, wenn keine andere wirtschaftlich präzisere Zuordnung möglich ist.
 
 Der Umsatzschlüssel ist daher regelmäßig nachrangig.
 
-## Merksatz
+► Merksatz
 
 Direkte Zuordnung vor Aufteilung.
 
@@ -1535,11 +1535,11 @@ Präziser wirtschaftlicher Schlüssel vor Umsatzschlüssel.
 
 ---
 
-# 75. Gebäude
+⇨ 75. Gebäude
 
 Bei Gebäuden ist besonders zu unterscheiden:
 
-## Direkte Zuordnung möglich
+► Direkte Zuordnung möglich
 
 Betrifft eine Eingangsleistung ausschließlich einen bestimmten Gebäudeteil, erfolgt keine Aufteilung.
 
@@ -1549,7 +1549,7 @@ Beispiele:
 - Fenster ausschließlich in einer steuerpflichtig vermieteten Einheit,
 - Bodenbelag ausschließlich in einer steuerfreien Wohnung.
 
-## Keine direkte Zuordnung möglich
+► Keine direkte Zuordnung möglich
 
 Bei allgemeinen Gebäudeaufwendungen ist regelmäßig ein sachgerechter Aufteilungsschlüssel zu verwenden.
 
@@ -1557,7 +1557,7 @@ Häufig kommt das Verhältnis der Nutzflächen in Betracht.
 
 ---
 
-# 76. Anschaffungs- und Herstellungskosten eines Gebäudes
+⇨ 76. Anschaffungs- und Herstellungskosten eines Gebäudes
 
 Vorsteuer aus Anschaffungs- und Herstellungskosten eines gemischt genutzten Gebäudes ist nach einem sachgerechten Maßstab aufzuteilen.
 
@@ -1569,9 +1569,9 @@ Ein einmal gewählter sachgerechter Aufteilungsmaßstab kann den Unternehmer auc
 
 ---
 
-# Teil H: Prüfungsschemata
+⇨ Teil H: Prüfungsschemata
 
-# 77. Prüfungsschema Reverse Charge
+⇨ 77. Prüfungsschema Reverse Charge
 
 1. Art der Eingangsleistung bestimmen.
 2. Leistungsort ermitteln.
@@ -1589,7 +1589,7 @@ Ein einmal gewählter sachgerechter Aufteilungsmaßstab kann den Unternehmer auc
 
 ---
 
-# 78. Prüfungsschema Steuersatz
+⇨ 78. Prüfungsschema Steuersatz
 
 1. Liegt ein steuerpflichtiger Umsatz vor?
 2. Wird der Umsatz von § 12 Abs. 2 UStG erfasst?
@@ -1602,7 +1602,7 @@ Ein einmal gewählter sachgerechter Aufteilungsmaßstab kann den Unternehmer auc
 
 ---
 
-# 79. Prüfungsschema Bemessungsgrundlage
+⇨ 79. Prüfungsschema Bemessungsgrundlage
 
 1. Gegenleistung feststellen.
 2. Brutto- oder Nettopreis bestimmen.
@@ -1617,9 +1617,9 @@ Ein einmal gewählter sachgerechter Aufteilungsmaßstab kann den Unternehmer auc
 
 ---
 
-# 80. Prüfungsschema Vorsteuerabzug
+⇨ 80. Prüfungsschema Vorsteuerabzug
 
-## Stufe 1: Abzugsfähigkeit
+► Stufe 1: Abzugsfähigkeit
 
 1. Unternehmereigenschaft des Leistungsempfängers.
 2. Gesetzlich geschuldete Umsatzsteuer.
@@ -1627,7 +1627,7 @@ Ein einmal gewählter sachgerechter Aufteilungsmaßstab kann den Unternehmer auc
 4. Leistungsbezug für das Unternehmen.
 5. Ordnungsgemäße Rechnung.
 
-## Stufe 2: Abziehbarkeit
+► Stufe 2: Abziehbarkeit
 
 6. Ausschluss nach § 15 Abs. 1a prüfen.
 7. Sonderregelung für Grundstücke nach § 15 Abs. 1b prüfen.
@@ -1635,7 +1635,7 @@ Ein einmal gewählter sachgerechter Aufteilungsmaßstab kann den Unternehmer auc
 9. Rückausschluss nach § 15 Abs. 3 prüfen.
 10. Gegebenenfalls Aufteilung nach § 15 Abs. 4 durchführen.
 
-## Ergebnis
+► Ergebnis
 
 Festzustellen sind:
 
@@ -1645,7 +1645,7 @@ Festzustellen sind:
 
 ---
 
-# 81. Formulierungshilfe § 13b UStG
+⇨ 81. Formulierungshilfe § 13b UStG
 
 Die Leistung ist im Inland steuerbar und steuerpflichtig.
 
@@ -1663,7 +1663,7 @@ Der Vorsteuerabzug des Leistungsempfängers ist gesondert nach § 15 UStG zu pr�
 
 ---
 
-# 82. Formulierungshilfe Vorsteuerabzug möglich
+⇨ 82. Formulierungshilfe Vorsteuerabzug möglich
 
 Der Leistungsempfänger ist Unternehmer im Sinne des § 2 UStG.
 
@@ -1679,7 +1679,7 @@ Die Vorsteuer ist abzugsfähig und abziehbar.
 
 ---
 
-# 83. Formulierungshilfe Vorsteuerabzug ausgeschlossen
+⇨ 83. Formulierungshilfe Vorsteuerabzug ausgeschlossen
 
 Die Voraussetzungen des § 15 Abs. 1 UStG sind dem Grunde nach erfüllt.
 
@@ -1693,7 +1693,7 @@ Die Vorsteuer ist abzugsfähig, aber nicht abziehbar.
 
 ---
 
-# 84. Zentrale Merksätze
+⇨ 84. Zentrale Merksätze
 
 - § 13b UStG ändert den Steuerschuldner, nicht die Steuerpflicht des Umsatzes.
 - Zuerst müssen Ort, Steuerbarkeit und Steuerpflicht geprüft werden.

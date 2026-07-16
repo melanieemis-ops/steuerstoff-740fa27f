@@ -5,22 +5,22 @@ category: Umsatzsteuer
 references: § 15a UStG, § 15 UStG, § 44 UStDV
 ---
 
-# Vorsteuerberichtigung bei Gebäuden (§ 15a UStG)
+⇨ Vorsteuerberichtigung bei Gebäuden (§ 15a UStG)
 
 _Prüfung einer Vorsteuerberichtigung bei Änderung der Verwendung eines Gebäudes oder Gebäudebestandteils._
 
 
 
-# Prüfungsschema §15a UStG
+⇨ Prüfungsschema §15a UStG
 
-## 1. Ursprünglicher Vorsteuerabzug
+► 1. Ursprünglicher Vorsteuerabzug
 
 - ordnungsgemäße Rechnung (§15 UStG)
 - ursprünglicher Vorsteuerabzug zulässig
 
 ---
 
-## 2. Änderung der Verhältnisse
+► 2. Änderung der Verhältnisse
 
 Prüfen:
 
@@ -34,7 +34,7 @@ Beispiele
 
 ---
 
-## 3. Berichtigungsobjekt
+► 3. Berichtigungsobjekt
 
 Bei Gebäuden gehören eingebaute Bestandteile (Fenster, Türen, Heizungen usw.) nach Einbau regelmäßig zum Gebäude.
 
@@ -44,7 +44,7 @@ Eigenständiger Berichtigungszeitraum:
 
 ---
 
-## 4. Berichtigung
+► 4. Berichtigung
 
 Berichtigung jährlich
 
@@ -54,7 +54,7 @@ anteilige Monate berücksichtigen.
 
 ---
 
-## Merksatz
+► Merksatz
 
 Entscheidend ist nicht die geplante,
 

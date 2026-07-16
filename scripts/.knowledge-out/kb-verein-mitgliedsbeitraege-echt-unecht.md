@@ -6,7 +6,7 @@ source: beck-chat Arbeitsnotiz – Mitgliedsbeiträge
 references: UStG, AO, Vereinsbesteuerung
 ---
 
-# Echte und unechte Mitgliedsbeiträge
+⇨ Echte und unechte Mitgliedsbeiträge
 
 _Abgrenzung von echten Mitgliedsbeiträgen ohne Gegenleistung und unechten Beiträgen mit Leistungsbezug._
 

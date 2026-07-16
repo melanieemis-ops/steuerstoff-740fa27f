@@ -6,7 +6,7 @@ source: Internes Arbeitspapier — Mittelverwendung (Kapitel 1).
 references: § 55 Abs. 1 Nr. 5 AO
 ---
 
-# Zeitnahe Mittelverwendung
+⇨ Zeitnahe Mittelverwendung
 
 _Mittel gemeinnütziger Körperschaften müssen grundsätzlich zeitnah für steuerbegünstigte satzungsmäßige Zwecke verwendet werden._
 

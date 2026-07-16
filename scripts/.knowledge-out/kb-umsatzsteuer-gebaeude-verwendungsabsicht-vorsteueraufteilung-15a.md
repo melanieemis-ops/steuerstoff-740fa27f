@@ -6,14 +6,14 @@ source: Interne Steuerstoff-Prüfungsvorbereitung – Grundstücke, Vorsteuerabz
 references: § 1 Abs. 1 Nr. 1 UStG, § 3 Abs. 4 UStG, § 3 Abs. 7 UStG, § 3 Abs. 9 UStG, § 3a Abs. 3 Nr. 1 UStG, § 4 Nr. 12 Satz 1 Buchst. a UStG, § 4 Nr. 12 Satz 2 UStG, § 4 Nr. 14 Buchst. a UStG, § 4 Nr. 3 Buchst. a UStG, § 9 Abs. 1 UStG, § 9 Abs. 2 UStG, § 10 Abs. 1 UStG, § 12 Abs. 1 UStG, § 13 Abs. 1 Nr. 1 Buchst. a UStG, § 13a Abs. 1 Nr. 1 UStG, § 15 Abs. 1 Satz 1 Nr. 1 UStG, § 15 Abs. 2 Satz 1 Nr. 1 UStG, § 15 Abs. 3 Nr. 1 Buchst. a UStG, § 15 Abs. 4 UStG, § 15a Abs. 1 UStG, § 15a Abs. 5 UStG, § 15a Abs. 6 UStG, § 44 UStDV, Abschn. 15.12 UStAE, Abschn. 15.17 UStAE, Abschn. 15a.3 UStAE, Abschn. 15a.11 UStAE
 ---
 
-# Gebäude: Vorsteuerabzug nach Verwendungsabsicht und Berichtigung nach § 15a UStG
+⇨ Gebäude: Vorsteuerabzug nach Verwendungsabsicht und Berichtigung nach § 15a UStG
 
 _Vorsteueraufteilung bei gemischt geplanter Gebäudevermietung und spätere Vorsteuerberichtigung bei abweichender tatsächlicher Erstverwendung._
 
 
-# Gebäude – Vorsteuerabzug nach Verwendungsabsicht und § 15a UStG
+⇨ Gebäude – Vorsteuerabzug nach Verwendungsabsicht und § 15a UStG
 
-## 1. Ausgangssachverhalt
+► 1. Ausgangssachverhalt
 
 Eine KG errichtet im Jahr 2025 einen zweigeschossigen Anbau.
 
@@ -43,15 +43,15 @@ Die Geschossflächen sind jedoch gleich groß.
 
 ---
 
-# 2. Eingangsleistung des Bauunternehmers
+⇨ 2. Eingangsleistung des Bauunternehmers
 
-## Art der Leistung
+► Art der Leistung
 
 Der Bauunternehmer errichtet den Anbau unter Verwendung eigener Hauptstoffe.
 
 Es liegt eine Werklieferung nach § 3 Abs. 4 UStG vor.
 
-## Zeitpunkt der Leistung
+► Zeitpunkt der Leistung
 
 Die Werklieferung ist mit der Abnahme des fertiggestellten Bauwerks ausgeführt.
 
@@ -59,7 +59,7 @@ Zeitpunkt:
 
 30.10.2025.
 
-## Ort der Leistung
+► Ort der Leistung
 
 Der Anbau wird fest mit dem Grundstück verbunden.
 
@@ -69,7 +69,7 @@ Im Beispiel:
 
 Düsseldorf.
 
-## Steuerbarkeit und Steuerpflicht
+► Steuerbarkeit und Steuerpflicht
 
 Die Werklieferung wird im Inland gegen Entgelt ausgeführt.
 
@@ -83,7 +83,7 @@ Umsatzsteuer:
 
 ---
 
-# 3. Grundvoraussetzungen des Vorsteuerabzugs
+⇨ 3. Grundvoraussetzungen des Vorsteuerabzugs
 
 Die KG kann die gesetzlich geschuldete Umsatzsteuer grundsätzlich nach
 
@@ -104,7 +104,7 @@ Der Anbau wird vollständig für die unternehmerische Vermietungstätigkeit der 
 
 ---
 
-# 4. Maßgebliche Verwendungsabsicht
+⇨ 4. Maßgebliche Verwendungsabsicht
 
 Ist das Gebäude beim Leistungsbezug noch nicht tatsächlich verwendet worden,
 
@@ -133,9 +133,9 @@ Eine bloß behauptete, nicht belegte Absicht genügt nicht.
 
 ---
 
-# 5. Beabsichtigte Nutzung des Erdgeschosses
+⇨ 5. Beabsichtigte Nutzung des Erdgeschosses
 
-## Vermietung an einen Podologen
+► Vermietung an einen Podologen
 
 Die Vermietung von Grundstücken und Gebäudeteilen ist grundsätzlich nach
 
@@ -143,7 +143,7 @@ Die Vermietung von Grundstücken und Gebäudeteilen ist grundsätzlich nach
 
 steuerfrei.
 
-## Grundsätzliche Option nach § 9 Abs. 1 UStG
+► Grundsätzliche Option nach § 9 Abs. 1 UStG
 
 Eine Option zur Steuerpflicht setzt zunächst voraus,
 
@@ -153,7 +153,7 @@ Der Podologe verwendet die Räume für seine berufliche Tätigkeit.
 
 Damit ist § 9 Abs. 1 UStG grundsätzlich erfüllt.
 
-## Einschränkung nach § 9 Abs. 2 UStG
+► Einschränkung nach § 9 Abs. 2 UStG
 
 Bei Grundstücksvermietungen ist die Option jedoch nur zulässig,
 
@@ -168,7 +168,7 @@ Der Podologe erbringt in den Räumen sowohl
 
 Damit nutzt er die Räume nicht ausschließlich für vorsteuerunschädliche Umsätze.
 
-## Ergebnis Erdgeschoss
+► Ergebnis Erdgeschoss
 
 Die Option zur Steuerpflicht ist nach § 9 Abs. 2 UStG ausgeschlossen.
 
@@ -178,9 +178,9 @@ Die hierfür bezogenen Eingangsleistungen sind damit vorsteuerschädlich.
 
 ---
 
-# 6. Beabsichtigte Nutzung des Obergeschosses
+⇨ 6. Beabsichtigte Nutzung des Obergeschosses
 
-## Kurzfristige Unterbringung von Messegästen
+► Kurzfristige Unterbringung von Messegästen
 
 Die kurzfristige Beherbergung von Gästen fällt nicht unter die Steuerbefreiung des
 
@@ -188,7 +188,7 @@ Die kurzfristige Beherbergung von Gästen fällt nicht unter die Steuerbefreiung
 
 Sie ist nach § 4 Nr. 12 Satz 2 UStG von der Steuerbefreiung ausgenommen.
 
-## Ergebnis Obergeschoss
+► Ergebnis Obergeschoss
 
 Die kurzfristige Vermietung an Messegäste ist steuerpflichtig.
 
@@ -196,7 +196,7 @@ Die hierfür verwendeten Eingangsleistungen sind vorsteuerunschädlich.
 
 ---
 
-# 7. Gemischte Verwendung des Gebäudes
+⇨ 7. Gemischte Verwendung des Gebäudes
 
 Der Anbau soll damit teilweise für
 
@@ -211,15 +211,15 @@ Die Vorsteuer ist nach § 15 Abs. 4 UStG aufzuteilen.
 
 ---
 
-# 8. Aufteilungsmaßstab
+⇨ 8. Aufteilungsmaßstab
 
-## Keine direkte Zuordnung der Herstellungskosten
+► Keine direkte Zuordnung der Herstellungskosten
 
 Die gesamten Baukosten betreffen die Errichtung eines einheitlichen Gebäudes.
 
 Eine unmittelbare Einzelzuordnung der Vorsteuerbeträge zu Erdgeschoss und Obergeschoss ist im Beispielsfall nicht möglich.
 
-## Wirtschaftliche Zuordnung
+► Wirtschaftliche Zuordnung
 
 Die Vorsteuer ist nach einem sachgerechten Maßstab aufzuteilen.
 
@@ -234,7 +234,7 @@ Aufteilung:
 - Erdgeschoss: 50 %
 - Obergeschoss: 50 %.
 
-## Bedeutung der Kostenverteilung
+► Bedeutung der Kostenverteilung
 
 Obwohl 80 % der Herstellungskosten auf das Erdgeschoss und 20 % auf das Obergeschoss entfallen,
 
@@ -246,7 +246,7 @@ nicht automatisch die interne Kostenverteilung.
 
 ---
 
-# 9. Vorsteuerabzug im Jahr 2025
+⇨ 9. Vorsteuerabzug im Jahr 2025
 
 Gesamte Vorsteuer:
 
@@ -268,7 +268,7 @@ Nicht abziehbare Vorsteuer:
 
 = 38.000 €.
 
-## Ergebnis
+► Ergebnis
 
 Die KG darf im Voranmeldungszeitraum Oktober 2025
 
@@ -278,13 +278,13 @@ abziehen.
 
 ---
 
-# 10. Leerstand nach Fertigstellung
+⇨ 10. Leerstand nach Fertigstellung
 
 Entgegen der ursprünglichen Absicht findet die KG zunächst keine Mieter.
 
 Der Anbau steht nach Fertigstellung leer.
 
-## Grundsatz
+► Grundsatz
 
 Ein vorübergehender Leerstand ist noch keine tatsächliche Verwendung.
 
@@ -296,7 +296,7 @@ Der Leerstand allein führt daher noch nicht zu einer Vorsteuerberichtigung.
 
 ---
 
-# 11. Tatsächliche erstmalige Verwendung ab Juli 2026
+⇨ 11. Tatsächliche erstmalige Verwendung ab Juli 2026
 
 Am 01.07.2026 vermietet die KG den gesamten Anbau an eine Spedition.
 
@@ -312,19 +312,19 @@ Die Spedition nutzt das Gebäude für Gütertransporte nach Ostasien.
 
 ---
 
-# 12. Umsatzsteuerliche Behandlung der Vermietung an die Spedition
+⇨ 12. Umsatzsteuerliche Behandlung der Vermietung an die Spedition
 
-## Sonstige Leistung
+► Sonstige Leistung
 
 Die Vermietung ist eine sonstige Leistung nach § 3 Abs. 9 UStG.
 
-## Teilleistungen
+► Teilleistungen
 
 Die monatlichen Vermietungszeiträume stellen regelmäßig Teilleistungen dar.
 
 Die jeweilige Leistung ist mit Ablauf des Monats ausgeführt.
 
-## Leistungsort
+► Leistungsort
 
 Der Ort einer Grundstücksvermietung liegt am Belegenheitsort des Grundstücks.
 
@@ -332,7 +332,7 @@ Im Beispiel:
 
 Düsseldorf.
 
-## Grundsätzliche Steuerbefreiung
+► Grundsätzliche Steuerbefreiung
 
 Die Vermietung ist grundsätzlich nach
 
@@ -342,15 +342,15 @@ steuerfrei.
 
 ---
 
-# 13. Option zur Steuerpflicht
+⇨ 13. Option zur Steuerpflicht
 
-## Unternehmerischer Mieter
+► Unternehmerischer Mieter
 
 Die Spedition ist Unternehmer und verwendet das Gebäude für ihr Unternehmen.
 
 Die Voraussetzung des § 9 Abs. 1 UStG ist erfüllt.
 
-## Keine Sperre nach § 9 Abs. 2 UStG
+► Keine Sperre nach § 9 Abs. 2 UStG
 
 Die Spedition erbringt Beförderungsleistungen.
 
@@ -364,13 +364,13 @@ die den Vorsteuerabzug nicht ausschließen.
 
 Die Option ist zulässig.
 
-## Ausübung der Option
+► Ausübung der Option
 
 Die KG behandelt die Vermietungsumsätze im Mietvertrag unter gesondertem Ausweis der Umsatzsteuer als steuerpflichtig.
 
 Dadurch verzichtet sie wirksam auf die Steuerbefreiung.
 
-## Ergebnis
+► Ergebnis
 
 Die Vermietung ist mit 19 % steuerpflichtig.
 
@@ -388,7 +388,7 @@ KG nach § 13a Abs. 1 Nr. 1 UStG.
 
 ---
 
-# 14. Berichtigungsobjekt nach § 15a UStG
+⇨ 14. Berichtigungsobjekt nach § 15a UStG
 
 Der Anbau ist ein Wirtschaftsgut im Sinne des § 15a Abs. 1 UStG.
 
@@ -404,9 +404,9 @@ Im Beispiel:
 
 ---
 
-# 15. Änderung der Verhältnisse
+⇨ 15. Änderung der Verhältnisse
 
-## Ursprünglicher Vorsteuerabzug
+► Ursprünglicher Vorsteuerabzug
 
 Aufgrund der Verwendungsabsicht war die KG zunächst nur zu
 
@@ -418,7 +418,7 @@ Abgezogene Vorsteuer:
 
 38.000 €.
 
-## Tatsächliche erstmalige Verwendung
+► Tatsächliche erstmalige Verwendung
 
 Ab dem 01.07.2026 wird das gesamte Gebäude steuerpflichtig vermietet.
 
@@ -426,7 +426,7 @@ Vorsteuerunschädliche tatsächliche Verwendung:
 
 100 %.
 
-## Änderung
+► Änderung
 
 Ursprüngliche Beurteilung:
 
@@ -444,7 +444,7 @@ Damit ist eine Vorsteuerberichtigung nach § 15a UStG vorzunehmen.
 
 ---
 
-# 16. Berechnung der Vorsteuerberichtigung 2026
+⇨ 16. Berechnung der Vorsteuerberichtigung 2026
 
 Gesamte Vorsteuer:
 
@@ -474,7 +474,7 @@ Berechnung:
 
 = 1.900 €.
 
-## Ergebnis
+► Ergebnis
 
 Die KG erhält für das Kalenderjahr 2026 eine Vorsteuerberichtigung zu ihren Gunsten in Höhe von
 
@@ -482,7 +482,7 @@ Die KG erhält für das Kalenderjahr 2026 eine Vorsteuerberichtigung zu ihren Gu
 
 ---
 
-# 17. Zeitpunkt der Berichtigung
+⇨ 17. Zeitpunkt der Berichtigung
 
 Der Berichtigungsbetrag für 2026 überschreitet 6.000 € nicht.
 
@@ -496,9 +496,9 @@ Berichtigungsbetrag:
 
 ---
 
-# 18. Bagatellgrenzen nach § 44 UStDV
+⇨ 18. Bagatellgrenzen nach § 44 UStDV
 
-## Vorsteuerbetrag des Berichtigungsobjekts
+► Vorsteuerbetrag des Berichtigungsobjekts
 
 Die auf das Gebäude entfallende Vorsteuer beträgt
 
@@ -506,7 +506,7 @@ Die auf das Gebäude entfallende Vorsteuer beträgt
 
 Damit ist die maßgebliche Mindestgrenze deutlich überschritten.
 
-## Änderung der Verhältnisse
+► Änderung der Verhältnisse
 
 Die Änderung beträgt im anteiligen Kalenderjahr
 
@@ -520,9 +520,9 @@ Eine Berichtigung wird nicht durch die Bagatellregelungen ausgeschlossen.
 
 ---
 
-# Prüfungsschema: Vorsteuerabzug und spätere Berichtigung
+⇨ Prüfungsschema: Vorsteuerabzug und spätere Berichtigung
 
-## Phase 1: Ursprünglicher Vorsteuerabzug
+► Phase 1: Ursprünglicher Vorsteuerabzug
 
 1. Liegt eine Leistung eines anderen Unternehmers vor?
 
@@ -544,7 +544,7 @@ Eine Berichtigung wird nicht durch die Bagatellregelungen ausgeschlossen.
 
 10. Vorsteuer nach § 15 Abs. 4 UStG aufteilen.
 
-## Phase 2: Tatsächliche Verwendung
+► Phase 2: Tatsächliche Verwendung
 
 1. Wann beginnt die tatsächliche erstmalige Verwendung?
 
@@ -566,15 +566,15 @@ Eine Berichtigung wird nicht durch die Bagatellregelungen ausgeschlossen.
 
 ---
 
-# Typische Klausurfallen
+⇨ Typische Klausurfallen
 
-## Fehler 1: Erst auf den abgeschlossenen Mietvertrag abstellen
+► Fehler 1: Erst auf den abgeschlossenen Mietvertrag abstellen
 
 Der ursprüngliche Vorsteuerabzug richtet sich bei noch nicht erfolgter Verwendung nach der nachgewiesenen Absicht im Zeitpunkt des Leistungsbezugs.
 
 ---
 
-## Fehler 2: Jede Vermietung an einen Unternehmer als optionsfähig behandeln
+► Fehler 2: Jede Vermietung an einen Unternehmer als optionsfähig behandeln
 
 Die Option nach § 9 Abs. 1 UStG genügt nicht.
 
@@ -586,7 +586,7 @@ die den Vorsteuerabzug nicht ausschließen.
 
 ---
 
-## Fehler 3: Kosmetische und medizinische Nutzung nicht unterscheiden
+► Fehler 3: Kosmetische und medizinische Nutzung nicht unterscheiden
 
 Heilbehandlungen können steuerfrei sein.
 
@@ -596,7 +596,7 @@ Die gemischte Nutzung kann die Option nach § 9 Abs. 2 UStG ausschließen.
 
 ---
 
-## Fehler 4: Kurzfristige Vermietung als steuerfrei behandeln
+► Fehler 4: Kurzfristige Vermietung als steuerfrei behandeln
 
 Die kurzfristige Beherbergung von Fremden ist von der Grundstückssteuerbefreiung ausgenommen.
 
@@ -604,7 +604,7 @@ Sie ist grundsätzlich steuerpflichtig.
 
 ---
 
-## Fehler 5: Herstellungskostenverteilung automatisch als Vorsteuerschlüssel verwenden
+► Fehler 5: Herstellungskostenverteilung automatisch als Vorsteuerschlüssel verwenden
 
 Die Aufteilung richtet sich nach der wirtschaftlichen Zuordnung.
 
@@ -614,19 +614,19 @@ auch wenn die Herstellungskosten unterschiedlich verteilt sind.
 
 ---
 
-## Fehler 6: Leerstand als erstmalige Verwendung behandeln
+► Fehler 6: Leerstand als erstmalige Verwendung behandeln
 
 Ein bloßer Leerstand ist grundsätzlich noch keine tatsächliche Verwendung.
 
 ---
 
-## Fehler 7: Berichtigungszeitraum ab Fertigstellung beginnen lassen
+► Fehler 7: Berichtigungszeitraum ab Fertigstellung beginnen lassen
 
 Der Berichtigungszeitraum beginnt grundsätzlich mit der tatsächlichen erstmaligen Verwendung.
 
 ---
 
-## Fehler 8: Vollständige Jahreskorrektur berechnen
+► Fehler 8: Vollständige Jahreskorrektur berechnen
 
 Beginnt die Verwendung erst im Laufe des Jahres,
 
@@ -634,7 +634,7 @@ ist der Jahresbetrag zeitanteilig nach Monaten zu berechnen.
 
 ---
 
-## Fehler 9: Berichtigung sofort in der Voranmeldung erfassen
+► Fehler 9: Berichtigung sofort in der Voranmeldung erfassen
 
 Beträgt die Jahresberichtigung höchstens 6.000 €,
 
@@ -642,7 +642,7 @@ erfolgt sie nach § 44 Abs. 3 UStDV grundsätzlich erst in der Jahressteuerfests
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 - Vor der tatsächlichen Nutzung entscheidet die objektiv nachgewiesene Verwendungsabsicht.
 - Steuerfreie Vermietung schließt den Vorsteuerabzug grundsätzlich aus.

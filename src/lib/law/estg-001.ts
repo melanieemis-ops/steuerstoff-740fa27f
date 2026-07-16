@@ -22,17 +22,17 @@ export const estg001Steuerpflicht: KBEntry = {
   ],
 
   body: `
-# § 1 EStG – Steuerpflicht
+⇨ § 1 EStG – Steuerpflicht
 
-## Gesetz
+► Gesetz
 
 § 1 EStG regelt, wer der deutschen Einkommensteuer unterliegt.
 
 ---
 
-## Tatbestandsvoraussetzungen
+► Tatbestandsvoraussetzungen
 
-### Unbeschränkte Steuerpflicht (§ 1 Abs. 1 EStG)
+⇶  Unbeschränkte Steuerpflicht (§ 1 Abs. 1 EStG)
 
 Voraussetzungen:
 
@@ -45,13 +45,13 @@ oder
 
 ---
 
-### Erweiterte unbeschränkte Steuerpflicht (§ 1 Abs. 2 EStG)
+⇶  Erweiterte unbeschränkte Steuerpflicht (§ 1 Abs. 2 EStG)
 
 Bestimmte deutsche Staatsangehörige im Ausland können ebenfalls unbeschränkt einkommensteuerpflichtig sein.
 
 ---
 
-### Unbeschränkte Steuerpflicht auf Antrag (§ 1 Abs. 3 EStG)
+⇶  Unbeschränkte Steuerpflicht auf Antrag (§ 1 Abs. 3 EStG)
 
 Voraussetzungen:
 
@@ -63,7 +63,7 @@ oder
 
 ---
 
-### Beschränkte Steuerpflicht (§ 1 Abs. 4 EStG)
+⇶  Beschränkte Steuerpflicht (§ 1 Abs. 4 EStG)
 
 Voraussetzungen:
 
@@ -73,7 +73,7 @@ Voraussetzungen:
 
 ---
 
-## Rechtsfolge
+► Rechtsfolge
 
 Bei der unbeschränkten Steuerpflicht unterliegt grundsätzlich das Welteinkommen der deutschen Einkommensteuer.
 
@@ -81,7 +81,7 @@ Bei der beschränkten Steuerpflicht werden grundsätzlich nur die inländischen 
 
 ---
 
-## Ausnahmen
+► Ausnahmen
 
 - § 1 Abs. 2 EStG
 - § 1 Abs. 3 EStG
@@ -90,7 +90,7 @@ ermöglichen auch ohne Wohnsitz im Inland eine unbeschränkte Steuerpflicht.
 
 ---
 
-## Praxisbeispiel
+► Praxisbeispiel
 
 Herr Müller wohnt in München und erzielt zusätzlich Mieteinnahmen in Österreich.
 
@@ -102,7 +102,7 @@ Sein gesamtes Welteinkommen ist grundsätzlich in Deutschland steuerlich zu ber�
 
 ---
 
-## Merksatz
+► Merksatz
 
 Wohnsitz oder gewöhnlicher Aufenthalt im Inland → unbeschränkte Einkommensteuerpflicht.
 

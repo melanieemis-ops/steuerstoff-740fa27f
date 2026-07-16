@@ -4,13 +4,13 @@ title: DATEV
 category: Wissensthema (DATEV)
 ---
 
-# DATEV
+⇨ DATEV
 
 Buchungslogik, Konten, OPOS, SuSa
 
 Buchungslogiken, Konten, Belegprüfung, OPOS, SuSa und Kanzlei-Standards.
 
-## Checkliste
+► Checkliste
 - Konto / Gegenkonto
 - BU-Schlüssel
 - Steuerschlüssel

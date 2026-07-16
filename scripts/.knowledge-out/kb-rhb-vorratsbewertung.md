@@ -6,7 +6,7 @@ source: Internes Handout — RHB / Vorratsbewertung.
 references: § 240 Abs. 1, 4 HGB, § 247 Abs. 2 HGB, § 253 Abs. 1 S. 1 HGB, § 256 HGB, § 5 Abs. 1 S. 1 EStG, § 6 Abs. 1 Nr. 2 EStG, § 6 Abs. 1 Nr. 2a EStG
 ---
 
-# Roh-, Hilfs- und Betriebsstoffe — Bewertung & Verbrauchsfolgen
+⇨ Roh-, Hilfs- und Betriebsstoffe — Bewertung & Verbrauchsfolgen
 
 _Umlaufvermögen; Anschaffungskosten; gewogener Durchschnitt zulässig; LIFO steuerlich anerkannt, FIFO nur handelsrechtlich._
 

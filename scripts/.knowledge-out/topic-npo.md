@@ -4,13 +4,13 @@ title: NPO / Gemeinnützigkeit
 category: Wissensthema (NPO)
 ---
 
-# NPO / Gemeinnützigkeit
+⇨ NPO / Gemeinnützigkeit
 
 Sphären, Zweckbetrieb, Mittelverwendung
 
 Sphären, Zweckbetrieb, Spenden, Zuschüsse, Mittelverwendung und gemeinnützigkeitsrechtliche Risiken prüfen.
 
-## Checkliste
+► Checkliste
 - Ideeller Bereich?
 - Zweckbetrieb?
 - Vermögensverwaltung?

@@ -6,7 +6,7 @@ source: Internes Arbeitspapier — Rücklagenspiegel.
 references: § 62 AO
 ---
 
-# Rücklagenspiegel
+⇨ Rücklagenspiegel
 
 _Der Rücklagenspiegel zeigt Bildung, Entwicklung und Auflösung gemeinnützigkeitsrechtlicher Rücklagen._
 

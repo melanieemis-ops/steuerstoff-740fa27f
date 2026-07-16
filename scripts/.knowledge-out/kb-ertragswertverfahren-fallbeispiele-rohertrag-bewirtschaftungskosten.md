@@ -6,14 +6,14 @@ source: Interne Steuerstoff-Wissensdatenbank – Lehrgangsfälle zum Ertragswert
 references: § 12 Abs. 3 ErbStG, § 11 ErbStG, § 9 ErbStG, § 151 BewG, § 179 BewG, § 181 Abs. 1 Nr. 2 und Abs. 3 BewG, § 181 Abs. 1 Nr. 5 und Abs. 7 BewG, § 182 Abs. 3 Nr. 1 BewG, § 182 Abs. 3 Nr. 2 BewG, § 184 BewG, § 185 BewG, § 186 BewG, § 187 BewG, § 188 BewG, Anlage 21 BewG, Anlage 22 BewG, Anlage 23 BewG, Anlage 24 BewG, R B 184 ErbStR, R B 185 ErbStR, R B 186.1 ErbStR, R B 187 ErbStR, R B 188 ErbStR, BMF-Schreiben vom 29.01.2024, BStBl I 2024, 191
 ---
 
-# Ertragswertverfahren: Rohertrag, Bewirtschaftungskosten und vollständige Rechenfälle
+⇨ Ertragswertverfahren: Rohertrag, Bewirtschaftungskosten und vollständige Rechenfälle
 
 _Berechnung des Grundbesitzwerts im Ertragswertverfahren nach §§ 184 bis 188 BewG mit Mietwohngrundstück, gemischt genutztem Grundstück, Rohertrag, 20-Prozent-Grenze, Bewirtschaftungskosten, Bodenwertverzinsung und Vervielfältiger._
 
 
-# Ertragswertverfahren: Rechenfälle und vertiefende Prüfung
+⇨ Ertragswertverfahren: Rechenfälle und vertiefende Prüfung
 
-## 1. Anwendungsbereich
+► 1. Anwendungsbereich
 
 Das Ertragswertverfahren ist anzuwenden bei:
 
@@ -29,44 +29,44 @@ Ein Wahlrecht zwischen Ertragswert- und Sachwertverfahren besteht grundsätzlich
 
 ---
 
-# 2. Gesamtschema
+⇨ 2. Gesamtschema
 
-## Bodenwert
+► Bodenwert
 
 Grundstücksfläche  
 × Bodenrichtwert  
 = Bodenwert
 
-## Rohertrag
+► Rohertrag
 
 Jährliche maßgebende Miete  
 = Rohertrag des Grundstücks
 
-## Reinertrag
+► Reinertrag
 
 Rohertrag  
 ./. Bewirtschaftungskosten  
 = Reinertrag des Grundstücks
 
-## Bodenwertverzinsung
+► Bodenwertverzinsung
 
 Bodenwert  
 × Liegenschaftszinssatz  
 = Bodenwertverzinsung
 
-## Gebäudereinertrag
+► Gebäudereinertrag
 
 Reinertrag des Grundstücks  
 ./. Bodenwertverzinsung  
 = Gebäudereinertrag
 
-## Gebäudeertragswert
+► Gebäudeertragswert
 
 Gebäudereinertrag  
 × Vervielfältiger  
 = Gebäudeertragswert
 
-## Grundbesitzwert
+► Grundbesitzwert
 
 Bodenwert  
 + Gebäudeertragswert  
@@ -74,17 +74,17 @@ Bodenwert
 
 ---
 
-# 3. Bodenwert
+⇨ 3. Bodenwert
 
 Der Bodenwert wird nach § 184 Abs. 2 BewG in Verbindung mit § 179 BewG ermittelt.
 
-## Formel
+► Formel
 
 Grundstücksgröße in Quadratmetern  
 × maßgebender Bodenrichtwert je Quadratmeter  
 = Bodenwert
 
-## Beispiel
+► Beispiel
 
 Grundstücksgröße:
 
@@ -102,7 +102,7 @@ Der Bodenwert beträgt 200.000 Euro.
 
 ---
 
-# 4. Maßgebender Bodenrichtwert
+⇨ 4. Maßgebender Bodenrichtwert
 
 Maßgebend ist grundsätzlich der für den Bewertungsstichtag relevante Bodenrichtwert des zuständigen Gutachterausschusses.
 
@@ -112,21 +112,21 @@ Abweichungen des Bewertungsgrundstücks vom Bodenrichtwertgrundstück sind gegeb
 
 ---
 
-# 5. Rohertrag nach § 186 BewG
+⇨ 5. Rohertrag nach § 186 BewG
 
 Der Rohertrag ist das Entgelt, das nach den am Bewertungsstichtag geltenden vertraglichen Vereinbarungen für die Nutzung des bebauten Grundstücks innerhalb eines Zeitraums von zwölf Monaten zu zahlen ist.
 
-## Grundsatz
+► Grundsatz
 
 Maßgebend ist die Sollmiete nach den vertraglichen Bedingungen am Bewertungsstichtag.
 
-## Formel
+► Formel
 
 Monatliche Nettokaltmiete  
 × 12 Monate  
 = Jahresrohertrag
 
-## Nicht einzubeziehen
+► Nicht einzubeziehen
 
 Umlagen zur Deckung der Betriebskosten gehören nicht zum Rohertrag.
 
@@ -139,13 +139,13 @@ Beispiele:
 - umlagefähige Versicherungen,
 - sonstige Betriebskostenvorauszahlungen.
 
-## Merksatz
+► Merksatz
 
 **Rohertrag bedeutet grundsätzlich Nettokaltmiete ohne Betriebskostenumlagen.**
 
 ---
 
-# 6. Veränderungen nach dem Bewertungsstichtag
+⇨ 6. Veränderungen nach dem Bewertungsstichtag
 
 Maßgebend sind die Verhältnisse am Bewertungsstichtag.
 
@@ -161,7 +161,7 @@ sind grundsätzlich nicht zu berücksichtigen, wenn sie am Bewertungsstichtag no
 
 ---
 
-# 7. Ansatz der üblichen Miete
+⇨ 7. Ansatz der üblichen Miete
 
 Die übliche Miete ist insbesondere anzusetzen, wenn das Grundstück oder ein Grundstücksteil
 
@@ -175,11 +175,11 @@ Betriebskosten sind auch bei der üblichen Miete nicht einzubeziehen.
 
 ---
 
-# 8. Ungenutzte Wohnung am Bewertungsstichtag
+⇨ 8. Ungenutzte Wohnung am Bewertungsstichtag
 
 Ist eine Wohnung am Bewertungsstichtag leerstehend, ist grundsätzlich die übliche Jahresmiete anzusetzen.
 
-## Beispiel
+► Beispiel
 
 Eine Wohnung war bis zum 30. September für monatlich 900 Euro vermietet.
 
@@ -199,37 +199,37 @@ Die frühere und die spätere tatsächliche Miete sind für den Rohertrag am Bew
 
 ---
 
-# 9. Abweichung von der üblichen Miete
+⇨ 9. Abweichung von der üblichen Miete
 
 Die übliche Miete ersetzt die tatsächliche Miete nur, wenn die tatsächliche Miete um mehr als 20 Prozent von der üblichen Miete abweicht.
 
 Die Grenze wird auf Grundlage der üblichen Miete berechnet.
 
-## Formel
+► Formel
 
 Übliche Miete  
 × 20 Prozent  
 = zulässiger Abweichungsbetrag
 
-## Untere Grenze
+► Untere Grenze
 
 Übliche Miete  
 ./. 20 Prozent der üblichen Miete
 
-## Obere Grenze
+► Obere Grenze
 
 Übliche Miete  
 + 20 Prozent der üblichen Miete
 
 ---
 
-# 10. Genau 20 Prozent Abweichung
+⇨ 10. Genau 20 Prozent Abweichung
 
 Beträgt die Abweichung genau 20 Prozent, ist die vereinbarte Miete anzusetzen.
 
 Das Gesetz verlangt eine Abweichung von mehr als 20 Prozent.
 
-## Beispiel
+► Beispiel
 
 Übliche Miete:
 
@@ -257,9 +257,9 @@ Jahresrohertrag:
 
 ---
 
-# 11. Mehr als 20 Prozent Abweichung
+⇨ 11. Mehr als 20 Prozent Abweichung
 
-## Beispiel
+► Beispiel
 
 Übliche Miete:
 
@@ -283,7 +283,7 @@ Die Regel gilt sowohl bei einer zu niedrigen als auch bei einer zu hohen vereinb
 
 ---
 
-# 12. Bewirtschaftungskosten nach § 187 BewG
+⇨ 12. Bewirtschaftungskosten nach § 187 BewG
 
 Vom Rohertrag sind die Bewirtschaftungskosten abzuziehen.
 
@@ -298,13 +298,13 @@ Für die standardisierte Bewertung werden grundsätzlich die Werte der Anlage 23
 
 ---
 
-# 13. Jährliche Anpassung der Bewirtschaftungskosten
+⇨ 13. Jährliche Anpassung der Bewirtschaftungskosten
 
 Die Basiswerte für Verwaltungskosten und Instandhaltungskosten der Wohnnutzung werden jährlich an die Entwicklung des Verbraucherpreisindex angepasst.
 
 Das Bundesministerium der Finanzen veröffentlicht die maßgebenden Werte für jedes Bewertungsjahr.
 
-## Zwingende Chatbot-Regel
+► Zwingende Chatbot-Regel
 
 Vor einer konkreten Berechnung muss der Bewertungsstichtag bestimmt werden.
 
@@ -318,11 +318,11 @@ Beispiel:
 
 ---
 
-# 14. Bewirtschaftungskosten für Wohnnutzung im Jahr 2024
+⇨ 14. Bewirtschaftungskosten für Wohnnutzung im Jahr 2024
 
 Für Bewertungsstichtage im Kalenderjahr 2024 gelten nach der Indizierung insbesondere folgende Werte:
 
-## Verwaltungskosten
+► Verwaltungskosten
 
 Je Wohnung jährlich:
 
@@ -332,7 +332,7 @@ Je Garage oder ähnlichem Einstellplatz jährlich:
 
 46 Euro.
 
-## Instandhaltungskosten
+► Instandhaltungskosten
 
 Je Quadratmeter Wohnfläche jährlich:
 
@@ -342,19 +342,19 @@ Je Garage oder ähnlichem Einstellplatz jährlich:
 
 104 Euro.
 
-## Mietausfallwagnis
+► Mietausfallwagnis
 
 2 Prozent des auf die Wohnnutzung entfallenden jährlichen Rohertrags.
 
 ---
 
-# 15. Bewirtschaftungskosten für gewerbliche Nutzung
+⇨ 15. Bewirtschaftungskosten für gewerbliche Nutzung
 
-## Verwaltungskosten
+► Verwaltungskosten
 
 3 Prozent des auf die gewerbliche Nutzung entfallenden jährlichen Rohertrags.
 
-## Instandhaltungskosten
+► Instandhaltungskosten
 
 Grundsätzlich je Quadratmeter Nutzfläche:
 
@@ -365,23 +365,23 @@ Für bestimmte Gebäudearten gelten reduzierte Ansätze:
 - Gebäudeart 13 der Anlage 24: 50 Prozent,
 - Gebäudearten 15, 16 und 18 der Anlage 24: 30 Prozent.
 
-## Mietausfallwagnis
+► Mietausfallwagnis
 
 4 Prozent des auf die gewerbliche Nutzung entfallenden jährlichen Rohertrags.
 
 ---
 
-# 16. Gemischte Nutzung
+⇨ 16. Gemischte Nutzung
 
 Bei einem gemischt genutzten Grundstück sind die Bewirtschaftungskosten nach Wohn- und Nichtwohnnutzung getrennt zu berechnen.
 
-## Wohnnutzung
+► Wohnnutzung
 
 - Verwaltungskosten je Wohnung,
 - Instandhaltungskosten je Quadratmeter Wohnfläche,
 - Mietausfallwagnis 2 Prozent.
 
-## Gewerbliche Nutzung
+► Gewerbliche Nutzung
 
 - Verwaltungskosten 3 Prozent des gewerblichen Rohertrags,
 - Instandhaltungskosten je Quadratmeter Nutzfläche,
@@ -391,9 +391,9 @@ Anschließend werden sämtliche Bewirtschaftungskosten addiert.
 
 ---
 
-# 17. Reinertrag des Grundstücks
+⇨ 17. Reinertrag des Grundstücks
 
-## Formel
+► Formel
 
 Rohertrag des Grundstücks  
 ./. Verwaltungskosten  
@@ -404,11 +404,11 @@ Rohertrag des Grundstücks
 
 ---
 
-# 18. Bodenwertverzinsung
+⇨ 18. Bodenwertverzinsung
 
 Der auf den Grund und Boden entfallende Ertragsanteil ist vom Reinertrag des Grundstücks abzuziehen.
 
-## Formel
+► Formel
 
 Bodenwert  
 × Liegenschaftszinssatz  
@@ -416,7 +416,7 @@ Bodenwert
 
 ---
 
-# 19. Gesetzliche Liegenschaftszinssätze
+⇨ 19. Gesetzliche Liegenschaftszinssätze
 
 Soweit kein geeigneter Liegenschaftszinssatz des Gutachterausschusses vorliegt, gelten grundsätzlich die gesetzlichen Zinssätze.
 
@@ -427,15 +427,15 @@ Insbesondere:
 - gemischt genutztes Grundstück mit gewerblichem Anteil von mehr als 50 Prozent: 5 Prozent,
 - Geschäftsgrundstück: 6 Prozent.
 
-## Merksatz
+► Merksatz
 
 **Beim gemischt genutzten Grundstück bestimmt der gewerbliche Flächenanteil den gesetzlichen Zinssatz.**
 
 ---
 
-# 20. Gebäudereinertrag
+⇨ 20. Gebäudereinertrag
 
-## Formel
+► Formel
 
 Reinertrag des Grundstücks  
 ./. Bodenwertverzinsung  
@@ -447,13 +447,13 @@ Der Bodenwert wird anschließend unverändert hinzugerechnet.
 
 ---
 
-# 21. Gesamtnutzungsdauer
+⇨ 21. Gesamtnutzungsdauer
 
 Die wirtschaftliche Gesamtnutzungsdauer ergibt sich aus Anlage 22 BewG.
 
 Für die in den Beispielen verwendeten Gebäude beträgt sie 80 Jahre.
 
-## Wichtig
+► Wichtig
 
 Die Gesamtnutzungsdauer stammt aus Anlage 22 BewG.
 
@@ -461,9 +461,9 @@ Der Vervielfältiger stammt dagegen aus Anlage 21 BewG.
 
 ---
 
-# 22. Restnutzungsdauer
+⇨ 22. Restnutzungsdauer
 
-## Grundformel
+► Grundformel
 
 Gesamtnutzungsdauer  
 ./. Alter des Gebäudes  
@@ -471,7 +471,7 @@ Gesamtnutzungsdauer
 
 Das Gebäudealter ist grundsätzlich nach den Verhältnissen am Bewertungsstichtag zu bestimmen.
 
-## Beispiel
+► Beispiel
 
 Gesamtnutzungsdauer:
 
@@ -487,7 +487,7 @@ Restnutzungsdauer:
 
 ---
 
-# 23. Vervielfältiger
+⇨ 23. Vervielfältiger
 
 Der Vervielfältiger ergibt sich aus Anlage 21 BewG.
 
@@ -496,7 +496,7 @@ Er richtet sich nach:
 1. dem Liegenschaftszinssatz und
 2. der Restnutzungsdauer.
 
-## Formel
+► Formel
 
 Gebäudereinertrag  
 × Vervielfältiger  
@@ -504,9 +504,9 @@ Gebäudereinertrag
 
 ---
 
-# 24. Fall 1: Erbfall mit Mietwohngrundstück
+⇨ 24. Fall 1: Erbfall mit Mietwohngrundstück
 
-## Sachverhalt
+► Sachverhalt
 
 Erbfall:
 
@@ -546,7 +546,7 @@ Fertigstellung beziehungsweise Bezugsfertigkeit:
 
 ---
 
-# 25. Grundstücksart im Fall 1
+⇨ 25. Grundstücksart im Fall 1
 
 Das Grundstück dient vollständig Wohnzwecken.
 
@@ -558,7 +558,7 @@ Mietwohngrundstücke sind nach § 182 Abs. 3 Nr. 1 BewG im Ertragswertverfahren 
 
 ---
 
-# 26. Bodenwert im Fall 1
+⇨ 26. Bodenwert im Fall 1
 
 Grundstücksgröße:
 
@@ -578,7 +578,7 @@ Bodenwert:
 
 ---
 
-# 27. Rohertrag im Fall 1
+⇨ 27. Rohertrag im Fall 1
 
 Vier Wohnungen:
 
@@ -600,27 +600,27 @@ Die zusätzlich gezahlten Betriebskostenumlagen gehören nicht zum Rohertrag.
 
 ---
 
-# 28. Bewirtschaftungskosten im Fall 1
+⇨ 28. Bewirtschaftungskosten im Fall 1
 
-## Verwaltungskosten
+► Verwaltungskosten
 
 351 Euro je Wohnung  
 × 5 Wohnungen  
 = 1.755 Euro.
 
-## Instandhaltungskosten
+► Instandhaltungskosten
 
 450 Quadratmeter  
 × 13,80 Euro  
 = 6.210 Euro.
 
-## Mietausfallwagnis
+► Mietausfallwagnis
 
 54.000 Euro  
 × 2 Prozent  
 = 1.080 Euro.
 
-## Gesamte Bewirtschaftungskosten
+► Gesamte Bewirtschaftungskosten
 
 1.755 Euro  
 + 6.210 Euro  
@@ -629,7 +629,7 @@ Die zusätzlich gezahlten Betriebskostenumlagen gehören nicht zum Rohertrag.
 
 ---
 
-# 29. Reinertrag im Fall 1
+⇨ 29. Reinertrag im Fall 1
 
 Rohertrag:
 
@@ -651,7 +651,7 @@ Reinertrag des Grundstücks:
 
 ---
 
-# 30. Bodenwertverzinsung im Fall 1
+⇨ 30. Bodenwertverzinsung im Fall 1
 
 Das Grundstück ist ein Mietwohngrundstück.
 
@@ -671,7 +671,7 @@ Bodenwertverzinsung:
 
 ---
 
-# 31. Gebäudereinertrag im Fall 1
+⇨ 31. Gebäudereinertrag im Fall 1
 
 Reinertrag des Grundstücks:
 
@@ -693,7 +693,7 @@ Gebäudereinertrag:
 
 ---
 
-# 32. Restnutzungsdauer im Fall 1
+⇨ 32. Restnutzungsdauer im Fall 1
 
 Gesamtnutzungsdauer laut Anlage 22 BewG:
 
@@ -709,7 +709,7 @@ Restnutzungsdauer:
 
 ---
 
-# 33. Gebäudeertragswert im Fall 1
+⇨ 33. Gebäudeertragswert im Fall 1
 
 Liegenschaftszinssatz:
 
@@ -735,7 +735,7 @@ Gebäudeertragswert:
 
 ---
 
-# 34. Grundbesitzwert im Fall 1
+⇨ 34. Grundbesitzwert im Fall 1
 
 Bodenwert:
 
@@ -751,7 +751,7 @@ Berechnung:
 + 903.329 Euro  
 = 1.103.329 Euro.
 
-## Ergebnis
+► Ergebnis
 
 Der Grundbesitzwert beträgt 1.103.329 Euro.
 
@@ -759,7 +759,7 @@ Der Wert ist nach § 12 Abs. 3 ErbStG als Grundbesitzwert für die Festsetzung d
 
 ---
 
-# 35. Kompakte Berechnung Fall 1
+⇨ 35. Kompakte Berechnung Fall 1
 
 Bodenwert:
 
@@ -801,9 +801,9 @@ Grundbesitzwert:
 
 ---
 
-# 36. Fall 2: Schenkung eines gemischt genutzten Grundstücks
+⇨ 36. Fall 2: Schenkung eines gemischt genutzten Grundstücks
 
-## Sachverhalt
+► Sachverhalt
 
 Notarieller Vertrag:
 
@@ -853,7 +853,7 @@ Bodenrichtwert:
 
 ---
 
-# 37. Grundstücksart im Fall 2
+⇨ 37. Grundstücksart im Fall 2
 
 Das Grundstück dient zu
 
@@ -870,13 +870,13 @@ Es handelt sich daher um ein gemischt genutztes Grundstück nach § 181 Abs. 1 N
 
 Da eine übliche Miete ermittelt werden kann, erfolgt die Bewertung nach § 182 Abs. 3 Nr. 2 BewG im Ertragswertverfahren.
 
-## Korrekturhinweis
+► Korrekturhinweis
 
 Eine Zuordnung zu § 181 Abs. 1 Nr. 2 und Abs. 3 BewG wäre falsch, weil diese Vorschriften Mietwohngrundstücke betreffen.
 
 ---
 
-# 38. Bodenwert im Fall 2
+⇨ 38. Bodenwert im Fall 2
 
 500 Quadratmeter  
 × 400 Euro  
@@ -888,7 +888,7 @@ Bodenwert:
 
 ---
 
-# 39. Rohertrag im Fall 2
+⇨ 39. Rohertrag im Fall 2
 
 Gewerbliche Nutzung:
 
@@ -906,21 +906,21 @@ Gesamtrohertrag:
 
 ---
 
-# 40. Verwaltungskosten im Fall 2
+⇨ 40. Verwaltungskosten im Fall 2
 
-## Wohnnutzung
+► Wohnnutzung
 
 351 Euro je Wohnung  
 × 3 Wohnungen  
 = 1.053 Euro.
 
-## Gewerbliche Nutzung
+► Gewerbliche Nutzung
 
 40.000 Euro  
 × 3 Prozent  
 = 1.200 Euro.
 
-## Gesamte Verwaltungskosten
+► Gesamte Verwaltungskosten
 
 1.053 Euro  
 + 1.200 Euro  
@@ -928,15 +928,15 @@ Gesamtrohertrag:
 
 ---
 
-# 41. Instandhaltungskosten im Fall 2
+⇨ 41. Instandhaltungskosten im Fall 2
 
-## Wohnnutzung
+► Wohnnutzung
 
 300 Quadratmeter  
 × 13,80 Euro  
 = 4.140 Euro.
 
-## Gewerbliche Nutzung
+► Gewerbliche Nutzung
 
 Für die Gebäudeart 5.1 wird der volle Wert von 13,80 Euro je Quadratmeter verwendet.
 
@@ -944,7 +944,7 @@ Für die Gebäudeart 5.1 wird der volle Wert von 13,80 Euro je Quadratmeter verw
 × 13,80 Euro  
 = 2.760 Euro.
 
-## Gesamte Instandhaltungskosten
+► Gesamte Instandhaltungskosten
 
 4.140 Euro  
 + 2.760 Euro  
@@ -952,21 +952,21 @@ Für die Gebäudeart 5.1 wird der volle Wert von 13,80 Euro je Quadratmeter verw
 
 ---
 
-# 42. Mietausfallwagnis im Fall 2
+⇨ 42. Mietausfallwagnis im Fall 2
 
-## Wohnnutzung
+► Wohnnutzung
 
 24.000 Euro  
 × 2 Prozent  
 = 480 Euro.
 
-## Gewerbliche Nutzung
+► Gewerbliche Nutzung
 
 40.000 Euro  
 × 4 Prozent  
 = 1.600 Euro.
 
-## Gesamtes Mietausfallwagnis
+► Gesamtes Mietausfallwagnis
 
 480 Euro  
 + 1.600 Euro  
@@ -974,7 +974,7 @@ Für die Gebäudeart 5.1 wird der volle Wert von 13,80 Euro je Quadratmeter verw
 
 ---
 
-# 43. Gesamte Bewirtschaftungskosten im Fall 2
+⇨ 43. Gesamte Bewirtschaftungskosten im Fall 2
 
 Verwaltungskosten:
 
@@ -1001,7 +1001,7 @@ Bewirtschaftungskosten:
 
 ---
 
-# 44. Reinertrag im Fall 2
+⇨ 44. Reinertrag im Fall 2
 
 Rohertrag:
 
@@ -1023,7 +1023,7 @@ Reinertrag des Grundstücks:
 
 ---
 
-# 45. Bodenwertverzinsung im Fall 2
+⇨ 45. Bodenwertverzinsung im Fall 2
 
 Das Grundstück ist gemischt genutzt.
 
@@ -1045,7 +1045,7 @@ Bodenwertverzinsung:
 
 ---
 
-# 46. Gebäudereinertrag im Fall 2
+⇨ 46. Gebäudereinertrag im Fall 2
 
 Reinertrag des Grundstücks:
 
@@ -1067,7 +1067,7 @@ Gebäudereinertrag:
 
 ---
 
-# 47. Restnutzungsdauer im Fall 2
+⇨ 47. Restnutzungsdauer im Fall 2
 
 Gesamtnutzungsdauer:
 
@@ -1085,7 +1085,7 @@ Restnutzungsdauer:
 
 60 Jahre.
 
-## Korrekturhinweis
+► Korrekturhinweis
 
 Die Angabe von 52 Jahren in der Lehrgangsrechnung ist ein Übertragungsfehler.
 
@@ -1093,7 +1093,7 @@ Aus einer Gesamtnutzungsdauer von 80 Jahren und einem Gebäudealter von 20 Jahre
 
 ---
 
-# 48. Gebäudeertragswert im Fall 2
+⇨ 48. Gebäudeertragswert im Fall 2
 
 Liegenschaftszinssatz:
 
@@ -1121,7 +1121,7 @@ Gebäudeertragswert nach der Lehrgangsrechnung:
 
 ---
 
-# 49. Grundbesitzwert im Fall 2
+⇨ 49. Grundbesitzwert im Fall 2
 
 Bodenwert:
 
@@ -1137,7 +1137,7 @@ Berechnung:
 + 903.350 Euro  
 = 1.103.350 Euro.
 
-## Ergebnis
+► Ergebnis
 
 Der Grundbesitzwert beträgt nach der Lehrgangsrechnung 1.103.350 Euro.
 
@@ -1145,7 +1145,7 @@ Bei maschineller Berechnung sind zunächst die gesetzlichen Rundungsvorgaben bez
 
 ---
 
-# 50. Kompakte Berechnung Fall 2
+⇨ 50. Kompakte Berechnung Fall 2
 
 Bodenwert:
 
@@ -1197,9 +1197,9 @@ Grundbesitzwert laut Lehrgangslösung:
 
 ---
 
-# 51. Vergleich der beiden Fälle
+⇨ 51. Vergleich der beiden Fälle
 
-## Fall 1
+► Fall 1
 
 Grundstücksart:
 
@@ -1225,7 +1225,7 @@ Grundbesitzwert:
 
 1.103.329 Euro.
 
-## Fall 2
+► Fall 2
 
 Grundstücksart:
 
@@ -1257,7 +1257,7 @@ Grundbesitzwert laut Lehrgangslösung:
 
 ---
 
-# 52. Prüfungsschema für Rechenaufgaben
+⇨ 52. Prüfungsschema für Rechenaufgaben
 
 1. Bewertungsstichtag bestimmen.
 2. Grundstücksart nach § 181 BewG bestimmen.
@@ -1287,7 +1287,7 @@ Grundbesitzwert laut Lehrgangslösung:
 
 ---
 
-# 53. Formulierungshilfe Mietwohngrundstück
+⇨ 53. Formulierungshilfe Mietwohngrundstück
 
 Das Grundstück dient zu mehr als 80 Prozent Wohnzwecken und ist weder ein Ein- oder Zweifamilienhaus noch Wohnungseigentum.
 
@@ -1297,7 +1297,7 @@ Mietwohngrundstücke sind nach § 182 Abs. 3 Nr. 1 BewG im Ertragswertverfahren 
 
 ---
 
-# 54. Formulierungshilfe gemischt genutztes Grundstück
+⇨ 54. Formulierungshilfe gemischt genutztes Grundstück
 
 Das Grundstück dient zu ... Prozent Wohnzwecken und zu ... Prozent gewerblichen beziehungsweise betrieblichen Zwecken.
 
@@ -1307,7 +1307,7 @@ Da sich eine übliche Miete ermitteln lässt, erfolgt die Bewertung gemäß § 1
 
 ---
 
-# 55. Formulierungshilfe Rohertrag
+⇨ 55. Formulierungshilfe Rohertrag
 
 Der Rohertrag bestimmt sich nach § 186 Abs. 1 BewG grundsätzlich nach der am Bewertungsstichtag vertraglich vereinbarten Sollmiete für einen Zeitraum von zwölf Monaten.
 
@@ -1317,7 +1317,7 @@ Der jährliche Rohertrag beträgt daher ... Euro.
 
 ---
 
-# 56. Formulierungshilfe 20-Prozent-Regel
+⇨ 56. Formulierungshilfe 20-Prozent-Regel
 
 Die vereinbarte Miete beträgt ... Euro monatlich.
 
@@ -1333,7 +1333,7 @@ Da die Abweichung mehr als 20 Prozent beträgt, ist gemäß § 186 Abs. 2 Satz 1
 
 ---
 
-# 57. Formulierungshilfe Bewirtschaftungskosten
+⇨ 57. Formulierungshilfe Bewirtschaftungskosten
 
 Die Bewirtschaftungskosten sind gemäß § 187 BewG in Verbindung mit Anlage 23 BewG zu ermitteln.
 
@@ -1349,7 +1349,7 @@ Die gesamten Bewirtschaftungskosten betragen ... Euro.
 
 ---
 
-# 58. Formulierungshilfe Ergebnis
+⇨ 58. Formulierungshilfe Ergebnis
 
 Der Reinertrag des Grundstücks beträgt ... Euro.
 
@@ -1363,7 +1363,7 @@ Zuzüglich des Bodenwerts in Höhe von ... Euro ergibt sich ein Grundbesitzwert 
 
 ---
 
-# 59. Typische Fehler
+⇨ 59. Typische Fehler
 
 - Betriebskostenumlagen werden fälschlich zum Rohertrag addiert.
 - Die tatsächliche Zahlung statt der vertraglichen Sollmiete wird angesetzt.
@@ -1384,7 +1384,7 @@ Zuzüglich des Bodenwerts in Höhe von ... Euro ergibt sich ein Grundbesitzwert 
 
 ---
 
-# 60. Zentrale Merksätze
+⇨ 60. Zentrale Merksätze
 
 - Der Rohertrag ist grundsätzlich die Jahresnettokaltmiete.
 - Betriebskostenumlagen gehören nicht zum Rohertrag.

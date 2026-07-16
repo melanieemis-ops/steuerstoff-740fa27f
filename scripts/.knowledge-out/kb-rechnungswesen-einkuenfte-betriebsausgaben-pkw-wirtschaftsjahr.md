@@ -6,16 +6,16 @@ source: Interne Steuerstoff-Prüfungsvorbereitung – Rechnungswesen Teil 2, akt
 references: § 2 Abs. 1 EStG, § 2 Abs. 2 EStG, § 4 Abs. 1 EStG, § 4 Abs. 3 EStG, § 4 Abs. 4 EStG, § 4 Abs. 5 Satz 1 Nr. 1 EStG, § 4 Abs. 5 Satz 1 Nr. 6 EStG, § 4 Abs. 5b EStG, § 4 Abs. 6 EStG, § 4 Abs. 7 EStG, § 4a EStG, § 5 EStG, § 6 Abs. 1 Nr. 4 EStG, § 8 EStG, § 8b EStDV, § 9 EStG, § 9a EStG, § 12 Nr. 1 EStG, § 13 EStG, § 15 EStG, § 18 EStG, §§ 19 bis 22 EStG, § 15 Abs. 1a UStG, § 3 Abs. 9a UStG, R 4.10 EStR, R 4a EStR, R 5.7 EStR
 ---
 
-# Einkünfteermittlung, Betriebsausgaben, Pkw-Privatnutzung und Wirtschaftsjahr
+⇨ Einkünfteermittlung, Betriebsausgaben, Pkw-Privatnutzung und Wirtschaftsjahr
 
 _Grundlagen der Einkünfteermittlung, Abgrenzung von Betriebsausgaben, Geschenke an Geschäftsfreunde, private Nutzung betrieblicher Pkw einschließlich Elektrofahrzeugen sowie Regeln zum Wirtschaftsjahr._
 
 
-# Einkünfteermittlung, Betriebsausgaben, Pkw-Privatnutzung und Wirtschaftsjahr
+⇨ Einkünfteermittlung, Betriebsausgaben, Pkw-Privatnutzung und Wirtschaftsjahr
 
-# 1. Ermittlung der Einkünfte
+⇨ 1. Ermittlung der Einkünfte
 
-## Grundsatz der getrennten Ermittlung
+► Grundsatz der getrennten Ermittlung
 
 Die Einkünfte sind für jede Einkunftsart getrennt zu ermitteln.
 
@@ -35,9 +35,9 @@ Die übrigen vier Einkunftsarten sind Überschusseinkünfte.
 
 ---
 
-# 2. Gewinneinkünfte
+⇨ 2. Gewinneinkünfte
 
-## Betroffene Einkunftsarten
+► Betroffene Einkunftsarten
 
 Zu den Gewinneinkünften gehören:
 
@@ -47,7 +47,7 @@ Zu den Gewinneinkünften gehören:
 
 Einkünfte sind bei diesen Einkunftsarten der Gewinn.
 
-## Mögliche Gewinnermittlungsarten
+► Mögliche Gewinnermittlungsarten
 
 Der Gewinn kann insbesondere ermittelt werden durch:
 
@@ -57,9 +57,9 @@ Der Gewinn kann insbesondere ermittelt werden durch:
 
 ---
 
-# 3. Betriebsvermögensvergleich
+⇨ 3. Betriebsvermögensvergleich
 
-## Grundgedanke
+► Grundgedanke
 
 Beim Betriebsvermögensvergleich wird die Veränderung des Betriebsvermögens zwischen zwei Bilanzstichtagen ermittelt.
 
@@ -83,11 +83,11 @@ gleich
 
 Gewinn oder Verlust.
 
-## § 4 Abs. 1 EStG
+► § 4 Abs. 1 EStG
 
 § 4 Abs. 1 EStG enthält die steuerliche Grunddefinition des Gewinns durch Betriebsvermögensvergleich.
 
-## § 5 EStG
+► § 5 EStG
 
 § 5 EStG betrifft insbesondere Gewerbetreibende, die
 
@@ -96,15 +96,15 @@ Gewinn oder Verlust.
 
 Ausgangspunkt ist grundsätzlich die Handelsbilanz, die unter Beachtung steuerlicher Vorschriften zur Steuerbilanz übergeleitet wird.
 
-## Merksatz
+► Merksatz
 
 Beim Betriebsvermögensvergleich wird nicht lediglich der Zahlungsfluss betrachtet, sondern die wirtschaftliche Vermögensentwicklung des Betriebs.
 
 ---
 
-# 4. Einnahmenüberschussrechnung nach § 4 Abs. 3 EStG
+⇨ 4. Einnahmenüberschussrechnung nach § 4 Abs. 3 EStG
 
-## Grundschema
+► Grundschema
 
 Betriebseinnahmen
 
@@ -122,13 +122,13 @@ Die Einnahmenüberschussrechnung wird auch bezeichnet als:
 - Überschussrechnung,
 - Gewinnermittlung nach § 4 Abs. 3 EStG.
 
-## Grundprinzip
+► Grundprinzip
 
 Grundsätzlich ist auf den tatsächlichen Zufluss und Abfluss von Einnahmen und Ausgaben abzustellen.
 
 Besondere gesetzliche Ausnahmen bleiben zu beachten.
 
-## Abgrenzung zur Bilanz
+► Abgrenzung zur Bilanz
 
 Bei der Bilanzierung wird die wirtschaftliche Entstehung berücksichtigt.
 
@@ -136,9 +136,9 @@ Bei der EÜR ist grundsätzlich der Zahlungszeitpunkt entscheidend.
 
 ---
 
-# 5. Überschusseinkünfte
+⇨ 5. Überschusseinkünfte
 
-## Betroffene Einkunftsarten
+► Betroffene Einkunftsarten
 
 Zu den Überschusseinkünften gehören:
 
@@ -147,7 +147,7 @@ Zu den Überschusseinkünften gehören:
 - Vermietung und Verpachtung,
 - sonstige Einkünfte.
 
-## Grundschema
+► Grundschema
 
 Einnahmen nach § 8 EStG
 
@@ -159,7 +159,7 @@ gleich
 
 Überschuss der Einnahmen über die Werbungskosten oder Verlust.
 
-## Abgrenzung
+► Abgrenzung
 
 Bei Gewinneinkünften spricht man von:
 
@@ -173,7 +173,7 @@ Bei Überschusseinkünften spricht man von:
 - Werbungskosten,
 - Überschuss.
 
-## Merksatz
+► Merksatz
 
 Betriebsausgaben gehören zu Gewinneinkünften.
 
@@ -181,9 +181,9 @@ Werbungskosten gehören zu Überschusseinkünften.
 
 ---
 
-# 6. Betriebsausgaben nach § 4 Abs. 4 EStG
+⇨ 6. Betriebsausgaben nach § 4 Abs. 4 EStG
 
-## Definition
+► Definition
 
 Betriebsausgaben sind Aufwendungen, die durch den Betrieb veranlasst sind.
 
@@ -201,11 +201,11 @@ Typische Betriebsausgaben:
 - Büromaterial,
 - Telefon- und Internetkosten.
 
-## Rechtsfolge
+► Rechtsfolge
 
 Betriebsausgaben mindern grundsätzlich den steuerlichen Gewinn.
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Liegt ein Aufwand vor?
 2. Besteht ein wirtschaftlicher Zusammenhang mit dem Betrieb?
@@ -216,7 +216,7 @@ Betriebsausgaben mindern grundsätzlich den steuerlichen Gewinn.
 
 ---
 
-# 7. Abgrenzung zu privaten Aufwendungen
+⇨ 7. Abgrenzung zu privaten Aufwendungen
 
 Aufwendungen für die private Lebensführung sind grundsätzlich keine Betriebsausgaben.
 
@@ -236,7 +236,7 @@ Ist der private und betriebliche Anteil nicht trennbar und prägt die private Ve
 
 ---
 
-# 8. Nicht abziehbare Betriebsausgaben
+⇨ 8. Nicht abziehbare Betriebsausgaben
 
 Nicht jede betrieblich veranlasste Ausgabe darf den steuerlichen Gewinn mindern.
 
@@ -252,7 +252,7 @@ Typische Fälle:
 - Geldbußen und Ordnungsgelder,
 - unangemessene Aufwendungen.
 
-## Bedeutung
+► Bedeutung
 
 Der Aufwand kann handelsrechtlich oder buchhalterisch erfasst sein.
 
@@ -260,7 +260,7 @@ Für die steuerliche Gewinnermittlung muss er jedoch außerbilanziell hinzugerec
 
 ---
 
-# 9. Gewerbesteuer als nicht abziehbare Betriebsausgabe
+⇨ 9. Gewerbesteuer als nicht abziehbare Betriebsausgabe
 
 Die Gewerbesteuer und die darauf entfallenden steuerlichen Nebenleistungen dürfen den einkommensteuerlichen Gewinn nicht mindern.
 
@@ -268,11 +268,11 @@ Rechtsgrundlage:
 
 § 4 Abs. 5b EStG.
 
-## Buchhalterische Behandlung
+► Buchhalterische Behandlung
 
 Wurde Gewerbesteuer als Aufwand gebucht, muss sie bei der steuerlichen Gewinnermittlung wieder hinzugerechnet werden.
 
-## Beispiel
+► Beispiel
 
 Handelsrechtlicher Gewinn:
 
@@ -288,13 +288,13 @@ Steuerlicher Gewinn vor weiteren Korrekturen:
 
 = 135.000 €.
 
-## Merksatz
+► Merksatz
 
 Die Gewerbesteuer wird zwar als Aufwand gebucht, ist steuerlich aber nicht gewinnmindernd abzugsfähig.
 
 ---
 
-# 10. Aufwendungen zur Förderung staatspolitischer Zwecke
+⇨ 10. Aufwendungen zur Förderung staatspolitischer Zwecke
 
 Aufwendungen zur Förderung staatspolitischer Zwecke sind nach § 4 Abs. 6 EStG grundsätzlich keine Betriebsausgaben.
 
@@ -302,9 +302,9 @@ Eine Berücksichtigung kann gegebenenfalls nach anderen Vorschriften, beispielsw
 
 ---
 
-# 11. Geschenke an Geschäftsfreunde
+⇨ 11. Geschenke an Geschäftsfreunde
 
-## Anwendungsbereich
+► Anwendungsbereich
 
 § 4 Abs. 5 Satz 1 Nr. 1 EStG betrifft betrieblich veranlasste Geschenke an Personen, die nicht Arbeitnehmer des Steuerpflichtigen sind.
 
@@ -317,7 +317,7 @@ Typische Empfänger:
 - Vermittler,
 - sonstige Geschäftsfreunde.
 
-## Begriff des Geschenks
+► Begriff des Geschenks
 
 Ein Geschenk setzt grundsätzlich eine unentgeltliche Zuwendung voraus.
 
@@ -332,9 +332,9 @@ Keine Geschenke sind insbesondere:
 
 ---
 
-# 12. Geschenkgrenze von 50 €
+⇨ 12. Geschenkgrenze von 50 €
 
-## Grundsatz
+► Grundsatz
 
 Die Anschaffungs- oder Herstellungskosten der im Wirtschaftsjahr an einen Empfänger zugewendeten Geschenke dürfen insgesamt 50 € nicht übersteigen.
 
@@ -343,7 +343,7 @@ Maßgeblich ist:
 - die Summe pro Empfänger,
 - innerhalb eines Wirtschaftsjahres.
 
-## Freigrenze
+► Freigrenze
 
 Die Grenze von 50 € ist eine Freigrenze und kein Freibetrag.
 
@@ -357,7 +357,7 @@ Geschenke von insgesamt mehr als 50 €:
 
 vollständig nicht abzugsfähig.
 
-## Beispiel 1
+► Beispiel 1
 
 Ein Geschäftspartner erhält im Jahr:
 
@@ -372,7 +372,7 @@ Folge:
 
 Grundsätzlich abzugsfähige Betriebsausgabe.
 
-## Beispiel 2
+► Beispiel 2
 
 Ein Geschäftspartner erhält im Jahr:
 
@@ -391,21 +391,21 @@ Nicht nur der die Grenze übersteigende Betrag von 5 € ist ausgeschlossen.
 
 ---
 
-# 13. Netto- oder Bruttogrenze bei Geschenken
+⇨ 13. Netto- oder Bruttogrenze bei Geschenken
 
 Ob für die 50-€-Grenze der Netto- oder Bruttobetrag maßgeblich ist, hängt vom Vorsteuerabzug ab.
 
-## Vorsteuerabzug möglich
+► Vorsteuerabzug möglich
 
 Ist der Unternehmer zum Vorsteuerabzug berechtigt, sind grundsätzlich die Nettokosten maßgeblich.
 
-## Kein Vorsteuerabzug
+► Kein Vorsteuerabzug
 
 Ist der Unternehmer nicht zum Vorsteuerabzug berechtigt, gehört die Umsatzsteuer zu den Anschaffungskosten.
 
 Dann ist grundsätzlich der Bruttobetrag maßgeblich.
 
-## Merksatz
+► Merksatz
 
 Vorsteuerabzugsberechtigter Unternehmer:
 
@@ -417,7 +417,7 @@ Bruttowert prüfen.
 
 ---
 
-# 14. Besondere Aufzeichnungspflichten für Geschenke
+⇨ 14. Besondere Aufzeichnungspflichten für Geschenke
 
 Die Abziehbarkeit setzt zusätzlich voraus, dass die besonderen Aufzeichnungspflichten nach § 4 Abs. 7 EStG eingehalten werden.
 
@@ -431,13 +431,13 @@ aufgezeichnet werden.
 
 Erforderlich ist insbesondere die Zuordnung zum jeweiligen Empfänger.
 
-## Folge einer fehlenden Aufzeichnung
+► Folge einer fehlenden Aufzeichnung
 
 Auch ein Geschenk unterhalb der 50-€-Grenze kann nicht abziehbar sein, wenn die besonderen Aufzeichnungspflichten nicht erfüllt werden.
 
 ---
 
-# 15. Umsatzsteuer bei Geschenken
+⇨ 15. Umsatzsteuer bei Geschenken
 
 Bei einkommensteuerlich nicht abziehbaren Geschenken kann auch der Vorsteuerabzug ausgeschlossen sein.
 
@@ -453,7 +453,7 @@ Daher sind getrennt zu prüfen:
 
 ---
 
-# 16. Private Nutzung eines betrieblichen Pkw
+⇨ 16. Private Nutzung eines betrieblichen Pkw
 
 Wird ein betrieblicher Pkw auch privat genutzt, muss der private Nutzungsanteil gewinnerhöhend erfasst werden.
 
@@ -469,7 +469,7 @@ Die Fahrzeugüberlassung an einen Gesellschafter oder Arbeitnehmer ist dort geso
 
 ---
 
-# 17. Voraussetzungen der 1-%-Regelung
+⇨ 17. Voraussetzungen der 1-%-Regelung
 
 Die pauschale 1-%-Regelung setzt grundsätzlich voraus, dass
 
@@ -482,9 +482,9 @@ Liegt die betriebliche Nutzung nicht über 50 %, ist die 1-%-Regelung für die B
 
 ---
 
-# 18. Berechnung der 1-%-Regelung
+⇨ 18. Berechnung der 1-%-Regelung
 
-## Bemessungsgrundlage
+► Bemessungsgrundlage
 
 Maßgeblich ist der inländische Bruttolistenpreis im Zeitpunkt der Erstzulassung.
 
@@ -501,17 +501,17 @@ Nicht maßgeblich sind:
 - aktuelle Marktwertentwicklung,
 - tatsächlich gewährte Rabatte.
 
-## Abrundung
+► Abrundung
 
 Der Bruttolistenpreis wird auf volle 100 € nach unten abgerundet.
 
-## Monatliche Privatnutzung
+► Monatliche Privatnutzung
 
 Monatlicher Privatanteil:
 
 1 % des abgerundeten Bruttolistenpreises.
 
-## Jahreswert
+► Jahreswert
 
 Monatlicher Privatanteil
 
@@ -519,7 +519,7 @@ Monatlicher Privatanteil
 
 ---
 
-# 19. Beispiel zur 1-%-Regelung
+⇨ 19. Beispiel zur 1-%-Regelung
 
 Bruttolistenpreis bei Erstzulassung:
 
@@ -545,7 +545,7 @@ Dieser Betrag erhöht grundsätzlich den Gewinn.
 
 ---
 
-# 20. Kostendeckelung
+⇨ 20. Kostendeckelung
 
 Der nach der 1-%-Regelung und gegebenenfalls der Entfernungspauschalregelung ermittelte Nutzungswert soll die tatsächlich angefallenen Gesamtkosten des Fahrzeugs grundsätzlich nicht überschreiten.
 
@@ -564,7 +564,7 @@ Zu den Gesamtkosten gehören insbesondere:
 
 ---
 
-# 21. Fahrten zwischen Wohnung und Betriebsstätte
+⇨ 21. Fahrten zwischen Wohnung und Betriebsstätte
 
 Neben der privaten Nutzung ist die Nutzung für Fahrten zwischen Wohnung und Betriebsstätte gesondert zu berücksichtigen.
 
@@ -582,7 +582,7 @@ Rechtsgrundlage:
 
 § 4 Abs. 5 Satz 1 Nr. 6 EStG in Verbindung mit § 6 Abs. 1 Nr. 4 EStG.
 
-## Formel
+► Formel
 
 Abgerundeter Bruttolistenpreis
 
@@ -596,7 +596,7 @@ Die einfache Entfernung ist maßgeblich, nicht die Hin- und Rückfahrt.
 
 ---
 
-# 22. Beispiel: Wohnung und Betriebsstätte
+⇨ 22. Beispiel: Wohnung und Betriebsstätte
 
 Abgerundeter Bruttolistenpreis:
 
@@ -622,13 +622,13 @@ Die konkrete steuerliche Auswirkung ist unter Berücksichtigung der Entfernungsp
 
 ---
 
-# 23. Fahrtenbuchmethode
+⇨ 23. Fahrtenbuchmethode
 
 Statt der pauschalen Bewertung kann der private Nutzungsanteil anhand der tatsächlichen Kosten und der tatsächlich gefahrenen Kilometer ermittelt werden.
 
 Voraussetzung ist ein ordnungsgemäßes Fahrtenbuch.
 
-## Grundformel
+► Grundformel
 
 Gesamte Fahrzeugkosten
 
@@ -640,7 +640,7 @@ Gesamte Fahrzeugkosten
 
 Fahrten zwischen Wohnung und Betriebsstätte sind gesondert zu berücksichtigen.
 
-## Anforderungen an das Fahrtenbuch
+► Anforderungen an das Fahrtenbuch
 
 Ein ordnungsgemäßes Fahrtenbuch muss insbesondere
 
@@ -663,9 +663,9 @@ Für betriebliche Fahrten sind regelmäßig aufzuzeichnen:
 
 ---
 
-# 24. Vergleich der Methoden
+⇨ 24. Vergleich der Methoden
 
-## 1-%-Regelung
+► 1-%-Regelung
 
 Vorteile:
 
@@ -678,7 +678,7 @@ Nachteile:
 - bei hohem Listenpreis möglicherweise hoher Ansatz,
 - auch bei günstig erworbenen Gebrauchtwagen gilt grundsätzlich der ursprüngliche Listenpreis.
 
-## Fahrtenbuchmethode
+► Fahrtenbuchmethode
 
 Vorteile:
 
@@ -693,7 +693,7 @@ Nachteile:
 
 ---
 
-# 25. Umsatzsteuerliche Privatnutzung
+⇨ 25. Umsatzsteuerliche Privatnutzung
 
 Die private Verwendung eines dem Unternehmen zugeordneten Pkw kann umsatzsteuerlich eine unentgeltliche Wertabgabe darstellen.
 
@@ -707,7 +707,7 @@ Einkommensteuer und Umsatzsteuer sind getrennt zu beurteilen.
 
 ---
 
-# 26. Elektrofahrzeuge und extern aufladbare Hybridfahrzeuge
+⇨ 26. Elektrofahrzeuge und extern aufladbare Hybridfahrzeuge
 
 Für bestimmte Elektrofahrzeuge und extern aufladbare Hybridelektrofahrzeuge gelten Vergünstigungen bei der Bewertung der privaten Nutzung.
 
@@ -720,15 +720,15 @@ Bei der Fahrtenbuchmethode werden entsprechend bestimmte Fahrzeugkosten, insbeso
 
 ---
 
-# 27. Reine Elektrofahrzeuge – Viertelansatz
+⇨ 27. Reine Elektrofahrzeuge – Viertelansatz
 
-## Grundprinzip
+► Grundprinzip
 
 Bei begünstigten reinen Elektrofahrzeugen wird für die pauschale Bewertung nur ein Viertel des Bruttolistenpreises angesetzt.
 
 Aus der üblichen 1-%-Regelung wird wirtschaftlich eine sogenannte 0,25-%-Regelung.
 
-## Berechnung
+► Berechnung
 
 Bruttolistenpreis
 
@@ -740,7 +740,7 @@ anschließend Abrundung auf volle 100 €
 
 Alternativ kann zunächst entsprechend der gesetzlichen Berechnungsreihenfolge der maßgebliche Viertelwert ermittelt und abgerundet werden.
 
-## Beispiel
+► Beispiel
 
 Bruttolistenpreis:
 
@@ -762,7 +762,7 @@ Wirtschaftlich entspricht dies:
 
 ---
 
-# 28. Aktuelle Preisgrenze bei reinen Elektrofahrzeugen
+⇨ 28. Aktuelle Preisgrenze bei reinen Elektrofahrzeugen
 
 Für nach dem 30. Juni 2025 angeschaffte reine Elektrofahrzeuge ist der Viertelansatz grundsätzlich möglich, wenn der Bruttolistenpreis die gesetzliche Grenze von 100.000 € nicht übersteigt.
 
@@ -774,7 +774,7 @@ Bei älteren Anschaffungs- oder Überlassungszeiträumen galten andere Grenzen, 
 
 Der konkrete Anschaffungs- oder Überlassungszeitpunkt ist deshalb zwingend festzustellen.
 
-## Merksatz
+► Merksatz
 
 Bei Elektrofahrzeugen niemals nur den Fahrzeugtyp prüfen.
 
@@ -787,17 +787,17 @@ Immer zusätzlich prüfen:
 
 ---
 
-# 29. Hälftiger Ansatz
+⇨ 29. Hälftiger Ansatz
 
 Sind die Voraussetzungen des Viertelansatzes nicht erfüllt, kann bei begünstigten Elektro- oder extern aufladbaren Hybridfahrzeugen ein hälftiger Ansatz in Betracht kommen.
 
-## Pauschalmethode
+► Pauschalmethode
 
 Es wird grundsätzlich die Hälfte des Bruttolistenpreises angesetzt.
 
 Wirtschaftlich ergibt sich eine sogenannte 0,5-%-Regelung.
 
-## Fahrtenbuchmethode
+► Fahrtenbuchmethode
 
 Bei der Ermittlung der Gesamtkosten werden insbesondere
 
@@ -808,7 +808,7 @@ nur mit dem gesetzlich vorgesehenen Anteil berücksichtigt.
 
 ---
 
-# 30. Extern aufladbare Hybridfahrzeuge
+⇨ 30. Extern aufladbare Hybridfahrzeuge
 
 Bei extern aufladbaren Hybridelektrofahrzeugen ist zu prüfen, ob die gesetzlichen Umweltvoraussetzungen erfüllt sind.
 
@@ -823,7 +823,7 @@ Die Voraussetzungen und Reichweitengrenzen hängen vom Anschaffungs- oder Überl
 
 ---
 
-# 31. Elektrofahrzeug und Fahrten Wohnung–Betriebsstätte
+⇨ 31. Elektrofahrzeug und Fahrten Wohnung–Betriebsstätte
 
 Der reduzierte Bruttolistenpreis gilt grundsätzlich auch für die Berechnung des Zuschlags für Fahrten zwischen Wohnung und Betriebsstätte.
 
@@ -849,7 +849,7 @@ Monatlicher Wert:
 
 ---
 
-# 32. Prüfungsschema private Pkw-Nutzung
+⇨ 32. Prüfungsschema private Pkw-Nutzung
 
 1. Wem ist das Fahrzeug steuerlich zuzurechnen?
 2. Einzelunternehmen, Mitunternehmerschaft oder Kapitalgesellschaft?
@@ -869,7 +869,7 @@ Monatlicher Wert:
 
 ---
 
-# 33. Wirtschaftsjahr als Ermittlungszeitraum
+⇨ 33. Wirtschaftsjahr als Ermittlungszeitraum
 
 Das Wirtschaftsjahr ist der Zeitraum, für den der Gewinn bei bestimmten Gewinneinkünften ermittelt wird.
 
@@ -882,36 +882,36 @@ Bei den übrigen Einkunftsarten ist grundsätzlich das Kalenderjahr maßgeblich.
 
 ---
 
-# 34. Kalenderjahr und Wirtschaftsjahr
+⇨ 34. Kalenderjahr und Wirtschaftsjahr
 
-## Land- und Forstwirtschaft
+► Land- und Forstwirtschaft
 
 Für Land- und Forstwirte gelten besondere Wirtschaftsjahresregelungen.
 
 Das Wirtschaftsjahr kann vom Kalenderjahr abweichen.
 
-## Gewerbebetrieb
+► Gewerbebetrieb
 
 Bei Gewerbetreibenden ist zu unterscheiden zwischen:
 
 - im Handelsregister eingetragenen Gewerbetreibenden,
 - nicht im Handelsregister eingetragenen Gewerbetreibenden.
 
-## Übrige Einkunftsarten
+► Übrige Einkunftsarten
 
 Bei den übrigen Einkunftsarten erfolgt die Einkünfteermittlung grundsätzlich für das Kalenderjahr.
 
 ---
 
-# 35. Dauer des Wirtschaftsjahres
+⇨ 35. Dauer des Wirtschaftsjahres
 
-## Grundsatz
+► Grundsatz
 
 Ein Wirtschaftsjahr umfasst grundsätzlich zwölf Monate.
 
 Ein längerer Zeitraum als zwölf Monate ist grundsätzlich nicht zulässig.
 
-## Rumpfwirtschaftsjahr
+► Rumpfwirtschaftsjahr
 
 Ein kürzerer Zeitraum wird als Rumpfwirtschaftsjahr bezeichnet.
 
@@ -925,7 +925,7 @@ Ein Rumpfwirtschaftsjahr kann insbesondere entstehen bei:
 
 ---
 
-# 36. Nicht im Handelsregister eingetragene Gewerbetreibende
+⇨ 36. Nicht im Handelsregister eingetragene Gewerbetreibende
 
 Bei Gewerbetreibenden, deren Firma nicht im Handelsregister eingetragen ist, entspricht das Wirtschaftsjahr grundsätzlich dem Kalenderjahr.
 
@@ -939,7 +939,7 @@ Der Gewinnermittlungszeitraum läuft damit regelmäßig vom
 
 ---
 
-# 37. Im Handelsregister eingetragene Gewerbetreibende
+⇨ 37. Im Handelsregister eingetragene Gewerbetreibende
 
 Bei im Handelsregister eingetragenen Gewerbetreibenden kann das Wirtschaftsjahr grundsätzlich dem Kalenderjahr entsprechen oder davon abweichen.
 
@@ -957,7 +957,7 @@ Die steuerlichen Voraussetzungen für Wahl oder Umstellung sind gesondert zu pr�
 
 ---
 
-# 38. Gewinnbezug bei Gewerbebetrieb
+⇨ 38. Gewinnbezug bei Gewerbebetrieb
 
 Bei Gewerbebetrieben ist der Gewinn eines abweichenden Wirtschaftsjahres grundsätzlich in dem Kalenderjahr zu erfassen, in dem das Wirtschaftsjahr endet.
 
@@ -975,13 +975,13 @@ Rechtsgrundlage:
 
 ---
 
-# 39. Gewinnbezug bei Land- und Forstwirtschaft
+⇨ 39. Gewinnbezug bei Land- und Forstwirtschaft
 
 Bei Land- und Forstwirten mit abweichendem Wirtschaftsjahr wird der laufende Gewinn grundsätzlich zeitanteilig auf die betroffenen Kalenderjahre aufgeteilt.
 
 Ein Veräußerungsgewinn wird dagegen grundsätzlich dem Kalenderjahr der Veräußerung zugeordnet.
 
-## Beispiel
+► Beispiel
 
 Wirtschaftsjahr:
 
@@ -996,7 +996,7 @@ Der laufende Gewinn wird entsprechend aufgeteilt.
 
 ---
 
-# 40. Veräußerungsgewinn bei Land- und Forstwirtschaft
+⇨ 40. Veräußerungsgewinn bei Land- und Forstwirtschaft
 
 Ein Gewinn aus der Veräußerung oder Aufgabe des land- und forstwirtschaftlichen Betriebs wird nicht zeitanteilig aufgeteilt.
 
@@ -1004,7 +1004,7 @@ Er ist grundsätzlich in dem Kalenderjahr zu berücksichtigen, in dem die Veräu
 
 ---
 
-# 41. Umstellung des Wirtschaftsjahres
+⇨ 41. Umstellung des Wirtschaftsjahres
 
 Die Umstellung eines Wirtschaftsjahres kann steuerlich nicht beliebig vorgenommen werden.
 
@@ -1016,13 +1016,13 @@ Zu prüfen sind insbesondere:
 - Entstehung eines Rumpfwirtschaftsjahres,
 - zeitliche Zuordnung des Gewinns.
 
-## Typische Folge
+► Typische Folge
 
 Durch die Umstellung entsteht regelmäßig ein verkürztes Wirtschaftsjahr, das die Lücke zwischen altem und neuem Bilanzstichtag schließt.
 
 ---
 
-# 42. Prüfungsschema Wirtschaftsjahr
+⇨ 42. Prüfungsschema Wirtschaftsjahr
 
 1. Welche Einkunftsart liegt vor?
 2. Gewinneinkünfte oder Überschusseinkünfte?
@@ -1038,9 +1038,9 @@ Durch die Umstellung entsteht regelmäßig ein verkürztes Wirtschaftsjahr, das 
 
 ---
 
-# 43. Typische Klausurfallen
+⇨ 43. Typische Klausurfallen
 
-## Fehler 1: Gewinn und Überschuss gleich behandeln
+► Fehler 1: Gewinn und Überschuss gleich behandeln
 
 Bei Gewinneinkünften werden Betriebseinnahmen und Betriebsausgaben berücksichtigt.
 
@@ -1048,19 +1048,19 @@ Bei Überschusseinkünften werden Einnahmen und Werbungskosten berücksichtigt.
 
 ---
 
-## Fehler 2: Jede betriebliche Ausgabe vollständig abziehen
+► Fehler 2: Jede betriebliche Ausgabe vollständig abziehen
 
 Auch betrieblich veranlasste Aufwendungen können unter ein gesetzliches Abzugsverbot fallen.
 
 ---
 
-## Fehler 3: Gewerbesteuer als abzugsfähig behandeln
+► Fehler 3: Gewerbesteuer als abzugsfähig behandeln
 
 Die Gewerbesteuer ist nach § 4 Abs. 5b EStG nicht gewinnmindernd abziehbar.
 
 ---
 
-## Fehler 4: Geschenkgrenze als Freibetrag behandeln
+► Fehler 4: Geschenkgrenze als Freibetrag behandeln
 
 Die 50-€-Grenze ist eine Freigrenze.
 
@@ -1068,49 +1068,49 @@ Wird sie überschritten, ist das gesamte Geschenkvolumen an diesen Empfänger ni
 
 ---
 
-## Fehler 5: Geschenke einzeln statt pro Empfänger addieren
+► Fehler 5: Geschenke einzeln statt pro Empfänger addieren
 
 Entscheidend sind die gesamten Zuwendungen an einen Empfänger im Wirtschaftsjahr.
 
 ---
 
-## Fehler 6: Aufzeichnungspflichten vergessen
+► Fehler 6: Aufzeichnungspflichten vergessen
 
 Ein Geschenk kann trotz Einhaltung der Wertgrenze nicht abziehbar sein, wenn es nicht ordnungsgemäß getrennt aufgezeichnet wurde.
 
 ---
 
-## Fehler 7: Kaufpreis statt Bruttolistenpreis verwenden
+► Fehler 7: Kaufpreis statt Bruttolistenpreis verwenden
 
 Für die 1-%-Regelung ist grundsätzlich der Bruttolistenpreis bei Erstzulassung maßgeblich.
 
 ---
 
-## Fehler 8: Sonderausstattung vergessen
+► Fehler 8: Sonderausstattung vergessen
 
 Werkseitige Sonderausstattung gehört grundsätzlich zum Bruttolistenpreis.
 
 ---
 
-## Fehler 9: Bruttolistenpreis aufrunden
+► Fehler 9: Bruttolistenpreis aufrunden
 
 Der Listenpreis wird auf volle 100 € nach unten abgerundet.
 
 ---
 
-## Fehler 10: 1-%-Regelung bei geringer betrieblicher Nutzung anwenden
+► Fehler 10: 1-%-Regelung bei geringer betrieblicher Nutzung anwenden
 
 Die pauschale Methode setzt grundsätzlich eine betriebliche Nutzung von mehr als 50 % voraus.
 
 ---
 
-## Fehler 11: Fahrten zur Betriebsstätte als Privatfahrten behandeln
+► Fehler 11: Fahrten zur Betriebsstätte als Privatfahrten behandeln
 
 Sie sind gesondert nach § 4 Abs. 5 Satz 1 Nr. 6 EStG zu berücksichtigen.
 
 ---
 
-## Fehler 12: Elektrofahrzeug automatisch mit 0,25 % bewerten
+► Fehler 12: Elektrofahrzeug automatisch mit 0,25 % bewerten
 
 Der Viertelansatz hängt insbesondere von
 
@@ -1122,7 +1122,7 @@ ab.
 
 ---
 
-## Fehler 13: Veraltete Elektrofahrzeuggrenzen verwenden
+► Fehler 13: Veraltete Elektrofahrzeuggrenzen verwenden
 
 Die maßgebliche Preisgrenze hat sich mehrfach geändert.
 
@@ -1130,27 +1130,27 @@ Für nach dem 30. Juni 2025 angeschaffte reine Elektrofahrzeuge ist insbesondere
 
 ---
 
-## Fehler 14: Jedes Wirtschaftsjahr dem Kalenderjahr gleichsetzen
+► Fehler 14: Jedes Wirtschaftsjahr dem Kalenderjahr gleichsetzen
 
 Bei bestimmten Gewerbetreibenden und Land- und Forstwirten kann ein abweichendes Wirtschaftsjahr vorliegen.
 
 ---
 
-## Fehler 15: Gewinn eines Gewerbebetriebs zeitanteilig aufteilen
+► Fehler 15: Gewinn eines Gewerbebetriebs zeitanteilig aufteilen
 
 Der Gewinn eines abweichenden Wirtschaftsjahres eines Gewerbebetriebs wird grundsätzlich vollständig in dem Kalenderjahr erfasst, in dem das Wirtschaftsjahr endet.
 
 ---
 
-## Fehler 16: Veräußerungsgewinn eines Landwirts zeitanteilig aufteilen
+► Fehler 16: Veräußerungsgewinn eines Landwirts zeitanteilig aufteilen
 
 Der Veräußerungsgewinn ist grundsätzlich im Kalenderjahr der Veräußerung anzusetzen.
 
 ---
 
-# 44. Gesamtprüfungsschema
+⇨ 44. Gesamtprüfungsschema
 
-## Einkünfteermittlung
+► Einkünfteermittlung
 
 1. Einkunftsart bestimmen.
 2. Gewinneinkünfte oder Überschusseinkünfte?
@@ -1161,7 +1161,7 @@ Der Veräußerungsgewinn ist grundsätzlich im Kalenderjahr der Veräußerung an
 7. Private Nutzungen und Entnahmen korrigieren.
 8. Steuerlichen Gewinn oder Überschuss ermitteln.
 
-## Betriebsausgaben
+► Betriebsausgaben
 
 1. Betriebliche Veranlassung?
 2. Private Mitveranlassung?
@@ -1170,7 +1170,7 @@ Der Veräußerungsgewinn ist grundsätzlich im Kalenderjahr der Veräußerung an
 5. Umsatzsteuerliche Folge?
 6. Richtige zeitliche Zuordnung?
 
-## Betrieblicher Pkw
+► Betrieblicher Pkw
 
 1. Betriebsvermögen?
 2. Betriebliche Nutzung über 50 %?
@@ -1184,7 +1184,7 @@ Der Veräußerungsgewinn ist grundsätzlich im Kalenderjahr der Veräußerung an
 
 ---
 
-# 45. Merksätze
+⇨ 45. Merksätze
 
 - Einkünfte werden für jede Einkunftsart getrennt ermittelt.
 - Gewinneinkünfte ergeben sich als Gewinn.

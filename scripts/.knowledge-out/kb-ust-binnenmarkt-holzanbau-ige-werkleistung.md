@@ -6,14 +6,14 @@ source: Interne Steuerstoff-Prüfungsvorbereitung
 references: § 1 Abs. 1 Nr. 1 UStG, § 1 Abs. 1 Nr. 5 UStG, § 1a UStG, § 3 Abs. 4 UStG, § 3 Abs. 7 UStG, § 3d UStG, § 4 UStG, § 10 UStG, § 12 UStG, § 13 UStG, § 13a UStG, § 15 UStG
 ---
 
-# Binnenmarkt: Holzanbau, innergemeinschaftlicher Erwerb und Werklieferung
+⇨ Binnenmarkt: Holzanbau, innergemeinschaftlicher Erwerb und Werklieferung
 
 _Prüfung einer Werklieferung im Inland mit Anzahlung sowie innergemeinschaftlichem Erwerb von Material aus Belgien._
 
 
-# Binnenmarkt: Holzanbau und innergemeinschaftlicher Erwerb
+⇨ Binnenmarkt: Holzanbau und innergemeinschaftlicher Erwerb
 
-## Ausgangssachverhalt
+► Ausgangssachverhalt
 
 Ein deutscher Unternehmer Rens errichtet für einen deutschen Auftraggeber Thiesen einen Holzanbau.
 
@@ -25,9 +25,9 @@ Alle Unternehmer verwenden die USt-IdNr. ihres Heimatlandes.
 
 ---
 
-# 1. Ausgangsleistung Rens an Thiesen
+⇨ 1. Ausgangsleistung Rens an Thiesen
 
-## Art der Leistung
+► Art der Leistung
 
 Rens errichtet einen Holzanbau.
 
@@ -46,7 +46,7 @@ Zur Werklieferung gehören insbesondere:
 
 ---
 
-## Ort der Werklieferung
+► Ort der Werklieferung
 
 Bei einer unbewegten Werklieferung bestimmt sich der Ort nach § 3 Abs. 7 UStG.
 
@@ -58,7 +58,7 @@ Hünxe / Inland
 
 ---
 
-## Steuerbarkeit und Steuerpflicht
+► Steuerbarkeit und Steuerpflicht
 
 Die Werklieferung ist steuerbar nach § 1 Abs. 1 Nr. 1 UStG.
 
@@ -68,7 +68,7 @@ Damit ist der Umsatz steuerpflichtig zum Regelsteuersatz von 19 %.
 
 ---
 
-## Bemessungsgrundlage
+► Bemessungsgrundlage
 
 Gesamtpreis brutto:
 
@@ -96,7 +96,7 @@ Rechtsgrundlage:
 
 ---
 
-# 2. Steuerentstehung bei Anzahlung
+⇨ 2. Steuerentstehung bei Anzahlung
 
 Thiesen leistet am 21.01. eine Anzahlung von 1.000 € brutto.
 
@@ -106,7 +106,7 @@ Rechtsgrundlage:
 
 § 13 Abs. 1 Nr. 1 Buchst. a Satz 4 UStG
 
-## Berechnung Anzahlung
+► Berechnung Anzahlung
 
 Anzahlung brutto:
 
@@ -124,7 +124,7 @@ Die Umsatzsteuer entsteht mit Ablauf des VAZ 01.
 
 ---
 
-# 3. Reststeuer bei Leistungsausführung
+⇨ 3. Reststeuer bei Leistungsausführung
 
 Die Abnahme des Holzanbaus erfolgt am 20.03.
 
@@ -150,13 +150,13 @@ Die Umsatzsteuer entsteht mit Ablauf des VAZ 03.
 
 ---
 
-# 4. Transportleistung Rabens
+⇨ 4. Transportleistung Rabens
 
 Rabens transportiert die Holzverstrebungen von Brüssel nach Schermbeck.
 
 Die Rechnung wird jedoch nicht an Rens, sondern an Huise gestellt.
 
-## Folge für Rens
+► Folge für Rens
 
 Für Rens ist die Transportleistung umsatzsteuerlich unbeachtlich.
 
@@ -173,7 +173,7 @@ Vorsteuerabzug nur, wenn die Leistung an den Unternehmer ausgeführt wurde und e
 
 ---
 
-# 5. Eingangsleistung Huise an Rens
+⇨ 5. Eingangsleistung Huise an Rens
 
 Huise liefert Holzverstrebungen aus Belgien nach Deutschland.
 
@@ -187,7 +187,7 @@ Rechtsgrundlage:
 
 ---
 
-## Voraussetzungen des innergemeinschaftlichen Erwerbs
+► Voraussetzungen des innergemeinschaftlichen Erwerbs
 
 Ein innergemeinschaftlicher Erwerb liegt vor, wenn
 
@@ -207,7 +207,7 @@ Diese Voraussetzungen sind hier erfüllt.
 
 ---
 
-## Ort des innergemeinschaftlichen Erwerbs
+► Ort des innergemeinschaftlichen Erwerbs
 
 Der Ort des innergemeinschaftlichen Erwerbs bestimmt sich nach § 3d Satz 1 UStG.
 
@@ -221,7 +221,7 @@ Schermbeck / Inland
 
 ---
 
-## Steuerbarkeit
+► Steuerbarkeit
 
 Der innergemeinschaftliche Erwerb ist steuerbar nach § 1 Abs. 1 Nr. 5 UStG.
 
@@ -229,7 +229,7 @@ Eine Steuerbefreiung nach § 4b UStG greift nicht.
 
 ---
 
-## Steuersatz
+► Steuersatz
 
 Der Regelsteuersatz beträgt 19 %.
 
@@ -237,7 +237,7 @@ Der ermäßigte Steuersatz greift nicht.
 
 ---
 
-## Steuerschuldner
+► Steuerschuldner
 
 Steuerschuldner des innergemeinschaftlichen Erwerbs ist Rens.
 
@@ -247,7 +247,7 @@ Rechtsgrundlage:
 
 ---
 
-## Bemessungsgrundlage des innergemeinschaftlichen Erwerbs
+► Bemessungsgrundlage des innergemeinschaftlichen Erwerbs
 
 Nettoentgelt:
 
@@ -263,7 +263,7 @@ Umsatzsteuer:
 
 ---
 
-## Steuerentstehung beim innergemeinschaftlichen Erwerb
+► Steuerentstehung beim innergemeinschaftlichen Erwerb
 
 Die Steuer entsteht mit Ausstellung der Rechnung am 05.03.
 
@@ -277,7 +277,7 @@ VAZ:
 
 ---
 
-# 6. Vorsteuerabzug aus dem innergemeinschaftlichen Erwerb
+⇨ 6. Vorsteuerabzug aus dem innergemeinschaftlichen Erwerb
 
 Rens verwendet die Holzverstrebungen für seine steuerpflichtige Werklieferung an Thiesen.
 
@@ -293,9 +293,9 @@ Vorsteuer:
 
 ---
 
-# 7. Zusammenfassung der Beträge
+⇨ 7. Zusammenfassung der Beträge
 
-## Ausgangsumsatz Rens an Thiesen
+► Ausgangsumsatz Rens an Thiesen
 
 Netto:
 
@@ -312,7 +312,7 @@ Davon:
 
 ---
 
-## Innergemeinschaftlicher Erwerb Rens von Huise
+► Innergemeinschaftlicher Erwerb Rens von Huise
 
 Bemessungsgrundlage:
 
@@ -332,7 +332,7 @@ VAZ:
 
 ---
 
-# Prüfungsschema Werklieferung
+⇨ Prüfungsschema Werklieferung
 
 1. Liegt eine Lieferung oder sonstige Leistung vor?
 
@@ -354,7 +354,7 @@ VAZ:
 
 ---
 
-# Prüfungsschema innergemeinschaftlicher Erwerb
+⇨ Prüfungsschema innergemeinschaftlicher Erwerb
 
 1. Gegenstand gelangt aus EU-Ausland ins Inland.
 
@@ -378,7 +378,7 @@ VAZ:
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 Werklieferung:
 
@@ -400,7 +400,7 @@ Nur Vorsteuerabzug, wenn die Rechnung auf den Unternehmer lautet und die Leistun
 
 ---
 
-# Klausurfallen
+⇨ Klausurfallen
 
 Prüfungsfalle Nr. 1:
 

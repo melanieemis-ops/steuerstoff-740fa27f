@@ -6,14 +6,14 @@ source: Interne Steuerstoff-Prüfungsvorbereitung
 references: § 15 Abs. 1 UStG, § 15a UStG, § 44 UStDV, Abschn. 15.2c UStAE, Abschn. 15a.1 UStAE
 ---
 
-# Vorsteuerberichtigung aus Billigkeitsgründen (§ 15a UStG)
+⇨ Vorsteuerberichtigung aus Billigkeitsgründen (§ 15a UStG)
 
 _Vorsteuerberichtigung aus Billigkeitsgründen bei teilunternehmerischer Nutzung eines Wirtschaftsguts und späterer Nutzungsänderung bzw. Veräußerung._
 
 
-# Vorsteuerberichtigung aus Billigkeitsgründen
+⇨ Vorsteuerberichtigung aus Billigkeitsgründen
 
-## Grundsatz
+► Grundsatz
 
 Wird ein Wirtschaftsgut nur teilweise unternehmerisch genutzt, ist grundsätzlich nur der unternehmerisch genutzte Anteil zum Vorsteuerabzug berechtigt.
 
@@ -23,7 +23,7 @@ Die Bagatellgrenzen des § 44 UStDV müssen überschritten sein.
 
 ---
 
-## Ausgangsfall
+► Ausgangsfall
 
 PKW-Anschaffung
 
@@ -50,7 +50,7 @@ Vorsteuerabzug:
 
 ---
 
-## Jahr 03 – Erhöhung der unternehmerischen Nutzung
+► Jahr 03 – Erhöhung der unternehmerischen Nutzung
 
 Die unternehmerische Nutzung steigt von
 
@@ -96,7 +96,7 @@ zugunsten des Unternehmers.
 
 ---
 
-## Jahr 04 – Verkauf des PKW
+► Jahr 04 – Verkauf des PKW
 
 Der PKW wird für
 
@@ -125,7 +125,7 @@ Umsatzsteuer:
 
 ---
 
-## Weitere Vorsteuerberichtigung
+► Weitere Vorsteuerberichtigung
 
 Auch die Veräußerung stellt eine Änderung der Verhältnisse dar.
 
@@ -167,7 +167,7 @@ Diese Berichtigung erfolgt zugunsten des Unternehmers.
 
 ---
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Wirtschaftsgut mit Berichtigungszeitraum vorhanden?
 
@@ -185,7 +185,7 @@ Diese Berichtigung erfolgt zugunsten des Unternehmers.
 
 ---
 
-## Berechnungsformel
+► Berechnungsformel
 
 Vorsteuer insgesamt
 
@@ -201,7 +201,7 @@ Vorsteuerberichtigung
 
 ---
 
-## Merksätze
+► Merksätze
 
 Eine Erhöhung der unternehmerischen Nutzung führt regelmäßig zu einer Vorsteuerberichtigung zugunsten des Unternehmers.
 
@@ -213,7 +213,7 @@ Die Berichtigung erfolgt nur, wenn die Bagatellgrenzen des § 44 UStDV überschr
 
 ---
 
-## Klausurtipp
+► Klausurtipp
 
 Immer zuerst feststellen:
 

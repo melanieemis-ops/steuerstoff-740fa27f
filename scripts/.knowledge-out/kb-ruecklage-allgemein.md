@@ -6,7 +6,7 @@ source: Internes Arbeitspapier — Begriffsabgrenzung Rücklage / Rückstellung.
 references: § 62 AO, § 266 HGB, § 249 HGB
 ---
 
-# Rücklage — Grundlagen und Abgrenzungen
+⇨ Rücklage — Grundlagen und Abgrenzungen
 
 _Allgemeine Rücklage, steuerliche Spezialrücklage, gemeinnützigkeitsrechtliche Rücklage (§ 62 AO) und Abgrenzung zur Rückstellung._
 

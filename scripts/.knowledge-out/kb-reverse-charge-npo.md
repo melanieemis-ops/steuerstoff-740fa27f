@@ -6,7 +6,7 @@ source: von Maydell, npoR 2022, 190 — kanzleiintern aufbereitet.
 references: § 13b UStG, § 3a Abs. 1, 2 UStG, § 2 UStG, § 19 UStG, § 15 Abs. 2 S. 1 Nr. 1 UStG, Abschn. 13b.1 Abs. 1 UStAE
 ---
 
-# Reverse Charge bei gemeinnützigen Körperschaften (§ 13b UStG)
+⇨ Reverse Charge bei gemeinnützigen Körperschaften (§ 13b UStG)
 
 _Steuerfalle für NPOs bei Leistungsbezug aus dem Ausland — Zusammenspiel §§ 2, 3a, 13b UStG; auch ideeller Bereich betroffen._
 

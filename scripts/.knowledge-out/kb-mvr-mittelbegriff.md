@@ -6,7 +6,7 @@ source: Internes Arbeitspapier — Definition Mittel.
 references: § 55 Abs. 1 AO, § 62 Abs. 3 AO
 ---
 
-# Mittelbegriff
+⇨ Mittelbegriff
 
 _Mittel umfassen grundsätzlich sämtliche Vermögenswerte der Körperschaft._
 

@@ -6,7 +6,7 @@ source: beck-chat Arbeitsnotiz – Demokratisches Staatswesen
 references: § 52 Abs. 2 Nr. 24 AO
 ---
 
-# Förderung des demokratischen Staatswesens nach § 52 Abs. 2 Nr. 24 AO
+⇨ Förderung des demokratischen Staatswesens nach § 52 Abs. 2 Nr. 24 AO
 
 _Einordnung förderfähiger und nicht förderfähiger Aktivitäten im Bereich demokratisches Staatswesen._
 

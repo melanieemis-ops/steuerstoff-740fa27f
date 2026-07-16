@@ -6,7 +6,7 @@ source: Internes Arbeitspapier — Rechtsentwicklung Servicegesellschaften § 57
 references: § 57 Abs. 3 AO, § 4 Nr. 29 UStG, BFH 22.05.2025 – V R 22/23
 ---
 
-# § 57 Abs. 3 AO — Servicegesellschaften und EuGH-Vorlage
+⇨ § 57 Abs. 3 AO — Servicegesellschaften und EuGH-Vorlage
 
 _Doppeltes Satzungserfordernis abgelehnt; BFH hat 2025 die Europarechts­konformität der Norm dem EuGH vorgelegt._
 

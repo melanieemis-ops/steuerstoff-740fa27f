@@ -5,7 +5,7 @@ category: DATEV
 source: Internes Lernvideo-Handout — DATEV Kanzlei-Rechnungswesen Tipps und Tricks.
 ---
 
-# DATEV Kanzlei-Rechnungswesen — Tipps und Tricks
+⇨ DATEV Kanzlei-Rechnungswesen — Tipps und Tricks
 
 _Arbeitsplatz und Rechnungswesen-Programm an eigene Arbeitsweise anpassen, schneller buchen, Forderungen im Blick._
 

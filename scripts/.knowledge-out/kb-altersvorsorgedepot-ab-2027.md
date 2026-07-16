@@ -6,26 +6,26 @@ source: Interne Steuerstoff-Prüfungsvorbereitung
 references: Altersvorsorgereformgesetz 2026
 ---
 
-# Altersvorsorgedepot ab 2027
+⇨ Altersvorsorgedepot ab 2027
 
 _Geplantes steuerlich gefördertes Altersvorsorgedepot als Nachfolgemodell der Riester-Rente._
 
 
-# Altersvorsorgedepot
+⇨ Altersvorsorgedepot
 
-## Hinweis
+► Hinweis
 
 Dieser Eintrag gibt den derzeitigen Gesetzesstand wieder.
 
 Vor Anwendung in der Praxis sind stets aktuelle Gesetzesänderungen und BMF-Schreiben zu prüfen.
 
-## Grundidee
+► Grundidee
 
 Ab 2027 soll ein steuerlich gefördertes Altersvorsorgedepot eingeführt werden.
 
 Es soll langfristige Wertpapieranlagen fördern und die bisherige Riester-Förderung ersetzen.
 
-## Förderung
+► Förderung
 
 Geplant sind insbesondere:
 
@@ -33,14 +33,14 @@ Geplant sind insbesondere:
 - staatliche Zulagen
 - nachgelagerte Besteuerung
 
-## Voraussetzungen
+► Voraussetzungen
 
 - zertifiziertes Altersvorsorgedepot
 - Eigenbeiträge
 - förderberechtigter Personenkreis
 - gesetzliche Anforderungen an das Produkt
 
-## Besteuerung
+► Besteuerung
 
 Während der Ansparphase:
 
@@ -50,7 +50,7 @@ Während der Auszahlungsphase:
 
 nachgelagerte Besteuerung.
 
-## Prüfungsmerksatz
+► Prüfungsmerksatz
 
 Aktuelles Steuerrecht.
 

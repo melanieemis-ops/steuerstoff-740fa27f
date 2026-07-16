@@ -6,16 +6,16 @@ source: Interne Steuerstoff-Prüfungsvorbereitung – Rechnungswesen Teil 2
 references: § 4 Abs. 1 EStG, § 4 Abs. 3 EStG, § 4a EStG, § 5 EStG, § 39 Abs. 2 Nr. 1 AO, § 60 EStDV, § 140 AO, § 141 AO, § 238 HGB, § 240 HGB, § 241 HGB, § 242 HGB, § 246 HGB, § 247 HGB, § 252 HGB, § 266 HGB, § 275 HGB, § 8b EStDV, R 4a EStR, R 5.3 EStR, R 5.4 EStR
 ---
 
-# Buchführung, Inventur, Jahresabschluss und Bilanzierung
+⇨ Buchführung, Inventur, Jahresabschluss und Bilanzierung
 
 _Grundlagen zu Geschäftsjahr und Wirtschaftsjahr, Gewinnermittlungsarten, Buchführungspflicht, Inventurverfahren, Handels- und Steuerbilanz, wirtschaftlichem Eigentum sowie Bilanz- und GuV-Gliederung._
 
 
-# Buchführung, Inventur, Jahresabschluss und Bilanzierung
+⇨ Buchführung, Inventur, Jahresabschluss und Bilanzierung
 
-# 1. Geschäftsjahr und Wirtschaftsjahr
+⇨ 1. Geschäftsjahr und Wirtschaftsjahr
 
-## Handelsrechtliches Geschäftsjahr
+► Handelsrechtliches Geschäftsjahr
 
 Das Geschäftsjahr ist der handelsrechtliche Zeitraum, für den der Jahresabschluss erstellt wird.
 
@@ -39,17 +39,17 @@ Typische Gründe für ein Rumpfgeschäftsjahr:
 
 ---
 
-# 2. Steuerrechtliches Wirtschaftsjahr
+⇨ 2. Steuerrechtliches Wirtschaftsjahr
 
 Das Wirtschaftsjahr ist der steuerrechtliche Gewinnermittlungszeitraum.
 
 Für Gewerbetreibende ist insbesondere § 4a EStG maßgeblich.
 
-## Grundsatz
+► Grundsatz
 
 Das Wirtschaftsjahr entspricht grundsätzlich dem Kalenderjahr.
 
-## Im Handelsregister eingetragene Gewerbetreibende
+► Im Handelsregister eingetragene Gewerbetreibende
 
 Bei im Handelsregister eingetragenen Gewerbetreibenden kann das Wirtschaftsjahr vom Kalenderjahr abweichen.
 
@@ -59,33 +59,33 @@ Ein abweichendes Wirtschaftsjahr kann beispielsweise enden am:
 - 30. Juni,
 - 30. September.
 
-## Umstellung des Wirtschaftsjahres
+► Umstellung des Wirtschaftsjahres
 
 Bei der Umstellung ist zu unterscheiden:
 
-### Umstellung vom Kalenderjahr auf ein abweichendes Wirtschaftsjahr
+⇶  Umstellung vom Kalenderjahr auf ein abweichendes Wirtschaftsjahr
 
 Diese Umstellung bedarf grundsätzlich der Zustimmung des Finanzamts.
 
-### Umstellung von einem abweichenden Wirtschaftsjahr auf das Kalenderjahr
+⇶  Umstellung von einem abweichenden Wirtschaftsjahr auf das Kalenderjahr
 
 Hierfür ist grundsätzlich keine Zustimmung des Finanzamts erforderlich.
 
-### Umstellung von einem abweichenden Wirtschaftsjahr auf ein anderes abweichendes Wirtschaftsjahr
+⇶  Umstellung von einem abweichenden Wirtschaftsjahr auf ein anderes abweichendes Wirtschaftsjahr
 
 Diese Umstellung bedarf grundsätzlich ebenfalls der Zustimmung des Finanzamts.
 
-## Merksatz
+► Merksatz
 
 Die Rückkehr vom abweichenden Wirtschaftsjahr zum Kalenderjahr ist grundsätzlich ohne Zustimmung möglich.
 
 ---
 
-# 3. Gewinnzurechnung bei abweichendem Wirtschaftsjahr
+⇨ 3. Gewinnzurechnung bei abweichendem Wirtschaftsjahr
 
 Bei Gewerbebetrieben wird der Gewinn eines abweichenden Wirtschaftsjahres grundsätzlich dem Kalenderjahr zugerechnet, in dem das Wirtschaftsjahr endet.
 
-## Beispiel
+► Beispiel
 
 Wirtschaftsjahr:
 
@@ -97,7 +97,7 @@ Rechtsgrundlage:
 
 § 4a Abs. 2 Nr. 2 EStG.
 
-## Klausurmerksatz
+► Klausurmerksatz
 
 Nicht den Gewinn zeitanteilig auf zwei Kalenderjahre aufteilen.
 
@@ -105,7 +105,7 @@ Bei Gewerbebetrieben zählt grundsätzlich das Kalenderjahr, in dem das Wirtscha
 
 ---
 
-# 4. Gewinnermittlungsmethoden bei Gewerbetreibenden
+⇨ 4. Gewinnermittlungsmethoden bei Gewerbetreibenden
 
 Bei Gewerbetreibenden kommen insbesondere folgende Gewinnermittlungsmethoden in Betracht:
 
@@ -116,7 +116,7 @@ Bei Gewerbetreibenden kommen insbesondere folgende Gewinnermittlungsmethoden in 
 
 ---
 
-# 5. Besonderer Betriebsvermögensvergleich nach § 5 EStG
+⇨ 5. Besonderer Betriebsvermögensvergleich nach § 5 EStG
 
 Der Gewinn wird nach § 5 EStG ermittelt, wenn der Steuerpflichtige
 
@@ -124,17 +124,17 @@ Der Gewinn wird nach § 5 EStG ermittelt, wenn der Steuerpflichtige
 - steuerrechtlich buchführungspflichtig ist oder
 - freiwillig Bücher führt und regelmäßig Abschlüsse erstellt.
 
-## Handelsrechtliche Buchführungspflicht
+► Handelsrechtliche Buchführungspflicht
 
 Kaufleute sind nach § 238 HGB grundsätzlich zur Buchführung verpflichtet.
 
 Diese handelsrechtliche Pflicht wird über § 140 AO auch für steuerliche Zwecke übernommen.
 
-## Steuerrechtliche Buchführungspflicht
+► Steuerrechtliche Buchführungspflicht
 
 Eine originär steuerrechtliche Buchführungspflicht kann sich aus § 141 AO ergeben.
 
-## Freiwillige Buchführung
+► Freiwillige Buchführung
 
 Auch ohne gesetzliche Buchführungspflicht kann ein Gewerbetreibender freiwillig Bücher führen und Abschlüsse erstellen.
 
@@ -142,14 +142,14 @@ In diesem Fall kann die Gewinnermittlung ebenfalls nach § 5 EStG erfolgen.
 
 ---
 
-# 6. Einnahmenüberschussrechnung nach § 4 Abs. 3 EStG
+⇨ 6. Einnahmenüberschussrechnung nach § 4 Abs. 3 EStG
 
 Die Einnahmenüberschussrechnung ist zulässig, wenn
 
 - keine gesetzliche Buchführungspflicht besteht und
 - nicht freiwillig Bücher geführt und Abschlüsse erstellt werden.
 
-## Grundschema
+► Grundschema
 
 Betriebseinnahmen
 
@@ -161,7 +161,7 @@ gleich
 
 Gewinn oder Verlust.
 
-## Grundprinzip
+► Grundprinzip
 
 Maßgeblich ist grundsätzlich der tatsächliche Zufluss und Abfluss.
 
@@ -169,7 +169,7 @@ Ausnahmen, insbesondere bei regelmäßig wiederkehrenden Einnahmen und Ausgaben 
 
 ---
 
-# 7. Allgemeiner Betriebsvermögensvergleich nach § 4 Abs. 1 EStG
+⇨ 7. Allgemeiner Betriebsvermögensvergleich nach § 4 Abs. 1 EStG
 
 Der allgemeine Betriebsvermögensvergleich kommt insbesondere zur Anwendung, wenn
 
@@ -178,7 +178,7 @@ Der allgemeine Betriebsvermögensvergleich kommt insbesondere zur Anwendung, wen
 
 Typische Anwendungsfälle können insbesondere bei Land- und Forstwirten oder selbständig Tätigen auftreten.
 
-## Grundschema
+► Grundschema
 
 Betriebsvermögen am Schluss des Wirtschaftsjahres
 
@@ -200,7 +200,7 @@ Gewinn oder Verlust.
 
 ---
 
-# 8. Schätzungsfall
+⇨ 8. Schätzungsfall
 
 Kann die Finanzbehörde die Besteuerungsgrundlagen nicht ermitteln oder berechnen, sind sie nach § 162 AO zu schätzen.
 
@@ -213,13 +213,13 @@ Typische Gründe:
 - erhebliche Buchführungsmängel,
 - fehlende Aufzeichnungen.
 
-## Wichtig
+► Wichtig
 
 Die Schätzung ist keine eigenständige Gewinnermittlungsart, sondern ein Verfahren zur Ermittlung nicht feststellbarer Besteuerungsgrundlagen.
 
 ---
 
-# 9. Zweck der Buchführung
+⇨ 9. Zweck der Buchführung
 
 Buchführung bedeutet die planmäßige und lückenlose Erfassung aller Geschäftsvorfälle.
 
@@ -231,7 +231,7 @@ Sie dient insbesondere:
 - der Gewinnermittlung,
 - der Ermittlung steuerlicher Besteuerungsgrundlagen.
 
-## Rechtsgrundlagen
+► Rechtsgrundlagen
 
 - § 238 HGB,
 - § 140 AO,
@@ -239,7 +239,7 @@ Sie dient insbesondere:
 
 ---
 
-# 10. Handelsrechtliche Buchführungspflicht
+⇨ 10. Handelsrechtliche Buchführungspflicht
 
 Nach § 238 HGB ist grundsätzlich jeder Kaufmann verpflichtet,
 
@@ -255,7 +255,7 @@ verschaffen kann.
 
 ---
 
-# 11. Abgeleitete steuerliche Buchführungspflicht nach § 140 AO
+⇨ 11. Abgeleitete steuerliche Buchführungspflicht nach § 140 AO
 
 Wer nach anderen Gesetzen als den Steuergesetzen Bücher und Aufzeichnungen führen muss, hat diese Verpflichtung auch für die Besteuerung zu erfüllen.
 
@@ -269,13 +269,13 @@ führt über
 
 zur steuerlichen Buchführungspflicht.
 
-## Merksatz
+► Merksatz
 
 Handelsrechtliche Buchführungspflicht zieht regelmäßig die steuerliche Buchführungspflicht nach sich.
 
 ---
 
-# 12. Originäre steuerliche Buchführungspflicht nach § 141 AO
+⇨ 12. Originäre steuerliche Buchführungspflicht nach § 141 AO
 
 § 141 AO kann für bestimmte gewerbliche Unternehmer sowie Land- und Forstwirte eine eigenständige steuerliche Buchführungspflicht begründen.
 
@@ -283,7 +283,7 @@ Hierfür sind insbesondere gesetzliche Umsatz- oder Gewinngrenzen zu prüfen.
 
 Die Buchführungspflicht beginnt grundsätzlich erst nach entsprechender Mitteilung durch die Finanzbehörde.
 
-## Klausurprüfung
+► Klausurprüfung
 
 1. Besteht bereits eine Buchführungspflicht nach Handelsrecht?
 2. Falls nein: Sind die Voraussetzungen des § 141 AO erfüllt?
@@ -292,7 +292,7 @@ Die Buchführungspflicht beginnt grundsätzlich erst nach entsprechender Mitteil
 
 ---
 
-# 13. Aufstellung des Jahresabschlusses
+⇨ 13. Aufstellung des Jahresabschlusses
 
 Der Kaufmann hat zu Beginn seines Handelsgewerbes und für den Schluss jedes Geschäftsjahres einen Abschluss aufzustellen.
 
@@ -308,15 +308,15 @@ Bei Kapitalgesellschaften können weitere Bestandteile hinzukommen, insbesondere
 
 ---
 
-# 14. Inventur
+⇨ 14. Inventur
 
 Die Inventur ist die tatsächliche Bestandsaufnahme aller Vermögensgegenstände und Schulden zu einem bestimmten Zeitpunkt.
 
 Sie bildet die Grundlage für das Inventar und die Bilanz.
 
-## Formen der Bestandsaufnahme
+► Formen der Bestandsaufnahme
 
-### Körperliche Inventur
+⇶  Körperliche Inventur
 
 Körperliche Vermögensgegenstände werden erfasst durch:
 
@@ -325,7 +325,7 @@ Körperliche Vermögensgegenstände werden erfasst durch:
 - Wiegen,
 - gegebenenfalls Schätzen.
 
-### Buchinventur
+⇶  Buchinventur
 
 Nicht körperliche Bestände werden anhand von Unterlagen ermittelt.
 
@@ -339,7 +339,7 @@ Beispiele:
 
 ---
 
-# 15. Inventar
+⇨ 15. Inventar
 
 Das Inventar ist das schriftliche, mengen- und wertmäßige Verzeichnis aller Vermögensgegenstände und Schulden.
 
@@ -350,7 +350,7 @@ Es enthält regelmäßig:
 - Einzelwert,
 - Gesamtwert.
 
-## Abgrenzung
+► Abgrenzung
 
 Inventur:
 
@@ -366,20 +366,20 @@ Verdichtete Gegenüberstellung von Vermögen und Kapital.
 
 ---
 
-# 16. Bilanz
+⇨ 16. Bilanz
 
 Die Bilanz ist die gedrängte Gegenüberstellung von Vermögen und Kapital zu einem bestimmten Stichtag.
 
-## Grundstruktur
+► Grundstruktur
 
-### Aktivseite
+⇶  Aktivseite
 
 - Anlagevermögen,
 - Umlaufvermögen,
 - Rechnungsabgrenzungsposten,
 - gegebenenfalls weitere Aktivposten.
 
-### Passivseite
+⇶  Passivseite
 
 - Eigenkapital,
 - Rückstellungen,
@@ -387,7 +387,7 @@ Die Bilanz ist die gedrängte Gegenüberstellung von Vermögen und Kapital zu ei
 - Rechnungsabgrenzungsposten,
 - gegebenenfalls weitere Passivposten.
 
-## Bilanzgleichung
+► Bilanzgleichung
 
 Aktiva = Passiva.
 
@@ -397,7 +397,7 @@ Vermögen = Eigenkapital + Fremdkapital.
 
 ---
 
-# 17. Anlagevermögen
+⇨ 17. Anlagevermögen
 
 Zum Anlagevermögen gehören Vermögensgegenstände, die dazu bestimmt sind, dem Geschäftsbetrieb dauerhaft zu dienen.
 
@@ -414,7 +414,7 @@ Typische Beispiele:
 - langfristige Beteiligungen,
 - Patente und Lizenzen.
 
-## Abgrenzung
+► Abgrenzung
 
 Entscheidend ist nicht allein die tatsächliche Nutzungsdauer.
 
@@ -422,7 +422,7 @@ Maßgeblich ist die Zweckbestimmung am Bilanzstichtag.
 
 ---
 
-# 18. Umlaufvermögen
+⇨ 18. Umlaufvermögen
 
 Zum Umlaufvermögen gehören Vermögensgegenstände, die nicht dauerhaft dem Geschäftsbetrieb dienen sollen.
 
@@ -437,7 +437,7 @@ Typische Beispiele:
 - Bankguthaben,
 - Kassenbestand.
 
-## Merksatz
+► Merksatz
 
 Anlagevermögen dient dem Betrieb.
 
@@ -445,9 +445,9 @@ Umlaufvermögen wird im Betrieb umgesetzt, verarbeitet oder kurzfristig verbrauc
 
 ---
 
-# 19. Arten der Inventur
+⇨ 19. Arten der Inventur
 
-## 19.1 Stichtagsinventur
+► 19.1 Stichtagsinventur
 
 Die Bestandsaufnahme erfolgt grundsätzlich am Bilanzstichtag.
 
@@ -459,13 +459,13 @@ Eine zeitnahe Bestandsaufnahme innerhalb einer kurzen Frist vor oder nach dem Bi
 
 Die Bestandsveränderungen zwischen Aufnahmetag und Bilanzstichtag müssen nachvollziehbar fortgeschrieben oder zurückgerechnet werden.
 
-## Typischer Zeitraum
+► Typischer Zeitraum
 
 In der Praxis wird häufig ein Zeitraum von bis zu zehn Tagen vor oder nach dem Bilanzstichtag verwendet.
 
 ---
 
-# 20. Permanente Inventur
+⇨ 20. Permanente Inventur
 
 Bei der permanenten Inventur werden die Bestände fortlaufend durch eine ordnungsgemäße Lagerbuchführung nachgewiesen.
 
@@ -473,14 +473,14 @@ Rechtsgrundlage:
 
 § 241 Abs. 2 HGB.
 
-## Voraussetzungen
+► Voraussetzungen
 
 - ordnungsgemäße Bestandsbuchführung,
 - jederzeitige Feststellbarkeit des Sollbestands,
 - mindestens einmal jährlich körperliche Bestandsaufnahme,
 - Abgleich zwischen Buch- und Istbestand.
 
-## Wichtig
+► Wichtig
 
 Die permanente Inventur ersetzt nicht vollständig die körperliche Bestandsaufnahme.
 
@@ -488,7 +488,7 @@ Diese muss im Laufe des Geschäftsjahres mindestens einmal durchgeführt werden.
 
 ---
 
-# 21. Zeitlich verlegte Inventur
+⇨ 21. Zeitlich verlegte Inventur
 
 Die Inventur kann innerhalb eines erweiterten Zeitraums durchgeführt werden.
 
@@ -496,16 +496,16 @@ Rechtsgrundlage:
 
 § 241 Abs. 3 HGB.
 
-## Zeitraum
+► Zeitraum
 
 - innerhalb der letzten drei Monate vor dem Bilanzstichtag oder
 - innerhalb der ersten zwei Monate nach dem Bilanzstichtag.
 
-## Voraussetzung
+► Voraussetzung
 
 Der Inventurwert muss wertmäßig auf den Bilanzstichtag fortgeschrieben oder zurückgerechnet werden.
 
-## Fortschreibung
+► Fortschreibung
 
 Inventurwert
 
@@ -515,7 +515,7 @@ minus Abgänge
 
 bis zum Bilanzstichtag.
 
-## Rückrechnung
+► Rückrechnung
 
 Bestand am späteren Inventurtag
 
@@ -525,7 +525,7 @@ plus Abgänge seit dem Bilanzstichtag.
 
 ---
 
-# 22. Festwertverfahren
+⇨ 22. Festwertverfahren
 
 Bestimmte Vermögensgegenstände können mit einem gleichbleibenden Festwert angesetzt werden.
 
@@ -533,7 +533,7 @@ Rechtsgrundlage:
 
 § 240 Abs. 3 HGB.
 
-## Voraussetzungen
+► Voraussetzungen
 
 Die Vermögensgegenstände müssen
 
@@ -541,7 +541,7 @@ Die Vermögensgegenstände müssen
 - für das Unternehmen insgesamt von nachrangiger Bedeutung sein und
 - in Bestand, Wert und Zusammensetzung nur geringen Veränderungen unterliegen.
 
-## Typische Anwendungsfälle
+► Typische Anwendungsfälle
 
 - Werkzeuge,
 - Vorrichtungen,
@@ -552,7 +552,7 @@ Die Vermögensgegenstände müssen
 - Wäsche,
 - bestimmte Roh-, Hilfs- und Betriebsstoffe.
 
-## Folge
+► Folge
 
 Der einmal ermittelte Festwert kann grundsätzlich über mehrere Jahre beibehalten werden.
 
@@ -560,7 +560,7 @@ In angemessenen Zeitabständen ist eine körperliche Bestandsaufnahme erforderli
 
 ---
 
-# 23. Handelsrechtlicher Jahresabschluss
+⇨ 23. Handelsrechtlicher Jahresabschluss
 
 Der handelsrechtliche Jahresabschluss wird nach den Vorschriften des HGB aufgestellt.
 
@@ -568,7 +568,7 @@ Für alle Kaufleute gelten insbesondere die §§ 238 bis 263 HGB.
 
 Für Kapitalgesellschaften gelten ergänzend insbesondere die §§ 264 ff. HGB.
 
-## Bedeutung
+► Bedeutung
 
 Der handelsrechtliche Jahresabschluss dient insbesondere:
 
@@ -581,9 +581,9 @@ Der handelsrechtliche Jahresabschluss dient insbesondere:
 
 ---
 
-# 24. Gewinnverteilung und Gewinnverwendung
+⇨ 24. Gewinnverteilung und Gewinnverwendung
 
-## Personenhandelsgesellschaften
+► Personenhandelsgesellschaften
 
 Bei Personenhandelsgesellschaften bildet der handelsrechtliche Jahresüberschuss regelmäßig die Ausgangsgröße für die gesellschaftsrechtliche Gewinnverteilung.
 
@@ -592,7 +592,7 @@ Die konkrete Verteilung richtet sich nach:
 - Gesellschaftsvertrag,
 - ergänzend den handelsrechtlichen Vorschriften.
 
-## Kapitalgesellschaften
+► Kapitalgesellschaften
 
 Bei Kapitalgesellschaften ist der Jahresüberschuss Grundlage für die Gewinnverwendung.
 
@@ -605,7 +605,7 @@ Mögliche Gewinnverwendungen:
 
 ---
 
-# 25. Steuerbilanz
+⇨ 25. Steuerbilanz
 
 Die Steuerbilanz dient der steuerlichen Gewinnermittlung.
 
@@ -616,7 +616,7 @@ Rechtsgrundlagen:
 - § 5 EStG,
 - § 60 EStDV.
 
-## Maßgeblichkeitsgrundsatz
+► Maßgeblichkeitsgrundsatz
 
 Grundsätzlich sind die handelsrechtlichen Wertansätze auch für die Steuerbilanz maßgeblich, soweit das Steuerrecht keine abweichenden Regelungen vorsieht.
 
@@ -628,7 +628,7 @@ führt grundsätzlich zur
 
 Steuerbilanz.
 
-## Durchbrechungen
+► Durchbrechungen
 
 Das Steuerrecht kann eigenständige
 
@@ -643,26 +643,26 @@ Dann können Handelsbilanz und Steuerbilanz voneinander abweichen.
 
 ---
 
-# 26. Einheitsbilanz und getrennte Bilanzen
+⇨ 26. Einheitsbilanz und getrennte Bilanzen
 
-## Einheitsbilanz
+► Einheitsbilanz
 
 Stimmen Handels- und Steuerbilanz vollständig überein, kann eine Einheitsbilanz erstellt werden.
 
-## Getrennte Handels- und Steuerbilanz
+► Getrennte Handels- und Steuerbilanz
 
 Weichen Handels- und Steuerrecht voneinander ab, können erstellt werden:
 
 - eine Handelsbilanz und
 - eine eigenständige Steuerbilanz.
 
-## Überleitungsrechnung
+► Überleitungsrechnung
 
 Alternativ kann die Handelsbilanz durch eine steuerliche Überleitungsrechnung an die steuerrechtlichen Werte angepasst werden.
 
 ---
 
-# 27. Bedeutung der Steuerbilanz
+⇨ 27. Bedeutung der Steuerbilanz
 
 Der steuerbilanzielle Gewinn dient insbesondere als Ausgangsgröße für:
 
@@ -683,7 +683,7 @@ Typische Korrekturen:
 
 ---
 
-# 28. Bilanzierung dem Grunde nach
+⇨ 28. Bilanzierung dem Grunde nach
 
 Bei der Bilanzierung dem Grunde nach wird geprüft, ob ein Vermögensgegenstand, Wirtschaftsgut oder eine Schuld überhaupt in der Bilanz anzusetzen ist.
 
@@ -697,7 +697,7 @@ Kernfragen:
 
 ---
 
-# 29. Rechtliches und wirtschaftliches Eigentum
+⇨ 29. Rechtliches und wirtschaftliches Eigentum
 
 Grundsätzlich wird ein Vermögensgegenstand dem zivilrechtlichen Eigentümer zugerechnet.
 
@@ -707,7 +707,7 @@ Rechtsgrundlage:
 
 § 39 Abs. 2 Nr. 1 AO.
 
-## Wirtschaftlicher Eigentümer
+► Wirtschaftlicher Eigentümer
 
 Wirtschaftlicher Eigentümer ist, wer
 
@@ -720,7 +720,7 @@ Wer über das Wirtschaftsgut wirtschaftlich wie ein Eigentümer verfügen kann, 
 
 ---
 
-# 30. Wirtschaftliches Eigentum in der Handelsbilanz
+⇨ 30. Wirtschaftliches Eigentum in der Handelsbilanz
 
 Auch handelsrechtlich ist die wirtschaftliche Zurechnung maßgeblich.
 
@@ -730,7 +730,7 @@ Rechtsgrundlage:
 
 Ein Vermögensgegenstand ist grundsätzlich in der Bilanz des wirtschaftlichen Eigentümers auszuweisen.
 
-## Typische Prüfungsfälle
+► Typische Prüfungsfälle
 
 - Eigentumsvorbehalt,
 - Leasing,
@@ -742,7 +742,7 @@ Ein Vermögensgegenstand ist grundsätzlich in der Bilanz des wirtschaftlichen E
 
 ---
 
-# 31. Bilanzstichtagsprinzip
+⇨ 31. Bilanzstichtagsprinzip
 
 Für Ansatz und Zurechnung sind grundsätzlich die Verhältnisse am Bilanzstichtag maßgeblich.
 
@@ -754,7 +754,7 @@ Zu prüfen ist:
 - Wer erhält die Nutzungen?
 - Wer trägt die laufenden Kosten?
 
-## Merksatz
+► Merksatz
 
 Nicht allein auf den Vertragstitel schauen.
 
@@ -762,7 +762,7 @@ Entscheidend ist die tatsächliche wirtschaftliche Gestaltung.
 
 ---
 
-# 32. Inhalt der Handelsbilanz
+⇨ 32. Inhalt der Handelsbilanz
 
 Die Handelsbilanz enthält insbesondere:
 
@@ -777,7 +777,7 @@ Für Kapitalgesellschaften ergeben sich verbindliche Gliederungsvorschriften aus
 
 ---
 
-# 33. Inhalt der Steuerbilanz
+⇨ 33. Inhalt der Steuerbilanz
 
 Die Steuerbilanz enthält insbesondere:
 
@@ -792,7 +792,7 @@ Die steuerrechtliche Bezeichnung „Wirtschaftsgut“ ist weiter gefasst als der
 
 ---
 
-# 34. Vollständigkeitsgebot
+⇨ 34. Vollständigkeitsgebot
 
 Nach dem Vollständigkeitsgebot müssen sämtliche bilanzierungspflichtigen Vermögensgegenstände, Schulden und Rechnungsabgrenzungsposten erfasst werden.
 
@@ -804,7 +804,7 @@ Nicht erfasste Vermögensgegenstände oder Schulden führen zu einer unvollstän
 
 ---
 
-# 35. Verrechnungsverbot
+⇨ 35. Verrechnungsverbot
 
 Aktivposten dürfen grundsätzlich nicht mit Passivposten verrechnet werden.
 
@@ -814,7 +814,7 @@ Rechtsgrundlage:
 
 § 246 Abs. 2 HGB.
 
-## Beispiel
+► Beispiel
 
 Eine Forderung gegen einen Lieferanten darf nicht ohne Weiteres mit einer Verbindlichkeit gegenüber demselben Lieferanten saldiert werden.
 
@@ -824,11 +824,11 @@ Gesetzliche Ausnahmen bleiben zu beachten.
 
 ---
 
-# 36. Bilanzgliederung bei Kapitalgesellschaften
+⇨ 36. Bilanzgliederung bei Kapitalgesellschaften
 
 Kapitalgesellschaften müssen ihre Bilanz grundsätzlich nach § 266 HGB gliedern.
 
-## Aktivseite
+► Aktivseite
 
 Typische Hauptposten:
 
@@ -842,7 +842,7 @@ D. aktive latente Steuern
 
 E. aktiver Unterschiedsbetrag aus der Vermögensverrechnung.
 
-## Passivseite
+► Passivseite
 
 Typische Hauptposten:
 
@@ -860,7 +860,7 @@ Die konkrete Gliederung richtet sich auch nach der Größenklasse der Kapitalges
 
 ---
 
-# 37. Kontenform der Bilanz
+⇨ 37. Kontenform der Bilanz
 
 Die Bilanz wird grundsätzlich in Kontenform aufgestellt.
 
@@ -875,7 +875,7 @@ Die Passivseite zeigt die Mittelherkunft.
 
 ---
 
-# 38. Gewinn- und Verlustrechnung
+⇨ 38. Gewinn- und Verlustrechnung
 
 Die Gewinn- und Verlustrechnung stellt Aufwendungen und Erträge eines Geschäftsjahres gegenüber.
 
@@ -888,7 +888,7 @@ Kapitalgesellschaften müssen die GuV nach § 275 HGB gliedern.
 
 ---
 
-# 39. Gesamtkostenverfahren
+⇨ 39. Gesamtkostenverfahren
 
 Beim Gesamtkostenverfahren werden die Aufwendungen nach Aufwandsarten gegliedert.
 
@@ -903,13 +903,13 @@ Typische Posten:
 - Abschreibungen,
 - sonstige betriebliche Aufwendungen.
 
-## Grundgedanke
+► Grundgedanke
 
 Den gesamten Leistungen einer Periode werden die gesamten Aufwendungen der Periode gegenübergestellt.
 
 ---
 
-# 40. Umsatzkostenverfahren
+⇨ 40. Umsatzkostenverfahren
 
 Beim Umsatzkostenverfahren werden die Aufwendungen nach Funktionsbereichen gegliedert.
 
@@ -922,15 +922,15 @@ Typische Posten:
 - allgemeine Verwaltungskosten,
 - sonstige betriebliche Erträge und Aufwendungen.
 
-## Grundgedanke
+► Grundgedanke
 
 Den Umsatzerlösen werden die Herstellungskosten der tatsächlich abgesetzten Leistungen gegenübergestellt.
 
 ---
 
-# 41. Vergleich Gesamtkosten- und Umsatzkostenverfahren
+⇨ 41. Vergleich Gesamtkosten- und Umsatzkostenverfahren
 
-## Gesamtkostenverfahren
+► Gesamtkostenverfahren
 
 Gliederung nach Aufwandsarten.
 
@@ -940,7 +940,7 @@ Beispiele:
 - Personal,
 - Abschreibungen.
 
-## Umsatzkostenverfahren
+► Umsatzkostenverfahren
 
 Gliederung nach Funktionsbereichen.
 
@@ -950,13 +950,13 @@ Beispiele:
 - Vertrieb,
 - Verwaltung.
 
-## Ergebnis
+► Ergebnis
 
 Beide Verfahren müssen bei zutreffender Anwendung zum gleichen Jahresergebnis führen.
 
 ---
 
-# 42. Prüfungsschema Gewinnermittlung
+⇨ 42. Prüfungsschema Gewinnermittlung
 
 1. Welche Einkunftsart liegt vor?
 2. Besteht handelsrechtliche Buchführungspflicht?
@@ -971,7 +971,7 @@ Beide Verfahren müssen bei zutreffender Anwendung zum gleichen Jahresergebnis f
 
 ---
 
-# 43. Prüfungsschema Inventur
+⇨ 43. Prüfungsschema Inventur
 
 1. Bilanzstichtag feststellen.
 2. Welche Vermögensgegenstände sind körperlich aufzunehmen?
@@ -985,7 +985,7 @@ Beide Verfahren müssen bei zutreffender Anwendung zum gleichen Jahresergebnis f
 
 ---
 
-# 44. Prüfungsschema Bilanzierung
+⇨ 44. Prüfungsschema Bilanzierung
 
 1. Liegt ein Vermögensgegenstand oder Wirtschaftsgut vor?
 2. Liegt eine Schuld oder Rückstellung vor?
@@ -1000,9 +1000,9 @@ Beide Verfahren müssen bei zutreffender Anwendung zum gleichen Jahresergebnis f
 
 ---
 
-# 45. Typische Klausurfallen
+⇨ 45. Typische Klausurfallen
 
-## Fehler 1: Geschäftsjahr und Wirtschaftsjahr gleichsetzen
+► Fehler 1: Geschäftsjahr und Wirtschaftsjahr gleichsetzen
 
 Das Geschäftsjahr ist handelsrechtlich.
 
@@ -1012,7 +1012,7 @@ Die Zeiträume stimmen häufig überein, müssen aber nicht identisch sein.
 
 ---
 
-## Fehler 2: Zustimmungspflicht falsch beurteilen
+► Fehler 2: Zustimmungspflicht falsch beurteilen
 
 Die Umstellung vom abweichenden Wirtschaftsjahr zurück auf das Kalenderjahr ist grundsätzlich ohne Zustimmung möglich.
 
@@ -1020,19 +1020,19 @@ Die Umstellung auf ein abweichendes Wirtschaftsjahr bedarf grundsätzlich der Zu
 
 ---
 
-## Fehler 3: Gewinn bei abweichendem Wirtschaftsjahr zeitanteilig verteilen
+► Fehler 3: Gewinn bei abweichendem Wirtschaftsjahr zeitanteilig verteilen
 
 Bei Gewerbebetrieben wird der Gewinn grundsätzlich vollständig im Kalenderjahr erfasst, in dem das Wirtschaftsjahr endet.
 
 ---
 
-## Fehler 4: EÜR trotz Buchführungspflicht anwenden
+► Fehler 4: EÜR trotz Buchführungspflicht anwenden
 
 Wer buchführungspflichtig ist oder freiwillig Bücher führt und Abschlüsse erstellt, kann grundsätzlich nicht nach § 4 Abs. 3 EStG ermitteln.
 
 ---
 
-## Fehler 5: Inventur und Inventar verwechseln
+► Fehler 5: Inventur und Inventar verwechseln
 
 Inventur ist der Vorgang.
 
@@ -1040,43 +1040,43 @@ Inventar ist das Ergebnis.
 
 ---
 
-## Fehler 6: Permanente Inventur als vollständigen Ersatz der körperlichen Inventur behandeln
+► Fehler 6: Permanente Inventur als vollständigen Ersatz der körperlichen Inventur behandeln
 
 Auch bei permanenter Inventur muss grundsätzlich mindestens einmal jährlich eine körperliche Bestandsaufnahme erfolgen.
 
 ---
 
-## Fehler 7: Zeitlich verlegte Inventur ohne Fortschreibung
+► Fehler 7: Zeitlich verlegte Inventur ohne Fortschreibung
 
 Der Inventurwert muss auf den Bilanzstichtag fortgeschrieben oder zurückgerechnet werden.
 
 ---
 
-## Fehler 8: Festwert ohne Voraussetzungen anwenden
+► Fehler 8: Festwert ohne Voraussetzungen anwenden
 
 Der Festwert ist nur zulässig, wenn Bestand, Wert und Zusammensetzung nur geringen Schwankungen unterliegen und der Gesamtwert von nachrangiger Bedeutung ist.
 
 ---
 
-## Fehler 9: Rechtliches Eigentum automatisch als Bilanzierungsgrund ansehen
+► Fehler 9: Rechtliches Eigentum automatisch als Bilanzierungsgrund ansehen
 
 Bilanzieren muss grundsätzlich der wirtschaftliche Eigentümer.
 
 ---
 
-## Fehler 10: Handelsbilanz ungeprüft als Steuerbilanz übernehmen
+► Fehler 10: Handelsbilanz ungeprüft als Steuerbilanz übernehmen
 
 Steuerrechtliche Ansatz- und Bewertungsvorschriften können von der Handelsbilanz abweichen.
 
 ---
 
-## Fehler 11: Vermögen und Schulden saldieren
+► Fehler 11: Vermögen und Schulden saldieren
 
 Das Verrechnungsverbot verlangt grundsätzlich einen getrennten Ausweis.
 
 ---
 
-## Fehler 12: GuV-Verfahren vermischen
+► Fehler 12: GuV-Verfahren vermischen
 
 Beim Gesamtkostenverfahren erfolgt die Gliederung nach Aufwandsarten.
 
@@ -1084,7 +1084,7 @@ Beim Umsatzkostenverfahren erfolgt die Gliederung nach Funktionsbereichen.
 
 ---
 
-# 46. Merksätze
+⇨ 46. Merksätze
 
 - Das Geschäftsjahr ist handelsrechtlich, das Wirtschaftsjahr steuerrechtlich.
 - Ein Wirtschaftsjahr darf grundsätzlich höchstens zwölf Monate umfassen.

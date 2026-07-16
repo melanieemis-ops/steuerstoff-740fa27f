@@ -6,7 +6,7 @@ source: Internes Arbeitspapier — Rücklagenarten § 62 AO.
 references: § 62 Abs. 1 AO, § 62 Abs. 3 AO
 ---
 
-# Rücklagen nach § 62 AO
+⇨ Rücklagen nach § 62 AO
 
 _Zulässige Rücklagen entziehen Mittel der zeitnahen Mittelverwendungspflicht._
 

@@ -5,11 +5,11 @@ category: Umsatzsteuer
 references: §4 Nr.12 UStG, Abschn. 4.12.11 UStAE
 ---
 
-# Zwischenvermietung einer Tennishalle an Unternehmer
+⇨ Zwischenvermietung einer Tennishalle an Unternehmer
 
 
 
-# Vermietung an Betreiber
+⇨ Vermietung an Betreiber
 
 Wird die Tennishalle an einen Unternehmer vermietet,
 
@@ -19,7 +19,7 @@ liegt eine Zwischenvermietung vor.
 
 ---
 
-## Aufteilung
+► Aufteilung
 
 Die Leistung ist aufzuteilen in
 
@@ -31,7 +31,7 @@ und
 
 ---
 
-## Betriebsvorrichtungen
+► Betriebsvorrichtungen
 
 Beispiele
 
@@ -43,7 +43,7 @@ Beispiele
 
 ---
 
-## Klausurhinweis
+► Klausurhinweis
 
 Zwischenvermietung
 

@@ -6,7 +6,7 @@ source: Internes Handout — UmwStG / Anteilstausch.
 references: § 21 UmwStG, §§ 2, 20 Abs. 5/6 UmwStG
 ---
 
-# Anteilstausch nach § 21 UmwStG
+⇨ Anteilstausch nach § 21 UmwStG
 
 _Kein Rückwirkungszeitraum; Wertansatz gemeiner Wert vs. Buchwert; Voraussetzungen für Buchwertansatz._
 

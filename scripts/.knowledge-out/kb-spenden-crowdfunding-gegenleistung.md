@@ -6,7 +6,7 @@ source: Internes Arbeitspapier — Steuerliche Risiken bei Gegenleistungen im Sp
 references: § 10b Abs. 4 EStG, § 55 AO, § 58 Nr. 1 AO
 ---
 
-# Spenden-Crowdfunding: Gegenleistungen Dritter
+⇨ Spenden-Crowdfunding: Gegenleistungen Dritter
 
 _Gegenleistung durch den Projektträger zerstört die Unentgeltlichkeit der Spende — Haftung der Plattform nach § 10b Abs. 4 EStG._
 

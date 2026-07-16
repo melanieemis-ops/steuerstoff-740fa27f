@@ -6,14 +6,14 @@ source: Interne Steuerstoff-Prüfungsvorbereitung
 references: § 4 EStG, § 9 EStG, § 2 ErbStG
 ---
 
-# Zweitwohnsitz und doppelte Haushaltsführung
+⇨ Zweitwohnsitz und doppelte Haushaltsführung
 
 _Steuerliche Folgen eines Zweitwohnsitzes bei Einkommensteuer, Erbschaftsteuer und Zweitwohnungsteuer._
 
 
-# Zweitwohnsitz
+⇨ Zweitwohnsitz
 
-## Einkommensteuer
+► Einkommensteuer
 
 Eine doppelte Haushaltsführung setzt voraus:
 
@@ -23,7 +23,7 @@ Eine doppelte Haushaltsführung setzt voraus:
 
 Dann können Aufwendungen steuerlich abzugsfähig sein.
 
-## Private Gründe
+► Private Gründe
 
 Wird der Zweitwohnsitz ausschließlich aus privaten Gründen (z. B. bei einer Tante) begründet,
 
@@ -31,13 +31,13 @@ liegt keine doppelte Haushaltsführung vor.
 
 Die Kosten sind dann grundsätzlich nicht abzugsfähig.
 
-## Betriebsstätte
+► Betriebsstätte
 
 Besteht am Zweitwohnsitz eine weitere Betriebsstätte,
 
 können Fahrten zwischen den Betriebsstätten Betriebsausgaben sein.
 
-## Erbschaftsteuer
+► Erbschaftsteuer
 
 Der Wohnsitz beeinflusst die Steuerpflicht.
 
@@ -49,13 +49,13 @@ Beschränkte Steuerpflicht:
 
 kein Wohnsitz im Inland.
 
-## Zweitwohnungsteuer
+► Zweitwohnungsteuer
 
 Kommunale Aufwandsteuer.
 
 Unabhängig vom Verwandtschaftsverhältnis.
 
-## Prüfungsmerksatz
+► Prüfungsmerksatz
 
 Beruflicher Zweitwohnsitz:
 

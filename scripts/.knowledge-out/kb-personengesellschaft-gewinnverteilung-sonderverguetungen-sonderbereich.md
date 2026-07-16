@@ -6,14 +6,14 @@ source: Interne Steuerstoff-Prüfungsvorbereitung – Einkünfte aus gewerbliche
 references: § 15 Abs. 1 Satz 1 Nr. 2 EStG, § 4 Abs. 4 EStG, § 4 Abs. 5 EStG, § 5 EStG
 ---
 
-# Personengesellschaften: Gewinnverteilung, Sondervergütungen und Sonderbereich
+⇨ Personengesellschaften: Gewinnverteilung, Sondervergütungen und Sonderbereich
 
 _Ermittlung der steuerlichen Gewinnanteile bei Mitunternehmerschaften: Vorabgewinn, Restgewinn, Sondervergütungen, Sonderbetriebseinnahmen und Sonderbetriebsausgaben._
 
 
-# Gewinnermittlung bei gewerblichen Personengesellschaften
+⇨ Gewinnermittlung bei gewerblichen Personengesellschaften
 
-## 1. Grundprinzip
+► 1. Grundprinzip
 
 Bei einer gewerblichen Personengesellschaft wird der steuerliche Gewinn in mehreren Stufen ermittelt.
 
@@ -31,9 +31,9 @@ Rechtsgrundlage:
 
 ---
 
-# 2. Zwei Ebenen der Gewinnermittlung
+⇨ 2. Zwei Ebenen der Gewinnermittlung
 
-## Ebene 1: Gesamthandsbereich
+► Ebene 1: Gesamthandsbereich
 
 Hier wird der Gewinn der Personengesellschaft ermittelt.
 
@@ -45,7 +45,7 @@ Typische Bestandteile:
 - Vorabgewinne,
 - Restgewinnverteilung.
 
-## Ebene 2: Sonderbereich der Gesellschafter
+► Ebene 2: Sonderbereich der Gesellschafter
 
 Hier werden Leistungen zwischen einem Gesellschafter und seiner Personengesellschaft erfasst.
 
@@ -61,7 +61,7 @@ Dazugehörige Aufwendungen des Gesellschafters sind Sonderbetriebsausgaben.
 
 ---
 
-# 3. Gesellschaftsrechtliche Gewinnverteilung
+⇨ 3. Gesellschaftsrechtliche Gewinnverteilung
 
 Die Gewinnverteilung richtet sich zunächst nach dem Gesellschaftsvertrag.
 
@@ -72,7 +72,7 @@ Typischer Aufbau:
 3. gegebenenfalls weitere Vorwegvergütungen,
 4. Verteilung des verbleibenden Restgewinns.
 
-## Formel
+► Formel
 
 Gesellschaftsgewinn
 
@@ -86,11 +86,11 @@ Der Restgewinn wird anschließend nach dem vereinbarten Schlüssel verteilt.
 
 ---
 
-# 4. Vorabgewinn und Sondervergütung unterscheiden
+⇨ 4. Vorabgewinn und Sondervergütung unterscheiden
 
 Diese Unterscheidung ist besonders wichtig.
 
-## Vorabgewinn
+► Vorabgewinn
 
 Ein Vorabgewinn ist Bestandteil der gesellschaftsrechtlichen Gewinnverteilung.
 
@@ -102,7 +102,7 @@ Beispiele:
 
 Der Vorabgewinn wird innerhalb der Gewinnverteilung berücksichtigt.
 
-## Sondervergütung
+► Sondervergütung
 
 Eine Sondervergütung beruht auf einem schuldrechtlichen Leistungsaustausch zwischen Gesellschafter und Gesellschaft.
 
@@ -115,7 +115,7 @@ Beispiele:
 
 Die Sondervergütung wird im Sonderbereich des Gesellschafters erfasst.
 
-## Merksatz
+► Merksatz
 
 Gesellschaftsvertragliche Gewinnverteilung
 
@@ -127,7 +127,7 @@ Schuldrechtlicher Vertrag mit dem Gesellschafter
 
 ---
 
-# 5. Sonderbetriebseinnahmen
+⇨ 5. Sonderbetriebseinnahmen
 
 Sonderbetriebseinnahmen sind Einnahmen, die ein Gesellschafter von seiner Personengesellschaft erhält.
 
@@ -149,7 +149,7 @@ erfasst.
 
 ---
 
-# 6. Sonderbetriebsausgaben
+⇨ 6. Sonderbetriebsausgaben
 
 Aufwendungen des Gesellschafters, die mit seinen Sonderbetriebseinnahmen oder seiner Beteiligung zusammenhängen, sind Sonderbetriebsausgaben.
 
@@ -161,7 +161,7 @@ Beispiele:
 - Beratungskosten,
 - laufende Grundstückskosten.
 
-## Formel
+► Formel
 
 Sonderbetriebseinnahmen
 
@@ -171,11 +171,11 @@ Sonderbetriebseinnahmen
 
 ---
 
-# 7. Außerbilanzielle Korrekturen
+⇨ 7. Außerbilanzielle Korrekturen
 
 Der handelsrechtliche oder steuerbilanzielle Gewinn kann steuerlich zu korrigieren sein.
 
-## Nicht abzugsfähige Betriebsausgaben
+► Nicht abzugsfähige Betriebsausgaben
 
 Nicht abzugsfähige Betriebsausgaben nach § 4 Abs. 5 EStG werden hinzugerechnet.
 
@@ -183,7 +183,7 @@ Beispiel:
 
 6.000 € nicht abzugsfähige Betriebsausgaben.
 
-## Steuerfreie Erträge
+► Steuerfreie Erträge
 
 Steuerfreie Erträge, die im bilanziellen Gewinn enthalten sind, werden abgezogen.
 
@@ -191,7 +191,7 @@ Beispiel:
 
 15.000 € steuerfreie Einnahmen.
 
-## Verteilung
+► Verteilung
 
 Die Korrekturen werden regelmäßig entsprechend dem allgemeinen Gewinnverteilungsschlüssel auf die Gesellschafter verteilt,
 
@@ -199,13 +199,13 @@ soweit keine besondere individuelle Zuordnung erforderlich ist.
 
 ---
 
-# 8. Allgemeines Berechnungsschema
+⇨ 8. Allgemeines Berechnungsschema
 
-## Schritt 1: Ausgangsgewinn
+► Schritt 1: Ausgangsgewinn
 
 Handelsrechtlicher beziehungsweise steuerbilanzieller Gewinn der Gesellschaft.
 
-## Schritt 2: Gesellschaftsvertragliche Vorabgewinne
+► Schritt 2: Gesellschaftsvertragliche Vorabgewinne
 
 Zum Beispiel:
 
@@ -213,7 +213,7 @@ Zum Beispiel:
 - Tätigkeitsvorab,
 - Geschäftsführungsvorab.
 
-## Schritt 3: Restgewinn
+► Schritt 3: Restgewinn
 
 Ausgangsgewinn
 
@@ -221,7 +221,7 @@ Ausgangsgewinn
 
 = Restgewinn.
 
-## Schritt 4: Restgewinn verteilen
+► Schritt 4: Restgewinn verteilen
 
 Verteilung beispielsweise
 
@@ -229,7 +229,7 @@ Verteilung beispielsweise
 - nach Beteiligungsquote,
 - oder nach einem besonderen vertraglichen Schlüssel.
 
-## Schritt 5: Bilanzielle Gewinnanteile
+► Schritt 5: Bilanzielle Gewinnanteile
 
 Vorabgewinn
 
@@ -237,12 +237,12 @@ Vorabgewinn
 
 = bilanzieller Gewinnanteil.
 
-## Schritt 6: Steuerliche Korrekturen
+► Schritt 6: Steuerliche Korrekturen
 
 - nicht abzugsfähige Betriebsausgaben hinzurechnen,
 - steuerfreie Erträge abziehen.
 
-## Schritt 7: Sonderbereiche
+► Schritt 7: Sonderbereiche
 
 Je Gesellschafter:
 
@@ -250,7 +250,7 @@ Sonderbetriebseinnahmen
 
 − Sonderbetriebsausgaben.
 
-## Schritt 8: Steuerlicher Gewinnanteil
+► Schritt 8: Steuerlicher Gewinnanteil
 
 Korrigierter Gewinnanteil
 
@@ -260,9 +260,9 @@ Korrigierter Gewinnanteil
 
 ---
 
-# 9. Beispiel 1 – KG mit drei Gesellschaftern
+⇨ 9. Beispiel 1 – KG mit drei Gesellschaftern
 
-## Sachverhalt
+► Sachverhalt
 
 Die KG erzielt einen Gewinn von
 
@@ -291,7 +291,7 @@ Weitere Sachverhalte:
 
 ---
 
-## Schritt 1: Restgewinn
+► Schritt 1: Restgewinn
 
 Gewinn:
 
@@ -313,9 +313,9 @@ Verteilung nach Köpfen:
 
 ---
 
-## Schritt 2: Bilanzielle Gewinnanteile
+► Schritt 2: Bilanzielle Gewinnanteile
 
-### A
+⇶  A
 
 128.000 €
 
@@ -323,7 +323,7 @@ Verteilung nach Köpfen:
 
 = 140.000 €.
 
-### B
+⇶  B
 
 128.000 €
 
@@ -331,7 +331,7 @@ Verteilung nach Köpfen:
 
 = 144.000 €.
 
-### C
+⇶  C
 
 128.000 €
 
@@ -345,7 +345,7 @@ Gesamt:
 
 ---
 
-## Schritt 3: Steuerliche Korrekturen
+► Schritt 3: Steuerliche Korrekturen
 
 Nicht abzugsfähige Betriebsausgaben:
 
@@ -363,7 +363,7 @@ Bei Verteilung nach Köpfen:
 
 5.000 € je Gesellschafter.
 
-### Korrigierte Gewinnanteile
+⇶  Korrigierte Gewinnanteile
 
 A:
 
@@ -397,9 +397,9 @@ C:
 
 ---
 
-## Schritt 4: Sonderbereiche
+► Schritt 4: Sonderbereiche
 
-### Sonderbereich A
+⇶  Sonderbereich A
 
 Mieteinnahmen:
 
@@ -413,13 +413,13 @@ Ergebnis:
 
 33.000 €.
 
-### Sonderbereich B
+⇶  Sonderbereich B
 
 Beraterhonorar:
 
 80.000 €.
 
-### Sonderbereich C
+⇶  Sonderbereich C
 
 Darlehenszinsen:
 
@@ -427,9 +427,9 @@ Darlehenszinsen:
 
 ---
 
-## Schritt 5: Steuerliche Gewinnanteile
+► Schritt 5: Steuerliche Gewinnanteile
 
-### A
+⇶  A
 
 137.000 €
 
@@ -437,7 +437,7 @@ Darlehenszinsen:
 
 = 170.000 €.
 
-### B
+⇶  B
 
 141.000 €
 
@@ -445,7 +445,7 @@ Darlehenszinsen:
 
 = 221.000 €.
 
-### C
+⇶  C
 
 133.000 €
 
@@ -459,9 +459,9 @@ Gesamtgewinn der Mitunternehmerschaft:
 
 ---
 
-# 10. Beispiel 2 – OHG mit Geschäftsführungsvorab
+⇨ 10. Beispiel 2 – OHG mit Geschäftsführungsvorab
 
-## Sachverhalt
+► Sachverhalt
 
 Gewinn der OHG:
 
@@ -493,7 +493,7 @@ Weitere Sachverhalte:
 
 ---
 
-## Schritt 1: Vorabgewinne
+► Schritt 1: Vorabgewinne
 
 Mehrkapitalverzinsung:
 
@@ -509,7 +509,7 @@ Gesamte Vorabgewinne:
 
 ---
 
-## Schritt 2: Restgewinn
+► Schritt 2: Restgewinn
 
 800.000 €
 
@@ -519,13 +519,13 @@ Gesamte Vorabgewinne:
 
 Verteilung:
 
-### A: 80 %
+⇶  A: 80 %
 
 540.000 € × 80 %
 
 = 432.000 €.
 
-### B: 20 %
+⇶  B: 20 %
 
 540.000 € × 20 %
 
@@ -533,9 +533,9 @@ Verteilung:
 
 ---
 
-## Schritt 3: Bilanzielle Gewinnanteile
+► Schritt 3: Bilanzielle Gewinnanteile
 
-### A
+⇶  A
 
 Mehrkapitalverzinsung:
 
@@ -553,7 +553,7 @@ Gesamt:
 
 688.000 €.
 
-### B
+⇶  B
 
 Mehrkapitalverzinsung:
 
@@ -569,15 +569,15 @@ Gesamt:
 
 ---
 
-## Schritt 4: Sonderbereiche
+► Schritt 4: Sonderbereiche
 
-### A
+⇶  A
 
 Darlehenszinsen:
 
 10.000 €.
 
-### B
+⇶  B
 
 Mieteinnahmen:
 
@@ -593,9 +593,9 @@ Ergebnis:
 
 ---
 
-## Schritt 5: Steuerliche Gewinnanteile
+► Schritt 5: Steuerliche Gewinnanteile
 
-### A
+⇶  A
 
 688.000 €
 
@@ -603,7 +603,7 @@ Ergebnis:
 
 = 698.000 €.
 
-### B
+⇶  B
 
 112.000 €
 
@@ -617,7 +617,7 @@ Gesamt:
 
 ---
 
-# 11. Besonderheit der Geschäftsführungsvergütung
+⇨ 11. Besonderheit der Geschäftsführungsvergütung
 
 Die Vergütung für A ist ausdrücklich als gesellschaftsvertragliche Vorweggewinnverteilung vereinbart.
 
@@ -625,7 +625,7 @@ Deshalb wird sie innerhalb der bilanziellen Gewinnverteilung berücksichtigt.
 
 Sie ist in diesem Fall kein zusätzlicher Sonderbereich.
 
-## Klausurhinweis
+► Klausurhinweis
 
 Nicht jede Geschäftsführungsvergütung ist automatisch gleich zu behandeln.
 
@@ -638,9 +638,9 @@ Die Formulierung des Sachverhalts ist entscheidend.
 
 ---
 
-# 12. Beispiel 3 – GbR und erfolgsneutral gebuchtes Beraterhonorar
+⇨ 12. Beispiel 3 – GbR und erfolgsneutral gebuchtes Beraterhonorar
 
-## Sachverhalt
+► Sachverhalt
 
 Die GbR weist zunächst einen Gewinn von
 
@@ -675,7 +675,7 @@ C erhält Darlehenszinsen:
 
 ---
 
-# 13. Erfolgsneutrale Buchung des Beraterhonorars
+⇨ 13. Erfolgsneutrale Buchung des Beraterhonorars
 
 Obwohl das Beraterhonorar nicht als Aufwand gebucht wurde,
 
@@ -699,9 +699,9 @@ Dadurch wird eine doppelte Zurechnung vermieden.
 
 ---
 
-# 14. Gewinnverteilung Beispiel 3
+⇨ 14. Gewinnverteilung Beispiel 3
 
-## Vorabgewinne
+► Vorabgewinne
 
 Gesamte Mehrkapitalverzinsung:
 
@@ -713,7 +713,7 @@ Gesamte Mehrkapitalverzinsung:
 
 = 15.000 €.
 
-## Restgewinn
+► Restgewinn
 
 270.000 €
 
@@ -729,9 +729,9 @@ Verteilung nach Köpfen:
 
 ---
 
-## Bilanzielle Gewinnanteile
+► Bilanzielle Gewinnanteile
 
-### A
+⇶  A
 
 85.000 €
 
@@ -739,7 +739,7 @@ Verteilung nach Köpfen:
 
 = 88.000 €.
 
-### B
+⇶  B
 
 85.000 €
 
@@ -747,7 +747,7 @@ Verteilung nach Köpfen:
 
 = 92.000 €.
 
-### C
+⇶  C
 
 85.000 €
 
@@ -761,9 +761,9 @@ Gesamt:
 
 ---
 
-# 15. Sonderbereiche Beispiel 3
+⇨ 15. Sonderbereiche Beispiel 3
 
-## Sonderbereich A
+► Sonderbereich A
 
 Mieteinnahmen:
 
@@ -777,13 +777,13 @@ Ergebnis:
 
 −15.000 €.
 
-## Sonderbereich B
+► Sonderbereich B
 
 Beraterhonorar:
 
 80.000 €.
 
-## Sonderbereich C
+► Sonderbereich C
 
 Darlehenszinsen:
 
@@ -791,9 +791,9 @@ Darlehenszinsen:
 
 ---
 
-# 16. Steuerliche Gewinnanteile Beispiel 3
+⇨ 16. Steuerliche Gewinnanteile Beispiel 3
 
-### A
+⇶  A
 
 88.000 €
 
@@ -801,7 +801,7 @@ Darlehenszinsen:
 
 = 73.000 €.
 
-### B
+⇶  B
 
 92.000 €
 
@@ -809,7 +809,7 @@ Darlehenszinsen:
 
 = 172.000 €.
 
-### C
+⇶  C
 
 90.000 €
 
@@ -823,7 +823,7 @@ Gesamt:
 
 ---
 
-# 17. Warum beträgt der steuerliche Gesamtgewinn 355.000 €?
+⇨ 17. Warum beträgt der steuerliche Gesamtgewinn 355.000 €?
 
 Ausgangsgewinn:
 
@@ -847,9 +847,9 @@ Gesamtwirkung:
 
 ---
 
-# 18. Typische Buchungs- und Prüfungslogik
+⇨ 18. Typische Buchungs- und Prüfungslogik
 
-## Zahlung an Gesellschafter wurde als Aufwand gebucht
+► Zahlung an Gesellschafter wurde als Aufwand gebucht
 
 Beispiele:
 
@@ -863,7 +863,7 @@ Der Gesamthandsgewinn ist bereits gemindert.
 
 Die Zahlung wird im Sonderbereich des Gesellschafters wieder als Sonderbetriebseinnahme erfasst.
 
-## Zahlung wurde erfolgsneutral als Entnahme gebucht
+► Zahlung wurde erfolgsneutral als Entnahme gebucht
 
 Folge:
 
@@ -877,7 +877,7 @@ und im Sonderbereich des betreffenden Gesellschafters zu erfassen.
 
 ---
 
-# Prüfungsschema
+⇨ Prüfungsschema
 
 1. Welche Rechtsform liegt vor?
 
@@ -909,15 +909,15 @@ und im Sonderbereich des betreffenden Gesellschafters zu erfassen.
 
 ---
 
-# Typische Klausurfallen
+⇨ Typische Klausurfallen
 
-## Fehler 1: Sondervergütung als andere Einkunftsart behandeln
+► Fehler 1: Sondervergütung als andere Einkunftsart behandeln
 
 Miete, Zinsen oder Tätigkeitsvergütungen eines Mitunternehmers gehören grundsätzlich zu den gewerblichen Einkünften nach § 15 Abs. 1 Satz 1 Nr. 2 EStG.
 
 ---
 
-## Fehler 2: Vorabgewinn und Sondervergütung verwechseln
+► Fehler 2: Vorabgewinn und Sondervergütung verwechseln
 
 Ein gesellschaftsvertraglicher Gewinnvorab wird innerhalb der Gewinnverteilung berücksichtigt.
 
@@ -925,7 +925,7 @@ Eine schuldrechtliche Vergütung wird im Sonderbereich erfasst.
 
 ---
 
-## Fehler 3: Sonderbetriebsausgaben vergessen
+► Fehler 3: Sonderbetriebsausgaben vergessen
 
 Von den Sonderbetriebseinnahmen sind die dazugehörigen Aufwendungen abzuziehen.
 
@@ -939,7 +939,7 @@ Beispiel:
 
 ---
 
-## Fehler 4: Nicht abzugsfähige Betriebsausgaben nicht korrigieren
+► Fehler 4: Nicht abzugsfähige Betriebsausgaben nicht korrigieren
 
 Wurden nicht abzugsfähige Betriebsausgaben als Aufwand erfasst,
 
@@ -947,13 +947,13 @@ müssen sie außerbilanziell hinzugerechnet werden.
 
 ---
 
-## Fehler 5: Steuerfreie Erträge im Gewinn belassen
+► Fehler 5: Steuerfreie Erträge im Gewinn belassen
 
 Steuerfreie Erträge werden außerbilanziell abgezogen.
 
 ---
 
-## Fehler 6: Erfolgsneutral gebuchte Vergütung doppelt zurechnen
+► Fehler 6: Erfolgsneutral gebuchte Vergütung doppelt zurechnen
 
 Wurde eine Gesellschaftervergütung als Entnahme gebucht,
 
@@ -963,13 +963,13 @@ Sie muss für die Gewinnverteilung aus der allgemeinen Verteilungsmasse herausge
 
 ---
 
-## Fehler 7: Kontrollrechnung unterlassen
+► Fehler 7: Kontrollrechnung unterlassen
 
 Die Summe der steuerlichen Gewinnanteile muss dem steuerlichen Gesamtgewinn der Mitunternehmerschaft entsprechen.
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 - Der Gesamtgewinn einer Mitunternehmerschaft besteht aus Gesamthandsgewinn und Sonderbereichen.
 - Gesellschaftsvertragliche Vorabgewinne gehören zur Gewinnverteilung.

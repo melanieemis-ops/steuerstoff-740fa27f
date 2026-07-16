@@ -6,15 +6,15 @@ source: Steuer-Repetitor Verfahrensrecht – Feststellungsverjährung
 references: § 169 AO, § 170 AO, § 171 AO, § 181 AO, § 182 AO, § 124 AO, § 125 AO, § 175 AO, AEAO zu §§ 169–171 AO
 ---
 
-# Feststellungsverjährung bei gesonderten Feststellungen (§§ 181, 169–171 AO)
+⇨ Feststellungsverjährung bei gesonderten Feststellungen (§§ 181, 169–171 AO)
 
 _Prüfung der Feststellungsverjährung, Beginn, Ablaufhemmung, Außenprüfung und Erlass von Feststellungs- oder Aufhebungsbescheiden._
 
 
 
-# Feststellungsverjährung
+⇨ Feststellungsverjährung
 
-## Zweck
+► Zweck
 
 Die gesonderte Feststellung von Besteuerungsgrundlagen unterliegt eigenen Verjährungsvorschriften.
 
@@ -26,7 +26,7 @@ Sie bestimmen,
 
 ---
 
-# 1. Rechtsgrundlage
+⇨ 1. Rechtsgrundlage
 
 Für die gesonderte Feststellung gelten
 
@@ -38,7 +38,7 @@ i.V.m.
 
 ---
 
-# 2. Regelmäßige Feststellungsfrist
+⇨ 2. Regelmäßige Feststellungsfrist
 
 Grundsätzlich beträgt die Feststellungsfrist
 
@@ -54,7 +54,7 @@ spätestens jedoch nach den gesetzlichen Höchstgrenzen des § 170 AO.
 
 ---
 
-# 3. Ablaufhemmung (§ 171 AO)
+⇨ 3. Ablaufhemmung (§ 171 AO)
 
 Die Feststellungsfrist kann sich verlängern.
 
@@ -67,7 +67,7 @@ Wichtige Fälle:
 
 ---
 
-# 4. Außenprüfung
+⇨ 4. Außenprüfung
 
 Eine Außenprüfung hemmt den Ablauf der Feststellungsfrist,
 
@@ -82,7 +82,7 @@ tritt keine Ablaufhemmung mehr ein.
 
 ---
 
-# 5. Aufhebungsbescheid nach Eintritt der Feststellungsverjährung
+⇨ 5. Aufhebungsbescheid nach Eintritt der Feststellungsverjährung
 
 Ein Aufhebungsbescheid,
 
@@ -100,7 +100,7 @@ tritt Bestandskraft ein.
 
 ---
 
-# 6. Bindungswirkung
+⇨ 6. Bindungswirkung
 
 Feststellungsbescheide sind Grundlagenbescheide.
 
@@ -114,7 +114,7 @@ Dies gilt ebenso für wirksame Aufhebungsbescheide.
 
 ---
 
-# 7. Hinweis nach § 181 Abs. 5 AO
+⇨ 7. Hinweis nach § 181 Abs. 5 AO
 
 Eine Feststellung nach Ablauf der Feststellungsfrist
 
@@ -130,7 +130,7 @@ ist der Feststellungsbescheid rechtswidrig.
 
 ---
 
-# Prüfungsschema
+⇨ Prüfungsschema
 
 1. Gesonderte Feststellung?
 2. Feststellungsfrist bestimmen.
@@ -144,15 +144,15 @@ ist der Feststellungsbescheid rechtswidrig.
 
 ---
 
-# Klausurfallen
+⇨ Klausurfallen
 
-## Fehler 1
+► Fehler 1
 
 Festsetzungsverjährung und Feststellungsverjährung verwechseln.
 
 ---
 
-## Fehler 2
+► Fehler 2
 
 Außenprüfung hemmt immer.
 
@@ -162,7 +162,7 @@ Sie muss vor Fristablauf begonnen haben.
 
 ---
 
-## Fehler 3
+► Fehler 3
 
 Nach Eintritt der Verjährung sei jeder Bescheid nichtig.
 
@@ -172,7 +172,7 @@ Regelmäßig ist er lediglich anfechtbar.
 
 ---
 
-## Fehler 4
+► Fehler 4
 
 Bindungswirkung endet automatisch mit Eintritt der Verjährung.
 
@@ -182,7 +182,7 @@ Bestandskräftige Grundlagenbescheide entfalten weiterhin Bindungswirkung.
 
 ---
 
-## Fehler 5
+► Fehler 5
 
 § 181 Abs. 5 AO übersehen.
 
@@ -190,7 +190,7 @@ Bei einer Feststellung nach Fristablauf ist der Hinweis zwingend.
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 - Feststellungsverjährung richtet sich nach § 181 AO.
 - §§ 169–171 AO gelten entsprechend.

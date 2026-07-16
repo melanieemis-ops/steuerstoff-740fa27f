@@ -6,14 +6,14 @@ source: Interne Steuerstoff-Prüfungsvorbereitung
 references: § 8 Abs. 3 Satz 2 KStG, §§ 51 ff. AO
 ---
 
-# Verdeckte Gewinnausschüttung (vGA) bei gemeinnützigen Vereinen
+⇨ Verdeckte Gewinnausschüttung (vGA) bei gemeinnützigen Vereinen
 
 _Voraussetzungen, Fremdvergleich und typische Fälle verdeckter Gewinnausschüttungen bei gemeinnützigen Vereinen._
 
 
-# Verdeckte Gewinnausschüttung (vGA) bei gemeinnützigen Vereinen
+⇨ Verdeckte Gewinnausschüttung (vGA) bei gemeinnützigen Vereinen
 
-## Grundsatz
+► Grundsatz
 
 Auch bei gemeinnützigen Vereinen können verdeckte Gewinnausschüttungen (vGA) vorliegen.
 
@@ -25,7 +25,7 @@ Entscheidend ist,
 
 ob Vereinsvermögen einem Mitglied oder einer nahestehenden Person ohne angemessene Gegenleistung zugewendet wird.
 
-## Gesetzliche Grundlage
+► Gesetzliche Grundlage
 
 Rechtsgrundlage:
 
@@ -42,7 +42,7 @@ und
 
 diese Vermögensminderung durch das Mitgliedschaftsverhältnis veranlasst ist.
 
-## Keine Vereinbarung erforderlich
+► Keine Vereinbarung erforderlich
 
 Für die Annahme einer vGA ist keine schriftliche oder mündliche Vereinbarung erforderlich.
 
@@ -52,7 +52,7 @@ Maßgeblich ist allein,
 
 ob der Vorteil aufgrund des Mitgliedschaftsverhältnisses gewährt wurde.
 
-## Fremdvergleich
+► Fremdvergleich
 
 Entscheidend ist der Fremdvergleich.
 
@@ -64,7 +64,7 @@ Wenn nein,
 
 spricht dies für eine verdeckte Gewinnausschüttung.
 
-## Typische Fälle
+► Typische Fälle
 
 Eine vGA kann insbesondere vorliegen bei
 
@@ -75,7 +75,7 @@ Eine vGA kann insbesondere vorliegen bei
 - Erlass von Forderungen gegenüber Mitgliedern,
 - sonstigen Vermögensvorteilen zugunsten von Mitgliedern oder nahestehenden Personen.
 
-## Gemeinnützigkeitsrecht
+► Gemeinnützigkeitsrecht
 
 Neben den körperschaftsteuerlichen Folgen kann eine vGA auch gegen das Gemeinnützigkeitsrecht verstoßen.
 
@@ -83,7 +83,7 @@ Unzulässige Begünstigungen von Mitgliedern widersprechen dem Grundsatz der Sel
 
 Dadurch kann die Gemeinnützigkeit gefährdet werden.
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Liegt eine Vermögensminderung oder verhinderte Vermögensmehrung vor?
 
@@ -99,7 +99,7 @@ Dadurch kann die Gemeinnützigkeit gefährdet werden.
 
 Verdeckte Gewinnausschüttung ja oder nein.
 
-## Rechtsfolgen
+► Rechtsfolgen
 
 Liegt eine vGA vor,
 
@@ -113,7 +113,7 @@ Außerdem können
 
 betroffen sein.
 
-## Prüfungsmerksätze
+► Prüfungsmerksätze
 
 Eine schriftliche Vereinbarung ist nicht erforderlich.
 
@@ -125,7 +125,7 @@ Unangemessene Vorteile können jedoch eine vGA darstellen.
 
 Auch gemeinnützige Vereine können verdeckte Gewinnausschüttungen vornehmen.
 
-## Klausurtipp
+► Klausurtipp
 
 Typische Prüfungsfalle:
 

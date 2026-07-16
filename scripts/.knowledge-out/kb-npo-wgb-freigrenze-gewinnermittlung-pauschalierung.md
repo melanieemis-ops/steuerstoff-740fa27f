@@ -6,15 +6,15 @@ source: Interne Steuerstoff-Wissensdatenbank – Gemeinnützigkeit
 references: § 64 AO, § 64 Abs. 3 AO, § 64 Abs. 6 AO, § 24 KStG, § 8 KStG, § 4 Abs. 4 EStG
 ---
 
-# Wirtschaftlicher Geschäftsbetrieb: Freigrenze, Gewinnermittlung und Pauschalierung
+⇨ Wirtschaftlicher Geschäftsbetrieb: Freigrenze, Gewinnermittlung und Pauschalierung
 
 _§ 64 AO: 50.000-€-Freigrenze, Gewinnermittlung, 15-%-Pauschalierung und Freibetrag nach § 24 KStG._
 
 
 
-# Wirtschaftlicher Geschäftsbetrieb – Freigrenze, Gewinnermittlung und Pauschalierung
+⇨ Wirtschaftlicher Geschäftsbetrieb – Freigrenze, Gewinnermittlung und Pauschalierung
 
-## 1. Freigrenze nach § 64 Abs. 3 AO
+► 1. Freigrenze nach § 64 Abs. 3 AO
 
 Die Vereinfachungsregelung des § 64 Abs. 3 AO stellt ausschließlich auf die **Bruttoeinnahmen** sämtlicher wirtschaftlicher Geschäftsbetriebe ab.
 
@@ -30,7 +30,7 @@ Aktuelle Freigrenze:
 
 ---
 
-### Prüfungsschema
+⇶  Prüfungsschema
 
 1. Alle Einnahmen sämtlicher wirtschaftlicher Geschäftsbetriebe addieren.
 2. Einnahmen ≤ 50.000 €?
@@ -44,7 +44,7 @@ Merksatz:
 
 ---
 
-## 2. Beispiel
+► 2. Beispiel
 
 Einnahmen:
 
@@ -69,7 +69,7 @@ Der Gewinn des wirtschaftlichen Geschäftsbetriebs ist vollständig nach allgeme
 
 ---
 
-## 3. Gewinnermittlung nach tatsächlichen Kosten
+► 3. Gewinnermittlung nach tatsächlichen Kosten
 
 Grundsatz:
 
@@ -97,7 +97,7 @@ Gemischt veranlasste Kosten sind sachgerecht aufzuteilen.
 
 ---
 
-## 4. Gewinnpauschalierung nach § 64 Abs. 6 AO
+► 4. Gewinnpauschalierung nach § 64 Abs. 6 AO
 
 Für bestimmte Tätigkeiten darf anstelle der tatsächlichen Gewinnermittlung eine Pauschale angewendet werden.
 
@@ -135,7 +135,7 @@ Bei Anwendung der Pauschalierung dürfen die tatsächlichen Betriebsausgaben hie
 
 ---
 
-## 5. Freibetrag nach § 24 KStG
+► 5. Freibetrag nach § 24 KStG
 
 Nach der Gewinnermittlung wird der Freibetrag geprüft.
 
@@ -162,7 +162,7 @@ Gewinn
 
 ---
 
-## Typische Prüfungsreihenfolge
+► Typische Prüfungsreihenfolge
 
 1. Liegt ein wirtschaftlicher Geschäftsbetrieb vor?
 2. Bruttoeinnahmen aller wGB addieren.
@@ -174,7 +174,7 @@ Gewinn
 
 ---
 
-## Klausurklassiker
+► Klausurklassiker
 
 ❌ Freigrenze auf den Gewinn anwenden.
 
@@ -192,7 +192,7 @@ Bei Anwendung des § 64 Abs. 6 AO sind die tatsächlichen Betriebsausgaben für 
 
 ---
 
-## Merksätze
+► Merksätze
 
 - 50.000 € = Bruttoeinnahmen, nicht Gewinn.
 - Erst nach Überschreiten der Freigrenze wird der Gewinn ermittelt.

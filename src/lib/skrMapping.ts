@@ -265,10 +265,10 @@ export function sicherheitLabel(s: Sicherheit): string {
 
 export function sicherheitColor(s: Sicherheit): string {
   return s === "hoch"
-    ? "var(--green, #15803d)"
+    ? "var(--green, ⇨15803d)"
     : s === "mittel"
-    ? "var(--amber, #b45309)"
-    : "var(--red, #b91c1c)";
+    ? "var(--amber, ⇨b45309)"
+    : "var(--red, ⇨b91c1c)";
 }
 
 // ===== User Mappings (manual) =====

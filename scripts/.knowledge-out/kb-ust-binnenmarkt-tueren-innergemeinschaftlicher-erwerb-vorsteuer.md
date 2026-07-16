@@ -6,14 +6,14 @@ source: Interne Steuerstoff-Prüfungsvorbereitung
 references: § 1 Abs. 1 Nr. 5 UStG, § 1a UStG, § 3 UStG, § 3d UStG, § 4b UStG, § 10 UStG, § 12 UStG, § 13 UStG, § 13a UStG, § 15 UStG
 ---
 
-# Binnenmarkt: Innergemeinschaftlicher Erwerb von Türen und Vorsteueraufteilung
+⇨ Binnenmarkt: Innergemeinschaftlicher Erwerb von Türen und Vorsteueraufteilung
 
 _Innergemeinschaftlicher Erwerb mit teilweisem Vorsteuerabzug bei gemischt verwendeten Wirtschaftsgütern._
 
 
-# Innergemeinschaftlicher Erwerb von Türen
+⇨ Innergemeinschaftlicher Erwerb von Türen
 
-## Ausgangssachverhalt
+► Ausgangssachverhalt
 
 Der Unternehmer Becker aus Deutschland kauft zehn Türen von einem Unternehmer aus den Niederlanden.
 
@@ -32,7 +32,7 @@ Von den zehn Türen werden
 
 ---
 
-# 1. Innergemeinschaftlicher Erwerb
+⇨ 1. Innergemeinschaftlicher Erwerb
 
 Die Türen gelangen aus den Niederlanden nach Deutschland.
 
@@ -50,7 +50,7 @@ Alle Voraussetzungen sind erfüllt.
 
 ---
 
-# 2. Ort des innergemeinschaftlichen Erwerbs
+⇨ 2. Ort des innergemeinschaftlichen Erwerbs
 
 Der Ort bestimmt sich nach § 3d Satz 1 UStG.
 
@@ -64,7 +64,7 @@ Borken (Deutschland)
 
 ---
 
-# 3. Steuerbarkeit
+⇨ 3. Steuerbarkeit
 
 Der innergemeinschaftliche Erwerb ist steuerbar nach
 
@@ -72,7 +72,7 @@ Der innergemeinschaftliche Erwerb ist steuerbar nach
 
 ---
 
-# 4. Steuerbefreiung
+⇨ 4. Steuerbefreiung
 
 Eine Steuerbefreiung nach § 4b UStG greift nicht.
 
@@ -84,7 +84,7 @@ Steuersatz:
 
 ---
 
-# 5. Bemessungsgrundlage
+⇨ 5. Bemessungsgrundlage
 
 Nettoentgelt:
 
@@ -108,7 +108,7 @@ gemäß § 13a Abs. 1 Nr. 2 UStG.
 
 ---
 
-# 6. Steuerentstehung
+⇨ 6. Steuerentstehung
 
 Die Rechnung wird am 03.05. ausgestellt.
 
@@ -124,7 +124,7 @@ Mai
 
 ---
 
-# 7. Vorsteuerabzug
+⇨ 7. Vorsteuerabzug
 
 Grundsätzlich steht Becker der Vorsteuerabzug aus dem innergemeinschaftlichen Erwerb nach
 
@@ -136,7 +136,7 @@ Allerdings werden die Türen unterschiedlich verwendet.
 
 ---
 
-## Drei Türen
+► Drei Türen
 
 Die drei Türen werden für steuerpflichtige Umsätze verwendet.
 
@@ -160,7 +160,7 @@ Vorsteuerabzug:
 
 ---
 
-## Sieben Türen
+► Sieben Türen
 
 Sieben Türen werden in ein steuerfrei vermietetes Mehrfamilienhaus eingebaut.
 
@@ -174,7 +174,7 @@ Vorsteuer:
 
 ---
 
-# 8. Ergebnis
+⇨ 8. Ergebnis
 
 Erwerbsteuer:
 
@@ -190,7 +190,7 @@ Nicht abzugsfähige Vorsteuer:
 
 ---
 
-# Prüfungsschema
+⇨ Prüfungsschema
 
 1. Gelangt ein Gegenstand aus einem EU-Mitgliedstaat nach Deutschland?
 
@@ -214,7 +214,7 @@ Nicht abzugsfähige Vorsteuer:
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 Der innergemeinschaftliche Erwerb löst grundsätzlich Erwerbsteuer aus.
 
@@ -226,7 +226,7 @@ Beim gemischten Verwendungszweck ist die Vorsteuer aufzuteilen.
 
 ---
 
-# Klausurfallen
+⇨ Klausurfallen
 
 Prüfungsfalle Nr. 1:
 

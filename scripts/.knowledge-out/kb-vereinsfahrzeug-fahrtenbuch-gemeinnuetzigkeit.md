@@ -6,14 +6,14 @@ source: Interne Steuerstoff-Prüfungsvorbereitung
 references: §§ 51 ff. AO, § 55 AO, BFH-Rechtsprechung zur Nachweispflicht bei Fahrzeugnutzung
 ---
 
-# Vereinsfahrzeug: Fahrtenbuch und Nachweispflichten
+⇨ Vereinsfahrzeug: Fahrtenbuch und Nachweispflichten
 
 _Nachweis der gemeinnützigen Nutzung eines Vereinsfahrzeugs, Alternativen zum Fahrtenbuch und steuerliche Folgen fehlender Dokumentation._
 
 
-# Vereinsfahrzeug und Fahrtenbuch
+⇨ Vereinsfahrzeug und Fahrtenbuch
 
-## Grundsatz
+► Grundsatz
 
 Besitzt ein gemeinnütziger Verein einen PKW,
 
@@ -23,7 +23,7 @@ Hierzu gehört insbesondere der Nachweis,
 
 dass das Fahrzeug überwiegend oder ausschließlich für gemeinnützige Zwecke genutzt wird.
 
-## Fahrtenbuch
+► Fahrtenbuch
 
 Ein Fahrtenbuch ist das klassische Nachweismittel.
 
@@ -31,7 +31,7 @@ Es wird von der Finanzverwaltung bevorzugt.
 
 Ein Fahrtenbuch ist jedoch gesetzlich nicht zwingend vorgeschrieben.
 
-## Alternative Nachweise
+► Alternative Nachweise
 
 Der Nachweis kann auch durch andere geeignete Unterlagen geführt werden.
 
@@ -49,7 +49,7 @@ Entscheidend ist,
 
 dass die tatsächliche Nutzung nachvollziehbar dokumentiert werden kann.
 
-## Dokumentationspflicht
+► Dokumentationspflicht
 
 Aus den Unterlagen sollte insbesondere hervorgehen:
 
@@ -64,7 +64,7 @@ Je vollständiger die Dokumentation,
 
 desto geringer ist das Risiko steuerlicher Beanstandungen.
 
-## Ehrenamtliche Nutzung
+► Ehrenamtliche Nutzung
 
 Wird das Fahrzeug ausschließlich von ehrenamtlich Tätigen genutzt,
 
@@ -74,7 +74,7 @@ Auch hierbei genügt grundsätzlich eine nachvollziehbare Aufzeichnung,
 
 wenn sie die tatsächliche Nutzung ausreichend belegt.
 
-## Fehlende Nachweise
+► Fehlende Nachweise
 
 Kann der Verein die Nutzung nicht nachweisen,
 
@@ -86,7 +86,7 @@ Ohne geeignete Nachweise wird häufig mindestens ein privater Nutzungsanteil von
 
 soweit sich aus den Umständen nichts anderes ergibt.
 
-## Steuerliche Folgen
+► Steuerliche Folgen
 
 Eine fehlerhafte oder fehlende Dokumentation kann insbesondere folgende Folgen haben:
 
@@ -96,7 +96,7 @@ Eine fehlerhafte oder fehlende Dokumentation kann insbesondere folgende Folgen h
 - Gefährdung der Gemeinnützigkeit
 - steuerliche Mehrbelastungen
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Gehört der PKW zum Vereinsvermögen?
 
@@ -112,7 +112,7 @@ Gibt es andere geeignete Nachweise?
 
 6. Kann eine private Nutzung ausgeschlossen oder nachvollziehbar abgegrenzt werden?
 
-## Rechtsfolgen
+► Rechtsfolgen
 
 Ordnungsgemäße Dokumentation:
 
@@ -124,7 +124,7 @@ Schätzung der Privatnutzung möglich.
 
 Dadurch können steuerliche Nachteile entstehen.
 
-## Prüfungsmerksätze
+► Prüfungsmerksätze
 
 Ein Fahrtenbuch ist nicht zwingend vorgeschrieben.
 
@@ -136,7 +136,7 @@ Ohne Nachweise darf die Finanzverwaltung schätzen.
 
 Die Dokumentation dient dem Nachweis der ordnungsgemäßen Mittelverwendung.
 
-## Klausurtipp
+► Klausurtipp
 
 Typische Prüfungsfalle:
 

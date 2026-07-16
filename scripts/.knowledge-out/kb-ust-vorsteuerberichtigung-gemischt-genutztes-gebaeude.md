@@ -6,20 +6,20 @@ source: Interne Steuerstoff-Prüfungsvorbereitung
 references: § 15a UStG, § 15a Abs. 6a UStG, § 15a Abs. 8 UStG, § 15 Abs. 1b UStG, § 44 UStDV, § 4 Nr. 9 Buchst. a UStG, § 9 UStG, § 13b Abs. 2 Nr. 3 UStG
 ---
 
-# Vorsteuerberichtigung bei gemischt genutzten Gebäuden (§ 15a UStG)
+⇨ Vorsteuerberichtigung bei gemischt genutzten Gebäuden (§ 15a UStG)
 
 _Vorsteuerberichtigung bei Änderung der unternehmerischen oder privaten Nutzung sowie bei späterer Grundstücksveräußerung._
 
 
-# Vorsteuerberichtigung bei gemischt genutzten Gebäuden
+⇨ Vorsteuerberichtigung bei gemischt genutzten Gebäuden
 
-## Grundsatz
+► Grundsatz
 
 Wird ein Gebäude sowohl unternehmerisch als auch privat genutzt, ist für den Vorsteuerabzug entscheidend, in welchem Umfang das Gebäude dem Unternehmen zugeordnet wurde und in welchem Umfang die Nutzung zum Vorsteuerabzug berechtigt.
 
 Ändert sich später die tatsächliche Verwendung, kann eine Vorsteuerberichtigung nach § 15a UStG erforderlich sein.
 
-## Berichtigungszeitraum
+► Berichtigungszeitraum
 
 Bei Grundstücken und Gebäuden beträgt der Berichtigungszeitraum 10 Jahre.
 
@@ -33,7 +33,7 @@ Erstmalige Verwendung:
 Berichtigungszeitraum:
 01.01.02 bis 31.12.11
 
-## Änderung der Verhältnisse
+► Änderung der Verhältnisse
 
 Eine Änderung der Verhältnisse liegt vor, wenn sich der Umfang der zum Vorsteuerabzug berechtigenden Verwendung ändert.
 
@@ -46,7 +46,7 @@ Beispiele:
 - steuerfreie Veräußerung
 - steuerpflichtige Veräußerung
 
-## Erhöhung der unternehmerischen Nutzung
+► Erhöhung der unternehmerischen Nutzung
 
 Erhöht sich die unternehmerische Nutzung, kann eine Berichtigung zugunsten des Unternehmers erfolgen.
 
@@ -74,7 +74,7 @@ Ergebnis:
 
 684 Euro sind zugunsten des Unternehmers zu korrigieren.
 
-## Erhöhung der privaten Nutzung
+► Erhöhung der privaten Nutzung
 
 Erhöht sich die private Nutzung, sinkt die unternehmerische Verwendung.
 
@@ -104,13 +104,13 @@ Ergebnis:
 
 855 Euro sind zu Ungunsten des Unternehmers zu korrigieren.
 
-## Veräußerung des Gebäudes
+► Veräußerung des Gebäudes
 
 Wird ein Gebäude innerhalb des Berichtigungszeitraums veräußert, ist ebenfalls § 15a UStG zu prüfen.
 
 Dabei kommt es darauf an, ob die Veräußerung steuerfrei oder steuerpflichtig erfolgt.
 
-## Steuerfreie Grundstücksveräußerung
+► Steuerfreie Grundstücksveräußerung
 
 Eine steuerfreie Veräußerung nach § 4 Nr. 9 Buchst. a UStG führt für den verbleibenden Berichtigungszeitraum zu einer Nutzung von 0 % zum Vorsteuerabzug.
 
@@ -145,7 +145,7 @@ Wenn noch die Jahre 09 bis 11 betroffen sind:
 
 Die Berichtigung erfolgt zu Ungunsten des Unternehmers.
 
-## Steuerpflichtige Grundstücksveräußerung
+► Steuerpflichtige Grundstücksveräußerung
 
 Wird zur Steuerpflicht optiert, gilt die Veräußerung für den verbleibenden Berichtigungszeitraum als Verwendung zu 100 % für vorsteuerunschädliche Umsätze.
 
@@ -180,7 +180,7 @@ Wenn noch die Jahre 09 bis 11 betroffen sind:
 
 Die Berichtigung erfolgt zugunsten des Unternehmers.
 
-## Zusammenfassung der Beispiele
+► Zusammenfassung der Beispiele
 
 Fall 1:
 
@@ -222,7 +222,7 @@ Steuerpflichtige Veräußerung:
 =
 60 Prozentpunkte Änderung zugunsten.
 
-## Bagatellgrenzen nach § 44 UStDV
+► Bagatellgrenzen nach § 44 UStDV
 
 Die Bagatellgrenzen des § 44 UStDV sind zu prüfen.
 
@@ -230,7 +230,7 @@ Wird die Grenze überschritten, ist die Vorsteuerberichtigung durchzuführen.
 
 Bei Grundstücksveräußerungen werden die Berichtigungsbeträge für die verbleibenden Jahre zusammengefasst.
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Wurde ursprünglich Vorsteuer abgezogen?
 
@@ -256,7 +256,7 @@ Vorsteuer / 10
 
 Restzeitraum zusammenfassen.
 
-## Prüfungsmerksätze
+► Prüfungsmerksätze
 
 Gebäude haben einen Berichtigungszeitraum von 10 Jahren.
 
@@ -278,7 +278,7 @@ Steuerpflichtige Veräußerung:
 
 100 % Vorsteuerverwendung.
 
-## Klausurtipp
+► Klausurtipp
 
 Typische Prüfungsfalle:
 

@@ -71,10 +71,10 @@ Antwortformat: AUSSCHLIESSLICH ein valides JSON-Objekt (kein Markdown, kein Code
 }
 Wichtig: Fülle "sources" nur mit Quellen, die durch file_search geliefert wurden. Wenn keine passenden Fundstellen kamen, gib ein leeres Array zurück.`;
 
-// Parse "# Title" from a markdown chunk; strip frontmatter.
+// Parse "⇨ Title" from a markdown chunk; strip frontmatter.
 function extractTitle(content: string): string | null {
   const stripped = content.replace(/^---[\s\S]*?---\s*/m, "");
-  const m = stripped.match(/^#\s+(.+)$/m);
+  const m = stripped.match(/^⇨\s+(.+)$/m);
   return m ? m[1].trim() : null;
 }
 
@@ -94,7 +94,7 @@ function extractReference(content: string): string | null {
 }
 
 function summarize(text: string, max = 260): string {
-  const cleaned = text.replace(/^---[\s\S]*?---\s*/m, "").replace(/^#.*$/gm, "").trim();
+  const cleaned = text.replace(/^---[\s\S]*?---\s*/m, "").replace(/^⇨.*$/gm, "").trim();
   if (cleaned.length <= max) return cleaned;
   return cleaned.slice(0, max).replace(/\s+\S*$/, "") + "…";
 }

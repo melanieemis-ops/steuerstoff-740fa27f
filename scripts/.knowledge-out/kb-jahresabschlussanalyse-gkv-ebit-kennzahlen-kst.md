@@ -6,14 +6,14 @@ source: Interne Steuerstoff-Prüfungsvorbereitung
 references: § 275 Abs. 2 HGB, § 8 Abs. 3 Satz 2 KStG, § 8 Abs. 3 Satz 3 KStG, § 8b KStG, § 27 KStG
 ---
 
-# Jahresabschlussanalyse: GuV, EBIT, Kennzahlen und KSt-Korrekturen
+⇨ Jahresabschlussanalyse: GuV, EBIT, Kennzahlen und KSt-Korrekturen
 
 _Prüfungswissen zu GuV nach § 275 Abs. 2 HGB, ordentlichem Betriebsergebnis, Rentabilitätskennzahlen, Lagerkennzahlen, Leverage-Effekt sowie vGA/vE in der Körperschaftsteuer._
 
 
-# Jahresabschlussanalyse: GuV, EBIT, Kennzahlen und KSt-Korrekturen
+⇨ Jahresabschlussanalyse: GuV, EBIT, Kennzahlen und KSt-Korrekturen
 
-## 1. GuV nach § 275 Abs. 2 HGB – Gesamtkostenverfahren
+► 1. GuV nach § 275 Abs. 2 HGB – Gesamtkostenverfahren
 
 Bei der Gewinn- und Verlustrechnung nach dem Gesamtkostenverfahren werden Erträge und Aufwendungen nach dem Schema des § 275 Abs. 2 HGB geordnet.
 
@@ -72,7 +72,7 @@ Nach Steuern vom Einkommen und Ertrag:
 83.390 - 4.270 = 79.120 Jahresüberschuss
 
 
-## 2. Ordentliches Betriebsergebnis / EBIT
+► 2. Ordentliches Betriebsergebnis / EBIT
 
 Das ordentliche Betriebsergebnis zeigt den Erfolg des eigentlichen Kerngeschäfts.
 
@@ -119,7 +119,7 @@ Merksatz:
 Das ordentliche Betriebsergebnis zeigt die wirtschaftliche Leistung aus dem Kerngeschäft. Neutrale, außerordentliche und periodenfremde Vorgänge sowie das Zinsergebnis werden herausgerechnet.
 
 
-## 3. Kapitalstruktur- und Rentabilitätskennzahlen
+► 3. Kapitalstruktur- und Rentabilitätskennzahlen
 
 Gegeben:
 Durchschnittliches Eigenkapital: 1.400.000  
@@ -153,7 +153,7 @@ Gesamtkapitalrentabilität:
 (192.500 + 157.500) / 3.625.000 x 100 = 9,66 %
 
 
-## 4. Investition und Leverage-Effekt
+► 4. Investition und Leverage-Effekt
 
 Investition:
 Anschaffungskosten 1.125.000  
@@ -202,7 +202,7 @@ FK-Zinssatz 9 %
 Die Eigenkapitalrentabilität steigt von 13,75 % auf 17,25 %. Gleichzeitig sinkt die Eigenkapitalquote von 38,62 % auf 34,21 %. Das bedeutet: höhere Rendite, aber auch höhere Verschuldung.
 
 
-## 5. Vorratskennzahlen
+► 5. Vorratskennzahlen
 
 Umschlagshäufigkeit der Vorräte:
 Materialaufwand / durchschnittlicher Vorratsbestand
@@ -229,7 +229,7 @@ Hohe Umschlagshäufigkeit = kurze Lagerdauer.
 Niedrige Umschlagshäufigkeit = lange Lagerdauer.
 
 
-## 6. Forderungen und Verbindlichkeiten
+► 6. Forderungen und Verbindlichkeiten
 
 Umschlagshäufigkeit Forderungen:
 Umsatzerlöse / durchschnittlicher Forderungsbestand
@@ -250,7 +250,7 @@ Bei 19 % Umsatzsteuer:
 Netto = Brutto / 1,19
 
 
-## 7. Körperschaftsteuer: vGA und verdeckte Einlage
+► 7. Körperschaftsteuer: vGA und verdeckte Einlage
 
 Prüfungsschema:
 1. Liegt eine vGA, eine verdeckte Einlage oder kein steuerlicher Korrekturfall vor?
@@ -258,7 +258,7 @@ Prüfungsschema:
 3. Ist der Vorgang fremdüblich?
 4. Welche außerbilanzielle Korrektur ist vorzunehmen?
 
-## Verdeckte Gewinnausschüttung
+► Verdeckte Gewinnausschüttung
 
 Rechtsgrundlage:
 § 8 Abs. 3 Satz 2 KStG
@@ -285,7 +285,7 @@ Rückwirkende Gehaltserhöhung 9.000
 => + 9.000 außerbilanziell hinzurechnen
 
 
-## Verdeckte Einlage
+► Verdeckte Einlage
 
 Rechtsgrundlage:
 § 8 Abs. 3 Satz 3 KStG
@@ -320,7 +320,7 @@ Außerdem:
 Zugang zum steuerlichen Einlagekonto nach § 27 KStG.
 
 
-## 8. Grundstücksübertragung als verdeckte Einlage
+► 8. Grundstücksübertragung als verdeckte Einlage
 
 Überträgt ein Gesellschafter ein Grundstück unentgeltlich auf eine GmbH, liegt regelmäßig eine verdeckte Einlage vor.
 
@@ -340,7 +340,7 @@ Typischer Prüfungssatz:
 Die Grundstücksübertragung stellt eine verdeckte Einlage nach § 8 Abs. 3 Satz 3 KStG dar, da ein einlagefähiger Vermögensvorteil gesellschaftlich veranlasst zugewendet wird.
 
 
-## 9. Ermittlung des zu versteuernden Einkommens einer GmbH
+► 9. Ermittlung des zu versteuernden Einkommens einer GmbH
 
 Ausgangspunkt:
 Handelsrechtlicher Jahresüberschuss
@@ -369,7 +369,7 @@ Anrechnung von Kapitalertragsteuer und Körperschaftsteuervorauszahlungen.
 Wenn die Vorauszahlungen und Steuerabzüge höher sind als die festgesetzte KSt, ergibt sich eine Erstattung.
 
 
-## 10. Prüfungs-Merksätze
+► 10. Prüfungs-Merksätze
 
 vGA:
 Aufwand bei der GmbH wegen Vorteil an Gesellschafter.

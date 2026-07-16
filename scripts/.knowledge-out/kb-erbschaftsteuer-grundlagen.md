@@ -6,7 +6,7 @@ source: Interne Musterlösung Übungsklausur ErbSt/Bewertung (Rechtsstand 2024).
 references: §§ 1, 3, 9, 10, 15, 16, 19 ErbStG, §§ 11, 151, 182 ff. BewG, § 1922 BGB
 ---
 
-# Erbschaft- und Schenkungsteuer — Grundlagen
+⇨ Erbschaft- und Schenkungsteuer — Grundlagen
 
 _Steuerpflicht, Steuerklassen, Freibeträge, Bewertung und Tarif nach ErbStG._
 

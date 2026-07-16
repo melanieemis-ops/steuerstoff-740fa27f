@@ -6,7 +6,7 @@ source: Internes Arbeitspapier — Darlehensvergabe NPO.
 references: § 55 Abs. 1 Nr. 1, 5 AO, § 58 Nr. 1 AO, § 62 Abs. 1 Nr. 3 AO
 ---
 
-# Darlehensvergabe durch gemeinnützige Organisationen
+⇨ Darlehensvergabe durch gemeinnützige Organisationen
 
 _Mittelherkunft entscheidend — zeitnah zu verwendende Mittel nur zur unmittelbaren Zweckverwirklichung; sonst nur aus freier Rücklage / Vermögen._
 

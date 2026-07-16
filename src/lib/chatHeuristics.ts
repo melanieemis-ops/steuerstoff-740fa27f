@@ -986,15 +986,15 @@ function parseLawSections(body: string): {
     if (!m) return undefined;
     const start = (m.index ?? 0) + m[0].length;
     const rest = body.slice(start);
-    const next = rest.search(/\n#{1,6}\s/);
+    const next = rest.search(/\n⇨{1,6}\s/);
     return (next > 0 ? rest.slice(0, next) : rest).trim() || undefined;
   };
   return {
-    tatbestand: pick(/#{1,6}\s*(Tatbestand(svoraussetzungen)?|Voraussetzungen)\b[^\n]*\n/i),
-    rechtsfolge: pick(/#{1,6}\s*Rechtsfolge[n]?\b[^\n]*\n/i),
-    ausnahmen: pick(/#{1,6}\s*Ausnahmen?\b[^\n]*\n/i),
-    beispiel: pick(/#{1,6}\s*(Praxisbeispiel|Beispiel)\b[^\n]*\n/i),
-    merksatz: pick(/#{1,6}\s*Merksatz\b[^\n]*\n/i),
+    tatbestand: pick(/⇨{1,6}\s*(Tatbestand(svoraussetzungen)?|Voraussetzungen)\b[^\n]*\n/i),
+    rechtsfolge: pick(/⇨{1,6}\s*Rechtsfolge[n]?\b[^\n]*\n/i),
+    ausnahmen: pick(/⇨{1,6}\s*Ausnahmen?\b[^\n]*\n/i),
+    beispiel: pick(/⇨{1,6}\s*(Praxisbeispiel|Beispiel)\b[^\n]*\n/i),
+    merksatz: pick(/⇨{1,6}\s*Merksatz\b[^\n]*\n/i),
   };
 }
 
@@ -1334,7 +1334,7 @@ function _generateAnswerImpl(rawQuestion: string, router: RouterResult): ChatAns
     return {
       kind: "info",
       summary:
-        "Dafür kann ich den Kfz-Wertabgaben-Rechner öffnen. Er rechnet 1-%-Methode, Fahrten Wohnung/Betrieb (0,03 %), USt-Aufteilung auf # 8921 0 / # 8924 0 und die Kostendeckelung nach Arbeitspapier.",
+        "Dafür kann ich den Kfz-Wertabgaben-Rechner öffnen. Er rechnet 1-%-Methode, Fahrten Wohnung/Betrieb (0,03 %), USt-Aufteilung auf ⇨ 8921 0 / ⇨ 8924 0 und die Kostendeckelung nach Arbeitspapier.",
       nextStep:
         "Bruttolistenpreis, Nutzungsmonate, Entfernung und Arbeitstage erfassen — anschließend Kostendeckelung prüfen.",
       links: [

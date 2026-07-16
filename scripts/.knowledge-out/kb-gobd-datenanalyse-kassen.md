@@ -6,7 +6,7 @@ source: Internes Schulungspapier GoBD (Teil III) — Datenanalyse und Kassendate
 references: § 146a AO, § 147 Abs. 6 AO, KassenSichV, GoBD Rn. 81–89
 ---
 
-# GoBD — Datenanalyse und Kassendaten
+⇨ GoBD — Datenanalyse und Kassendaten
 
 _Quantitative Prüfungsmethoden (Ziffern-, Zeitreihen-, Strukturanalyse) und Anforderungen an die Auswertung digitaler Kassendaten._
 

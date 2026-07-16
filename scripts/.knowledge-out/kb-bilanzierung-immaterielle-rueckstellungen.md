@@ -6,7 +6,7 @@ source: Internes Handout — Bilanzierung / IAB / Krypto / latente Steuern.
 references: §§ 246, 247, 248 Abs. 2, 249, 252, 255, 266, 274 HGB, § 5 Abs. 1, 2, 4a EStG, § 6 Abs. 1 Nr. 2, 2a, 5, 6 EStG, § 7 Abs. 1, 4 EStG, § 7g EStG, § 15 UStG, BMF 10.05.2022 (Kryptowerte)
 ---
 
-# Bilanzierung — immaterielle WG, Vorräte, Rückstellungen, latente Steuern
+⇨ Bilanzierung — immaterielle WG, Vorräte, Rückstellungen, latente Steuern
 
 _Aktivierungs(verbot/wahlrecht), Herstellungskosten, FIFO/LIFO, drohende Verluste, latente Steuern, IAB, Sammelposten, Krypto._
 

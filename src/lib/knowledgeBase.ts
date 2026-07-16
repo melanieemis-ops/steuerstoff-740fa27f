@@ -367,11 +367,11 @@ Review-Hinweis: Bei Mandantenfragen zuerst klären, ob eine allgemeine bilanziel
   ],
 
   body: `
-# Einkommensteuerreform 2027
+⇨ Einkommensteuerreform 2027
 
-## Ergebnisse des Koalitionsausschusses vom 02.07.2026
+► Ergebnisse des Koalitionsausschusses vom 02.07.2026
 
-# 1. Rechtsstand
+⇨ 1. Rechtsstand
 
 Die Regierungskoalition hat Anfang Juli 2026 ein „Programm für Aufschwung und Beschäftigung“ beschlossen.
 
@@ -384,7 +384,7 @@ Die Reform soll
 
 Das jährliche Entlastungsvolumen soll insgesamt rund 10 Mrd. € betragen.
 
-## Achtung
+► Achtung
 
 Bei den Ergebnissen des Koalitionsausschusses handelt es sich noch nicht um geltendes Recht.
 
@@ -413,13 +413,13 @@ Bis dahin können
 
 geändert, ergänzt oder gestrichen werden.
 
-### Zentraler Lernsatz
+⇨ Zentraler Lernsatz
 
 **Der Beschluss des Koalitionsausschusses ist eine politische Einigung, aber noch keine unmittelbar anwendbare Rechtsgrundlage.**
 
 ---
 
-# 2. Zielsetzung der Reform
+⇨ 2. Zielsetzung der Reform
 
 Die Reform soll vor allem
 
@@ -444,23 +444,23 @@ Die Entlastung soll insbesondere durch folgende Maßnahmen erreicht werden:
 
 6. Verschiebung des Beginns des Spitzensteuersatzes.
 
-### Lernsatz
+► Lernsatz
 
-**Der Schwerpunkt der geplanten Einkommensteuerreform liegt auf der Entlastung kleiner und mittlerer Einkommen sowie von Familien mit Kindern.**
+⇶ Der Schwerpunkt der geplanten Einkommensteuerreform liegt auf der Entlastung kleiner und mittlerer Einkommen sowie von Familien mit Kindern.
 
 ---
 
-# 3. Grundfreibetrag
+⇨ 3. Grundfreibetrag
 
-## Geltendes Recht 2026
+► Geltendes Recht 2026
 
 Der Grundfreibetrag beträgt im Jahr 2026
 
-**12.348 €**
+12.348 €
 
 für einzeln veranlagte Steuerpflichtige.
 
-### Rechtsgrundlage
+⇶ Rechtsgrundlage
 
 § 32a Abs. 1 Satz 2 Nr. 1 EStG.
 
@@ -472,11 +472,11 @@ Dies entspricht für 2026 einem Betrag von
 
 12.348 € × 2 = 24.696 €.
 
-## Reformplanung
+►  Reformplanung
 
 Der Grundfreibetrag soll voraussichtlich in zwei Stufen bis zum Jahr 2028 auf
 
-**12.900 €**
+12.900 €
 
 angehoben werden.
 
@@ -486,7 +486,7 @@ Bei entsprechender Anwendung des Splittingtarifs würde dies rechnerisch einem B
 
 entsprechen.
 
-## Vorläufigkeit
+►  Vorläufigkeit
 
 Der endgültige Grundfreibetrag soll erst
 
@@ -495,33 +495,33 @@ Der endgültige Grundfreibetrag soll erst
 
 festgelegt werden.
 
-### Lernsatz
+► Lernsatz
 
-**Der für 2028 genannte Grundfreibetrag von 12.900 € ist bislang ein voraussichtlicher Planwert und noch kein gesetzlich festgelegter Betrag.**
+Der für 2028 genannte Grundfreibetrag von 12.900 € ist bislang ein voraussichtlicher Planwert und noch kein gesetzlich festgelegter Betrag.
 
 ---
 
-# 4. Kindergeld
+⇨ 4. Kindergeld
 
-## Geltendes Recht 2026
+► Geltendes Recht 2026
 
 Das Kindergeld beträgt im Jahr 2026
 
-**259 € monatlich für jedes Kind.**
+259 € monatlich für jedes Kind.
 
-### Rechtsgrundlage
+⇶ Rechtsgrundlage
 
 § 66 Abs. 1 EStG.
 
-## Reformplanung
+► Reformplanung
 
 Das Kindergeld soll voraussichtlich in zwei Stufen bis zum Jahr 2028 auf
 
-**272 € monatlich für jedes Kind**
+272 € monatlich für jedes Kind
 
 angehoben werden.
 
-## Veränderung
+► Veränderung
 
 272 €  
 ./. 259 €  
@@ -531,21 +531,21 @@ Jährliche rechnerische Mehrleistung je Kind:
 
 13 € × 12 Monate = 156 €.
 
-### Achtung
+⇶ Achtung
 
 Auch der geplante Betrag von 272 € ist noch nicht abschließend gesetzlich festgelegt.
 
-### Lernsatz
+► Lernsatz
 
-**Das Kindergeld soll nach den Reformplänen bis 2028 voraussichtlich von 259 € auf 272 € monatlich je Kind steigen.**
+Das Kindergeld soll nach den Reformplänen bis 2028 voraussichtlich von 259 € auf 272 € monatlich je Kind steigen.
 
 ---
 
-# 5. Kinderfreibetrag
+► 5. Kinderfreibetrag
 
 Neben dem Kindergeld soll auch der Kinderfreibetrag erhöht werden.
 
-### Rechtsgrundlage des geltenden Rechts
+⇶ Rechtsgrundlage des geltenden Rechts
 
 § 32 Abs. 6 EStG.
 
@@ -553,49 +553,49 @@ Die konkrete Höhe des künftigen Kinderfreibetrags wurde im Koalitionsbeschluss
 
 Sie soll insbesondere unter Berücksichtigung des Existenzminimumberichts bestimmt werden.
 
-### Lernsatz
+► Lernsatz
 
-**Kindergeld und Kinderfreibetrag sollen erhöht werden; die endgültigen Beträge werden erst im Gesetzgebungsverfahren festgelegt.**
+Kindergeld und Kinderfreibetrag sollen erhöht werden; die endgültigen Beträge werden erst im Gesetzgebungsverfahren festgelegt.
 
 ---
 
-# 6. Arbeitnehmer-Pauschbetrag
+► 6. Arbeitnehmer-Pauschbetrag
 
-## Geltendes Recht 2026
+Geltendes Recht 2026
 
 Der Arbeitnehmer-Pauschbetrag beträgt
 
-**1.230 € jährlich.**
+*1.230 € jährlich.**
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 9a Satz 1 Nr. 1 Buchst. a EStG.
 
 Der Pauschbetrag wird bei den Einkünften aus nichtselbständiger Arbeit berücksichtigt, soweit keine höheren Werbungskosten nachgewiesen werden.
 
-## Reformplanung
+► Reformplanung
 
 Der Arbeitnehmer-Pauschbetrag soll voraussichtlich um 200 € erhöht werden.
 
 Geplanter Betrag:
 
-1.230 € + 200 € = **1.430 €**.
+1.230 € + 200 € = **1.430 €
 
-### Bedeutung
+⇶  Bedeutung
 
 Arbeitnehmer mit tatsächlichen Werbungskosten unterhalb des Pauschbetrags können von der Erhöhung profitieren, ohne einzelne Aufwendungen nachweisen zu müssen.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Der Arbeitnehmer-Pauschbetrag soll voraussichtlich von 1.230 € auf 1.430 € steigen.**
 
-### Achtung
+⇶  Achtung
 
 Der Betrag von 1.430 € ist noch nicht endgültig gesetzlich festgelegt.
 
 ---
 
-# 7. Abflachung des Einkommensteuertarifs
+⇨ 7. Abflachung des Einkommensteuertarifs
 
 Die zweite Progressionszone des Einkommensteuertarifs soll abgeflacht werden.
 
@@ -607,21 +607,21 @@ Nach den bisherigen Angaben soll der Spitzensteuersatz von 42 % künftig erst ab
 
 greifen.
 
-### Rechtsgrundlage des geltenden Tarifs
+⇶  Rechtsgrundlage des geltenden Tarifs
 
 § 32a Abs. 1 EStG.
 
-### Bedeutung
+⇶  Bedeutung
 
 Eine Rechtsverschiebung bedeutet, dass der höhere Steuersatz erst bei einem höheren zu versteuernden Einkommen erreicht wird.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Die geplante Tarifverschiebung soll den sogenannten Mittelstandsbauch abmildern und den Spitzensteuersatz etwas später einsetzen lassen.**
 
 ---
 
-# 8. Entlastungsbeispiel für Familien
+⇨ 8. Entlastungsbeispiel für Familien
 
 Nach einer Berechnung des Bundesministeriums der Finanzen soll ab dem Jahr 2028 eine vierköpfige Familie
 
@@ -634,7 +634,7 @@ gegenüber dem heutigen Stand um mehr als
 
 entlastet werden.
 
-### Achtung
+⇶  Achtung
 
 Dabei handelt es sich um eine Modellrechnung beziehungsweise erste Schätzung.
 
@@ -649,27 +649,27 @@ Die tatsächliche Entlastung hängt unter anderem ab von
 - den Sozialversicherungsbeiträgen und
 - den persönlichen Abzugsbeträgen.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Die angekündigte Entlastung von mehr als 600 € ist ein Berechnungsbeispiel und kein pauschaler Anspruch jedes Vierpersonenhaushalts.**
 
 ---
 
-# 9. Gegenfinanzierung durch Änderung der Reichensteuer
+⇨ 9. Gegenfinanzierung durch Änderung der Reichensteuer
 
 Die Entlastungen sollen insbesondere durch eine stärkere Belastung sehr hoher Einkommen mitfinanziert werden.
 
-## Geltendes Recht 2026
+► Geltendes Recht 2026
 
 Der Steuersatz von 45 % gilt derzeit ab einem zu versteuernden Einkommen von
 
 **277.826 €.**
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 32a Abs. 1 Satz 2 Nr. 5 EStG.
 
-## Reformplanung: erste Stufe
+► Reformplanung: erste Stufe
 
 Ab einem zu versteuernden Einkommen von
 
@@ -681,7 +681,7 @@ soll künftig ein Steuersatz von
 
 gelten.
 
-## Reformplanung: neue zweite Stufe
+► Reformplanung: neue zweite Stufe
 
 Ab einem zu versteuernden Einkommen von
 
@@ -693,7 +693,7 @@ soll künftig ein Steuersatz von
 
 gelten.
 
-### Übersicht
+⇶  Übersicht
 
 Bis unter 250.000 € zvE:
 
@@ -707,19 +707,19 @@ Ab 280.000 € zvE:
 
 47 % neue erhöhte Tarifstufe.
 
-### Achtung
+⇶  Achtung
 
 Die genaue Tarifformel, der Umgang mit dem Splittingverfahren sowie Übergangs- und Rundungsregelungen müssen erst gesetzlich geregelt werden.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Die Reichensteuer soll künftig zweistufig ausgestaltet werden: 45 % ab 250.000 € und 47 % ab 280.000 € zu versteuerndem Einkommen.**
 
 ---
 
-# 10. Pauschalsteuer bei Minijobs
+⇨ 10. Pauschalsteuer bei Minijobs
 
-## Geltendes Recht
+► Geltendes Recht
 
 Der Arbeitgeber kann die Lohnsteuer bei einer geringfügigen Beschäftigung unter den gesetzlichen Voraussetzungen mit einem einheitlichen Pauschsteuersatz von
 
@@ -727,11 +727,11 @@ Der Arbeitgeber kann die Lohnsteuer bei einer geringfügigen Beschäftigung unte
 
 des Arbeitsentgelts erheben.
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 40a Abs. 2 EStG.
 
-## Reformplanung
+► Reformplanung
 
 Der Pauschalsteuersatz soll von
 
@@ -739,7 +739,7 @@ Der Pauschalsteuersatz soll von
 
 angehoben werden.
 
-### Bedeutung
+⇶  Bedeutung
 
 Die Maßnahme betrifft grundsätzlich die vom Arbeitgeber zu tragende beziehungsweise zu erhebende Pauschalsteuer.
 
@@ -747,15 +747,15 @@ Sie bedeutet nicht automatisch, dass dem Minijobber unmittelbar 5 % vom Arbeitse
 
 Ob und in welchem Umfang der Arbeitgeber die Pauschalsteuer arbeitsrechtlich auf den Arbeitnehmer abwälzen kann, ist gesondert zu beurteilen.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Der Pauschalsteuersatz für Minijobs soll nach den Reformplänen von 2 % auf 5 % steigen.**
 
 ---
 
-# 11. Handwerkerleistungen
+⇨ 11. Handwerkerleistungen
 
-## Geltendes Recht
+► Geltendes Recht
 
 Für die Inanspruchnahme von Handwerkerleistungen für
 
@@ -769,7 +769,7 @@ Die Ermäßigung beträgt
 
 **20 % der begünstigten Aufwendungen, höchstens 1.200 € jährlich.**
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 35a Abs. 3 EStG.
 
@@ -777,23 +777,23 @@ Begünstigt sind grundsätzlich Arbeits-, Maschinen- und Fahrtkosten.
 
 Materialkosten sind grundsätzlich nicht begünstigt.
 
-## Reformplanung
+► Reformplanung
 
 Die Steuerermäßigung soll reduziert werden auf
 
 **15 % der begünstigten Aufwendungen, höchstens 900 € jährlich.**
 
-### Beispiel geltendes Recht
+⇶  Beispiel geltendes Recht
 
 Begünstigte Arbeitskosten: 5.000 €
 
 5.000 € × 20 % = 1.000 € Steuerermäßigung.
 
-### Beispiel geplantes Recht
+⇶  Beispiel geplantes Recht
 
 5.000 € × 15 % = 750 € Steuerermäßigung.
 
-### Maximalbetrag
+⇶  Maximalbetrag
 
 Geltendes Recht:
 
@@ -803,15 +803,15 @@ Geplante Reform:
 
 maximal 900 €.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Die Steuerermäßigung für Handwerkerleistungen soll von 20 % beziehungsweise maximal 1.200 € auf 15 % beziehungsweise maximal 900 € reduziert werden.**
 
 ---
 
-# 12. Sonn- und Feiertagszuschläge
+⇨ 12. Sonn- und Feiertagszuschläge
 
-## Geltendes Recht
+► Geltendes Recht
 
 Zuschläge für tatsächlich geleistete
 
@@ -827,11 +827,11 @@ Für die Berechnung der Steuerfreiheit ist der Grundlohn derzeit grundsätzlich 
 
 anzusetzen.
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 3b Abs. 1 und Abs. 2 Satz 1 EStG.
 
-## Reformplanung
+► Reformplanung
 
 Für steuerlich begünstigte Sonn- und Feiertagszuschläge soll die Obergrenze zum 01.01.2027 auf einen Stundenlohn von
 
@@ -839,19 +839,19 @@ Für steuerlich begünstigte Sonn- und Feiertagszuschläge soll die Obergrenze z
 
 angehoben werden.
 
-### Achtung
+⇶  Achtung
 
 Der politische Beschluss nennt ausdrücklich Sonn- und Feiertagszuschläge.
 
 Ohne konkreten Gesetzestext darf nicht unterstellt werden, dass die Erhöhung automatisch in gleicher Weise auf sämtliche Nachtzuschläge übertragen wird.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Die Grundlohngrenze für steuerlich begünstigte Sonn- und Feiertagszuschläge soll zum 01.01.2027 von 50 € auf 75 € je Stunde steigen.**
 
 ---
 
-# 13. Beitragsfreiheit tarifvertraglicher Zuschläge
+⇨ 13. Beitragsfreiheit tarifvertraglicher Zuschläge
 
 Gleichzeitig sollen steuerfreie Sonn- und Feiertagszuschläge im Regelungsbereich eines Tarifvertrags vollständig beitragsfrei gestellt werden.
 
@@ -866,13 +866,13 @@ Noch offen sind unter anderem:
 - die genaue Höhe der Beitragsfreiheit und
 - das Verhältnis zur steuerrechtlichen Grundlohngrenze.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Die geplante Beitragsfreiheit tarifvertraglicher Zuschläge bedarf einer eigenständigen sozialversicherungsrechtlichen Regelung.**
 
 ---
 
-# 14. Steuerliche Begünstigung von Abfindungen
+⇨ 14. Steuerliche Begünstigung von Abfindungen
 
 Abfindungszahlungen sollen künftig besonders begünstigt werden, wenn nach der Beendigung eines Arbeitsverhältnisses zügig eine neue Erwerbstätigkeit aufgenommen wird.
 
@@ -880,17 +880,17 @@ Nach der politischen Einigung soll gelten:
 
 **Je schneller eine neue Beschäftigung aufgenommen wird, desto größer soll der steuerliche Vorteil sein.**
 
-## Geltendes Recht
+► Geltendes Recht
 
 Entschädigungen können bereits nach geltendem Recht unter bestimmten Voraussetzungen tarifbegünstigt sein.
 
-### Rechtsgrundlagen
+⇶  Rechtsgrundlagen
 
 § 24 Nr. 1 Buchst. a EStG  
 in Verbindung mit  
 § 34 Abs. 1 und Abs. 2 Nr. 2 EStG.
 
-## Noch offene Fragen
+► Noch offene Fragen
 
 Nicht veröffentlicht wurden bislang insbesondere:
 
@@ -912,15 +912,15 @@ Nicht veröffentlicht wurden bislang insbesondere:
 
 9. Ob Höchstbeträge oder Einkommensgrenzen eingeführt werden.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Eine konkrete Berechnung der geplanten Abfindungsbegünstigung ist derzeit nicht möglich, weil noch keine gesetzlichen Tatbestandsmerkmale oder Berechnungsformeln veröffentlicht wurden.**
 
 ---
 
-# 15. Übersicht: geltendes Recht und Reformplanung
+⇨ 15. Übersicht: geltendes Recht und Reformplanung
 
-## Grundfreibetrag
+► Grundfreibetrag
 
 Geltendes Recht 2026:
 
@@ -930,7 +930,7 @@ Plan 2028:
 
 voraussichtlich 12.900 €.
 
-## Kindergeld
+► Kindergeld
 
 Geltendes Recht 2026:
 
@@ -940,7 +940,7 @@ Plan 2028:
 
 voraussichtlich 272 € monatlich je Kind.
 
-## Arbeitnehmer-Pauschbetrag
+► Arbeitnehmer-Pauschbetrag
 
 Geltendes Recht 2026:
 
@@ -950,7 +950,7 @@ Plan:
 
 voraussichtlich 1.430 €.
 
-## Reichensteuer
+► Reichensteuer
 
 Geltendes Recht 2026:
 
@@ -961,7 +961,7 @@ Plan:
 45 % ab 250.000 € zvE;  
 47 % ab 280.000 € zvE.
 
-## Minijob-Pauschalsteuer
+► Minijob-Pauschalsteuer
 
 Geltendes Recht:
 
@@ -971,7 +971,7 @@ Plan:
 
 5 %.
 
-## Handwerkerleistungen
+► Handwerkerleistungen
 
 Geltendes Recht:
 
@@ -981,7 +981,7 @@ Plan:
 
 15 %, maximal 900 €.
 
-## Grundlohngrenze Sonn- und Feiertagszuschläge
+► Grundlohngrenze Sonn- und Feiertagszuschläge
 
 Geltendes Recht:
 
@@ -991,7 +991,7 @@ Plan ab 01.01.2027:
 
 75 € je Stunde.
 
-## Abfindungen
+► Abfindungen
 
 Geltendes Recht:
 
@@ -1003,13 +1003,13 @@ zusätzliche Begünstigung bei schneller Aufnahme einer neuen Erwerbstätigkeit;
 
 ---
 
-# 16. Prüfungssichere Einordnung
+⇨ 16. Prüfungssichere Einordnung
 
-## Frage
+► Frage
 
 Sind die genannten Reformmaßnahmen bereits anzuwenden?
 
-## Antwort
+► Antwort
 
 Nein.
 
@@ -1019,13 +1019,13 @@ Sie entfalten keine unmittelbare Außenwirkung gegenüber Steuerpflichtigen und 
 
 Erst ein ordnungsgemäß beschlossenes, ausgefertigtes und im Bundesgesetzblatt verkündetes Gesetz kann die bestehenden gesetzlichen Regelungen ändern.
 
-### Prüfungssatz
+⇶  Prüfungssatz
 
 **Die im Koalitionsausschuss vereinbarten Maßnahmen sind mangels abgeschlossenen Gesetzgebungsverfahrens noch nicht anzuwenden. Maßgeblich bleibt bis zum Inkrafttreten einer gesetzlichen Neuregelung das geltende Einkommensteuergesetz.**
 
 ---
 
-# 17. Kompakte Lernsätze
+⇨ 17. Kompakte Lernsätze
 
 1. Die Einkommensteuerreform soll zum 01.01.2027 beginnen und ab 2028 ihre volle Wirkung entfalten.
 
@@ -1079,11 +1079,11 @@ Erst ein ordnungsgemäß beschlossenes, ausgefertigtes und im Bundesgesetzblatt 
 
 ---
 
-# 18. Antwortlogik für den Steuerstoff-Chatbot
+⇨ 18. Antwortlogik für den Steuerstoff-Chatbot
 
 Bei Fragen zur Einkommensteuerreform 2027 muss der Chatbot zunächst unterscheiden:
 
-## A. Frage nach geltendem Recht
+► A. Frage nach geltendem Recht
 
 Bei Fragen wie
 
@@ -1097,7 +1097,7 @@ muss der Chatbot grundsätzlich den aktuell geltenden Rechtsstand nennen.
 
 Anschließend kann er ergänzend auf die geplante Reform hinweisen.
 
-## B. Frage nach der Reformplanung
+► B. Frage nach der Reformplanung
 
 Bei Fragen wie
 
@@ -1108,7 +1108,7 @@ Bei Fragen wie
 
 muss der Chatbot ausdrücklich darauf hinweisen, dass es sich um eine politische Planung und noch nicht um geltendes Recht handelt.
 
-## C. Frage nach einer konkreten Steuerberechnung für 2027 oder 2028
+► C. Frage nach einer konkreten Steuerberechnung für 2027 oder 2028
 
 Solange der endgültige Gesetzestext nicht vorliegt, darf der Chatbot keine verbindliche Steuerberechnung auf Grundlage der Reformpläne vornehmen.
 
@@ -1124,7 +1124,7 @@ Die Berechnung muss deutlich als vorläufig gekennzeichnet werden.
 
 ---
 
-# 19. Pflichtformulierungen des Chatbots
+⇨ 19. Pflichtformulierungen des Chatbots
 
 Der Chatbot soll Formulierungen verwenden wie:
 
@@ -1154,13 +1154,13 @@ Der Chatbot darf nicht formulieren:
 
 ---
 
-# 20. Kurzantwort des Chatbots
+⇨ 20. Kurzantwort des Chatbots
 
 **Die Regierungskoalition plant zum 01.01.2027 eine Reform der Einkommensteuer, die ab 2028 ihre volle Wirkung entfalten soll. Vorgesehen sind insbesondere ein höherer Grundfreibetrag, ein höheres Kindergeld, ein höherer Arbeitnehmer-Pauschbetrag und eine Abflachung des Einkommensteuertarifs. Zur Gegenfinanzierung sollen ab 250.000 € zvE 45 % und ab 280.000 € zvE 47 % Einkommensteuer gelten. Außerdem sollen die Minijob-Pauschalsteuer von 2 % auf 5 % steigen und die Steuerermäßigung für Handwerkerleistungen auf 15 % beziehungsweise maximal 900 € sinken. Die Grundlohngrenze für begünstigte Sonn- und Feiertagszuschläge soll auf 75 € steigen. Es handelt sich bislang um einen Beschluss des Koalitionsausschusses und noch nicht um geltendes Recht.**
 
 ---
 
-# 21. Warnhinweis für den Chatbot
+⇨ 21. Warnhinweis für den Chatbot
 
 Der Chatbot darf die Reformpläne nicht als bereits verabschiedetes Recht darstellen.
 
@@ -1342,11 +1342,11 @@ Bei einer späteren Gesetzesänderung muss dieser KB-Eintrag aktualisiert oder d
   ],
 
   body: `
-# Gemeinnützigkeit einer unternehmensverbundenen Stiftung
+⇨ Gemeinnützigkeit einer unternehmensverbundenen Stiftung
 
-## BFH vom 04.12.2025 – V R 11/24
+► BFH vom 04.12.2025 – V R 11/24
 
-# 1. Kernaussage
+⇨ 1. Kernaussage
 
 Private Interessen des Stifters können die Gemeinnützigkeit einer Stiftung ausschließen.
 
@@ -1365,13 +1365,13 @@ Maßgeblich ist vielmehr, ob die Stiftung
 
 verfolgt.
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 55 Abs. 1 AO.
 
 ---
 
-# 2. Selbstlosigkeit nach § 55 Abs. 1 AO
+⇨ 2. Selbstlosigkeit nach § 55 Abs. 1 AO
 
 Eine Körperschaft handelt selbstlos, wenn sie nicht in erster Linie eigenwirtschaftliche Zwecke verfolgt.
 
@@ -1384,13 +1384,13 @@ Eigenwirtschaftliche Zwecke können sein:
 - familiäre Interessen oder
 - sonstige eigennützige Interessen.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Eine gemeinnützige Stiftung darf nicht vorrangig als Instrument zur Förderung privater Interessen ihres Stifters oder nahestehender Personen eingesetzt werden, § 55 Abs. 1 AO.**
 
 ---
 
-# 3. Bedeutung des Ausdrucks „in erster Linie“
+⇨ 3. Bedeutung des Ausdrucks „in erster Linie“
 
 Die Formulierung „in erster Linie“ bedeutet, dass nicht jedes private Interesse automatisch schädlich ist.
 
@@ -1409,19 +1409,19 @@ Gemeinnützigkeitsschädlich wird die Gestaltung, wenn die privaten Interessen
 - die Stiftungstätigkeit prägen oder
 - den eigentlichen Schwerpunkt der Tätigkeit darstellen.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Nicht jeder private Nebeneffekt ist gemeinnützigkeitsschädlich. Schädlich ist die vorrangige Förderung privater Interessen.**
 
 ---
 
-# 4. Erforderliche Interessenabwägung
+⇨ 4. Erforderliche Interessenabwägung
 
 Für die Prüfung der Selbstlosigkeit ist eine Gesamtwürdigung erforderlich.
 
 Dabei sind insbesondere gegenüberzustellen:
 
-## Gemeinnützige Interessen
+► Gemeinnützige Interessen
 
 - tatsächliche Förderung der Allgemeinheit,
 - Verwirklichung der steuerbegünstigten Satzungszwecke,
@@ -1429,7 +1429,7 @@ Dabei sind insbesondere gegenüberzustellen:
 - Zahl und Bedeutung der geförderten Projekte,
 - tatsächlicher Nutzen für die Allgemeinheit.
 
-## Private oder eigenwirtschaftliche Interessen
+► Private oder eigenwirtschaftliche Interessen
 
 - Erhalt oder Finanzierung eines Familienunternehmens,
 - Konzernfinanzierung,
@@ -1439,17 +1439,17 @@ Dabei sind insbesondere gegenüberzustellen:
 - Erhalt von Einfluss- und Stimmrechten,
 - Förderung nahestehender Personen oder Unternehmen.
 
-### Prüfungsfrage
+⇶  Prüfungsfrage
 
 **Überwiegt die Förderung der Allgemeinheit gegenüber den Vorteilen des Stifters und der ihm nahestehenden Personen?**
 
-### Lernsatz
+⇶  Lernsatz
 
 **Die Selbstlosigkeit ist anhand einer Abwägung zwischen Allgemeininteresse und privaten Vorteilen zu beurteilen.**
 
 ---
 
-# 5. Interesse am Erhalt des Lebenswerks
+⇨ 5. Interesse am Erhalt des Lebenswerks
 
 Die Stifterin berief sich unter anderem darauf, das persönliche Lebenswerk ihres verstorbenen Ehemanns erhalten zu wollen.
 
@@ -1465,13 +1465,13 @@ darstellen.
 
 Auch nicht unmittelbar wirtschaftliche Interessen können daher für die Prüfung des § 55 Abs. 1 AO relevant sein.
 
-### Lernsatz
+⇶  Lernsatz
 
 **§ 55 Abs. 1 AO erfasst nicht nur finanzielle Eigeninteressen, sondern auch sonstige eigennützige oder familiäre Interessen.**
 
 ---
 
-# 6. Pflichtteilsansprüche als mögliches Eigeninteresse
+⇨ 6. Pflichtteilsansprüche als mögliches Eigeninteresse
 
 Nach dem Sachverhalt bestand die Möglichkeit, dass die Stiftungskonstruktion dazu dienen sollte, Vermögen dem Zugriff pflichtteilsberechtigter Kinder zu entziehen.
 
@@ -1487,11 +1487,11 @@ Ein solches Ziel stellt kein gemeinnützigkeitsrechtliches Allgemeininteresse da
 
 Es kann vielmehr ein privates familiäres Eigeninteresse der Stifterin sein.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Die Nutzung einer gemeinnützigen Stiftung zur Vermeidung oder Reduzierung von Pflichtteilsansprüchen kann ein die Selbstlosigkeit ausschließendes Eigeninteresse darstellen.**
 
-### Achtung
+⇶  Achtung
 
 Der BFH hat nicht abschließend festgestellt, dass tatsächlich ein Pflichtteilsausschluss beabsichtigt war.
 
@@ -1499,7 +1499,7 @@ Das Finanzgericht muss die Motivation und die wirtschaftlichen Auswirkungen im z
 
 ---
 
-# 7. Unternehmenssicherung und Konzernfinanzierung
+⇨ 7. Unternehmenssicherung und Konzernfinanzierung
 
 Die Stiftung hielt eine Beteiligung an einer AG.
 
@@ -1514,13 +1514,13 @@ Damit stellt sich die Frage, ob die Stiftung tatsächlich
 - die Allgemeinheit förderte oder
 - vorrangig als Finanzierungsinstrument für den Konzern eingesetzt wurde.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Wird eine gemeinnützige Stiftung vorrangig zur Finanzierung oder Sicherung eines Unternehmensverbunds eingesetzt, kann dies gegen die Selbstlosigkeit nach § 55 Abs. 1 AO sprechen.**
 
 ---
 
-# 8. Steuerlicher Vorteil der Stifterin
+⇨ 8. Steuerlicher Vorteil der Stifterin
 
 Durch die Zuwendung an die Stiftung konnte die Stifterin einen steuerlichen Abzug geltend machen, der bei einer unmittelbaren Finanzierung des Unternehmens nicht möglich gewesen wäre.
 
@@ -1538,13 +1538,13 @@ Zu prüfen ist insbesondere:
 - Wurden die Mittel tatsächlich gemeinnützig verwendet?
 - Dienten die Mittel unmittelbar oder mittelbar der Konzernfinanzierung?
 
-### Lernsatz
+⇶  Lernsatz
 
 **Ein steuerlicher Vorteil des Stifters ist nicht automatisch gemeinnützigkeitsschädlich, kann aber ein Indiz für eine eigennützige Zwecksetzung sein.**
 
 ---
 
-# 9. Nahestehende Personen
+⇨ 9. Nahestehende Personen
 
 Für die Prüfung der Selbstlosigkeit sind nicht nur unmittelbare Vorteile des Stifters zu berücksichtigen.
 
@@ -1563,13 +1563,13 @@ Der BFH gab dem Finanzgericht auf, insbesondere zu prüfen, ob
 
 der Stifterin nahestehende Personen waren.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Auch die mittelbare Förderung nahestehender Personen oder Unternehmen kann eine eigenwirtschaftliche Zweckverfolgung nach § 55 Abs. 1 AO darstellen.**
 
 ---
 
-# 10. Bedeutung der Stimmbindungsvereinbarung
+⇨ 10. Bedeutung der Stimmbindungsvereinbarung
 
 Die Stiftung übernahm eine Stimmbindungsvereinbarung, die inhaltlich der zuvor zwischen der Stifterin und der GmbH bestehenden Vereinbarung entsprach.
 
@@ -1579,13 +1579,13 @@ Die Stimmbindungsvereinbarung kann ein Indiz dafür sein, dass die Beteiligung d
 
 Zu prüfen ist vielmehr, ob die Stiftung gesellschaftsrechtlich in eine vorgegebene Konzernstrategie eingebunden war.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Stimmbindungsvereinbarungen können ein Indiz dafür sein, dass eine Stiftung Beteiligungen nicht unabhängig, sondern zur Förderung privater Unternehmensinteressen hält.**
 
 ---
 
-# 11. Stellung der Stifterin in den Stiftungsorganen
+⇨ 11. Stellung der Stifterin in den Stiftungsorganen
 
 Dem Stiftungsrat gehörte ausschließlich die Stifterin an.
 
@@ -1602,29 +1602,29 @@ Für die Gesamtwürdigung sind daher insbesondere relevant:
 - mögliche Interessenkonflikte,
 - dokumentierte Abwägung zwischen Stiftung und Konzerninteressen.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Beherrscht der Stifter die Stiftungsorgane und gibt er konkrete Investitionsentscheidungen vor, kann dies ein Indiz für eine vorrangige Förderung seiner privaten Interessen sein.**
 
 ---
 
-# 12. Tatsächliche Geschäftsführung nach § 63 Abs. 1 AO
+⇨ 12. Tatsächliche Geschäftsführung nach § 63 Abs. 1 AO
 
 Nach § 63 Abs. 1 AO muss die tatsächliche Geschäftsführung der Körperschaft auf die ausschließliche und unmittelbare Erfüllung der steuerbegünstigten Zwecke gerichtet sein.
 
 Die tatsächliche Geschäftsführung muss daher mit den gemeinnützigkeitsrechtlichen Anforderungen der Abgabenordnung übereinstimmen.
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 63 Abs. 1 AO.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Die tatsächliche Geschäftsführung muss den steuerbegünstigten Satzungszwecken und den Vorgaben der §§ 51 bis 68 AO entsprechen.**
 
 ---
 
-# 13. Verstoß gegen die Vermögenserhaltungsklausel
+⇨ 13. Verstoß gegen die Vermögenserhaltungsklausel
 
 Die Stiftungssatzung bestimmte, dass das Stiftungsvermögen in seinem Bestand erhalten werden müsse.
 
@@ -1634,13 +1634,13 @@ Der BFH widersprach dieser Beurteilung.
 
 Ein allgemeiner steuerlicher Grundsatz, nach dem eine gemeinnützige Stiftung ihr Vermögen stets ungeschmälert erhalten müsse, existiert im Gemeinnützigkeitsrecht nicht.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Ein allgemeiner gemeinnützigkeitsrechtlicher Grundsatz der ungeschmälerten Erhaltung des Stiftungsvermögens besteht nicht.**
 
 ---
 
-# 14. Nicht jeder Satzungsverstoß ist gemeinnützigkeitsschädlich
+⇨ 14. Nicht jeder Satzungsverstoß ist gemeinnützigkeitsschädlich
 
 Ein Verstoß gegen eine Satzungsbestimmung führt nur dann zur Versagung der Gemeinnützigkeit, wenn die verletzte Regelung für das Gemeinnützigkeitsrecht maßgeblich ist.
 
@@ -1650,15 +1650,15 @@ Relevant sind insbesondere die Vorgaben der
 
 Eine rein stiftungsrechtliche Regelung zum Erhalt des Stiftungsvermögens ist nicht automatisch eine steuerliche Gemeinnützigkeitsvoraussetzung.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Verstöße gegen Satzungsbestimmungen, die nicht durch die §§ 51 bis 68 AO vorgegeben sind, führen nicht ohne Weiteres zum Verlust der Steuerbefreiung nach § 5 Abs. 1 Nr. 9 KStG.**
 
 ---
 
-# 15. Abgrenzung: Stiftungsrecht und Gemeinnützigkeitsrecht
+⇨ 15. Abgrenzung: Stiftungsrecht und Gemeinnützigkeitsrecht
 
-## Stiftungsrecht
+► Stiftungsrecht
 
 Das Stiftungsrecht betrifft unter anderem:
 
@@ -1668,7 +1668,7 @@ Das Stiftungsrecht betrifft unter anderem:
 - staatliche Stiftungsaufsicht,
 - Zulässigkeit von Vermögensumschichtungen.
 
-## Gemeinnützigkeitsrecht
+► Gemeinnützigkeitsrecht
 
 Das Gemeinnützigkeitsrecht betrifft insbesondere:
 
@@ -1680,17 +1680,17 @@ Das Gemeinnützigkeitsrecht betrifft insbesondere:
 - zeitnahe Mittelverwendung,
 - ordnungsgemäße tatsächliche Geschäftsführung.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Ein stiftungsrechtlicher Verstoß ist nicht automatisch ein gemeinnützigkeitsrechtlicher Verstoß. Beide Rechtsgebiete sind getrennt zu prüfen.**
 
 ---
 
-# 16. Vermögensbindung und Vermögenserhaltung
+⇨ 16. Vermögensbindung und Vermögenserhaltung
 
 Die Begriffe dürfen nicht verwechselt werden.
 
-## Vermögensbindung
+► Vermögensbindung
 
 Die gemeinnützigkeitsrechtliche Vermögensbindung betrifft insbesondere die Verwendung des Vermögens bei
 
@@ -1700,17 +1700,17 @@ Die gemeinnützigkeitsrechtliche Vermögensbindung betrifft insbesondere die Ver
 
 Sie soll verhindern, dass gemeinnützig gebundenes Vermögen anschließend privat verteilt wird.
 
-## Vermögenserhaltung
+► Vermögenserhaltung
 
 Die stiftungsrechtliche Vermögenserhaltung betrifft die Frage, ob das Grundstockvermögen dauerhaft erhalten werden muss.
 
-### Merksatz
+⇶  Merksatz
 
 **Gemeinnützigkeitsrechtliche Vermögensbindung ist nicht dasselbe wie stiftungsrechtliche Vermögenserhaltung.**
 
 ---
 
-# 17. Formelle Satzungsmäßigkeit und tatsächliche Geschäftsführung
+⇨ 17. Formelle Satzungsmäßigkeit und tatsächliche Geschäftsführung
 
 Die Stiftung hatte zunächst einen Feststellungsbescheid über die formelle Satzungsmäßigkeit erhalten.
 
@@ -1718,25 +1718,25 @@ Dieser Bescheid beantwortet grundsätzlich die Frage, ob die Satzung die gemeinn
 
 Davon zu unterscheiden ist die tatsächliche Geschäftsführung.
 
-### Formelle Satzungsmäßigkeit
+⇶  Formelle Satzungsmäßigkeit
 
 § 60 AO und § 60a AO.
 
 Prüfung der Satzung anhand ihres Wortlauts.
 
-### Tatsächliche Geschäftsführung
+⇶  Tatsächliche Geschäftsführung
 
 § 63 AO.
 
 Prüfung, wie die Stiftung ihre Tätigkeit tatsächlich ausübt und ihre Mittel tatsächlich verwendet.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Ein Feststellungsbescheid nach § 60a AO schützt nicht vor einer späteren Prüfung, ob die tatsächliche Geschäftsführung den gemeinnützigkeitsrechtlichen Anforderungen entspricht.**
 
 ---
 
-# 18. Ergebnis des BFH
+⇨ 18. Ergebnis des BFH
 
 Der BFH konnte nicht abschließend entscheiden, ob die Stiftung in den Jahren 2015 bis 2017 selbstlos tätig war.
 
@@ -1762,13 +1762,13 @@ Es muss insbesondere prüfen:
 
 9. Überwog die Förderung der Allgemeinheit die privaten Vorteile?
 
-### Lernsatz
+⇶  Lernsatz
 
 **Bei einer unternehmensverbundenen Stiftung entscheidet eine Gesamtwürdigung aller wirtschaftlichen, familiären, steuerlichen und gemeinnützigen Umstände.**
 
 ---
 
-# 19. Streitjahr 2018
+⇨ 19. Streitjahr 2018
 
 Für das Jahr 2018 hatte das Finanzgericht die Steuerbefreiung wegen eines vermeintlichen Verstoßes gegen den Grundsatz der Erhaltung des Stiftungsvermögens versagt.
 
@@ -1782,57 +1782,57 @@ Die Steuerbefreiung steht nicht automatisch fest.
 
 Das Finanzgericht muss weiterhin prüfen, ob andere gemeinnützigkeitsrechtliche Verstöße vorliegen.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Die Zurückweisung der Begründung des Finanzgerichts bedeutet nicht automatisch, dass die Stiftung für 2018 gemeinnützig war.**
 
 ---
 
-# 20. Prüfungsschema für unternehmensverbundene Stiftungen
+⇨ 20. Prüfungsschema für unternehmensverbundene Stiftungen
 
-## Schritt 1: Steuerbegünstigter Satzungszweck
+► Schritt 1: Steuerbegünstigter Satzungszweck
 
 Liegt ein steuerbegünstigter Zweck nach §§ 52 bis 54 AO vor?
 
-## Schritt 2: Formelle Satzungsmäßigkeit
+► Schritt 2: Formelle Satzungsmäßigkeit
 
 Entspricht die Satzung den §§ 59, 60 und 61 AO?
 
-## Schritt 3: Ausschließlichkeit
+► Schritt 3: Ausschließlichkeit
 
 Verfolgt die Stiftung ausschließlich steuerbegünstigte Zwecke, § 56 AO?
 
-## Schritt 4: Unmittelbarkeit
+► Schritt 4: Unmittelbarkeit
 
 Verwirklicht die Stiftung ihre Zwecke unmittelbar, § 57 AO?
 
-## Schritt 5: Selbstlosigkeit
+► Schritt 5: Selbstlosigkeit
 
 Verfolgt die Stiftung nicht in erster Linie eigenwirtschaftliche Zwecke, § 55 Abs. 1 AO?
 
-## Schritt 6: Private Interessen
+► Schritt 6: Private Interessen
 
 Bestehen wirtschaftliche, steuerliche, familiäre oder sonstige eigennützige Interessen des Stifters?
 
-## Schritt 7: Nahestehende Personen
+► Schritt 7: Nahestehende Personen
 
 Werden verbundene Unternehmen, Familienangehörige oder sonstige nahestehende Personen gefördert?
 
-## Schritt 8: Interessenabwägung
+► Schritt 8: Interessenabwägung
 
 Überwiegt die tatsächliche Förderung der Allgemeinheit gegenüber den privaten Vorteilen?
 
-## Schritt 9: Tatsächliche Geschäftsführung
+► Schritt 9: Tatsächliche Geschäftsführung
 
 Entspricht die tatsächliche Geschäftsführung § 63 Abs. 1 AO?
 
-## Schritt 10: Art des Satzungsverstoßes
+► Schritt 10: Art des Satzungsverstoßes
 
 Betrifft ein festgestellter Satzungsverstoß eine Vorgabe der §§ 51 bis 68 AO oder lediglich das allgemeine Stiftungsrecht?
 
 ---
 
-# 21. Indizien für eine gemeinnützigkeitsschädliche Eigennützigkeit
+⇨ 21. Indizien für eine gemeinnützigkeitsschädliche Eigennützigkeit
 
 Folgende Umstände können gegen die Selbstlosigkeit sprechen:
 
@@ -1847,7 +1847,7 @@ Folgende Umstände können gegen die Selbstlosigkeit sprechen:
 - nahestehende Personen werden mittelbar begünstigt,
 - gemeinnützige Projekte treten wirtschaftlich deutlich in den Hintergrund.
 
-### Achtung
+⇶  Achtung
 
 Keines dieser Indizien führt isoliert zwingend zum Verlust der Gemeinnützigkeit.
 
@@ -1855,7 +1855,7 @@ Erforderlich bleibt eine Gesamtwürdigung.
 
 ---
 
-# 22. Indizien für eine weiterhin selbstlose Stiftung
+⇨ 22. Indizien für eine weiterhin selbstlose Stiftung
 
 Für die Selbstlosigkeit können sprechen:
 
@@ -1872,7 +1872,7 @@ Für die Selbstlosigkeit können sprechen:
 
 ---
 
-# 23. Gestaltungsberatung
+⇨ 23. Gestaltungsberatung
 
 Bei der Errichtung und Betreuung einer unternehmensverbundenen Stiftung sollten insbesondere dokumentiert werden:
 
@@ -1896,13 +1896,13 @@ Bei der Errichtung und Betreuung einer unternehmensverbundenen Stiftung sollten 
 
 10. die Abwägung zwischen Vermögensertrag und Anlagerisiko.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Je enger eine gemeinnützige Stiftung personell und wirtschaftlich mit einem Unternehmen verbunden ist, desto sorgfältiger müssen Entscheidungsprozesse, Fremdüblichkeit und Gemeinwohlorientierung dokumentiert werden.**
 
 ---
 
-# 24. Verbindliche Auskunft
+⇨ 24. Verbindliche Auskunft
 
 Bei komplexen Gestaltungen kann eine verbindliche Auskunft gegenüber dem Finanzamt sinnvoll sein.
 
@@ -1917,13 +1917,13 @@ Dabei sollten sämtliche relevanten Umstände vollständig offengelegt werden, i
 - Weisungs- und Kontrollrechte,
 - geplante Mittelverwendung.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Eine verbindliche Auskunft schützt nur, wenn der maßgebliche Sachverhalt vollständig und zutreffend offengelegt wird.**
 
 ---
 
-# 25. Kompakte Lernsätze
+⇨ 25. Kompakte Lernsätze
 
 1. Eine Stiftung ist nur selbstlos, wenn sie nicht in erster Linie eigenwirtschaftliche Zwecke verfolgt, § 55 Abs. 1 AO.
 
@@ -1977,19 +1977,19 @@ Dabei sollten sämtliche relevanten Umstände vollständig offengelegt werden, i
 
 ---
 
-# 26. Prüfungssicherer Antwortsatz
+⇨ 26. Prüfungssicherer Antwortsatz
 
 **Nach § 55 Abs. 1 AO handelt eine Stiftung nur selbstlos, wenn sie nicht in erster Linie eigenwirtschaftliche Zwecke verfolgt. Private wirtschaftliche, familiäre oder sonstige eigennützige Interessen des Stifters können daher die Gemeinnützigkeit ausschließen, wenn sie gegenüber der tatsächlichen Förderung der Allgemeinheit überwiegen. Erforderlich ist eine Gesamtwürdigung aller Umstände. Ein bloßer Verstoß gegen eine stiftungsrechtliche Satzungsregelung zum Erhalt des Stiftungsvermögens führt dagegen nicht automatisch zu einem Verstoß gegen § 63 Abs. 1 AO, sofern die verletzte Regelung nicht auf den gemeinnützigkeitsrechtlichen Vorgaben der §§ 51 bis 68 AO beruht.**
 
 ---
 
-# 27. Kurzantwort des Steuerstoff-Chatbots
+⇨ 27. Kurzantwort des Steuerstoff-Chatbots
 
 **Der BFH hat entschieden, dass auch private wirtschaftliche, familiäre oder sonstige eigennützige Interessen des Stifters die Selbstlosigkeit einer Stiftung ausschließen können. Maßgeblich ist, ob die Stiftung nach einer Gesamtwürdigung in erster Linie diese privaten Interessen oder überwiegend die Allgemeinheit fördert, § 55 Abs. 1 AO. Bei einer unternehmensverbundenen Stiftung sind insbesondere Konzernfinanzierung, Steuervorteile, Pflichtteilsinteressen, Stimmbindungen und Vorteile nahestehender Personen zu prüfen. Ein bloßer Verstoß gegen eine rein stiftungsrechtliche Vermögenserhaltungsklausel führt dagegen nicht automatisch zum Verlust der Gemeinnützigkeit nach § 63 Abs. 1 AO. Der BFH hat den Fall zur weiteren Sachverhaltsaufklärung an das Finanzgericht zurückverwiesen.**
 
 ---
 
-# 28. Fehlervermeidung
+⇨ 28. Fehlervermeidung
 
 Der Chatbot darf nicht pauschal behaupten:
 
@@ -2019,7 +2019,7 @@ Richtig ist:
 
 ---
 
-# 29. Entscheidungslogik für den Chatbot
+⇨ 29. Entscheidungslogik für den Chatbot
 
 Bei einer Frage zu einer unternehmensverbundenen Stiftung soll der Chatbot folgende Reihenfolge verwenden:
 
@@ -2173,9 +2173,9 @@ Erst danach darf eine Einschätzung zur Selbstlosigkeit und Gemeinnützigkeit er
   ],
 
   body: `
-# Gemeinnützigkeit in der Liquidationsphase
+⇨ Gemeinnützigkeit in der Liquidationsphase
 
-## 1. Aktueller Rechtsstand
+► 1. Aktueller Rechtsstand
 
 Die Frage, ob eine steuerbegünstigte Körperschaft auch während ihrer Liquidations- oder Abwicklungsphase gemeinnützig bleiben kann, ist höchstrichterlich noch nicht abschließend entschieden.
 
@@ -2195,7 +2195,7 @@ Vorinstanz ist das Urteil des FG Münster vom 29.11.2023 – 13 K 1127/22 K.
 
 Die Revision wurde durch den BFH-Beschluss vom 30.07.2025 – V B 3/24 zugelassen.
 
-## Zwingender Hinweis für den Chatbot
+► Zwingender Hinweis für den Chatbot
 
 Der Chatbot darf nicht behaupten, der BFH habe bereits entschieden, dass
 
@@ -2207,23 +2207,23 @@ Diese Fragen sind Gegenstand des noch anhängigen Revisionsverfahrens.
 
 ---
 
-# 2. Zentrale Rechtsfragen des BFH-Verfahrens
+⇨ 2. Zentrale Rechtsfragen des BFH-Verfahrens
 
 Der BFH wird insbesondere folgende Fragen klären:
 
-## Erste Rechtsfrage
+► Erste Rechtsfrage
 
 **Führen die Auflösung oder Aufhebung einer Körperschaft und der Eintritt in die Liquidation bereits für sich genommen zum Verlust der Steuerbefreiung nach § 5 Abs. 1 Nr. 9 KStG?**
 
-## Zweite Rechtsfrage
+► Zweite Rechtsfrage
 
 **Kann bei Auflösung oder Aufhebung einer Körperschaft aufgrund von § 61 Abs. 3 Satz 2 und § 63 Abs. 2 AO eine Nachversteuerung für Steuern erfolgen, die innerhalb der letzten zehn Kalenderjahre vor der Auflösung oder Aufhebung entstanden sind?**
 
 ---
 
-# 3. Ausgangspunkt der Steuerbefreiung
+⇨ 3. Ausgangspunkt der Steuerbefreiung
 
-## § 5 Abs. 1 Nr. 9 Satz 1 KStG
+► § 5 Abs. 1 Nr. 9 Satz 1 KStG
 
 Von der Körperschaftsteuer sind Körperschaften, Personenvereinigungen und Vermögensmassen befreit, die
 
@@ -2234,13 +2234,13 @@ ausschließlich und unmittelbar gemeinnützigen, mildtätigen oder kirchlichen Z
 
 Die Voraussetzungen richten sich nach den §§ 51 bis 68 AO.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Die Gemeinnützigkeit verlangt sowohl eine ordnungsgemäße Satzung als auch eine den Satzungsbestimmungen entsprechende tatsächliche Geschäftsführung.**
 
 ---
 
-# 4. Liquidation beendet die Körperschaft nicht sofort
+⇨ 4. Liquidation beendet die Körperschaft nicht sofort
 
 Die Auflösung einer Körperschaft und ihr endgültiges Erlöschen sind voneinander zu unterscheiden.
 
@@ -2248,21 +2248,21 @@ Mit dem Auflösungsbeschluss beginnt regelmäßig zunächst die Liquidations- od
 
 Die Körperschaft besteht während dieser Phase für die Zwecke der Liquidation grundsätzlich fort.
 
-## Beispiel Verein
+► Beispiel Verein
 
 Nach § 49 Abs. 2 BGB gilt der Verein bis zur Beendigung der Liquidation als fortbestehend, soweit der Zweck der Liquidation dies erfordert.
 
-## Beispiel Stiftung
+► Beispiel Stiftung
 
 Für Stiftungen ergeben sich die Regelungen zur Vermögensabwicklung insbesondere aus § 87c BGB.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Auflösung ist nicht gleich Erlöschen. Die Körperschaft besteht während der notwendigen Liquidationsphase für Abwicklungszwecke fort.**
 
 ---
 
-# 5. Zivilrechtliche Aufgaben des Liquidators
+⇨ 5. Zivilrechtliche Aufgaben des Liquidators
 
 Nach § 49 Abs. 1 BGB haben die Liquidatoren insbesondere
 
@@ -2274,11 +2274,11 @@ Nach § 49 Abs. 1 BGB haben die Liquidatoren insbesondere
 
 Zur Beendigung schwebender Geschäfte dürfen die Liquidatoren auch neue, dem Liquidationszweck dienende Geschäfte eingehen.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Die Befriedigung bestehender Gläubiger ist eine gesetzliche Liquidationsaufgabe und geht der Auskehr des Restvermögens an den Anfallsberechtigten voraus.**
 
-### Achtung
+⇶  Achtung
 
 Die Begleichung bestehender Verbindlichkeiten ist nicht allein deshalb gemeinnützigkeitsschädlich, weil der Gläubiger selbst keine steuerbegünstigte Körperschaft ist.
 
@@ -2291,15 +2291,15 @@ Es muss geprüft werden,
 
 ---
 
-# 6. Tatsächliche Geschäftsführung während der Liquidation
+⇨ 6. Tatsächliche Geschäftsführung während der Liquidation
 
-## § 63 Abs. 1 AO
+► § 63 Abs. 1 AO
 
 Die tatsächliche Geschäftsführung muss auf die ausschließliche und unmittelbare Erfüllung der steuerbegünstigten Zwecke gerichtet sein und den Satzungsbestimmungen entsprechen.
 
 Auch während der Liquidationsphase muss daher geprüft werden, wie die Körperschaft ihr Vermögen tatsächlich verwaltet und verwendet.
 
-### Maßgebliche Fragen
+⇶  Maßgebliche Fragen
 
 - Werden nur notwendige Abwicklungsmaßnahmen durchgeführt?
 - Werden bestehende und berechtigte Gläubiger befriedigt?
@@ -2309,15 +2309,15 @@ Auch während der Liquidationsphase muss daher geprüft werden, wie die Körpers
 - Wird die Liquidation ohne sachlich nicht gerechtfertigte Verzögerung durchgeführt?
 - Werden Satzung, Gesetz und Vermögensbindung eingehalten?
 
-### Lernsatz
+⇶  Lernsatz
 
 **Auch in der Liquidation ist nicht die bloße Bezeichnung als gemeinnützig entscheidend, sondern die tatsächliche Verwendung und Verwaltung des Vermögens.**
 
 ---
 
-# 7. Grundsatz der Vermögensbindung
+⇨ 7. Grundsatz der Vermögensbindung
 
-## § 55 Abs. 1 Nr. 4 AO
+► § 55 Abs. 1 Nr. 4 AO
 
 Bei Auflösung oder Aufhebung der Körperschaft oder bei Wegfall ihres bisherigen Zwecks darf das Vermögen grundsätzlich nur für steuerbegünstigte Zwecke verwendet werden.
 
@@ -2330,15 +2330,15 @@ Die Vermögensbindung kann insbesondere erfüllt werden, indem das Restvermögen
 
 zur Verwendung für steuerbegünstigte Zwecke übertragen wird.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Das nach Abschluss der Liquidation verbleibende gebundene Vermögen muss dem satzungsmäßigen steuerbegünstigten Anfallsberechtigten zugeführt oder für den genau bezeichneten steuerbegünstigten Zweck verwendet werden.**
 
 ---
 
-# 8. Satzungsmäßige Vermögensbindung
+⇨ 8. Satzungsmäßige Vermögensbindung
 
-## § 61 Abs. 1 AO
+► § 61 Abs. 1 AO
 
 Die Satzung muss den Verwendungszweck des Vermögens bei
 
@@ -2348,40 +2348,40 @@ Die Satzung muss den Verwendungszweck des Vermögens bei
 
 so genau bestimmen, dass geprüft werden kann, ob der vorgesehene Vermögensanfall steuerbegünstigt ist.
 
-### Erforderlich ist grundsätzlich
+⇶  Erforderlich ist grundsätzlich
 
 - die genaue Bezeichnung eines steuerbegünstigten Anfallsberechtigten oder
 - die genaue Bezeichnung des steuerbegünstigten Verwendungszwecks.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Die Satzung muss eine anderweitige, insbesondere privatnützige Verwendung des verbleibenden Restvermögens ausschließen.**
 
 ---
 
-# 9. Formelle und tatsächliche Vermögensbindung
+⇨ 9. Formelle und tatsächliche Vermögensbindung
 
 Es sind zwei Ebenen zu unterscheiden.
 
-## Formelle Vermögensbindung
+► Formelle Vermögensbindung
 
 Die Satzung enthält eine den Anforderungen des § 61 Abs. 1 AO entsprechende Vermögensbindungsklausel.
 
-## Tatsächliche Vermögensbindung
+► Tatsächliche Vermögensbindung
 
 Die Körperschaft und ihre Liquidatoren verwenden das Vermögen tatsächlich entsprechend der Satzung und den §§ 55, 61 und 63 AO.
 
-### Wichtig
+⇶  Wichtig
 
 Eine formal ordnungsgemäße Satzung schützt nicht vor dem Verlust der Gemeinnützigkeit, wenn die tatsächliche Geschäftsführung das Vermögen entgegen der Bindung verwendet.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Die Vermögensbindung muss sowohl in der Satzung als auch in der tatsächlichen Abwicklung eingehalten werden.**
 
 ---
 
-# 10. Nicht jede Verzögerung der Vermögensauskehr ist automatisch schädlich
+⇨ 10. Nicht jede Verzögerung der Vermögensauskehr ist automatisch schädlich
 
 Das Restvermögen kann regelmäßig erst ausgekehrt werden, nachdem
 
@@ -2394,7 +2394,7 @@ Das Restvermögen kann regelmäßig erst ausgekehrt werden, nachdem
 
 Die bloße Tatsache, dass die Auskehr nicht unmittelbar nach dem Auflösungsbeschluss erfolgt, begründet daher nicht ohne Weiteres einen Verstoß gegen die Vermögensbindung.
 
-### Entscheidend sind
+⇶  Entscheidend sind
 
 - der Grund der Verzögerung,
 - die Notwendigkeit der noch laufenden Abwicklung,
@@ -2403,15 +2403,15 @@ Die bloße Tatsache, dass die Auskehr nicht unmittelbar nach dem Auflösungsbesc
 - die Tätigkeit des Liquidators und
 - die ernsthafte Vorbereitung der endgültigen Vermögensauskehr.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Eine sachlich notwendige Verzögerung der Auskehr ist von einer gemeinnützigkeitsschädlichen Zweckentfremdung des Vermögens zu unterscheiden.**
 
 ---
 
-# 11. Der Fall des FG Münster
+⇨ 11. Der Fall des FG Münster
 
-## Sachverhalt in Grundzügen
+► Sachverhalt in Grundzügen
 
 Bei der Klägerin handelte es sich um eine Stiftung, die durch die Stiftungsaufsicht aufgehoben worden war und sich in Liquidation befand.
 
@@ -2421,7 +2421,7 @@ Nach ihrer Aufhebung verfolgte sie keine operativen gemeinnützigen Zwecke mehr,
 
 Das Vermögen wurde nicht an den satzungsmäßigen steuerbegünstigten Anfallsberechtigten ausgekehrt.
 
-## Entscheidung des FG Münster
+► Entscheidung des FG Münster
 
 Das FG Münster nahm einen Verstoß der tatsächlichen Geschäftsführung gegen den Grundsatz der Vermögensbindung an.
 
@@ -2436,7 +2436,7 @@ Nach Auffassung des FG
 
 Das FG stellte außerdem darauf ab, dass keine strikte Trennung zwischen dem für die Rentenverpflichtung bestimmten Vermögen und dem gemeinnützig gebundenen Vermögen erfolgt war.
 
-### Wichtig
+⇶  Wichtig
 
 Das FG hat nicht lediglich abstrakt entschieden, dass jede Liquidation automatisch gemeinnützigkeitsschädlich sei.
 
@@ -2444,53 +2444,53 @@ Das Gericht stellte maßgeblich auf die konkrete tatsächliche Geschäftsführun
 
 ---
 
-# 12. Keine Verschuldensprüfung nach Auffassung des FG Münster
+⇨ 12. Keine Verschuldensprüfung nach Auffassung des FG Münster
 
 Das FG Münster ging davon aus, dass die Nachversteuerung nach § 63 Abs. 2 in Verbindung mit § 61 Abs. 3 AO an einen objektiven Verstoß gegen die Vermögensbindung anknüpft.
 
 Ein persönliches Verschulden der Stiftung oder des Liquidators sei danach nicht erforderlich.
 
-### Lernsatz zur FG-Entscheidung
+⇶  Lernsatz zur FG-Entscheidung
 
 **Nach Auffassung des FG Münster kann ein objektiver Verstoß gegen die tatsächliche Vermögensbindung auch ohne Verschulden zu einer rückwirkenden Nachversteuerung führen.**
 
-### Achtung
+⇶  Achtung
 
 Ob der BFH diese Auffassung bestätigt, ist noch offen.
 
 ---
 
-# 13. Die Gegenauffassung: Gemeinnützige Abwicklungsphase
+⇨ 13. Die Gegenauffassung: Gemeinnützige Abwicklungsphase
 
 In der Fachliteratur wird vertreten, dass einer steuerbegünstigten Körperschaft spiegelbildlich zur anerkannten Anlaufphase auch eine notwendige gemeinnützige Abwicklungsphase zuzugestehen ist.
 
 Danach führt die Einstellung der operativen Zweckverwirklichung während einer notwendigen Liquidation nicht automatisch zum Verlust der Gemeinnützigkeit.
 
-## Begründungsansätze
+► Begründungsansätze
 
-### 1. Spiegelbildlichkeit zur Anlaufphase
+⇶  1. Spiegelbildlichkeit zur Anlaufphase
 
 Kann eine Körperschaft bereits während vorbereitender Maßnahmen gemeinnützig sein, obwohl sie ihren Satzungszweck noch nicht vollständig verwirklicht, soll dies entsprechend auch für die notwendige Abwicklungsphase gelten.
 
-### 2. Gesetzliche Notwendigkeit der Liquidation
+⇶  2. Gesetzliche Notwendigkeit der Liquidation
 
 Die Liquidation ist gesetzlich vorgeschrieben und notwendiger Teil der rechtlichen Beendigung einer Körperschaft.
 
-### 3. Einheit der Rechtsordnung
+⇶  3. Einheit der Rechtsordnung
 
 Steuerrecht und Zivilrecht sollten nicht widersprüchliche Anforderungen stellen.
 
 Ein Liquidator darf Vermögen nicht an den Anfallsberechtigten auskehren, solange berechtigte Gläubiger noch nicht befriedigt oder gesichert sind.
 
-### 4. Fortbestehende Vermögensbindung
+⇶  4. Fortbestehende Vermögensbindung
 
 Auch während der Liquidation bleibt das Restvermögen gemeinnützig gebunden.
 
-### 5. Finale gemeinnützige Mittelverwendung
+⇶  5. Finale gemeinnützige Mittelverwendung
 
 Die abschließende Zuwendung des Restvermögens an den steuerbegünstigten Anfallsberechtigten kann als letzter Akt der gemeinnützigen Mittelverwendung verstanden werden.
 
-## Zwingender Statushinweis
+► Zwingender Statushinweis
 
 Diese sogenannte gemeinnützige Abwicklungsphase ist eine in der Literatur vertretene Rechtsauffassung.
 
@@ -2498,21 +2498,21 @@ Sie ist bislang nicht als allgemeiner Grundsatz durch eine abschließende BFH-En
 
 ---
 
-# 14. Einordnung als Förderkörperschaft
+⇨ 14. Einordnung als Förderkörperschaft
 
 Nach einer in der Literatur vertretenen Auffassung kann sich die operative Körperschaft während der Liquidation funktional zu einer Förderkörperschaft entwickeln.
 
-## § 58 Nr. 1 AO
+► § 58 Nr. 1 AO
 
 Die Steuervergünstigung wird nicht dadurch ausgeschlossen, dass eine Körperschaft einer anderen Körperschaft oder einer juristischen Person des öffentlichen Rechts Mittel zur Verwirklichung steuerbegünstigter Zwecke zuwendet.
 
 Die abschließende Auskehr des Restvermögens an den steuerbegünstigten Anfallsberechtigten könnte danach als eigene steuerbegünstigte Zweckverwirklichung durch Mittelweitergabe beurteilt werden.
 
-### Vorsichtige Formulierung
+⇶  Vorsichtige Formulierung
 
 **Nach einer Literaturauffassung kann die abschließende Auskehr des Restvermögens an einen steuerbegünstigten Anfallsberechtigten als Fördertätigkeit im Sinne des § 58 Nr. 1 AO verstanden werden.**
 
-### Nicht zulässige Formulierung
+⇶  Nicht zulässige Formulierung
 
 **Mit der Auflösung wird jede gemeinnützige Körperschaft automatisch und rechtssicher zu einer Förderkörperschaft.**
 
@@ -2520,7 +2520,7 @@ Diese Aussage wäre derzeit zu weitgehend und höchstrichterlich nicht abgesiche
 
 ---
 
-# 15. Zulässige Abwicklungsmaßnahmen
+⇨ 15. Zulässige Abwicklungsmaßnahmen
 
 Folgende Maßnahmen können grundsätzlich notwendige und gemeinnützigkeitsrechtlich unschädliche Liquidationshandlungen sein:
 
@@ -2537,7 +2537,7 @@ Folgende Maßnahmen können grundsätzlich notwendige und gemeinnützigkeitsrech
 - Ermittlung des verbleibenden Restvermögens,
 - Vorbereitung und Durchführung der Auskehr an den Anfallsberechtigten.
 
-### Voraussetzung
+⇶  Voraussetzung
 
 Die Maßnahmen müssen
 
@@ -2548,7 +2548,7 @@ Die Maßnahmen müssen
 
 ---
 
-# 16. Mögliche gemeinnützigkeitsschädliche Vorgänge
+⇨ 16. Mögliche gemeinnützigkeitsschädliche Vorgänge
 
 Gemeinnützigkeitsrechtlich problematisch können insbesondere sein:
 
@@ -2567,9 +2567,9 @@ Gemeinnützigkeitsrechtlich problematisch können insbesondere sein:
 
 ---
 
-# 17. Zehnjährige rückwirkende Nachversteuerung
+⇨ 17. Zehnjährige rückwirkende Nachversteuerung
 
-## Gesetzlicher Ausgangspunkt
+► Gesetzlicher Ausgangspunkt
 
 Nach § 63 Abs. 2 AO gilt für eine Verletzung der Vermögensbindung § 61 Abs. 3 AO.
 
@@ -2577,29 +2577,29 @@ Nach § 63 Abs. 2 AO gilt für eine Verletzung der Vermögensbindung § 61 Abs. 
 
 Dadurch können unter den gesetzlichen Voraussetzungen Steuerbescheide für einen Zeitraum von bis zu zehn Kalenderjahren betroffen sein.
 
-## Auffassung des FG Münster
+► Auffassung des FG Münster
 
 Das FG Münster hielt im konkreten Fall eine rückwirkende Aberkennung der Gemeinnützigkeit für zehn Jahre für zulässig.
 
-## Gegenauffassung
+► Gegenauffassung
 
 In der Literatur wird vertreten, dass der bloße Eintritt in die Liquidation jedenfalls keine rückwirkende Aberkennung für bereits abgeschlossene Zeiträume rechtfertige.
 
 Selbst bei einem Verlust der Gemeinnützigkeit solle die Wirkung danach grundsätzlich erst ab Eintritt in die schädliche Liquidations- oder Geschäftsführungsphase eintreten.
 
-## Offene BFH-Frage
+► Offene BFH-Frage
 
 Ob und unter welchen Voraussetzungen die zehnjährige Rückwirkung im Fall der Auflösung oder Aufhebung einer Körperschaft eingreift, ist ausdrücklich Gegenstand des anhängigen BFH-Verfahrens.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Eine zehnjährige Rückwirkung ist keine automatische Folge jeder Liquidation, kann aber bei einem tatsächlichen Verstoß gegen die Vermögensbindung nach §§ 61 Abs. 3, 63 Abs. 2 AO in Betracht kommen.**
 
 ---
 
-# 18. Abgrenzung: Liquidation und Verstoß gegen die Vermögensbindung
+⇨ 18. Abgrenzung: Liquidation und Verstoß gegen die Vermögensbindung
 
-## Liquidation allein
+► Liquidation allein
 
 - Auflösungsbeschluss wurde gefasst.
 - Operative Tätigkeit wird beendet.
@@ -2607,7 +2607,7 @@ Ob und unter welchen Voraussetzungen die zehnjährige Rückwirkung im Fall der A
 - Restvermögen bleibt gesichert.
 - Auskehr an den steuerbegünstigten Anfallsberechtigten wird vorbereitet.
 
-## Möglicher schädlicher Verstoß
+► Möglicher schädlicher Verstoß
 
 - Vermögen wird tatsächlich zweckwidrig verbraucht.
 - Privatnützige Verpflichtungen werden aus gebundenem Vermögen erfüllt, obwohl dies unzulässig ist.
@@ -2615,13 +2615,13 @@ Ob und unter welchen Voraussetzungen die zehnjährige Rückwirkung im Fall der A
 - Die Satzungsbindung wird tatsächlich nicht eingehalten.
 - Die Körperschaft verfolgt ausschließlich sachfremde Zwecke.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Nicht der formale Liquidationsstatus, sondern die konkrete tatsächliche Geschäftsführung und Vermögensverwendung können den entscheidenden Gemeinnützigkeitsverstoß begründen.**
 
 ---
 
-# 19. Körperschaftsteuer während der Liquidation
+⇨ 19. Körperschaftsteuer während der Liquidation
 
 Besteht die Steuerbefreiung nach § 5 Abs. 1 Nr. 9 KStG fort, können insbesondere weiterhin steuerfrei sein:
 
@@ -2633,13 +2633,13 @@ Einkünfte aus einem steuerpflichtigen wirtschaftlichen Geschäftsbetrieb bleibe
 
 Entfällt die Steuerbefreiung, können auch zuvor steuerfreie Vermögensverwaltungs- oder Zweckbetriebserträge der Körperschaftsteuer unterliegen.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Die Liquidation ändert nicht automatisch die Einordnung sämtlicher Tätigkeitsbereiche; entscheidend ist zunächst, ob die Steuerbefreiung nach § 5 Abs. 1 Nr. 9 KStG fortbesteht.**
 
 ---
 
-# 20. Zuwendungsbestätigungen während der Liquidation
+⇨ 20. Zuwendungsbestätigungen während der Liquidation
 
 Eine Körperschaft darf nicht allein deshalb Zuwendungsbestätigungen ausstellen, weil sie früher gemeinnützig war.
 
@@ -2650,25 +2650,25 @@ Vor Ausstellung muss geprüft werden, ob
 - die tatsächliche Geschäftsführung weiterhin den §§ 51 ff. AO entspricht und
 - die Zuwendung tatsächlich für steuerbegünstigte Zwecke verwendet wird.
 
-### Besondere Vorsicht
+⇶  Besondere Vorsicht
 
 Bestehen erhebliche Zweifel am Fortbestand der Gemeinnützigkeit oder befindet sich die Körperschaft in einem streitigen Liquidationsfall, sollte die Ausstellung von Zuwendungsbestätigungen vorab mit dem zuständigen Finanzamt abgestimmt werden.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Der Liquidationsstatus allein berechtigt weder zur Ausstellung noch führt er automatisch zum Verbot von Zuwendungsbestätigungen; maßgeblich ist der aktuelle steuerliche Gemeinnützigkeitsstatus.**
 
 ---
 
-# 21. Abgrenzung zum Insolvenzverfahren
+⇨ 21. Abgrenzung zum Insolvenzverfahren
 
 Liquidation und Insolvenz sind nicht gleichzusetzen.
 
-## Liquidation
+► Liquidation
 
 Die Körperschaft wird geordnet abgewickelt. Grundsätzlich sollen sämtliche Gläubiger befriedigt und das verbleibende Restvermögen ausgekehrt werden.
 
-## Insolvenz
+► Insolvenz
 
 Das Vermögen reicht regelmäßig nicht aus, um alle Gläubiger vollständig zu befriedigen, oder die Körperschaft ist zahlungsunfähig.
 
@@ -2679,15 +2679,15 @@ Der BFH hat für einen Insolvenzfall entschieden, dass die Körperschaftsteuerbe
 
 Ob bereits die Insolvenzeröffnung allein genügt oder zusätzliche Voraussetzungen erforderlich sind, ist in der Literatur umstritten.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Die Rechtsprechung zum Insolvenzverfahren darf nicht ohne weitere Prüfung auf eine geordnete Liquidation übertragen werden.**
 
 ---
 
-# 22. Prüfungsschema Gemeinnützigkeit in Liquidation
+⇨ 22. Prüfungsschema Gemeinnützigkeit in Liquidation
 
-## Schritt 1: Körperschaft und Auflösungsgrund feststellen
+► Schritt 1: Körperschaft und Auflösungsgrund feststellen
 
 - Verein?
 - Stiftung?
@@ -2697,20 +2697,20 @@ Ob bereits die Insolvenzeröffnung allein genügt oder zusätzliche Voraussetzun
 - behördliche Aufhebung?
 - Insolvenz?
 
-## Schritt 2: Zivilrechtlichen Status prüfen
+► Schritt 2: Zivilrechtlichen Status prüfen
 
 - Auflösung beschlossen?
 - Liquidatoren bestellt?
 - Körperschaft bereits erloschen?
 - Liquidation noch nicht beendet?
 
-## Schritt 3: Satzungsmäßige Voraussetzungen prüfen
+► Schritt 3: Satzungsmäßige Voraussetzungen prüfen
 
 - Steuerbegünstigter Zweck weiterhin enthalten?
 - Ordnungsgemäße Vermögensbindung nach § 61 Abs. 1 AO?
 - Steuerbegünstigter Anfallsberechtigter eindeutig bestimmt?
 
-## Schritt 4: Tatsächliche Geschäftsführung prüfen
+► Schritt 4: Tatsächliche Geschäftsführung prüfen
 
 - Welche Tätigkeiten werden noch ausgeübt?
 - Dienen sie der notwendigen Abwicklung?
@@ -2719,7 +2719,7 @@ Ob bereits die Insolvenzeröffnung allein genügt oder zusätzliche Voraussetzun
 - Werden nur Altverbindlichkeiten erfüllt?
 - Gibt es privatnützige Zahlungen?
 
-## Schritt 5: Vermögensbindung prüfen
+► Schritt 5: Vermögensbindung prüfen
 
 - Ist das Restvermögen gesichert?
 - Wird es für steuerbegünstigte Zwecke erhalten?
@@ -2727,7 +2727,7 @@ Ob bereits die Insolvenzeröffnung allein genügt oder zusätzliche Voraussetzun
 - Bestehen unzulässige Vermögensabflüsse?
 - Wurde gebundenes Vermögen verbraucht?
 
-## Schritt 6: Gläubigerbefriedigung prüfen
+► Schritt 6: Gläubigerbefriedigung prüfen
 
 - Besteht die Verbindlichkeit rechtlich?
 - Wurde sie bereits vor der Liquidation wirksam begründet?
@@ -2735,14 +2735,14 @@ Ob bereits die Insolvenzeröffnung allein genügt oder zusätzliche Voraussetzun
 - Ist die Zahlung angemessen?
 - Liegt eine verdeckte Begünstigung vor?
 
-## Schritt 7: Steuerbefreiung beurteilen
+► Schritt 7: Steuerbefreiung beurteilen
 
 - Fortbestand nach § 5 Abs. 1 Nr. 9 KStG vertretbar?
 - Nur einzelne wirtschaftliche Geschäftsbetriebe steuerpflichtig?
 - Vollständiger Verlust der Gemeinnützigkeit?
 - Rechtslage wegen BFH VII R 24/25 offen?
 
-## Schritt 8: Rückwirkung prüfen
+► Schritt 8: Rückwirkung prüfen
 
 - Liegt tatsächlich ein Verstoß gegen die Vermögensbindung vor?
 - Wann begann der Verstoß?
@@ -2752,9 +2752,9 @@ Ob bereits die Insolvenzeröffnung allein genügt oder zusätzliche Voraussetzun
 
 ---
 
-# 23. Risikostufen für die Chatbot-Antwort
+⇨ 23. Risikostufen für die Chatbot-Antwort
 
-## Geringeres Risiko
+► Geringeres Risiko
 
 - Abwicklung erfolgt zügig.
 - Gläubiger werden ordnungsgemäß befriedigt.
@@ -2763,7 +2763,7 @@ Ob bereits die Insolvenzeröffnung allein genügt oder zusätzliche Voraussetzun
 - Auskehr wird vorbereitet.
 - Sämtliche Vorgänge sind dokumentiert.
 
-## Mittleres Risiko
+► Mittleres Risiko
 
 - Liquidation dauert mehrere Jahre.
 - Einzelne Rechtsstreitigkeiten oder Dauerschuldverhältnisse bestehen.
@@ -2771,7 +2771,7 @@ Ob bereits die Insolvenzeröffnung allein genügt oder zusätzliche Voraussetzun
 - Restvermögen ist grundsätzlich noch gesichert.
 - Abstimmung mit dem Finanzamt fehlt.
 
-## Hohes Risiko
+► Hohes Risiko
 
 - Gebundenes Vermögen wird laufend für privatnützige Zwecke verbraucht.
 - Eine Auskehr an den Anfallsberechtigten ist nicht absehbar.
@@ -2782,7 +2782,7 @@ Ob bereits die Insolvenzeröffnung allein genügt oder zusätzliche Voraussetzun
 
 ---
 
-# 24. Kompakte Lernsätze
+⇨ 24. Kompakte Lernsätze
 
 1. Die Auflösung einer Körperschaft ist von ihrem endgültigen Erlöschen zu unterscheiden.
 
@@ -2850,19 +2850,19 @@ Ob bereits die Insolvenzeröffnung allein genügt oder zusätzliche Voraussetzun
 
 ---
 
-# 25. Prüfungssichere Formulierung
+⇨ 25. Prüfungssichere Formulierung
 
 **Die Auflösung der Körperschaft und der Eintritt in die Liquidation führen nach der bislang nicht abschließend geklärten Rechtslage nicht zwingend bereits für sich genommen zum Verlust der Steuerbefreiung nach § 5 Abs. 1 Nr. 9 KStG. Auch während der Liquidation müssen jedoch die satzungsmäßigen Voraussetzungen und die Anforderungen an die tatsächliche Geschäftsführung nach §§ 59, 61 und 63 AO eingehalten werden. Insbesondere muss das nach Befriedigung der Gläubiger verbleibende Vermögen entsprechend § 55 Abs. 1 Nr. 4 AO an den satzungsmäßigen steuerbegünstigten Anfallsberechtigten ausgekehrt oder für den bestimmten steuerbegünstigten Zweck verwendet werden. Ob der bloße Eintritt in die Liquidation zum Verlust der Steuerbefreiung führt und ob eine zehnjährige rückwirkende Nachversteuerung nach §§ 61 Abs. 3, 63 Abs. 2 und 175 Abs. 1 Satz 1 Nr. 2 AO zulässig ist, ist Gegenstand des anhängigen BFH-Verfahrens VII R 24/25, vormals V R 27/25.**
 
 ---
 
-# 26. Kurzantwort des Chatbots
+⇨ 26. Kurzantwort des Chatbots
 
 **Die Liquidation einer gemeinnützigen Körperschaft führt nach derzeit noch ungeklärter Rechtslage nicht automatisch zum Verlust der Gemeinnützigkeit. Entscheidend ist, ob die tatsächliche Geschäftsführung weiterhin den §§ 51 ff. AO entspricht, die Gläubiger ordnungsgemäß befriedigt werden und das verbleibende Vermögen nach § 55 Abs. 1 Nr. 4 und § 61 AO dem steuerbegünstigten Anfallsberechtigten zufließt. Das FG Münster hat in einem konkreten Fall wegen eines Verstoßes gegen die Vermögensbindung eine zehnjährige Nachversteuerung bestätigt. Ob diese Grundsätze Bestand haben und bereits die Liquidation als solche schädlich ist, wird der BFH im anhängigen Verfahren VII R 24/25, vormals V R 27/25, klären.**
 
 ---
 
-# 27. Antwortlogik für den Steuerstoff-Chatbot
+⇨ 27. Antwortlogik für den Steuerstoff-Chatbot
 
 Bei Fragen zur Gemeinnützigkeit in der Liquidation soll der Chatbot zunächst folgende Informationen erfragen:
 
@@ -2908,7 +2908,7 @@ Bei Fragen zur Gemeinnützigkeit in der Liquidation soll der Chatbot zunächst f
 
 ---
 
-# 28. Verbotene Übervereinfachungen
+⇨ 28. Verbotene Übervereinfachungen
 
 Der Chatbot darf nicht pauschal sagen:
 
@@ -3011,9 +3011,9 @@ sowie zu ihrem Haushalt gehörende Angehörige, die die deutsche Staatsangehöri
   },
 
   body: `
-# § 1a EStG – EU-/EWR-Sonderregelungen
+⇨ § 1a EStG – EU-/EWR-Sonderregelungen
 
-## Gesetz
+► Gesetz
 
 § 1a EStG enthält besondere Regelungen für grenzüberschreitende Sachverhalte innerhalb der Europäischen Union und des Europäischen Wirtschaftsraums.
 
@@ -3025,7 +3025,7 @@ Die Vorschrift ergänzt insbesondere:
 
 ---
 
-# 1. Persönlicher Anwendungsbereich
+⇨ 1. Persönlicher Anwendungsbereich
 
 § 1a Abs. 1 EStG gilt grundsätzlich für Staatsangehörige
 
@@ -3046,13 +3046,13 @@ Erforderlich sind zusätzlich:
 
 ---
 
-# 2. Sonderausgabenabzug bei ausländischem Empfänger
+⇨ 2. Sonderausgabenabzug bei ausländischem Empfänger
 
-## Grundsatz
+► Grundsatz
 
 Bestimmte Aufwendungen nach § 10 Abs. 1a EStG können auch dann als Sonderausgaben abgezogen werden, wenn der Empfänger nicht in Deutschland unbeschränkt einkommensteuerpflichtig ist.
 
-## Tatbestandsvoraussetzungen
+► Tatbestandsvoraussetzungen
 
 Der Sonderausgabenabzug setzt voraus, dass
 
@@ -3064,11 +3064,11 @@ Der Sonderausgabenabzug setzt voraus, dass
 
 4. die Besteuerung der Leistung beim Empfänger durch eine Bescheinigung der zuständigen ausländischen Steuerbehörde nachgewiesen wird.
 
-## Rechtsfolge
+► Rechtsfolge
 
 Bei Vorliegen der Voraussetzungen kann die Zahlung trotz ausländischen Empfängers als Sonderausgabe berücksichtigt werden.
 
-## Wichtig
+► Wichtig
 
 Die ausländische Besteuerung muss nachgewiesen werden.
 
@@ -3078,28 +3078,28 @@ Erforderlich ist eine Bescheinigung der zuständigen ausländischen Steuerbehör
 
 ---
 
-# 3. Ehegatte mit Wohnsitz im EU-/EWR-Ausland
+⇨ 3. Ehegatte mit Wohnsitz im EU-/EWR-Ausland
 
-## Grundfall
+► Grundfall
 
 Der nicht dauernd getrennt lebende Ehegatte hat
 
 - keinen Wohnsitz im Inland und
 - keinen gewöhnlichen Aufenthalt im Inland.
 
-## Voraussetzung
+► Voraussetzung
 
 Der Ehegatte lebt in einem anderen Mitgliedstaat der Europäischen Union oder des Europäischen Wirtschaftsraums.
 
 Zusätzlich muss ein Antrag gestellt werden.
 
-## Rechtsfolge
+► Rechtsfolge
 
 Der ausländische Ehegatte wird für die Anwendung des § 26 Abs. 1 Satz 1 EStG als unbeschränkt einkommensteuerpflichtig behandelt.
 
 Dadurch kann insbesondere eine Zusammenveranlagung in Betracht kommen.
 
-## Einschränkung
+► Einschränkung
 
 Die Gleichstellung erfolgt nicht allgemein für das gesamte Einkommensteuerrecht.
 
@@ -3107,13 +3107,13 @@ Sie gilt speziell für die Anwendung der Ehegattenveranlagung nach § 26 Abs. 1 
 
 ---
 
-# 4. Prüfung der Einkunftsgrenzen bei Ehegatten
+⇨ 4. Prüfung der Einkunftsgrenzen bei Ehegatten
 
 Wird § 1 Abs. 3 Satz 2 EStG angewendet, sind die Einkünfte beider Ehegatten gemeinsam zu betrachten.
 
 Dabei wird der Grundfreibetrag nach § 32a Abs. 1 Satz 2 Nr. 1 EStG verdoppelt.
 
-## Prüfung
+► Prüfung
 
 Zu berücksichtigen sind:
 
@@ -3121,7 +3121,7 @@ Zu berücksichtigen sind:
 - die Einkünfte des ausländischen Ehegatten und
 - der verdoppelte Grundfreibetrag.
 
-## Merksatz
+► Merksatz
 
 Bei der Ehegattenprüfung nach § 1a EStG werden nicht nur die Einkünfte eines Ehegatten betrachtet.
 
@@ -3129,7 +3129,7 @@ Die Einkünfte beider Ehegatten sind einzubeziehen.
 
 ---
 
-# 5. Sonderregelung für bestimmte Personen an ausländischen Dienstorten
+⇨ 5. Sonderregelung für bestimmte Personen an ausländischen Dienstorten
 
 § 1a Abs. 2 EStG erweitert die Ehegattenregelung auf besondere Personengruppen.
 
@@ -3138,26 +3138,26 @@ Erfasst werden insbesondere:
 - bestimmte deutsche Staatsangehörige im ausländischen öffentlichen Dienst nach § 1 Abs. 2 EStG und
 - bestimmte nach § 1 Abs. 3 EStG unbeschränkt steuerpflichtige Personen, die an einem ausländischen Dienstort tätig sind.
 
-## Besonderheit
+► Besonderheit
 
 Bei diesen Personen wird für die Beurteilung des Wohnsitzes oder gewöhnlichen Aufenthalts des Ehegatten auf den Staat des ausländischen Dienstortes abgestellt.
 
-## Rechtsfolge
+► Rechtsfolge
 
 Die Regelung des § 1a Abs. 1 Nr. 2 EStG über die Ehegattenbesteuerung gilt entsprechend.
 
 ---
 
-# 6. Prüfungsschema
+⇨ 6. Prüfungsschema
 
-## Schritt 1: Staatsangehörigkeit
+► Schritt 1: Staatsangehörigkeit
 
 Ist die betroffene Person Staatsangehöriger eines EU- oder EWR-Staates?
 
 - Ja: weiterprüfen.
 - Nein: § 1a Abs. 1 EStG grundsätzlich nicht anwendbar.
 
-## Schritt 2: Steuerpflicht
+► Schritt 2: Steuerpflicht
 
 Liegt
 
@@ -3166,31 +3166,31 @@ Liegt
 
 vor?
 
-## Schritt 3: Begünstigter Sachverhalt
+► Schritt 3: Begünstigter Sachverhalt
 
 Geht es um
 
 - Sonderausgaben nach § 10 Abs. 1a EStG oder
 - die Ehegattenveranlagung nach § 26 EStG?
 
-## Schritt 4: EU-/EWR-Bezug
+► Schritt 4: EU-/EWR-Bezug
 
 Hat der Empfänger beziehungsweise Ehegatte seinen Wohnsitz oder gewöhnlichen Aufenthalt in einem EU- oder EWR-Staat?
 
-## Schritt 5: Nachweise
+► Schritt 5: Nachweise
 
 Bei Leistungen nach § 10 Abs. 1a EStG:
 
 Liegt eine Bescheinigung der zuständigen ausländischen Steuerbehörde über die Besteuerung beim Empfänger vor?
 
-## Schritt 6: Rechtsfolge
+► Schritt 6: Rechtsfolge
 
 - Sonderausgabenabzug zulässig oder
 - Ehegatte wird für § 26 Abs. 1 Satz 1 EStG als unbeschränkt steuerpflichtig behandelt.
 
 ---
 
-# 7. Praxisbeispiel: Sonderausgaben
+⇨ 7. Praxisbeispiel: Sonderausgaben
 
 Eine französische Staatsangehörige lebt in Deutschland und ist hier unbeschränkt einkommensteuerpflichtig.
 
@@ -3200,7 +3200,7 @@ Der Empfänger ist in Deutschland nicht unbeschränkt einkommensteuerpflichtig.
 
 Die französische Steuerbehörde bescheinigt, dass die Zahlung beim Empfänger besteuert wird.
 
-## Lösung
+► Lösung
 
 Die Steuerpflichtige ist Staatsangehörige eines EU-Mitgliedstaates und in Deutschland unbeschränkt einkommensteuerpflichtig.
 
@@ -3214,7 +3214,7 @@ Die Aufwendungen können bei Vorliegen der weiteren Voraussetzungen als Sonderau
 
 ---
 
-# 8. Praxisbeispiel: Ausländischer Ehegatte
+⇨ 8. Praxisbeispiel: Ausländischer Ehegatte
 
 Ein deutscher Steuerpflichtiger lebt und arbeitet in Deutschland.
 
@@ -3224,7 +3224,7 @@ Die Ehegatten leben nicht dauernd getrennt.
 
 Die Ehefrau hat keinen Wohnsitz und keinen gewöhnlichen Aufenthalt in Deutschland.
 
-## Lösung
+► Lösung
 
 Österreich ist Mitgliedstaat der Europäischen Union.
 
@@ -3234,33 +3234,33 @@ Die weiteren Voraussetzungen der Ehegattenveranlagung müssen zusätzlich erfül
 
 ---
 
-# 9. Ausnahmen und Abgrenzungen
+⇨ 9. Ausnahmen und Abgrenzungen
 
-## Keine automatische Gleichstellung
+► Keine automatische Gleichstellung
 
 Ein ausländischer Empfänger oder Ehegatte wird nicht automatisch unbeschränkt einkommensteuerpflichtig.
 
 Die Rechtsfolge hängt von den jeweiligen Voraussetzungen und gegebenenfalls von einem Antrag ab.
 
-## Kein weltweiter Anwendungsbereich
+► Kein weltweiter Anwendungsbereich
 
 § 1a EStG ist grundsätzlich auf EU-/EWR-Sachverhalte beschränkt.
 
 Drittstaatenfälle sind nicht ohne Weiteres erfasst.
 
-## Nachweispflicht beachten
+► Nachweispflicht beachten
 
 Bei Leistungen an ausländische Empfänger ist die Bescheinigung der zuständigen ausländischen Steuerbehörde eine zentrale Voraussetzung.
 
-## Weggefallene Nummern
+► Weggefallene Nummern
 
 § 1a Abs. 1 Nr. 1a und Nr. 1b EStG sind weggefallen und haben keinen eigenständigen Regelungsinhalt mehr.
 
 ---
 
-# 10. Typische Klausurfallen
+⇨ 10. Typische Klausurfallen
 
-## Fehler 1: Nur auf den Wohnsitz abstellen
+► Fehler 1: Nur auf den Wohnsitz abstellen
 
 Falsch:
 
@@ -3272,7 +3272,7 @@ Auch die Staatsangehörigkeit sowie die unbeschränkte Steuerpflicht oder Gleich
 
 ---
 
-## Fehler 2: Sonderausgaben ohne Nachweis anerkennen
+► Fehler 2: Sonderausgaben ohne Nachweis anerkennen
 
 Falsch:
 
@@ -3284,7 +3284,7 @@ Die Besteuerung beim Empfänger muss grundsätzlich durch eine Bescheinigung der
 
 ---
 
-## Fehler 3: Ehegatten automatisch zusammen veranlagen
+► Fehler 3: Ehegatten automatisch zusammen veranlagen
 
 Falsch:
 
@@ -3296,7 +3296,7 @@ Die Behandlung als unbeschränkt einkommensteuerpflichtig für § 26 Abs. 1 Satz
 
 ---
 
-## Fehler 4: Nur die Einkünfte eines Ehegatten prüfen
+► Fehler 4: Nur die Einkünfte eines Ehegatten prüfen
 
 Falsch:
 
@@ -3308,7 +3308,7 @@ Im Anwendungsbereich des § 1a Abs. 1 Nr. 2 EStG sind die Einkünfte beider Eheg
 
 ---
 
-# 11. Merksätze
+⇨ 11. Merksätze
 
 - § 1a EStG ist eine EU-/EWR-Sonderregelung.
 
@@ -3382,11 +3382,11 @@ Im Anwendungsbereich des § 1a Abs. 1 Nr. 2 EStG sind die Einkünfte beider Eheg
   ],
 
   body: `
-# Reverse Charge, Steuersatz, Bemessungsgrundlage und Vorsteuerabzug
+⇨ Reverse Charge, Steuersatz, Bemessungsgrundlage und Vorsteuerabzug
 
-# Teil A: Steuerschuldnerschaft des Leistungsempfängers nach § 13b UStG
+⇨ Teil A: Steuerschuldnerschaft des Leistungsempfängers nach § 13b UStG
 
-## 1. Grundprinzip
+► 1. Grundprinzip
 
 Grundsätzlich schuldet der leistende Unternehmer die Umsatzsteuer.
 
@@ -3400,7 +3400,7 @@ Dieses Verfahren wird bezeichnet als:
 - Umkehr der Steuerschuldnerschaft,
 - Steuerschuldnerschaft des Leistungsempfängers.
 
-## Rechtsfolgen
+► Rechtsfolgen
 
 Der leistende Unternehmer
 
@@ -3414,7 +3414,7 @@ Der Leistungsempfänger
 - meldet sie in seiner Umsatzsteuer-Voranmeldung an,
 - kann sie bei Vorliegen der Voraussetzungen gleichzeitig als Vorsteuer abziehen.
 
-## Merksatz
+► Merksatz
 
 § 13b UStG führt nicht zu einer Steuerbefreiung.
 
@@ -3424,7 +3424,7 @@ Lediglich die Person des Steuerschuldners ändert sich.
 
 ---
 
-# 2. Grundprüfung des § 13b UStG
+⇨ 2. Grundprüfung des § 13b UStG
 
 Vor Anwendung des Reverse-Charge-Verfahrens ist zu prüfen:
 
@@ -3437,7 +3437,7 @@ Vor Anwendung des Reverse-Charge-Verfahrens ist zu prüfen:
 7. Wann entsteht die Steuer?
 8. Besteht beim Leistungsempfänger ein Vorsteuerabzug?
 
-## Wichtig
+► Wichtig
 
 § 13b UStG greift grundsätzlich nur bei im Inland steuerpflichtigen Umsätzen.
 
@@ -3450,7 +3450,7 @@ entsteht keine deutsche Umsatzsteuer nach § 13b UStG.
 
 ---
 
-# 3. Sonstige Leistungen aus dem übrigen Gemeinschaftsgebiet
+⇨ 3. Sonstige Leistungen aus dem übrigen Gemeinschaftsgebiet
 
 Nach § 13b Abs. 1 UStG schuldet der Leistungsempfänger die Steuer für eine sonstige Leistung, wenn
 
@@ -3458,7 +3458,7 @@ Nach § 13b Abs. 1 UStG schuldet der Leistungsempfänger die Steuer für eine so
 2. der Leistungsort nach § 3a Abs. 2 UStG im Inland liegt und
 3. die Leistung im Inland steuerpflichtig ist.
 
-## Typische Fälle
+► Typische Fälle
 
 - Beratungsleistungen,
 - Werbeleistungen,
@@ -3469,7 +3469,7 @@ Nach § 13b Abs. 1 UStG schuldet der Leistungsempfänger die Steuer für eine so
 - Rechts- und Steuerberatung,
 - digitale B2B-Dienstleistungen.
 
-## Beispiel
+► Beispiel
 
 Ein französischer Unternehmer erbringt eine Beratungsleistung an einen deutschen Unternehmer.
 
@@ -3483,13 +3483,13 @@ Der deutsche Leistungsempfänger schuldet die Umsatzsteuer nach § 13b Abs. 1 un
 
 ---
 
-# 4. Entstehung der Steuer nach § 13b Abs. 1 UStG
+⇨ 4. Entstehung der Steuer nach § 13b Abs. 1 UStG
 
 Bei Leistungen nach § 13b Abs. 1 UStG entsteht die Steuer mit Ablauf des Voranmeldungszeitraums, in dem die Leistung ausgeführt wurde.
 
 Auf den Zeitpunkt der Rechnungsausstellung kommt es grundsätzlich nicht an.
 
-## Beispiel
+► Beispiel
 
 Die Beratungsleistung wird am 15. März ausgeführt.
 
@@ -3497,7 +3497,7 @@ Die Rechnung wird erst am 10. April ausgestellt.
 
 Die Umsatzsteuer entsteht mit Ablauf des Voranmeldungszeitraums März.
 
-## Merksatz
+► Merksatz
 
 § 13b Abs. 1 UStG:
 
@@ -3505,7 +3505,7 @@ Die Umsatzsteuer entsteht mit Ablauf des Voranmeldungszeitraums März.
 
 ---
 
-# 5. Umsätze nach § 13b Abs. 2 Nr. 1 UStG
+⇨ 5. Umsätze nach § 13b Abs. 2 Nr. 1 UStG
 
 § 13b Abs. 2 Nr. 1 UStG erfasst insbesondere
 
@@ -3516,7 +3516,7 @@ die von einem im Ausland ansässigen Unternehmer im Inland ausgeführt werden un
 
 Nicht erfasst wird grundsätzlich eine reine Lieferung eines Gegenstands, soweit kein anderer Tatbestand des § 13b UStG eingreift.
 
-## Typische Fälle
+► Typische Fälle
 
 - Montage einer Anlage durch einen ausländischen Unternehmer,
 - Errichtung eines Messestands,
@@ -3526,7 +3526,7 @@ Nicht erfasst wird grundsätzlich eine reine Lieferung eines Gegenstands, soweit
 
 ---
 
-# 6. Im Ausland ansässiger Unternehmer
+⇨ 6. Im Ausland ansässiger Unternehmer
 
 Ein Unternehmer ist grundsätzlich im Ausland ansässig, wenn er im Inland weder
 
@@ -3540,13 +3540,13 @@ hat.
 
 Eine inländische Betriebsstätte verhindert die Anwendung des § 13b UStG nur, wenn diese Betriebsstätte an der konkreten Leistung beteiligt ist.
 
-## Besonderheit Grundstücksvermietung
+► Besonderheit Grundstücksvermietung
 
 Besitzt ein ausländischer Unternehmer lediglich ein im Inland gelegenes Grundstück und vermietet dieses steuerpflichtig, wird er allein durch den Grundstücksbesitz grundsätzlich nicht zu einem im Inland ansässigen Unternehmer.
 
 ---
 
-# 7. Sicherungsübereignete Gegenstände
+⇨ 7. Sicherungsübereignete Gegenstände
 
 § 13b Abs. 2 Nr. 2 UStG erfasst die Lieferung eines sicherungsübereigneten Gegenstands
 
@@ -3554,7 +3554,7 @@ Besitzt ein ausländischer Unternehmer lediglich ein im Inland gelegenes Grundst
 - an den Sicherungsnehmer
 - außerhalb eines Insolvenzverfahrens.
 
-## Wichtig
+► Wichtig
 
 Die bloße Sicherungsübereignung ist regelmäßig noch keine Lieferung.
 
@@ -3569,7 +3569,7 @@ Für die erste Lieferung kann § 13b Abs. 2 Nr. 2 UStG gelten.
 
 ---
 
-# 8. Grundstücksumsätze
+⇨ 8. Grundstücksumsätze
 
 § 13b Abs. 2 Nr. 3 UStG erfasst steuerpflichtige Umsätze, die unter das Grunderwerbsteuergesetz fallen.
 
@@ -3577,13 +3577,13 @@ Grundstücksveräußerungen sind grundsätzlich nach § 4 Nr. 9 Buchst. a UStG s
 
 Erst wenn wirksam nach § 9 Abs. 1 und Abs. 3 UStG zur Steuerpflicht optiert wurde, kann § 13b Abs. 2 Nr. 3 UStG eingreifen.
 
-## Rechtsfolge
+► Rechtsfolge
 
 Bei wirksamer Option schuldet grundsätzlich der Erwerber die Umsatzsteuer.
 
 Der Verkäufer stellt regelmäßig eine Nettorechnung aus.
 
-## Merksatz
+► Merksatz
 
 Grundstücksverkauf:
 
@@ -3591,7 +3591,7 @@ Grundstücksverkauf:
 
 ---
 
-# 9. Bauleistungen
+⇨ 9. Bauleistungen
 
 § 13b Abs. 2 Nr. 4 UStG erfasst Bauleistungen.
 
@@ -3607,7 +3607,7 @@ Hierzu gehören insbesondere Leistungen zur
 
 eines Bauwerks.
 
-## Regelmäßig keine Bauleistungen
+► Regelmäßig keine Bauleistungen
 
 Nicht erfasst werden insbesondere reine
 
@@ -3617,13 +3617,13 @@ Nicht erfasst werden insbesondere reine
 - Bauüberwachungsleistungen,
 - Gutachterleistungen.
 
-## Leistungsempfänger
+► Leistungsempfänger
 
 Der Leistungsempfänger schuldet die Steuer nur, wenn er selbst nachhaltig Bauleistungen erbringt.
 
 Als Nachweis dient regelmäßig eine gültige Bescheinigung des Finanzamts nach dem Vordruck USt 1 TG.
 
-## Wichtig
+► Wichtig
 
 Die konkrete empfangene Bauleistung muss nicht zwingend für einen eigenen Bauauftrag weiterverwendet werden.
 
@@ -3631,7 +3631,7 @@ Entscheidend ist grundsätzlich die nachhaltige Tätigkeit des Leistungsempfäng
 
 ---
 
-# 10. Gebäudereinigungsleistungen
+⇨ 10. Gebäudereinigungsleistungen
 
 § 13b Abs. 2 Nr. 8 UStG erfasst die Reinigung von Gebäuden und Gebäudeteilen.
 
@@ -3649,11 +3649,11 @@ Als Nachweis kann ebenfalls eine entsprechende Bescheinigung des Finanzamts verw
 
 ---
 
-# 11. Weitere Umsätze nach § 13b Abs. 2 UStG
+⇨ 11. Weitere Umsätze nach § 13b Abs. 2 UStG
 
 § 13b Abs. 2 UStG erfasst außerdem insbesondere:
 
-## Nr. 5
+► Nr. 5
 
 Bestimmte Lieferungen von
 
@@ -3664,11 +3664,11 @@ Bestimmte Lieferungen von
 
 Die genauen Voraussetzungen hängen insbesondere von der Ansässigkeit und der Wiederverkäufereigenschaft der Beteiligten ab.
 
-## Nr. 6
+► Nr. 6
 
 Übertragung bestimmter Emissionsberechtigungen und Emissionszertifikate.
 
-## Nr. 7
+► Nr. 7
 
 Lieferungen der in Anlage 3 UStG bezeichneten Gegenstände.
 
@@ -3680,15 +3680,15 @@ Hierzu gehören insbesondere bestimmte
 - Kunststoffabfälle,
 - Glasabfälle.
 
-## Nr. 8
+► Nr. 8
 
 Gebäudereinigungsleistungen an einen nachhaltig tätigen Gebäudereiniger.
 
-## Nr. 9
+► Nr. 9
 
 Bestimmte Lieferungen von Gold.
 
-## Nr. 10
+► Nr. 10
 
 Lieferungen von
 
@@ -3701,40 +3701,40 @@ wenn die gesetzliche Entgeltgrenze von mindestens 5.000 Euro innerhalb eines wir
 
 Nachträgliche Entgeltminderungen bleiben für die Prüfung der Grenze grundsätzlich unberücksichtigt.
 
-## Nr. 11
+► Nr. 11
 
 Lieferungen der in Anlage 4 UStG bezeichneten Metalle, wenn die gesetzliche Entgeltgrenze von mindestens 5.000 Euro erreicht wird.
 
-## Nr. 12
+► Nr. 12
 
 Bestimmte Telekommunikationsleistungen, insbesondere wenn der Leistungsempfänger als Wiederverkäufer der Telekommunikationsleistungen anzusehen ist.
 
 ---
 
-# 12. Entstehung der Steuer bei § 13b Abs. 2 UStG
+⇨ 12. Entstehung der Steuer bei § 13b Abs. 2 UStG
 
 In den Fällen des § 13b Abs. 2 UStG entsteht die Steuer grundsätzlich
 
 1. mit Ausstellung der Rechnung,
 2. spätestens jedoch mit Ablauf des Kalendermonats, der auf die Ausführung der Leistung folgt.
 
-## Beispiel
+► Beispiel
 
 Eine Bauleistung wird am 18. März ausgeführt.
 
-### Rechnung am 25. März
+⇶  Rechnung am 25. März
 
 Die Steuer entsteht im März.
 
-### Rechnung am 15. April
+⇶  Rechnung am 15. April
 
 Die Steuer entsteht im April.
 
-### Rechnung erst im Juni
+⇶  Rechnung erst im Juni
 
 Die Steuer entsteht spätestens mit Ablauf des Monats April.
 
-## Merksatz
+► Merksatz
 
 § 13b Abs. 2 UStG:
 
@@ -3742,7 +3742,7 @@ Die Steuer entsteht spätestens mit Ablauf des Monats April.
 
 ---
 
-# 13. Teilleistungen und Anzahlungen
+⇨ 13. Teilleistungen und Anzahlungen
 
 Teilleistungen sind auch im Rahmen des § 13b UStG möglich.
 
@@ -3759,7 +3759,7 @@ Eine bloße Vorausrechnung ohne Zahlung löst grundsätzlich noch keine Anzahlun
 
 ---
 
-# 14. Rechnung bei Reverse Charge
+⇨ 14. Rechnung bei Reverse Charge
 
 Die Rechnung muss grundsätzlich die allgemeinen Pflichtangaben der §§ 14 und 14a UStG enthalten.
 
@@ -3771,7 +3771,7 @@ Alternativ kann im internationalen Geschäftsverkehr beispielsweise angegeben we
 
 **Reverse Charge**
 
-## Wichtig
+► Wichtig
 
 Der Hinweis ist eine Rechnungspflicht.
 
@@ -3779,7 +3779,7 @@ Das Fehlen des Hinweises verhindert die gesetzlich eintretende Steuerschuldnersc
 
 ---
 
-# 15. Unrichtiger Umsatzsteuerausweis
+⇨ 15. Unrichtiger Umsatzsteuerausweis
 
 Weist der leistende Unternehmer trotz Anwendung des § 13b UStG Umsatzsteuer gesondert aus, kann er diese nach § 14c UStG schulden.
 
@@ -3787,7 +3787,7 @@ Der Leistungsempfänger schuldet gleichzeitig weiterhin die Steuer nach § 13b U
 
 Die offen ausgewiesene Steuer ist beim Leistungsempfänger grundsätzlich keine gesetzlich geschuldete Steuer und daher nicht als Vorsteuer abziehbar.
 
-## Erforderliche Korrektur
+► Erforderliche Korrektur
 
 - Rechnung durch den Aussteller berichtigen,
 - zu Unrecht berechnete Umsatzsteuer zurückzahlen,
@@ -3795,7 +3795,7 @@ Die offen ausgewiesene Steuer ist beim Leistungsempfänger grundsätzlich keine 
 
 ---
 
-# 16. Kleinunternehmer und § 13b UStG
+⇨ 16. Kleinunternehmer und § 13b UStG
 
 Auch ein Kleinunternehmer kann als Leistungsempfänger Steuerschuldner nach § 13b UStG werden.
 
@@ -3805,17 +3805,17 @@ Der Kleinunternehmer muss die Umsatzsteuer anmelden und abführen.
 
 Mangels allgemeiner Vorsteuerabzugsberechtigung kann er die Steuer regelmäßig nicht gleichzeitig als Vorsteuer abziehen.
 
-## Leistender Kleinunternehmer
+► Leistender Kleinunternehmer
 
 Wird die Leistung vom leistenden Unternehmer wirksam nach der Kleinunternehmerregelung steuerfrei ausgeführt, kommt grundsätzlich keine Steuerschuldumkehr nach § 13b UStG in Betracht.
 
 ---
 
-# 17. Bezug für den nichtunternehmerischen Bereich
+⇨ 17. Bezug für den nichtunternehmerischen Bereich
 
 Die Steuerschuldnerschaft kann unter den gesetzlichen Voraussetzungen auch eintreten, wenn der Unternehmer die Leistung für seinen nichtunternehmerischen oder privaten Bereich bezieht.
 
-## Beispiel
+► Beispiel
 
 Ein deutscher Einzelunternehmer lässt sein privates Einfamilienhaus durch einen ausländischen Unternehmer renovieren.
 
@@ -3825,13 +3825,13 @@ Der deutsche Unternehmer kann nach § 13b UStG Steuerschuldner werden, obwohl di
 
 Ein Vorsteuerabzug besteht wegen der privaten Verwendung jedoch nicht.
 
-## Besonderheit
+► Besonderheit
 
 Für bestimmte Leistungen und für Leistungen an juristische Personen des öffentlichen Rechts bestehen gesetzliche Sonderregelungen und Ausnahmen.
 
 ---
 
-# 18. Vorsteuerabzug aus Reverse-Charge-Umsätzen
+⇨ 18. Vorsteuerabzug aus Reverse-Charge-Umsätzen
 
 Der Leistungsempfänger kann die von ihm nach § 13b UStG geschuldete Steuer nach § 15 Abs. 1 Satz 1 Nr. 4 UStG als Vorsteuer abziehen, wenn
 
@@ -3841,7 +3841,7 @@ Der Leistungsempfänger kann die von ihm nach § 13b UStG geschuldete Steuer nac
 
 Eine Rechnung mit gesondertem Umsatzsteuerausweis ist für diesen Vorsteuerabzug nicht erforderlich.
 
-## Wichtig
+► Wichtig
 
 Steuerschuld und Vorsteuerabzug sind getrennt zu prüfen.
 
@@ -3852,7 +3852,7 @@ Ein Unternehmer kann daher
 
 ---
 
-# 19. Beispiel: Arzt bezieht Beratungsleistung
+⇨ 19. Beispiel: Arzt bezieht Beratungsleistung
 
 Ein in Deutschland tätiger Arzt bezieht eine Beratungsleistung von einem französischen Unternehmer.
 
@@ -3864,25 +3864,25 @@ Verwendet er die Beratungsleistung ausschließlich für steuerfreie Heilbehandlu
 
 ---
 
-# Teil B: Steuersätze nach § 12 UStG
+⇨ Teil B: Steuersätze nach § 12 UStG
 
-# 20. Prüfungsreihenfolge
+⇨ 20. Prüfungsreihenfolge
 
-## Schritt 1
+► Schritt 1
 
 Prüfen, ob ein ermäßigter Steuersatz nach § 12 Abs. 2 oder einer Sondervorschrift anzuwenden ist.
 
-## Schritt 2
+► Schritt 2
 
 Ist keine Ermäßigung einschlägig, gilt der Regelsteuersatz nach § 12 Abs. 1 UStG.
 
-## Merksatz
+► Merksatz
 
 **Zuerst 7 Prozent prüfen, sonst 19 Prozent.**
 
 ---
 
-# 21. Regelsteuersatz
+⇨ 21. Regelsteuersatz
 
 Der Regelsteuersatz beträgt 19 Prozent der Bemessungsgrundlage.
 
@@ -3900,7 +3900,7 @@ Typische Beispiele:
 
 ---
 
-# 22. Ermäßigter Steuersatz
+⇨ 22. Ermäßigter Steuersatz
 
 Der ermäßigte Steuersatz beträgt grundsätzlich 7 Prozent.
 
@@ -3910,7 +3910,7 @@ Die Begünstigungen sind grundsätzlich eng auszulegen.
 
 ---
 
-# 23. Gegenstände der Anlage 2 UStG
+⇨ 23. Gegenstände der Anlage 2 UStG
 
 § 12 Abs. 2 Nr. 1 UStG erfasst insbesondere Lieferungen der in Anlage 2 UStG genannten Gegenstände.
 
@@ -3929,7 +3929,7 @@ Typische Beispiele sind:
 - Brennholz,
 - Bücher und bestimmte Druckerzeugnisse.
 
-## Achtung
+► Achtung
 
 Nicht automatisch begünstigt sind beispielsweise:
 
@@ -3944,7 +3944,7 @@ Maßgeblich ist die genaue Warenbezeichnung in Anlage 2 UStG.
 
 ---
 
-# 24. Vermietung begünstigter Gegenstände
+⇨ 24. Vermietung begünstigter Gegenstände
 
 Die Vermietung bestimmter in Anlage 2 UStG genannter Gegenstände kann ebenfalls dem ermäßigten Steuersatz unterliegen.
 
@@ -3952,15 +3952,15 @@ Es ist jedoch immer zu prüfen, ob die konkrete Vermietung ausdrücklich von § 
 
 ---
 
-# 25. Personenbeförderung
+⇨ 25. Personenbeförderung
 
 Für bestimmte Personenbeförderungsleistungen gilt der ermäßigte Steuersatz.
 
-## Schienenbahnverkehr
+► Schienenbahnverkehr
 
 Die Personenbeförderung im Schienenbahnverkehr kann unabhängig von der Länge der Beförderungsstrecke dem ermäßigten Steuersatz unterliegen.
 
-## Andere Beförderungsmittel
+► Andere Beförderungsmittel
 
 Bei Beförderungen insbesondere durch
 
@@ -3978,7 +3978,7 @@ Hin- und Rückfahrt sind grundsätzlich jeweils gesondert zu beurteilen.
 
 ---
 
-# 26. Kurzfristige Beherbergung
+⇨ 26. Kurzfristige Beherbergung
 
 Die kurzfristige Vermietung von Wohn- und Schlafräumen zur Beherbergung von Fremden unterliegt grundsätzlich dem ermäßigten Steuersatz.
 
@@ -3991,7 +3991,7 @@ Dies betrifft insbesondere:
 
 Auch die kurzfristige Vermietung von Campingflächen kann begünstigt sein.
 
-## Wichtig
+► Wichtig
 
 Zusatzleistungen sind gesondert zu beurteilen.
 
@@ -3999,7 +3999,7 @@ Nicht jede Nebenleistung des Hotels unterliegt automatisch dem ermäßigten Steu
 
 ---
 
-# 27. Restaurant- und Verpflegungsdienstleistungen ab 2026
+⇨ 27. Restaurant- und Verpflegungsdienstleistungen ab 2026
 
 Seit dem 1. Januar 2026 unterliegen Restaurant- und Verpflegungsdienstleistungen hinsichtlich der Abgabe von Speisen grundsätzlich dem ermäßigten Steuersatz von 7 Prozent.
 
@@ -4013,11 +4013,11 @@ Dies betrifft insbesondere:
 - Kita- und Schulverpflegung,
 - Krankenhausverpflegung.
 
-## Getränke
+► Getränke
 
 Die Abgabe von Getränken bleibt grundsätzlich vom ermäßigten Steuersatz ausgenommen und unterliegt regelmäßig 19 Prozent.
 
-## Kombiangebote
+► Kombiangebote
 
 Enthält ein Gesamtpreis sowohl
 
@@ -4030,7 +4030,7 @@ Für bestimmte Pauschal- und Kombiangebote lässt die Finanzverwaltung Vereinfac
 
 ---
 
-# 28. Beispiel Steuersatz
+⇨ 28. Beispiel Steuersatz
 
 Ein Restaurant berechnet:
 
@@ -4046,9 +4046,9 @@ Die Umsätze müssen nach Steuersätzen getrennt aufgezeichnet und abgerechnet w
 
 ---
 
-# Teil C: Bemessungsgrundlage nach § 10 UStG
+⇨ Teil C: Bemessungsgrundlage nach § 10 UStG
 
-# 29. Grundsatz
+⇨ 29. Grundsatz
 
 Die Umsatzsteuer wird bei Lieferungen und sonstigen Leistungen grundsätzlich nach dem Entgelt bemessen.
 
@@ -4056,7 +4056,7 @@ Entgelt ist alles, was den Wert der Gegenleistung bildet, die der leistende Unte
 
 Die gesetzlich geschuldete Umsatzsteuer selbst gehört nicht zum Entgelt.
 
-## Formel
+► Formel
 
 Bruttogegenleistung  
 ./. enthaltene Umsatzsteuer  
@@ -4064,21 +4064,21 @@ Bruttogegenleistung
 
 ---
 
-# 30. Berechnung aus einem Bruttopreis
+⇨ 30. Berechnung aus einem Bruttopreis
 
-## Steuersatz 19 Prozent
+► Steuersatz 19 Prozent
 
 Bruttobetrag / 1,19 = Bemessungsgrundlage.
 
 Bruttobetrag - Bemessungsgrundlage = Umsatzsteuer.
 
-## Steuersatz 7 Prozent
+► Steuersatz 7 Prozent
 
 Bruttobetrag / 1,07 = Bemessungsgrundlage.
 
 Bruttobetrag - Bemessungsgrundlage = Umsatzsteuer.
 
-## Steuerfreier oder nicht steuerbarer Umsatz
+► Steuerfreier oder nicht steuerbarer Umsatz
 
 Es wird keine Umsatzsteuer herausgerechnet.
 
@@ -4086,7 +4086,7 @@ Der Divisor beträgt rechnerisch 1.
 
 ---
 
-# 31. Beispiel
+⇨ 31. Beispiel
 
 Vereinbarter Bruttopreis:
 
@@ -4104,7 +4104,7 @@ Berechnung:
 
 ---
 
-# 32. Bedeutung der Rechnung
+⇨ 32. Bedeutung der Rechnung
 
 Für die Ermittlung der gesetzlich richtigen Bemessungsgrundlage ist die Bezeichnung in der Rechnung nicht allein entscheidend.
 
@@ -4116,7 +4116,7 @@ Auch wenn die Rechnung Umsatzsteuer nicht oder falsch ausweist, ist zu ermitteln
 
 ---
 
-# 33. Bestandteile des Entgelts
+⇨ 33. Bestandteile des Entgelts
 
 Zum Entgelt gehören grundsätzlich:
 
@@ -4138,7 +4138,7 @@ Zum Entgelt gehören grundsätzlich:
 
 ---
 
-# 34. Nebenleistungen
+⇨ 34. Nebenleistungen
 
 Vergütungen für unselbständige Nebenleistungen teilen grundsätzlich das umsatzsteuerliche Schicksal der Hauptleistung.
 
@@ -4155,7 +4155,7 @@ Die Vergütung für die Nebenleistung gehört grundsätzlich zur Bemessungsgrund
 
 ---
 
-# 35. Auslagenersatz
+⇨ 35. Auslagenersatz
 
 Auslagen, die der Unternehmer im eigenen Namen tätigt und seinem Kunden weiterberechnet, gehören grundsätzlich zum Entgelt.
 
@@ -4174,7 +4174,7 @@ Eine bloße Bezeichnung als „Auslagenersatz“ ändert daran nichts.
 
 ---
 
-# 36. Durchlaufende Posten
+⇨ 36. Durchlaufende Posten
 
 Nicht zum Entgelt gehören durchlaufende Posten.
 
@@ -4193,7 +4193,7 @@ Typische Fälle können sein:
 - Grundbuchkosten,
 - Gebühren, bei denen der Kunde selbst unmittelbarer Schuldner ist.
 
-## Merksatz
+► Merksatz
 
 Eigener Name oder eigene Schuld:
 
@@ -4205,19 +4205,19 @@ Fremder Name und fremde Rechnung:
 
 ---
 
-# 37. Trinkgeld
+⇨ 37. Trinkgeld
 
-## Trinkgeld an den Unternehmer
+► Trinkgeld an den Unternehmer
 
 Ein freiwilliges Trinkgeld an den Unternehmer kann zum Entgelt gehören, wenn es im unmittelbaren Zusammenhang mit der Leistung steht.
 
-## Trinkgeld an einen Arbeitnehmer
+► Trinkgeld an einen Arbeitnehmer
 
 Ein freiwilliges Trinkgeld, das unmittelbar dem Arbeitnehmer gewährt wird, gehört grundsätzlich nicht zum Entgelt des Unternehmers.
 
 ---
 
-# 38. Entgelt von dritter Seite
+⇨ 38. Entgelt von dritter Seite
 
 Die Gegenleistung muss nicht zwingend vom Leistungsempfänger selbst gezahlt werden.
 
@@ -4226,7 +4226,7 @@ Auch die Zahlung eines Dritten kann Entgelt sein, wenn
 - sie für die konkrete Leistung gezahlt wird und
 - sie der Förderung oder Vergütung des Leistungsempfängers dient.
 
-## Beispiel
+► Beispiel
 
 Unternehmer A liefert eine Maschine an B.
 
@@ -4238,7 +4238,7 @@ Die Bemessungsgrundlage kann insgesamt 3.000 Euro betragen.
 
 ---
 
-# 39. Zahlungen ohne Entgeltcharakter
+⇨ 39. Zahlungen ohne Entgeltcharakter
 
 Nicht zur Bemessungsgrundlage gehören insbesondere:
 
@@ -4250,7 +4250,7 @@ Nicht zur Bemessungsgrundlage gehören insbesondere:
 - durchlaufende Posten,
 - freiwillige Trinkgelder an Arbeitnehmer.
 
-## Achtung Schadensersatz
+► Achtung Schadensersatz
 
 Nur echter Schadensersatz ist kein Entgelt.
 
@@ -4258,7 +4258,7 @@ Besteht zwischen Zahlung und Leistung ein unmittelbarer Zusammenhang, kann sogen
 
 ---
 
-# 40. Tausch
+⇨ 40. Tausch
 
 Beim Tausch besteht die Gegenleistung nicht in Geld, sondern in einer Lieferung.
 
@@ -4268,7 +4268,7 @@ Der Wert des jeweils anderen Umsatzes bildet grundsätzlich das Entgelt für den
 
 Die Umsatzsteuer gehört nicht zum Entgelt.
 
-## Prüfung
+► Prüfung
 
 Für beide Leistungen getrennt prüfen:
 
@@ -4283,7 +4283,7 @@ Für beide Leistungen getrennt prüfen:
 
 ---
 
-# 41. Tauschähnlicher Umsatz
+⇨ 41. Tauschähnlicher Umsatz
 
 Ein tauschähnlicher Umsatz liegt vor, wenn mindestens eine der ausgetauschten Leistungen eine sonstige Leistung ist.
 
@@ -4297,11 +4297,11 @@ Auch hier ist jeder Umsatz gesondert zu beurteilen.
 
 ---
 
-# 42. Tausch mit Baraufgabe
+⇨ 42. Tausch mit Baraufgabe
 
 Erfolgt zusätzlich zu einer Sach- oder Dienstleistung eine Geldzahlung, liegt ein Tausch beziehungsweise tauschähnlicher Umsatz mit Baraufgabe vor.
 
-## Beteiligter, der die Baraufgabe erhält
+► Beteiligter, der die Baraufgabe erhält
 
 Wert des anderen Umsatzes  
 + erhaltene Baraufgabe  
@@ -4309,7 +4309,7 @@ Wert des anderen Umsatzes
 ./. Umsatzsteuer  
 = Bemessungsgrundlage
 
-## Beteiligter, der die Baraufgabe zahlt
+► Beteiligter, der die Baraufgabe zahlt
 
 Wert des anderen Umsatzes  
 ./. geleistete Baraufgabe  
@@ -4319,9 +4319,9 @@ Wert des anderen Umsatzes
 
 ---
 
-# Teil D: Bezug für das Unternehmen und Zuordnung
+⇨ Teil D: Bezug für das Unternehmen und Zuordnung
 
-# 43. Leistungsbezug für das Unternehmen
+⇨ 43. Leistungsbezug für das Unternehmen
 
 Eine Leistung wird für das Unternehmen bezogen, wenn sie dazu bestimmt ist, der wirtschaftlichen beziehungsweise unternehmerischen Tätigkeit des Leistungsempfängers zu dienen.
 
@@ -4331,7 +4331,7 @@ Eine spätere tatsächliche Nutzungsänderung kann eine Vorsteuerberichtigung na
 
 ---
 
-# 44. Verbrauchbare Gegenstände und sonstige Leistungen
+⇨ 44. Verbrauchbare Gegenstände und sonstige Leistungen
 
 Bei verbrauchbaren Gegenständen und sonstigen Leistungen ist grundsätzlich eine direkte Zuordnung zur beabsichtigten Verwendung vorzunehmen.
 
@@ -4350,11 +4350,11 @@ Ein freies Zuordnungswahlrecht wie bei einem einheitlichen Investitionsgegenstan
 
 ---
 
-# 45. Einheitlicher Gegenstand
+⇨ 45. Einheitlicher Gegenstand
 
 Wird ein einheitlicher Gegenstand sowohl unternehmerisch als auch privat genutzt, ist der Umfang der unternehmerischen Nutzung zu bestimmen.
 
-## Unternehmerische Nutzung unter 10 Prozent
+► Unternehmerische Nutzung unter 10 Prozent
 
 Beträgt die unternehmerische Nutzung weniger als 10 Prozent, gilt der Gegenstand grundsätzlich nicht als für das Unternehmen bezogen.
 
@@ -4362,7 +4362,7 @@ Folge:
 
 Kein Vorsteuerabzug.
 
-## Unternehmerische Nutzung mindestens 10 Prozent
+► Unternehmerische Nutzung mindestens 10 Prozent
 
 Bei einer unternehmerischen Nutzung von mindestens 10 Prozent kann grundsätzlich ein Zuordnungswahlrecht bestehen.
 
@@ -4376,13 +4376,13 @@ zuordnen.
 
 ---
 
-# 46. Vollständige Zuordnung
+⇨ 46. Vollständige Zuordnung
 
 Wird der Gegenstand vollständig dem Unternehmen zugeordnet, kann die Vorsteuer unter den weiteren Voraussetzungen grundsätzlich vollständig abziehbar sein.
 
 Die spätere private Nutzung kann dann als unentgeltliche Wertabgabe steuerpflichtig sein.
 
-## Beispiel
+► Beispiel
 
 Ein Pkw wird zu 70 Prozent unternehmerisch und zu 30 Prozent privat genutzt.
 
@@ -4394,7 +4394,7 @@ Die Privatnutzung ist anschließend umsatzsteuerlich als unentgeltliche Wertabga
 
 ---
 
-# 47. Teilweise Zuordnung
+⇨ 47. Teilweise Zuordnung
 
 Der Unternehmer kann einen gemischt genutzten Gegenstand grundsätzlich nur im Umfang der unternehmerischen Nutzung dem Unternehmen zuordnen.
 
@@ -4406,7 +4406,7 @@ Folgen:
 
 ---
 
-# 48. Nichtwirtschaftliche Tätigkeit im engeren Sinne
+⇨ 48. Nichtwirtschaftliche Tätigkeit im engeren Sinne
 
 Bei einer gemischten Nutzung für
 
@@ -4427,7 +4427,7 @@ Nur der dem wirtschaftlichen Unternehmensteil zuzurechnende Anteil kann zum Vors
 
 ---
 
-# 49. Gemischt genutzte Grundstücke
+⇨ 49. Gemischt genutzte Grundstücke
 
 Für Grundstücke gilt die Sonderregelung des § 15 Abs. 1b UStG.
 
@@ -4440,15 +4440,15 @@ genutzt, ist die Vorsteuer grundsätzlich nur im Umfang der unternehmerischen Nu
 
 Dies gilt auch dann, wenn das Grundstück vollständig dem Unternehmen zugeordnet wurde.
 
-## Folge
+► Folge
 
 Die private Nutzung führt hinsichtlich des bereits vom Vorsteuerabzug ausgeschlossenen Anteils grundsätzlich nicht zusätzlich zu einer Wertabgabenbesteuerung.
 
 ---
 
-# Teil E: Voraussetzungen des Vorsteuerabzugs
+⇨ Teil E: Voraussetzungen des Vorsteuerabzugs
 
-# 50. Grundschema nach § 15 Abs. 1 Satz 1 Nr. 1 UStG
+⇨ 50. Grundschema nach § 15 Abs. 1 Satz 1 Nr. 1 UStG
 
 Für den Vorsteuerabzug aus einer normalen Eingangsleistung sind grundsätzlich fünf Voraussetzungen zu prüfen:
 
@@ -4464,7 +4464,7 @@ Anschließend ist zu prüfen, ob sie tatsächlich abziehbar ist.
 
 ---
 
-# 51. Unternehmereigenschaft des Leistungsempfängers
+⇨ 51. Unternehmereigenschaft des Leistungsempfängers
 
 Der Leistungsempfänger muss Unternehmer im Sinne des § 2 UStG sein.
 
@@ -4484,7 +4484,7 @@ Der Sitz des Leistungsempfängers ist für seine Unternehmereigenschaft grundsä
 
 ---
 
-# 52. Gesetzlich geschuldete Steuer
+⇨ 52. Gesetzlich geschuldete Steuer
 
 Abziehbar ist nur gesetzlich geschuldete Umsatzsteuer.
 
@@ -4495,7 +4495,7 @@ Die Eingangsleistung muss nach dem deutschen Umsatzsteuerrecht
 
 sein.
 
-## Keine abziehbare Vorsteuer
+► Keine abziehbare Vorsteuer
 
 Keine abziehbare Vorsteuer liegt grundsätzlich vor bei
 
@@ -4505,7 +4505,7 @@ Keine abziehbare Vorsteuer liegt grundsätzlich vor bei
 - Umsatzsteuer auf einen steuerfreien Umsatz,
 - Umsatzsteuer mit falschem Leistungsort.
 
-## Grundsatz
+► Grundsatz
 
 Vorsteuerabzug höchstens in Höhe
 
@@ -4516,7 +4516,7 @@ Der niedrigere Betrag ist maßgeblich.
 
 ---
 
-# 53. Fremdwährungen
+⇨ 53. Fremdwährungen
 
 Ist die Rechnung in einer fremden Währung ausgestellt, ist die Umsatzsteuer nach den gesetzlichen Vorschriften in Euro umzurechnen.
 
@@ -4524,7 +4524,7 @@ Maßgeblich sind insbesondere § 16 Abs. 6 UStG und die hierzu ergangenen Verwal
 
 ---
 
-# 54. Unternehmereigenschaft des Leistenden
+⇨ 54. Unternehmereigenschaft des Leistenden
 
 Der leistende Unternehmer muss Unternehmer im Sinne des § 2 UStG sein.
 
@@ -4536,17 +4536,17 @@ Ein allgemeiner Gutglaubensschutz allein wegen einer formal ordnungsgemäßen Re
 
 ---
 
-# 55. Leistungsbezug für das Unternehmen
+⇨ 55. Leistungsbezug für das Unternehmen
 
 Die Leistung muss für das Unternehmen des Leistungsempfängers bestimmt sein.
 
 Maßgeblich ist die beabsichtigte Verwendung im Zeitpunkt des Leistungsbezugs.
 
-## Für das Unternehmen
+► Für das Unternehmen
 
 Eine Leistung wird für das Unternehmen bezogen, wenn sie objektiv dazu bestimmt ist, der Erbringung entgeltlicher unternehmerischer Leistungen zu dienen.
 
-## Nicht für das Unternehmen
+► Nicht für das Unternehmen
 
 Kein Vorsteuerabzug besteht bei einem ausschließlichen Leistungsbezug für
 
@@ -4557,7 +4557,7 @@ Kein Vorsteuerabzug besteht bei einem ausschließlichen Leistungsbezug für
 
 ---
 
-# 56. Zusammenhang mit dem Ausgangsumsatz
+⇨ 56. Zusammenhang mit dem Ausgangsumsatz
 
 Die Eingangsleistung muss einem beabsichtigten Ausgangsumsatz oder der wirtschaftlichen Gesamttätigkeit zugeordnet werden.
 
@@ -4569,7 +4569,7 @@ Dann ist die Gesamttätigkeit des Unternehmers maßgeblich.
 
 ---
 
-# 57. Ordnungsgemäße Rechnung
+⇨ 57. Ordnungsgemäße Rechnung
 
 Der Leistungsempfänger muss grundsätzlich im Besitz einer Rechnung nach §§ 14 und 14a UStG sein.
 
@@ -4587,7 +4587,7 @@ Zu den Pflichtangaben gehören insbesondere:
 - Steuersatz,
 - Steuerbetrag.
 
-## Besonders wichtig
+► Besonders wichtig
 
 § 14 Abs. 4 Nr. 7 und 8 UStG verlangt insbesondere Angaben zum
 
@@ -4599,7 +4599,7 @@ Fehlen wesentliche Angaben, ist der Vorsteuerabzug grundsätzlich gefährdet.
 
 ---
 
-# 58. Rechnungsberichtigung
+⇨ 58. Rechnungsberichtigung
 
 Eine fehlerhafte Rechnung kann grundsätzlich berichtigt werden.
 
@@ -4616,7 +4616,7 @@ Voraussetzung ist grundsätzlich, dass das ursprüngliche Dokument bereits besti
 
 ---
 
-# 59. Zeitpunkt des Vorsteuerabzugs
+⇨ 59. Zeitpunkt des Vorsteuerabzugs
 
 Der Vorsteuerabzug ist grundsätzlich in dem Voranmeldungszeitraum vorzunehmen, in dem
 
@@ -4625,7 +4625,7 @@ Der Vorsteuerabzug ist grundsätzlich in dem Voranmeldungszeitraum vorzunehmen, 
 
 Der Zeitpunkt der Zahlung ist grundsätzlich unerheblich.
 
-## Merksatz
+► Merksatz
 
 Normale Eingangsleistung:
 
@@ -4633,7 +4633,7 @@ Normale Eingangsleistung:
 
 ---
 
-# 60. Vorsteuerabzug bei Anzahlungen
+⇨ 60. Vorsteuerabzug bei Anzahlungen
 
 Vor Ausführung der Leistung kann ein Vorsteuerabzug aus einer Anzahlung möglich sein, wenn
 
@@ -4641,7 +4641,7 @@ Vor Ausführung der Leistung kann ein Vorsteuerabzug aus einer Anzahlung möglic
 2. die Zahlung tatsächlich geleistet wurde und
 3. die spätere Leistung hinreichend bestimmt ist.
 
-## Merksatz
+► Merksatz
 
 Anzahlung:
 
@@ -4651,19 +4651,19 @@ Die Leistung ist noch nicht ausgeführt.
 
 ---
 
-# 61. Weitere abziehbare Vorsteuerbeträge
+⇨ 61. Weitere abziehbare Vorsteuerbeträge
 
 Neben der normalen Eingangsrechnung nach § 15 Abs. 1 Satz 1 Nr. 1 UStG können insbesondere abziehbar sein:
 
-## Einfuhrumsatzsteuer
+► Einfuhrumsatzsteuer
 
 § 15 Abs. 1 Satz 1 Nr. 2 UStG.
 
-## Steuer auf den innergemeinschaftlichen Erwerb
+► Steuer auf den innergemeinschaftlichen Erwerb
 
 § 15 Abs. 1 Satz 1 Nr. 3 UStG.
 
-## Steuer nach § 13b UStG
+► Steuer nach § 13b UStG
 
 § 15 Abs. 1 Satz 1 Nr. 4 UStG.
 
@@ -4673,21 +4673,21 @@ Die übrigen Voraussetzungen, insbesondere der Leistungsbezug für das Unternehm
 
 ---
 
-# Teil F: Ausschluss vom Vorsteuerabzug
+⇨ Teil F: Ausschluss vom Vorsteuerabzug
 
-# 62. Abzugsfähigkeit und Abziehbarkeit
+⇨ 62. Abzugsfähigkeit und Abziehbarkeit
 
 Es ist zwischen zwei Prüfungsebenen zu unterscheiden:
 
-## Abzugsfähig
+► Abzugsfähig
 
 Die Voraussetzungen des § 15 Abs. 1 UStG sind erfüllt.
 
-## Tatsächlich abziehbar
+► Tatsächlich abziehbar
 
 Es greift kein Ausschluss nach § 15 Abs. 1a, Abs. 1b oder Abs. 2 UStG beziehungsweise ein Ausschluss wird durch § 15 Abs. 3 UStG aufgehoben.
 
-## Merksatz
+► Merksatz
 
 Zuerst:
 
@@ -4699,7 +4699,7 @@ Danach:
 
 ---
 
-# 63. Ausschluss nach § 15 Abs. 2 UStG
+⇨ 63. Ausschluss nach § 15 Abs. 2 UStG
 
 Der Vorsteuerabzug ist grundsätzlich ausgeschlossen, wenn die Eingangsleistung für Umsätze verwendet wird, die den Vorsteuerabzug ausschließen.
 
@@ -4712,13 +4712,13 @@ Maßgeblich ist die beabsichtigte Verwendung im Zeitpunkt des Leistungsbezugs.
 
 ---
 
-# 64. Steuerpflichtige Ausgangsumsätze
+⇨ 64. Steuerpflichtige Ausgangsumsätze
 
 Wird die Eingangsleistung für steuerpflichtige Ausgangsumsätze verwendet, besteht grundsätzlich kein Ausschluss nach § 15 Abs. 2 UStG.
 
 Dies gilt auch, wenn ein ursprünglich steuerfreier Umsatz aufgrund einer wirksamen Option nach § 9 UStG steuerpflichtig behandelt wird.
 
-## Beispiel
+► Beispiel
 
 Ein Vermieter optiert wirksam zur Umsatzsteuer.
 
@@ -4728,7 +4728,7 @@ Die Vorsteuer kann grundsätzlich abziehbar sein.
 
 ---
 
-# 65. Steuerfreie Ausgangsumsätze
+⇨ 65. Steuerfreie Ausgangsumsätze
 
 Wird die Eingangsleistung für steuerfreie Umsätze verwendet, ist die Vorsteuer grundsätzlich nicht abziehbar.
 
@@ -4742,7 +4742,7 @@ Typische Ausschlussumsätze sind:
 
 ---
 
-# 66. Rückausschluss nach § 15 Abs. 3 UStG
+⇨ 66. Rückausschluss nach § 15 Abs. 3 UStG
 
 § 15 Abs. 3 UStG hebt den Ausschluss des § 15 Abs. 2 UStG für bestimmte steuerfreie Umsätze wieder auf.
 
@@ -4756,7 +4756,7 @@ Typische Fälle sind insbesondere:
 - bestimmte Umsätze für die See- und Luftfahrt,
 - bestimmte Finanzumsätze mit Bezug zum Drittlandsgebiet.
 
-## Merksatz
+► Merksatz
 
 Steuerfrei bedeutet nicht automatisch:
 
@@ -4766,7 +4766,7 @@ Es muss immer § 15 Abs. 3 UStG geprüft werden.
 
 ---
 
-# 67. Steuerfreie Umsätze nach § 4 Nr. 1 bis 7 UStG
+⇨ 67. Steuerfreie Umsätze nach § 4 Nr. 1 bis 7 UStG
 
 Bei vielen Steuerbefreiungen nach § 4 Nr. 1 bis 7 UStG bleibt der Vorsteuerabzug erhalten.
 
@@ -4779,7 +4779,7 @@ Die Vorsteuer ist damit
 
 ---
 
-# 68. Sonstige Steuerbefreiungen
+⇨ 68. Sonstige Steuerbefreiungen
 
 Bei zahlreichen Steuerbefreiungen nach § 4 Nr. 8 bis 29 UStG ist der Vorsteuerabzug grundsätzlich ausgeschlossen.
 
@@ -4797,35 +4797,35 @@ Die konkrete Steuerbefreiung ist daher stets einzeln zu prüfen.
 
 ---
 
-# 69. Umsätze im Ausland
+⇨ 69. Umsätze im Ausland
 
 Ein im Ausland ausgeführter Ausgangsumsatz ist in Deutschland nicht steuerbar.
 
 Für den Vorsteuerabzug ist zu prüfen, wie der Umsatz bei einer hypothetischen Ausführung im Inland behandelt würde.
 
-## Hypothetisch steuerpflichtig
+► Hypothetisch steuerpflichtig
 
 Die Vorsteuer kann grundsätzlich abziehbar sein.
 
-## Hypothetisch steuerfrei und vorsteuerschädlich
+► Hypothetisch steuerfrei und vorsteuerschädlich
 
 Die Vorsteuer ist grundsätzlich ausgeschlossen.
 
-## Hypothetisch steuerfrei mit Rückausschluss
+► Hypothetisch steuerfrei mit Rückausschluss
 
 Die Vorsteuer kann dennoch abziehbar sein.
 
 ---
 
-# 70. Nicht steuerbare Tätigkeiten
+⇨ 70. Nicht steuerbare Tätigkeiten
 
 Bei einer nicht steuerbaren Tätigkeit ist zu unterscheiden:
 
-## Wirtschaftliche Tätigkeit mit ausländischem Leistungsort
+► Wirtschaftliche Tätigkeit mit ausländischem Leistungsort
 
 Ein Vorsteuerabzug kann möglich sein, wenn der Umsatz bei Ausführung im Inland zum Vorsteuerabzug berechtigen würde.
 
-## Nichtwirtschaftliche Tätigkeit
+► Nichtwirtschaftliche Tätigkeit
 
 Bei einer Tätigkeit außerhalb des umsatzsteuerlichen Unternehmens fehlt grundsätzlich bereits der Leistungsbezug für das Unternehmen.
 
@@ -4833,34 +4833,34 @@ Die Eingangsleistung ist insoweit nicht abzugsfähig.
 
 ---
 
-# Teil G: Aufteilung von Vorsteuerbeträgen
+⇨ Teil G: Aufteilung von Vorsteuerbeträgen
 
-# 71. Direkte Zuordnung
+⇨ 71. Direkte Zuordnung
 
 Vorsteuerbeträge sind zunächst unmittelbar den Ausgangsumsätzen zuzuordnen.
 
-## Ausschließlich Abzugsumsätze
+► Ausschließlich Abzugsumsätze
 
 Die Vorsteuer ist vollständig abziehbar.
 
-## Ausschließlich Ausschlussumsätze
+► Ausschließlich Ausschlussumsätze
 
 Die Vorsteuer ist nicht abziehbar.
 
-## Gemischter Zusammenhang
+► Gemischter Zusammenhang
 
 Ist keine direkte Zuordnung möglich, ist eine Aufteilung nach § 15 Abs. 4 UStG vorzunehmen.
 
 ---
 
-# 72. Voraussetzung der Vorsteueraufteilung
+⇨ 72. Voraussetzung der Vorsteueraufteilung
 
 Eine Aufteilung ist erforderlich, wenn eine Eingangsleistung gleichzeitig verwendet wird für
 
 - Umsätze, die zum Vorsteuerabzug berechtigen, und
 - Umsätze, die den Vorsteuerabzug ausschließen.
 
-## Beispiel
+► Beispiel
 
 Ein Steuerberater erzielt
 
@@ -4873,7 +4873,7 @@ Die Vorsteuer ist nach einem sachgerechten Maßstab aufzuteilen.
 
 ---
 
-# 73. Sachgerechte Schätzung
+⇨ 73. Sachgerechte Schätzung
 
 Die Aufteilung erfolgt nach einer sachgerechten Schätzung.
 
@@ -4892,13 +4892,13 @@ Der gewählte Schlüssel muss den wirtschaftlichen Zusammenhang möglichst genau
 
 ---
 
-# 74. Umsatzschlüssel
+⇨ 74. Umsatzschlüssel
 
 Eine Aufteilung nach dem Verhältnis der Umsätze ist grundsätzlich nur zulässig, wenn keine andere wirtschaftlich präzisere Zuordnung möglich ist.
 
 Der Umsatzschlüssel ist daher regelmäßig nachrangig.
 
-## Merksatz
+► Merksatz
 
 Direkte Zuordnung vor Aufteilung.
 
@@ -4906,11 +4906,11 @@ Präziser wirtschaftlicher Schlüssel vor Umsatzschlüssel.
 
 ---
 
-# 75. Gebäude
+⇨ 75. Gebäude
 
 Bei Gebäuden ist besonders zu unterscheiden:
 
-## Direkte Zuordnung möglich
+► Direkte Zuordnung möglich
 
 Betrifft eine Eingangsleistung ausschließlich einen bestimmten Gebäudeteil, erfolgt keine Aufteilung.
 
@@ -4920,7 +4920,7 @@ Beispiele:
 - Fenster ausschließlich in einer steuerpflichtig vermieteten Einheit,
 - Bodenbelag ausschließlich in einer steuerfreien Wohnung.
 
-## Keine direkte Zuordnung möglich
+► Keine direkte Zuordnung möglich
 
 Bei allgemeinen Gebäudeaufwendungen ist regelmäßig ein sachgerechter Aufteilungsschlüssel zu verwenden.
 
@@ -4928,7 +4928,7 @@ Häufig kommt das Verhältnis der Nutzflächen in Betracht.
 
 ---
 
-# 76. Anschaffungs- und Herstellungskosten eines Gebäudes
+⇨ 76. Anschaffungs- und Herstellungskosten eines Gebäudes
 
 Vorsteuer aus Anschaffungs- und Herstellungskosten eines gemischt genutzten Gebäudes ist nach einem sachgerechten Maßstab aufzuteilen.
 
@@ -4940,9 +4940,9 @@ Ein einmal gewählter sachgerechter Aufteilungsmaßstab kann den Unternehmer auc
 
 ---
 
-# Teil H: Prüfungsschemata
+⇨ Teil H: Prüfungsschemata
 
-# 77. Prüfungsschema Reverse Charge
+⇨ 77. Prüfungsschema Reverse Charge
 
 1. Art der Eingangsleistung bestimmen.
 2. Leistungsort ermitteln.
@@ -4960,7 +4960,7 @@ Ein einmal gewählter sachgerechter Aufteilungsmaßstab kann den Unternehmer auc
 
 ---
 
-# 78. Prüfungsschema Steuersatz
+⇨ 78. Prüfungsschema Steuersatz
 
 1. Liegt ein steuerpflichtiger Umsatz vor?
 2. Wird der Umsatz von § 12 Abs. 2 UStG erfasst?
@@ -4973,7 +4973,7 @@ Ein einmal gewählter sachgerechter Aufteilungsmaßstab kann den Unternehmer auc
 
 ---
 
-# 79. Prüfungsschema Bemessungsgrundlage
+⇨ 79. Prüfungsschema Bemessungsgrundlage
 
 1. Gegenleistung feststellen.
 2. Brutto- oder Nettopreis bestimmen.
@@ -4988,9 +4988,9 @@ Ein einmal gewählter sachgerechter Aufteilungsmaßstab kann den Unternehmer auc
 
 ---
 
-# 80. Prüfungsschema Vorsteuerabzug
+⇨ 80. Prüfungsschema Vorsteuerabzug
 
-## Stufe 1: Abzugsfähigkeit
+► Stufe 1: Abzugsfähigkeit
 
 1. Unternehmereigenschaft des Leistungsempfängers.
 2. Gesetzlich geschuldete Umsatzsteuer.
@@ -4998,7 +4998,7 @@ Ein einmal gewählter sachgerechter Aufteilungsmaßstab kann den Unternehmer auc
 4. Leistungsbezug für das Unternehmen.
 5. Ordnungsgemäße Rechnung.
 
-## Stufe 2: Abziehbarkeit
+► Stufe 2: Abziehbarkeit
 
 6. Ausschluss nach § 15 Abs. 1a prüfen.
 7. Sonderregelung für Grundstücke nach § 15 Abs. 1b prüfen.
@@ -5006,7 +5006,7 @@ Ein einmal gewählter sachgerechter Aufteilungsmaßstab kann den Unternehmer auc
 9. Rückausschluss nach § 15 Abs. 3 prüfen.
 10. Gegebenenfalls Aufteilung nach § 15 Abs. 4 durchführen.
 
-## Ergebnis
+► Ergebnis
 
 Festzustellen sind:
 
@@ -5016,7 +5016,7 @@ Festzustellen sind:
 
 ---
 
-# 81. Formulierungshilfe § 13b UStG
+⇨ 81. Formulierungshilfe § 13b UStG
 
 Die Leistung ist im Inland steuerbar und steuerpflichtig.
 
@@ -5034,7 +5034,7 @@ Der Vorsteuerabzug des Leistungsempfängers ist gesondert nach § 15 UStG zu pr�
 
 ---
 
-# 82. Formulierungshilfe Vorsteuerabzug möglich
+⇨ 82. Formulierungshilfe Vorsteuerabzug möglich
 
 Der Leistungsempfänger ist Unternehmer im Sinne des § 2 UStG.
 
@@ -5050,7 +5050,7 @@ Die Vorsteuer ist abzugsfähig und abziehbar.
 
 ---
 
-# 83. Formulierungshilfe Vorsteuerabzug ausgeschlossen
+⇨ 83. Formulierungshilfe Vorsteuerabzug ausgeschlossen
 
 Die Voraussetzungen des § 15 Abs. 1 UStG sind dem Grunde nach erfüllt.
 
@@ -5064,7 +5064,7 @@ Die Vorsteuer ist abzugsfähig, aber nicht abziehbar.
 
 ---
 
-# 84. Zentrale Merksätze
+⇨ 84. Zentrale Merksätze
 
 - § 13b UStG ändert den Steuerschuldner, nicht die Steuerpflicht des Umsatzes.
 - Zuerst müssen Ort, Steuerbarkeit und Steuerpflicht geprüft werden.
@@ -5135,9 +5135,9 @@ Die Vorsteuer ist abzugsfähig, aber nicht abziehbar.
   ],
 
   body: `
-# Ertragswertverfahren: Rechenfälle und vertiefende Prüfung
+⇨ Ertragswertverfahren: Rechenfälle und vertiefende Prüfung
 
-## 1. Anwendungsbereich
+► 1. Anwendungsbereich
 
 Das Ertragswertverfahren ist anzuwenden bei:
 
@@ -5153,44 +5153,44 @@ Ein Wahlrecht zwischen Ertragswert- und Sachwertverfahren besteht grundsätzlich
 
 ---
 
-# 2. Gesamtschema
+⇨ 2. Gesamtschema
 
-## Bodenwert
+► Bodenwert
 
 Grundstücksfläche  
 × Bodenrichtwert  
 = Bodenwert
 
-## Rohertrag
+► Rohertrag
 
 Jährliche maßgebende Miete  
 = Rohertrag des Grundstücks
 
-## Reinertrag
+► Reinertrag
 
 Rohertrag  
 ./. Bewirtschaftungskosten  
 = Reinertrag des Grundstücks
 
-## Bodenwertverzinsung
+► Bodenwertverzinsung
 
 Bodenwert  
 × Liegenschaftszinssatz  
 = Bodenwertverzinsung
 
-## Gebäudereinertrag
+► Gebäudereinertrag
 
 Reinertrag des Grundstücks  
 ./. Bodenwertverzinsung  
 = Gebäudereinertrag
 
-## Gebäudeertragswert
+► Gebäudeertragswert
 
 Gebäudereinertrag  
 × Vervielfältiger  
 = Gebäudeertragswert
 
-## Grundbesitzwert
+► Grundbesitzwert
 
 Bodenwert  
 + Gebäudeertragswert  
@@ -5198,17 +5198,17 @@ Bodenwert
 
 ---
 
-# 3. Bodenwert
+⇨ 3. Bodenwert
 
 Der Bodenwert wird nach § 184 Abs. 2 BewG in Verbindung mit § 179 BewG ermittelt.
 
-## Formel
+► Formel
 
 Grundstücksgröße in Quadratmetern  
 × maßgebender Bodenrichtwert je Quadratmeter  
 = Bodenwert
 
-## Beispiel
+► Beispiel
 
 Grundstücksgröße:
 
@@ -5226,7 +5226,7 @@ Der Bodenwert beträgt 200.000 Euro.
 
 ---
 
-# 4. Maßgebender Bodenrichtwert
+⇨ 4. Maßgebender Bodenrichtwert
 
 Maßgebend ist grundsätzlich der für den Bewertungsstichtag relevante Bodenrichtwert des zuständigen Gutachterausschusses.
 
@@ -5236,21 +5236,21 @@ Abweichungen des Bewertungsgrundstücks vom Bodenrichtwertgrundstück sind gegeb
 
 ---
 
-# 5. Rohertrag nach § 186 BewG
+⇨ 5. Rohertrag nach § 186 BewG
 
 Der Rohertrag ist das Entgelt, das nach den am Bewertungsstichtag geltenden vertraglichen Vereinbarungen für die Nutzung des bebauten Grundstücks innerhalb eines Zeitraums von zwölf Monaten zu zahlen ist.
 
-## Grundsatz
+► Grundsatz
 
 Maßgebend ist die Sollmiete nach den vertraglichen Bedingungen am Bewertungsstichtag.
 
-## Formel
+► Formel
 
 Monatliche Nettokaltmiete  
 × 12 Monate  
 = Jahresrohertrag
 
-## Nicht einzubeziehen
+► Nicht einzubeziehen
 
 Umlagen zur Deckung der Betriebskosten gehören nicht zum Rohertrag.
 
@@ -5263,13 +5263,13 @@ Beispiele:
 - umlagefähige Versicherungen,
 - sonstige Betriebskostenvorauszahlungen.
 
-## Merksatz
+► Merksatz
 
 **Rohertrag bedeutet grundsätzlich Nettokaltmiete ohne Betriebskostenumlagen.**
 
 ---
 
-# 6. Veränderungen nach dem Bewertungsstichtag
+⇨ 6. Veränderungen nach dem Bewertungsstichtag
 
 Maßgebend sind die Verhältnisse am Bewertungsstichtag.
 
@@ -5285,7 +5285,7 @@ sind grundsätzlich nicht zu berücksichtigen, wenn sie am Bewertungsstichtag no
 
 ---
 
-# 7. Ansatz der üblichen Miete
+⇨ 7. Ansatz der üblichen Miete
 
 Die übliche Miete ist insbesondere anzusetzen, wenn das Grundstück oder ein Grundstücksteil
 
@@ -5299,11 +5299,11 @@ Betriebskosten sind auch bei der üblichen Miete nicht einzubeziehen.
 
 ---
 
-# 8. Ungenutzte Wohnung am Bewertungsstichtag
+⇨ 8. Ungenutzte Wohnung am Bewertungsstichtag
 
 Ist eine Wohnung am Bewertungsstichtag leerstehend, ist grundsätzlich die übliche Jahresmiete anzusetzen.
 
-## Beispiel
+► Beispiel
 
 Eine Wohnung war bis zum 30. September für monatlich 900 Euro vermietet.
 
@@ -5323,37 +5323,37 @@ Die frühere und die spätere tatsächliche Miete sind für den Rohertrag am Bew
 
 ---
 
-# 9. Abweichung von der üblichen Miete
+⇨ 9. Abweichung von der üblichen Miete
 
 Die übliche Miete ersetzt die tatsächliche Miete nur, wenn die tatsächliche Miete um mehr als 20 Prozent von der üblichen Miete abweicht.
 
 Die Grenze wird auf Grundlage der üblichen Miete berechnet.
 
-## Formel
+► Formel
 
 Übliche Miete  
 × 20 Prozent  
 = zulässiger Abweichungsbetrag
 
-## Untere Grenze
+► Untere Grenze
 
 Übliche Miete  
 ./. 20 Prozent der üblichen Miete
 
-## Obere Grenze
+► Obere Grenze
 
 Übliche Miete  
 + 20 Prozent der üblichen Miete
 
 ---
 
-# 10. Genau 20 Prozent Abweichung
+⇨ 10. Genau 20 Prozent Abweichung
 
 Beträgt die Abweichung genau 20 Prozent, ist die vereinbarte Miete anzusetzen.
 
 Das Gesetz verlangt eine Abweichung von mehr als 20 Prozent.
 
-## Beispiel
+► Beispiel
 
 Übliche Miete:
 
@@ -5381,9 +5381,9 @@ Jahresrohertrag:
 
 ---
 
-# 11. Mehr als 20 Prozent Abweichung
+⇨ 11. Mehr als 20 Prozent Abweichung
 
-## Beispiel
+► Beispiel
 
 Übliche Miete:
 
@@ -5407,7 +5407,7 @@ Die Regel gilt sowohl bei einer zu niedrigen als auch bei einer zu hohen vereinb
 
 ---
 
-# 12. Bewirtschaftungskosten nach § 187 BewG
+⇨ 12. Bewirtschaftungskosten nach § 187 BewG
 
 Vom Rohertrag sind die Bewirtschaftungskosten abzuziehen.
 
@@ -5422,13 +5422,13 @@ Für die standardisierte Bewertung werden grundsätzlich die Werte der Anlage 23
 
 ---
 
-# 13. Jährliche Anpassung der Bewirtschaftungskosten
+⇨ 13. Jährliche Anpassung der Bewirtschaftungskosten
 
 Die Basiswerte für Verwaltungskosten und Instandhaltungskosten der Wohnnutzung werden jährlich an die Entwicklung des Verbraucherpreisindex angepasst.
 
 Das Bundesministerium der Finanzen veröffentlicht die maßgebenden Werte für jedes Bewertungsjahr.
 
-## Zwingende Chatbot-Regel
+► Zwingende Chatbot-Regel
 
 Vor einer konkreten Berechnung muss der Bewertungsstichtag bestimmt werden.
 
@@ -5442,11 +5442,11 @@ Beispiel:
 
 ---
 
-# 14. Bewirtschaftungskosten für Wohnnutzung im Jahr 2024
+⇨ 14. Bewirtschaftungskosten für Wohnnutzung im Jahr 2024
 
 Für Bewertungsstichtage im Kalenderjahr 2024 gelten nach der Indizierung insbesondere folgende Werte:
 
-## Verwaltungskosten
+► Verwaltungskosten
 
 Je Wohnung jährlich:
 
@@ -5456,7 +5456,7 @@ Je Garage oder ähnlichem Einstellplatz jährlich:
 
 46 Euro.
 
-## Instandhaltungskosten
+► Instandhaltungskosten
 
 Je Quadratmeter Wohnfläche jährlich:
 
@@ -5466,19 +5466,19 @@ Je Garage oder ähnlichem Einstellplatz jährlich:
 
 104 Euro.
 
-## Mietausfallwagnis
+► Mietausfallwagnis
 
 2 Prozent des auf die Wohnnutzung entfallenden jährlichen Rohertrags.
 
 ---
 
-# 15. Bewirtschaftungskosten für gewerbliche Nutzung
+⇨ 15. Bewirtschaftungskosten für gewerbliche Nutzung
 
-## Verwaltungskosten
+► Verwaltungskosten
 
 3 Prozent des auf die gewerbliche Nutzung entfallenden jährlichen Rohertrags.
 
-## Instandhaltungskosten
+► Instandhaltungskosten
 
 Grundsätzlich je Quadratmeter Nutzfläche:
 
@@ -5489,23 +5489,23 @@ Für bestimmte Gebäudearten gelten reduzierte Ansätze:
 - Gebäudeart 13 der Anlage 24: 50 Prozent,
 - Gebäudearten 15, 16 und 18 der Anlage 24: 30 Prozent.
 
-## Mietausfallwagnis
+► Mietausfallwagnis
 
 4 Prozent des auf die gewerbliche Nutzung entfallenden jährlichen Rohertrags.
 
 ---
 
-# 16. Gemischte Nutzung
+⇨ 16. Gemischte Nutzung
 
 Bei einem gemischt genutzten Grundstück sind die Bewirtschaftungskosten nach Wohn- und Nichtwohnnutzung getrennt zu berechnen.
 
-## Wohnnutzung
+► Wohnnutzung
 
 - Verwaltungskosten je Wohnung,
 - Instandhaltungskosten je Quadratmeter Wohnfläche,
 - Mietausfallwagnis 2 Prozent.
 
-## Gewerbliche Nutzung
+► Gewerbliche Nutzung
 
 - Verwaltungskosten 3 Prozent des gewerblichen Rohertrags,
 - Instandhaltungskosten je Quadratmeter Nutzfläche,
@@ -5515,9 +5515,9 @@ Anschließend werden sämtliche Bewirtschaftungskosten addiert.
 
 ---
 
-# 17. Reinertrag des Grundstücks
+⇨ 17. Reinertrag des Grundstücks
 
-## Formel
+► Formel
 
 Rohertrag des Grundstücks  
 ./. Verwaltungskosten  
@@ -5528,11 +5528,11 @@ Rohertrag des Grundstücks
 
 ---
 
-# 18. Bodenwertverzinsung
+⇨ 18. Bodenwertverzinsung
 
 Der auf den Grund und Boden entfallende Ertragsanteil ist vom Reinertrag des Grundstücks abzuziehen.
 
-## Formel
+► Formel
 
 Bodenwert  
 × Liegenschaftszinssatz  
@@ -5540,7 +5540,7 @@ Bodenwert
 
 ---
 
-# 19. Gesetzliche Liegenschaftszinssätze
+⇨ 19. Gesetzliche Liegenschaftszinssätze
 
 Soweit kein geeigneter Liegenschaftszinssatz des Gutachterausschusses vorliegt, gelten grundsätzlich die gesetzlichen Zinssätze.
 
@@ -5551,15 +5551,15 @@ Insbesondere:
 - gemischt genutztes Grundstück mit gewerblichem Anteil von mehr als 50 Prozent: 5 Prozent,
 - Geschäftsgrundstück: 6 Prozent.
 
-## Merksatz
+► Merksatz
 
 **Beim gemischt genutzten Grundstück bestimmt der gewerbliche Flächenanteil den gesetzlichen Zinssatz.**
 
 ---
 
-# 20. Gebäudereinertrag
+⇨ 20. Gebäudereinertrag
 
-## Formel
+► Formel
 
 Reinertrag des Grundstücks  
 ./. Bodenwertverzinsung  
@@ -5571,13 +5571,13 @@ Der Bodenwert wird anschließend unverändert hinzugerechnet.
 
 ---
 
-# 21. Gesamtnutzungsdauer
+⇨ 21. Gesamtnutzungsdauer
 
 Die wirtschaftliche Gesamtnutzungsdauer ergibt sich aus Anlage 22 BewG.
 
 Für die in den Beispielen verwendeten Gebäude beträgt sie 80 Jahre.
 
-## Wichtig
+► Wichtig
 
 Die Gesamtnutzungsdauer stammt aus Anlage 22 BewG.
 
@@ -5585,9 +5585,9 @@ Der Vervielfältiger stammt dagegen aus Anlage 21 BewG.
 
 ---
 
-# 22. Restnutzungsdauer
+⇨ 22. Restnutzungsdauer
 
-## Grundformel
+► Grundformel
 
 Gesamtnutzungsdauer  
 ./. Alter des Gebäudes  
@@ -5595,7 +5595,7 @@ Gesamtnutzungsdauer
 
 Das Gebäudealter ist grundsätzlich nach den Verhältnissen am Bewertungsstichtag zu bestimmen.
 
-## Beispiel
+► Beispiel
 
 Gesamtnutzungsdauer:
 
@@ -5611,7 +5611,7 @@ Restnutzungsdauer:
 
 ---
 
-# 23. Vervielfältiger
+⇨ 23. Vervielfältiger
 
 Der Vervielfältiger ergibt sich aus Anlage 21 BewG.
 
@@ -5620,7 +5620,7 @@ Er richtet sich nach:
 1. dem Liegenschaftszinssatz und
 2. der Restnutzungsdauer.
 
-## Formel
+► Formel
 
 Gebäudereinertrag  
 × Vervielfältiger  
@@ -5628,9 +5628,9 @@ Gebäudereinertrag
 
 ---
 
-# 24. Fall 1: Erbfall mit Mietwohngrundstück
+⇨ 24. Fall 1: Erbfall mit Mietwohngrundstück
 
-## Sachverhalt
+► Sachverhalt
 
 Erbfall:
 
@@ -5670,7 +5670,7 @@ Fertigstellung beziehungsweise Bezugsfertigkeit:
 
 ---
 
-# 25. Grundstücksart im Fall 1
+⇨ 25. Grundstücksart im Fall 1
 
 Das Grundstück dient vollständig Wohnzwecken.
 
@@ -5682,7 +5682,7 @@ Mietwohngrundstücke sind nach § 182 Abs. 3 Nr. 1 BewG im Ertragswertverfahren 
 
 ---
 
-# 26. Bodenwert im Fall 1
+⇨ 26. Bodenwert im Fall 1
 
 Grundstücksgröße:
 
@@ -5702,7 +5702,7 @@ Bodenwert:
 
 ---
 
-# 27. Rohertrag im Fall 1
+⇨ 27. Rohertrag im Fall 1
 
 Vier Wohnungen:
 
@@ -5724,27 +5724,27 @@ Die zusätzlich gezahlten Betriebskostenumlagen gehören nicht zum Rohertrag.
 
 ---
 
-# 28. Bewirtschaftungskosten im Fall 1
+⇨ 28. Bewirtschaftungskosten im Fall 1
 
-## Verwaltungskosten
+► Verwaltungskosten
 
 351 Euro je Wohnung  
 × 5 Wohnungen  
 = 1.755 Euro.
 
-## Instandhaltungskosten
+► Instandhaltungskosten
 
 450 Quadratmeter  
 × 13,80 Euro  
 = 6.210 Euro.
 
-## Mietausfallwagnis
+► Mietausfallwagnis
 
 54.000 Euro  
 × 2 Prozent  
 = 1.080 Euro.
 
-## Gesamte Bewirtschaftungskosten
+► Gesamte Bewirtschaftungskosten
 
 1.755 Euro  
 + 6.210 Euro  
@@ -5753,7 +5753,7 @@ Die zusätzlich gezahlten Betriebskostenumlagen gehören nicht zum Rohertrag.
 
 ---
 
-# 29. Reinertrag im Fall 1
+⇨ 29. Reinertrag im Fall 1
 
 Rohertrag:
 
@@ -5775,7 +5775,7 @@ Reinertrag des Grundstücks:
 
 ---
 
-# 30. Bodenwertverzinsung im Fall 1
+⇨ 30. Bodenwertverzinsung im Fall 1
 
 Das Grundstück ist ein Mietwohngrundstück.
 
@@ -5795,7 +5795,7 @@ Bodenwertverzinsung:
 
 ---
 
-# 31. Gebäudereinertrag im Fall 1
+⇨ 31. Gebäudereinertrag im Fall 1
 
 Reinertrag des Grundstücks:
 
@@ -5817,7 +5817,7 @@ Gebäudereinertrag:
 
 ---
 
-# 32. Restnutzungsdauer im Fall 1
+⇨ 32. Restnutzungsdauer im Fall 1
 
 Gesamtnutzungsdauer laut Anlage 22 BewG:
 
@@ -5833,7 +5833,7 @@ Restnutzungsdauer:
 
 ---
 
-# 33. Gebäudeertragswert im Fall 1
+⇨ 33. Gebäudeertragswert im Fall 1
 
 Liegenschaftszinssatz:
 
@@ -5859,7 +5859,7 @@ Gebäudeertragswert:
 
 ---
 
-# 34. Grundbesitzwert im Fall 1
+⇨ 34. Grundbesitzwert im Fall 1
 
 Bodenwert:
 
@@ -5875,7 +5875,7 @@ Berechnung:
 + 903.329 Euro  
 = 1.103.329 Euro.
 
-## Ergebnis
+► Ergebnis
 
 Der Grundbesitzwert beträgt 1.103.329 Euro.
 
@@ -5883,7 +5883,7 @@ Der Wert ist nach § 12 Abs. 3 ErbStG als Grundbesitzwert für die Festsetzung d
 
 ---
 
-# 35. Kompakte Berechnung Fall 1
+⇨ 35. Kompakte Berechnung Fall 1
 
 Bodenwert:
 
@@ -5925,9 +5925,9 @@ Grundbesitzwert:
 
 ---
 
-# 36. Fall 2: Schenkung eines gemischt genutzten Grundstücks
+⇨ 36. Fall 2: Schenkung eines gemischt genutzten Grundstücks
 
-## Sachverhalt
+► Sachverhalt
 
 Notarieller Vertrag:
 
@@ -5977,7 +5977,7 @@ Bodenrichtwert:
 
 ---
 
-# 37. Grundstücksart im Fall 2
+⇨ 37. Grundstücksart im Fall 2
 
 Das Grundstück dient zu
 
@@ -5994,13 +5994,13 @@ Es handelt sich daher um ein gemischt genutztes Grundstück nach § 181 Abs. 1 N
 
 Da eine übliche Miete ermittelt werden kann, erfolgt die Bewertung nach § 182 Abs. 3 Nr. 2 BewG im Ertragswertverfahren.
 
-## Korrekturhinweis
+► Korrekturhinweis
 
 Eine Zuordnung zu § 181 Abs. 1 Nr. 2 und Abs. 3 BewG wäre falsch, weil diese Vorschriften Mietwohngrundstücke betreffen.
 
 ---
 
-# 38. Bodenwert im Fall 2
+⇨ 38. Bodenwert im Fall 2
 
 500 Quadratmeter  
 × 400 Euro  
@@ -6012,7 +6012,7 @@ Bodenwert:
 
 ---
 
-# 39. Rohertrag im Fall 2
+⇨ 39. Rohertrag im Fall 2
 
 Gewerbliche Nutzung:
 
@@ -6030,21 +6030,21 @@ Gesamtrohertrag:
 
 ---
 
-# 40. Verwaltungskosten im Fall 2
+⇨ 40. Verwaltungskosten im Fall 2
 
-## Wohnnutzung
+► Wohnnutzung
 
 351 Euro je Wohnung  
 × 3 Wohnungen  
 = 1.053 Euro.
 
-## Gewerbliche Nutzung
+► Gewerbliche Nutzung
 
 40.000 Euro  
 × 3 Prozent  
 = 1.200 Euro.
 
-## Gesamte Verwaltungskosten
+► Gesamte Verwaltungskosten
 
 1.053 Euro  
 + 1.200 Euro  
@@ -6052,15 +6052,15 @@ Gesamtrohertrag:
 
 ---
 
-# 41. Instandhaltungskosten im Fall 2
+⇨ 41. Instandhaltungskosten im Fall 2
 
-## Wohnnutzung
+► Wohnnutzung
 
 300 Quadratmeter  
 × 13,80 Euro  
 = 4.140 Euro.
 
-## Gewerbliche Nutzung
+► Gewerbliche Nutzung
 
 Für die Gebäudeart 5.1 wird der volle Wert von 13,80 Euro je Quadratmeter verwendet.
 
@@ -6068,7 +6068,7 @@ Für die Gebäudeart 5.1 wird der volle Wert von 13,80 Euro je Quadratmeter verw
 × 13,80 Euro  
 = 2.760 Euro.
 
-## Gesamte Instandhaltungskosten
+► Gesamte Instandhaltungskosten
 
 4.140 Euro  
 + 2.760 Euro  
@@ -6076,21 +6076,21 @@ Für die Gebäudeart 5.1 wird der volle Wert von 13,80 Euro je Quadratmeter verw
 
 ---
 
-# 42. Mietausfallwagnis im Fall 2
+⇨ 42. Mietausfallwagnis im Fall 2
 
-## Wohnnutzung
+► Wohnnutzung
 
 24.000 Euro  
 × 2 Prozent  
 = 480 Euro.
 
-## Gewerbliche Nutzung
+► Gewerbliche Nutzung
 
 40.000 Euro  
 × 4 Prozent  
 = 1.600 Euro.
 
-## Gesamtes Mietausfallwagnis
+► Gesamtes Mietausfallwagnis
 
 480 Euro  
 + 1.600 Euro  
@@ -6098,7 +6098,7 @@ Für die Gebäudeart 5.1 wird der volle Wert von 13,80 Euro je Quadratmeter verw
 
 ---
 
-# 43. Gesamte Bewirtschaftungskosten im Fall 2
+⇨ 43. Gesamte Bewirtschaftungskosten im Fall 2
 
 Verwaltungskosten:
 
@@ -6125,7 +6125,7 @@ Bewirtschaftungskosten:
 
 ---
 
-# 44. Reinertrag im Fall 2
+⇨ 44. Reinertrag im Fall 2
 
 Rohertrag:
 
@@ -6147,7 +6147,7 @@ Reinertrag des Grundstücks:
 
 ---
 
-# 45. Bodenwertverzinsung im Fall 2
+⇨ 45. Bodenwertverzinsung im Fall 2
 
 Das Grundstück ist gemischt genutzt.
 
@@ -6169,7 +6169,7 @@ Bodenwertverzinsung:
 
 ---
 
-# 46. Gebäudereinertrag im Fall 2
+⇨ 46. Gebäudereinertrag im Fall 2
 
 Reinertrag des Grundstücks:
 
@@ -6191,7 +6191,7 @@ Gebäudereinertrag:
 
 ---
 
-# 47. Restnutzungsdauer im Fall 2
+⇨ 47. Restnutzungsdauer im Fall 2
 
 Gesamtnutzungsdauer:
 
@@ -6209,7 +6209,7 @@ Restnutzungsdauer:
 
 60 Jahre.
 
-## Korrekturhinweis
+► Korrekturhinweis
 
 Die Angabe von 52 Jahren in der Lehrgangsrechnung ist ein Übertragungsfehler.
 
@@ -6217,7 +6217,7 @@ Aus einer Gesamtnutzungsdauer von 80 Jahren und einem Gebäudealter von 20 Jahre
 
 ---
 
-# 48. Gebäudeertragswert im Fall 2
+⇨ 48. Gebäudeertragswert im Fall 2
 
 Liegenschaftszinssatz:
 
@@ -6245,7 +6245,7 @@ Gebäudeertragswert nach der Lehrgangsrechnung:
 
 ---
 
-# 49. Grundbesitzwert im Fall 2
+⇨ 49. Grundbesitzwert im Fall 2
 
 Bodenwert:
 
@@ -6261,7 +6261,7 @@ Berechnung:
 + 903.350 Euro  
 = 1.103.350 Euro.
 
-## Ergebnis
+► Ergebnis
 
 Der Grundbesitzwert beträgt nach der Lehrgangsrechnung 1.103.350 Euro.
 
@@ -6269,7 +6269,7 @@ Bei maschineller Berechnung sind zunächst die gesetzlichen Rundungsvorgaben bez
 
 ---
 
-# 50. Kompakte Berechnung Fall 2
+⇨ 50. Kompakte Berechnung Fall 2
 
 Bodenwert:
 
@@ -6321,9 +6321,9 @@ Grundbesitzwert laut Lehrgangslösung:
 
 ---
 
-# 51. Vergleich der beiden Fälle
+⇨ 51. Vergleich der beiden Fälle
 
-## Fall 1
+► Fall 1
 
 Grundstücksart:
 
@@ -6349,7 +6349,7 @@ Grundbesitzwert:
 
 1.103.329 Euro.
 
-## Fall 2
+► Fall 2
 
 Grundstücksart:
 
@@ -6381,7 +6381,7 @@ Grundbesitzwert laut Lehrgangslösung:
 
 ---
 
-# 52. Prüfungsschema für Rechenaufgaben
+⇨ 52. Prüfungsschema für Rechenaufgaben
 
 1. Bewertungsstichtag bestimmen.
 2. Grundstücksart nach § 181 BewG bestimmen.
@@ -6411,7 +6411,7 @@ Grundbesitzwert laut Lehrgangslösung:
 
 ---
 
-# 53. Formulierungshilfe Mietwohngrundstück
+⇨ 53. Formulierungshilfe Mietwohngrundstück
 
 Das Grundstück dient zu mehr als 80 Prozent Wohnzwecken und ist weder ein Ein- oder Zweifamilienhaus noch Wohnungseigentum.
 
@@ -6421,7 +6421,7 @@ Mietwohngrundstücke sind nach § 182 Abs. 3 Nr. 1 BewG im Ertragswertverfahren 
 
 ---
 
-# 54. Formulierungshilfe gemischt genutztes Grundstück
+⇨ 54. Formulierungshilfe gemischt genutztes Grundstück
 
 Das Grundstück dient zu ... Prozent Wohnzwecken und zu ... Prozent gewerblichen beziehungsweise betrieblichen Zwecken.
 
@@ -6431,7 +6431,7 @@ Da sich eine übliche Miete ermitteln lässt, erfolgt die Bewertung gemäß § 1
 
 ---
 
-# 55. Formulierungshilfe Rohertrag
+⇨ 55. Formulierungshilfe Rohertrag
 
 Der Rohertrag bestimmt sich nach § 186 Abs. 1 BewG grundsätzlich nach der am Bewertungsstichtag vertraglich vereinbarten Sollmiete für einen Zeitraum von zwölf Monaten.
 
@@ -6441,7 +6441,7 @@ Der jährliche Rohertrag beträgt daher ... Euro.
 
 ---
 
-# 56. Formulierungshilfe 20-Prozent-Regel
+⇨ 56. Formulierungshilfe 20-Prozent-Regel
 
 Die vereinbarte Miete beträgt ... Euro monatlich.
 
@@ -6457,7 +6457,7 @@ Da die Abweichung mehr als 20 Prozent beträgt, ist gemäß § 186 Abs. 2 Satz 1
 
 ---
 
-# 57. Formulierungshilfe Bewirtschaftungskosten
+⇨ 57. Formulierungshilfe Bewirtschaftungskosten
 
 Die Bewirtschaftungskosten sind gemäß § 187 BewG in Verbindung mit Anlage 23 BewG zu ermitteln.
 
@@ -6473,7 +6473,7 @@ Die gesamten Bewirtschaftungskosten betragen ... Euro.
 
 ---
 
-# 58. Formulierungshilfe Ergebnis
+⇨ 58. Formulierungshilfe Ergebnis
 
 Der Reinertrag des Grundstücks beträgt ... Euro.
 
@@ -6487,7 +6487,7 @@ Zuzüglich des Bodenwerts in Höhe von ... Euro ergibt sich ein Grundbesitzwert 
 
 ---
 
-# 59. Typische Fehler
+⇨ 59. Typische Fehler
 
 - Betriebskostenumlagen werden fälschlich zum Rohertrag addiert.
 - Die tatsächliche Zahlung statt der vertraglichen Sollmiete wird angesetzt.
@@ -6508,7 +6508,7 @@ Zuzüglich des Bodenwerts in Höhe von ... Euro ergibt sich ein Grundbesitzwert 
 
 ---
 
-# 60. Zentrale Merksätze
+⇨ 60. Zentrale Merksätze
 
 - Der Rohertrag ist grundsätzlich die Jahresnettokaltmiete.
 - Betriebskostenumlagen gehören nicht zum Rohertrag.
@@ -6579,9 +6579,9 @@ Zuzüglich des Bodenwerts in Höhe von ... Euro ergibt sich ein Grundbesitzwert 
   ],
 
   body: `
-# Bewertung bebauter Grundstücke nach §§ 181 bis 198 BewG
+⇨ Bewertung bebauter Grundstücke nach §§ 181 bis 198 BewG
 
-## 1. Ziel der Bedarfsbewertung
+► 1. Ziel der Bedarfsbewertung
 
 Für Zwecke der Erbschaft- und Schenkungsteuer wird der Grundbesitzwert eines Grundstücks gesondert festgestellt.
 
@@ -6602,7 +6602,7 @@ Ungewöhnliche oder persönliche Verhältnisse bleiben grundsätzlich außer Bet
 
 ---
 
-# 2. Bewertungsstichtag
+⇨ 2. Bewertungsstichtag
 
 Maßgebend sind die tatsächlichen und rechtlichen Verhältnisse am Bewertungsstichtag.
 
@@ -6623,13 +6623,13 @@ Insbesondere sind stichtagsbezogen festzustellen:
 - Bodenrichtwert,
 - Liegenschaftszinssatz.
 
-## Merksatz
+► Merksatz
 
 **Bewertet wird nicht nach der späteren Nutzung, sondern nach den Verhältnissen am Bewertungsstichtag.**
 
 ---
 
-# 3. Gesonderte Feststellung nach § 151 BewG
+⇨ 3. Gesonderte Feststellung nach § 151 BewG
 
 Der Grundbesitzwert wird grundsätzlich durch einen gesonderten Feststellungsbescheid festgestellt.
 
@@ -6642,13 +6642,13 @@ Der Feststellungsbescheid enthält insbesondere:
 3. die Zurechnung,
 4. bei mehreren Beteiligten die Höhe der jeweiligen Anteile.
 
-## Beispiel
+► Beispiel
 
 Ein Grundstück gehört dem Erblasser zu 60 Prozent und seiner Ehefrau zu 40 Prozent.
 
 Für den Erwerb von Todes wegen ist grundsätzlich nur der dem Erblasser zuzurechnende Anteil von 60 Prozent festzustellen und dem Erwerber zuzurechnen.
 
-## Wichtig
+► Wichtig
 
 Einwendungen gegen
 
@@ -6663,7 +6663,7 @@ Der spätere Erbschaftsteuerbescheid übernimmt diese Feststellungen als Grundla
 
 ---
 
-# 4. Begriff des bebauten Grundstücks
+⇨ 4. Begriff des bebauten Grundstücks
 
 Ein Grundstück gilt grundsätzlich als bebaut, wenn sich darauf benutzbare Gebäude befinden.
 
@@ -6675,7 +6675,7 @@ Ist ein Gebäude auf Dauer nicht mehr benutzbar, kann das Grundstück bewertungs
 
 ---
 
-# 5. Grundstücksarten nach § 181 BewG
+⇨ 5. Grundstücksarten nach § 181 BewG
 
 Bei bebauten Grundstücken sind sechs Grundstücksarten zu unterscheiden:
 
@@ -6690,7 +6690,7 @@ Die Grundstücksart entscheidet darüber, welches Bewertungsverfahren anzuwenden
 
 ---
 
-# 6. Ein- und Zweifamilienhäuser
+⇨ 6. Ein- und Zweifamilienhäuser
 
 Ein- und Zweifamilienhäuser sind Wohngrundstücke,
 
@@ -6702,7 +6702,7 @@ Eine Mitbenutzung für betriebliche, berufliche oder öffentliche Zwecke ist uns
 - sie weniger als 50 Prozent der Wohn- und Nutzfläche umfasst und
 - die Eigenart als Ein- oder Zweifamilienhaus nicht wesentlich beeinträchtigt wird.
 
-## Beispiel
+► Beispiel
 
 Ein Gebäude enthält
 
@@ -6713,7 +6713,7 @@ Die betriebliche Nutzung beträgt weniger als 50 Prozent der Gesamtfläche.
 
 Bleibt die Eigenart als Wohnhaus erhalten, kann ein Einfamilienhaus vorliegen.
 
-## Bewertungsverfahren
+► Bewertungsverfahren
 
 Ein- und Zweifamilienhäuser werden grundsätzlich im Vergleichswertverfahren bewertet.
 
@@ -6721,7 +6721,7 @@ Liegt kein geeigneter Vergleichswert oder Vergleichsfaktor vor, erfolgt die Bewe
 
 ---
 
-# 7. Mietwohngrundstücke
+⇨ 7. Mietwohngrundstücke
 
 Mietwohngrundstücke sind Grundstücke,
 
@@ -6730,7 +6730,7 @@ Mietwohngrundstücke sind Grundstücke,
 
 Maßgebend ist das Verhältnis der Wohnfläche zur gesamten Wohn- und Nutzfläche.
 
-## Beispiel
+► Beispiel
 
 Ein Mehrfamilienhaus verfügt über
 
@@ -6741,7 +6741,7 @@ Der Wohnanteil beträgt 90 Prozent.
 
 Das Grundstück ist grundsätzlich ein Mietwohngrundstück.
 
-## Bewertungsverfahren
+► Bewertungsverfahren
 
 Mietwohngrundstücke werden zwingend im Ertragswertverfahren bewertet.
 
@@ -6751,7 +6751,7 @@ In diesem Fall muss eine übliche beziehungsweise marktübliche Miete ermittelt 
 
 ---
 
-# 8. Wohnungseigentum
+⇨ 8. Wohnungseigentum
 
 Wohnungseigentum ist das Sondereigentum an einer Wohnung in Verbindung mit dem Miteigentumsanteil am gemeinschaftlichen Eigentum.
 
@@ -6762,7 +6762,7 @@ Hierzu gehören beispielsweise:
 - gemeinschaftliche Gebäudeteile,
 - gemeinschaftliche Anlagen.
 
-## Bewertungsverfahren
+► Bewertungsverfahren
 
 Wohnungseigentum wird grundsätzlich im Vergleichswertverfahren bewertet.
 
@@ -6770,7 +6770,7 @@ Ist mangels geeigneter Daten kein Vergleichswertverfahren möglich, kommt das Sa
 
 ---
 
-# 9. Teileigentum
+⇨ 9. Teileigentum
 
 Teileigentum ist das Sondereigentum an nicht zu Wohnzwecken dienenden Räumen eines Gebäudes in Verbindung mit dem Miteigentumsanteil am gemeinschaftlichen Eigentum.
 
@@ -6782,7 +6782,7 @@ Beispiele:
 - gewerblich genutzte Einheit,
 - separat gebildetes Teileigentum an sonstigen Räumen.
 
-## Bewertungsverfahren
+► Bewertungsverfahren
 
 Teileigentum wird grundsätzlich im Vergleichswertverfahren bewertet.
 
@@ -6790,7 +6790,7 @@ Liegt kein geeigneter Vergleichswert vor, erfolgt die Bewertung im Sachwertverfa
 
 ---
 
-# 10. Geschäftsgrundstücke
+⇨ 10. Geschäftsgrundstücke
 
 Geschäftsgrundstücke sind Grundstücke,
 
@@ -6806,7 +6806,7 @@ Beispiele:
 - Verwaltungsgebäude,
 - betrieblich vermietete Gewerbeimmobilie.
 
-## Bewertungsverfahren
+► Bewertungsverfahren
 
 Kann für das Geschäftsgrundstück eine übliche Miete am örtlichen Grundstücksmarkt ermittelt werden, ist das Ertragswertverfahren anzuwenden.
 
@@ -6814,7 +6814,7 @@ Kann keine übliche Miete ermittelt werden, ist das Sachwertverfahren anzuwenden
 
 ---
 
-# 11. Gemischt genutzte Grundstücke
+⇨ 11. Gemischt genutzte Grundstücke
 
 Gemischt genutzte Grundstücke dienen
 
@@ -6833,7 +6833,7 @@ Insbesondere handelt es sich nicht um ein gemischt genutztes Grundstück, wenn b
 
 vorliegt.
 
-## Bewertungsverfahren
+► Bewertungsverfahren
 
 Kann eine übliche Miete ermittelt werden, ist das Ertragswertverfahren anzuwenden.
 
@@ -6841,7 +6841,7 @@ Kann keine übliche Miete ermittelt werden, ist das Sachwertverfahren anzuwenden
 
 ---
 
-# 12. Sonstige bebaute Grundstücke
+⇨ 12. Sonstige bebaute Grundstücke
 
 Sonstige bebaute Grundstücke sind Grundstücke, die unter keine andere Grundstücksart des § 181 BewG fallen.
 
@@ -6854,13 +6854,13 @@ Beispiele können sein:
 - besondere öffentliche Gebäude,
 - Grundstücke mit ungewöhnlicher Bebauung.
 
-## Bewertungsverfahren
+► Bewertungsverfahren
 
 Sonstige bebaute Grundstücke werden im Sachwertverfahren bewertet.
 
 ---
 
-# 13. Abgrenzung nach Wohn- und Nutzfläche
+⇨ 13. Abgrenzung nach Wohn- und Nutzfläche
 
 Die Abgrenzung der Grundstücksarten erfolgt regelmäßig nach dem Verhältnis von
 
@@ -6869,7 +6869,7 @@ Die Abgrenzung der Grundstücksarten erfolgt regelmäßig nach dem Verhältnis v
 
 Die Flächen sind nach den jeweils maßgebenden gesetzlichen Grundsätzen zu bestimmen.
 
-## Grundformel
+► Grundformel
 
 Wohnanteil:
 
@@ -6879,7 +6879,7 @@ Betrieblicher beziehungsweise öffentlicher Anteil:
 
 betriebliche oder öffentliche Nutzfläche / gesamte Wohn- und Nutzfläche × 100
 
-## Beispiel
+► Beispiel
 
 Wohnfläche:
 
@@ -6903,7 +6903,7 @@ Es kann ein gemischt genutztes Grundstück vorliegen.
 
 ---
 
-# 14. Verfahrenszuordnung nach § 182 BewG
+⇨ 14. Verfahrenszuordnung nach § 182 BewG
 
 Das Bewertungsgesetz kennt für bebaute Grundstücke drei Bewertungsverfahren:
 
@@ -6917,9 +6917,9 @@ Das anzuwendende Verfahren ergibt sich aus der Grundstücksart und der Verfügba
 
 ---
 
-# 15. Übersicht der Bewertungsverfahren
+⇨ 15. Übersicht der Bewertungsverfahren
 
-## Vergleichswertverfahren
+► Vergleichswertverfahren
 
 Grundsätzlich für:
 
@@ -6932,7 +6932,7 @@ Voraussetzung:
 
 Es liegen geeignete Vergleichspreise oder Vergleichsfaktoren vor.
 
-## Ertragswertverfahren
+► Ertragswertverfahren
 
 Zwingend für:
 
@@ -6945,7 +6945,7 @@ Außerdem für:
 
 wenn eine übliche Miete ermittelt werden kann.
 
-## Sachwertverfahren
+► Sachwertverfahren
 
 Anzuwenden für:
 
@@ -6953,7 +6953,7 @@ Anzuwenden für:
 - Geschäftsgrundstücke und gemischt genutzte Grundstücke, wenn keine übliche Miete ermittelt werden kann,
 - sonstige bebaute Grundstücke.
 
-## Merksatz
+► Merksatz
 
 **Vergleich möglich: Vergleichswert.**
 
@@ -6963,7 +6963,7 @@ Anzuwenden für:
 
 ---
 
-# 16. Prüfungsschema Grundstücksart
+⇨ 16. Prüfungsschema Grundstücksart
 
 1. Liegt ein bebautes Grundstück vor?
 2. Enthält das Grundstück höchstens zwei Wohnungen?
@@ -6977,7 +6977,7 @@ Anzuwenden für:
 
 ---
 
-# 17. Vergleichswertverfahren nach § 183 BewG
+⇨ 17. Vergleichswertverfahren nach § 183 BewG
 
 Beim Vergleichswertverfahren wird der Wert des Grundstücks aus tatsächlich beobachteten Grundstücksverkäufen abgeleitet.
 
@@ -6999,7 +6999,7 @@ Wertbeeinflussende Merkmale können insbesondere sein:
 
 ---
 
-# 18. Vergleichspreise
+⇨ 18. Vergleichspreise
 
 Vorrangig sind die von den zuständigen Gutachterausschüssen ermittelten und mitgeteilten Vergleichspreise zu verwenden.
 
@@ -7009,7 +7009,7 @@ Sie müssen jedoch hinsichtlich der wesentlichen wertbeeinflussenden Merkmale hi
 
 Erhebliche Abweichungen können durch geeignete Zu- oder Abschläge berücksichtigt werden, sofern dies nach den Marktdaten zulässig und nachvollziehbar ist.
 
-## Grundformel
+► Grundformel
 
 Angepasster Vergleichspreis  
 × maßgebende Bezugsgröße  
@@ -7017,7 +7017,7 @@ Angepasster Vergleichspreis
 
 ---
 
-# 19. Vergleichsfaktoren
+⇨ 19. Vergleichsfaktoren
 
 Anstelle einzelner Vergleichspreise können Vergleichsfaktoren verwendet werden.
 
@@ -7085,11 +7085,11 @@ Mögliche Bezugseinheiten sind beispielsweise:
   ],
 
   body: `
-# Reverse Charge, Steuersatz, Bemessungsgrundlage und Vorsteuerabzug
+⇨ Reverse Charge, Steuersatz, Bemessungsgrundlage und Vorsteuerabzug
 
-# Teil A: Steuerschuldnerschaft des Leistungsempfängers nach § 13b UStG
+⇨ Teil A: Steuerschuldnerschaft des Leistungsempfängers nach § 13b UStG
 
-## 1. Grundprinzip
+► 1. Grundprinzip
 
 Grundsätzlich schuldet der leistende Unternehmer die Umsatzsteuer.
 
@@ -7103,7 +7103,7 @@ Dieses Verfahren wird bezeichnet als:
 - Umkehr der Steuerschuldnerschaft,
 - Steuerschuldnerschaft des Leistungsempfängers.
 
-## Rechtsfolgen
+► Rechtsfolgen
 
 Der leistende Unternehmer
 
@@ -7117,7 +7117,7 @@ Der Leistungsempfänger
 - meldet sie in seiner Umsatzsteuer-Voranmeldung an,
 - kann sie bei Vorliegen der Voraussetzungen gleichzeitig als Vorsteuer abziehen.
 
-## Merksatz
+► Merksatz
 
 § 13b UStG führt nicht zu einer Steuerbefreiung.
 
@@ -7127,7 +7127,7 @@ Lediglich die Person des Steuerschuldners ändert sich.
 
 ---
 
-# 2. Grundprüfung des § 13b UStG
+⇨ 2. Grundprüfung des § 13b UStG
 
 Vor Anwendung des Reverse-Charge-Verfahrens ist zu prüfen:
 
@@ -7140,7 +7140,7 @@ Vor Anwendung des Reverse-Charge-Verfahrens ist zu prüfen:
 7. Wann entsteht die Steuer?
 8. Besteht beim Leistungsempfänger ein Vorsteuerabzug?
 
-## Wichtig
+► Wichtig
 
 § 13b UStG greift grundsätzlich nur bei im Inland steuerpflichtigen Umsätzen.
 
@@ -7153,7 +7153,7 @@ entsteht keine deutsche Umsatzsteuer nach § 13b UStG.
 
 ---
 
-# 3. Sonstige Leistungen aus dem übrigen Gemeinschaftsgebiet
+⇨ 3. Sonstige Leistungen aus dem übrigen Gemeinschaftsgebiet
 
 Nach § 13b Abs. 1 UStG schuldet der Leistungsempfänger die Steuer für eine sonstige Leistung, wenn
 
@@ -7161,7 +7161,7 @@ Nach § 13b Abs. 1 UStG schuldet der Leistungsempfänger die Steuer für eine so
 2. der Leistungsort nach § 3a Abs. 2 UStG im Inland liegt und
 3. die Leistung im Inland steuerpflichtig ist.
 
-## Typische Fälle
+► Typische Fälle
 
 - Beratungsleistungen,
 - Werbeleistungen,
@@ -7172,7 +7172,7 @@ Nach § 13b Abs. 1 UStG schuldet der Leistungsempfänger die Steuer für eine so
 - Rechts- und Steuerberatung,
 - digitale B2B-Dienstleistungen.
 
-## Beispiel
+► Beispiel
 
 Ein französischer Unternehmer erbringt eine Beratungsleistung an einen deutschen Unternehmer.
 
@@ -7186,13 +7186,13 @@ Der deutsche Leistungsempfänger schuldet die Umsatzsteuer nach § 13b Abs. 1 un
 
 ---
 
-# 4. Entstehung der Steuer nach § 13b Abs. 1 UStG
+⇨ 4. Entstehung der Steuer nach § 13b Abs. 1 UStG
 
 Bei Leistungen nach § 13b Abs. 1 UStG entsteht die Steuer mit Ablauf des Voranmeldungszeitraums, in dem die Leistung ausgeführt wurde.
 
 Auf den Zeitpunkt der Rechnungsausstellung kommt es grundsätzlich nicht an.
 
-## Beispiel
+► Beispiel
 
 Die Beratungsleistung wird am 15. März ausgeführt.
 
@@ -7200,7 +7200,7 @@ Die Rechnung wird erst am 10. April ausgestellt.
 
 Die Umsatzsteuer entsteht mit Ablauf des Voranmeldungszeitraums März.
 
-## Merksatz
+► Merksatz
 
 § 13b Abs. 1 UStG:
 
@@ -7208,7 +7208,7 @@ Die Umsatzsteuer entsteht mit Ablauf des Voranmeldungszeitraums März.
 
 ---
 
-# 5. Umsätze nach § 13b Abs. 2 Nr. 1 UStG
+⇨ 5. Umsätze nach § 13b Abs. 2 Nr. 1 UStG
 
 § 13b Abs. 2 Nr. 1 UStG erfasst insbesondere
 
@@ -7219,7 +7219,7 @@ die von einem im Ausland ansässigen Unternehmer im Inland ausgeführt werden un
 
 Nicht erfasst wird grundsätzlich eine reine Lieferung eines Gegenstands, soweit kein anderer Tatbestand des § 13b UStG eingreift.
 
-## Typische Fälle
+► Typische Fälle
 
 - Montage einer Anlage durch einen ausländischen Unternehmer,
 - Errichtung eines Messestands,
@@ -7229,7 +7229,7 @@ Nicht erfasst wird grundsätzlich eine reine Lieferung eines Gegenstands, soweit
 
 ---
 
-# 6. Im Ausland ansässiger Unternehmer
+⇨ 6. Im Ausland ansässiger Unternehmer
 
 Ein Unternehmer ist grundsätzlich im Ausland ansässig, wenn er im Inland weder
 
@@ -7243,13 +7243,13 @@ hat.
 
 Eine inländische Betriebsstätte verhindert die Anwendung des § 13b UStG nur, wenn diese Betriebsstätte an der konkreten Leistung beteiligt ist.
 
-## Besonderheit Grundstücksvermietung
+► Besonderheit Grundstücksvermietung
 
 Besitzt ein ausländischer Unternehmer lediglich ein im Inland gelegenes Grundstück und vermietet dieses steuerpflichtig, wird er allein durch den Grundstücksbesitz grundsätzlich nicht zu einem im Inland ansässigen Unternehmer.
 
 ---
 
-# 7. Sicherungsübereignete Gegenstände
+⇨ 7. Sicherungsübereignete Gegenstände
 
 § 13b Abs. 2 Nr. 2 UStG erfasst die Lieferung eines sicherungsübereigneten Gegenstands
 
@@ -7257,7 +7257,7 @@ Besitzt ein ausländischer Unternehmer lediglich ein im Inland gelegenes Grundst
 - an den Sicherungsnehmer
 - außerhalb eines Insolvenzverfahrens.
 
-## Wichtig
+► Wichtig
 
 Die bloße Sicherungsübereignung ist regelmäßig noch keine Lieferung.
 
@@ -7272,7 +7272,7 @@ Für die erste Lieferung kann § 13b Abs. 2 Nr. 2 UStG gelten.
 
 ---
 
-# 8. Grundstücksumsätze
+⇨ 8. Grundstücksumsätze
 
 § 13b Abs. 2 Nr. 3 UStG erfasst steuerpflichtige Umsätze, die unter das Grunderwerbsteuergesetz fallen.
 
@@ -7280,13 +7280,13 @@ Grundstücksveräußerungen sind grundsätzlich nach § 4 Nr. 9 Buchst. a UStG s
 
 Erst wenn wirksam nach § 9 Abs. 1 und Abs. 3 UStG zur Steuerpflicht optiert wurde, kann § 13b Abs. 2 Nr. 3 UStG eingreifen.
 
-## Rechtsfolge
+► Rechtsfolge
 
 Bei wirksamer Option schuldet grundsätzlich der Erwerber die Umsatzsteuer.
 
 Der Verkäufer stellt regelmäßig eine Nettorechnung aus.
 
-## Merksatz
+► Merksatz
 
 Grundstücksverkauf:
 
@@ -7294,7 +7294,7 @@ Grundstücksverkauf:
 
 ---
 
-# 9. Bauleistungen
+⇨ 9. Bauleistungen
 
 § 13b Abs. 2 Nr. 4 UStG erfasst Bauleistungen.
 
@@ -7310,7 +7310,7 @@ Hierzu gehören insbesondere Leistungen zur
 
 eines Bauwerks.
 
-## Regelmäßig keine Bauleistungen
+► Regelmäßig keine Bauleistungen
 
 Nicht erfasst werden insbesondere reine
 
@@ -7320,13 +7320,13 @@ Nicht erfasst werden insbesondere reine
 - Bauüberwachungsleistungen,
 - Gutachterleistungen.
 
-## Leistungsempfänger
+► Leistungsempfänger
 
 Der Leistungsempfänger schuldet die Steuer nur, wenn er selbst nachhaltig Bauleistungen erbringt.
 
 Als Nachweis dient regelmäßig eine gültige Bescheinigung des Finanzamts nach dem Vordruck USt 1 TG.
 
-## Wichtig
+► Wichtig
 
 Die konkrete empfangene Bauleistung muss nicht zwingend für einen eigenen Bauauftrag weiterverwendet werden.
 
@@ -7334,7 +7334,7 @@ Entscheidend ist grundsätzlich die nachhaltige Tätigkeit des Leistungsempfäng
 
 ---
 
-# 10. Gebäudereinigungsleistungen
+⇨ 10. Gebäudereinigungsleistungen
 
 § 13b Abs. 2 Nr. 8 UStG erfasst die Reinigung von Gebäuden und Gebäudeteilen.
 
@@ -7352,11 +7352,11 @@ Als Nachweis kann ebenfalls eine entsprechende Bescheinigung des Finanzamts verw
 
 ---
 
-# 11. Weitere Umsätze nach § 13b Abs. 2 UStG
+⇨ 11. Weitere Umsätze nach § 13b Abs. 2 UStG
 
 § 13b Abs. 2 UStG erfasst außerdem insbesondere:
 
-## Nr. 5
+► Nr. 5
 
 Bestimmte Lieferungen von
 
@@ -7367,11 +7367,11 @@ Bestimmte Lieferungen von
 
 Die genauen Voraussetzungen hängen insbesondere von der Ansässigkeit und der Wiederverkäufereigenschaft der Beteiligten ab.
 
-## Nr. 6
+► Nr. 6
 
 Übertragung bestimmter Emissionsberechtigungen und Emissionszertifikate.
 
-## Nr. 7
+► Nr. 7
 
 Lieferungen der in Anlage 3 UStG bezeichneten Gegenstände.
 
@@ -7383,15 +7383,15 @@ Hierzu gehören insbesondere bestimmte
 - Kunststoffabfälle,
 - Glasabfälle.
 
-## Nr. 8
+► Nr. 8
 
 Gebäudereinigungsleistungen an einen nachhaltig tätigen Gebäudereiniger.
 
-## Nr. 9
+► Nr. 9
 
 Bestimmte Lieferungen von Gold.
 
-## Nr. 10
+► Nr. 10
 
 Lieferungen von
 
@@ -7404,40 +7404,40 @@ wenn die gesetzliche Entgeltgrenze von mindestens 5.000 Euro innerhalb eines wir
 
 Nachträgliche Entgeltminderungen bleiben für die Prüfung der Grenze grundsätzlich unberücksichtigt.
 
-## Nr. 11
+► Nr. 11
 
 Lieferungen der in Anlage 4 UStG bezeichneten Metalle, wenn die gesetzliche Entgeltgrenze von mindestens 5.000 Euro erreicht wird.
 
-## Nr. 12
+► Nr. 12
 
 Bestimmte Telekommunikationsleistungen, insbesondere wenn der Leistungsempfänger als Wiederverkäufer der Telekommunikationsleistungen anzusehen ist.
 
 ---
 
-# 12. Entstehung der Steuer bei § 13b Abs. 2 UStG
+⇨ 12. Entstehung der Steuer bei § 13b Abs. 2 UStG
 
 In den Fällen des § 13b Abs. 2 UStG entsteht die Steuer grundsätzlich
 
 1. mit Ausstellung der Rechnung,
 2. spätestens jedoch mit Ablauf des Kalendermonats, der auf die Ausführung der Leistung folgt.
 
-## Beispiel
+► Beispiel
 
 Eine Bauleistung wird am 18. März ausgeführt.
 
-### Rechnung am 25. März
+⇶  Rechnung am 25. März
 
 Die Steuer entsteht im März.
 
-### Rechnung am 15. April
+⇶  Rechnung am 15. April
 
 Die Steuer entsteht im April.
 
-### Rechnung erst im Juni
+⇶  Rechnung erst im Juni
 
 Die Steuer entsteht spätestens mit Ablauf des Monats April.
 
-## Merksatz
+► Merksatz
 
 § 13b Abs. 2 UStG:
 
@@ -7445,7 +7445,7 @@ Die Steuer entsteht spätestens mit Ablauf des Monats April.
 
 ---
 
-# 13. Teilleistungen und Anzahlungen
+⇨ 13. Teilleistungen und Anzahlungen
 
 Teilleistungen sind auch im Rahmen des § 13b UStG möglich.
 
@@ -7462,7 +7462,7 @@ Eine bloße Vorausrechnung ohne Zahlung löst grundsätzlich noch keine Anzahlun
 
 ---
 
-# 14. Rechnung bei Reverse Charge
+⇨ 14. Rechnung bei Reverse Charge
 
 Die Rechnung muss grundsätzlich die allgemeinen Pflichtangaben der §§ 14 und 14a UStG enthalten.
 
@@ -7474,7 +7474,7 @@ Alternativ kann im internationalen Geschäftsverkehr beispielsweise angegeben we
 
 **Reverse Charge**
 
-## Wichtig
+► Wichtig
 
 Der Hinweis ist eine Rechnungspflicht.
 
@@ -7482,7 +7482,7 @@ Das Fehlen des Hinweises verhindert die gesetzlich eintretende Steuerschuldnersc
 
 ---
 
-# 15. Unrichtiger Umsatzsteuerausweis
+⇨ 15. Unrichtiger Umsatzsteuerausweis
 
 Weist der leistende Unternehmer trotz Anwendung des § 13b UStG Umsatzsteuer gesondert aus, kann er diese nach § 14c UStG schulden.
 
@@ -7490,7 +7490,7 @@ Der Leistungsempfänger schuldet gleichzeitig weiterhin die Steuer nach § 13b U
 
 Die offen ausgewiesene Steuer ist beim Leistungsempfänger grundsätzlich keine gesetzlich geschuldete Steuer und daher nicht als Vorsteuer abziehbar.
 
-## Erforderliche Korrektur
+► Erforderliche Korrektur
 
 - Rechnung durch den Aussteller berichtigen,
 - zu Unrecht berechnete Umsatzsteuer zurückzahlen,
@@ -7498,7 +7498,7 @@ Die offen ausgewiesene Steuer ist beim Leistungsempfänger grundsätzlich keine 
 
 ---
 
-# 16. Kleinunternehmer und § 13b UStG
+⇨ 16. Kleinunternehmer und § 13b UStG
 
 Auch ein Kleinunternehmer kann als Leistungsempfänger Steuerschuldner nach § 13b UStG werden.
 
@@ -7508,17 +7508,17 @@ Der Kleinunternehmer muss die Umsatzsteuer anmelden und abführen.
 
 Mangels allgemeiner Vorsteuerabzugsberechtigung kann er die Steuer regelmäßig nicht gleichzeitig als Vorsteuer abziehen.
 
-## Leistender Kleinunternehmer
+► Leistender Kleinunternehmer
 
 Wird die Leistung vom leistenden Unternehmer wirksam nach der Kleinunternehmerregelung steuerfrei ausgeführt, kommt grundsätzlich keine Steuerschuldumkehr nach § 13b UStG in Betracht.
 
 ---
 
-# 17. Bezug für den nichtunternehmerischen Bereich
+⇨ 17. Bezug für den nichtunternehmerischen Bereich
 
 Die Steuerschuldnerschaft kann unter den gesetzlichen Voraussetzungen auch eintreten, wenn der Unternehmer die Leistung für seinen nichtunternehmerischen oder privaten Bereich bezieht.
 
-## Beispiel
+► Beispiel
 
 Ein deutscher Einzelunternehmer lässt sein privates Einfamilienhaus durch einen ausländischen Unternehmer renovieren.
 
@@ -7528,13 +7528,13 @@ Der deutsche Unternehmer kann nach § 13b UStG Steuerschuldner werden, obwohl di
 
 Ein Vorsteuerabzug besteht wegen der privaten Verwendung jedoch nicht.
 
-## Besonderheit
+► Besonderheit
 
 Für bestimmte Leistungen und für Leistungen an juristische Personen des öffentlichen Rechts bestehen gesetzliche Sonderregelungen und Ausnahmen.
 
 ---
 
-# 18. Vorsteuerabzug aus Reverse-Charge-Umsätzen
+⇨ 18. Vorsteuerabzug aus Reverse-Charge-Umsätzen
 
 Der Leistungsempfänger kann die von ihm nach § 13b UStG geschuldete Steuer nach § 15 Abs. 1 Satz 1 Nr. 4 UStG als Vorsteuer abziehen, wenn
 
@@ -7544,7 +7544,7 @@ Der Leistungsempfänger kann die von ihm nach § 13b UStG geschuldete Steuer nac
 
 Eine Rechnung mit gesondertem Umsatzsteuerausweis ist für diesen Vorsteuerabzug nicht erforderlich.
 
-## Wichtig
+► Wichtig
 
 Steuerschuld und Vorsteuerabzug sind getrennt zu prüfen.
 
@@ -7555,7 +7555,7 @@ Ein Unternehmer kann daher
 
 ---
 
-# 19. Beispiel: Arzt bezieht Beratungsleistung
+⇨ 19. Beispiel: Arzt bezieht Beratungsleistung
 
 Ein in Deutschland tätiger Arzt bezieht eine Beratungsleistung von einem französischen Unternehmer.
 
@@ -7567,25 +7567,25 @@ Verwendet er die Beratungsleistung ausschließlich für steuerfreie Heilbehandlu
 
 ---
 
-# Teil B: Steuersätze nach § 12 UStG
+⇨ Teil B: Steuersätze nach § 12 UStG
 
-# 20. Prüfungsreihenfolge
+⇨ 20. Prüfungsreihenfolge
 
-## Schritt 1
+► Schritt 1
 
 Prüfen, ob ein ermäßigter Steuersatz nach § 12 Abs. 2 oder einer Sondervorschrift anzuwenden ist.
 
-## Schritt 2
+► Schritt 2
 
 Ist keine Ermäßigung einschlägig, gilt der Regelsteuersatz nach § 12 Abs. 1 UStG.
 
-## Merksatz
+► Merksatz
 
 **Zuerst 7 Prozent prüfen, sonst 19 Prozent.**
 
 ---
 
-# 21. Regelsteuersatz
+⇨ 21. Regelsteuersatz
 
 Der Regelsteuersatz beträgt 19 Prozent der Bemessungsgrundlage.
 
@@ -7603,7 +7603,7 @@ Typische Beispiele:
 
 ---
 
-# 22. Ermäßigter Steuersatz
+⇨ 22. Ermäßigter Steuersatz
 
 Der ermäßigte Steuersatz beträgt grundsätzlich 7 Prozent.
 
@@ -7613,7 +7613,7 @@ Die Begünstigungen sind grundsätzlich eng auszulegen.
 
 ---
 
-# 23. Gegenstände der Anlage 2 UStG
+⇨ 23. Gegenstände der Anlage 2 UStG
 
 § 12 Abs. 2 Nr. 1 UStG erfasst insbesondere Lieferungen der in Anlage 2 UStG genannten Gegenstände.
 
@@ -7632,7 +7632,7 @@ Typische Beispiele sind:
 - Brennholz,
 - Bücher und bestimmte Druckerzeugnisse.
 
-## Achtung
+► Achtung
 
 Nicht automatisch begünstigt sind beispielsweise:
 
@@ -7647,7 +7647,7 @@ Maßgeblich ist die genaue Warenbezeichnung in Anlage 2 UStG.
 
 ---
 
-# 24. Vermietung begünstigter Gegenstände
+⇨ 24. Vermietung begünstigter Gegenstände
 
 Die Vermietung bestimmter in Anlage 2 UStG genannter Gegenstände kann ebenfalls dem ermäßigten Steuersatz unterliegen.
 
@@ -7655,15 +7655,15 @@ Es ist jedoch immer zu prüfen, ob die konkrete Vermietung ausdrücklich von § 
 
 ---
 
-# 25. Personenbeförderung
+⇨ 25. Personenbeförderung
 
 Für bestimmte Personenbeförderungsleistungen gilt der ermäßigte Steuersatz.
 
-## Schienenbahnverkehr
+► Schienenbahnverkehr
 
 Die Personenbeförderung im Schienenbahnverkehr kann unabhängig von der Länge der Beförderungsstrecke dem ermäßigten Steuersatz unterliegen.
 
-## Andere Beförderungsmittel
+► Andere Beförderungsmittel
 
 Bei Beförderungen insbesondere durch
 
@@ -7681,7 +7681,7 @@ Hin- und Rückfahrt sind grundsätzlich jeweils gesondert zu beurteilen.
 
 ---
 
-# 26. Kurzfristige Beherbergung
+⇨ 26. Kurzfristige Beherbergung
 
 Die kurzfristige Vermietung von Wohn- und Schlafräumen zur Beherbergung von Fremden unterliegt grundsätzlich dem ermäßigten Steuersatz.
 
@@ -7694,7 +7694,7 @@ Dies betrifft insbesondere:
 
 Auch die kurzfristige Vermietung von Campingflächen kann begünstigt sein.
 
-## Wichtig
+► Wichtig
 
 Zusatzleistungen sind gesondert zu beurteilen.
 
@@ -7702,7 +7702,7 @@ Nicht jede Nebenleistung des Hotels unterliegt automatisch dem ermäßigten Steu
 
 ---
 
-# 27. Restaurant- und Verpflegungsdienstleistungen ab 2026
+⇨ 27. Restaurant- und Verpflegungsdienstleistungen ab 2026
 
 Seit dem 1. Januar 2026 unterliegen Restaurant- und Verpflegungsdienstleistungen hinsichtlich der Abgabe von Speisen grundsätzlich dem ermäßigten Steuersatz von 7 Prozent.
 
@@ -7716,11 +7716,11 @@ Dies betrifft insbesondere:
 - Kita- und Schulverpflegung,
 - Krankenhausverpflegung.
 
-## Getränke
+► Getränke
 
 Die Abgabe von Getränken bleibt grundsätzlich vom ermäßigten Steuersatz ausgenommen und unterliegt regelmäßig 19 Prozent.
 
-## Kombiangebote
+► Kombiangebote
 
 Enthält ein Gesamtpreis sowohl
 
@@ -7733,7 +7733,7 @@ Für bestimmte Pauschal- und Kombiangebote lässt die Finanzverwaltung Vereinfac
 
 ---
 
-# 28. Beispiel Steuersatz
+⇨ 28. Beispiel Steuersatz
 
 Ein Restaurant berechnet:
 
@@ -7749,9 +7749,9 @@ Die Umsätze müssen nach Steuersätzen getrennt aufgezeichnet und abgerechnet w
 
 ---
 
-# Teil C: Bemessungsgrundlage nach § 10 UStG
+⇨ Teil C: Bemessungsgrundlage nach § 10 UStG
 
-# 29. Grundsatz
+⇨ 29. Grundsatz
 
 Die Umsatzsteuer wird bei Lieferungen und sonstigen Leistungen grundsätzlich nach dem Entgelt bemessen.
 
@@ -7759,7 +7759,7 @@ Entgelt ist alles, was den Wert der Gegenleistung bildet, die der leistende Unte
 
 Die gesetzlich geschuldete Umsatzsteuer selbst gehört nicht zum Entgelt.
 
-## Formel
+► Formel
 
 Bruttogegenleistung  
 ./. enthaltene Umsatzsteuer  
@@ -7767,21 +7767,21 @@ Bruttogegenleistung
 
 ---
 
-# 30. Berechnung aus einem Bruttopreis
+⇨ 30. Berechnung aus einem Bruttopreis
 
-## Steuersatz 19 Prozent
+► Steuersatz 19 Prozent
 
 Bruttobetrag / 1,19 = Bemessungsgrundlage.
 
 Bruttobetrag - Bemessungsgrundlage = Umsatzsteuer.
 
-## Steuersatz 7 Prozent
+► Steuersatz 7 Prozent
 
 Bruttobetrag / 1,07 = Bemessungsgrundlage.
 
 Bruttobetrag - Bemessungsgrundlage = Umsatzsteuer.
 
-## Steuerfreier oder nicht steuerbarer Umsatz
+► Steuerfreier oder nicht steuerbarer Umsatz
 
 Es wird keine Umsatzsteuer herausgerechnet.
 
@@ -7789,7 +7789,7 @@ Der Divisor beträgt rechnerisch 1.
 
 ---
 
-# 31. Beispiel
+⇨ 31. Beispiel
 
 Vereinbarter Bruttopreis:
 
@@ -7807,7 +7807,7 @@ Berechnung:
 
 ---
 
-# 32. Bedeutung der Rechnung
+⇨ 32. Bedeutung der Rechnung
 
 Für die Ermittlung der gesetzlich richtigen Bemessungsgrundlage ist die Bezeichnung in der Rechnung nicht allein entscheidend.
 
@@ -7819,7 +7819,7 @@ Auch wenn die Rechnung Umsatzsteuer nicht oder falsch ausweist, ist zu ermitteln
 
 ---
 
-# 33. Bestandteile des Entgelts
+⇨ 33. Bestandteile des Entgelts
 
 Zum Entgelt gehören grundsätzlich:
 
@@ -7841,7 +7841,7 @@ Zum Entgelt gehören grundsätzlich:
 
 ---
 
-# 34. Nebenleistungen
+⇨ 34. Nebenleistungen
 
 Vergütungen für unselbständige Nebenleistungen teilen grundsätzlich das umsatzsteuerliche Schicksal der Hauptleistung.
 
@@ -7858,7 +7858,7 @@ Die Vergütung für die Nebenleistung gehört grundsätzlich zur Bemessungsgrund
 
 ---
 
-# 35. Auslagenersatz
+⇨ 35. Auslagenersatz
 
 Auslagen, die der Unternehmer im eigenen Namen tätigt und seinem Kunden weiterberechnet, gehören grundsätzlich zum Entgelt.
 
@@ -7877,7 +7877,7 @@ Eine bloße Bezeichnung als „Auslagenersatz“ ändert daran nichts.
 
 ---
 
-# 36. Durchlaufende Posten
+⇨ 36. Durchlaufende Posten
 
 Nicht zum Entgelt gehören durchlaufende Posten.
 
@@ -7896,7 +7896,7 @@ Typische Fälle können sein:
 - Grundbuchkosten,
 - Gebühren, bei denen der Kunde selbst unmittelbarer Schuldner ist.
 
-## Merksatz
+► Merksatz
 
 Eigener Name oder eigene Schuld:
 
@@ -7908,19 +7908,19 @@ Fremder Name und fremde Rechnung:
 
 ---
 
-# 37. Trinkgeld
+⇨ 37. Trinkgeld
 
-## Trinkgeld an den Unternehmer
+► Trinkgeld an den Unternehmer
 
 Ein freiwilliges Trinkgeld an den Unternehmer kann zum Entgelt gehören, wenn es im unmittelbaren Zusammenhang mit der Leistung steht.
 
-## Trinkgeld an einen Arbeitnehmer
+► Trinkgeld an einen Arbeitnehmer
 
 Ein freiwilliges Trinkgeld, das unmittelbar dem Arbeitnehmer gewährt wird, gehört grundsätzlich nicht zum Entgelt des Unternehmers.
 
 ---
 
-# 38. Entgelt von dritter Seite
+⇨ 38. Entgelt von dritter Seite
 
 Die Gegenleistung muss nicht zwingend vom Leistungsempfänger selbst gezahlt werden.
 
@@ -7929,7 +7929,7 @@ Auch die Zahlung eines Dritten kann Entgelt sein, wenn
 - sie für die konkrete Leistung gezahlt wird und
 - sie der Förderung oder Vergütung des Leistungsempfängers dient.
 
-## Beispiel
+► Beispiel
 
 Unternehmer A liefert eine Maschine an B.
 
@@ -7941,7 +7941,7 @@ Die Bemessungsgrundlage kann insgesamt 3.000 Euro betragen.
 
 ---
 
-# 39. Zahlungen ohne Entgeltcharakter
+⇨ 39. Zahlungen ohne Entgeltcharakter
 
 Nicht zur Bemessungsgrundlage gehören insbesondere:
 
@@ -7953,7 +7953,7 @@ Nicht zur Bemessungsgrundlage gehören insbesondere:
 - durchlaufende Posten,
 - freiwillige Trinkgelder an Arbeitnehmer.
 
-## Achtung Schadensersatz
+► Achtung Schadensersatz
 
 Nur echter Schadensersatz ist kein Entgelt.
 
@@ -7961,7 +7961,7 @@ Besteht zwischen Zahlung und Leistung ein unmittelbarer Zusammenhang, kann sogen
 
 ---
 
-# 40. Tausch
+⇨ 40. Tausch
 
 Beim Tausch besteht die Gegenleistung nicht in Geld, sondern in einer Lieferung.
 
@@ -7971,7 +7971,7 @@ Der Wert des jeweils anderen Umsatzes bildet grundsätzlich das Entgelt für den
 
 Die Umsatzsteuer gehört nicht zum Entgelt.
 
-## Prüfung
+► Prüfung
 
 Für beide Leistungen getrennt prüfen:
 
@@ -7986,7 +7986,7 @@ Für beide Leistungen getrennt prüfen:
 
 ---
 
-# 41. Tauschähnlicher Umsatz
+⇨ 41. Tauschähnlicher Umsatz
 
 Ein tauschähnlicher Umsatz liegt vor, wenn mindestens eine der ausgetauschten Leistungen eine sonstige Leistung ist.
 
@@ -8000,11 +8000,11 @@ Auch hier ist jeder Umsatz gesondert zu beurteilen.
 
 ---
 
-# 42. Tausch mit Baraufgabe
+⇨ 42. Tausch mit Baraufgabe
 
 Erfolgt zusätzlich zu einer Sach- oder Dienstleistung eine Geldzahlung, liegt ein Tausch beziehungsweise tauschähnlicher Umsatz mit Baraufgabe vor.
 
-## Beteiligter, der die Baraufgabe erhält
+► Beteiligter, der die Baraufgabe erhält
 
 Wert des anderen Umsatzes  
 + erhaltene Baraufgabe  
@@ -8012,7 +8012,7 @@ Wert des anderen Umsatzes
 ./. Umsatzsteuer  
 = Bemessungsgrundlage
 
-## Beteiligter, der die Baraufgabe zahlt
+► Beteiligter, der die Baraufgabe zahlt
 
 Wert des anderen Umsatzes  
 ./. geleistete Baraufgabe  
@@ -8022,9 +8022,9 @@ Wert des anderen Umsatzes
 
 ---
 
-# Teil D: Bezug für das Unternehmen und Zuordnung
+⇨ Teil D: Bezug für das Unternehmen und Zuordnung
 
-# 43. Leistungsbezug für das Unternehmen
+⇨ 43. Leistungsbezug für das Unternehmen
 
 Eine Leistung wird für das Unternehmen bezogen, wenn sie dazu bestimmt ist, der wirtschaftlichen beziehungsweise unternehmerischen Tätigkeit des Leistungsempfängers zu dienen.
 
@@ -8034,7 +8034,7 @@ Eine spätere tatsächliche Nutzungsänderung kann eine Vorsteuerberichtigung na
 
 ---
 
-# 44. Verbrauchbare Gegenstände und sonstige Leistungen
+⇨ 44. Verbrauchbare Gegenstände und sonstige Leistungen
 
 Bei verbrauchbaren Gegenständen und sonstigen Leistungen ist grundsätzlich eine direkte Zuordnung zur beabsichtigten Verwendung vorzunehmen.
 
@@ -8053,11 +8053,11 @@ Ein freies Zuordnungswahlrecht wie bei einem einheitlichen Investitionsgegenstan
 
 ---
 
-# 45. Einheitlicher Gegenstand
+⇨ 45. Einheitlicher Gegenstand
 
 Wird ein einheitlicher Gegenstand sowohl unternehmerisch als auch privat genutzt, ist der Umfang der unternehmerischen Nutzung zu bestimmen.
 
-## Unternehmerische Nutzung unter 10 Prozent
+► Unternehmerische Nutzung unter 10 Prozent
 
 Beträgt die unternehmerische Nutzung weniger als 10 Prozent, gilt der Gegenstand grundsätzlich nicht als für das Unternehmen bezogen.
 
@@ -8065,7 +8065,7 @@ Folge:
 
 Kein Vorsteuerabzug.
 
-## Unternehmerische Nutzung mindestens 10 Prozent
+► Unternehmerische Nutzung mindestens 10 Prozent
 
 Bei einer unternehmerischen Nutzung von mindestens 10 Prozent kann grundsätzlich ein Zuordnungswahlrecht bestehen.
 
@@ -8079,13 +8079,13 @@ zuordnen.
 
 ---
 
-# 46. Vollständige Zuordnung
+⇨ 46. Vollständige Zuordnung
 
 Wird der Gegenstand vollständig dem Unternehmen zugeordnet, kann die Vorsteuer unter den weiteren Voraussetzungen grundsätzlich vollständig abziehbar sein.
 
 Die spätere private Nutzung kann dann als unentgeltliche Wertabgabe steuerpflichtig sein.
 
-## Beispiel
+► Beispiel
 
 Ein Pkw wird zu 70 Prozent unternehmerisch und zu 30 Prozent privat genutzt.
 
@@ -8097,7 +8097,7 @@ Die Privatnutzung ist anschließend umsatzsteuerlich als unentgeltliche Wertabga
 
 ---
 
-# 47. Teilweise Zuordnung
+⇨ 47. Teilweise Zuordnung
 
 Der Unternehmer kann einen gemischt genutzten Gegenstand grundsätzlich nur im Umfang der unternehmerischen Nutzung dem Unternehmen zuordnen.
 
@@ -8109,7 +8109,7 @@ Folgen:
 
 ---
 
-# 48. Nichtwirtschaftliche Tätigkeit im engeren Sinne
+⇨ 48. Nichtwirtschaftliche Tätigkeit im engeren Sinne
 
 Bei einer gemischten Nutzung für
 
@@ -8130,7 +8130,7 @@ Nur der dem wirtschaftlichen Unternehmensteil zuzurechnende Anteil kann zum Vors
 
 ---
 
-# 49. Gemischt genutzte Grundstücke
+⇨ 49. Gemischt genutzte Grundstücke
 
 Für Grundstücke gilt die Sonderregelung des § 15 Abs. 1b UStG.
 
@@ -8143,15 +8143,15 @@ genutzt, ist die Vorsteuer grundsätzlich nur im Umfang der unternehmerischen Nu
 
 Dies gilt auch dann, wenn das Grundstück vollständig dem Unternehmen zugeordnet wurde.
 
-## Folge
+► Folge
 
 Die private Nutzung führt hinsichtlich des bereits vom Vorsteuerabzug ausgeschlossenen Anteils grundsätzlich nicht zusätzlich zu einer Wertabgabenbesteuerung.
 
 ---
 
-# Teil E: Voraussetzungen des Vorsteuerabzugs
+⇨ Teil E: Voraussetzungen des Vorsteuerabzugs
 
-# 50. Grundschema nach § 15 Abs. 1 Satz 1 Nr. 1 UStG
+⇨ 50. Grundschema nach § 15 Abs. 1 Satz 1 Nr. 1 UStG
 
 Für den Vorsteuerabzug aus einer normalen Eingangsleistung sind grundsätzlich fünf Voraussetzungen zu prüfen:
 
@@ -8167,7 +8167,7 @@ Anschließend ist zu prüfen, ob sie tatsächlich abziehbar ist.
 
 ---
 
-# 51. Unternehmereigenschaft des Leistungsempfängers
+⇨ 51. Unternehmereigenschaft des Leistungsempfängers
 
 Der Leistungsempfänger muss Unternehmer im Sinne des § 2 UStG sein.
 
@@ -8187,7 +8187,7 @@ Der Sitz des Leistungsempfängers ist für seine Unternehmereigenschaft grundsä
 
 ---
 
-# 52. Gesetzlich geschuldete Steuer
+⇨ 52. Gesetzlich geschuldete Steuer
 
 Abziehbar ist nur gesetzlich geschuldete Umsatzsteuer.
 
@@ -8198,7 +8198,7 @@ Die Eingangsleistung muss nach dem deutschen Umsatzsteuerrecht
 
 sein.
 
-## Keine abziehbare Vorsteuer
+► Keine abziehbare Vorsteuer
 
 Keine abziehbare Vorsteuer liegt grundsätzlich vor bei
 
@@ -8208,7 +8208,7 @@ Keine abziehbare Vorsteuer liegt grundsätzlich vor bei
 - Umsatzsteuer auf einen steuerfreien Umsatz,
 - Umsatzsteuer mit falschem Leistungsort.
 
-## Grundsatz
+► Grundsatz
 
 Vorsteuerabzug höchstens in Höhe
 
@@ -8219,7 +8219,7 @@ Der niedrigere Betrag ist maßgeblich.
 
 ---
 
-# 53. Fremdwährungen
+⇨ 53. Fremdwährungen
 
 Ist die Rechnung in einer fremden Währung ausgestellt, ist die Umsatzsteuer nach den gesetzlichen Vorschriften in Euro umzurechnen.
 
@@ -8227,7 +8227,7 @@ Maßgeblich sind insbesondere § 16 Abs. 6 UStG und die hierzu ergangenen Verwal
 
 ---
 
-# 54. Unternehmereigenschaft des Leistenden
+⇨ 54. Unternehmereigenschaft des Leistenden
 
 Der leistende Unternehmer muss Unternehmer im Sinne des § 2 UStG sein.
 
@@ -8239,17 +8239,17 @@ Ein allgemeiner Gutglaubensschutz allein wegen einer formal ordnungsgemäßen Re
 
 ---
 
-# 55. Leistungsbezug für das Unternehmen
+⇨ 55. Leistungsbezug für das Unternehmen
 
 Die Leistung muss für das Unternehmen des Leistungsempfängers bestimmt sein.
 
 Maßgeblich ist die beabsichtigte Verwendung im Zeitpunkt des Leistungsbezugs.
 
-## Für das Unternehmen
+► Für das Unternehmen
 
 Eine Leistung wird für das Unternehmen bezogen, wenn sie objektiv dazu bestimmt ist, der Erbringung entgeltlicher unternehmerischer Leistungen zu dienen.
 
-## Nicht für das Unternehmen
+► Nicht für das Unternehmen
 
 Kein Vorsteuerabzug besteht bei einem ausschließlichen Leistungsbezug für
 
@@ -8260,7 +8260,7 @@ Kein Vorsteuerabzug besteht bei einem ausschließlichen Leistungsbezug für
 
 ---
 
-# 56. Zusammenhang mit dem Ausgangsumsatz
+⇨ 56. Zusammenhang mit dem Ausgangsumsatz
 
 Die Eingangsleistung muss einem beabsichtigten Ausgangsumsatz oder der wirtschaftlichen Gesamttätigkeit zugeordnet werden.
 
@@ -8272,7 +8272,7 @@ Dann ist die Gesamttätigkeit des Unternehmers maßgeblich.
 
 ---
 
-# 57. Ordnungsgemäße Rechnung
+⇨ 57. Ordnungsgemäße Rechnung
 
 Der Leistungsempfänger muss grundsätzlich im Besitz einer Rechnung nach §§ 14 und 14a UStG sein.
 
@@ -8290,7 +8290,7 @@ Zu den Pflichtangaben gehören insbesondere:
 - Steuersatz,
 - Steuerbetrag.
 
-## Besonders wichtig
+► Besonders wichtig
 
 § 14 Abs. 4 Nr. 7 und 8 UStG verlangt insbesondere Angaben zum
 
@@ -8302,7 +8302,7 @@ Fehlen wesentliche Angaben, ist der Vorsteuerabzug grundsätzlich gefährdet.
 
 ---
 
-# 58. Rechnungsberichtigung
+⇨ 58. Rechnungsberichtigung
 
 Eine fehlerhafte Rechnung kann grundsätzlich berichtigt werden.
 
@@ -8319,7 +8319,7 @@ Voraussetzung ist grundsätzlich, dass das ursprüngliche Dokument bereits besti
 
 ---
 
-# 59. Zeitpunkt des Vorsteuerabzugs
+⇨ 59. Zeitpunkt des Vorsteuerabzugs
 
 Der Vorsteuerabzug ist grundsätzlich in dem Voranmeldungszeitraum vorzunehmen, in dem
 
@@ -8328,7 +8328,7 @@ Der Vorsteuerabzug ist grundsätzlich in dem Voranmeldungszeitraum vorzunehmen, 
 
 Der Zeitpunkt der Zahlung ist grundsätzlich unerheblich.
 
-## Merksatz
+► Merksatz
 
 Normale Eingangsleistung:
 
@@ -8336,7 +8336,7 @@ Normale Eingangsleistung:
 
 ---
 
-# 60. Vorsteuerabzug bei Anzahlungen
+⇨ 60. Vorsteuerabzug bei Anzahlungen
 
 Vor Ausführung der Leistung kann ein Vorsteuerabzug aus einer Anzahlung möglich sein, wenn
 
@@ -8344,7 +8344,7 @@ Vor Ausführung der Leistung kann ein Vorsteuerabzug aus einer Anzahlung möglic
 2. die Zahlung tatsächlich geleistet wurde und
 3. die spätere Leistung hinreichend bestimmt ist.
 
-## Merksatz
+► Merksatz
 
 Anzahlung:
 
@@ -8354,19 +8354,19 @@ Die Leistung ist noch nicht ausgeführt.
 
 ---
 
-# 61. Weitere abziehbare Vorsteuerbeträge
+⇨ 61. Weitere abziehbare Vorsteuerbeträge
 
 Neben der normalen Eingangsrechnung nach § 15 Abs. 1 Satz 1 Nr. 1 UStG können insbesondere abziehbar sein:
 
-## Einfuhrumsatzsteuer
+► Einfuhrumsatzsteuer
 
 § 15 Abs. 1 Satz 1 Nr. 2 UStG.
 
-## Steuer auf den innergemeinschaftlichen Erwerb
+► Steuer auf den innergemeinschaftlichen Erwerb
 
 § 15 Abs. 1 Satz 1 Nr. 3 UStG.
 
-## Steuer nach § 13b UStG
+► Steuer nach § 13b UStG
 
 § 15 Abs. 1 Satz 1 Nr. 4 UStG.
 
@@ -8376,21 +8376,21 @@ Die übrigen Voraussetzungen, insbesondere der Leistungsbezug für das Unternehm
 
 ---
 
-# Teil F: Ausschluss vom Vorsteuerabzug
+⇨ Teil F: Ausschluss vom Vorsteuerabzug
 
-# 62. Abzugsfähigkeit und Abziehbarkeit
+⇨ 62. Abzugsfähigkeit und Abziehbarkeit
 
 Es ist zwischen zwei Prüfungsebenen zu unterscheiden:
 
-## Abzugsfähig
+► Abzugsfähig
 
 Die Voraussetzungen des § 15 Abs. 1 UStG sind erfüllt.
 
-## Tatsächlich abziehbar
+► Tatsächlich abziehbar
 
 Es greift kein Ausschluss nach § 15 Abs. 1a, Abs. 1b oder Abs. 2 UStG beziehungsweise ein Ausschluss wird durch § 15 Abs. 3 UStG aufgehoben.
 
-## Merksatz
+► Merksatz
 
 Zuerst:
 
@@ -8402,7 +8402,7 @@ Danach:
 
 ---
 
-# 63. Ausschluss nach § 15 Abs. 2 UStG
+⇨ 63. Ausschluss nach § 15 Abs. 2 UStG
 
 Der Vorsteuerabzug ist grundsätzlich ausgeschlossen, wenn die Eingangsleistung für Umsätze verwendet wird, die den Vorsteuerabzug ausschließen.
 
@@ -8415,13 +8415,13 @@ Maßgeblich ist die beabsichtigte Verwendung im Zeitpunkt des Leistungsbezugs.
 
 ---
 
-# 64. Steuerpflichtige Ausgangsumsätze
+⇨ 64. Steuerpflichtige Ausgangsumsätze
 
 Wird die Eingangsleistung für steuerpflichtige Ausgangsumsätze verwendet, besteht grundsätzlich kein Ausschluss nach § 15 Abs. 2 UStG.
 
 Dies gilt auch, wenn ein ursprünglich steuerfreier Umsatz aufgrund einer wirksamen Option nach § 9 UStG steuerpflichtig behandelt wird.
 
-## Beispiel
+► Beispiel
 
 Ein Vermieter optiert wirksam zur Umsatzsteuer.
 
@@ -8431,7 +8431,7 @@ Die Vorsteuer kann grundsätzlich abziehbar sein.
 
 ---
 
-# 65. Steuerfreie Ausgangsumsätze
+⇨ 65. Steuerfreie Ausgangsumsätze
 
 Wird die Eingangsleistung für steuerfreie Umsätze verwendet, ist die Vorsteuer grundsätzlich nicht abziehbar.
 
@@ -8445,7 +8445,7 @@ Typische Ausschlussumsätze sind:
 
 ---
 
-# 66. Rückausschluss nach § 15 Abs. 3 UStG
+⇨ 66. Rückausschluss nach § 15 Abs. 3 UStG
 
 § 15 Abs. 3 UStG hebt den Ausschluss des § 15 Abs. 2 UStG für bestimmte steuerfreie Umsätze wieder auf.
 
@@ -8459,7 +8459,7 @@ Typische Fälle sind insbesondere:
 - bestimmte Umsätze für die See- und Luftfahrt,
 - bestimmte Finanzumsätze mit Bezug zum Drittlandsgebiet.
 
-## Merksatz
+► Merksatz
 
 Steuerfrei bedeutet nicht automatisch:
 
@@ -8469,7 +8469,7 @@ Es muss immer § 15 Abs. 3 UStG geprüft werden.
 
 ---
 
-# 67. Steuerfreie Umsätze nach § 4 Nr. 1 bis 7 UStG
+⇨ 67. Steuerfreie Umsätze nach § 4 Nr. 1 bis 7 UStG
 
 Bei vielen Steuerbefreiungen nach § 4 Nr. 1 bis 7 UStG bleibt der Vorsteuerabzug erhalten.
 
@@ -8482,7 +8482,7 @@ Die Vorsteuer ist damit
 
 ---
 
-# 68. Sonstige Steuerbefreiungen
+⇨ 68. Sonstige Steuerbefreiungen
 
 Bei zahlreichen Steuerbefreiungen nach § 4 Nr. 8 bis 29 UStG ist der Vorsteuerabzug grundsätzlich ausgeschlossen.
 
@@ -8500,35 +8500,35 @@ Die konkrete Steuerbefreiung ist daher stets einzeln zu prüfen.
 
 ---
 
-# 69. Umsätze im Ausland
+⇨ 69. Umsätze im Ausland
 
 Ein im Ausland ausgeführter Ausgangsumsatz ist in Deutschland nicht steuerbar.
 
 Für den Vorsteuerabzug ist zu prüfen, wie der Umsatz bei einer hypothetischen Ausführung im Inland behandelt würde.
 
-## Hypothetisch steuerpflichtig
+► Hypothetisch steuerpflichtig
 
 Die Vorsteuer kann grundsätzlich abziehbar sein.
 
-## Hypothetisch steuerfrei und vorsteuerschädlich
+► Hypothetisch steuerfrei und vorsteuerschädlich
 
 Die Vorsteuer ist grundsätzlich ausgeschlossen.
 
-## Hypothetisch steuerfrei mit Rückausschluss
+► Hypothetisch steuerfrei mit Rückausschluss
 
 Die Vorsteuer kann dennoch abziehbar sein.
 
 ---
 
-# 70. Nicht steuerbare Tätigkeiten
+⇨ 70. Nicht steuerbare Tätigkeiten
 
 Bei einer nicht steuerbaren Tätigkeit ist zu unterscheiden:
 
-## Wirtschaftliche Tätigkeit mit ausländischem Leistungsort
+► Wirtschaftliche Tätigkeit mit ausländischem Leistungsort
 
 Ein Vorsteuerabzug kann möglich sein, wenn der Umsatz bei Ausführung im Inland zum Vorsteuerabzug berechtigen würde.
 
-## Nichtwirtschaftliche Tätigkeit
+► Nichtwirtschaftliche Tätigkeit
 
 Bei einer Tätigkeit außerhalb des umsatzsteuerlichen Unternehmens fehlt grundsätzlich bereits der Leistungsbezug für das Unternehmen.
 
@@ -8536,34 +8536,34 @@ Die Eingangsleistung ist insoweit nicht abzugsfähig.
 
 ---
 
-# Teil G: Aufteilung von Vorsteuerbeträgen
+⇨ Teil G: Aufteilung von Vorsteuerbeträgen
 
-# 71. Direkte Zuordnung
+⇨ 71. Direkte Zuordnung
 
 Vorsteuerbeträge sind zunächst unmittelbar den Ausgangsumsätzen zuzuordnen.
 
-## Ausschließlich Abzugsumsätze
+► Ausschließlich Abzugsumsätze
 
 Die Vorsteuer ist vollständig abziehbar.
 
-## Ausschließlich Ausschlussumsätze
+► Ausschließlich Ausschlussumsätze
 
 Die Vorsteuer ist nicht abziehbar.
 
-## Gemischter Zusammenhang
+► Gemischter Zusammenhang
 
 Ist keine direkte Zuordnung möglich, ist eine Aufteilung nach § 15 Abs. 4 UStG vorzunehmen.
 
 ---
 
-# 72. Voraussetzung der Vorsteueraufteilung
+⇨ 72. Voraussetzung der Vorsteueraufteilung
 
 Eine Aufteilung ist erforderlich, wenn eine Eingangsleistung gleichzeitig verwendet wird für
 
 - Umsätze, die zum Vorsteuerabzug berechtigen, und
 - Umsätze, die den Vorsteuerabzug ausschließen.
 
-## Beispiel
+► Beispiel
 
 Ein Steuerberater erzielt
 
@@ -8576,7 +8576,7 @@ Die Vorsteuer ist nach einem sachgerechten Maßstab aufzuteilen.
 
 ---
 
-# 73. Sachgerechte Schätzung
+⇨ 73. Sachgerechte Schätzung
 
 Die Aufteilung erfolgt nach einer sachgerechten Schätzung.
 
@@ -8595,13 +8595,13 @@ Der gewählte Schlüssel muss den wirtschaftlichen Zusammenhang möglichst genau
 
 ---
 
-# 74. Umsatzschlüssel
+⇨ 74. Umsatzschlüssel
 
 Eine Aufteilung nach dem Verhältnis der Umsätze ist grundsätzlich nur zulässig, wenn keine andere wirtschaftlich präzisere Zuordnung möglich ist.
 
 Der Umsatzschlüssel ist daher regelmäßig nachrangig.
 
-## Merksatz
+► Merksatz
 
 Direkte Zuordnung vor Aufteilung.
 
@@ -8609,11 +8609,11 @@ Präziser wirtschaftlicher Schlüssel vor Umsatzschlüssel.
 
 ---
 
-# 75. Gebäude
+⇨ 75. Gebäude
 
 Bei Gebäuden ist besonders zu unterscheiden:
 
-## Direkte Zuordnung möglich
+► Direkte Zuordnung möglich
 
 Betrifft eine Eingangsleistung ausschließlich einen bestimmten Gebäudeteil, erfolgt keine Aufteilung.
 
@@ -8623,7 +8623,7 @@ Beispiele:
 - Fenster ausschließlich in einer steuerpflichtig vermieteten Einheit,
 - Bodenbelag ausschließlich in einer steuerfreien Wohnung.
 
-## Keine direkte Zuordnung möglich
+► Keine direkte Zuordnung möglich
 
 Bei allgemeinen Gebäudeaufwendungen ist regelmäßig ein sachgerechter Aufteilungsschlüssel zu verwenden.
 
@@ -8631,7 +8631,7 @@ Häufig kommt das Verhältnis der Nutzflächen in Betracht.
 
 ---
 
-# 76. Anschaffungs- und Herstellungskosten eines Gebäudes
+⇨ 76. Anschaffungs- und Herstellungskosten eines Gebäudes
 
 Vorsteuer aus Anschaffungs- und Herstellungskosten eines gemischt genutzten Gebäudes ist nach einem sachgerechten Maßstab aufzuteilen.
 
@@ -8643,9 +8643,9 @@ Ein einmal gewählter sachgerechter Aufteilungsmaßstab kann den Unternehmer auc
 
 ---
 
-# Teil H: Prüfungsschemata
+⇨ Teil H: Prüfungsschemata
 
-# 77. Prüfungsschema Reverse Charge
+⇨ 77. Prüfungsschema Reverse Charge
 
 1. Art der Eingangsleistung bestimmen.
 2. Leistungsort ermitteln.
@@ -8663,7 +8663,7 @@ Ein einmal gewählter sachgerechter Aufteilungsmaßstab kann den Unternehmer auc
 
 ---
 
-# 78. Prüfungsschema Steuersatz
+⇨ 78. Prüfungsschema Steuersatz
 
 1. Liegt ein steuerpflichtiger Umsatz vor?
 2. Wird der Umsatz von § 12 Abs. 2 UStG erfasst?
@@ -8676,7 +8676,7 @@ Ein einmal gewählter sachgerechter Aufteilungsmaßstab kann den Unternehmer auc
 
 ---
 
-# 79. Prüfungsschema Bemessungsgrundlage
+⇨ 79. Prüfungsschema Bemessungsgrundlage
 
 1. Gegenleistung feststellen.
 2. Brutto- oder Nettopreis bestimmen.
@@ -8691,9 +8691,9 @@ Ein einmal gewählter sachgerechter Aufteilungsmaßstab kann den Unternehmer auc
 
 ---
 
-# 80. Prüfungsschema Vorsteuerabzug
+⇨ 80. Prüfungsschema Vorsteuerabzug
 
-## Stufe 1: Abzugsfähigkeit
+► Stufe 1: Abzugsfähigkeit
 
 1. Unternehmereigenschaft des Leistungsempfängers.
 2. Gesetzlich geschuldete Umsatzsteuer.
@@ -8701,7 +8701,7 @@ Ein einmal gewählter sachgerechter Aufteilungsmaßstab kann den Unternehmer auc
 4. Leistungsbezug für das Unternehmen.
 5. Ordnungsgemäße Rechnung.
 
-## Stufe 2: Abziehbarkeit
+► Stufe 2: Abziehbarkeit
 
 6. Ausschluss nach § 15 Abs. 1a prüfen.
 7. Sonderregelung für Grundstücke nach § 15 Abs. 1b prüfen.
@@ -8709,7 +8709,7 @@ Ein einmal gewählter sachgerechter Aufteilungsmaßstab kann den Unternehmer auc
 9. Rückausschluss nach § 15 Abs. 3 prüfen.
 10. Gegebenenfalls Aufteilung nach § 15 Abs. 4 durchführen.
 
-## Ergebnis
+► Ergebnis
 
 Festzustellen sind:
 
@@ -8719,7 +8719,7 @@ Festzustellen sind:
 
 ---
 
-# 81. Formulierungshilfe § 13b UStG
+⇨ 81. Formulierungshilfe § 13b UStG
 
 Die Leistung ist im Inland steuerbar und steuerpflichtig.
 
@@ -8737,7 +8737,7 @@ Der Vorsteuerabzug des Leistungsempfängers ist gesondert nach § 15 UStG zu pr�
 
 ---
 
-# 82. Formulierungshilfe Vorsteuerabzug möglich
+⇨ 82. Formulierungshilfe Vorsteuerabzug möglich
 
 Der Leistungsempfänger ist Unternehmer im Sinne des § 2 UStG.
 
@@ -8753,7 +8753,7 @@ Die Vorsteuer ist abzugsfähig und abziehbar.
 
 ---
 
-# 83. Formulierungshilfe Vorsteuerabzug ausgeschlossen
+⇨ 83. Formulierungshilfe Vorsteuerabzug ausgeschlossen
 
 Die Voraussetzungen des § 15 Abs. 1 UStG sind dem Grunde nach erfüllt.
 
@@ -8767,7 +8767,7 @@ Die Vorsteuer ist abzugsfähig, aber nicht abziehbar.
 
 ---
 
-# 84. Zentrale Merksätze
+⇨ 84. Zentrale Merksätze
 
 - § 13b UStG ändert den Steuerschuldner, nicht die Steuerpflicht des Umsatzes.
 - Zuerst müssen Ort, Steuerbarkeit und Steuerpflicht geprüft werden.
@@ -8841,9 +8841,9 @@ Die Vorsteuer ist abzugsfähig, aber nicht abziehbar.
   ],
 
   body: `
-# Steuerentstehung, Anzahlungen und Vorsteuerabzug
+⇨ Steuerentstehung, Anzahlungen und Vorsteuerabzug
 
-## 1. Überblick
+► 1. Überblick
 
 Bei einem umsatzsteuerlichen Sachverhalt sind Steuerentstehung und Vorsteuerabzug getrennt zu prüfen.
 
@@ -8866,9 +8866,9 @@ Merksatz:
 
 ---
 
-# 2. Sollbesteuerung nach vereinbarten Entgelten
+⇨ 2. Sollbesteuerung nach vereinbarten Entgelten
 
-## Grundsatz
+► Grundsatz
 
 Bei der Besteuerung nach vereinbarten Entgelten entsteht die Umsatzsteuer grundsätzlich mit Ablauf des Voranmeldungszeitraums, in dem die Leistung ausgeführt wurde.
 
@@ -8888,7 +8888,7 @@ Kurzform:
 
 ---
 
-# 3. Bedeutung des Leistungszeitpunkts
+⇨ 3. Bedeutung des Leistungszeitpunkts
 
 Der Leistungszeitpunkt richtet sich nach der Art der jeweiligen Leistung.
 
@@ -8910,9 +8910,9 @@ Merksatz:
 
 ---
 
-# 4. Bewegte Lieferung
+⇨ 4. Bewegte Lieferung
 
-## Grundsatz
+► Grundsatz
 
 Eine bewegte Lieferung wird grundsätzlich mit Beginn der Beförderung oder Versendung ausgeführt.
 
@@ -8934,7 +8934,7 @@ Die Steuer entsteht mit Ablauf des Voranmeldungszeitraums März.
 
 ---
 
-# 5. Bewegte Lieferung im Reihengeschäft
+⇨ 5. Bewegte Lieferung im Reihengeschäft
 
 Auch bei einem Reihengeschäft ist für die bewegte Lieferung grundsätzlich der Beginn der Beförderung oder Versendung maßgeblich.
 
@@ -8947,9 +8947,9 @@ Erst danach kann der Leistungszeitpunkt der jeweiligen Lieferung bestimmt werden
 
 ---
 
-# 6. Unbewegte Lieferung
+⇨ 6. Unbewegte Lieferung
 
-## Grundsatz
+► Grundsatz
 
 Bei einer unbewegten Lieferung ist regelmäßig der Zeitpunkt der Verschaffung der Verfügungsmacht maßgeblich.
 
@@ -8971,7 +8971,7 @@ Die Umsatzsteuer entsteht mit Ablauf des Voranmeldungszeitraums September.
 
 ---
 
-# 7. Unbewegte Lieferung im Reihengeschäft
+⇨ 7. Unbewegte Lieferung im Reihengeschäft
 
 Bei unbewegten Lieferungen im Reihengeschäft richtet sich der Leistungszeitpunkt nach der jeweils einschlägigen Ortsvorschrift.
 
@@ -8984,9 +8984,9 @@ Die konkrete Zuordnung richtet sich nach § 3 Abs. 7 UStG.
 
 ---
 
-# 8. Sonstige Leistung und Werkleistung
+⇨ 8. Sonstige Leistung und Werkleistung
 
-## Grundsatz
+► Grundsatz
 
 Eine sonstige Leistung ist grundsätzlich ausgeführt, wenn sie
 
@@ -9009,9 +9009,9 @@ Die Steuer entsteht mit Ablauf des Voranmeldungszeitraums Juni.
 
 ---
 
-# 9. Teilleistungen
+⇨ 9. Teilleistungen
 
-## Begriff
+► Begriff
 
 Eine Teilleistung liegt vor, wenn
 
@@ -9030,7 +9030,7 @@ Typische Fälle:
 - gesondert abgenommene Bauabschnitte,
 - einzelne Leistungsphasen eines Gesamtprojekts.
 
-## Steuerentstehung
+► Steuerentstehung
 
 Bei Teilleistungen entsteht die Umsatzsteuer mit Ablauf des Voranmeldungszeitraums, in dem die jeweilige Teilleistung ausgeführt wurde.
 
@@ -9040,7 +9040,7 @@ Eine Wartungsleistung wird monatlich erbracht und abgerechnet.
 
 Die Umsatzsteuer entsteht monatlich.
 
-## Abgrenzung zur Abschlagszahlung
+► Abgrenzung zur Abschlagszahlung
 
 Eine bloße Abschlagszahlung führt nicht automatisch zu einer Teilleistung.
 
@@ -9054,9 +9054,9 @@ wird.
 
 ---
 
-# 10. Anzahlungen
+⇨ 10. Anzahlungen
 
-## Begriff
+► Begriff
 
 Eine Anzahlung liegt vor, wenn
 
@@ -9067,13 +9067,13 @@ Rechtsgrundlage:
 
 § 13 Abs. 1 Nr. 1 Buchst. a Satz 4 UStG.
 
-## Voraussetzungen
+► Voraussetzungen
 
 1. Entgelt oder Teilentgelt wird vereinnahmt.
 2. Die Vereinnahmung erfolgt vor Ausführung der Leistung oder Teilleistung.
 3. Die spätere Leistung ist hinreichend bestimmt.
 
-## Steuerentstehung
+► Steuerentstehung
 
 Die Umsatzsteuer entsteht insoweit mit Ablauf des Voranmeldungszeitraums der Vereinnahmung.
 
@@ -9093,7 +9093,7 @@ Merksatz:
 
 ---
 
-# 11. Anzahlungen bei Teilleistungen
+⇨ 11. Anzahlungen bei Teilleistungen
 
 Auch vor der Ausführung einer vereinbarten Teilleistung kann eine Anzahlung geleistet werden.
 
@@ -9103,7 +9103,7 @@ Später ist bei Ausführung der Teilleistung nur noch der noch nicht versteuerte
 
 ---
 
-# 12. Rechnung bei Anzahlungen
+⇨ 12. Rechnung bei Anzahlungen
 
 Die Steuerentstehung bei einer Anzahlung hängt grundsätzlich nicht davon ab, ob bereits eine Rechnung ausgestellt wurde.
 
@@ -9113,7 +9113,7 @@ Für den Vorsteuerabzug des Leistungsempfängers ist dagegen eine ordnungsgemä�
 
 ---
 
-# 13. Anzahlungen in Fremdwährung
+⇨ 13. Anzahlungen in Fremdwährung
 
 Bei Anzahlungen in fremder Währung ist die Umrechnung grundsätzlich nach dem im Monat der Vereinnahmung geltenden Durchschnittskurs vorzunehmen.
 
@@ -9121,7 +9121,7 @@ Spätere Kursänderungen beeinflussen die bereits entstandene Anzahlungssteuer g
 
 ---
 
-# 14. Nichtausführung der angezahlten Leistung
+⇨ 14. Nichtausführung der angezahlten Leistung
 
 Wird später festgestellt, dass die angezahlte Leistung nicht ausgeführt wird, sind
 
@@ -9136,7 +9136,7 @@ Merksatz:
 
 ---
 
-# 15. Steuerfreie Leistungen
+⇨ 15. Steuerfreie Leistungen
 
 Auch bei steuerfreien Leistungen ist der Leistungszeitpunkt zu bestimmen.
 
@@ -9146,15 +9146,15 @@ Es entsteht zwar keine zu zahlende Umsatzsteuer, der Umsatz muss aber dem richti
 
 ---
 
-# 16. Grundvoraussetzungen des Vorsteuerabzugs
+⇨ 16. Grundvoraussetzungen des Vorsteuerabzugs
 
 Der Vorsteuerabzug nach § 15 Abs. 1 Satz 1 Nr. 1 UStG setzt persönliche und sachliche Voraussetzungen voraus.
 
-## Persönliche Voraussetzung
+► Persönliche Voraussetzung
 
 Der Leistungsempfänger muss Unternehmer sein.
 
-## Sachliche Voraussetzungen
+► Sachliche Voraussetzungen
 
 Erforderlich sind grundsätzlich:
 
@@ -9165,7 +9165,7 @@ Erforderlich sind grundsätzlich:
 
 ---
 
-# 17. Unternehmereigenschaft des Leistungsempfängers
+⇨ 17. Unternehmereigenschaft des Leistungsempfängers
 
 Der Leistungsempfänger muss Unternehmer im Sinne des § 2 UStG sein.
 
@@ -9173,7 +9173,7 @@ Die Unternehmereigenschaft ist grundsätzlich unabhängig davon, wo der Unterneh
 
 Auch ein ausländischer Unternehmer kann zum Vorsteuerabzug berechtigt sein.
 
-## Beginn der Unternehmereigenschaft
+► Beginn der Unternehmereigenschaft
 
 Die Unternehmereigenschaft kann bereits vor Ausführung der ersten Ausgangsumsätze beginnen.
 
@@ -9186,13 +9186,13 @@ Beispiele:
 
 Voraussetzung ist, dass die beabsichtigte unternehmerische Tätigkeit durch objektive Merkmale nachgewiesen wird.
 
-## Erfolgloser Unternehmer
+► Erfolgloser Unternehmer
 
 Auch wenn das Unternehmen später keine Umsätze erzielt, kann die Unternehmereigenschaft bestehen, wenn die ernsthafte Absicht zur unternehmerischen Tätigkeit objektiv belegt ist.
 
 ---
 
-# 18. Leistung durch einen anderen Unternehmer
+⇨ 18. Leistung durch einen anderen Unternehmer
 
 Der leistende Unternehmer muss die Leistung im Rahmen seines Unternehmens ausführen.
 
@@ -9206,7 +9206,7 @@ Merksatz:
 
 ---
 
-# 19. Gesetzlich geschuldete Steuer
+⇨ 19. Gesetzlich geschuldete Steuer
 
 Abziehbar ist grundsätzlich nur die gesetzlich geschuldete Umsatzsteuer.
 
@@ -9216,7 +9216,7 @@ Nicht abziehbar ist insbesondere:
 - zu hoch ausgewiesene Umsatzsteuer,
 - Steuer nach § 14c UStG, soweit sie nicht gesetzlich für den Umsatz geschuldet wird.
 
-## Niedrigerer Wert
+► Niedrigerer Wert
 
 Für den Vorsteuerabzug gilt grundsätzlich der niedrigere Betrag aus:
 
@@ -9239,7 +9239,7 @@ Abziehbar sind höchstens:
 
 ---
 
-# 20. Prüfung des Eingangsumsatzes
+⇨ 20. Prüfung des Eingangsumsatzes
 
 Vor dem Vorsteuerabzug muss der Eingangsumsatz auf Seiten des Leistenden geprüft werden.
 
@@ -9257,7 +9257,7 @@ Merksatz:
 
 ---
 
-# 21. Fremdwährungsrechnungen
+⇨ 21. Fremdwährungsrechnungen
 
 Bei Rechnungen in fremder Währung ist die Umsatzsteuer nach § 16 Abs. 6 UStG in Euro umzurechnen.
 
@@ -9265,7 +9265,7 @@ Abziehbar ist nur die nach den deutschen umsatzsteuerlichen Vorschriften gesetzl
 
 ---
 
-# 22. Leistungsbezug für das Unternehmen
+⇨ 22. Leistungsbezug für das Unternehmen
 
 Eine Leistung wird für das Unternehmen bezogen, wenn sie dazu bestimmt ist, der unternehmerischen Tätigkeit zu dienen.
 
@@ -9273,7 +9273,7 @@ Maßgeblich ist grundsätzlich die beabsichtigte Verwendung im Zeitpunkt des Lei
 
 Nicht entscheidend ist zunächst eine später abweichende tatsächliche Verwendung.
 
-## Prüfung
+► Prüfung
 
 1. Welcher Ausgangstätigkeit soll die Eingangsleistung dienen?
 2. Sind die geplanten Ausgangsumsätze steuerpflichtig oder steuerfrei?
@@ -9282,19 +9282,19 @@ Nicht entscheidend ist zunächst eine später abweichende tatsächliche Verwendu
 
 ---
 
-# 23. Zusammenhang mit Ausgangsumsätzen
+⇨ 23. Zusammenhang mit Ausgangsumsätzen
 
 Der Vorsteuerabzug richtet sich nach dem direkten und unmittelbaren Zusammenhang der Eingangsleistung mit den geplanten Ausgangsumsätzen.
 
-## Steuerpflichtige Ausgangsumsätze
+► Steuerpflichtige Ausgangsumsätze
 
 Steht die Eingangsleistung ausschließlich mit steuerpflichtigen Ausgangsumsätzen in Zusammenhang, ist die Vorsteuer grundsätzlich abziehbar.
 
-## Steuerfreie Ausschlussumsätze
+► Steuerfreie Ausschlussumsätze
 
 Steht sie ausschließlich mit steuerfreien Umsätzen in Zusammenhang, die den Vorsteuerabzug nach § 15 Abs. 2 UStG ausschließen, ist die Vorsteuer grundsätzlich nicht abziehbar.
 
-## Gemischte Verwendung
+► Gemischte Verwendung
 
 Dient die Eingangsleistung sowohl
 
@@ -9305,7 +9305,7 @@ ist die Vorsteuer nach § 15 Abs. 4 UStG aufzuteilen.
 
 ---
 
-# 24. Beabsichtigte Verwendung
+⇨ 24. Beabsichtigte Verwendung
 
 Für die erstmalige Beurteilung des Vorsteuerabzugs ist die im Zeitpunkt des Leistungsbezugs nachweisbare Verwendungsabsicht maßgeblich.
 
@@ -9320,15 +9320,15 @@ Eine spätere Änderung der tatsächlichen Verwendung kann eine Vorsteuerbericht
 
 ---
 
-# 25. Unternehmensvermögen und Betriebsvermögen
+⇨ 25. Unternehmensvermögen und Betriebsvermögen
 
 Umsatzsteuerliches Unternehmensvermögen und ertragsteuerliches Betriebsvermögen sind nicht identisch.
 
-## Betriebsvermögen
+► Betriebsvermögen
 
 Zum Betriebsvermögen gehören Wirtschaftsgüter, die einem Gewerbebetrieb oder freien Beruf dienen.
 
-## Unternehmensvermögen
+► Unternehmensvermögen
 
 Zum Unternehmensvermögen gehören Gegenstände, die dem Unternehmen im Sinne des § 2 UStG dienen.
 
@@ -9345,7 +9345,7 @@ Ein vermietetes Mehrfamilienhaus kann ertragsteuerlich Privatvermögen, umsatzst
 
 ---
 
-# 26. Zuordnung gemischt genutzter Gegenstände
+⇨ 26. Zuordnung gemischt genutzter Gegenstände
 
 Bei gemischt unternehmerisch und privat verwendeten Gegenständen kann ein Zuordnungswahlrecht bestehen.
 
@@ -9361,7 +9361,7 @@ Bei Grundstücken ist zusätzlich § 15 Abs. 1b UStG zu beachten.
 
 ---
 
-# 27. Ordnungsgemäße Rechnung
+⇨ 27. Ordnungsgemäße Rechnung
 
 Für den Vorsteuerabzug nach § 15 Abs. 1 Satz 1 Nr. 1 UStG muss der Leistungsempfänger grundsätzlich im Besitz einer ordnungsgemäßen Rechnung sein.
 
@@ -9382,7 +9382,7 @@ Wesentliche Pflichtangaben sind insbesondere:
 
 ---
 
-# 28. Fehlende Rechnungsangaben
+⇨ 28. Fehlende Rechnungsangaben
 
 Fehlen wesentliche Pflichtangaben nach § 14 Abs. 4 UStG, ist der Vorsteuerabzug grundsätzlich zunächst nicht zulässig.
 
@@ -9392,7 +9392,7 @@ Die Berichtigung muss grundsätzlich durch den Rechnungsaussteller erfolgen.
 
 ---
 
-# 29. Zu hoch ausgewiesene Umsatzsteuer
+⇨ 29. Zu hoch ausgewiesene Umsatzsteuer
 
 Ist in einer Rechnung mehr Umsatzsteuer ausgewiesen als gesetzlich geschuldet, darf der Leistungsempfänger grundsätzlich nur die gesetzlich geschuldete Steuer als Vorsteuer abziehen.
 
@@ -9414,9 +9414,9 @@ höchstens 700 €.
 
 ---
 
-# 30. Zeitpunkt des Vorsteuerabzugs
+⇨ 30. Zeitpunkt des Vorsteuerabzugs
 
-## Grundsatz
+► Grundsatz
 
 Der Vorsteuerabzug ist in dem Voranmeldungszeitraum möglich, in dem beide Voraussetzungen erfüllt sind:
 
@@ -9431,7 +9431,7 @@ Merksatz:
 
 ---
 
-# 31. Beispiel zum Zeitpunkt des Vorsteuerabzugs
+⇨ 31. Beispiel zum Zeitpunkt des Vorsteuerabzugs
 
 Leistungsausführung:
 
@@ -9452,7 +9452,7 @@ Der Vorsteuerabzug ist grundsätzlich erst im April möglich, weil erst dann
 
 ---
 
-# 32. Vorsteuerabzug bei Anzahlungen
+⇨ 32. Vorsteuerabzug bei Anzahlungen
 
 Bei Anzahlungen ist der Vorsteuerabzug bereits vor Leistungsausführung möglich.
 
@@ -9467,7 +9467,7 @@ Rechtsgrundlage:
 
 § 15 Abs. 1 Satz 1 Nr. 1 Satz 3 UStG.
 
-## Zeitpunkt
+► Zeitpunkt
 
 Der Vorsteuerabzug erfolgt im Voranmeldungszeitraum der Zahlung, sofern zu diesem Zeitpunkt die ordnungsgemäße Rechnung vorliegt.
 
@@ -9477,13 +9477,13 @@ Merksatz:
 
 ---
 
-# 33. Gegenüberstellung Steuerentstehung und Vorsteuer bei Anzahlungen
+⇨ 33. Gegenüberstellung Steuerentstehung und Vorsteuer bei Anzahlungen
 
-## Leistender Unternehmer
+► Leistender Unternehmer
 
 Steuerentstehung mit Vereinnahmung der Anzahlung.
 
-## Leistungsempfänger
+► Leistungsempfänger
 
 Vorsteuerabzug mit Zahlung der Anzahlung und Besitz einer ordnungsgemäßen Rechnung.
 
@@ -9491,7 +9491,7 @@ Dadurch sollen Umsatzsteuer und Vorsteuer grundsätzlich zeitlich korrespondiere
 
 ---
 
-# 34. Vorsteuerausschluss nach § 15 Abs. 2 UStG
+⇨ 34. Vorsteuerausschluss nach § 15 Abs. 2 UStG
 
 Vorsteuerbeträge sind grundsätzlich nicht abziehbar, soweit die Eingangsleistungen für steuerfreie Ausgangsumsätze verwendet werden.
 
@@ -9507,7 +9507,7 @@ Entscheidend ist der direkte und unmittelbare Zusammenhang zwischen Eingangs- un
 
 ---
 
-# 35. Rückausnahmen nach § 15 Abs. 3 UStG
+⇨ 35. Rückausnahmen nach § 15 Abs. 3 UStG
 
 Bestimmte steuerfreie Umsätze führen trotz Steuerbefreiung nicht zum Ausschluss des Vorsteuerabzugs.
 
@@ -9525,9 +9525,9 @@ Merksatz:
 
 ---
 
-# 36. Aufteilung von Vorsteuerbeträgen
+⇨ 36. Aufteilung von Vorsteuerbeträgen
 
-## Grundsatz
+► Grundsatz
 
 Eine Aufteilung nach § 15 Abs. 4 UStG ist erforderlich, wenn eine Eingangsleistung sowohl
 
@@ -9536,25 +9536,25 @@ Eine Aufteilung nach § 15 Abs. 4 UStG ist erforderlich, wenn eine Eingangsleist
 
 verwendet wird.
 
-## Vorrang der direkten Zuordnung
+► Vorrang der direkten Zuordnung
 
 Zunächst ist stets zu prüfen, ob die Vorsteuer direkt einem bestimmten Ausgangsumsatz zugeordnet werden kann.
 
-### Direkter Zusammenhang mit Abzugsumsätzen
+⇶  Direkter Zusammenhang mit Abzugsumsätzen
 
 Vorsteuer vollständig abziehbar.
 
-### Direkter Zusammenhang mit Ausschlussumsätzen
+⇶  Direkter Zusammenhang mit Ausschlussumsätzen
 
 Vorsteuer grundsätzlich nicht abziehbar, sofern keine Rückausnahme nach § 15 Abs. 3 UStG greift.
 
-### Gemischter Zusammenhang
+⇶  Gemischter Zusammenhang
 
 Aufteilung nach § 15 Abs. 4 UStG.
 
 ---
 
-# 37. Prüfungsschema Vorsteueraufteilung
+⇨ 37. Prüfungsschema Vorsteueraufteilung
 
 1. Eingangsleistung für das Unternehmen?
 2. Direkte Zuordnung möglich?
@@ -9569,7 +9569,7 @@ Aufteilung nach § 15 Abs. 4 UStG.
 
 ---
 
-# 38. Aufteilungsmaßstab
+⇨ 38. Aufteilungsmaßstab
 
 Die Aufteilung ist nach einer sachgerechten Schätzung vorzunehmen.
 
@@ -9591,9 +9591,9 @@ Merksatz:
 
 ---
 
-# 39. Aufteilung bei Gebäuden
+⇨ 39. Aufteilung bei Gebäuden
 
-## Direkte Zuordnung
+► Direkte Zuordnung
 
 Kann eine Eingangsleistung einem bestimmten Gebäudeteil direkt zugeordnet werden, ist keine Aufteilung erforderlich.
 
@@ -9605,7 +9605,7 @@ Folge:
 
 Vorsteuer grundsätzlich vollständig abziehbar.
 
-## Keine direkte Zuordnung
+► Keine direkte Zuordnung
 
 Bei Kosten, die das gesamte Gebäude betreffen, ist eine Aufteilung erforderlich.
 
@@ -9621,7 +9621,7 @@ Bei Gebäuden ist häufig das Verhältnis der Nutzflächen ein sachgerechter Auf
 
 ---
 
-# 40. Herstellungskosten eines Gebäudes
+⇨ 40. Herstellungskosten eines Gebäudes
 
 Bei Anschaffungs- oder Herstellungskosten eines gemischt genutzten Gebäudes ist regelmäßig eine Gesamtbetrachtung erforderlich.
 
@@ -9631,7 +9631,7 @@ Ein einmal gewählter sachgerechter Aufteilungsmaßstab kann für Folgejahre bin
 
 ---
 
-# 41. Erhaltungsaufwendungen
+⇨ 41. Erhaltungsaufwendungen
 
 Bei Erhaltungsaufwendungen ist vorrangig zu prüfen, ob sie einem konkreten Gebäudeteil zugeordnet werden können.
 
@@ -9653,11 +9653,11 @@ Vorsteueraufteilung erforderlich.
 
 ---
 
-# 42. Weitere abziehbare Vorsteuerbeträge
+⇨ 42. Weitere abziehbare Vorsteuerbeträge
 
 Neben § 15 Abs. 1 Satz 1 Nr. 1 UStG bestehen weitere Vorsteuerabzugstatbestände.
 
-## Einfuhrumsatzsteuer
+► Einfuhrumsatzsteuer
 
 Nach § 15 Abs. 1 Satz 1 Nr. 2 UStG kann die für die Einfuhr eines Gegenstands entrichtete Einfuhrumsatzsteuer als Vorsteuer abziehbar sein.
 
@@ -9665,13 +9665,13 @@ Voraussetzung:
 
 Einfuhr für das Unternehmen.
 
-## Innergemeinschaftlicher Erwerb
+► Innergemeinschaftlicher Erwerb
 
 Nach § 15 Abs. 1 Satz 1 Nr. 3 UStG kann die Steuer für einen innergemeinschaftlichen Erwerb als Vorsteuer abziehbar sein.
 
 Voraussetzung ist insbesondere, dass der innergemeinschaftliche Erwerb im Inland steuerbar ist.
 
-## Reverse Charge
+► Reverse Charge
 
 Nach § 15 Abs. 1 Satz 1 Nr. 4 UStG kann die vom Leistungsempfänger nach § 13b UStG geschuldete Umsatzsteuer als Vorsteuer abziehbar sein.
 
@@ -9679,23 +9679,23 @@ Voraussetzung:
 
 Die Leistung wird für das Unternehmen bezogen und es greift kein Vorsteuerausschluss.
 
-## Rechnungserfordernis
+► Rechnungserfordernis
 
 In diesen Fällen ist nicht immer eine Rechnung im Sinne des § 14 UStG Voraussetzung für den Vorsteuerabzug, weil der Leistungsempfänger selbst Steuerschuldner ist oder die Steuer bei der Einfuhr entsteht.
 
 ---
 
-# 43. Besonderheiten nach § 15 Abs. 1a UStG
+⇨ 43. Besonderheiten nach § 15 Abs. 1a UStG
 
-## Grundsatz
+► Grundsatz
 
 Vorsteuerbeträge, die mit nicht abziehbaren Betriebsausgaben im Sinne des § 4 Abs. 5 EStG zusammenhängen, können umsatzsteuerlich vom Abzug ausgeschlossen sein.
 
-## Geschenke
+► Geschenke
 
 Vorsteuer aus nicht abzugsfähigen Geschenken kann vollständig vom Vorsteuerabzug ausgeschlossen sein.
 
-## Bewirtungsaufwendungen
+► Bewirtungsaufwendungen
 
 Bei unangemessenen Bewirtungsaufwendungen kann der Vorsteuerabzug insoweit ausgeschlossen sein, wie die Aufwendungen unangemessen sind.
 
@@ -9708,9 +9708,9 @@ Prüfung:
 
 ---
 
-# 44. Grundstücke mit privater Mitverwendung
+⇨ 44. Grundstücke mit privater Mitverwendung
 
-## § 15 Abs. 1b UStG
+► § 15 Abs. 1b UStG
 
 Wird ein Grundstück sowohl
 
@@ -9721,7 +9721,7 @@ verwendet, ist der Vorsteuerabzug auf den unternehmerisch verwendeten Anteil beg
 
 Dies gilt insbesondere bei privater Nutzung eines Gebäudeteils.
 
-## Beispiel
+► Beispiel
 
 Ein Unternehmer errichtet ein Gebäude.
 
@@ -9736,7 +9736,7 @@ Auch bei vollständiger Zuordnung zum Unternehmen führt § 15 Abs. 1b UStG zu e
 
 ---
 
-# 45. Private Nutzung durch Personal
+⇨ 45. Private Nutzung durch Personal
 
 Auch eine Verwendung für den privaten Bedarf des Personals kann zu einer Vorsteuerbeschränkung führen.
 
@@ -9749,15 +9749,15 @@ dient.
 
 ---
 
-# 46. Typische Klausurfallen
+⇨ 46. Typische Klausurfallen
 
-## Fehler 1: Steuerentstehung an die Rechnungsstellung knüpfen
+► Fehler 1: Steuerentstehung an die Rechnungsstellung knüpfen
 
 Bei der Sollbesteuerung ist grundsätzlich die Leistungsausführung maßgeblich.
 
 ---
 
-## Fehler 2: Zahlung bei normaler Leistungsausführung für entscheidend halten
+► Fehler 2: Zahlung bei normaler Leistungsausführung für entscheidend halten
 
 Der Zahlungszeitpunkt ist bei der Sollbesteuerung grundsätzlich unerheblich.
 
@@ -9767,79 +9767,79 @@ Anzahlung vor Leistungsausführung.
 
 ---
 
-## Fehler 3: Abschlagszahlung mit Teilleistung verwechseln
+► Fehler 3: Abschlagszahlung mit Teilleistung verwechseln
 
 Eine Zahlung allein begründet noch keine Teilleistung.
 
 ---
 
-## Fehler 4: Anzahlungssteuer erst bei Rechnungsstellung erfassen
+► Fehler 4: Anzahlungssteuer erst bei Rechnungsstellung erfassen
 
 Beim Leistenden entsteht die Steuer grundsätzlich mit Vereinnahmung des Entgelts.
 
 ---
 
-## Fehler 5: Vorsteuer bei Anzahlung ohne Zahlung abziehen
+► Fehler 5: Vorsteuer bei Anzahlung ohne Zahlung abziehen
 
 Für den Anzahlungs-Vorsteuerabzug muss die Anzahlung tatsächlich geleistet worden sein.
 
 ---
 
-## Fehler 6: Vorsteuer ohne Rechnung abziehen
+► Fehler 6: Vorsteuer ohne Rechnung abziehen
 
 Bei § 15 Abs. 1 Satz 1 Nr. 1 UStG ist grundsätzlich eine ordnungsgemäße Rechnung erforderlich.
 
 ---
 
-## Fehler 7: Zu hoch ausgewiesene Steuer vollständig abziehen
+► Fehler 7: Zu hoch ausgewiesene Steuer vollständig abziehen
 
 Abziehbar ist grundsätzlich höchstens die gesetzlich geschuldete Steuer.
 
 ---
 
-## Fehler 8: Nur den Eingangsbeleg prüfen
+► Fehler 8: Nur den Eingangsbeleg prüfen
 
 Die gesetzlich geschuldete Steuer kann erst nach Prüfung des Ausgangsumsatzes des Leistenden bestimmt werden.
 
 ---
 
-## Fehler 9: Spätere tatsächliche Nutzung für die erstmalige Zuordnung verwenden
+► Fehler 9: Spätere tatsächliche Nutzung für die erstmalige Zuordnung verwenden
 
 Maßgeblich ist grundsätzlich die Verwendungsabsicht im Zeitpunkt des Leistungsbezugs.
 
 ---
 
-## Fehler 10: Sofort einen Umsatzschlüssel anwenden
+► Fehler 10: Sofort einen Umsatzschlüssel anwenden
 
 Zunächst ist immer die direkte Zuordnung zu prüfen.
 
 ---
 
-## Fehler 11: Gemischte Vorsteuer vollständig abziehen
+► Fehler 11: Gemischte Vorsteuer vollständig abziehen
 
 Bei Verwendung für Abzugs- und Ausschlussumsätze ist § 15 Abs. 4 UStG zu prüfen.
 
 ---
 
-## Fehler 12: Steuerfreie Umsätze automatisch als vorsteuerschädlich behandeln
+► Fehler 12: Steuerfreie Umsätze automatisch als vorsteuerschädlich behandeln
 
 Rückausnahmen nach § 15 Abs. 3 UStG sind zu prüfen.
 
 ---
 
-## Fehler 13: Betriebsvermögen und Unternehmensvermögen gleichsetzen
+► Fehler 13: Betriebsvermögen und Unternehmensvermögen gleichsetzen
 
 Die Begriffe gehören zu unterschiedlichen Steuerarten und können voneinander abweichen.
 
 ---
 
-## Fehler 14: Grundstück vollständig dem Unternehmen zuordnen und volle Vorsteuer abziehen
+► Fehler 14: Grundstück vollständig dem Unternehmen zuordnen und volle Vorsteuer abziehen
 
 Bei privater Mitverwendung begrenzt § 15 Abs. 1b UStG den Vorsteuerabzug.
 
 ---
 
-# 47. Prüfungsschema Steuerentstehung
+⇨ 47. Prüfungsschema Steuerentstehung
 
 1. Art der Leistung bestimmen.
 2. Leistungsort bestimmen.
@@ -9855,7 +9855,7 @@ Bei privater Mitverwendung begrenzt § 15 Abs. 1b UStG den Vorsteuerabzug.
 
 ---
 
-# 48. Prüfungsschema Vorsteuerabzug
+⇨ 48. Prüfungsschema Vorsteuerabzug
 
 1. Leistungsempfänger ist Unternehmer?
 2. Leistung wurde von einem anderen Unternehmer ausgeführt?
@@ -9872,7 +9872,7 @@ Bei privater Mitverwendung begrenzt § 15 Abs. 1b UStG den Vorsteuerabzug.
 
 ---
 
-# 49. Merksätze
+⇨ 49. Merksätze
 
 - Bei der Sollbesteuerung entsteht die Steuer grundsätzlich mit Leistungsausführung.
 - Die Rechnung ist für die Steuerentstehung regelmäßig nicht entscheidend.
@@ -9932,9 +9932,9 @@ Bei privater Mitverwendung begrenzt § 15 Abs. 1b UStG den Vorsteuerabzug.
   ],
 
   body: `
-# Option zur Umsatzsteuer bei Grundstücksvermietung und Grundstücksveräußerung
+⇨ Option zur Umsatzsteuer bei Grundstücksvermietung und Grundstücksveräußerung
 
-## 1. Grundidee der Option
+► 1. Grundidee der Option
 
 Bestimmte Umsätze sind nach § 4 UStG grundsätzlich von der Umsatzsteuer befreit.
 
@@ -9957,7 +9957,7 @@ Sie verändert lediglich die umsatzsteuerliche Behandlung eines nach § 4 UStG g
 
 ---
 
-# 2. Grundvoraussetzungen des § 9 Abs. 1 UStG
+⇨ 2. Grundvoraussetzungen des § 9 Abs. 1 UStG
 
 Eine Option ist nur bei den ausdrücklich in § 9 Abs. 1 UStG genannten Steuerbefreiungen möglich.
 
@@ -9974,7 +9974,7 @@ Zusätzlich muss der Umsatz
 
 ausgeführt werden.
 
-## Nicht ausreichend
+► Nicht ausreichend
 
 Eine Option ist grundsätzlich nicht möglich bei einer Leistung
 
@@ -9983,7 +9983,7 @@ Eine Option ist grundsätzlich nicht möglich bei einer Leistung
 - an einen Arbeitnehmer für dessen privaten Bedarf,
 - an eine juristische Person für einen ausschließlich nichtunternehmerischen Bereich.
 
-## Merksatz
+► Merksatz
 
 § 9 Abs. 1 UStG verlangt immer:
 
@@ -9991,7 +9991,7 @@ Eine Option ist grundsätzlich nicht möglich bei einer Leistung
 
 ---
 
-# 3. Option ist umsatzbezogen
+⇨ 3. Option ist umsatzbezogen
 
 Der Unternehmer kann grundsätzlich für jeden einzelnen optionsfähigen Umsatz entscheiden, ob er auf die Steuerbefreiung verzichtet.
 
@@ -10009,7 +10009,7 @@ Eine einheitliche Option für das gesamte Unternehmen ist nicht erforderlich.
 
 ---
 
-# 4. Option bei Grundstücksvermietung
+⇨ 4. Option bei Grundstücksvermietung
 
 Die Vermietung und Verpachtung von Grundstücken ist grundsätzlich nach § 4 Nr. 12 Satz 1 Buchst. a UStG steuerfrei.
 
@@ -10017,7 +10017,7 @@ Eine Option kann zunächst nach § 9 Abs. 1 UStG in Betracht kommen.
 
 Zusätzlich gilt für Grundstücksvermietungen die besondere Einschränkung des § 9 Abs. 2 UStG.
 
-## Prüfung der Vermietungsoption
+► Prüfung der Vermietungsoption
 
 1. Liegt eine steuerfreie Grundstücksvermietung nach § 4 Nr. 12 UStG vor?
 2. Erfolgt die Vermietung an einen anderen Unternehmer?
@@ -10027,13 +10027,13 @@ Zusätzlich gilt für Grundstücksvermietungen die besondere Einschränkung des 
 
 ---
 
-# 5. Erste Stufe: Steuerfreie Grundstücksvermietung
+⇨ 5. Erste Stufe: Steuerfreie Grundstücksvermietung
 
 Zunächst muss tatsächlich ein nach § 4 Nr. 12 UStG steuerfreier Vermietungsumsatz vorliegen.
 
 Ist der Umsatz bereits kraft Gesetzes steuerpflichtig, wird § 9 UStG nicht benötigt.
 
-## Bereits steuerpflichtige Vermietungsumsätze
+► Bereits steuerpflichtige Vermietungsumsätze
 
 Hierzu können insbesondere gehören:
 
@@ -10042,19 +10042,19 @@ Hierzu können insbesondere gehören:
 - Vermietung von Fahrzeugabstellplätzen außerhalb einer einheitlichen steuerfreien Grundstücksvermietung,
 - bestimmte kurzfristige Campingplatzvermietungen.
 
-## Merksatz
+► Merksatz
 
 Nur ein steuerfreier Umsatz kann durch Option steuerpflichtig werden.
 
 ---
 
-# 6. Zweite Stufe: Vermietung an einen Unternehmer
+⇨ 6. Zweite Stufe: Vermietung an einen Unternehmer
 
 Der Mieter muss Unternehmer im Sinne des § 2 UStG sein.
 
 Bei einer unmittelbaren Vermietung an eine Privatperson ist die Option nach § 9 Abs. 1 UStG ausgeschlossen.
 
-## Beispiel
+► Beispiel
 
 V vermietet eine Wohnung unmittelbar an eine Privatperson.
 
@@ -10064,13 +10064,13 @@ Eine Option ist nicht möglich, weil der Leistungsempfänger kein Unternehmer is
 
 ---
 
-# 7. Dritte Stufe: Bezug für das Unternehmen des Mieters
+⇨ 7. Dritte Stufe: Bezug für das Unternehmen des Mieters
 
 Der Mieter muss die Mietleistung für sein Unternehmen beziehen.
 
 Die bloße Unternehmereigenschaft des Mieters reicht nicht aus.
 
-## Beispiel
+► Beispiel
 
 V vermietet eine Ferienwohnung an einen selbständigen Rechtsanwalt, der sie ausschließlich privat nutzt.
 
@@ -10082,13 +10082,13 @@ Eine Option nach § 9 Abs. 1 UStG ist nicht möglich.
 
 ---
 
-# 8. Einschränkung nach § 9 Abs. 2 UStG
+⇨ 8. Einschränkung nach § 9 Abs. 2 UStG
 
 Bei der Vermietung oder Verpachtung eines Grundstücks ist die Option nur zulässig, soweit der Leistungsempfänger das Grundstück ausschließlich für Umsätze verwendet oder zu verwenden beabsichtigt, die den Vorsteuerabzug nicht ausschließen.
 
 Entscheidend ist die Nutzung durch den Mieter.
 
-## Vorsteuerunschädliche Nutzung
+► Vorsteuerunschädliche Nutzung
 
 Vorsteuerunschädlich sind insbesondere Nutzungen für
 
@@ -10098,7 +10098,7 @@ Vorsteuerunschädlich sind insbesondere Nutzungen für
 - innergemeinschaftliche Lieferungen,
 - andere Umsätze, die nach § 15 Abs. 3 UStG den Vorsteuerabzug nicht ausschließen.
 
-## Vorsteuerschädliche Nutzung
+► Vorsteuerschädliche Nutzung
 
 Vorsteuerschädlich sind insbesondere Nutzungen für
 
@@ -10111,13 +10111,13 @@ Vorsteuerschädlich sind insbesondere Nutzungen für
 
 ---
 
-# 9. Maßgeblich ist die Verwendung des Mieters
+⇨ 9. Maßgeblich ist die Verwendung des Mieters
 
 Für § 9 Abs. 2 UStG ist nicht entscheidend, welche Umsätze der Vermieter ausführt.
 
 Entscheidend ist, wofür der Mieter das Grundstück tatsächlich verwendet oder nachweisbar zu verwenden beabsichtigt.
 
-## Beispiel
+► Beispiel
 
 V vermietet Büroräume an einen Rechtsanwalt.
 
@@ -10129,7 +10129,7 @@ V kann die Vermietung steuerpflichtig behandeln.
 
 ---
 
-# 10. Vermietung an einen Arzt
+⇨ 10. Vermietung an einen Arzt
 
 V vermietet Praxisräume an einen Arzt.
 
@@ -10143,7 +10143,7 @@ Eine Ausnahme kann nur in Betracht kommen, wenn die Altgebäuderegelung des § 2
 
 ---
 
-# 11. Vermietung an eine Bank
+⇨ 11. Vermietung an eine Bank
 
 V vermietet Geschäftsräume an eine Bank.
 
@@ -10155,7 +10155,7 @@ Auch hier kann eine Altgebäuderegelung gesondert zu prüfen sein.
 
 ---
 
-# 12. Vermietung an einen Rechtsanwalt
+⇨ 12. Vermietung an einen Rechtsanwalt
 
 V vermietet Büroräume an einen Rechtsanwalt.
 
@@ -10165,7 +10165,7 @@ Da die Nutzung den Vorsteuerabzug nicht ausschließt, kann V unter den Vorausset
 
 ---
 
-# 13. Vermietung an eine Behörde
+⇨ 13. Vermietung an eine Behörde
 
 V vermietet Räume unmittelbar an eine Behörde, die diese für hoheitliche beziehungsweise nichtunternehmerische Tätigkeiten nutzt.
 
@@ -10177,11 +10177,11 @@ Eine Option ist daher nicht möglich.
 
 ---
 
-# 14. Zwischenvermietung
+⇨ 14. Zwischenvermietung
 
 Besondere Vorsicht ist bei einer Vermietungskette erforderlich.
 
-## Beispiel
+► Beispiel
 
 V1 vermietet ein Gebäude an V2.
 
@@ -10199,7 +10199,7 @@ Eine Ausnahme kann bei einem Altgebäude nach § 27 Abs. 2 UStG bestehen.
 
 ---
 
-# 15. Räumliche Aufteilung
+⇨ 15. Räumliche Aufteilung
 
 Werden verschiedene Grundstücksteile unterschiedlich genutzt, ist die Option grundsätzlich für jeden selbständig nutzbaren Grundstücksteil gesondert zu prüfen.
 
@@ -10212,7 +10212,7 @@ Selbständig nutzbare Grundstücksteile können sein:
 - Praxisräume,
 - räumlich abgrenzbare Hallenbereiche.
 
-## Beispiel
+► Beispiel
 
 Ein Gebäude wird vermietet:
 
@@ -10230,11 +10230,11 @@ Die Option kann auf das 2. Obergeschoss beschränkt werden.
 
 ---
 
-# 16. Zeitlich unterschiedliche Nutzung
+⇨ 16. Zeitlich unterschiedliche Nutzung
 
 Auch zeitlich unterschiedliche Nutzungen können getrennt zu beurteilen sein.
 
-## Beispiel
+► Beispiel
 
 Eine Halle wird zunächst steuerpflichtig an einen Produktionsbetrieb vermietet.
 
@@ -10248,7 +10248,7 @@ Die Änderung der Nutzung kann insbesondere Auswirkungen haben auf
 
 ---
 
-# 17. Gemischte Verwendung
+⇨ 17. Gemischte Verwendung
 
 Nutzt der Mieter dieselben Räume sowohl für
 
@@ -10259,7 +10259,7 @@ ist § 9 Abs. 2 UStG besonders sorgfältig zu prüfen.
 
 Nach dem Gesetz wird grundsätzlich eine ausschließliche Verwendung für vorsteuerunschädliche Umsätze verlangt.
 
-## Bagatellgrenze der Finanzverwaltung
+► Bagatellgrenze der Finanzverwaltung
 
 Nach der Verwaltungsauffassung kann eine geringfügige vorsteuerschädliche Nutzung unschädlich sein.
 
@@ -10271,7 +10271,7 @@ Sie ersetzt nicht die grundsätzliche Prüfung der tatsächlichen Verwendung.
 
 ---
 
-# 18. Nachweis der Verwendung
+⇨ 18. Nachweis der Verwendung
 
 Der Vermieter muss die Voraussetzungen der Option nachweisen können.
 
@@ -10287,7 +10287,7 @@ Geeignete Nachweise können sein:
 - Angaben zu steuerfreien und steuerpflichtigen Umsätzen,
 - jährliche Bestätigung bei unsicherer oder wechselnder Nutzung.
 
-## Empfehlenswerte Mietvertragsklausel
+► Empfehlenswerte Mietvertragsklausel
 
 Der Mieter bestätigt, dass er die Mietflächen ausschließlich für Umsätze verwendet, die den Vorsteuerabzug nicht ausschließen.
 
@@ -10295,7 +10295,7 @@ Der Mieter verpflichtet sich, Änderungen der Nutzung unverzüglich mitzuteilen.
 
 ---
 
-# 19. Rechtsfolge einer wirksamen Vermietungsoption
+⇨ 19. Rechtsfolge einer wirksamen Vermietungsoption
 
 Ist die Option wirksam, wird die Vermietung als steuerpflichtig behandelt.
 
@@ -10311,7 +10311,7 @@ Der Vermieter kann die mit dem steuerpflichtigen Vermietungsumsatz zusammenhäng
 
 ---
 
-# 20. Altgebäuderegelung nach § 27 Abs. 2 UStG
+⇨ 20. Altgebäuderegelung nach § 27 Abs. 2 UStG
 
 § 27 Abs. 2 UStG enthält eine Übergangsregelung für bestimmte ältere Gebäude.
 
@@ -10321,7 +10321,7 @@ Das bedeutet:
 
 Die Nutzung des Mieters für vorsteuerschädliche Umsätze verhindert die Option dann nicht.
 
-## Wichtig
+► Wichtig
 
 § 27 Abs. 2 UStG beseitigt nur die Einschränkung des § 9 Abs. 2 UStG.
 
@@ -10334,7 +10334,7 @@ Der Umsatz muss daher weiterhin
 
 ausgeführt werden.
 
-## Besonders wichtiger Merksatz
+► Besonders wichtiger Merksatz
 
 § 27 Abs. 2 UStG ist keine zusätzliche Voraussetzung für eine normale Option.
 
@@ -10342,7 +10342,7 @@ Die Vorschrift ist nur eine Ausnahme für Altfälle, in denen § 9 Abs. 2 UStG d
 
 ---
 
-# 21. Altfall: Nutzung zu Wohnzwecken
+⇨ 21. Altfall: Nutzung zu Wohnzwecken
 
 § 9 Abs. 2 UStG ist nicht anzuwenden, wenn
 
@@ -10350,7 +10350,7 @@ Die Vorschrift ist nur eine Ausnahme für Altfälle, in denen § 9 Abs. 2 UStG d
 2. das Gebäude vor dem 1. April 1985 fertiggestellt wurde und
 3. mit seiner Errichtung vor dem 1. Juni 1984 begonnen wurde.
 
-## Beispiel
+► Beispiel
 
 V1 vermietet ein altes Wohngebäude an den Unternehmer V2.
 
@@ -10364,13 +10364,13 @@ Sind die Altgebäudevoraussetzungen erfüllt, ist § 9 Abs. 2 UStG nicht anzuwen
 
 V1 kann dann grundsätzlich nach § 9 Abs. 1 UStG optieren.
 
-## Achtung
+► Achtung
 
 Die unmittelbare Vermietung durch V2 an die Privatpersonen bleibt nicht optionsfähig, weil die Privatpersonen keine Unternehmer sind.
 
 ---
 
-# 22. Altfall: Andere nichtunternehmerische Endnutzung
+⇨ 22. Altfall: Andere nichtunternehmerische Endnutzung
 
 § 9 Abs. 2 UStG ist nicht anzuwenden, wenn
 
@@ -10382,7 +10382,7 @@ Dies kann insbesondere bei bestimmten Vermietungsketten mit einer nichtunternehm
 
 ---
 
-# 23. Altfall: Andere vorsteuerschädliche Nutzung
+⇨ 23. Altfall: Andere vorsteuerschädliche Nutzung
 
 Für andere vorsteuerschädliche Nutzungen ist § 9 Abs. 2 UStG nicht anzuwenden, wenn
 
@@ -10399,9 +10399,9 @@ Typische Nutzer können sein:
 
 ---
 
-# 24. Übersicht der Altgebäudegrenzen
+⇨ 24. Übersicht der Altgebäudegrenzen
 
-## Wohnzwecke
+► Wohnzwecke
 
 Fertigstellung:
 
@@ -10411,7 +10411,7 @@ Beginn der Errichtung:
 
 vor dem 1. Juni 1984.
 
-## Andere nichtunternehmerische Zwecke
+► Andere nichtunternehmerische Zwecke
 
 Fertigstellung:
 
@@ -10421,7 +10421,7 @@ Beginn der Errichtung:
 
 vor dem 1. Juni 1984.
 
-## Sonstige vorsteuerschädliche Zwecke
+► Sonstige vorsteuerschädliche Zwecke
 
 Fertigstellung:
 
@@ -10433,7 +10433,7 @@ vor dem 11. November 1993.
 
 ---
 
-# 25. Beginn der Errichtung
+⇨ 25. Beginn der Errichtung
 
 Als Beginn der Errichtung kann nach der Verwaltungsauffassung insbesondere der früheste der folgenden Zeitpunkte gelten:
 
@@ -10451,7 +10451,7 @@ Nicht ausreichend sind grundsätzlich allein:
 
 ---
 
-# 26. Anbau, Aufstockung und umfassende Sanierung
+⇨ 26. Anbau, Aufstockung und umfassende Sanierung
 
 Wird durch einen Anbau oder eine Aufstockung ertragsteuerlich ein selbständiges Wirtschaftsgut geschaffen, ist für diesen Gebäudeteil die Altgebäuderegelung gesondert zu prüfen.
 
@@ -10461,37 +10461,37 @@ Ein altes Stammgebäude kann daher unter die Altfallregelung fallen, während ei
 
 ---
 
-# 27. Entscheidungsschema Vermietung
+⇨ 27. Entscheidungsschema Vermietung
 
-## Schritt 1
+► Schritt 1
 
 Liegt ein steuerfreier Vermietungsumsatz nach § 4 Nr. 12 UStG vor?
 
 - Nein: § 9 UStG wird nicht benötigt.
 - Ja: weiter mit Schritt 2.
 
-## Schritt 2
+► Schritt 2
 
 Wird an einen anderen Unternehmer vermietet?
 
 - Nein: Option nach § 9 Abs. 1 UStG nicht möglich.
 - Ja: weiter mit Schritt 3.
 
-## Schritt 3
+► Schritt 3
 
 Bezieht der Mieter die Leistung für sein Unternehmen?
 
 - Nein: Option nach § 9 Abs. 1 UStG nicht möglich.
 - Ja: weiter mit Schritt 4.
 
-## Schritt 4
+► Schritt 4
 
 Verwendet der Mieter das Grundstück für Umsätze, die den Vorsteuerabzug nicht ausschließen?
 
 - Ja: Option nach § 9 Abs. 1 und 2 UStG möglich.
 - Nein: weiter mit Schritt 5.
 
-## Schritt 5
+► Schritt 5
 
 Greift die Altgebäuderegelung nach § 27 Abs. 2 UStG?
 
@@ -10500,7 +10500,7 @@ Greift die Altgebäuderegelung nach § 27 Abs. 2 UStG?
 
 ---
 
-# 28. Fachlich falscher Prüfungsweg
+⇨ 28. Fachlich falscher Prüfungsweg
 
 Nicht richtig wäre folgende Prüfung:
 
@@ -10513,13 +10513,13 @@ Verwendet der Mieter das Grundstück vorsteuerunschädlich, ist die Option berei
 
 ---
 
-# 29. Option bei Grundstücksveräußerung
+⇨ 29. Option bei Grundstücksveräußerung
 
 Grundstücksveräußerungen, die unter das Grunderwerbsteuergesetz fallen, sind grundsätzlich nach § 4 Nr. 9 Buchst. a UStG steuerfrei.
 
 Der Verkäufer kann unter den Voraussetzungen des § 9 Abs. 1 UStG auf die Steuerbefreiung verzichten.
 
-## Grundvoraussetzungen
+► Grundvoraussetzungen
 
 1. Steuerfreier Grundstücksumsatz nach § 4 Nr. 9 Buchst. a UStG,
 2. Veräußerung an einen anderen Unternehmer,
@@ -10528,13 +10528,13 @@ Der Verkäufer kann unter den Voraussetzungen des § 9 Abs. 1 UStG auf die Steue
 
 ---
 
-# 30. § 9 Abs. 2 UStG gilt nicht für den Grundstücksverkauf
+⇨ 30. § 9 Abs. 2 UStG gilt nicht für den Grundstücksverkauf
 
 Die zusätzliche Nutzungsvoraussetzung des § 9 Abs. 2 UStG betrifft insbesondere die Vermietung und Verpachtung von Grundstücken.
 
 Bei der Veräußerung eines Grundstücks ist daher grundsätzlich nicht zu prüfen, ob der Erwerber das Grundstück ausschließlich für vorsteuerunschädliche Umsätze verwendet.
 
-## Trotzdem wichtig
+► Trotzdem wichtig
 
 Die spätere Verwendung des Grundstücks kann für den Vorsteuerabzug des Erwerbers und für eine mögliche Vorsteuerberichtigung nach § 15a UStG bedeutsam sein.
 
@@ -10542,11 +10542,11 @@ Sie ist jedoch keine Voraussetzung für die Wirksamkeit der Option des Verkäufe
 
 ---
 
-# 31. Option nur an einen Unternehmer
+⇨ 31. Option nur an einen Unternehmer
 
 Auch bei einer Grundstücksveräußerung muss der Erwerber Unternehmer sein und das Grundstück für sein Unternehmen erwerben.
 
-## Beispiel
+► Beispiel
 
 V verkauft ein Grundstück an eine Privatperson.
 
@@ -10556,7 +10556,7 @@ Eine Option ist mangels Unternehmereigenschaft des Erwerbers nicht möglich.
 
 ---
 
-# 32. Form der Option bei Grundstücksveräußerungen
+⇨ 32. Form der Option bei Grundstücksveräußerungen
 
 Bei einer Grundstücksveräußerung außerhalb eines Zwangsversteigerungsverfahrens kann die Option nur in dem notariell zu beurkundenden Vertrag erklärt werden, der der Grundstückslieferung zugrunde liegt.
 
@@ -10564,7 +10564,7 @@ Ein erst später erklärter Verzicht ist grundsätzlich unwirksam.
 
 Dies gilt auch dann, wenn die spätere Erklärung erneut notariell beurkundet wird.
 
-## Empfehlenswerte Gestaltung
+► Empfehlenswerte Gestaltung
 
 Der notarielle Vertrag sollte eindeutig bestimmen, dass
 
@@ -10574,7 +10574,7 @@ Der notarielle Vertrag sollte eindeutig bestimmen, dass
 
 ---
 
-# 33. Vorsorgliche Option
+⇨ 33. Vorsorgliche Option
 
 Die Parteien können einen Grundstücksumsatz beispielsweise zunächst als Geschäftsveräußerung im Ganzen beurteilen.
 
@@ -10584,9 +10584,9 @@ Die vorsorgliche Option sollte bereits im ursprünglichen notariellen Vertrag ei
 
 ---
 
-# 34. Keine nachträgliche Option
+⇨ 34. Keine nachträgliche Option
 
-## Beispiel
+► Beispiel
 
 Ein Grundstück wird im Januar steuerfrei veräußert.
 
@@ -10600,7 +10600,7 @@ Auch eine spätere notarielle Ergänzungsurkunde heilt das Fehlen der Option im 
 
 ---
 
-# 35. Rücknahme der Option
+⇨ 35. Rücknahme der Option
 
 Auch die Rücknahme einer im notariellen Grundstückskaufvertrag erklärten Option ist formell eingeschränkt.
 
@@ -10616,7 +10616,7 @@ Bei der Vertragsgestaltung sollte deshalb vor Beurkundung geklärt werden:
 
 ---
 
-# 36. Option im Zwangsversteigerungsverfahren
+⇨ 36. Option im Zwangsversteigerungsverfahren
 
 Bei einer Grundstückslieferung im Zwangsversteigerungsverfahren kann der Vollstreckungsschuldner gegenüber dem Ersteher auf die Steuerbefreiung verzichten.
 
@@ -10626,54 +10626,54 @@ Nach diesem Zeitpunkt ist eine Option nicht mehr möglich.
 
 ---
 
-# 37. Entscheidungsschema Grundstücksveräußerung
+⇨ 37. Entscheidungsschema Grundstücksveräußerung
 
-## Schritt 1
+► Schritt 1
 
 Liegt ein nach § 4 Nr. 9 Buchst. a UStG steuerfreier Grundstücksumsatz vor?
 
 - Nein: keine Option nach § 9 erforderlich.
 - Ja: weiter mit Schritt 2.
 
-## Schritt 2
+► Schritt 2
 
 Ist der Erwerber Unternehmer?
 
 - Nein: Option nicht möglich.
 - Ja: weiter mit Schritt 3.
 
-## Schritt 3
+► Schritt 3
 
 Erwirbt er das Grundstück für sein Unternehmen?
 
 - Nein: Option nicht möglich.
 - Ja: weiter mit Schritt 4.
 
-## Schritt 4
+► Schritt 4
 
 Liegt ein Zwangsversteigerungsverfahren vor?
 
-### Nein
+⇶  Nein
 
 Die Option muss im zugrunde liegenden notariellen Vertrag erklärt werden.
 
-### Ja
+⇶  Ja
 
 Die Option muss spätestens bis zur Aufforderung zur Abgabe von Geboten erklärt werden.
 
-## Ergebnis
+► Ergebnis
 
 Sind die Voraussetzungen erfüllt, kann der Verkäufer nach § 9 Abs. 1 und 3 UStG wirksam optieren.
 
 ---
 
-# 38. Reverse Charge beim Grundstücksverkauf
+⇨ 38. Reverse Charge beim Grundstücksverkauf
 
 Wird ein unter das Grunderwerbsteuergesetz fallender Grundstücksumsatz aufgrund einer Option steuerpflichtig behandelt, schuldet regelmäßig der Leistungsempfänger die Umsatzsteuer.
 
 Rechtsgrundlage ist § 13b Abs. 2 Nr. 3 in Verbindung mit § 13b Abs. 5 UStG.
 
-## Folgen
+► Folgen
 
 Der Verkäufer
 
@@ -10689,7 +10689,7 @@ Der Erwerber
 
 ---
 
-# 39. Rechnung beim optierten Grundstücksverkauf
+⇨ 39. Rechnung beim optierten Grundstücksverkauf
 
 Die Rechnung beziehungsweise Abrechnung sollte den Hinweis enthalten:
 
@@ -10697,7 +10697,7 @@ Die Rechnung beziehungsweise Abrechnung sollte den Hinweis enthalten:
 
 Ein gesonderter Umsatzsteuerausweis durch den Verkäufer ist grundsätzlich zu vermeiden.
 
-## Gefahr des offenen Steuerausweises
+► Gefahr des offenen Steuerausweises
 
 Weist der Verkäufer trotz Reverse Charge Umsatzsteuer offen aus, kann er diese Steuer zusätzlich nach § 14c UStG schulden.
 
@@ -10705,7 +10705,7 @@ Der offene Steuerausweis führt nicht dazu, dass die Steuerschuld des Erwerbers 
 
 ---
 
-# 40. Beispiel: Steuerpflichtiger Grundstücksverkauf
+⇨ 40. Beispiel: Steuerpflichtiger Grundstücksverkauf
 
 V verkauft ein betriebliches Grundstück für 1.000.000 Euro an den Unternehmer E.
 
@@ -10713,7 +10713,7 @@ E erwirbt das Grundstück für sein Unternehmen.
 
 Im notariellen Kaufvertrag verzichtet V ausdrücklich auf die Steuerbefreiung nach § 4 Nr. 9 Buchst. a UStG.
 
-## Lösung
+► Lösung
 
 Der Verzicht ist nach § 9 Abs. 1 und 3 UStG grundsätzlich wirksam.
 
@@ -10733,11 +10733,11 @@ V stellt eine Rechnung beziehungsweise Abrechnung ohne gesonderten Umsatzsteuera
 
 ---
 
-# 41. Beispiel: Verkauf an eine Privatperson
+⇨ 41. Beispiel: Verkauf an eine Privatperson
 
 V verkauft eine Eigentumswohnung an eine Privatperson.
 
-## Lösung
+► Lösung
 
 Die Grundstückslieferung ist grundsätzlich nach § 4 Nr. 9 Buchst. a UStG steuerfrei.
 
@@ -10745,7 +10745,7 @@ Eine Option ist nicht möglich, da die Lieferung nicht an einen Unternehmer für
 
 ---
 
-# 42. Grundstückskauf und Vorsteuer des Erwerbers
+⇨ 42. Grundstückskauf und Vorsteuer des Erwerbers
 
 Die wirksame Option führt nicht automatisch dazu, dass der Erwerber zum Vorsteuerabzug berechtigt ist.
 
@@ -10753,7 +10753,7 @@ Der Erwerber muss die allgemeinen Voraussetzungen des § 15 UStG erfüllen.
 
 Verwendet der Erwerber das Grundstück für vorsteuerschädliche Umsätze, kann der Vorsteuerabzug ganz oder teilweise ausgeschlossen sein.
 
-## Beispiel
+► Beispiel
 
 Ein Arzt erwirbt eine Praxisimmobilie aus einem optierten Grundstückskauf.
 
@@ -10765,21 +10765,21 @@ Die Option des Verkäufers kann trotzdem wirksam sein.
 
 ---
 
-# 43. Unterschied Vermietung und Veräußerung
+⇨ 43. Unterschied Vermietung und Veräußerung
 
-## Vermietung
+► Vermietung
 
 Zusätzlich zu § 9 Abs. 1 UStG ist grundsätzlich § 9 Abs. 2 UStG zu prüfen.
 
 Entscheidend ist die Verwendung des Mieters.
 
-## Veräußerung
+► Veräußerung
 
 § 9 Abs. 2 UStG ist grundsätzlich nicht anzuwenden.
 
 Dafür gelten die besonderen Form- und Zeitvorgaben des § 9 Abs. 3 UStG.
 
-## Merksatz
+► Merksatz
 
 Vermietung:
 
@@ -10791,7 +10791,7 @@ Veräußerung:
 
 ---
 
-# 44. Vorsteuerberichtigung nach § 15a UStG
+⇨ 44. Vorsteuerberichtigung nach § 15a UStG
 
 Eine Option kann den ursprünglichen Vorsteuerabzug ermöglichen.
 
@@ -10799,7 +10799,7 @@ Eine Option kann den ursprünglichen Vorsteuerabzug ermöglichen.
 
 Bei Grundstücken beträgt der Berichtigungszeitraum grundsätzlich zehn Jahre.
 
-## Typische Änderungen
+► Typische Änderungen
 
 - steuerpflichtige Vermietung wird steuerfrei,
 - steuerfreie Vermietung wird steuerpflichtig,
@@ -10810,11 +10810,11 @@ Bei Grundstücken beträgt der Berichtigungszeitraum grundsätzlich zehn Jahre.
 
 ---
 
-# 45. Wechsel des Mieters
+⇨ 45. Wechsel des Mieters
 
 Die Option ist für jedes Mietverhältnis neu zu prüfen.
 
-## Beispiel
+► Beispiel
 
 Ein Büro wird zunächst steuerpflichtig an einen Rechtsanwalt vermietet.
 
@@ -10826,11 +10826,11 @@ Der Wechsel kann außerdem eine Vorsteuerberichtigung nach § 15a UStG auslösen
 
 ---
 
-# 46. Änderung der Tätigkeit des Mieters
+⇨ 46. Änderung der Tätigkeit des Mieters
 
 Auch während eines bestehenden Mietvertrags kann sich die Verwendung ändern.
 
-## Beispiel
+► Beispiel
 
 Ein Mieter erbringt zunächst ausschließlich steuerpflichtige Beratungsleistungen.
 
@@ -10845,9 +10845,9 @@ Der Vermieter muss prüfen:
 
 ---
 
-# 47. Typische Fehler bei der Vermietungsoption
+⇨ 47. Typische Fehler bei der Vermietungsoption
 
-## Fehler 1: Nur die Unternehmereigenschaft prüfen
+► Fehler 1: Nur die Unternehmereigenschaft prüfen
 
 Es reicht nicht, dass der Mieter Unternehmer ist.
 
@@ -10855,13 +10855,13 @@ Der Mietgegenstand muss für dessen Unternehmen bezogen werden.
 
 ---
 
-## Fehler 2: Verwendung des Mieters nicht prüfen
+► Fehler 2: Verwendung des Mieters nicht prüfen
 
 Bei der Vermietung ist die tatsächliche oder beabsichtigte Nutzung des Mieters entscheidend.
 
 ---
 
-## Fehler 3: § 27 Abs. 2 UStG immer verlangen
+► Fehler 3: § 27 Abs. 2 UStG immer verlangen
 
 § 27 Abs. 2 UStG ist keine allgemeine Optionsvoraussetzung.
 
@@ -10869,7 +10869,7 @@ Die Vorschrift ist nur eine Altgebäude-Ausnahme.
 
 ---
 
-## Fehler 4: Altgebäude macht Vermietung an Privatperson optionsfähig
+► Fehler 4: Altgebäude macht Vermietung an Privatperson optionsfähig
 
 Auch bei einem Altgebäude muss § 9 Abs. 1 UStG erfüllt sein.
 
@@ -10877,13 +10877,13 @@ Eine unmittelbare Vermietung an eine Privatperson ist grundsätzlich nicht optio
 
 ---
 
-## Fehler 5: Gesamtes Gebäude einheitlich beurteilen
+► Fehler 5: Gesamtes Gebäude einheitlich beurteilen
 
 Selbständig nutzbare Gebäudeteile müssen getrennt geprüft werden.
 
 ---
 
-## Fehler 6: 5-Prozent-Grenze als Gesetz behandeln
+► Fehler 6: 5-Prozent-Grenze als Gesetz behandeln
 
 Die Bagatellgrenze beruht auf der Verwaltungsauffassung.
 
@@ -10891,7 +10891,7 @@ Ausgangspunkt des Gesetzes ist die ausschließliche vorsteuerunschädliche Verwe
 
 ---
 
-## Fehler 7: Nachweise des Mieters nicht einholen
+► Fehler 7: Nachweise des Mieters nicht einholen
 
 Der Vermieter trägt das Risiko einer unwirksamen Option.
 
@@ -10899,21 +10899,21 @@ Die Nutzung sollte deshalb dokumentiert werden.
 
 ---
 
-# 48. Typische Fehler beim Grundstücksverkauf
+⇨ 48. Typische Fehler beim Grundstücksverkauf
 
-## Fehler 1: § 9 Abs. 2 UStG beim Verkauf anwenden
+► Fehler 1: § 9 Abs. 2 UStG beim Verkauf anwenden
 
 Die besondere Verwendungsvoraussetzung gilt grundsätzlich für Grundstücksvermietungen, nicht für Grundstücksveräußerungen.
 
 ---
 
-## Fehler 2: Option erst nach dem Notarvertrag erklären
+► Fehler 2: Option erst nach dem Notarvertrag erklären
 
 Die Option muss grundsätzlich bereits im zugrunde liegenden notariellen Vertrag enthalten sein.
 
 ---
 
-## Fehler 3: Umsatzsteuer offen ausweisen
+► Fehler 3: Umsatzsteuer offen ausweisen
 
 Bei einem optierten Grundstücksumsatz schuldet regelmäßig der Erwerber die Steuer nach § 13b UStG.
 
@@ -10921,7 +10921,7 @@ Ein offener Steuerausweis kann zu einer zusätzlichen Steuerschuld nach § 14c U
 
 ---
 
-## Fehler 4: Geschäftsveräußerung im Ganzen nicht prüfen
+► Fehler 4: Geschäftsveräußerung im Ganzen nicht prüfen
 
 Liegt eine nicht steuerbare Geschäftsveräußerung im Ganzen vor, ist eine Option grundsätzlich nicht erforderlich.
 
@@ -10929,13 +10929,13 @@ Eine vorsorgliche Option im Notarvertrag kann jedoch sinnvoll sein.
 
 ---
 
-## Fehler 5: Vorsteuerabzug des Erwerbers unterstellen
+► Fehler 5: Vorsteuerabzug des Erwerbers unterstellen
 
 Die wirksame Option des Verkäufers bedeutet nicht automatisch, dass der Erwerber die Steuer als Vorsteuer abziehen darf.
 
 ---
 
-# 49. Kompakte Checkliste Vermietung
+⇨ 49. Kompakte Checkliste Vermietung
 
 1. Liegt eine Grundstücksvermietung vor?
 2. Ist sie nach § 4 Nr. 12 UStG steuerfrei?
@@ -10952,7 +10952,7 @@ Die wirksame Option des Verkäufers bedeutet nicht automatisch, dass der Erwerbe
 
 ---
 
-# 50. Kompakte Checkliste Grundstücksverkauf
+⇨ 50. Kompakte Checkliste Grundstücksverkauf
 
 1. Liegt eine Grundstückslieferung vor?
 2. Fällt sie unter das Grunderwerbsteuergesetz?
@@ -10971,7 +10971,7 @@ Die wirksame Option des Verkäufers bedeutet nicht automatisch, dass der Erwerbe
 
 ---
 
-# 51. Formulierungshilfe Vermietung – Option möglich
+⇨ 51. Formulierungshilfe Vermietung – Option möglich
 
 Die Vermietung des Grundstücks ist gemäß § 4 Nr. 12 Satz 1 Buchstabe a UStG grundsätzlich steuerfrei.
 
@@ -10985,7 +10985,7 @@ Der Vermietungsumsatz wird aufgrund der Option steuerpflichtig behandelt.
 
 ---
 
-# 52. Formulierungshilfe Vermietung – Option ausgeschlossen
+⇨ 52. Formulierungshilfe Vermietung – Option ausgeschlossen
 
 Die Vermietung ist nach § 4 Nr. 12 Satz 1 Buchstabe a UStG steuerfrei.
 
@@ -10997,7 +10997,7 @@ Da auch die Übergangsregelung des § 27 Abs. 2 UStG nicht eingreift, ist die Op
 
 ---
 
-# 53. Formulierungshilfe Altgebäude
+⇨ 53. Formulierungshilfe Altgebäude
 
 Die Vermietung erfolgt an einen Unternehmer für dessen Unternehmen.
 
@@ -11011,7 +11011,7 @@ Die Option ist unter den Voraussetzungen des § 9 Abs. 1 UStG möglich.
 
 ---
 
-# 54. Formulierungshilfe Grundstücksveräußerung
+⇨ 54. Formulierungshilfe Grundstücksveräußerung
 
 Die Grundstückslieferung fällt unter das Grunderwerbsteuergesetz und ist grundsätzlich nach § 4 Nr. 9 Buchstabe a UStG steuerfrei.
 
@@ -11027,7 +11027,7 @@ Die Umsatzsteuer wird gemäß § 13b Abs. 2 Nr. 3 und Abs. 5 UStG vom Leistungse
 
 ---
 
-# 55. Zentrale Merksätze
+⇨ 55. Zentrale Merksätze
 
 - Nur eine gesetzlich optionsfähige Steuerbefreiung kann nach § 9 UStG abgewählt werden.
 - Der Leistungsempfänger muss Unternehmer sein.
@@ -11111,7 +11111,7 @@ Die Umsatzsteuer wird gemäß § 13b Abs. 2 Nr. 3 und Abs. 5 UStG vom Leistungse
   ],
 
   body: `
-# Prüfung von Ausgangsumsätzen
+⇨ Prüfung von Ausgangsumsätzen
 
 Ein umsatzsteuerlicher Ausgangsumsatz sollte immer in einer festen Reihenfolge geprüft werden.
 
@@ -11130,9 +11130,9 @@ Erst danach folgen Steuerbarkeit, Steuerbefreiung, Steuerschuldnerschaft, Steuer
 
 ---
 
-# 1. Vollständiges Prüfungsschema für Ausgangsumsätze
+⇨ 1. Vollständiges Prüfungsschema für Ausgangsumsätze
 
-## Prüfungsreihenfolge
+► Prüfungsreihenfolge
 
 1. Art der Leistung,
 2. Umfang der Leistung,
@@ -11150,7 +11150,7 @@ Erst danach folgen Steuerbarkeit, Steuerbefreiung, Steuerschuldnerschaft, Steuer
 
 ---
 
-# 2. Art der Leistung
+⇨ 2. Art der Leistung
 
 Zunächst ist zu bestimmen, welche umsatzsteuerliche Leistung vorliegt.
 
@@ -11164,7 +11164,7 @@ In Betracht kommen insbesondere:
 
 ---
 
-# 3. Lieferung nach § 3 Abs. 1 UStG
+⇨ 3. Lieferung nach § 3 Abs. 1 UStG
 
 Eine Lieferung liegt vor, wenn der leistende Unternehmer den Leistungsempfänger befähigt, im eigenen Namen über einen Gegenstand zu verfügen.
 
@@ -11174,7 +11174,7 @@ Es kommt nicht ausschließlich darauf an, wer zivilrechtlicher Eigentümer ist.
 
 Maßgeblich ist, wer wirtschaftlich wie ein Eigentümer über den Gegenstand verfügen kann.
 
-## Typische Lieferungen
+► Typische Lieferungen
 
 - Verkauf einer Ware,
 - Verkauf einer Maschine,
@@ -11183,13 +11183,13 @@ Maßgeblich ist, wer wirtschaftlich wie ein Eigentümer über den Gegenstand ver
 - Übertragung eines Grundstücks,
 - Lieferung eines Gebäudes.
 
-## Merksatz
+► Merksatz
 
 Eine Lieferung ist die Verschaffung der wirtschaftlichen Verfügungsmacht an einem Gegenstand.
 
 ---
 
-# 4. Werklieferung nach § 3 Abs. 4 UStG
+⇨ 4. Werklieferung nach § 3 Abs. 4 UStG
 
 Eine Werklieferung liegt vor, wenn der Unternehmer
 
@@ -11198,19 +11198,19 @@ Eine Werklieferung liegt vor, wenn der Unternehmer
 
 Die Werklieferung wird umsatzsteuerlich als Lieferung behandelt.
 
-## Beispiele
+► Beispiele
 
 - Ein Unternehmer baut mit selbst beschafften Fenstern neue Fenster in ein Gebäude ein.
 - Ein Heizungsbauer liefert und montiert eine von ihm beschaffte Heizungsanlage.
 - Ein Bauunternehmer errichtet mit eigenen Hauptstoffen ein Bauwerk auf dem Grundstück des Auftraggebers.
 
-## Abgrenzung zur Werkleistung
+► Abgrenzung zur Werkleistung
 
 Werden keine selbst beschafften Hauptstoffe verwendet oder handelt es sich nur um Nebenstoffe, liegt regelmäßig eine Werkleistung vor.
 
 ---
 
-# 5. Sonstige Leistung nach § 3 Abs. 9 UStG
+⇨ 5. Sonstige Leistung nach § 3 Abs. 9 UStG
 
 Sonstige Leistungen sind Leistungen, die keine Lieferungen sind.
 
@@ -11228,20 +11228,20 @@ Typische sonstige Leistungen:
 
 ---
 
-# 6. Werkleistung
+⇨ 6. Werkleistung
 
 Eine Werkleistung ist eine sonstige Leistung.
 
 Sie liegt insbesondere vor, wenn ein Unternehmer einen Gegenstand bearbeitet, ohne selbst beschaffte Hauptstoffe einzusetzen.
 
-## Beispiele
+► Beispiele
 
 - Reparatur einer Maschine mit nur geringfügigen Hilfsstoffen,
 - Wartung eines Fahrzeugs,
 - reine Montage beigestellter Bauteile,
 - Reinigung eines Gebäudes.
 
-## Merksatz
+► Merksatz
 
 Werklieferung:
 
@@ -11253,7 +11253,7 @@ Sonstige Leistung ohne eigene Hauptstoffe.
 
 ---
 
-# 7. Umfang der Leistung
+⇨ 7. Umfang der Leistung
 
 Nach der Bestimmung der Leistungsart ist zu prüfen, ob
 
@@ -11266,7 +11266,7 @@ vorliegen.
 
 ---
 
-# 8. Hauptleistung und Nebenleistung
+⇨ 8. Hauptleistung und Nebenleistung
 
 Nebenleistungen teilen grundsätzlich das umsatzsteuerliche Schicksal der Hauptleistung.
 
@@ -11277,7 +11277,7 @@ Eine Nebenleistung liegt typischerweise vor, wenn sie
 - im Vergleich zur Hauptleistung nebensächlich ist und
 - üblicherweise zusammen mit der Hauptleistung erbracht wird.
 
-## Typische Nebenleistungen
+► Typische Nebenleistungen
 
 - Transport,
 - Verpackung,
@@ -11286,7 +11286,7 @@ Eine Nebenleistung liegt typischerweise vor, wenn sie
 - Anschlusskosten,
 - Nebenkosten einer Vermietung.
 
-## Beispiel
+► Beispiel
 
 Ein Unternehmer verkauft eine Maschine und berechnet zusätzlich Transportkosten.
 
@@ -11303,13 +11303,13 @@ der Maschinenlieferung.
 
 ---
 
-# 9. Gemischter Vertrag
+⇨ 9. Gemischter Vertrag
 
 Ein Vertrag kann mehrere selbständige Hauptleistungen enthalten.
 
 Dann ist jede Leistung umsatzsteuerlich getrennt zu beurteilen.
 
-## Beispiel
+► Beispiel
 
 Ein Unternehmer vermietet
 
@@ -11320,13 +11320,13 @@ Die Grundstücksvermietung kann nach § 4 Nr. 12 Buchst. a UStG steuerfrei sein.
 
 Die eigenständige Vermietung des Baukrans ist grundsätzlich steuerpflichtig.
 
-## Abgrenzungsfrage
+► Abgrenzungsfrage
 
 Ist die weitere Leistung lediglich eine übliche Nebenleistung zur Grundstücksvermietung oder hat sie für den Mieter einen eigenständigen wirtschaftlichen Zweck?
 
 ---
 
-# 10. Teilleistungen
+⇨ 10. Teilleistungen
 
 Teilleistungen sind wirtschaftlich teilbare Teile einer Gesamtleistung, für die das Entgelt gesondert vereinbart wird.
 
@@ -11336,7 +11336,7 @@ Voraussetzungen:
 - gesonderte Vereinbarung des Teilentgelts,
 - gesonderte Ausführung des Leistungsteils.
 
-## Beispiele
+► Beispiele
 
 - monatliche Vermietungsleistungen,
 - abschnittsweise Bauleistungen,
@@ -11347,7 +11347,7 @@ Die Umsatzsteuer entsteht bei Sollversteuerung grundsätzlich mit Ablauf des Vor
 
 ---
 
-# 11. Ort der Leistung
+⇨ 11. Ort der Leistung
 
 Nur Umsätze, deren Leistungsort im Inland liegt, können nach § 1 Abs. 1 Nr. 1 UStG im Inland steuerbar sein.
 
@@ -11361,7 +11361,7 @@ vorliegt.
 
 ---
 
-# 12. Ort einer bewegten Lieferung
+⇨ 12. Ort einer bewegten Lieferung
 
 Eine bewegte Lieferung liegt vor, wenn der Gegenstand im Zusammenhang mit der Lieferung befördert oder versendet wird.
 
@@ -11371,7 +11371,7 @@ Rechtsgrundlage:
 
 Der Ort der Lieferung liegt grundsätzlich dort, wo die Beförderung oder Versendung beginnt.
 
-## Merksatz
+► Merksatz
 
 Bei bewegten Lieferungen gilt:
 
@@ -11381,7 +11381,7 @@ Zeitpunkt = Beginn der Warenbewegung.
 
 ---
 
-# 13. Beförderung
+⇨ 13. Beförderung
 
 Eine Beförderung liegt vor, wenn der Gegenstand transportiert wird durch
 
@@ -11392,7 +11392,7 @@ Eine Beförderung liegt vor, wenn der Gegenstand transportiert wird durch
 
 Der Transport erfolgt damit durch einen unmittelbar am Umsatz beteiligten Unternehmer oder dessen Arbeitnehmer.
 
-## Beispiel
+► Beispiel
 
 Der Lieferer fährt die Ware mit dem eigenen Fahrzeug zum Kunden.
 
@@ -11400,7 +11400,7 @@ Es liegt eine Beförderung vor.
 
 ---
 
-# 14. Versendung
+⇨ 14. Versendung
 
 Eine Versendung liegt vor, wenn der Gegenstand durch einen selbständigen Dritten transportiert wird.
 
@@ -11415,11 +11415,11 @@ Typische selbständige Transportpersonen:
 
 Der selbständige Dritte kann vom Lieferer oder vom Abnehmer beauftragt werden.
 
-## Beginn der Versendung
+► Beginn der Versendung
 
 Die Versendung beginnt grundsätzlich mit der Übergabe des Gegenstands an den selbständigen Transporteur.
 
-## Wichtig
+► Wichtig
 
 Ein Arbeitnehmer ist kein selbständiger Dritter.
 
@@ -11427,7 +11427,7 @@ Der Transport durch einen Arbeitnehmer ist daher eine Beförderung und keine Ver
 
 ---
 
-# 15. Feststehender Abnehmer
+⇨ 15. Feststehender Abnehmer
 
 Eine Beförderungs- oder Versendungslieferung setzt voraus, dass der Abnehmer bei Beginn der Beförderung oder Versendung bereits feststeht.
 
@@ -11435,7 +11435,7 @@ Steht der Abnehmer noch nicht fest, liegt durch den Transport allein noch keine 
 
 Es kann sich zunächst um ein rechtsgeschäftsloses Verbringen handeln.
 
-## Beispiel
+► Beispiel
 
 Ein Unternehmer transportiert einen Teppich in die Schweiz.
 
@@ -11447,13 +11447,13 @@ Der Transport ist daher noch nicht zwingend Teil einer Lieferung an diesen Inter
 
 Der Ort der späteren Lieferung ist nach den tatsächlichen Umständen gesondert zu bestimmen.
 
-## Merksatz
+► Merksatz
 
 Ohne feststehenden Abnehmer keine bewegte Lieferung an diesen Abnehmer.
 
 ---
 
-# 16. Ort einer unbewegten Lieferung
+⇨ 16. Ort einer unbewegten Lieferung
 
 Eine unbewegte Lieferung liegt vor, wenn der Gegenstand nicht im Zusammenhang mit der Lieferung befördert oder versendet wird.
 
@@ -11463,7 +11463,7 @@ Rechtsgrundlage:
 
 Der Ort liegt dort, wo sich der Gegenstand im Zeitpunkt der Verschaffung der Verfügungsmacht befindet.
 
-## Merksatz
+► Merksatz
 
 Unbewegte Lieferung:
 
@@ -11471,7 +11471,7 @@ Ort = Standort des Gegenstands bei Verschaffung der Verfügungsmacht.
 
 ---
 
-# 17. Zeitpunkt der unbewegten Lieferung
+⇨ 17. Zeitpunkt der unbewegten Lieferung
 
 Der Zeitpunkt richtet sich nach dem Übergang der wirtschaftlichen Verfügungsmacht.
 
@@ -11481,13 +11481,13 @@ Bei Grundstücken erfolgt der Übergang der wirtschaftlichen Verfügungsmacht h�
 
 ---
 
-# 18. Zivilrechtliche Eigentumsübertragung beweglicher Sachen
+⇨ 18. Zivilrechtliche Eigentumsübertragung beweglicher Sachen
 
 Die zivilrechtliche Eigentumsübertragung ist nicht mit der umsatzsteuerlichen Lieferung gleichzusetzen, kann aber ein wichtiges Indiz für die Verschaffung der Verfügungsmacht sein.
 
 ---
 
-# 19. Einigung und Übergabe nach § 929 Satz 1 BGB
+⇨ 19. Einigung und Übergabe nach § 929 Satz 1 BGB
 
 Die Eigentumsübertragung einer beweglichen Sache setzt grundsätzlich voraus:
 
@@ -11499,7 +11499,7 @@ Mit der Übergabe wird regelmäßig auch die wirtschaftliche Verfügungsmacht ve
 
 ---
 
-# 20. Übergabe kurzer Hand nach § 929 Satz 2 BGB
+⇨ 20. Übergabe kurzer Hand nach § 929 Satz 2 BGB
 
 Befindet sich der Erwerber bereits im Besitz der Sache, ist eine erneute tatsächliche Übergabe nicht erforderlich.
 
@@ -11509,7 +11509,7 @@ Erforderlich sind:
 - bereits bestehender Besitz des Erwerbers,
 - Berechtigung des Veräußerers.
 
-## Beispiel
+► Beispiel
 
 Ein Unternehmer hat ein Fahrzeug zunächst gemietet.
 
@@ -11519,7 +11519,7 @@ Da sich das Fahrzeug bereits bei ihm befindet, ist keine erneute Übergabe erfor
 
 ---
 
-# 21. Besitzkonstitut nach §§ 929, 930 BGB
+⇨ 21. Besitzkonstitut nach §§ 929, 930 BGB
 
 Beim Besitzkonstitut bleibt der Veräußerer unmittelbarer Besitzer des Gegenstands.
 
@@ -11534,13 +11534,13 @@ Der bisherige Eigentümer kann den Gegenstand danach beispielsweise weiter besit
 
 Der Erwerber wird mittelbarer Besitzer im Sinne des § 868 BGB.
 
-## Beispiel
+► Beispiel
 
 Ein Unternehmer verkauft eine Maschine und mietet sie gleichzeitig vom Käufer zurück.
 
 ---
 
-# 22. Abtretung des Herausgabeanspruchs nach §§ 929, 931 BGB
+⇨ 22. Abtretung des Herausgabeanspruchs nach §§ 929, 931 BGB
 
 Befindet sich der Gegenstand bei einem Dritten, kann die Übergabe durch Abtretung des Herausgabeanspruchs ersetzt werden.
 
@@ -11552,7 +11552,7 @@ Voraussetzungen:
 
 ---
 
-# 23. Grundstücksübertragung
+⇨ 23. Grundstücksübertragung
 
 Die zivilrechtliche Eigentumsübertragung eines Grundstücks setzt grundsätzlich voraus:
 
@@ -11566,7 +11566,7 @@ Entscheidend ist der Übergang der wirtschaftlichen Verfügungsmacht.
 
 ---
 
-# 24. Wirtschaftliches Eigentum
+⇨ 24. Wirtschaftliches Eigentum
 
 Wirtschaftliches Eigentum liegt nach § 39 Abs. 2 Nr. 1 AO vor, wenn eine andere Person als der zivilrechtliche Eigentümer
 
@@ -11577,7 +11577,7 @@ Für die umsatzsteuerliche Lieferung ist entscheidend, wann der Erwerber wirtsch
 
 ---
 
-# 25. Übergang von Nutzen und Lasten bei Grundstücken
+⇨ 25. Übergang von Nutzen und Lasten bei Grundstücken
 
 Bei Grundstücken geht die wirtschaftliche Verfügungsmacht regelmäßig mit dem vertraglich vereinbarten Übergang von Nutzen und Lasten über.
 
@@ -11589,7 +11589,7 @@ Typische Folgen des Übergangs von Nutzen und Lasten:
 - der Erwerber trägt Grundsteuer und Versicherungen,
 - der Erwerber kann das Grundstück wirtschaftlich nutzen.
 
-## Beispiel
+► Beispiel
 
 Notarieller Kaufvertrag:
 
@@ -11609,7 +11609,7 @@ Die Grundstückslieferung wird daher regelmäßig bereits am 1. Januar 2026 ausg
 
 ---
 
-# 26. Eigentumsvorbehalt
+⇨ 26. Eigentumsvorbehalt
 
 Bei einem Verkauf unter Eigentumsvorbehalt bleibt der Verkäufer bis zur vollständigen Zahlung zivilrechtlicher Eigentümer.
 
@@ -11617,28 +11617,28 @@ Die wirtschaftliche Verfügungsmacht kann dennoch bereits mit der Übergabe auf 
 
 Der Käufer kann dann wirtschaftlicher Eigentümer sein, obwohl das zivilrechtliche Eigentum noch beim Verkäufer liegt.
 
-## Merksatz
+► Merksatz
 
 Eigentumsvorbehalt verhindert nicht automatisch eine umsatzsteuerliche Lieferung.
 
 ---
 
-# 27. Ort sonstiger Leistungen
+⇨ 27. Ort sonstiger Leistungen
 
 Bei sonstigen Leistungen ist folgende Reihenfolge einzuhalten:
 
 1. Zunächst besondere Ortsvorschriften und Ausnahmekataloge prüfen.
 2. Erst danach die allgemeinen Regeln für B2B- oder B2C-Leistungen anwenden.
 
-## B2B-Grundregel
+► B2B-Grundregel
 
 Bei Leistungen an einen Unternehmer für dessen Unternehmen liegt der Leistungsort grundsätzlich beim Leistungsempfänger.
 
-## B2C-Grundregel
+► B2C-Grundregel
 
 Bei Leistungen an Nichtunternehmer liegt der Leistungsort grundsätzlich beim leistenden Unternehmer.
 
-## Wichtig
+► Wichtig
 
 Sonderregelungen können insbesondere bestehen für:
 
@@ -11652,32 +11652,32 @@ Sonderregelungen können insbesondere bestehen für:
 
 ---
 
-# 28. Zeitpunkt der Leistung
+⇨ 28. Zeitpunkt der Leistung
 
-## Bewegte Lieferung
+► Bewegte Lieferung
 
 Zeitpunkt der Lieferung ist grundsätzlich der Beginn der Beförderung oder Versendung.
 
-## Unbewegte Lieferung
+► Unbewegte Lieferung
 
 Zeitpunkt ist die Verschaffung der Verfügungsmacht.
 
 Bei Grundstücken ist regelmäßig der Übergang von Nutzen und Lasten entscheidend.
 
-## Sonstige Leistung
+► Sonstige Leistung
 
 Eine sonstige Leistung wird grundsätzlich ausgeführt mit
 
 - Vollendung der Leistung und
 - vollständiger Zuwendung an den Leistungsempfänger.
 
-## Teilleistung
+► Teilleistung
 
 Eine Teilleistung wird mit Ablauf des jeweiligen Teilleistungszeitraums ausgeführt.
 
 ---
 
-# 29. Leistungsaustausch
+⇨ 29. Leistungsaustausch
 
 Ein steuerbarer Umsatz setzt grundsätzlich einen Leistungsaustausch voraus.
 
@@ -11696,7 +11696,7 @@ Die Gegenleistung kann bestehen aus:
 - Sachleistung,
 - sonstiger Leistung.
 
-## Wichtig
+► Wichtig
 
 Die Bezeichnung der Zahlung ist nicht entscheidend.
 
@@ -11711,17 +11711,17 @@ können Entgelt sein, wenn ein unmittelbarer Zusammenhang mit einer Leistung bes
 
 ---
 
-# 30. Tausch und tauschähnlicher Umsatz
+⇨ 30. Tausch und tauschähnlicher Umsatz
 
-## Tausch
+► Tausch
 
 Ein Tausch liegt vor, wenn die Gegenleistung für eine Lieferung ebenfalls in einer Lieferung besteht.
 
-## Tauschähnlicher Umsatz
+► Tauschähnlicher Umsatz
 
 Ein tauschähnlicher Umsatz liegt vor, wenn mindestens eine der ausgetauschten Leistungen eine sonstige Leistung ist.
 
-## Tausch mit Baraufgabe
+► Tausch mit Baraufgabe
 
 Zusätzlich zur Sach- oder Dienstleistung kann eine Geldzahlung vereinbart werden.
 
@@ -11731,21 +11731,21 @@ Bei der Bemessungsgrundlage ist die jeweilige Gegenleistung einschließlich eine
 
 ---
 
-# 31. Ausführung im Rahmen des Unternehmens
+⇨ 31. Ausführung im Rahmen des Unternehmens
 
 Die Leistung muss im Rahmen des Unternehmens ausgeführt werden.
 
-## Grundgeschäfte
+► Grundgeschäfte
 
 Grundgeschäfte sind die laufenden und nachhaltigen Umsätze der eigentlichen Unternehmenstätigkeit.
 
-## Hilfs- und Nebengeschäfte
+► Hilfs- und Nebengeschäfte
 
 Auch Hilfs- und Nebengeschäfte werden im Rahmen des Unternehmens ausgeführt, obwohl sie nicht ständig oder nachhaltig vorkommen.
 
 Voraussetzung ist ein wirtschaftlicher Zusammenhang mit der unternehmerischen Haupttätigkeit.
 
-## Beispiele
+► Beispiele
 
 - Verkauf einer betrieblichen Maschine,
 - Veräußerung eines betrieblichen Fahrzeugs,
@@ -11754,7 +11754,7 @@ Voraussetzung ist ein wirtschaftlicher Zusammenhang mit der unternehmerischen Ha
 
 ---
 
-# 32. Steuerbarkeit nach § 1 Abs. 1 Nr. 1 UStG
+⇨ 32. Steuerbarkeit nach § 1 Abs. 1 Nr. 1 UStG
 
 Ein Umsatz ist steuerbar, wenn
 
@@ -11772,7 +11772,7 @@ Erst danach ist die Steuerbefreiung zu prüfen.
 
 ---
 
-# 33. Steuerbefreiung
+⇨ 33. Steuerbefreiung
 
 Nach Feststellung der Steuerbarkeit ist zu prüfen, ob der Umsatz nach § 4 oder § 4b UStG steuerfrei ist.
 
@@ -11788,7 +11788,7 @@ Typische Steuerbefreiungen:
 
 ---
 
-# 34. Ausfuhrlieferung
+⇨ 34. Ausfuhrlieferung
 
 Eine Ausfuhrlieferung kann nach § 4 Nr. 1 Buchst. a in Verbindung mit § 6 UStG steuerfrei sein.
 
@@ -11801,7 +11801,7 @@ Voraussetzungen sind insbesondere:
 
 ---
 
-# 35. Innergemeinschaftliche Lieferung
+⇨ 35. Innergemeinschaftliche Lieferung
 
 Eine innergemeinschaftliche Lieferung kann nach § 4 Nr. 1 Buchst. b in Verbindung mit § 6a UStG steuerfrei sein.
 
@@ -11816,7 +11816,7 @@ Typische Voraussetzungen:
 
 ---
 
-# 36. Grundstückslieferung
+⇨ 36. Grundstückslieferung
 
 Umsätze, die unter das Grunderwerbsteuergesetz fallen, sind grundsätzlich nach § 4 Nr. 9 Buchst. a UStG steuerfrei.
 
@@ -11828,7 +11828,7 @@ Eine Option zur Steuerpflicht nach § 9 UStG kann unter den gesetzlichen Vorauss
 
 ---
 
-# 37. Grundstücksvermietung
+⇨ 37. Grundstücksvermietung
 
 Die Vermietung und Verpachtung von Grundstücken ist grundsätzlich nach § 4 Nr. 12 Buchst. a UStG steuerfrei.
 
@@ -11842,7 +11842,7 @@ Ausnahmen können insbesondere gelten für:
 
 ---
 
-# 38. Option nach § 9 UStG
+⇨ 38. Option nach § 9 UStG
 
 Bei einer Steuerbefreiung ist immer zu prüfen, ob auf die Steuerbefreiung verzichtet werden kann.
 
@@ -11850,14 +11850,14 @@ Der Verzicht führt dazu, dass der Umsatz steuerpflichtig behandelt wird.
 
 Dadurch kann ein ansonsten ausgeschlossener Vorsteuerabzug ermöglicht werden.
 
-## Typische Voraussetzungen
+► Typische Voraussetzungen
 
 - gesetzlich optionsfähiger Umsatz,
 - Leistung an einen anderen Unternehmer,
 - Bezug der Leistung für dessen Unternehmen,
 - bei Grundstücksvermietung zusätzlich die Voraussetzungen des § 9 Abs. 2 UStG.
 
-## Merksatz
+► Merksatz
 
 Nach jeder Steuerbefreiung:
 
@@ -11865,13 +11865,13 @@ Option nach § 9 UStG prüfen.
 
 ---
 
-# 39. Steuerschuldner
+⇨ 39. Steuerschuldner
 
-## Grundsatz
+► Grundsatz
 
 Steuerschuldner ist grundsätzlich der leistende Unternehmer nach § 13a Abs. 1 Nr. 1 UStG.
 
-## Weitere Fälle
+► Weitere Fälle
 
 Je nach Sachverhalt können insbesondere Steuerschuldner sein:
 
@@ -11880,19 +11880,19 @@ Je nach Sachverhalt können insbesondere Steuerschuldner sein:
 - Rechnungsaussteller bei unberechtigtem oder unrichtigem Steuerausweis nach § 14c UStG,
 - letzter Abnehmer bei besonderen Dreiecksgeschäften.
 
-## Reverse Charge
+► Reverse Charge
 
 Bei § 13b UStG schuldet nicht der leistende Unternehmer, sondern der Leistungsempfänger die Umsatzsteuer.
 
 ---
 
-# 40. Steuersatz
+⇨ 40. Steuersatz
 
-## Regelsteuersatz
+► Regelsteuersatz
 
 Der Regelsteuersatz beträgt nach § 12 Abs. 1 UStG grundsätzlich 19 Prozent.
 
-## Ermäßigter Steuersatz
+► Ermäßigter Steuersatz
 
 Der ermäßigte Steuersatz beträgt grundsätzlich 7 Prozent.
 
@@ -11906,7 +11906,7 @@ Typische Anwendungsfälle:
 - bestimmte Personenbeförderungen,
 - kurzfristige Vermietung von Wohn- und Schlafräumen.
 
-## Prüfungsregel
+► Prüfungsregel
 
 Zuerst prüfen, ob eine Steuerbefreiung vorliegt.
 
@@ -11914,7 +11914,7 @@ Nur bei einem steuerpflichtigen Umsatz ist der Steuersatz zu bestimmen.
 
 ---
 
-# 41. Bemessungsgrundlage
+⇨ 41. Bemessungsgrundlage
 
 Die Bemessungsgrundlage richtet sich grundsätzlich nach dem Entgelt.
 
@@ -11924,7 +11924,7 @@ Rechtsgrundlage:
 
 § 10 Abs. 1 UStG.
 
-## Geldzahlung
+► Geldzahlung
 
 Bei einer Geldzahlung ist die Umsatzsteuer aus dem Bruttobetrag herauszurechnen.
 
@@ -11938,7 +11938,7 @@ Bruttobetrag ÷ 1,07 = Nettoentgelt.
 
 ---
 
-# 42. Durchlaufende Posten
+⇨ 42. Durchlaufende Posten
 
 Durchlaufende Posten gehören nicht zum Entgelt.
 
@@ -11953,7 +11953,7 @@ Eigene Aufwendungen des Unternehmers sind keine durchlaufenden Posten, auch wenn
 
 ---
 
-# 43. Entgelt von dritter Seite
+⇨ 43. Entgelt von dritter Seite
 
 Auch die Zahlung eines Dritten kann zum Entgelt gehören.
 
@@ -11966,7 +11966,7 @@ Voraussetzungen:
 
 ---
 
-# 44. Fremdwährung
+⇨ 44. Fremdwährung
 
 Wird das Entgelt in einer ausländischen Währung vereinbart, ist es nach § 16 Abs. 6 UStG in Euro umzurechnen.
 
@@ -11974,9 +11974,9 @@ Maßgeblich ist grundsätzlich der Durchschnittskurs für den Zeitraum, in dem d
 
 ---
 
-# 45. Entstehung der Steuer bei Sollversteuerung
+⇨ 45. Entstehung der Steuer bei Sollversteuerung
 
-## Grundfall
+► Grundfall
 
 Bei der Besteuerung nach vereinbarten Entgelten entsteht die Umsatzsteuer grundsätzlich mit Ablauf des Voranmeldungszeitraums, in dem die Leistung ausgeführt wurde.
 
@@ -11984,11 +11984,11 @@ Rechtsgrundlage:
 
 § 13 Abs. 1 Nr. 1 Buchst. a UStG.
 
-## Teilleistung
+► Teilleistung
 
 Bei Teilleistungen entsteht die Steuer mit Ablauf des Voranmeldungszeitraums, in dem die jeweilige Teilleistung ausgeführt wurde.
 
-## Anzahlung
+► Anzahlung
 
 Wird das Entgelt oder ein Teil des Entgelts vor Ausführung der Leistung vereinnahmt, entsteht die Steuer bereits mit Ablauf des Voranmeldungszeitraums der Vereinnahmung.
 
@@ -11997,7 +11997,7 @@ Voraussetzungen:
 - Zahlung vor Ausführung der Leistung oder Teilleistung,
 - Vereinnahmung eines Entgelts oder Teilentgelts.
 
-## Wichtig
+► Wichtig
 
 Eine Anzahlung ist keine Teilleistung.
 
@@ -12005,7 +12005,7 @@ Bei einer Anzahlung wurde noch keine vollständige Leistung oder Teilleistung au
 
 ---
 
-# 46. Steuerfreie Umsätze und Leistungszeitpunkt
+⇨ 46. Steuerfreie Umsätze und Leistungszeitpunkt
 
 Bei einem steuerfreien Umsatz entsteht keine zu zahlende Umsatzsteuer.
 
@@ -12019,7 +12019,7 @@ Der Zeitpunkt der Leistung muss dennoch bestimmt werden, beispielsweise für
 
 ---
 
-# 47. Umsatzsteuerliche Gebietsbegriffe
+⇨ 47. Umsatzsteuerliche Gebietsbegriffe
 
 Für die Beurteilung grenzüberschreitender Umsätze sind die umsatzsteuerlichen Gebietsbegriffe maßgeblich.
 
@@ -12033,7 +12033,7 @@ Zu unterscheiden sind:
 
 ---
 
-# 48. Inland
+⇨ 48. Inland
 
 Inland ist grundsätzlich das Gebiet der Bundesrepublik Deutschland.
 
@@ -12049,7 +12049,7 @@ Diese Gebiete werden umsatzsteuerlich wie Drittlandsgebiet behandelt.
 
 ---
 
-# 49. Übriges Gemeinschaftsgebiet
+⇨ 49. Übriges Gemeinschaftsgebiet
 
 Das übrige Gemeinschaftsgebiet umfasst die umsatzsteuerlichen Gebiete der anderen Mitgliedstaaten der Europäischen Union.
 
@@ -12063,7 +12063,7 @@ Warenbewegungen aus dem übrigen Gemeinschaftsgebiet in das Inland können inner
 
 ---
 
-# 50. Gemeinschaftsgebiet
+⇨ 50. Gemeinschaftsgebiet
 
 Das Gemeinschaftsgebiet umfasst das umsatzsteuerliche Inland und das übrige Gemeinschaftsgebiet.
 
@@ -12073,7 +12073,7 @@ Bestimmte Sondergebiete können umsatzsteuerlich ausgenommen sein.
 
 ---
 
-# 51. Drittlandsgebiet
+⇨ 51. Drittlandsgebiet
 
 Drittlandsgebiet sind grundsätzlich die Gebiete, die nicht zum umsatzsteuerlichen Gemeinschaftsgebiet gehören.
 
@@ -12090,7 +12090,7 @@ Warenbewegungen aus dem Drittlandsgebiet in das Inland können Einfuhren darstel
 
 ---
 
-# 52. Ausland
+⇨ 52. Ausland
 
 Ausland sind alle Gebiete, die nicht Inland sind.
 
@@ -12099,7 +12099,7 @@ Das Ausland umfasst daher:
 - das übrige Gemeinschaftsgebiet und
 - das Drittlandsgebiet.
 
-## Merksatz
+► Merksatz
 
 Ausland ist nicht automatisch Drittland.
 
@@ -12107,7 +12107,7 @@ Auch ein anderer EU-Mitgliedstaat ist aus deutscher Sicht Ausland, aber kein Dri
 
 ---
 
-# 53. Einfuhrlieferung nach § 3 Abs. 8 UStG
+⇨ 53. Einfuhrlieferung nach § 3 Abs. 8 UStG
 
 Bei einer Lieferung aus dem Drittlandsgebiet kann sich der Lieferort nach § 3 Abs. 8 UStG in das Inland verlagern.
 
@@ -12117,7 +12117,7 @@ Die Vorschrift ist bei Einfuhrsachverhalten gesondert zu prüfen.
 
 ---
 
-# 54. Reihengeschäft
+⇨ 54. Reihengeschäft
 
 Ein Reihengeschäft liegt vor, wenn
 
@@ -12126,7 +12126,7 @@ Ein Reihengeschäft liegt vor, wenn
 - Umsatzgeschäfte abschließen und
 - der Gegenstand unmittelbar vom ersten Unternehmer zum letzten Abnehmer gelangt.
 
-## Beispiel
+► Beispiel
 
 Unternehmer A verkauft an Unternehmer B.
 
@@ -12143,7 +12143,7 @@ Es gibt aber nur eine Warenbewegung.
 
 ---
 
-# 55. Nur eine bewegte Lieferung
+⇨ 55. Nur eine bewegte Lieferung
 
 Innerhalb eines Reihengeschäfts kann nur eine Lieferung die bewegte Lieferung sein.
 
@@ -12151,13 +12151,13 @@ Nur diese Lieferung wird nach § 3 Abs. 6 UStG beurteilt.
 
 Alle übrigen Lieferungen sind unbewegte Lieferungen nach § 3 Abs. 7 Satz 2 UStG.
 
-## Merksatz
+► Merksatz
 
 Mehrere Lieferungen, aber nur eine bewegte Lieferung.
 
 ---
 
-# 56. Direkte Warenbewegung
+⇨ 56. Direkte Warenbewegung
 
 Der Gegenstand muss unmittelbar vom ersten Unternehmer zum letzten Abnehmer gelangen.
 
@@ -12167,11 +12167,11 @@ Ein echter Verkauf oder eine freie Verfügung über die Ware während der Unterb
 
 ---
 
-# 57. Warenbewegung durch den ersten Unternehmer
+⇨ 57. Warenbewegung durch den ersten Unternehmer
 
 Wird der Gegenstand durch den ersten Unternehmer in der Reihe befördert oder versendet, ist grundsätzlich dessen Lieferung die bewegte Lieferung.
 
-## Beispiel
+► Beispiel
 
 A verkauft an B.
 
@@ -12193,11 +12193,11 @@ Ihr Ort liegt grundsätzlich dort, wo die Warenbewegung endet.
 
 ---
 
-# 58. Warenbewegung durch den letzten Abnehmer
+⇨ 58. Warenbewegung durch den letzten Abnehmer
 
 Wird der Gegenstand durch den letzten Abnehmer befördert oder versendet, ist grundsätzlich die an ihn ausgeführte Lieferung die bewegte Lieferung.
 
-## Beispiel
+► Beispiel
 
 A verkauft an B.
 
@@ -12219,7 +12219,7 @@ Ihr Ort liegt grundsätzlich dort, wo die Warenbewegung beginnt.
 
 ---
 
-# 59. Warenbewegung durch einen Zwischenhändler
+⇨ 59. Warenbewegung durch einen Zwischenhändler
 
 Ein Zwischenhändler ist ein Unternehmer innerhalb der Reihe, der zugleich
 
@@ -12230,17 +12230,17 @@ ist.
 
 Transportiert der Zwischenhändler die Ware, ist zu bestimmen, welcher seiner beiden Lieferungen die Warenbewegung zugeordnet wird.
 
-## Grundvermutung
+► Grundvermutung
 
 Grundsätzlich wird die Warenbewegung der Lieferung an den Zwischenhändler zugeordnet.
 
-## Abweichende Zuordnung
+► Abweichende Zuordnung
 
 Unter den gesetzlichen Voraussetzungen kann die Warenbewegung der Lieferung des Zwischenhändlers an seinen Abnehmer zugeordnet werden.
 
 Dabei kann insbesondere die Verwendung einer Umsatzsteuer-Identifikationsnummer des Abgangsstaats von Bedeutung sein.
 
-## Prüfung
+► Prüfung
 
 1. Wer organisiert den Transport?
 2. Handelt diese Person als Lieferer oder Abnehmer?
@@ -12251,19 +12251,19 @@ Dabei kann insbesondere die Verwendung einer Umsatzsteuer-Identifikationsnummer 
 
 ---
 
-# 60. Unbewegte Lieferung vor der bewegten Lieferung
+⇨ 60. Unbewegte Lieferung vor der bewegten Lieferung
 
 Eine unbewegte Lieferung, die der bewegten Lieferung vorausgeht, wird nach § 3 Abs. 7 Satz 2 Nr. 1 UStG dort ausgeführt, wo die Beförderung oder Versendung beginnt.
 
-## Ort
+► Ort
 
 Abgangsort.
 
-## Zeitpunkt
+► Zeitpunkt
 
 Beginn der Beförderung oder Versendung.
 
-## Beispiel
+► Beispiel
 
 A verkauft an B.
 
@@ -12281,19 +12281,19 @@ Abgangsort der Ware.
 
 ---
 
-# 61. Unbewegte Lieferung nach der bewegten Lieferung
+⇨ 61. Unbewegte Lieferung nach der bewegten Lieferung
 
 Eine unbewegte Lieferung, die der bewegten Lieferung folgt, wird nach § 3 Abs. 7 Satz 2 Nr. 2 UStG dort ausgeführt, wo die Beförderung oder Versendung endet.
 
-## Ort
+► Ort
 
 Ankunftsort.
 
-## Zeitpunkt
+► Zeitpunkt
 
 Ende der Beförderung oder Versendung.
 
-## Beispiel
+► Beispiel
 
 A verkauft an B.
 
@@ -12311,19 +12311,19 @@ Ankunftsort der Ware.
 
 ---
 
-# 62. Transport als Nebenleistung
+⇨ 62. Transport als Nebenleistung
 
 Bei einer Warenlieferung gehört der Transport regelmäßig als unselbständige Nebenleistung zur Lieferung.
 
 In einer Sachverhaltsskizze sollte deshalb der Beförderer oder Versender unmittelbar beim Pfeil derjenigen Lieferung eingetragen werden, der die Warenbewegung zugeordnet wird.
 
-## Klausurhinweis
+► Klausurhinweis
 
 Der Transportpfeil entscheidet häufig darüber, welche Lieferung die bewegte Lieferung ist.
 
 ---
 
-# 63. Skizze eines Reihengeschäfts
+⇨ 63. Skizze eines Reihengeschäfts
 
 Ein Reihengeschäft sollte immer grafisch dargestellt werden.
 
@@ -12340,7 +12340,7 @@ Zusätzlich eintragen:
 - verwendete Umsatzsteuer-Identifikationsnummern,
 - Beginn und Ende des Transports.
 
-## Merksatz
+► Merksatz
 
 Erst Rechnungsweg zeichnen.
 
@@ -12350,7 +12350,7 @@ Dann bewegte Lieferung zuordnen.
 
 ---
 
-# 64. Prüfungsschema Reihengeschäft
+⇨ 64. Prüfungsschema Reihengeschäft
 
 1. Schließen mehrere Unternehmer Umsatzgeschäfte über denselben Gegenstand ab?
 2. Gelangt der Gegenstand unmittelbar vom ersten Unternehmer zum letzten Abnehmer?
@@ -12369,7 +12369,7 @@ Dann bewegte Lieferung zuordnen.
 
 ---
 
-# 65. Prüfungsschema bewegte Lieferung
+⇨ 65. Prüfungsschema bewegte Lieferung
 
 1. Lieferung nach § 3 Abs. 1 UStG?
 2. Feststehender Abnehmer?
@@ -12385,7 +12385,7 @@ Dann bewegte Lieferung zuordnen.
 
 ---
 
-# 66. Prüfungsschema unbewegte Lieferung
+⇨ 66. Prüfungsschema unbewegte Lieferung
 
 1. Lieferung nach § 3 Abs. 1 UStG?
 2. Keine der Lieferung zugeordnete Warenbewegung?
@@ -12400,7 +12400,7 @@ Dann bewegte Lieferung zuordnen.
 
 ---
 
-# 67. Formulierungshilfe bewegte Lieferung
+⇨ 67. Formulierungshilfe bewegte Lieferung
 
 Es liegt eine Lieferung im Sinne des § 3 Abs. 1 UStG vor, da der leistende Unternehmer dem Leistungsempfänger die Verfügungsmacht an dem Gegenstand verschafft.
 
@@ -12412,7 +12412,7 @@ Die Lieferung wird mit Beginn der Beförderung oder Versendung ausgeführt.
 
 ---
 
-# 68. Formulierungshilfe unbewegte Lieferung
+⇨ 68. Formulierungshilfe unbewegte Lieferung
 
 Es liegt eine unbewegte Lieferung im Sinne des § 3 Abs. 1 UStG vor.
 
@@ -12422,7 +12422,7 @@ Der Ort der Lieferung befindet sich nach § 3 Abs. 7 UStG dort, wo sich der Gege
 
 ---
 
-# 69. Formulierungshilfe Reihengeschäft
+⇨ 69. Formulierungshilfe Reihengeschäft
 
 Mehrere Unternehmer haben über denselben Gegenstand Umsatzgeschäfte abgeschlossen.
 
@@ -12436,9 +12436,9 @@ Die übrigen Lieferungen sind unbewegte Lieferungen nach § 3 Abs. 7 Satz 2 UStG
 
 ---
 
-# 70. Typische Klausurfallen
+⇨ 70. Typische Klausurfallen
 
-## Fehler 1: Sofort mit der Steuerbefreiung beginnen
+► Fehler 1: Sofort mit der Steuerbefreiung beginnen
 
 Zuerst müssen Leistungsart, Ort und Steuerbarkeit bestimmt werden.
 
@@ -12446,13 +12446,13 @@ Eine Steuerbefreiung kann nur für einen steuerbaren Umsatz geprüft werden.
 
 ---
 
-## Fehler 2: Transport automatisch als eigene Leistung behandeln
+► Fehler 2: Transport automatisch als eigene Leistung behandeln
 
 Transport, Verpackung oder Versicherung sind häufig Nebenleistungen und teilen das Schicksal der Hauptleistung.
 
 ---
 
-## Fehler 3: Werklieferung und Werkleistung verwechseln
+► Fehler 3: Werklieferung und Werkleistung verwechseln
 
 Eigene Hauptstoffe:
 
@@ -12464,37 +12464,37 @@ Werkleistung.
 
 ---
 
-## Fehler 4: Zivilrechtliches Eigentum mit Verfügungsmacht gleichsetzen
+► Fehler 4: Zivilrechtliches Eigentum mit Verfügungsmacht gleichsetzen
 
 Für die umsatzsteuerliche Lieferung ist die wirtschaftliche Verfügungsmacht entscheidend.
 
 ---
 
-## Fehler 5: Grundstückslieferung erst bei Grundbucheintragung annehmen
+► Fehler 5: Grundstückslieferung erst bei Grundbucheintragung annehmen
 
 Die Verfügungsmacht kann bereits mit Übergang von Nutzen und Lasten übergehen.
 
 ---
 
-## Fehler 6: Eigentumsvorbehalt als Hindernis für eine Lieferung ansehen
+► Fehler 6: Eigentumsvorbehalt als Hindernis für eine Lieferung ansehen
 
 Trotz Eigentumsvorbehalt kann der Käufer bereits wirtschaftlicher Eigentümer sein.
 
 ---
 
-## Fehler 7: Ohne feststehenden Abnehmer eine bewegte Lieferung annehmen
+► Fehler 7: Ohne feststehenden Abnehmer eine bewegte Lieferung annehmen
 
 Steht der Abnehmer zu Beginn des Transports noch nicht fest, kann zunächst ein rechtsgeschäftsloses Verbringen vorliegen.
 
 ---
 
-## Fehler 8: Bei einem Reihengeschäft mehrere bewegte Lieferungen annehmen
+► Fehler 8: Bei einem Reihengeschäft mehrere bewegte Lieferungen annehmen
 
 Innerhalb eines Reihengeschäfts gibt es nur eine bewegte Lieferung.
 
 ---
 
-## Fehler 9: Rechnungsweg und Warenweg verwechseln
+► Fehler 9: Rechnungsweg und Warenweg verwechseln
 
 Der Rechnungsweg verläuft zwischen allen Vertragspartnern.
 
@@ -12502,7 +12502,7 @@ Der Warenweg verläuft unmittelbar vom ersten Unternehmer zum letzten Abnehmer.
 
 ---
 
-## Fehler 10: Unbewegte Lieferungen im Reihengeschäft nicht prüfen
+► Fehler 10: Unbewegte Lieferungen im Reihengeschäft nicht prüfen
 
 Jede Lieferung muss einen eigenen Ort erhalten.
 
@@ -12516,7 +12516,7 @@ Ankunftsort.
 
 ---
 
-## Fehler 11: Jeden EU-Staat als Inland behandeln
+► Fehler 11: Jeden EU-Staat als Inland behandeln
 
 Inland ist aus deutscher Sicht grundsätzlich nur das deutsche Umsatzsteuergebiet.
 
@@ -12524,7 +12524,7 @@ Andere EU-Mitgliedstaaten gehören zum übrigen Gemeinschaftsgebiet.
 
 ---
 
-## Fehler 12: Ausland und Drittland gleichsetzen
+► Fehler 12: Ausland und Drittland gleichsetzen
 
 Das Ausland umfasst sowohl
 
@@ -12533,13 +12533,13 @@ Das Ausland umfasst sowohl
 
 ---
 
-## Fehler 13: Option nach § 9 UStG vergessen
+► Fehler 13: Option nach § 9 UStG vergessen
 
 Bei einer grundsätzlich steuerfreien Grundstückslieferung oder Grundstücksvermietung ist immer die Option zu prüfen.
 
 ---
 
-## Fehler 14: Anzahlungen wie Teilleistungen behandeln
+► Fehler 14: Anzahlungen wie Teilleistungen behandeln
 
 Eine Anzahlung ist eine Zahlung vor Leistungsausführung.
 
@@ -12547,7 +12547,7 @@ Eine Teilleistung ist bereits ein ausgeführter wirtschaftlich teilbarer Leistun
 
 ---
 
-# 71. Merksätze
+⇨ 71. Merksätze
 
 - Erst Leistungsart, dann Leistungsort, dann Steuerbarkeit.
 - Eine Lieferung setzt die Verschaffung der Verfügungsmacht voraus.
@@ -12611,11 +12611,11 @@ Eine Teilleistung ist bereits ein ausgeführter wirtschaftlich teilbarer Leistun
   ],
 
   body: `
-# Buchführung, Inventur, Jahresabschluss und Bilanzierung
+⇨ Buchführung, Inventur, Jahresabschluss und Bilanzierung
 
-# 1. Geschäftsjahr und Wirtschaftsjahr
+⇨ 1. Geschäftsjahr und Wirtschaftsjahr
 
-## Handelsrechtliches Geschäftsjahr
+► Handelsrechtliches Geschäftsjahr
 
 Das Geschäftsjahr ist der handelsrechtliche Zeitraum, für den der Jahresabschluss erstellt wird.
 
@@ -12639,17 +12639,17 @@ Typische Gründe für ein Rumpfgeschäftsjahr:
 
 ---
 
-# 2. Steuerrechtliches Wirtschaftsjahr
+⇨ 2. Steuerrechtliches Wirtschaftsjahr
 
 Das Wirtschaftsjahr ist der steuerrechtliche Gewinnermittlungszeitraum.
 
 Für Gewerbetreibende ist insbesondere § 4a EStG maßgeblich.
 
-## Grundsatz
+► Grundsatz
 
 Das Wirtschaftsjahr entspricht grundsätzlich dem Kalenderjahr.
 
-## Im Handelsregister eingetragene Gewerbetreibende
+► Im Handelsregister eingetragene Gewerbetreibende
 
 Bei im Handelsregister eingetragenen Gewerbetreibenden kann das Wirtschaftsjahr vom Kalenderjahr abweichen.
 
@@ -12659,33 +12659,33 @@ Ein abweichendes Wirtschaftsjahr kann beispielsweise enden am:
 - 30. Juni,
 - 30. September.
 
-## Umstellung des Wirtschaftsjahres
+► Umstellung des Wirtschaftsjahres
 
 Bei der Umstellung ist zu unterscheiden:
 
-### Umstellung vom Kalenderjahr auf ein abweichendes Wirtschaftsjahr
+⇶  Umstellung vom Kalenderjahr auf ein abweichendes Wirtschaftsjahr
 
 Diese Umstellung bedarf grundsätzlich der Zustimmung des Finanzamts.
 
-### Umstellung von einem abweichenden Wirtschaftsjahr auf das Kalenderjahr
+⇶  Umstellung von einem abweichenden Wirtschaftsjahr auf das Kalenderjahr
 
 Hierfür ist grundsätzlich keine Zustimmung des Finanzamts erforderlich.
 
-### Umstellung von einem abweichenden Wirtschaftsjahr auf ein anderes abweichendes Wirtschaftsjahr
+⇶  Umstellung von einem abweichenden Wirtschaftsjahr auf ein anderes abweichendes Wirtschaftsjahr
 
 Diese Umstellung bedarf grundsätzlich ebenfalls der Zustimmung des Finanzamts.
 
-## Merksatz
+► Merksatz
 
 Die Rückkehr vom abweichenden Wirtschaftsjahr zum Kalenderjahr ist grundsätzlich ohne Zustimmung möglich.
 
 ---
 
-# 3. Gewinnzurechnung bei abweichendem Wirtschaftsjahr
+⇨ 3. Gewinnzurechnung bei abweichendem Wirtschaftsjahr
 
 Bei Gewerbebetrieben wird der Gewinn eines abweichenden Wirtschaftsjahres grundsätzlich dem Kalenderjahr zugerechnet, in dem das Wirtschaftsjahr endet.
 
-## Beispiel
+► Beispiel
 
 Wirtschaftsjahr:
 
@@ -12697,7 +12697,7 @@ Rechtsgrundlage:
 
 § 4a Abs. 2 Nr. 2 EStG.
 
-## Klausurmerksatz
+► Klausurmerksatz
 
 Nicht den Gewinn zeitanteilig auf zwei Kalenderjahre aufteilen.
 
@@ -12705,7 +12705,7 @@ Bei Gewerbebetrieben zählt grundsätzlich das Kalenderjahr, in dem das Wirtscha
 
 ---
 
-# 4. Gewinnermittlungsmethoden bei Gewerbetreibenden
+⇨ 4. Gewinnermittlungsmethoden bei Gewerbetreibenden
 
 Bei Gewerbetreibenden kommen insbesondere folgende Gewinnermittlungsmethoden in Betracht:
 
@@ -12716,7 +12716,7 @@ Bei Gewerbetreibenden kommen insbesondere folgende Gewinnermittlungsmethoden in 
 
 ---
 
-# 5. Besonderer Betriebsvermögensvergleich nach § 5 EStG
+⇨ 5. Besonderer Betriebsvermögensvergleich nach § 5 EStG
 
 Der Gewinn wird nach § 5 EStG ermittelt, wenn der Steuerpflichtige
 
@@ -12724,17 +12724,17 @@ Der Gewinn wird nach § 5 EStG ermittelt, wenn der Steuerpflichtige
 - steuerrechtlich buchführungspflichtig ist oder
 - freiwillig Bücher führt und regelmäßig Abschlüsse erstellt.
 
-## Handelsrechtliche Buchführungspflicht
+► Handelsrechtliche Buchführungspflicht
 
 Kaufleute sind nach § 238 HGB grundsätzlich zur Buchführung verpflichtet.
 
 Diese handelsrechtliche Pflicht wird über § 140 AO auch für steuerliche Zwecke übernommen.
 
-## Steuerrechtliche Buchführungspflicht
+► Steuerrechtliche Buchführungspflicht
 
 Eine originär steuerrechtliche Buchführungspflicht kann sich aus § 141 AO ergeben.
 
-## Freiwillige Buchführung
+► Freiwillige Buchführung
 
 Auch ohne gesetzliche Buchführungspflicht kann ein Gewerbetreibender freiwillig Bücher führen und Abschlüsse erstellen.
 
@@ -12742,14 +12742,14 @@ In diesem Fall kann die Gewinnermittlung ebenfalls nach § 5 EStG erfolgen.
 
 ---
 
-# 6. Einnahmenüberschussrechnung nach § 4 Abs. 3 EStG
+⇨ 6. Einnahmenüberschussrechnung nach § 4 Abs. 3 EStG
 
 Die Einnahmenüberschussrechnung ist zulässig, wenn
 
 - keine gesetzliche Buchführungspflicht besteht und
 - nicht freiwillig Bücher geführt und Abschlüsse erstellt werden.
 
-## Grundschema
+► Grundschema
 
 Betriebseinnahmen
 
@@ -12761,7 +12761,7 @@ gleich
 
 Gewinn oder Verlust.
 
-## Grundprinzip
+► Grundprinzip
 
 Maßgeblich ist grundsätzlich der tatsächliche Zufluss und Abfluss.
 
@@ -12769,7 +12769,7 @@ Ausnahmen, insbesondere bei regelmäßig wiederkehrenden Einnahmen und Ausgaben 
 
 ---
 
-# 7. Allgemeiner Betriebsvermögensvergleich nach § 4 Abs. 1 EStG
+⇨ 7. Allgemeiner Betriebsvermögensvergleich nach § 4 Abs. 1 EStG
 
 Der allgemeine Betriebsvermögensvergleich kommt insbesondere zur Anwendung, wenn
 
@@ -12778,7 +12778,7 @@ Der allgemeine Betriebsvermögensvergleich kommt insbesondere zur Anwendung, wen
 
 Typische Anwendungsfälle können insbesondere bei Land- und Forstwirten oder selbständig Tätigen auftreten.
 
-## Grundschema
+► Grundschema
 
 Betriebsvermögen am Schluss des Wirtschaftsjahres
 
@@ -12800,7 +12800,7 @@ Gewinn oder Verlust.
 
 ---
 
-# 8. Schätzungsfall
+⇨ 8. Schätzungsfall
 
 Kann die Finanzbehörde die Besteuerungsgrundlagen nicht ermitteln oder berechnen, sind sie nach § 162 AO zu schätzen.
 
@@ -12813,13 +12813,13 @@ Typische Gründe:
 - erhebliche Buchführungsmängel,
 - fehlende Aufzeichnungen.
 
-## Wichtig
+► Wichtig
 
 Die Schätzung ist keine eigenständige Gewinnermittlungsart, sondern ein Verfahren zur Ermittlung nicht feststellbarer Besteuerungsgrundlagen.
 
 ---
 
-# 9. Zweck der Buchführung
+⇨ 9. Zweck der Buchführung
 
 Buchführung bedeutet die planmäßige und lückenlose Erfassung aller Geschäftsvorfälle.
 
@@ -12831,7 +12831,7 @@ Sie dient insbesondere:
 - der Gewinnermittlung,
 - der Ermittlung steuerlicher Besteuerungsgrundlagen.
 
-## Rechtsgrundlagen
+► Rechtsgrundlagen
 
 - § 238 HGB,
 - § 140 AO,
@@ -12839,7 +12839,7 @@ Sie dient insbesondere:
 
 ---
 
-# 10. Handelsrechtliche Buchführungspflicht
+⇨ 10. Handelsrechtliche Buchführungspflicht
 
 Nach § 238 HGB ist grundsätzlich jeder Kaufmann verpflichtet,
 
@@ -12855,7 +12855,7 @@ verschaffen kann.
 
 ---
 
-# 11. Abgeleitete steuerliche Buchführungspflicht nach § 140 AO
+⇨ 11. Abgeleitete steuerliche Buchführungspflicht nach § 140 AO
 
 Wer nach anderen Gesetzen als den Steuergesetzen Bücher und Aufzeichnungen führen muss, hat diese Verpflichtung auch für die Besteuerung zu erfüllen.
 
@@ -12869,13 +12869,13 @@ führt über
 
 zur steuerlichen Buchführungspflicht.
 
-## Merksatz
+► Merksatz
 
 Handelsrechtliche Buchführungspflicht zieht regelmäßig die steuerliche Buchführungspflicht nach sich.
 
 ---
 
-# 12. Originäre steuerliche Buchführungspflicht nach § 141 AO
+⇨ 12. Originäre steuerliche Buchführungspflicht nach § 141 AO
 
 § 141 AO kann für bestimmte gewerbliche Unternehmer sowie Land- und Forstwirte eine eigenständige steuerliche Buchführungspflicht begründen.
 
@@ -12883,7 +12883,7 @@ Hierfür sind insbesondere gesetzliche Umsatz- oder Gewinngrenzen zu prüfen.
 
 Die Buchführungspflicht beginnt grundsätzlich erst nach entsprechender Mitteilung durch die Finanzbehörde.
 
-## Klausurprüfung
+► Klausurprüfung
 
 1. Besteht bereits eine Buchführungspflicht nach Handelsrecht?
 2. Falls nein: Sind die Voraussetzungen des § 141 AO erfüllt?
@@ -12892,7 +12892,7 @@ Die Buchführungspflicht beginnt grundsätzlich erst nach entsprechender Mitteil
 
 ---
 
-# 13. Aufstellung des Jahresabschlusses
+⇨ 13. Aufstellung des Jahresabschlusses
 
 Der Kaufmann hat zu Beginn seines Handelsgewerbes und für den Schluss jedes Geschäftsjahres einen Abschluss aufzustellen.
 
@@ -12908,15 +12908,15 @@ Bei Kapitalgesellschaften können weitere Bestandteile hinzukommen, insbesondere
 
 ---
 
-# 14. Inventur
+⇨ 14. Inventur
 
 Die Inventur ist die tatsächliche Bestandsaufnahme aller Vermögensgegenstände und Schulden zu einem bestimmten Zeitpunkt.
 
 Sie bildet die Grundlage für das Inventar und die Bilanz.
 
-## Formen der Bestandsaufnahme
+► Formen der Bestandsaufnahme
 
-### Körperliche Inventur
+⇶  Körperliche Inventur
 
 Körperliche Vermögensgegenstände werden erfasst durch:
 
@@ -12925,7 +12925,7 @@ Körperliche Vermögensgegenstände werden erfasst durch:
 - Wiegen,
 - gegebenenfalls Schätzen.
 
-### Buchinventur
+⇶  Buchinventur
 
 Nicht körperliche Bestände werden anhand von Unterlagen ermittelt.
 
@@ -12939,7 +12939,7 @@ Beispiele:
 
 ---
 
-# 15. Inventar
+⇨ 15. Inventar
 
 Das Inventar ist das schriftliche, mengen- und wertmäßige Verzeichnis aller Vermögensgegenstände und Schulden.
 
@@ -12950,7 +12950,7 @@ Es enthält regelmäßig:
 - Einzelwert,
 - Gesamtwert.
 
-## Abgrenzung
+► Abgrenzung
 
 Inventur:
 
@@ -12966,20 +12966,20 @@ Verdichtete Gegenüberstellung von Vermögen und Kapital.
 
 ---
 
-# 16. Bilanz
+⇨ 16. Bilanz
 
 Die Bilanz ist die gedrängte Gegenüberstellung von Vermögen und Kapital zu einem bestimmten Stichtag.
 
-## Grundstruktur
+► Grundstruktur
 
-### Aktivseite
+⇶  Aktivseite
 
 - Anlagevermögen,
 - Umlaufvermögen,
 - Rechnungsabgrenzungsposten,
 - gegebenenfalls weitere Aktivposten.
 
-### Passivseite
+⇶  Passivseite
 
 - Eigenkapital,
 - Rückstellungen,
@@ -12987,7 +12987,7 @@ Die Bilanz ist die gedrängte Gegenüberstellung von Vermögen und Kapital zu ei
 - Rechnungsabgrenzungsposten,
 - gegebenenfalls weitere Passivposten.
 
-## Bilanzgleichung
+► Bilanzgleichung
 
 Aktiva = Passiva.
 
@@ -12997,7 +12997,7 @@ Vermögen = Eigenkapital + Fremdkapital.
 
 ---
 
-# 17. Anlagevermögen
+⇨ 17. Anlagevermögen
 
 Zum Anlagevermögen gehören Vermögensgegenstände, die dazu bestimmt sind, dem Geschäftsbetrieb dauerhaft zu dienen.
 
@@ -13014,7 +13014,7 @@ Typische Beispiele:
 - langfristige Beteiligungen,
 - Patente und Lizenzen.
 
-## Abgrenzung
+► Abgrenzung
 
 Entscheidend ist nicht allein die tatsächliche Nutzungsdauer.
 
@@ -13022,7 +13022,7 @@ Maßgeblich ist die Zweckbestimmung am Bilanzstichtag.
 
 ---
 
-# 18. Umlaufvermögen
+⇨ 18. Umlaufvermögen
 
 Zum Umlaufvermögen gehören Vermögensgegenstände, die nicht dauerhaft dem Geschäftsbetrieb dienen sollen.
 
@@ -13037,7 +13037,7 @@ Typische Beispiele:
 - Bankguthaben,
 - Kassenbestand.
 
-## Merksatz
+► Merksatz
 
 Anlagevermögen dient dem Betrieb.
 
@@ -13045,9 +13045,9 @@ Umlaufvermögen wird im Betrieb umgesetzt, verarbeitet oder kurzfristig verbrauc
 
 ---
 
-# 19. Arten der Inventur
+⇨ 19. Arten der Inventur
 
-## 19.1 Stichtagsinventur
+► 19.1 Stichtagsinventur
 
 Die Bestandsaufnahme erfolgt grundsätzlich am Bilanzstichtag.
 
@@ -13059,13 +13059,13 @@ Eine zeitnahe Bestandsaufnahme innerhalb einer kurzen Frist vor oder nach dem Bi
 
 Die Bestandsveränderungen zwischen Aufnahmetag und Bilanzstichtag müssen nachvollziehbar fortgeschrieben oder zurückgerechnet werden.
 
-## Typischer Zeitraum
+► Typischer Zeitraum
 
 In der Praxis wird häufig ein Zeitraum von bis zu zehn Tagen vor oder nach dem Bilanzstichtag verwendet.
 
 ---
 
-# 20. Permanente Inventur
+⇨ 20. Permanente Inventur
 
 Bei der permanenten Inventur werden die Bestände fortlaufend durch eine ordnungsgemäße Lagerbuchführung nachgewiesen.
 
@@ -13073,14 +13073,14 @@ Rechtsgrundlage:
 
 § 241 Abs. 2 HGB.
 
-## Voraussetzungen
+► Voraussetzungen
 
 - ordnungsgemäße Bestandsbuchführung,
 - jederzeitige Feststellbarkeit des Sollbestands,
 - mindestens einmal jährlich körperliche Bestandsaufnahme,
 - Abgleich zwischen Buch- und Istbestand.
 
-## Wichtig
+► Wichtig
 
 Die permanente Inventur ersetzt nicht vollständig die körperliche Bestandsaufnahme.
 
@@ -13088,7 +13088,7 @@ Diese muss im Laufe des Geschäftsjahres mindestens einmal durchgeführt werden.
 
 ---
 
-# 21. Zeitlich verlegte Inventur
+⇨ 21. Zeitlich verlegte Inventur
 
 Die Inventur kann innerhalb eines erweiterten Zeitraums durchgeführt werden.
 
@@ -13096,16 +13096,16 @@ Rechtsgrundlage:
 
 § 241 Abs. 3 HGB.
 
-## Zeitraum
+► Zeitraum
 
 - innerhalb der letzten drei Monate vor dem Bilanzstichtag oder
 - innerhalb der ersten zwei Monate nach dem Bilanzstichtag.
 
-## Voraussetzung
+► Voraussetzung
 
 Der Inventurwert muss wertmäßig auf den Bilanzstichtag fortgeschrieben oder zurückgerechnet werden.
 
-## Fortschreibung
+► Fortschreibung
 
 Inventurwert
 
@@ -13115,7 +13115,7 @@ minus Abgänge
 
 bis zum Bilanzstichtag.
 
-## Rückrechnung
+► Rückrechnung
 
 Bestand am späteren Inventurtag
 
@@ -13125,7 +13125,7 @@ plus Abgänge seit dem Bilanzstichtag.
 
 ---
 
-# 22. Festwertverfahren
+⇨ 22. Festwertverfahren
 
 Bestimmte Vermögensgegenstände können mit einem gleichbleibenden Festwert angesetzt werden.
 
@@ -13133,7 +13133,7 @@ Rechtsgrundlage:
 
 § 240 Abs. 3 HGB.
 
-## Voraussetzungen
+► Voraussetzungen
 
 Die Vermögensgegenstände müssen
 
@@ -13141,7 +13141,7 @@ Die Vermögensgegenstände müssen
 - für das Unternehmen insgesamt von nachrangiger Bedeutung sein und
 - in Bestand, Wert und Zusammensetzung nur geringen Veränderungen unterliegen.
 
-## Typische Anwendungsfälle
+► Typische Anwendungsfälle
 
 - Werkzeuge,
 - Vorrichtungen,
@@ -13152,7 +13152,7 @@ Die Vermögensgegenstände müssen
 - Wäsche,
 - bestimmte Roh-, Hilfs- und Betriebsstoffe.
 
-## Folge
+► Folge
 
 Der einmal ermittelte Festwert kann grundsätzlich über mehrere Jahre beibehalten werden.
 
@@ -13160,7 +13160,7 @@ In angemessenen Zeitabständen ist eine körperliche Bestandsaufnahme erforderli
 
 ---
 
-# 23. Handelsrechtlicher Jahresabschluss
+⇨ 23. Handelsrechtlicher Jahresabschluss
 
 Der handelsrechtliche Jahresabschluss wird nach den Vorschriften des HGB aufgestellt.
 
@@ -13168,7 +13168,7 @@ Für alle Kaufleute gelten insbesondere die §§ 238 bis 263 HGB.
 
 Für Kapitalgesellschaften gelten ergänzend insbesondere die §§ 264 ff. HGB.
 
-## Bedeutung
+► Bedeutung
 
 Der handelsrechtliche Jahresabschluss dient insbesondere:
 
@@ -13181,9 +13181,9 @@ Der handelsrechtliche Jahresabschluss dient insbesondere:
 
 ---
 
-# 24. Gewinnverteilung und Gewinnverwendung
+⇨ 24. Gewinnverteilung und Gewinnverwendung
 
-## Personenhandelsgesellschaften
+► Personenhandelsgesellschaften
 
 Bei Personenhandelsgesellschaften bildet der handelsrechtliche Jahresüberschuss regelmäßig die Ausgangsgröße für die gesellschaftsrechtliche Gewinnverteilung.
 
@@ -13192,7 +13192,7 @@ Die konkrete Verteilung richtet sich nach:
 - Gesellschaftsvertrag,
 - ergänzend den handelsrechtlichen Vorschriften.
 
-## Kapitalgesellschaften
+► Kapitalgesellschaften
 
 Bei Kapitalgesellschaften ist der Jahresüberschuss Grundlage für die Gewinnverwendung.
 
@@ -13205,7 +13205,7 @@ Mögliche Gewinnverwendungen:
 
 ---
 
-# 25. Steuerbilanz
+⇨ 25. Steuerbilanz
 
 Die Steuerbilanz dient der steuerlichen Gewinnermittlung.
 
@@ -13216,7 +13216,7 @@ Rechtsgrundlagen:
 - § 5 EStG,
 - § 60 EStDV.
 
-## Maßgeblichkeitsgrundsatz
+► Maßgeblichkeitsgrundsatz
 
 Grundsätzlich sind die handelsrechtlichen Wertansätze auch für die Steuerbilanz maßgeblich, soweit das Steuerrecht keine abweichenden Regelungen vorsieht.
 
@@ -13228,7 +13228,7 @@ führt grundsätzlich zur
 
 Steuerbilanz.
 
-## Durchbrechungen
+► Durchbrechungen
 
 Das Steuerrecht kann eigenständige
 
@@ -13243,26 +13243,26 @@ Dann können Handelsbilanz und Steuerbilanz voneinander abweichen.
 
 ---
 
-# 26. Einheitsbilanz und getrennte Bilanzen
+⇨ 26. Einheitsbilanz und getrennte Bilanzen
 
-## Einheitsbilanz
+► Einheitsbilanz
 
 Stimmen Handels- und Steuerbilanz vollständig überein, kann eine Einheitsbilanz erstellt werden.
 
-## Getrennte Handels- und Steuerbilanz
+► Getrennte Handels- und Steuerbilanz
 
 Weichen Handels- und Steuerrecht voneinander ab, können erstellt werden:
 
 - eine Handelsbilanz und
 - eine eigenständige Steuerbilanz.
 
-## Überleitungsrechnung
+► Überleitungsrechnung
 
 Alternativ kann die Handelsbilanz durch eine steuerliche Überleitungsrechnung an die steuerrechtlichen Werte angepasst werden.
 
 ---
 
-# 27. Bedeutung der Steuerbilanz
+⇨ 27. Bedeutung der Steuerbilanz
 
 Der steuerbilanzielle Gewinn dient insbesondere als Ausgangsgröße für:
 
@@ -13283,7 +13283,7 @@ Typische Korrekturen:
 
 ---
 
-# 28. Bilanzierung dem Grunde nach
+⇨ 28. Bilanzierung dem Grunde nach
 
 Bei der Bilanzierung dem Grunde nach wird geprüft, ob ein Vermögensgegenstand, Wirtschaftsgut oder eine Schuld überhaupt in der Bilanz anzusetzen ist.
 
@@ -13297,7 +13297,7 @@ Kernfragen:
 
 ---
 
-# 29. Rechtliches und wirtschaftliches Eigentum
+⇨ 29. Rechtliches und wirtschaftliches Eigentum
 
 Grundsätzlich wird ein Vermögensgegenstand dem zivilrechtlichen Eigentümer zugerechnet.
 
@@ -13307,7 +13307,7 @@ Rechtsgrundlage:
 
 § 39 Abs. 2 Nr. 1 AO.
 
-## Wirtschaftlicher Eigentümer
+► Wirtschaftlicher Eigentümer
 
 Wirtschaftlicher Eigentümer ist, wer
 
@@ -13320,7 +13320,7 @@ Wer über das Wirtschaftsgut wirtschaftlich wie ein Eigentümer verfügen kann, 
 
 ---
 
-# 30. Wirtschaftliches Eigentum in der Handelsbilanz
+⇨ 30. Wirtschaftliches Eigentum in der Handelsbilanz
 
 Auch handelsrechtlich ist die wirtschaftliche Zurechnung maßgeblich.
 
@@ -13330,7 +13330,7 @@ Rechtsgrundlage:
 
 Ein Vermögensgegenstand ist grundsätzlich in der Bilanz des wirtschaftlichen Eigentümers auszuweisen.
 
-## Typische Prüfungsfälle
+► Typische Prüfungsfälle
 
 - Eigentumsvorbehalt,
 - Leasing,
@@ -13342,7 +13342,7 @@ Ein Vermögensgegenstand ist grundsätzlich in der Bilanz des wirtschaftlichen E
 
 ---
 
-# 31. Bilanzstichtagsprinzip
+⇨ 31. Bilanzstichtagsprinzip
 
 Für Ansatz und Zurechnung sind grundsätzlich die Verhältnisse am Bilanzstichtag maßgeblich.
 
@@ -13354,7 +13354,7 @@ Zu prüfen ist:
 - Wer erhält die Nutzungen?
 - Wer trägt die laufenden Kosten?
 
-## Merksatz
+► Merksatz
 
 Nicht allein auf den Vertragstitel schauen.
 
@@ -13362,7 +13362,7 @@ Entscheidend ist die tatsächliche wirtschaftliche Gestaltung.
 
 ---
 
-# 32. Inhalt der Handelsbilanz
+⇨ 32. Inhalt der Handelsbilanz
 
 Die Handelsbilanz enthält insbesondere:
 
@@ -13377,7 +13377,7 @@ Für Kapitalgesellschaften ergeben sich verbindliche Gliederungsvorschriften aus
 
 ---
 
-# 33. Inhalt der Steuerbilanz
+⇨ 33. Inhalt der Steuerbilanz
 
 Die Steuerbilanz enthält insbesondere:
 
@@ -13392,7 +13392,7 @@ Die steuerrechtliche Bezeichnung „Wirtschaftsgut“ ist weiter gefasst als der
 
 ---
 
-# 34. Vollständigkeitsgebot
+⇨ 34. Vollständigkeitsgebot
 
 Nach dem Vollständigkeitsgebot müssen sämtliche bilanzierungspflichtigen Vermögensgegenstände, Schulden und Rechnungsabgrenzungsposten erfasst werden.
 
@@ -13404,7 +13404,7 @@ Nicht erfasste Vermögensgegenstände oder Schulden führen zu einer unvollstän
 
 ---
 
-# 35. Verrechnungsverbot
+⇨ 35. Verrechnungsverbot
 
 Aktivposten dürfen grundsätzlich nicht mit Passivposten verrechnet werden.
 
@@ -13414,7 +13414,7 @@ Rechtsgrundlage:
 
 § 246 Abs. 2 HGB.
 
-## Beispiel
+► Beispiel
 
 Eine Forderung gegen einen Lieferanten darf nicht ohne Weiteres mit einer Verbindlichkeit gegenüber demselben Lieferanten saldiert werden.
 
@@ -13424,11 +13424,11 @@ Gesetzliche Ausnahmen bleiben zu beachten.
 
 ---
 
-# 36. Bilanzgliederung bei Kapitalgesellschaften
+⇨ 36. Bilanzgliederung bei Kapitalgesellschaften
 
 Kapitalgesellschaften müssen ihre Bilanz grundsätzlich nach § 266 HGB gliedern.
 
-## Aktivseite
+► Aktivseite
 
 Typische Hauptposten:
 
@@ -13442,7 +13442,7 @@ D. aktive latente Steuern
 
 E. aktiver Unterschiedsbetrag aus der Vermögensverrechnung.
 
-## Passivseite
+► Passivseite
 
 Typische Hauptposten:
 
@@ -13460,7 +13460,7 @@ Die konkrete Gliederung richtet sich auch nach der Größenklasse der Kapitalges
 
 ---
 
-# 37. Kontenform der Bilanz
+⇨ 37. Kontenform der Bilanz
 
 Die Bilanz wird grundsätzlich in Kontenform aufgestellt.
 
@@ -13475,7 +13475,7 @@ Die Passivseite zeigt die Mittelherkunft.
 
 ---
 
-# 38. Gewinn- und Verlustrechnung
+⇨ 38. Gewinn- und Verlustrechnung
 
 Die Gewinn- und Verlustrechnung stellt Aufwendungen und Erträge eines Geschäftsjahres gegenüber.
 
@@ -13488,7 +13488,7 @@ Kapitalgesellschaften müssen die GuV nach § 275 HGB gliedern.
 
 ---
 
-# 39. Gesamtkostenverfahren
+⇨ 39. Gesamtkostenverfahren
 
 Beim Gesamtkostenverfahren werden die Aufwendungen nach Aufwandsarten gegliedert.
 
@@ -13503,13 +13503,13 @@ Typische Posten:
 - Abschreibungen,
 - sonstige betriebliche Aufwendungen.
 
-## Grundgedanke
+► Grundgedanke
 
 Den gesamten Leistungen einer Periode werden die gesamten Aufwendungen der Periode gegenübergestellt.
 
 ---
 
-# 40. Umsatzkostenverfahren
+⇨ 40. Umsatzkostenverfahren
 
 Beim Umsatzkostenverfahren werden die Aufwendungen nach Funktionsbereichen gegliedert.
 
@@ -13522,15 +13522,15 @@ Typische Posten:
 - allgemeine Verwaltungskosten,
 - sonstige betriebliche Erträge und Aufwendungen.
 
-## Grundgedanke
+► Grundgedanke
 
 Den Umsatzerlösen werden die Herstellungskosten der tatsächlich abgesetzten Leistungen gegenübergestellt.
 
 ---
 
-# 41. Vergleich Gesamtkosten- und Umsatzkostenverfahren
+⇨ 41. Vergleich Gesamtkosten- und Umsatzkostenverfahren
 
-## Gesamtkostenverfahren
+► Gesamtkostenverfahren
 
 Gliederung nach Aufwandsarten.
 
@@ -13540,7 +13540,7 @@ Beispiele:
 - Personal,
 - Abschreibungen.
 
-## Umsatzkostenverfahren
+► Umsatzkostenverfahren
 
 Gliederung nach Funktionsbereichen.
 
@@ -13550,13 +13550,13 @@ Beispiele:
 - Vertrieb,
 - Verwaltung.
 
-## Ergebnis
+► Ergebnis
 
 Beide Verfahren müssen bei zutreffender Anwendung zum gleichen Jahresergebnis führen.
 
 ---
 
-# 42. Prüfungsschema Gewinnermittlung
+⇨ 42. Prüfungsschema Gewinnermittlung
 
 1. Welche Einkunftsart liegt vor?
 2. Besteht handelsrechtliche Buchführungspflicht?
@@ -13571,7 +13571,7 @@ Beide Verfahren müssen bei zutreffender Anwendung zum gleichen Jahresergebnis f
 
 ---
 
-# 43. Prüfungsschema Inventur
+⇨ 43. Prüfungsschema Inventur
 
 1. Bilanzstichtag feststellen.
 2. Welche Vermögensgegenstände sind körperlich aufzunehmen?
@@ -13585,7 +13585,7 @@ Beide Verfahren müssen bei zutreffender Anwendung zum gleichen Jahresergebnis f
 
 ---
 
-# 44. Prüfungsschema Bilanzierung
+⇨ 44. Prüfungsschema Bilanzierung
 
 1. Liegt ein Vermögensgegenstand oder Wirtschaftsgut vor?
 2. Liegt eine Schuld oder Rückstellung vor?
@@ -13600,9 +13600,9 @@ Beide Verfahren müssen bei zutreffender Anwendung zum gleichen Jahresergebnis f
 
 ---
 
-# 45. Typische Klausurfallen
+⇨ 45. Typische Klausurfallen
 
-## Fehler 1: Geschäftsjahr und Wirtschaftsjahr gleichsetzen
+► Fehler 1: Geschäftsjahr und Wirtschaftsjahr gleichsetzen
 
 Das Geschäftsjahr ist handelsrechtlich.
 
@@ -13612,7 +13612,7 @@ Die Zeiträume stimmen häufig überein, müssen aber nicht identisch sein.
 
 ---
 
-## Fehler 2: Zustimmungspflicht falsch beurteilen
+► Fehler 2: Zustimmungspflicht falsch beurteilen
 
 Die Umstellung vom abweichenden Wirtschaftsjahr zurück auf das Kalenderjahr ist grundsätzlich ohne Zustimmung möglich.
 
@@ -13620,19 +13620,19 @@ Die Umstellung auf ein abweichendes Wirtschaftsjahr bedarf grundsätzlich der Zu
 
 ---
 
-## Fehler 3: Gewinn bei abweichendem Wirtschaftsjahr zeitanteilig verteilen
+► Fehler 3: Gewinn bei abweichendem Wirtschaftsjahr zeitanteilig verteilen
 
 Bei Gewerbebetrieben wird der Gewinn grundsätzlich vollständig im Kalenderjahr erfasst, in dem das Wirtschaftsjahr endet.
 
 ---
 
-## Fehler 4: EÜR trotz Buchführungspflicht anwenden
+► Fehler 4: EÜR trotz Buchführungspflicht anwenden
 
 Wer buchführungspflichtig ist oder freiwillig Bücher führt und Abschlüsse erstellt, kann grundsätzlich nicht nach § 4 Abs. 3 EStG ermitteln.
 
 ---
 
-## Fehler 5: Inventur und Inventar verwechseln
+► Fehler 5: Inventur und Inventar verwechseln
 
 Inventur ist der Vorgang.
 
@@ -13640,43 +13640,43 @@ Inventar ist das Ergebnis.
 
 ---
 
-## Fehler 6: Permanente Inventur als vollständigen Ersatz der körperlichen Inventur behandeln
+► Fehler 6: Permanente Inventur als vollständigen Ersatz der körperlichen Inventur behandeln
 
 Auch bei permanenter Inventur muss grundsätzlich mindestens einmal jährlich eine körperliche Bestandsaufnahme erfolgen.
 
 ---
 
-## Fehler 7: Zeitlich verlegte Inventur ohne Fortschreibung
+► Fehler 7: Zeitlich verlegte Inventur ohne Fortschreibung
 
 Der Inventurwert muss auf den Bilanzstichtag fortgeschrieben oder zurückgerechnet werden.
 
 ---
 
-## Fehler 8: Festwert ohne Voraussetzungen anwenden
+► Fehler 8: Festwert ohne Voraussetzungen anwenden
 
 Der Festwert ist nur zulässig, wenn Bestand, Wert und Zusammensetzung nur geringen Schwankungen unterliegen und der Gesamtwert von nachrangiger Bedeutung ist.
 
 ---
 
-## Fehler 9: Rechtliches Eigentum automatisch als Bilanzierungsgrund ansehen
+► Fehler 9: Rechtliches Eigentum automatisch als Bilanzierungsgrund ansehen
 
 Bilanzieren muss grundsätzlich der wirtschaftliche Eigentümer.
 
 ---
 
-## Fehler 10: Handelsbilanz ungeprüft als Steuerbilanz übernehmen
+► Fehler 10: Handelsbilanz ungeprüft als Steuerbilanz übernehmen
 
 Steuerrechtliche Ansatz- und Bewertungsvorschriften können von der Handelsbilanz abweichen.
 
 ---
 
-## Fehler 11: Vermögen und Schulden saldieren
+► Fehler 11: Vermögen und Schulden saldieren
 
 Das Verrechnungsverbot verlangt grundsätzlich einen getrennten Ausweis.
 
 ---
 
-## Fehler 12: GuV-Verfahren vermischen
+► Fehler 12: GuV-Verfahren vermischen
 
 Beim Gesamtkostenverfahren erfolgt die Gliederung nach Aufwandsarten.
 
@@ -13684,7 +13684,7 @@ Beim Umsatzkostenverfahren erfolgt die Gliederung nach Funktionsbereichen.
 
 ---
 
-# 46. Merksätze
+⇨ 46. Merksätze
 
 - Das Geschäftsjahr ist handelsrechtlich, das Wirtschaftsjahr steuerrechtlich.
 - Ein Wirtschaftsjahr darf grundsätzlich höchstens zwölf Monate umfassen.
@@ -13754,11 +13754,11 @@ Beim Umsatzkostenverfahren erfolgt die Gliederung nach Funktionsbereichen.
   ],
 
   body: `
-# Einkünfteermittlung, Betriebsausgaben, Pkw-Privatnutzung und Wirtschaftsjahr
+⇨ Einkünfteermittlung, Betriebsausgaben, Pkw-Privatnutzung und Wirtschaftsjahr
 
-# 1. Ermittlung der Einkünfte
+⇨ 1. Ermittlung der Einkünfte
 
-## Grundsatz der getrennten Ermittlung
+► Grundsatz der getrennten Ermittlung
 
 Die Einkünfte sind für jede Einkunftsart getrennt zu ermitteln.
 
@@ -13778,9 +13778,9 @@ Die übrigen vier Einkunftsarten sind Überschusseinkünfte.
 
 ---
 
-# 2. Gewinneinkünfte
+⇨ 2. Gewinneinkünfte
 
-## Betroffene Einkunftsarten
+► Betroffene Einkunftsarten
 
 Zu den Gewinneinkünften gehören:
 
@@ -13790,7 +13790,7 @@ Zu den Gewinneinkünften gehören:
 
 Einkünfte sind bei diesen Einkunftsarten der Gewinn.
 
-## Mögliche Gewinnermittlungsarten
+► Mögliche Gewinnermittlungsarten
 
 Der Gewinn kann insbesondere ermittelt werden durch:
 
@@ -13800,9 +13800,9 @@ Der Gewinn kann insbesondere ermittelt werden durch:
 
 ---
 
-# 3. Betriebsvermögensvergleich
+⇨ 3. Betriebsvermögensvergleich
 
-## Grundgedanke
+► Grundgedanke
 
 Beim Betriebsvermögensvergleich wird die Veränderung des Betriebsvermögens zwischen zwei Bilanzstichtagen ermittelt.
 
@@ -13826,11 +13826,11 @@ gleich
 
 Gewinn oder Verlust.
 
-## § 4 Abs. 1 EStG
+► § 4 Abs. 1 EStG
 
 § 4 Abs. 1 EStG enthält die steuerliche Grunddefinition des Gewinns durch Betriebsvermögensvergleich.
 
-## § 5 EStG
+► § 5 EStG
 
 § 5 EStG betrifft insbesondere Gewerbetreibende, die
 
@@ -13839,15 +13839,15 @@ Gewinn oder Verlust.
 
 Ausgangspunkt ist grundsätzlich die Handelsbilanz, die unter Beachtung steuerlicher Vorschriften zur Steuerbilanz übergeleitet wird.
 
-## Merksatz
+► Merksatz
 
 Beim Betriebsvermögensvergleich wird nicht lediglich der Zahlungsfluss betrachtet, sondern die wirtschaftliche Vermögensentwicklung des Betriebs.
 
 ---
 
-# 4. Einnahmenüberschussrechnung nach § 4 Abs. 3 EStG
+⇨ 4. Einnahmenüberschussrechnung nach § 4 Abs. 3 EStG
 
-## Grundschema
+► Grundschema
 
 Betriebseinnahmen
 
@@ -13865,13 +13865,13 @@ Die Einnahmenüberschussrechnung wird auch bezeichnet als:
 - Überschussrechnung,
 - Gewinnermittlung nach § 4 Abs. 3 EStG.
 
-## Grundprinzip
+► Grundprinzip
 
 Grundsätzlich ist auf den tatsächlichen Zufluss und Abfluss von Einnahmen und Ausgaben abzustellen.
 
 Besondere gesetzliche Ausnahmen bleiben zu beachten.
 
-## Abgrenzung zur Bilanz
+► Abgrenzung zur Bilanz
 
 Bei der Bilanzierung wird die wirtschaftliche Entstehung berücksichtigt.
 
@@ -13879,9 +13879,9 @@ Bei der EÜR ist grundsätzlich der Zahlungszeitpunkt entscheidend.
 
 ---
 
-# 5. Überschusseinkünfte
+⇨ 5. Überschusseinkünfte
 
-## Betroffene Einkunftsarten
+► Betroffene Einkunftsarten
 
 Zu den Überschusseinkünften gehören:
 
@@ -13890,7 +13890,7 @@ Zu den Überschusseinkünften gehören:
 - Vermietung und Verpachtung,
 - sonstige Einkünfte.
 
-## Grundschema
+► Grundschema
 
 Einnahmen nach § 8 EStG
 
@@ -13902,7 +13902,7 @@ gleich
 
 Überschuss der Einnahmen über die Werbungskosten oder Verlust.
 
-## Abgrenzung
+► Abgrenzung
 
 Bei Gewinneinkünften spricht man von:
 
@@ -13916,7 +13916,7 @@ Bei Überschusseinkünften spricht man von:
 - Werbungskosten,
 - Überschuss.
 
-## Merksatz
+► Merksatz
 
 Betriebsausgaben gehören zu Gewinneinkünften.
 
@@ -13924,9 +13924,9 @@ Werbungskosten gehören zu Überschusseinkünften.
 
 ---
 
-# 6. Betriebsausgaben nach § 4 Abs. 4 EStG
+⇨ 6. Betriebsausgaben nach § 4 Abs. 4 EStG
 
-## Definition
+► Definition
 
 Betriebsausgaben sind Aufwendungen, die durch den Betrieb veranlasst sind.
 
@@ -13944,11 +13944,11 @@ Typische Betriebsausgaben:
 - Büromaterial,
 - Telefon- und Internetkosten.
 
-## Rechtsfolge
+► Rechtsfolge
 
 Betriebsausgaben mindern grundsätzlich den steuerlichen Gewinn.
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Liegt ein Aufwand vor?
 2. Besteht ein wirtschaftlicher Zusammenhang mit dem Betrieb?
@@ -13959,7 +13959,7 @@ Betriebsausgaben mindern grundsätzlich den steuerlichen Gewinn.
 
 ---
 
-# 7. Abgrenzung zu privaten Aufwendungen
+⇨ 7. Abgrenzung zu privaten Aufwendungen
 
 Aufwendungen für die private Lebensführung sind grundsätzlich keine Betriebsausgaben.
 
@@ -13979,7 +13979,7 @@ Ist der private und betriebliche Anteil nicht trennbar und prägt die private Ve
 
 ---
 
-# 8. Nicht abziehbare Betriebsausgaben
+⇨ 8. Nicht abziehbare Betriebsausgaben
 
 Nicht jede betrieblich veranlasste Ausgabe darf den steuerlichen Gewinn mindern.
 
@@ -13995,7 +13995,7 @@ Typische Fälle:
 - Geldbußen und Ordnungsgelder,
 - unangemessene Aufwendungen.
 
-## Bedeutung
+► Bedeutung
 
 Der Aufwand kann handelsrechtlich oder buchhalterisch erfasst sein.
 
@@ -14003,7 +14003,7 @@ Für die steuerliche Gewinnermittlung muss er jedoch außerbilanziell hinzugerec
 
 ---
 
-# 9. Gewerbesteuer als nicht abziehbare Betriebsausgabe
+⇨ 9. Gewerbesteuer als nicht abziehbare Betriebsausgabe
 
 Die Gewerbesteuer und die darauf entfallenden steuerlichen Nebenleistungen dürfen den einkommensteuerlichen Gewinn nicht mindern.
 
@@ -14011,11 +14011,11 @@ Rechtsgrundlage:
 
 § 4 Abs. 5b EStG.
 
-## Buchhalterische Behandlung
+► Buchhalterische Behandlung
 
 Wurde Gewerbesteuer als Aufwand gebucht, muss sie bei der steuerlichen Gewinnermittlung wieder hinzugerechnet werden.
 
-## Beispiel
+► Beispiel
 
 Handelsrechtlicher Gewinn:
 
@@ -14031,13 +14031,13 @@ Steuerlicher Gewinn vor weiteren Korrekturen:
 
 = 135.000 €.
 
-## Merksatz
+► Merksatz
 
 Die Gewerbesteuer wird zwar als Aufwand gebucht, ist steuerlich aber nicht gewinnmindernd abzugsfähig.
 
 ---
 
-# 10. Aufwendungen zur Förderung staatspolitischer Zwecke
+⇨ 10. Aufwendungen zur Förderung staatspolitischer Zwecke
 
 Aufwendungen zur Förderung staatspolitischer Zwecke sind nach § 4 Abs. 6 EStG grundsätzlich keine Betriebsausgaben.
 
@@ -14045,9 +14045,9 @@ Eine Berücksichtigung kann gegebenenfalls nach anderen Vorschriften, beispielsw
 
 ---
 
-# 11. Geschenke an Geschäftsfreunde
+⇨ 11. Geschenke an Geschäftsfreunde
 
-## Anwendungsbereich
+► Anwendungsbereich
 
 § 4 Abs. 5 Satz 1 Nr. 1 EStG betrifft betrieblich veranlasste Geschenke an Personen, die nicht Arbeitnehmer des Steuerpflichtigen sind.
 
@@ -14060,7 +14060,7 @@ Typische Empfänger:
 - Vermittler,
 - sonstige Geschäftsfreunde.
 
-## Begriff des Geschenks
+► Begriff des Geschenks
 
 Ein Geschenk setzt grundsätzlich eine unentgeltliche Zuwendung voraus.
 
@@ -14075,9 +14075,9 @@ Keine Geschenke sind insbesondere:
 
 ---
 
-# 12. Geschenkgrenze von 50 €
+⇨ 12. Geschenkgrenze von 50 €
 
-## Grundsatz
+► Grundsatz
 
 Die Anschaffungs- oder Herstellungskosten der im Wirtschaftsjahr an einen Empfänger zugewendeten Geschenke dürfen insgesamt 50 € nicht übersteigen.
 
@@ -14086,7 +14086,7 @@ Maßgeblich ist:
 - die Summe pro Empfänger,
 - innerhalb eines Wirtschaftsjahres.
 
-## Freigrenze
+► Freigrenze
 
 Die Grenze von 50 € ist eine Freigrenze und kein Freibetrag.
 
@@ -14100,7 +14100,7 @@ Geschenke von insgesamt mehr als 50 €:
 
 vollständig nicht abzugsfähig.
 
-## Beispiel 1
+► Beispiel 1
 
 Ein Geschäftspartner erhält im Jahr:
 
@@ -14115,7 +14115,7 @@ Folge:
 
 Grundsätzlich abzugsfähige Betriebsausgabe.
 
-## Beispiel 2
+► Beispiel 2
 
 Ein Geschäftspartner erhält im Jahr:
 
@@ -14134,21 +14134,21 @@ Nicht nur der die Grenze übersteigende Betrag von 5 € ist ausgeschlossen.
 
 ---
 
-# 13. Netto- oder Bruttogrenze bei Geschenken
+⇨ 13. Netto- oder Bruttogrenze bei Geschenken
 
 Ob für die 50-€-Grenze der Netto- oder Bruttobetrag maßgeblich ist, hängt vom Vorsteuerabzug ab.
 
-## Vorsteuerabzug möglich
+► Vorsteuerabzug möglich
 
 Ist der Unternehmer zum Vorsteuerabzug berechtigt, sind grundsätzlich die Nettokosten maßgeblich.
 
-## Kein Vorsteuerabzug
+► Kein Vorsteuerabzug
 
 Ist der Unternehmer nicht zum Vorsteuerabzug berechtigt, gehört die Umsatzsteuer zu den Anschaffungskosten.
 
 Dann ist grundsätzlich der Bruttobetrag maßgeblich.
 
-## Merksatz
+► Merksatz
 
 Vorsteuerabzugsberechtigter Unternehmer:
 
@@ -14160,7 +14160,7 @@ Bruttowert prüfen.
 
 ---
 
-# 14. Besondere Aufzeichnungspflichten für Geschenke
+⇨ 14. Besondere Aufzeichnungspflichten für Geschenke
 
 Die Abziehbarkeit setzt zusätzlich voraus, dass die besonderen Aufzeichnungspflichten nach § 4 Abs. 7 EStG eingehalten werden.
 
@@ -14174,13 +14174,13 @@ aufgezeichnet werden.
 
 Erforderlich ist insbesondere die Zuordnung zum jeweiligen Empfänger.
 
-## Folge einer fehlenden Aufzeichnung
+► Folge einer fehlenden Aufzeichnung
 
 Auch ein Geschenk unterhalb der 50-€-Grenze kann nicht abziehbar sein, wenn die besonderen Aufzeichnungspflichten nicht erfüllt werden.
 
 ---
 
-# 15. Umsatzsteuer bei Geschenken
+⇨ 15. Umsatzsteuer bei Geschenken
 
 Bei einkommensteuerlich nicht abziehbaren Geschenken kann auch der Vorsteuerabzug ausgeschlossen sein.
 
@@ -14196,7 +14196,7 @@ Daher sind getrennt zu prüfen:
 
 ---
 
-# 16. Private Nutzung eines betrieblichen Pkw
+⇨ 16. Private Nutzung eines betrieblichen Pkw
 
 Wird ein betrieblicher Pkw auch privat genutzt, muss der private Nutzungsanteil gewinnerhöhend erfasst werden.
 
@@ -14212,7 +14212,7 @@ Die Fahrzeugüberlassung an einen Gesellschafter oder Arbeitnehmer ist dort geso
 
 ---
 
-# 17. Voraussetzungen der 1-%-Regelung
+⇨ 17. Voraussetzungen der 1-%-Regelung
 
 Die pauschale 1-%-Regelung setzt grundsätzlich voraus, dass
 
@@ -14225,9 +14225,9 @@ Liegt die betriebliche Nutzung nicht über 50 %, ist die 1-%-Regelung für die B
 
 ---
 
-# 18. Berechnung der 1-%-Regelung
+⇨ 18. Berechnung der 1-%-Regelung
 
-## Bemessungsgrundlage
+► Bemessungsgrundlage
 
 Maßgeblich ist der inländische Bruttolistenpreis im Zeitpunkt der Erstzulassung.
 
@@ -14244,17 +14244,17 @@ Nicht maßgeblich sind:
 - aktuelle Marktwertentwicklung,
 - tatsächlich gewährte Rabatte.
 
-## Abrundung
+► Abrundung
 
 Der Bruttolistenpreis wird auf volle 100 € nach unten abgerundet.
 
-## Monatliche Privatnutzung
+► Monatliche Privatnutzung
 
 Monatlicher Privatanteil:
 
 1 % des abgerundeten Bruttolistenpreises.
 
-## Jahreswert
+► Jahreswert
 
 Monatlicher Privatanteil
 
@@ -14262,7 +14262,7 @@ Monatlicher Privatanteil
 
 ---
 
-# 19. Beispiel zur 1-%-Regelung
+⇨ 19. Beispiel zur 1-%-Regelung
 
 Bruttolistenpreis bei Erstzulassung:
 
@@ -14288,7 +14288,7 @@ Dieser Betrag erhöht grundsätzlich den Gewinn.
 
 ---
 
-# 20. Kostendeckelung
+⇨ 20. Kostendeckelung
 
 Der nach der 1-%-Regelung und gegebenenfalls der Entfernungspauschalregelung ermittelte Nutzungswert soll die tatsächlich angefallenen Gesamtkosten des Fahrzeugs grundsätzlich nicht überschreiten.
 
@@ -14307,7 +14307,7 @@ Zu den Gesamtkosten gehören insbesondere:
 
 ---
 
-# 21. Fahrten zwischen Wohnung und Betriebsstätte
+⇨ 21. Fahrten zwischen Wohnung und Betriebsstätte
 
 Neben der privaten Nutzung ist die Nutzung für Fahrten zwischen Wohnung und Betriebsstätte gesondert zu berücksichtigen.
 
@@ -14325,7 +14325,7 @@ Rechtsgrundlage:
 
 § 4 Abs. 5 Satz 1 Nr. 6 EStG in Verbindung mit § 6 Abs. 1 Nr. 4 EStG.
 
-## Formel
+► Formel
 
 Abgerundeter Bruttolistenpreis
 
@@ -14339,7 +14339,7 @@ Die einfache Entfernung ist maßgeblich, nicht die Hin- und Rückfahrt.
 
 ---
 
-# 22. Beispiel: Wohnung und Betriebsstätte
+⇨ 22. Beispiel: Wohnung und Betriebsstätte
 
 Abgerundeter Bruttolistenpreis:
 
@@ -14365,13 +14365,13 @@ Die konkrete steuerliche Auswirkung ist unter Berücksichtigung der Entfernungsp
 
 ---
 
-# 23. Fahrtenbuchmethode
+⇨ 23. Fahrtenbuchmethode
 
 Statt der pauschalen Bewertung kann der private Nutzungsanteil anhand der tatsächlichen Kosten und der tatsächlich gefahrenen Kilometer ermittelt werden.
 
 Voraussetzung ist ein ordnungsgemäßes Fahrtenbuch.
 
-## Grundformel
+► Grundformel
 
 Gesamte Fahrzeugkosten
 
@@ -14383,7 +14383,7 @@ Gesamte Fahrzeugkosten
 
 Fahrten zwischen Wohnung und Betriebsstätte sind gesondert zu berücksichtigen.
 
-## Anforderungen an das Fahrtenbuch
+► Anforderungen an das Fahrtenbuch
 
 Ein ordnungsgemäßes Fahrtenbuch muss insbesondere
 
@@ -14406,9 +14406,9 @@ Für betriebliche Fahrten sind regelmäßig aufzuzeichnen:
 
 ---
 
-# 24. Vergleich der Methoden
+⇨ 24. Vergleich der Methoden
 
-## 1-%-Regelung
+► 1-%-Regelung
 
 Vorteile:
 
@@ -14421,7 +14421,7 @@ Nachteile:
 - bei hohem Listenpreis möglicherweise hoher Ansatz,
 - auch bei günstig erworbenen Gebrauchtwagen gilt grundsätzlich der ursprüngliche Listenpreis.
 
-## Fahrtenbuchmethode
+► Fahrtenbuchmethode
 
 Vorteile:
 
@@ -14436,7 +14436,7 @@ Nachteile:
 
 ---
 
-# 25. Umsatzsteuerliche Privatnutzung
+⇨ 25. Umsatzsteuerliche Privatnutzung
 
 Die private Verwendung eines dem Unternehmen zugeordneten Pkw kann umsatzsteuerlich eine unentgeltliche Wertabgabe darstellen.
 
@@ -14450,7 +14450,7 @@ Einkommensteuer und Umsatzsteuer sind getrennt zu beurteilen.
 
 ---
 
-# 26. Elektrofahrzeuge und extern aufladbare Hybridfahrzeuge
+⇨ 26. Elektrofahrzeuge und extern aufladbare Hybridfahrzeuge
 
 Für bestimmte Elektrofahrzeuge und extern aufladbare Hybridelektrofahrzeuge gelten Vergünstigungen bei der Bewertung der privaten Nutzung.
 
@@ -14463,15 +14463,15 @@ Bei der Fahrtenbuchmethode werden entsprechend bestimmte Fahrzeugkosten, insbeso
 
 ---
 
-# 27. Reine Elektrofahrzeuge – Viertelansatz
+⇨ 27. Reine Elektrofahrzeuge – Viertelansatz
 
-## Grundprinzip
+► Grundprinzip
 
 Bei begünstigten reinen Elektrofahrzeugen wird für die pauschale Bewertung nur ein Viertel des Bruttolistenpreises angesetzt.
 
 Aus der üblichen 1-%-Regelung wird wirtschaftlich eine sogenannte 0,25-%-Regelung.
 
-## Berechnung
+► Berechnung
 
 Bruttolistenpreis
 
@@ -14483,7 +14483,7 @@ anschließend Abrundung auf volle 100 €
 
 Alternativ kann zunächst entsprechend der gesetzlichen Berechnungsreihenfolge der maßgebliche Viertelwert ermittelt und abgerundet werden.
 
-## Beispiel
+► Beispiel
 
 Bruttolistenpreis:
 
@@ -14505,7 +14505,7 @@ Wirtschaftlich entspricht dies:
 
 ---
 
-# 28. Aktuelle Preisgrenze bei reinen Elektrofahrzeugen
+⇨ 28. Aktuelle Preisgrenze bei reinen Elektrofahrzeugen
 
 Für nach dem 30. Juni 2025 angeschaffte reine Elektrofahrzeuge ist der Viertelansatz grundsätzlich möglich, wenn der Bruttolistenpreis die gesetzliche Grenze von 100.000 € nicht übersteigt.
 
@@ -14517,7 +14517,7 @@ Bei älteren Anschaffungs- oder Überlassungszeiträumen galten andere Grenzen, 
 
 Der konkrete Anschaffungs- oder Überlassungszeitpunkt ist deshalb zwingend festzustellen.
 
-## Merksatz
+► Merksatz
 
 Bei Elektrofahrzeugen niemals nur den Fahrzeugtyp prüfen.
 
@@ -14530,17 +14530,17 @@ Immer zusätzlich prüfen:
 
 ---
 
-# 29. Hälftiger Ansatz
+⇨ 29. Hälftiger Ansatz
 
 Sind die Voraussetzungen des Viertelansatzes nicht erfüllt, kann bei begünstigten Elektro- oder extern aufladbaren Hybridfahrzeugen ein hälftiger Ansatz in Betracht kommen.
 
-## Pauschalmethode
+► Pauschalmethode
 
 Es wird grundsätzlich die Hälfte des Bruttolistenpreises angesetzt.
 
 Wirtschaftlich ergibt sich eine sogenannte 0,5-%-Regelung.
 
-## Fahrtenbuchmethode
+► Fahrtenbuchmethode
 
 Bei der Ermittlung der Gesamtkosten werden insbesondere
 
@@ -14551,7 +14551,7 @@ nur mit dem gesetzlich vorgesehenen Anteil berücksichtigt.
 
 ---
 
-# 30. Extern aufladbare Hybridfahrzeuge
+⇨ 30. Extern aufladbare Hybridfahrzeuge
 
 Bei extern aufladbaren Hybridelektrofahrzeugen ist zu prüfen, ob die gesetzlichen Umweltvoraussetzungen erfüllt sind.
 
@@ -14566,7 +14566,7 @@ Die Voraussetzungen und Reichweitengrenzen hängen vom Anschaffungs- oder Überl
 
 ---
 
-# 31. Elektrofahrzeug und Fahrten Wohnung–Betriebsstätte
+⇨ 31. Elektrofahrzeug und Fahrten Wohnung–Betriebsstätte
 
 Der reduzierte Bruttolistenpreis gilt grundsätzlich auch für die Berechnung des Zuschlags für Fahrten zwischen Wohnung und Betriebsstätte.
 
@@ -14592,7 +14592,7 @@ Monatlicher Wert:
 
 ---
 
-# 32. Prüfungsschema private Pkw-Nutzung
+⇨ 32. Prüfungsschema private Pkw-Nutzung
 
 1. Wem ist das Fahrzeug steuerlich zuzurechnen?
 2. Einzelunternehmen, Mitunternehmerschaft oder Kapitalgesellschaft?
@@ -14612,7 +14612,7 @@ Monatlicher Wert:
 
 ---
 
-# 33. Wirtschaftsjahr als Ermittlungszeitraum
+⇨ 33. Wirtschaftsjahr als Ermittlungszeitraum
 
 Das Wirtschaftsjahr ist der Zeitraum, für den der Gewinn bei bestimmten Gewinneinkünften ermittelt wird.
 
@@ -14625,36 +14625,36 @@ Bei den übrigen Einkunftsarten ist grundsätzlich das Kalenderjahr maßgeblich.
 
 ---
 
-# 34. Kalenderjahr und Wirtschaftsjahr
+⇨ 34. Kalenderjahr und Wirtschaftsjahr
 
-## Land- und Forstwirtschaft
+► Land- und Forstwirtschaft
 
 Für Land- und Forstwirte gelten besondere Wirtschaftsjahresregelungen.
 
 Das Wirtschaftsjahr kann vom Kalenderjahr abweichen.
 
-## Gewerbebetrieb
+► Gewerbebetrieb
 
 Bei Gewerbetreibenden ist zu unterscheiden zwischen:
 
 - im Handelsregister eingetragenen Gewerbetreibenden,
 - nicht im Handelsregister eingetragenen Gewerbetreibenden.
 
-## Übrige Einkunftsarten
+► Übrige Einkunftsarten
 
 Bei den übrigen Einkunftsarten erfolgt die Einkünfteermittlung grundsätzlich für das Kalenderjahr.
 
 ---
 
-# 35. Dauer des Wirtschaftsjahres
+⇨ 35. Dauer des Wirtschaftsjahres
 
-## Grundsatz
+► Grundsatz
 
 Ein Wirtschaftsjahr umfasst grundsätzlich zwölf Monate.
 
 Ein längerer Zeitraum als zwölf Monate ist grundsätzlich nicht zulässig.
 
-## Rumpfwirtschaftsjahr
+► Rumpfwirtschaftsjahr
 
 Ein kürzerer Zeitraum wird als Rumpfwirtschaftsjahr bezeichnet.
 
@@ -14668,7 +14668,7 @@ Ein Rumpfwirtschaftsjahr kann insbesondere entstehen bei:
 
 ---
 
-# 36. Nicht im Handelsregister eingetragene Gewerbetreibende
+⇨ 36. Nicht im Handelsregister eingetragene Gewerbetreibende
 
 Bei Gewerbetreibenden, deren Firma nicht im Handelsregister eingetragen ist, entspricht das Wirtschaftsjahr grundsätzlich dem Kalenderjahr.
 
@@ -14682,7 +14682,7 @@ Der Gewinnermittlungszeitraum läuft damit regelmäßig vom
 
 ---
 
-# 37. Im Handelsregister eingetragene Gewerbetreibende
+⇨ 37. Im Handelsregister eingetragene Gewerbetreibende
 
 Bei im Handelsregister eingetragenen Gewerbetreibenden kann das Wirtschaftsjahr grundsätzlich dem Kalenderjahr entsprechen oder davon abweichen.
 
@@ -14700,7 +14700,7 @@ Die steuerlichen Voraussetzungen für Wahl oder Umstellung sind gesondert zu pr�
 
 ---
 
-# 38. Gewinnbezug bei Gewerbebetrieb
+⇨ 38. Gewinnbezug bei Gewerbebetrieb
 
 Bei Gewerbebetrieben ist der Gewinn eines abweichenden Wirtschaftsjahres grundsätzlich in dem Kalenderjahr zu erfassen, in dem das Wirtschaftsjahr endet.
 
@@ -14718,13 +14718,13 @@ Rechtsgrundlage:
 
 ---
 
-# 39. Gewinnbezug bei Land- und Forstwirtschaft
+⇨ 39. Gewinnbezug bei Land- und Forstwirtschaft
 
 Bei Land- und Forstwirten mit abweichendem Wirtschaftsjahr wird der laufende Gewinn grundsätzlich zeitanteilig auf die betroffenen Kalenderjahre aufgeteilt.
 
 Ein Veräußerungsgewinn wird dagegen grundsätzlich dem Kalenderjahr der Veräußerung zugeordnet.
 
-## Beispiel
+► Beispiel
 
 Wirtschaftsjahr:
 
@@ -14739,7 +14739,7 @@ Der laufende Gewinn wird entsprechend aufgeteilt.
 
 ---
 
-# 40. Veräußerungsgewinn bei Land- und Forstwirtschaft
+⇨ 40. Veräußerungsgewinn bei Land- und Forstwirtschaft
 
 Ein Gewinn aus der Veräußerung oder Aufgabe des land- und forstwirtschaftlichen Betriebs wird nicht zeitanteilig aufgeteilt.
 
@@ -14747,7 +14747,7 @@ Er ist grundsätzlich in dem Kalenderjahr zu berücksichtigen, in dem die Veräu
 
 ---
 
-# 41. Umstellung des Wirtschaftsjahres
+⇨ 41. Umstellung des Wirtschaftsjahres
 
 Die Umstellung eines Wirtschaftsjahres kann steuerlich nicht beliebig vorgenommen werden.
 
@@ -14759,13 +14759,13 @@ Zu prüfen sind insbesondere:
 - Entstehung eines Rumpfwirtschaftsjahres,
 - zeitliche Zuordnung des Gewinns.
 
-## Typische Folge
+► Typische Folge
 
 Durch die Umstellung entsteht regelmäßig ein verkürztes Wirtschaftsjahr, das die Lücke zwischen altem und neuem Bilanzstichtag schließt.
 
 ---
 
-# 42. Prüfungsschema Wirtschaftsjahr
+⇨ 42. Prüfungsschema Wirtschaftsjahr
 
 1. Welche Einkunftsart liegt vor?
 2. Gewinneinkünfte oder Überschusseinkünfte?
@@ -14781,9 +14781,9 @@ Durch die Umstellung entsteht regelmäßig ein verkürztes Wirtschaftsjahr, das 
 
 ---
 
-# 43. Typische Klausurfallen
+⇨ 43. Typische Klausurfallen
 
-## Fehler 1: Gewinn und Überschuss gleich behandeln
+► Fehler 1: Gewinn und Überschuss gleich behandeln
 
 Bei Gewinneinkünften werden Betriebseinnahmen und Betriebsausgaben berücksichtigt.
 
@@ -14791,19 +14791,19 @@ Bei Überschusseinkünften werden Einnahmen und Werbungskosten berücksichtigt.
 
 ---
 
-## Fehler 2: Jede betriebliche Ausgabe vollständig abziehen
+► Fehler 2: Jede betriebliche Ausgabe vollständig abziehen
 
 Auch betrieblich veranlasste Aufwendungen können unter ein gesetzliches Abzugsverbot fallen.
 
 ---
 
-## Fehler 3: Gewerbesteuer als abzugsfähig behandeln
+► Fehler 3: Gewerbesteuer als abzugsfähig behandeln
 
 Die Gewerbesteuer ist nach § 4 Abs. 5b EStG nicht gewinnmindernd abziehbar.
 
 ---
 
-## Fehler 4: Geschenkgrenze als Freibetrag behandeln
+► Fehler 4: Geschenkgrenze als Freibetrag behandeln
 
 Die 50-€-Grenze ist eine Freigrenze.
 
@@ -14811,49 +14811,49 @@ Wird sie überschritten, ist das gesamte Geschenkvolumen an diesen Empfänger ni
 
 ---
 
-## Fehler 5: Geschenke einzeln statt pro Empfänger addieren
+► Fehler 5: Geschenke einzeln statt pro Empfänger addieren
 
 Entscheidend sind die gesamten Zuwendungen an einen Empfänger im Wirtschaftsjahr.
 
 ---
 
-## Fehler 6: Aufzeichnungspflichten vergessen
+► Fehler 6: Aufzeichnungspflichten vergessen
 
 Ein Geschenk kann trotz Einhaltung der Wertgrenze nicht abziehbar sein, wenn es nicht ordnungsgemäß getrennt aufgezeichnet wurde.
 
 ---
 
-## Fehler 7: Kaufpreis statt Bruttolistenpreis verwenden
+► Fehler 7: Kaufpreis statt Bruttolistenpreis verwenden
 
 Für die 1-%-Regelung ist grundsätzlich der Bruttolistenpreis bei Erstzulassung maßgeblich.
 
 ---
 
-## Fehler 8: Sonderausstattung vergessen
+► Fehler 8: Sonderausstattung vergessen
 
 Werkseitige Sonderausstattung gehört grundsätzlich zum Bruttolistenpreis.
 
 ---
 
-## Fehler 9: Bruttolistenpreis aufrunden
+► Fehler 9: Bruttolistenpreis aufrunden
 
 Der Listenpreis wird auf volle 100 € nach unten abgerundet.
 
 ---
 
-## Fehler 10: 1-%-Regelung bei geringer betrieblicher Nutzung anwenden
+► Fehler 10: 1-%-Regelung bei geringer betrieblicher Nutzung anwenden
 
 Die pauschale Methode setzt grundsätzlich eine betriebliche Nutzung von mehr als 50 % voraus.
 
 ---
 
-## Fehler 11: Fahrten zur Betriebsstätte als Privatfahrten behandeln
+► Fehler 11: Fahrten zur Betriebsstätte als Privatfahrten behandeln
 
 Sie sind gesondert nach § 4 Abs. 5 Satz 1 Nr. 6 EStG zu berücksichtigen.
 
 ---
 
-## Fehler 12: Elektrofahrzeug automatisch mit 0,25 % bewerten
+► Fehler 12: Elektrofahrzeug automatisch mit 0,25 % bewerten
 
 Der Viertelansatz hängt insbesondere von
 
@@ -14865,7 +14865,7 @@ ab.
 
 ---
 
-## Fehler 13: Veraltete Elektrofahrzeuggrenzen verwenden
+► Fehler 13: Veraltete Elektrofahrzeuggrenzen verwenden
 
 Die maßgebliche Preisgrenze hat sich mehrfach geändert.
 
@@ -14873,27 +14873,27 @@ Für nach dem 30. Juni 2025 angeschaffte reine Elektrofahrzeuge ist insbesondere
 
 ---
 
-## Fehler 14: Jedes Wirtschaftsjahr dem Kalenderjahr gleichsetzen
+► Fehler 14: Jedes Wirtschaftsjahr dem Kalenderjahr gleichsetzen
 
 Bei bestimmten Gewerbetreibenden und Land- und Forstwirten kann ein abweichendes Wirtschaftsjahr vorliegen.
 
 ---
 
-## Fehler 15: Gewinn eines Gewerbebetriebs zeitanteilig aufteilen
+► Fehler 15: Gewinn eines Gewerbebetriebs zeitanteilig aufteilen
 
 Der Gewinn eines abweichenden Wirtschaftsjahres eines Gewerbebetriebs wird grundsätzlich vollständig in dem Kalenderjahr erfasst, in dem das Wirtschaftsjahr endet.
 
 ---
 
-## Fehler 16: Veräußerungsgewinn eines Landwirts zeitanteilig aufteilen
+► Fehler 16: Veräußerungsgewinn eines Landwirts zeitanteilig aufteilen
 
 Der Veräußerungsgewinn ist grundsätzlich im Kalenderjahr der Veräußerung anzusetzen.
 
 ---
 
-# 44. Gesamtprüfungsschema
+⇨ 44. Gesamtprüfungsschema
 
-## Einkünfteermittlung
+► Einkünfteermittlung
 
 1. Einkunftsart bestimmen.
 2. Gewinneinkünfte oder Überschusseinkünfte?
@@ -14904,7 +14904,7 @@ Der Veräußerungsgewinn ist grundsätzlich im Kalenderjahr der Veräußerung an
 7. Private Nutzungen und Entnahmen korrigieren.
 8. Steuerlichen Gewinn oder Überschuss ermitteln.
 
-## Betriebsausgaben
+► Betriebsausgaben
 
 1. Betriebliche Veranlassung?
 2. Private Mitveranlassung?
@@ -14913,7 +14913,7 @@ Der Veräußerungsgewinn ist grundsätzlich im Kalenderjahr der Veräußerung an
 5. Umsatzsteuerliche Folge?
 6. Richtige zeitliche Zuordnung?
 
-## Betrieblicher Pkw
+► Betrieblicher Pkw
 
 1. Betriebsvermögen?
 2. Betriebliche Nutzung über 50 %?
@@ -14927,7 +14927,7 @@ Der Veräußerungsgewinn ist grundsätzlich im Kalenderjahr der Veräußerung an
 
 ---
 
-# 45. Merksätze
+⇨ 45. Merksätze
 
 - Einkünfte werden für jede Einkunftsart getrennt ermittelt.
 - Gewinneinkünfte ergeben sich als Gewinn.
@@ -14988,9 +14988,9 @@ Der Veräußerungsgewinn ist grundsätzlich im Kalenderjahr der Veräußerung an
   ],
 
   body: `
-# Steuerbefreiungen im Umsatzsteuerrecht
+⇨ Steuerbefreiungen im Umsatzsteuerrecht
 
-## 1. Ausgangspunkt
+► 1. Ausgangspunkt
 
 Eine Steuerbefreiung wird erst geprüft, wenn zuvor ein steuerbarer Umsatz festgestellt wurde.
 
@@ -15013,11 +15013,11 @@ Merksatz:
 
 ---
 
-# 2. Einteilung der Steuerbefreiungen
+⇨ 2. Einteilung der Steuerbefreiungen
 
 Steuerbefreiungen lassen sich insbesondere danach unterscheiden, ob der Vorsteuerabzug erhalten bleibt.
 
-## Steuerbefreiungen mit Vorsteuerabzug
+► Steuerbefreiungen mit Vorsteuerabzug
 
 Bei bestimmten steuerfreien Umsätzen bleibt der Vorsteuerabzug erhalten.
 
@@ -15029,7 +15029,7 @@ Wichtige Beispiele:
 
 Die Steuerbefreiung des Ausgangsumsatzes führt hier nicht zum Vorsteuerausschluss.
 
-## Steuerbefreiungen ohne Vorsteuerabzug
+► Steuerbefreiungen ohne Vorsteuerabzug
 
 Bei zahlreichen Steuerbefreiungen führt § 15 Abs. 2 UStG zum Ausschluss des Vorsteuerabzugs.
 
@@ -15040,7 +15040,7 @@ Typische Beispiele:
 - Heilbehandlungen,
 - Versicherungs- und Finanzumsätze.
 
-## Rückausnahme nach § 15 Abs. 3 UStG
+► Rückausnahme nach § 15 Abs. 3 UStG
 
 Bei bestimmten steuerfreien Umsätzen bleibt der Vorsteuerabzug ausnahmsweise erhalten.
 
@@ -15051,7 +15051,7 @@ Deshalb muss nach Feststellung einer Steuerbefreiung immer zusätzlich geprüft 
 
 ---
 
-# 3. Option zur Steuerpflicht nach § 9 UStG
+⇨ 3. Option zur Steuerpflicht nach § 9 UStG
 
 Bei bestimmten Steuerbefreiungen kann der Unternehmer auf die Steuerbefreiung verzichten.
 
@@ -15078,9 +15078,9 @@ Merksatz:
 
 ---
 
-# 4. Ausfuhrlieferungen
+⇨ 4. Ausfuhrlieferungen
 
-## Rechtsgrundlage
+► Rechtsgrundlage
 
 Ausfuhrlieferungen sind nach
 
@@ -15095,7 +15095,7 @@ Die Prüfung erfolgt in zwei Stufen:
 
 ---
 
-# 5. Allgemeine Voraussetzungen einer Ausfuhrlieferung
+⇨ 5. Allgemeine Voraussetzungen einer Ausfuhrlieferung
 
 Eine Ausfuhrlieferung setzt grundsätzlich voraus:
 
@@ -15106,7 +15106,7 @@ Eine Ausfuhrlieferung setzt grundsätzlich voraus:
 - die Erfüllung der Voraussetzungen des § 6 UStG,
 - einen ordnungsgemäßen Ausfuhrnachweis.
 
-## Drittlandsgebiet
+► Drittlandsgebiet
 
 Drittlandsgebiet ist das Gebiet, das nicht zum umsatzsteuerrechtlichen Gemeinschaftsgebiet gehört.
 
@@ -15117,7 +15117,7 @@ Beispiele:
 - USA,
 - Vereinigtes Königreich, soweit keine Sonderregelung eingreift.
 
-## Bewegte Lieferung
+► Bewegte Lieferung
 
 Die Steuerbefreiung kann grundsätzlich nur die Lieferung erfassen, der die Beförderung oder Versendung zugeordnet wird.
 
@@ -15125,9 +15125,9 @@ Eine unbewegte bzw. ruhende Lieferung ist nicht als Ausfuhrlieferung steuerfrei.
 
 ---
 
-# 6. Ausfuhrlieferung nach § 6 Abs. 1 Nr. 1 UStG
+⇨ 6. Ausfuhrlieferung nach § 6 Abs. 1 Nr. 1 UStG
 
-## Grundfall
+► Grundfall
 
 § 6 Abs. 1 Nr. 1 UStG betrifft insbesondere den Fall, dass der liefernde Unternehmer den Gegenstand selbst in das Drittlandsgebiet befördert oder versendet.
 
@@ -15138,7 +15138,7 @@ Voraussetzungen:
 3. Gegenstand gelangt tatsächlich in das Drittlandsgebiet,
 4. Ausfuhrnachweis liegt vor.
 
-## Sitz des Abnehmers
+► Sitz des Abnehmers
 
 Bei § 6 Abs. 1 Nr. 1 UStG ist es grundsätzlich nicht erforderlich, dass der Abnehmer seinen Sitz im Ausland hat.
 
@@ -15146,15 +15146,15 @@ Entscheidend ist vor allem:
 
 Der Liefergegenstand gelangt tatsächlich in das Drittlandsgebiet.
 
-## Prüfungssatz
+► Prüfungssatz
 
 Der Unternehmer befördert oder versendet den Liefergegenstand im Rahmen einer bewegten Lieferung in das Drittlandsgebiet. Damit liegt bei ordnungsgemäßem Nachweis eine steuerfreie Ausfuhrlieferung nach § 4 Nr. 1 Buchst. a UStG in Verbindung mit § 6 Abs. 1 Nr. 1 UStG vor.
 
 ---
 
-# 7. Ausfuhrlieferung nach § 6 Abs. 1 Nr. 2 UStG
+⇨ 7. Ausfuhrlieferung nach § 6 Abs. 1 Nr. 2 UStG
 
-## Grundfall
+► Grundfall
 
 § 6 Abs. 1 Nr. 2 UStG betrifft insbesondere den Fall, dass der Abnehmer den Gegenstand in das Drittlandsgebiet befördert oder versendet.
 
@@ -15166,33 +15166,33 @@ Voraussetzungen:
 4. Abnehmer ist ausländischer Abnehmer,
 5. Ausfuhrnachweis liegt vor.
 
-## Ausländischer Abnehmer
+► Ausländischer Abnehmer
 
 Der Abnehmer muss die Voraussetzungen des § 6 Abs. 2 UStG erfüllen.
 
 Typischerweise handelt es sich um einen Abnehmer mit Sitz oder Wohnsitz im Ausland.
 
-## Prüfungssatz
+► Prüfungssatz
 
 Der Abnehmer befördert oder versendet den Liefergegenstand in das Drittlandsgebiet und ist ausländischer Abnehmer im Sinne des § 6 Abs. 2 UStG. Bei ordnungsgemäßem Nachweis ist die Lieferung nach § 4 Nr. 1 Buchst. a UStG in Verbindung mit § 6 Abs. 1 Nr. 2 UStG steuerfrei.
 
 ---
 
-# 8. Unterschied zwischen § 6 Abs. 1 Nr. 1 und Nr. 2 UStG
+⇨ 8. Unterschied zwischen § 6 Abs. 1 Nr. 1 und Nr. 2 UStG
 
-## § 6 Abs. 1 Nr. 1 UStG
+► § 6 Abs. 1 Nr. 1 UStG
 
 Der Lieferer befördert oder versendet.
 
 Ein ausländischer Abnehmer ist grundsätzlich nicht erforderlich.
 
-## § 6 Abs. 1 Nr. 2 UStG
+► § 6 Abs. 1 Nr. 2 UStG
 
 Der Abnehmer befördert oder versendet.
 
 Der Abnehmer muss grundsätzlich ausländischer Abnehmer sein.
 
-## Merksatz
+► Merksatz
 
 - Lieferer transportiert → Nr. 1
 - Abnehmer transportiert → Nr. 2
@@ -15200,7 +15200,7 @@ Der Abnehmer muss grundsätzlich ausländischer Abnehmer sein.
 
 ---
 
-# 9. Nachweis der Ausfuhr
+⇨ 9. Nachweis der Ausfuhr
 
 Die Steuerbefreiung setzt einen ordnungsgemäßen Nachweis voraus.
 
@@ -15228,9 +15228,9 @@ Merksatz:
 
 ---
 
-# 10. Ausfuhrlieferung im Reihengeschäft
+⇨ 10. Ausfuhrlieferung im Reihengeschäft
 
-## Begriff des Reihengeschäfts
+► Begriff des Reihengeschäfts
 
 Ein Reihengeschäft liegt vor, wenn
 
@@ -15258,7 +15258,7 @@ Obwohl nur eine Warenbewegung stattfindet, liegen zwei Lieferungen vor:
 
 ---
 
-# 11. Nur eine bewegte Lieferung
+⇨ 11. Nur eine bewegte Lieferung
 
 In einem Reihengeschäft gibt es nur eine Warenbewegung.
 
@@ -15274,13 +15274,13 @@ Merksatz:
 
 ---
 
-# 12. Zuordnung der Beförderung oder Versendung
+⇨ 12. Zuordnung der Beförderung oder Versendung
 
 Die entscheidende Frage lautet:
 
 **Wer übernimmt die Beförderung oder Versendung?**
 
-## Beförderung durch den ersten Unternehmer
+► Beförderung durch den ersten Unternehmer
 
 Befördert oder versendet A den Gegenstand, wird die Warenbewegung regelmäßig der Lieferung A an B zugeordnet.
 
@@ -15288,7 +15288,7 @@ Dann kann die Lieferung A an B die steuerfreie Ausfuhrlieferung sein.
 
 Die Lieferung B an C ist anschließend als ruhende Lieferung gesondert zu beurteilen.
 
-## Beförderung durch den letzten Abnehmer
+► Beförderung durch den letzten Abnehmer
 
 Befördert oder versendet C den Gegenstand, wird die Warenbewegung regelmäßig der Lieferung B an C zugeordnet.
 
@@ -15296,7 +15296,7 @@ Dann kann die Lieferung B an C die steuerfreie Ausfuhrlieferung sein.
 
 Die Lieferung A an B ist eine ruhende Lieferung.
 
-## Beförderung durch den Zwischenhändler
+► Beförderung durch den Zwischenhändler
 
 Befördert oder versendet B den Gegenstand, muss § 3 Abs. 6a UStG besonders sorgfältig geprüft werden.
 
@@ -15313,7 +15313,7 @@ Entscheidend können sein:
 
 ---
 
-# 13. Drittlandsfall und Umsatzsteuer-Identifikationsnummer
+⇨ 13. Drittlandsfall und Umsatzsteuer-Identifikationsnummer
 
 Auch in einem Reihengeschäft mit Drittlandsbezug ist die Zuordnung der bewegten Lieferung genau zu prüfen.
 
@@ -15325,22 +15325,22 @@ Klausurhinweis:
 
 ---
 
-# 14. Prüfungsschema Ausfuhrlieferung im Reihengeschäft
+⇨ 14. Prüfungsschema Ausfuhrlieferung im Reihengeschäft
 
-## Schritt 1: Reihengeschäft feststellen
+► Schritt 1: Reihengeschäft feststellen
 
 - mehrere Umsatzgeschäfte,
 - derselbe Gegenstand,
 - unmittelbare Beförderung vom ersten Lieferer zum letzten Abnehmer.
 
-## Schritt 2: Lieferbeziehungen auflisten
+► Schritt 2: Lieferbeziehungen auflisten
 
 Beispiel:
 
 - Lieferung A an B
 - Lieferung B an C
 
-## Schritt 3: Warenbewegung bestimmen
+► Schritt 3: Warenbewegung bestimmen
 
 Wer befördert oder versendet?
 
@@ -15348,34 +15348,34 @@ Wer befördert oder versendet?
 - B?
 - C?
 
-## Schritt 4: Bewegte Lieferung zuordnen
+► Schritt 4: Bewegte Lieferung zuordnen
 
 § 3 Abs. 6a UStG prüfen.
 
-## Schritt 5: Ort der bewegten Lieferung bestimmen
+► Schritt 5: Ort der bewegten Lieferung bestimmen
 
 Ort ist grundsätzlich dort, wo die Beförderung oder Versendung beginnt.
 
-## Schritt 6: Steuerbarkeit prüfen
+► Schritt 6: Steuerbarkeit prüfen
 
 § 1 Abs. 1 Nr. 1 UStG.
 
-## Schritt 7: Ausfuhrlieferung prüfen
+► Schritt 7: Ausfuhrlieferung prüfen
 
 - § 6 Abs. 1 Nr. 1 UStG oder
 - § 6 Abs. 1 Nr. 2 UStG.
 
-## Schritt 8: Ausfuhrnachweis prüfen
+► Schritt 8: Ausfuhrnachweis prüfen
 
 § 6 Abs. 4 UStG und Nachweisvorschriften.
 
-## Schritt 9: Ruhende Lieferung beurteilen
+► Schritt 9: Ruhende Lieferung beurteilen
 
 Ort nach § 3 Abs. 7 UStG bestimmen und Steuerpflicht gesondert prüfen.
 
 ---
 
-# 15. Beispiel: Reihengeschäft Deutschland – Türkei
+⇨ 15. Beispiel: Reihengeschäft Deutschland – Türkei
 
 A aus Dortmund verkauft eine Ware an B aus Nordkirchen.
 
@@ -15383,7 +15383,7 @@ B verkauft dieselbe Ware an C in Istanbul weiter.
 
 Die Ware wird unmittelbar von Dortmund nach Istanbul transportiert.
 
-## Variante 1: A transportiert
+► Variante 1: A transportiert
 
 Die Warenbewegung wird regelmäßig der Lieferung A an B zugeordnet.
 
@@ -15391,7 +15391,7 @@ Diese Lieferung kann als Ausfuhrlieferung steuerfrei sein.
 
 Die Lieferung B an C ist eine ruhende Lieferung.
 
-## Variante 2: C transportiert
+► Variante 2: C transportiert
 
 Die Warenbewegung wird regelmäßig der Lieferung B an C zugeordnet.
 
@@ -15399,7 +15399,7 @@ Diese Lieferung kann als Ausfuhrlieferung steuerfrei sein.
 
 Die Lieferung A an B ist eine ruhende Lieferung.
 
-## Variante 3: B transportiert
+► Variante 3: B transportiert
 
 B ist Zwischenhändler.
 
@@ -15416,9 +15416,9 @@ Nur die zugeordnete bewegte Lieferung kann als Ausfuhrlieferung steuerfrei sein.
 
 ---
 
-# 16. Grundstücksumsätze nach § 4 Nr. 9 Buchst. a UStG
+⇨ 16. Grundstücksumsätze nach § 4 Nr. 9 Buchst. a UStG
 
-## Grundsatz
+► Grundsatz
 
 Umsätze, die unter das Grunderwerbsteuergesetz fallen, sind nach
 
@@ -15439,7 +15439,7 @@ Maßgeblich ist, ob der Umsatz seinem Typ nach unter das Grunderwerbsteuergesetz
 
 ---
 
-# 17. Begünstigte Grundstücksumsätze
+⇨ 17. Begünstigte Grundstücksumsätze
 
 Begünstigt sind insbesondere Lieferungen von
 
@@ -15458,7 +15458,7 @@ Die Lieferung ist grundsätzlich nach § 4 Nr. 9 Buchst. a UStG steuerfrei.
 
 ---
 
-# 18. Grundstücksbegriff und Betriebsvorrichtungen
+⇨ 18. Grundstücksbegriff und Betriebsvorrichtungen
 
 Der Grundstücksbegriff richtet sich nach den einschlägigen gesetzlichen Vorschriften.
 
@@ -15479,7 +15479,7 @@ Die Veräußerung einer Betriebsvorrichtung kann umsatzsteuerpflichtig sein, obw
 
 ---
 
-# 19. Keine Steuerbefreiung für reine Bauleistungen
+⇨ 19. Keine Steuerbefreiung für reine Bauleistungen
 
 Die Errichtung eines Bauwerks auf einem fremden Grundstück ist grundsätzlich keine Grundstückslieferung, die unter das Grunderwerbsteuergesetz fällt.
 
@@ -15491,7 +15491,7 @@ Merksatz:
 
 ---
 
-# 20. Option bei Grundstücksumsätzen
+⇨ 20. Option bei Grundstücksumsätzen
 
 Bei einem nach § 4 Nr. 9 Buchst. a UStG steuerfreien Grundstücksumsatz kann unter den Voraussetzungen des § 9 UStG zur Steuerpflicht optiert werden.
 
@@ -15508,13 +15508,13 @@ Bei Veräußerung an Privatpersonen ist eine Option regelmäßig nicht möglich.
 
 ---
 
-# 21. Vorsteuerfolgen
+⇨ 21. Vorsteuerfolgen
 
-## Steuerfreie Grundstückslieferung
+► Steuerfreie Grundstückslieferung
 
 Steht eine Eingangsleistung unmittelbar mit einer steuerfreien Grundstückslieferung in Zusammenhang, ist der Vorsteuerabzug grundsätzlich nach § 15 Abs. 2 UStG ausgeschlossen.
 
-## Steuerfreie Ausfuhrlieferung
+► Steuerfreie Ausfuhrlieferung
 
 Bei einer steuerfreien Ausfuhrlieferung bleibt der Vorsteuerabzug grundsätzlich erhalten.
 
@@ -15525,9 +15525,9 @@ Darin liegt ein wesentlicher Unterschied:
 
 ---
 
-# 22. Prüfungsübersicht
+⇨ 22. Prüfungsübersicht
 
-## Ausfuhrlieferung
+► Ausfuhrlieferung
 
 1. Lieferung?
 2. Ort im Inland?
@@ -15540,7 +15540,7 @@ Darin liegt ein wesentlicher Unterschied:
 9. Steuerbefreiung nach § 4 Nr. 1 Buchst. a UStG?
 10. Vorsteuerabzug erhalten?
 
-## Grundstückslieferung
+► Grundstückslieferung
 
 1. Lieferung?
 2. Grundstück oder grundstücksgleiches Recht?
@@ -15552,9 +15552,9 @@ Darin liegt ein wesentlicher Unterschied:
 
 ---
 
-# 23. Typische Klausurfallen
+⇨ 23. Typische Klausurfallen
 
-## Fehler 1: Steuerbefreiung vor der Steuerbarkeit prüfen
+► Fehler 1: Steuerbefreiung vor der Steuerbarkeit prüfen
 
 Falsch:
 
@@ -15566,7 +15566,7 @@ Zunächst prüfen, ob überhaupt ein steuerbarer Umsatz nach § 1 Abs. 1 Nr. 1 U
 
 ---
 
-## Fehler 2: Jede Lieferung ins Ausland als Ausfuhrlieferung behandeln
+► Fehler 2: Jede Lieferung ins Ausland als Ausfuhrlieferung behandeln
 
 Falsch:
 
@@ -15578,7 +15578,7 @@ Der Gegenstand muss tatsächlich in das Drittlandsgebiet gelangen.
 
 ---
 
-## Fehler 3: Ausländischen Abnehmer immer verlangen
+► Fehler 3: Ausländischen Abnehmer immer verlangen
 
 Ein ausländischer Abnehmer ist nicht in jedem Ausfuhrfall zwingend erforderlich.
 
@@ -15586,7 +15586,7 @@ Er ist insbesondere bei § 6 Abs. 1 Nr. 2 UStG zu prüfen.
 
 ---
 
-## Fehler 4: Im Reihengeschäft mehrere Ausfuhrlieferungen annehmen
+► Fehler 4: Im Reihengeschäft mehrere Ausfuhrlieferungen annehmen
 
 Nur eine Lieferung kann die bewegte Lieferung sein.
 
@@ -15594,31 +15594,31 @@ Daher kann grundsätzlich auch nur eine Lieferung als Ausfuhrlieferung steuerfre
 
 ---
 
-## Fehler 5: Ruhende Lieferung vergessen
+► Fehler 5: Ruhende Lieferung vergessen
 
 Nach Zuordnung der Warenbewegung muss die andere Lieferung als ruhende Lieferung gesondert beurteilt werden.
 
 ---
 
-## Fehler 6: Ausfuhrnachweis übersehen
+► Fehler 6: Ausfuhrnachweis übersehen
 
 Selbst wenn die Ware tatsächlich ausgeführt wurde, muss der Unternehmer die Voraussetzungen nachweisen.
 
 ---
 
-## Fehler 7: Bauleistung und Grundstückslieferung verwechseln
+► Fehler 7: Bauleistung und Grundstückslieferung verwechseln
 
 Die Errichtung eines Gebäudes auf fremdem Grund ist nicht automatisch nach § 4 Nr. 9 Buchst. a UStG steuerfrei.
 
 ---
 
-## Fehler 8: Betriebsvorrichtungen mit dem Grundstück gleichbehandeln
+► Fehler 8: Betriebsvorrichtungen mit dem Grundstück gleichbehandeln
 
 Betriebsvorrichtungen können einen eigenständig steuerpflichtigen Umsatz darstellen.
 
 ---
 
-## Fehler 9: Vorsteuerfolge nicht prüfen
+► Fehler 9: Vorsteuerfolge nicht prüfen
 
 Nach jeder Steuerbefreiung muss geprüft werden:
 
@@ -15628,7 +15628,7 @@ Nach jeder Steuerbefreiung muss geprüft werden:
 
 ---
 
-# 24. Merksätze
+⇨ 24. Merksätze
 
 - Erst Steuerbarkeit, dann Steuerbefreiung.
 - Ausfuhrlieferungen sind steuerfrei, der Vorsteuerabzug bleibt grundsätzlich erhalten.
@@ -15709,9 +15709,9 @@ Nach jeder Steuerbefreiung muss geprüft werden:
   },
 
   body: `
-# § 2 EStG – Umfang der Besteuerung und Begriffsbestimmungen
+⇨ § 2 EStG – Umfang der Besteuerung und Begriffsbestimmungen
 
-## Gesetz
+► Gesetz
 
 § 2 EStG ist die zentrale Grundnorm für den Aufbau der Einkommensteuer.
 
@@ -15727,44 +15727,44 @@ Die Vorschrift regelt insbesondere:
 
 ---
 
-# 1. Die sieben Einkunftsarten
+⇨ 1. Die sieben Einkunftsarten
 
 Nach § 2 Abs. 1 EStG unterliegen sieben Einkunftsarten der Einkommensteuer.
 
-## Gewinneinkunftsarten
+► Gewinneinkunftsarten
 
 1. Einkünfte aus Land- und Forstwirtschaft,
 2. Einkünfte aus Gewerbebetrieb,
 3. Einkünfte aus selbständiger Arbeit.
 
-## Überschusseinkunftsarten
+► Überschusseinkunftsarten
 
 4. Einkünfte aus nichtselbständiger Arbeit,
 5. Einkünfte aus Kapitalvermögen,
 6. Einkünfte aus Vermietung und Verpachtung,
 7. sonstige Einkünfte im Sinne des § 22 EStG.
 
-## Bedeutung
+► Bedeutung
 
 Nur Einkünfte, die einer der sieben Einkunftsarten zugeordnet werden können, unterliegen grundsätzlich der Einkommensteuer.
 
 Reine Vermögensmehrungen außerhalb der gesetzlichen Einkunftsarten sind grundsätzlich nicht steuerbar, soweit keine besondere Vorschrift eingreift.
 
-## Zuordnung
+► Zuordnung
 
 Die konkrete Zuordnung zu einer Einkunftsart richtet sich nach den §§ 13 bis 24 EStG.
 
 ---
 
-# 2. Einkünfte bei unbeschränkter und beschränkter Steuerpflicht
+⇨ 2. Einkünfte bei unbeschränkter und beschränkter Steuerpflicht
 
-## Unbeschränkte Steuerpflicht
+► Unbeschränkte Steuerpflicht
 
 Bei unbeschränkter Einkommensteuerpflicht werden grundsätzlich sämtliche inländischen und ausländischen Einkünfte erfasst.
 
 Dies entspricht dem sogenannten Welteinkommensprinzip.
 
-## Beschränkte Steuerpflicht
+► Beschränkte Steuerpflicht
 
 Bei beschränkter Einkommensteuerpflicht werden grundsätzlich nur die inländischen Einkünfte erfasst.
 
@@ -15772,11 +15772,11 @@ Welche Einkünfte als inländische Einkünfte gelten, bestimmt sich insbesondere
 
 ---
 
-# 3. Gewinn- und Überschusseinkünfte
+⇨ 3. Gewinn- und Überschusseinkünfte
 
 § 2 Abs. 2 EStG unterscheidet zwei Arten der Einkünfteermittlung.
 
-## Gewinneinkünfte
+► Gewinneinkünfte
 
 Bei
 
@@ -15788,7 +15788,7 @@ sind die Einkünfte der Gewinn.
 
 Der Gewinn wird insbesondere nach den §§ 4 bis 7k und § 13a EStG ermittelt.
 
-## Grundformel
+► Grundformel
 
 Gewinn:
 
@@ -15796,7 +15796,7 @@ Betriebseinnahmen
 minus Betriebsausgaben  
 gleich Gewinn oder Verlust.
 
-## Typische Gewinnermittlungsarten
+► Typische Gewinnermittlungsarten
 
 - Betriebsvermögensvergleich,
 - Einnahmenüberschussrechnung,
@@ -15804,11 +15804,11 @@ gleich Gewinn oder Verlust.
 
 ---
 
-## Überschusseinkünfte
+► Überschusseinkünfte
 
 Bei den übrigen Einkunftsarten sind die Einkünfte grundsätzlich der Überschuss der Einnahmen über die Werbungskosten.
 
-## Grundformel
+► Grundformel
 
 Einnahmen  
 minus Werbungskosten  
@@ -15822,7 +15822,7 @@ Dies betrifft insbesondere:
 
 ---
 
-# 4. Besonderheit bei Einkünften aus Kapitalvermögen
+⇨ 4. Besonderheit bei Einkünften aus Kapitalvermögen
 
 Bei Einkünften aus Kapitalvermögen tritt grundsätzlich der Sparer-Pauschbetrag nach § 20 Abs. 9 EStG an die Stelle des tatsächlichen Werbungskostenabzugs.
 
@@ -15830,7 +15830,7 @@ Die allgemeinen Vorschriften der §§ 9 und 9a EStG sind insoweit grundsätzlich
 
 Eine Ausnahme kann sich insbesondere aus § 32d Abs. 2 EStG ergeben.
 
-## Merksatz
+► Merksatz
 
 Bei Kapitaleinkünften gilt grundsätzlich:
 
@@ -15838,13 +15838,13 @@ Kein Abzug tatsächlicher Werbungskosten, sondern Sparer-Pauschbetrag.
 
 ---
 
-# 5. Berechnungsschema der Einkommensteuer
+⇨ 5. Berechnungsschema der Einkommensteuer
 
 § 2 Abs. 3 bis 6 EStG enthält die zentrale Berechnungskette der Einkommensteuer.
 
 ---
 
-## Stufe 1: Einkünfte
+► Stufe 1: Einkünfte
 
 Zunächst werden die Einkünfte aus jeder einzelnen Einkunftsart ermittelt.
 
@@ -15856,7 +15856,7 @@ Beispiel:
 
 ---
 
-## Stufe 2: Summe der Einkünfte
+► Stufe 2: Summe der Einkünfte
 
 Die positiven und negativen Einkünfte werden zusammengerechnet.
 
@@ -15869,7 +15869,7 @@ gleich 95.000 € Summe der Einkünfte.
 
 ---
 
-## Stufe 3: Gesamtbetrag der Einkünfte
+► Stufe 3: Gesamtbetrag der Einkünfte
 
 Von der Summe der Einkünfte werden abgezogen:
 
@@ -15877,7 +15877,7 @@ Von der Summe der Einkünfte werden abgezogen:
 - Entlastungsbetrag für Alleinerziehende,
 - Freibetrag nach § 13 Abs. 3 EStG.
 
-## Formel
+► Formel
 
 Summe der Einkünfte  
 minus Altersentlastungsbetrag  
@@ -15887,14 +15887,14 @@ gleich Gesamtbetrag der Einkünfte.
 
 ---
 
-## Stufe 4: Einkommen
+► Stufe 4: Einkommen
 
 Vom Gesamtbetrag der Einkünfte werden insbesondere abgezogen:
 
 - Sonderausgaben und
 - außergewöhnliche Belastungen.
 
-## Formel
+► Formel
 
 Gesamtbetrag der Einkünfte  
 minus Sonderausgaben  
@@ -15903,14 +15903,14 @@ gleich Einkommen.
 
 ---
 
-## Stufe 5: Zu versteuerndes Einkommen
+► Stufe 5: Zu versteuerndes Einkommen
 
 Vom Einkommen werden insbesondere abgezogen:
 
 - Freibeträge nach § 32 Abs. 6 EStG und
 - sonstige vom Einkommen abzuziehende Beträge.
 
-## Formel
+► Formel
 
 Einkommen  
 minus Kinderfreibetrag und Betreuungsfreibetrag  
@@ -15921,7 +15921,7 @@ Das zu versteuernde Einkommen ist die Bemessungsgrundlage für die tarifliche Ei
 
 ---
 
-## Stufe 6: Tarifliche Einkommensteuer
+► Stufe 6: Tarifliche Einkommensteuer
 
 Auf das zu versteuernde Einkommen wird der Einkommensteuertarif angewendet.
 
@@ -15929,7 +15929,7 @@ Die tarifliche Einkommensteuer ergibt sich grundsätzlich nach § 32a EStG.
 
 ---
 
-## Stufe 7: Festzusetzende Einkommensteuer
+► Stufe 7: Festzusetzende Einkommensteuer
 
 Die tarifliche Einkommensteuer wird anschließend korrigiert.
 
@@ -15941,7 +15941,7 @@ Zu berücksichtigen sind insbesondere:
 - Hinzurechnung von Kindergeld in den Fällen des § 31 EStG,
 - Hinzurechnung bestimmter Zulagen nach § 10a EStG.
 
-## Vereinfachte Formel
+► Vereinfachte Formel
 
 Tarifliche Einkommensteuer  
 minus Steuerermäßigungen  
@@ -15951,9 +15951,9 @@ gleich festzusetzende Einkommensteuer.
 
 ---
 
-# 6. Vollständiges Berechnungsschema
+⇨ 6. Vollständiges Berechnungsschema
 
-## Einkommensteuerliche Ermittlung
+► Einkommensteuerliche Ermittlung
 
 1. Einkünfte aus Land- und Forstwirtschaft
 2. plus Einkünfte aus Gewerbebetrieb
@@ -15992,7 +15992,7 @@ gleich festzusetzende Einkommensteuer.
 
 ---
 
-# 7. Zahlenbeispiel
+⇨ 7. Zahlenbeispiel
 
 Ein Steuerpflichtiger erzielt:
 
@@ -16000,7 +16000,7 @@ Ein Steuerpflichtiger erzielt:
 - Einkünfte aus nichtselbständiger Arbeit: 30.000 €
 - Verlust aus Vermietung und Verpachtung: 10.000 €
 
-## Summe der Einkünfte
+► Summe der Einkünfte
 
 80.000 €  
 plus 30.000 €  
@@ -16009,7 +16009,7 @@ gleich 100.000 €.
 
 Der Steuerpflichtige erhält einen Entlastungsbetrag für Alleinerziehende von beispielhaft 4.260 €.
 
-## Gesamtbetrag der Einkünfte
+► Gesamtbetrag der Einkünfte
 
 100.000 €  
 minus 4.260 €  
@@ -16023,7 +16023,7 @@ Außergewöhnliche Belastungen:
 
 2.000 €.
 
-## Einkommen
+► Einkommen
 
 95.740 €  
 minus 8.000 €  
@@ -16032,7 +16032,7 @@ gleich 85.740 €.
 
 Kinderfreibeträge und weitere Abzüge bleiben im Beispiel unberücksichtigt.
 
-## Zu versteuerndes Einkommen
+► Zu versteuerndes Einkommen
 
 85.740 €.
 
@@ -16040,7 +16040,7 @@ Auf diesen Betrag ist der Einkommensteuertarif anzuwenden.
 
 ---
 
-# 8. Außersteuerliche Rechtsnormen
+⇨ 8. Außersteuerliche Rechtsnormen
 
 § 2 Abs. 5a EStG enthält besondere Regeln für außersteuerliche Gesetze, die an Begriffe wie
 
@@ -16052,7 +16052,7 @@ Auf diesen Betrag ist der Einkommensteuertarif anzuwenden.
 
 anknüpfen.
 
-## Hinzurechnungen
+► Hinzurechnungen
 
 Für außersteuerliche Zwecke können insbesondere hinzuzurechnen sein:
 
@@ -16060,20 +16060,20 @@ Für außersteuerliche Zwecke können insbesondere hinzuzurechnen sein:
 - bestimmte Kapitalerträge nach § 43 Abs. 5 EStG,
 - steuerfreie Teileinkünfte nach § 3 Nr. 40 EStG.
 
-## Kürzungen
+► Kürzungen
 
 Abzuziehen sind gegebenenfalls:
 
 - nicht abziehbare Beträge nach § 3c Abs. 2 EStG,
 - Kinderbetreuungskosten nach § 10 Abs. 1 Nr. 5 EStG.
 
-## Hintergrund
+► Hintergrund
 
 Außersteuerliche Leistungen sollen nicht allein dadurch beeinflusst werden, dass bestimmte Einkünfte steuerlich pauschal oder teilweise steuerfrei behandelt werden.
 
 ---
 
-# 9. Innersteuerliche Anknüpfung nach § 2 Abs. 5b EStG
+⇨ 9. Innersteuerliche Anknüpfung nach § 2 Abs. 5b EStG
 
 Soweit Vorschriften des Einkommensteuergesetzes selbst an die Begriffe
 
@@ -16085,7 +16085,7 @@ Soweit Vorschriften des Einkommensteuergesetzes selbst an die Begriffe
 
 anknüpfen, sind bestimmte Kapitalerträge nach § 32d Abs. 1 und § 43 Abs. 5 EStG grundsätzlich nicht einzubeziehen.
 
-## Merksatz
+► Merksatz
 
 § 2 Abs. 5a EStG betrifft außersteuerliche Rechtsnormen.
 
@@ -16093,19 +16093,19 @@ anknüpfen, sind bestimmte Kapitalerträge nach § 32d Abs. 1 und § 43 Abs. 5 E
 
 ---
 
-# 10. Festzusetzende Einkommensteuer nach § 2 Abs. 6 EStG
+⇨ 10. Festzusetzende Einkommensteuer nach § 2 Abs. 6 EStG
 
 Die festzusetzende Einkommensteuer entspricht nicht zwingend der tariflichen Einkommensteuer.
 
 Die tarifliche Steuer wird unter anderem verändert durch:
 
-## Minderungen
+► Minderungen
 
 - Unterschiedsbetrag nach § 32c EStG,
 - anrechenbare ausländische Steuern,
 - Steuerermäßigungen.
 
-## Erhöhungen
+► Erhöhungen
 
 - Steuer nach § 32d Abs. 3 und 4 EStG,
 - Steuer nach § 34c Abs. 5 EStG,
@@ -16113,7 +16113,7 @@ Die tarifliche Steuer wird unter anderem verändert durch:
 - Zulage nach Abschnitt XI,
 - Kindergeld in den Fällen des Familienleistungsausgleichs.
 
-## Bedeutung
+► Bedeutung
 
 Erst die festzusetzende Einkommensteuer ist der Betrag, der im Steuerbescheid festgesetzt wird.
 
@@ -16125,17 +16125,17 @@ Davon zu unterscheiden sind noch:
 
 ---
 
-# 11. Einkommensteuer als Jahressteuer
+⇨ 11. Einkommensteuer als Jahressteuer
 
 Nach § 2 Abs. 7 EStG ist die Einkommensteuer eine Jahressteuer.
 
-## Rechtsfolge
+► Rechtsfolge
 
 Die Besteuerungsgrundlagen werden grundsätzlich für jedes Kalenderjahr gesondert ermittelt.
 
 Der Veranlagungszeitraum entspricht regelmäßig dem Kalenderjahr.
 
-## Wechsel der Steuerpflicht
+► Wechsel der Steuerpflicht
 
 Besteht innerhalb eines Kalenderjahres zunächst beschränkte und später unbeschränkte Steuerpflicht oder umgekehrt, werden die während der beschränkten Steuerpflicht erzielten inländischen Einkünfte in die Veranlagung zur unbeschränkten Steuerpflicht einbezogen.
 
@@ -16143,7 +16143,7 @@ Es erfolgt grundsätzlich keine Trennung in zwei eigenständige Jahresveranlagun
 
 ---
 
-# 12. Ehegatten und Lebenspartner
+⇨ 12. Ehegatten und Lebenspartner
 
 Nach § 2 Abs. 8 EStG gelten die Regelungen des Einkommensteuergesetzes über
 
@@ -16155,15 +16155,15 @@ entsprechend für
 - Lebenspartner und
 - Lebenspartnerschaften.
 
-## Rechtsfolge
+► Rechtsfolge
 
 Steuerliche Regelungen wie insbesondere die Zusammenveranlagung können unter den gesetzlichen Voraussetzungen auch für Lebenspartnerschaften gelten.
 
 ---
 
-# 13. Prüfungsschema zu § 2 EStG
+⇨ 13. Prüfungsschema zu § 2 EStG
 
-## Schritt 1: Steuerpflicht prüfen
+► Schritt 1: Steuerpflicht prüfen
 
 Liegt
 
@@ -16172,51 +16172,51 @@ Liegt
 
 vor?
 
-## Schritt 2: Einkunftsart bestimmen
+► Schritt 2: Einkunftsart bestimmen
 
 Ist der Sachverhalt einer der sieben Einkunftsarten zuzuordnen?
 
-## Schritt 3: Art der Einkünfteermittlung bestimmen
+► Schritt 3: Art der Einkünfteermittlung bestimmen
 
 Handelt es sich um
 
 - Gewinneinkünfte oder
 - Überschusseinkünfte?
 
-## Schritt 4: Einkünfte je Einkunftsart ermitteln
+► Schritt 4: Einkünfte je Einkunftsart ermitteln
 
 - Betriebseinnahmen minus Betriebsausgaben oder
 - Einnahmen minus Werbungskosten.
 
-## Schritt 5: Summe der Einkünfte bilden
+► Schritt 5: Summe der Einkünfte bilden
 
 Positive und negative Einkünfte zusammenrechnen.
 
-## Schritt 6: Gesamtbetrag der Einkünfte ermitteln
+► Schritt 6: Gesamtbetrag der Einkünfte ermitteln
 
 Abzugsbeträge nach § 2 Abs. 3 EStG berücksichtigen.
 
-## Schritt 7: Einkommen ermitteln
+► Schritt 7: Einkommen ermitteln
 
 Sonderausgaben und außergewöhnliche Belastungen abziehen.
 
-## Schritt 8: Zu versteuerndes Einkommen ermitteln
+► Schritt 8: Zu versteuerndes Einkommen ermitteln
 
 Freibeträge und weitere gesetzliche Abzüge berücksichtigen.
 
-## Schritt 9: Tarifliche Einkommensteuer berechnen
+► Schritt 9: Tarifliche Einkommensteuer berechnen
 
 Tarif nach § 32a EStG anwenden.
 
-## Schritt 10: Festzusetzende Einkommensteuer ermitteln
+► Schritt 10: Festzusetzende Einkommensteuer ermitteln
 
 Steuerermäßigungen, Anrechnungen und Hinzurechnungen berücksichtigen.
 
 ---
 
-# 14. Typische Klausurfallen
+⇨ 14. Typische Klausurfallen
 
-## Fehler 1: Einkünfte und Einnahmen gleichsetzen
+► Fehler 1: Einkünfte und Einnahmen gleichsetzen
 
 Falsch:
 
@@ -16228,7 +16228,7 @@ Einkünfte ergeben sich erst nach Abzug von Betriebsausgaben oder Werbungskosten
 
 ---
 
-## Fehler 2: Gewinneinkünfte und Überschusseinkünfte verwechseln
+► Fehler 2: Gewinneinkünfte und Überschusseinkünfte verwechseln
 
 Falsch:
 
@@ -16240,7 +16240,7 @@ Bei Gewerbebetrieb wird der Gewinn als Betriebseinnahmen minus Betriebsausgaben 
 
 ---
 
-## Fehler 3: Gesamtbetrag der Einkünfte mit dem Einkommen verwechseln
+► Fehler 3: Gesamtbetrag der Einkünfte mit dem Einkommen verwechseln
 
 Falsch:
 
@@ -16252,7 +16252,7 @@ Vom Gesamtbetrag der Einkünfte sind insbesondere Sonderausgaben und außergewö
 
 ---
 
-## Fehler 4: Einkommen und zu versteuerndes Einkommen gleichsetzen
+► Fehler 4: Einkommen und zu versteuerndes Einkommen gleichsetzen
 
 Falsch:
 
@@ -16264,7 +16264,7 @@ Vom Einkommen sind noch Freibeträge und weitere gesetzliche Abzüge vorzunehmen
 
 ---
 
-## Fehler 5: Tarifliche und festzusetzende Einkommensteuer gleichsetzen
+► Fehler 5: Tarifliche und festzusetzende Einkommensteuer gleichsetzen
 
 Falsch:
 
@@ -16276,7 +16276,7 @@ Die tarifliche Einkommensteuer wird noch um Steuerermäßigungen, Anrechnungen u
 
 ---
 
-## Fehler 6: Kapitalerträge immer in sämtliche Berechnungsgrößen einbeziehen
+► Fehler 6: Kapitalerträge immer in sämtliche Berechnungsgrößen einbeziehen
 
 Falsch:
 
@@ -16288,7 +16288,7 @@ Richtig:
 
 ---
 
-## Fehler 7: Zwei getrennte Veranlagungen bei Wechsel der Steuerpflicht
+► Fehler 7: Zwei getrennte Veranlagungen bei Wechsel der Steuerpflicht
 
 Falsch:
 
@@ -16300,7 +16300,7 @@ Die inländischen Einkünfte aus dem Zeitraum der beschränkten Steuerpflicht we
 
 ---
 
-# 15. Merksätze
+⇨ 15. Merksätze
 
 - § 2 EStG ist das Grundgerüst der Einkommensteuerberechnung.
 
@@ -16370,9 +16370,9 @@ Die inländischen Einkünfte aus dem Zeitraum der beschränkten Steuerpflicht we
   ],
 
   body: `
-# Grundstücksvermietung, Option, Steuersatz, Bemessungsgrundlage und Tausch
+⇨ Grundstücksvermietung, Option, Steuersatz, Bemessungsgrundlage und Tausch
 
-## 1. Überblick
+► 1. Überblick
 
 Bei der umsatzsteuerlichen Prüfung von Vermietungs- und Grundstückssachverhalten ist regelmäßig folgende Reihenfolge einzuhalten:
 
@@ -16393,9 +16393,9 @@ Merksatz:
 
 ---
 
-# 2. Steuerbefreiung der Grundstücksvermietung
+⇨ 2. Steuerbefreiung der Grundstücksvermietung
 
-## Rechtsgrundlage
+► Rechtsgrundlage
 
 Nach § 4 Nr. 12 Buchst. a UStG sind grundsätzlich steuerfrei:
 
@@ -16412,7 +16412,7 @@ Zum unionsrechtlichen Grundstücksbegriff gehören insbesondere:
 - einzelne Räume,
 - bestimmte Grundstückseinrichtungen.
 
-## Art der Leistung
+► Art der Leistung
 
 Die Vermietung oder Verpachtung ist regelmäßig eine sonstige Leistung nach § 3 Abs. 9 UStG.
 
@@ -16421,7 +16421,7 @@ Der Vermieter räumt dem Mieter gegen Entgelt insbesondere das Recht ein,
 - das Grundstück oder den Raum zu benutzen und
 - andere Personen von der Nutzung auszuschließen.
 
-## Ort der Leistung
+► Ort der Leistung
 
 Bei Leistungen im Zusammenhang mit einem Grundstück bestimmt sich der Leistungsort grundsätzlich nach der Belegenheit des Grundstücks.
 
@@ -16439,9 +16439,9 @@ Düsseldorf.
 
 ---
 
-# 3. Einheitliche Vermietungsleistung mit Nebenleistungen
+⇨ 3. Einheitliche Vermietungsleistung mit Nebenleistungen
 
-## Grundsatz
+► Grundsatz
 
 Übliche Nebenleistungen teilen regelmäßig das umsatzsteuerliche Schicksal der Grundstücksvermietung.
 
@@ -16458,7 +16458,7 @@ Typische Nebenleistungen:
 - Überlassung einer zugehörigen Garage,
 - Nutzung gemeinschaftlicher Einrichtungen.
 
-## Beispiel
+► Beispiel
 
 Monatliche Entgelte:
 
@@ -16477,15 +16477,15 @@ Folge:
 
 Grundsätzlich steuerfrei nach § 4 Nr. 12 Buchst. a UStG.
 
-## Merksatz
+► Merksatz
 
 **Übliche Nebenleistungen folgen der Hauptleistung.**
 
 ---
 
-# 4. Gemischter Vertrag
+⇨ 4. Gemischter Vertrag
 
-## Begriff
+► Begriff
 
 Ein gemischter Vertrag liegt vor, wenn neben der Grundstücksüberlassung eine weitere selbständige Leistung erbracht wird.
 
@@ -16498,11 +16498,11 @@ Ein Unternehmer vermietet
 - ein Betriebsgebäude und
 - zusätzlich einen eigenständig nutzbaren Baukran.
 
-## Grundstücksvermietung
+► Grundstücksvermietung
 
 Die Vermietung des Gebäudes ist grundsätzlich nach § 4 Nr. 12 Buchst. a UStG steuerfrei.
 
-## Baukran
+► Baukran
 
 Die Überlassung des Baukrans ist eine eigenständige sonstige Leistung nach § 3 Abs. 9 UStG.
 
@@ -16512,7 +16512,7 @@ Folge:
 
 Die Vermietung des Baukrans ist grundsätzlich steuerpflichtig.
 
-## Klausurfrage
+► Klausurfrage
 
 Ist die zusätzliche Leistung
 
@@ -16529,7 +16529,7 @@ Entscheidend sind insbesondere:
 
 ---
 
-# 5. Beispiel: Gebäude, Heizung und Baukran
+⇨ 5. Beispiel: Gebäude, Heizung und Baukran
 
 Ein Unternehmer vermietet:
 
@@ -16537,7 +16537,7 @@ Ein Unternehmer vermietet:
 - Heizung: 500 €
 - Baukran: 2.000 €
 
-## Gebäude und Heizung
+► Gebäude und Heizung
 
 Gebäude und Heizung bilden regelmäßig eine einheitliche Vermietungsleistung.
 
@@ -16547,7 +16547,7 @@ Bemessungsgrundlage:
 
 Grundsätzlich steuerfrei nach § 4 Nr. 12 Buchst. a UStG.
 
-## Baukran
+► Baukran
 
 Der Baukran ist eine selbständig nutzbare Betriebsvorrichtung bzw. ein beweglicher Gegenstand.
 
@@ -16557,7 +16557,7 @@ Bemessungsgrundlage:
 
 Grundsätzlich steuerpflichtig.
 
-## Ergebnis
+► Ergebnis
 
 Es liegen zwei getrennte Umsätze vor:
 
@@ -16566,7 +16566,7 @@ Es liegen zwei getrennte Umsätze vor:
 
 ---
 
-# 6. Ausnahmen von der Steuerbefreiung
+⇨ 6. Ausnahmen von der Steuerbefreiung
 
 § 4 Nr. 12 Satz 2 UStG nimmt bestimmte Vermietungsleistungen von der Steuerbefreiung aus.
 
@@ -16574,7 +16574,7 @@ Diese Umsätze sind daher steuerpflichtig.
 
 ---
 
-# 7. Kurzfristige Beherbergung von Fremden
+⇨ 7. Kurzfristige Beherbergung von Fremden
 
 Nicht steuerfrei ist die Vermietung von Wohn- und Schlafräumen, die ein Unternehmer zur kurzfristigen Beherbergung von Fremden bereithält.
 
@@ -16590,7 +16590,7 @@ Entscheidend ist die tatsächliche Art und Dauer der Überlassung.
 
 In Prüfungssachverhalten wird eine tatsächliche Mietdauer von bis zu sechs Monaten regelmäßig als Hinweis auf eine kurzfristige Beherbergung behandelt.
 
-## Folge
+► Folge
 
 Die Leistung ist nicht nach § 4 Nr. 12 Buchst. a UStG steuerfrei.
 
@@ -16600,7 +16600,7 @@ Für die reine kurzfristige Beherbergungsleistung ist zusätzlich der ermäßigt
 
 ---
 
-# 8. Abstellplätze für Fahrzeuge
+⇨ 8. Abstellplätze für Fahrzeuge
 
 Nicht steuerfrei ist grundsätzlich die Vermietung von Plätzen für das Abstellen von Fahrzeugen.
 
@@ -16615,11 +16615,11 @@ Typische Fälle:
 
 Der Fahrzeugbegriff wird weit verstanden.
 
-## Gesondert vermieteter Stellplatz
+► Gesondert vermieteter Stellplatz
 
 Wird ein Parkplatz oder eine Garage eigenständig vermietet, ist die Leistung grundsätzlich steuerpflichtig.
 
-## Stellplatz als Nebenleistung zur Wohnungsvermietung
+► Stellplatz als Nebenleistung zur Wohnungsvermietung
 
 Wird der Stellplatz zusammen mit einer steuerfreien Grundstücks- oder Wohnungsvermietung überlassen und bildet er eine unselbständige Nebenleistung, kann er das steuerliche Schicksal der steuerfreien Hauptleistung teilen.
 
@@ -16637,7 +16637,7 @@ Merksatz:
 
 ---
 
-# 9. Campingplätze
+⇨ 9. Campingplätze
 
 Nicht steuerfrei ist die kurzfristige Vermietung von Plätzen auf Campingplätzen.
 
@@ -16651,9 +16651,9 @@ Maßgeblich ist grundsätzlich die tatsächliche Mietdauer.
 
 ---
 
-# 10. Verzicht auf die Steuerbefreiung
+⇨ 10. Verzicht auf die Steuerbefreiung
 
-## Zweck der Option
+► Zweck der Option
 
 Steuerfreie Umsätze führen häufig nach § 15 Abs. 2 UStG zum Ausschluss des Vorsteuerabzugs.
 
@@ -16667,7 +16667,7 @@ Rechtsfolge:
 - § 15 Abs. 2 UStG greift für diesen Umsatz nicht,
 - der Vorsteuerabzug kann grundsätzlich eröffnet werden.
 
-## Beschränkung auf einzelne Umsätze
+► Beschränkung auf einzelne Umsätze
 
 Der Unternehmer kann die Option grundsätzlich auf einzelne Umsätze beschränken.
 
@@ -16675,7 +16675,7 @@ Bei einem Gebäude kann daher gegebenenfalls für einzelne selbständige Gebäud
 
 ---
 
-# 11. Grundvoraussetzungen der Option nach § 9 Abs. 1 UStG
+⇨ 11. Grundvoraussetzungen der Option nach § 9 Abs. 1 UStG
 
 Die Option betrifft insbesondere bestimmte steuerfreie Umsätze nach:
 
@@ -16687,7 +16687,7 @@ Weitere Voraussetzung:
 
 Der Umsatz muss an einen anderen Unternehmer für dessen Unternehmen ausgeführt werden.
 
-## Leistungsempfänger
+► Leistungsempfänger
 
 Der Leistungsempfänger muss Unternehmer im Sinne des § 2 UStG sein.
 
@@ -16697,11 +16697,11 @@ Nicht ausreichend ist grundsätzlich eine Leistung an:
 - einen Nichtunternehmer,
 - eine juristische Person des öffentlichen Rechts außerhalb ihres Unternehmens.
 
-## Unternehmensbezug
+► Unternehmensbezug
 
 Der Leistungsempfänger muss die Leistung für sein Unternehmen beziehen.
 
-## Rechtsfolge
+► Rechtsfolge
 
 Sind die Voraussetzungen erfüllt, kann der leistende Unternehmer auf die Steuerbefreiung verzichten.
 
@@ -16709,7 +16709,7 @@ Der Umsatz wird steuerpflichtig.
 
 ---
 
-# 12. Ausübung der Option
+⇨ 12. Ausübung der Option
 
 Die Option kann grundsätzlich durch eindeutiges Verhalten ausgeübt werden.
 
@@ -16726,19 +16726,19 @@ Bei Grundstücksveräußerungen gelten jedoch die besonderen Formvorschriften de
 
 ---
 
-# 13. Einschränkung bei der Vermietung nach § 9 Abs. 2 UStG
+⇨ 13. Einschränkung bei der Vermietung nach § 9 Abs. 2 UStG
 
-## Grundsatz
+► Grundsatz
 
 Bei Grundstücksvermietungen genügt es nicht, dass der Mieter Unternehmer ist.
 
 Die Option ist nur zulässig, soweit der Leistungsempfänger das Grundstück ausschließlich für Umsätze verwendet oder zu verwenden beabsichtigt, die den Vorsteuerabzug nicht ausschließen.
 
-## Prüfung aus Sicht des Mieters
+► Prüfung aus Sicht des Mieters
 
 Zu untersuchen ist, welche Ausgangsumsätze der Mieter in den gemieteten Räumen ausführt.
 
-### Fall 1: Steuerpflichtige Ausgangsumsätze
+⇶  Fall 1: Steuerpflichtige Ausgangsumsätze
 
 Der Mieter führt steuerpflichtige Umsätze aus.
 
@@ -16748,7 +16748,7 @@ Kein Vorsteuerausschluss nach § 15 Abs. 2 UStG.
 
 Die Option ist grundsätzlich zulässig.
 
-### Fall 2: Steuerfreie Umsätze mit Rückausnahme
+⇶  Fall 2: Steuerfreie Umsätze mit Rückausnahme
 
 Der Mieter führt steuerfreie Umsätze aus, bei denen der Vorsteuerabzug aufgrund einer Rückausnahme nach § 15 Abs. 3 UStG erhalten bleibt.
 
@@ -16760,7 +16760,7 @@ Beispiel:
 
 Bestimmte Ausfuhrumsätze.
 
-### Fall 3: Steuerfreie Umsätze ohne Vorsteuerabzug
+⇶  Fall 3: Steuerfreie Umsätze ohne Vorsteuerabzug
 
 Der Mieter führt steuerfreie Umsätze aus, die nach § 15 Abs. 2 UStG zum Vorsteuerausschluss führen und für die keine Rückausnahme nach § 15 Abs. 3 UStG gilt.
 
@@ -16774,7 +16774,7 @@ Heilbehandlungen nach § 4 Nr. 14 UStG.
 
 ---
 
-# 14. Bagatellgrenze bei § 9 Abs. 2 UStG
+⇨ 14. Bagatellgrenze bei § 9 Abs. 2 UStG
 
 Nach der Verwaltungspraxis wird die ausschließliche Verwendung für vorsteuerunschädliche Umsätze regelmäßig noch angenommen, wenn die vorsteuerschädliche Verwendung nur geringfügig ist.
 
@@ -16789,7 +16789,7 @@ Prüfung:
 
 ---
 
-# 15. Beispiel zur Option bei Vermietung
+⇨ 15. Beispiel zur Option bei Vermietung
 
 Ein Vermieter überlässt Praxisräume an einen Arzt.
 
@@ -16815,7 +16815,7 @@ Die Miete wird mit Umsatzsteuer abgerechnet.
 
 ---
 
-# 16. Übergangsregelungen nach § 27 UStG
+⇨ 16. Übergangsregelungen nach § 27 UStG
 
 Bei älteren Gebäuden oder Altverträgen können Übergangsregelungen zu beachten sein.
 
@@ -16833,9 +16833,9 @@ Merksatz:
 
 ---
 
-# 17. Option bei Grundstücksveräußerungen
+⇨ 17. Option bei Grundstücksveräußerungen
 
-## Grundsatz
+► Grundsatz
 
 Auch bei nach § 4 Nr. 9 Buchst. a UStG steuerfreien Grundstücksveräußerungen kann grundsätzlich nach § 9 Abs. 1 UStG zur Steuerpflicht optiert werden.
 
@@ -16843,21 +16843,21 @@ Voraussetzung:
 
 Veräußerung an einen anderen Unternehmer für dessen Unternehmen.
 
-## Besonderheit nach § 9 Abs. 3 UStG
+► Besonderheit nach § 9 Abs. 3 UStG
 
 Bei Grundstücksumsätzen gelten besondere Form- und Zeitpunktanforderungen.
 
-### Zwangsversteigerung
+⇶  Zwangsversteigerung
 
 Bei einer Lieferung im Zwangsversteigerungsverfahren gelten die besonderen Regelungen des § 9 Abs. 3 Satz 1 UStG.
 
-### Notarieller Vertrag
+⇶  Notarieller Vertrag
 
 Außerhalb der Zwangsversteigerung muss der Verzicht auf die Steuerbefreiung grundsätzlich im notariell zu beurkundenden Vertrag erklärt werden.
 
 Eine spätere Option außerhalb des notariellen Vertrags ist regelmäßig nicht ausreichend.
 
-## Rechtsfolge der wirksamen Option
+► Rechtsfolge der wirksamen Option
 
 - Grundstücksumsatz wird steuerpflichtig,
 - Vorsteuerausschluss nach § 15 Abs. 2 UStG entfällt grundsätzlich,
@@ -16865,7 +16865,7 @@ Eine spätere Option außerhalb des notariellen Vertrags ist regelmäßig nicht 
 
 ---
 
-# 18. Prüfungsschema Option bei Vermietung
+⇨ 18. Prüfungsschema Option bei Vermietung
 
 1. Liegt ein steuerfreier Vermietungsumsatz nach § 4 Nr. 12 UStG vor?
 2. Ist eine Ausnahme nach § 4 Nr. 12 Satz 2 UStG einschlägig?
@@ -16880,7 +16880,7 @@ Eine spätere Option außerhalb des notariellen Vertrags ist regelmäßig nicht 
 
 ---
 
-# 19. Prüfungsschema Option bei Grundstücksveräußerung
+⇨ 19. Prüfungsschema Option bei Grundstücksveräußerung
 
 1. Steuerbare Grundstückslieferung?
 2. Steuerbefreiung nach § 4 Nr. 9 Buchst. a UStG?
@@ -16895,9 +16895,9 @@ Eine spätere Option außerhalb des notariellen Vertrags ist regelmäßig nicht 
 
 ---
 
-# 20. Ermäßigter Steuersatz
+⇨ 20. Ermäßigter Steuersatz
 
-## Grundsatz
+► Grundsatz
 
 Der Regelsteuersatz beträgt nach § 12 Abs. 1 UStG grundsätzlich 19 %.
 
@@ -16911,7 +16911,7 @@ Merksatz:
 
 ---
 
-# 21. Gegenstände der Anlage 2
+⇨ 21. Gegenstände der Anlage 2
 
 Der ermäßigte Steuersatz gilt insbesondere für Lieferungen bestimmter in Anlage 2 zum UStG bezeichneter Gegenstände.
 
@@ -16928,7 +16928,7 @@ Typische Gruppen:
 - bestimmte forstwirtschaftliche Erzeugnisse,
 - bestimmte Waren des Buchhandels.
 
-## Abgrenzungen
+► Abgrenzungen
 
 Nicht jedes Getränk ist begünstigt.
 
@@ -16943,15 +16943,15 @@ Bei Kaffee, Tee, Mate und Gewürzen ist genau auf die jeweilige Position der Anl
 
 ---
 
-# 22. Personenbeförderung
+⇨ 22. Personenbeförderung
 
 Nach § 12 Abs. 2 Nr. 10 UStG kann der ermäßigte Steuersatz insbesondere für bestimmte Personenbeförderungen gelten.
 
-## Schienenbahnverkehr
+► Schienenbahnverkehr
 
 Die Personenbeförderung im Schienenbahnverkehr kann nach den gesetzlichen Voraussetzungen ermäßigt besteuert werden.
 
-## Andere Verkehrsmittel
+► Andere Verkehrsmittel
 
 Bei Beförderung mit
 
@@ -16965,7 +16965,7 @@ ist insbesondere zu prüfen, ob
 - die Beförderung innerhalb einer Gemeinde erfolgt oder
 - die Beförderungsstrecke höchstens 50 Kilometer beträgt.
 
-## Hin- und Rückfahrt
+► Hin- und Rückfahrt
 
 Hin- und Rückfahrt sind grundsätzlich getrennt zu beurteilen.
 
@@ -16977,7 +16977,7 @@ Bei grenzüberschreitenden Beförderungen ist grundsätzlich auf den inländisch
 
 ---
 
-# 23. Kurzfristige Beherbergung und Steuersatz
+⇨ 23. Kurzfristige Beherbergung und Steuersatz
 
 Die kurzfristige Vermietung von Wohn- und Schlafräumen zur Beherbergung von Fremden ist nach § 4 Nr. 12 Satz 2 UStG nicht steuerfrei.
 
@@ -16996,9 +16996,9 @@ Typische gesondert zu prüfende Leistungen:
 
 ---
 
-# 24. Bemessungsgrundlage nach § 10 UStG
+⇨ 24. Bemessungsgrundlage nach § 10 UStG
 
-## Grundsatz
+► Grundsatz
 
 Nach § 10 Abs. 1 UStG wird der Umsatz grundsätzlich nach dem Entgelt bemessen.
 
@@ -17015,9 +17015,9 @@ Gegenleistung brutto
 
 ---
 
-# 25. Herausrechnung der Umsatzsteuer
+⇨ 25. Herausrechnung der Umsatzsteuer
 
-## Regelsteuersatz 19 %
+► Regelsteuersatz 19 %
 
 Bruttobetrag ÷ 1,19  
 = Nettoentgelt
@@ -17025,7 +17025,7 @@ Bruttobetrag ÷ 1,19
 Nettoentgelt × 19 %  
 = Umsatzsteuer
 
-## Ermäßigter Steuersatz 7 %
+► Ermäßigter Steuersatz 7 %
 
 Bruttobetrag ÷ 1,07  
 = Nettoentgelt
@@ -17033,7 +17033,7 @@ Bruttobetrag ÷ 1,07
 Nettoentgelt × 7 %  
 = Umsatzsteuer
 
-## Steuerfreier Umsatz
+► Steuerfreier Umsatz
 
 Bei einem steuerfreien Umsatz ist keine Umsatzsteuer aus dem Entgelt herauszurechnen.
 
@@ -17043,7 +17043,7 @@ Divisor:
 
 ---
 
-# 26. Beispiel zur Bemessungsgrundlage
+⇨ 26. Beispiel zur Bemessungsgrundlage
 
 Ein Unternehmer erhält für eine steuerpflichtige Leistung insgesamt:
 
@@ -17073,7 +17073,7 @@ Ein unzutreffender oder fehlender Steuerausweis in der Rechnung ändert grundsä
 
 ---
 
-# 27. Bezeichnung der Zahlung
+⇨ 27. Bezeichnung der Zahlung
 
 Die Bezeichnung einer Zahlung ist nicht entscheidend.
 
@@ -17096,7 +17096,7 @@ Merksatz:
 
 ---
 
-# 28. Entgelt von dritter Seite
+⇨ 28. Entgelt von dritter Seite
 
 Zum Entgelt können auch Zahlungen eines Dritten gehören.
 
@@ -17107,7 +17107,7 @@ Voraussetzungen:
 3. Die Zahlung erfolgt für genau diese Leistung.
 4. Die Zahlung dient wirtschaftlich der Förderung oder Entlastung des Leistungsempfängers.
 
-## Beispiel
+► Beispiel
 
 Unternehmer A liefert eine Maschine an Unternehmer B.
 
@@ -17127,7 +17127,7 @@ Die Drittzahlung kann Teil des Entgelts sein.
 
 ---
 
-# 29. Abgekürzter Zahlungsweg
+⇨ 29. Abgekürzter Zahlungsweg
 
 Auch eine Zahlung, die nicht unmittelbar an den leistenden Unternehmer erfolgt, kann Entgelt darstellen.
 
@@ -17135,9 +17135,9 @@ Entscheidend ist, ob sie wirtschaftlich auf Rechnung des Leistungsempfängers zu
 
 ---
 
-# 30. Tausch
+⇨ 30. Tausch
 
-## Begriff
+► Begriff
 
 Ein Tausch liegt vor, wenn die Gegenleistung für eine Lieferung ebenfalls in einer Lieferung besteht.
 
@@ -17155,7 +17155,7 @@ Es liegen zwei getrennt zu prüfende Lieferungen vor.
 
 ---
 
-# 31. Tauschähnlicher Umsatz
+⇨ 31. Tauschähnlicher Umsatz
 
 Ein tauschähnlicher Umsatz liegt vor, wenn die Gegenleistung für eine Leistung in einer Lieferung oder sonstigen Leistung besteht und mindestens eine Seite eine sonstige Leistung erbringt.
 
@@ -17185,7 +17185,7 @@ Jeder Umsatz ist getrennt zu prüfen hinsichtlich:
 
 ---
 
-# 32. Bemessungsgrundlage beim Tausch
+⇨ 32. Bemessungsgrundlage beim Tausch
 
 Beim Tausch gilt der Wert jedes Umsatzes als Entgelt für den jeweils anderen Umsatz.
 
@@ -17203,11 +17203,11 @@ Maßgeblich ist regelmäßig der Betrag, den der Leistungsempfänger für den Er
 
 ---
 
-# 33. Tausch mit Baraufgabe
+⇨ 33. Tausch mit Baraufgabe
 
 Wird zusätzlich zur Sach- oder Dienstleistung eine Geldzahlung erbracht, liegt ein Tausch oder tauschähnlicher Umsatz mit Baraufgabe vor.
 
-## Beteiligter erhält die Baraufgabe
+► Beteiligter erhält die Baraufgabe
 
 Berechnung:
 
@@ -17217,7 +17217,7 @@ Wert des anderen Umsatzes
 − enthaltene Umsatzsteuer  
 = Bemessungsgrundlage
 
-## Beteiligter zahlt die Baraufgabe
+► Beteiligter zahlt die Baraufgabe
 
 Berechnung:
 
@@ -17229,7 +17229,7 @@ Wert des anderen Umsatzes
 
 ---
 
-# 34. Beispiel: Architektenleistung gegen Brennholz
+⇨ 34. Beispiel: Architektenleistung gegen Brennholz
 
 Unternehmer A erbringt an Unternehmer B eine Architektenleistung.
 
@@ -17241,7 +17241,7 @@ B liefert an A Brennholz im Wert von:
 
 1.200 €.
 
-## Leistung des A
+► Leistung des A
 
 A erbringt eine sonstige Leistung nach § 3 Abs. 9 UStG.
 
@@ -17258,7 +17258,7 @@ Zu prüfen sind:
 - Bemessungsgrundlage,
 - Steuerentstehung.
 
-## Leistung des B
+► Leistung des B
 
 B erbringt eine Lieferung des Brennholzes nach § 3 Abs. 1 UStG.
 
@@ -17266,7 +17266,7 @@ Die Gegenleistung besteht in der Architektenleistung.
 
 Auch dieser Umsatz ist eigenständig zu prüfen.
 
-## Wichtiger Grundsatz
+► Wichtiger Grundsatz
 
 Der auf einer Seite angegebene Listen- oder Marktwert ist nicht automatisch die Bemessungsgrundlage beider Umsätze.
 
@@ -17274,7 +17274,7 @@ Entscheidend ist jeweils der Wert der erhaltenen Gegenleistung.
 
 ---
 
-# 35. Prüfungsschema Tausch und tauschähnlicher Umsatz
+⇨ 35. Prüfungsschema Tausch und tauschähnlicher Umsatz
 
 1. Welche Leistungen werden ausgetauscht?
 2. Lieferung gegen Lieferung?
@@ -17291,51 +17291,51 @@ Entscheidend ist jeweils der Wert der erhaltenen Gegenleistung.
 
 ---
 
-# 36. Typische Klausurfallen
+⇨ 36. Typische Klausurfallen
 
-## Fehler 1: Jede Nebenleistung getrennt besteuern
+► Fehler 1: Jede Nebenleistung getrennt besteuern
 
 Heizung und übliche Umlagen können Nebenleistungen zur steuerfreien Grundstücksvermietung sein.
 
 ---
 
-## Fehler 2: Jede mitvermietete Sache als steuerfreie Grundstücksvermietung behandeln
+► Fehler 2: Jede mitvermietete Sache als steuerfreie Grundstücksvermietung behandeln
 
 Ein selbständig nutzbarer Baukran oder eine Betriebsvorrichtung kann eine eigenständige steuerpflichtige Leistung darstellen.
 
 ---
 
-## Fehler 3: Kurzfristige Beherbergung als steuerfrei behandeln
+► Fehler 3: Kurzfristige Beherbergung als steuerfrei behandeln
 
 Die kurzfristige Beherbergung von Fremden ist von der Steuerbefreiung ausgenommen.
 
 ---
 
-## Fehler 4: Separaten Parkplatz als steuerfrei behandeln
+► Fehler 4: Separaten Parkplatz als steuerfrei behandeln
 
 Die eigenständige Vermietung eines Stellplatzes ist grundsätzlich steuerpflichtig.
 
 ---
 
-## Fehler 5: Option allein wegen Unternehmereigenschaft des Mieters zulassen
+► Fehler 5: Option allein wegen Unternehmereigenschaft des Mieters zulassen
 
 Bei der Vermietung muss zusätzlich § 9 Abs. 2 UStG geprüft werden.
 
 ---
 
-## Fehler 6: Ausgangsumsätze des Mieters nicht prüfen
+► Fehler 6: Ausgangsumsätze des Mieters nicht prüfen
 
 Entscheidend ist, ob der Mieter in den Räumen vorsteuerunschädliche Umsätze ausführt.
 
 ---
 
-## Fehler 7: Option bei Grundstücksverkauf außerhalb des Notarvertrags erklären
+► Fehler 7: Option bei Grundstücksverkauf außerhalb des Notarvertrags erklären
 
 Bei Grundstücksveräußerungen ist § 9 Abs. 3 UStG zu beachten.
 
 ---
 
-## Fehler 8: Sofort mit 19 % rechnen
+► Fehler 8: Sofort mit 19 % rechnen
 
 Zunächst muss geprüft werden:
 
@@ -17347,32 +17347,32 @@ Erst danach darf die Umsatzsteuer aus einem Bruttobetrag herausgerechnet werden.
 
 ---
 
-## Fehler 9: Drittzahlungen übersehen
+► Fehler 9: Drittzahlungen übersehen
 
 Auch Zahlungen eines Dritten können Entgelt sein.
 
 ---
 
-## Fehler 10: Beim Tausch nur einen Umsatz prüfen
+► Fehler 10: Beim Tausch nur einen Umsatz prüfen
 
 Beim Tausch oder tauschähnlichen Umsatz liegen grundsätzlich zwei getrennte Umsätze vor.
 
 ---
 
-## Fehler 11: Marktwert ungeprüft als Bemessungsgrundlage übernehmen
+► Fehler 11: Marktwert ungeprüft als Bemessungsgrundlage übernehmen
 
 Maßgeblich ist grundsätzlich der Wert der jeweils empfangenen Gegenleistung.
 
 ---
 
-## Fehler 12: Baraufgabe falsch behandeln
+► Fehler 12: Baraufgabe falsch behandeln
 
 - erhaltene Baraufgabe: hinzurechnen,
 - geleistete Baraufgabe: abziehen.
 
 ---
 
-# 37. Merksätze
+⇨ 37. Merksätze
 
 - Grundstücksvermietungen sind grundsätzlich steuerfrei.
 - Übliche Nebenleistungen teilen regelmäßig das Schicksal der Vermietung.
@@ -17433,9 +17433,9 @@ Maßgeblich ist grundsätzlich der Wert der jeweils empfangenen Gegenleistung.
     "Abschn. 15a.11 UStAE"
   ],
   body: `
-# Gebäude – Vorsteuerabzug nach Verwendungsabsicht und § 15a UStG
+⇨ Gebäude – Vorsteuerabzug nach Verwendungsabsicht und § 15a UStG
 
-## 1. Ausgangssachverhalt
+► 1. Ausgangssachverhalt
 
 Eine KG errichtet im Jahr 2025 einen zweigeschossigen Anbau.
 
@@ -17465,15 +17465,15 @@ Die Geschossflächen sind jedoch gleich groß.
 
 ---
 
-# 2. Eingangsleistung des Bauunternehmers
+⇨ 2. Eingangsleistung des Bauunternehmers
 
-## Art der Leistung
+► Art der Leistung
 
 Der Bauunternehmer errichtet den Anbau unter Verwendung eigener Hauptstoffe.
 
 Es liegt eine Werklieferung nach § 3 Abs. 4 UStG vor.
 
-## Zeitpunkt der Leistung
+► Zeitpunkt der Leistung
 
 Die Werklieferung ist mit der Abnahme des fertiggestellten Bauwerks ausgeführt.
 
@@ -17481,7 +17481,7 @@ Zeitpunkt:
 
 30.10.2025.
 
-## Ort der Leistung
+► Ort der Leistung
 
 Der Anbau wird fest mit dem Grundstück verbunden.
 
@@ -17491,7 +17491,7 @@ Im Beispiel:
 
 Düsseldorf.
 
-## Steuerbarkeit und Steuerpflicht
+► Steuerbarkeit und Steuerpflicht
 
 Die Werklieferung wird im Inland gegen Entgelt ausgeführt.
 
@@ -17505,7 +17505,7 @@ Umsatzsteuer:
 
 ---
 
-# 3. Grundvoraussetzungen des Vorsteuerabzugs
+⇨ 3. Grundvoraussetzungen des Vorsteuerabzugs
 
 Die KG kann die gesetzlich geschuldete Umsatzsteuer grundsätzlich nach
 
@@ -17526,7 +17526,7 @@ Der Anbau wird vollständig für die unternehmerische Vermietungstätigkeit der 
 
 ---
 
-# 4. Maßgebliche Verwendungsabsicht
+⇨ 4. Maßgebliche Verwendungsabsicht
 
 Ist das Gebäude beim Leistungsbezug noch nicht tatsächlich verwendet worden,
 
@@ -17555,9 +17555,9 @@ Eine bloß behauptete, nicht belegte Absicht genügt nicht.
 
 ---
 
-# 5. Beabsichtigte Nutzung des Erdgeschosses
+⇨ 5. Beabsichtigte Nutzung des Erdgeschosses
 
-## Vermietung an einen Podologen
+► Vermietung an einen Podologen
 
 Die Vermietung von Grundstücken und Gebäudeteilen ist grundsätzlich nach
 
@@ -17565,7 +17565,7 @@ Die Vermietung von Grundstücken und Gebäudeteilen ist grundsätzlich nach
 
 steuerfrei.
 
-## Grundsätzliche Option nach § 9 Abs. 1 UStG
+► Grundsätzliche Option nach § 9 Abs. 1 UStG
 
 Eine Option zur Steuerpflicht setzt zunächst voraus,
 
@@ -17575,7 +17575,7 @@ Der Podologe verwendet die Räume für seine berufliche Tätigkeit.
 
 Damit ist § 9 Abs. 1 UStG grundsätzlich erfüllt.
 
-## Einschränkung nach § 9 Abs. 2 UStG
+► Einschränkung nach § 9 Abs. 2 UStG
 
 Bei Grundstücksvermietungen ist die Option jedoch nur zulässig,
 
@@ -17590,7 +17590,7 @@ Der Podologe erbringt in den Räumen sowohl
 
 Damit nutzt er die Räume nicht ausschließlich für vorsteuerunschädliche Umsätze.
 
-## Ergebnis Erdgeschoss
+► Ergebnis Erdgeschoss
 
 Die Option zur Steuerpflicht ist nach § 9 Abs. 2 UStG ausgeschlossen.
 
@@ -17600,9 +17600,9 @@ Die hierfür bezogenen Eingangsleistungen sind damit vorsteuerschädlich.
 
 ---
 
-# 6. Beabsichtigte Nutzung des Obergeschosses
+⇨ 6. Beabsichtigte Nutzung des Obergeschosses
 
-## Kurzfristige Unterbringung von Messegästen
+► Kurzfristige Unterbringung von Messegästen
 
 Die kurzfristige Beherbergung von Gästen fällt nicht unter die Steuerbefreiung des
 
@@ -17610,7 +17610,7 @@ Die kurzfristige Beherbergung von Gästen fällt nicht unter die Steuerbefreiung
 
 Sie ist nach § 4 Nr. 12 Satz 2 UStG von der Steuerbefreiung ausgenommen.
 
-## Ergebnis Obergeschoss
+► Ergebnis Obergeschoss
 
 Die kurzfristige Vermietung an Messegäste ist steuerpflichtig.
 
@@ -17618,7 +17618,7 @@ Die hierfür verwendeten Eingangsleistungen sind vorsteuerunschädlich.
 
 ---
 
-# 7. Gemischte Verwendung des Gebäudes
+⇨ 7. Gemischte Verwendung des Gebäudes
 
 Der Anbau soll damit teilweise für
 
@@ -17633,15 +17633,15 @@ Die Vorsteuer ist nach § 15 Abs. 4 UStG aufzuteilen.
 
 ---
 
-# 8. Aufteilungsmaßstab
+⇨ 8. Aufteilungsmaßstab
 
-## Keine direkte Zuordnung der Herstellungskosten
+► Keine direkte Zuordnung der Herstellungskosten
 
 Die gesamten Baukosten betreffen die Errichtung eines einheitlichen Gebäudes.
 
 Eine unmittelbare Einzelzuordnung der Vorsteuerbeträge zu Erdgeschoss und Obergeschoss ist im Beispielsfall nicht möglich.
 
-## Wirtschaftliche Zuordnung
+► Wirtschaftliche Zuordnung
 
 Die Vorsteuer ist nach einem sachgerechten Maßstab aufzuteilen.
 
@@ -17656,7 +17656,7 @@ Aufteilung:
 - Erdgeschoss: 50 %
 - Obergeschoss: 50 %.
 
-## Bedeutung der Kostenverteilung
+► Bedeutung der Kostenverteilung
 
 Obwohl 80 % der Herstellungskosten auf das Erdgeschoss und 20 % auf das Obergeschoss entfallen,
 
@@ -17668,7 +17668,7 @@ nicht automatisch die interne Kostenverteilung.
 
 ---
 
-# 9. Vorsteuerabzug im Jahr 2025
+⇨ 9. Vorsteuerabzug im Jahr 2025
 
 Gesamte Vorsteuer:
 
@@ -17690,7 +17690,7 @@ Nicht abziehbare Vorsteuer:
 
 = 38.000 €.
 
-## Ergebnis
+► Ergebnis
 
 Die KG darf im Voranmeldungszeitraum Oktober 2025
 
@@ -17700,13 +17700,13 @@ abziehen.
 
 ---
 
-# 10. Leerstand nach Fertigstellung
+⇨ 10. Leerstand nach Fertigstellung
 
 Entgegen der ursprünglichen Absicht findet die KG zunächst keine Mieter.
 
 Der Anbau steht nach Fertigstellung leer.
 
-## Grundsatz
+► Grundsatz
 
 Ein vorübergehender Leerstand ist noch keine tatsächliche Verwendung.
 
@@ -17718,7 +17718,7 @@ Der Leerstand allein führt daher noch nicht zu einer Vorsteuerberichtigung.
 
 ---
 
-# 11. Tatsächliche erstmalige Verwendung ab Juli 2026
+⇨ 11. Tatsächliche erstmalige Verwendung ab Juli 2026
 
 Am 01.07.2026 vermietet die KG den gesamten Anbau an eine Spedition.
 
@@ -17734,19 +17734,19 @@ Die Spedition nutzt das Gebäude für Gütertransporte nach Ostasien.
 
 ---
 
-# 12. Umsatzsteuerliche Behandlung der Vermietung an die Spedition
+⇨ 12. Umsatzsteuerliche Behandlung der Vermietung an die Spedition
 
-## Sonstige Leistung
+► Sonstige Leistung
 
 Die Vermietung ist eine sonstige Leistung nach § 3 Abs. 9 UStG.
 
-## Teilleistungen
+► Teilleistungen
 
 Die monatlichen Vermietungszeiträume stellen regelmäßig Teilleistungen dar.
 
 Die jeweilige Leistung ist mit Ablauf des Monats ausgeführt.
 
-## Leistungsort
+► Leistungsort
 
 Der Ort einer Grundstücksvermietung liegt am Belegenheitsort des Grundstücks.
 
@@ -17754,7 +17754,7 @@ Im Beispiel:
 
 Düsseldorf.
 
-## Grundsätzliche Steuerbefreiung
+► Grundsätzliche Steuerbefreiung
 
 Die Vermietung ist grundsätzlich nach
 
@@ -17764,15 +17764,15 @@ steuerfrei.
 
 ---
 
-# 13. Option zur Steuerpflicht
+⇨ 13. Option zur Steuerpflicht
 
-## Unternehmerischer Mieter
+► Unternehmerischer Mieter
 
 Die Spedition ist Unternehmer und verwendet das Gebäude für ihr Unternehmen.
 
 Die Voraussetzung des § 9 Abs. 1 UStG ist erfüllt.
 
-## Keine Sperre nach § 9 Abs. 2 UStG
+► Keine Sperre nach § 9 Abs. 2 UStG
 
 Die Spedition erbringt Beförderungsleistungen.
 
@@ -17786,13 +17786,13 @@ die den Vorsteuerabzug nicht ausschließen.
 
 Die Option ist zulässig.
 
-## Ausübung der Option
+► Ausübung der Option
 
 Die KG behandelt die Vermietungsumsätze im Mietvertrag unter gesondertem Ausweis der Umsatzsteuer als steuerpflichtig.
 
 Dadurch verzichtet sie wirksam auf die Steuerbefreiung.
 
-## Ergebnis
+► Ergebnis
 
 Die Vermietung ist mit 19 % steuerpflichtig.
 
@@ -17810,7 +17810,7 @@ KG nach § 13a Abs. 1 Nr. 1 UStG.
 
 ---
 
-# 14. Berichtigungsobjekt nach § 15a UStG
+⇨ 14. Berichtigungsobjekt nach § 15a UStG
 
 Der Anbau ist ein Wirtschaftsgut im Sinne des § 15a Abs. 1 UStG.
 
@@ -17826,9 +17826,9 @@ Im Beispiel:
 
 ---
 
-# 15. Änderung der Verhältnisse
+⇨ 15. Änderung der Verhältnisse
 
-## Ursprünglicher Vorsteuerabzug
+► Ursprünglicher Vorsteuerabzug
 
 Aufgrund der Verwendungsabsicht war die KG zunächst nur zu
 
@@ -17840,7 +17840,7 @@ Abgezogene Vorsteuer:
 
 38.000 €.
 
-## Tatsächliche erstmalige Verwendung
+► Tatsächliche erstmalige Verwendung
 
 Ab dem 01.07.2026 wird das gesamte Gebäude steuerpflichtig vermietet.
 
@@ -17848,7 +17848,7 @@ Vorsteuerunschädliche tatsächliche Verwendung:
 
 100 %.
 
-## Änderung
+► Änderung
 
 Ursprüngliche Beurteilung:
 
@@ -17866,7 +17866,7 @@ Damit ist eine Vorsteuerberichtigung nach § 15a UStG vorzunehmen.
 
 ---
 
-# 16. Berechnung der Vorsteuerberichtigung 2026
+⇨ 16. Berechnung der Vorsteuerberichtigung 2026
 
 Gesamte Vorsteuer:
 
@@ -17896,7 +17896,7 @@ Berechnung:
 
 = 1.900 €.
 
-## Ergebnis
+► Ergebnis
 
 Die KG erhält für das Kalenderjahr 2026 eine Vorsteuerberichtigung zu ihren Gunsten in Höhe von
 
@@ -17904,7 +17904,7 @@ Die KG erhält für das Kalenderjahr 2026 eine Vorsteuerberichtigung zu ihren Gu
 
 ---
 
-# 17. Zeitpunkt der Berichtigung
+⇨ 17. Zeitpunkt der Berichtigung
 
 Der Berichtigungsbetrag für 2026 überschreitet 6.000 € nicht.
 
@@ -17918,9 +17918,9 @@ Berichtigungsbetrag:
 
 ---
 
-# 18. Bagatellgrenzen nach § 44 UStDV
+⇨ 18. Bagatellgrenzen nach § 44 UStDV
 
-## Vorsteuerbetrag des Berichtigungsobjekts
+► Vorsteuerbetrag des Berichtigungsobjekts
 
 Die auf das Gebäude entfallende Vorsteuer beträgt
 
@@ -17928,7 +17928,7 @@ Die auf das Gebäude entfallende Vorsteuer beträgt
 
 Damit ist die maßgebliche Mindestgrenze deutlich überschritten.
 
-## Änderung der Verhältnisse
+► Änderung der Verhältnisse
 
 Die Änderung beträgt im anteiligen Kalenderjahr
 
@@ -17942,9 +17942,9 @@ Eine Berichtigung wird nicht durch die Bagatellregelungen ausgeschlossen.
 
 ---
 
-# Prüfungsschema: Vorsteuerabzug und spätere Berichtigung
+⇨ Prüfungsschema: Vorsteuerabzug und spätere Berichtigung
 
-## Phase 1: Ursprünglicher Vorsteuerabzug
+► Phase 1: Ursprünglicher Vorsteuerabzug
 
 1. Liegt eine Leistung eines anderen Unternehmers vor?
 
@@ -17966,7 +17966,7 @@ Eine Berichtigung wird nicht durch die Bagatellregelungen ausgeschlossen.
 
 10. Vorsteuer nach § 15 Abs. 4 UStG aufteilen.
 
-## Phase 2: Tatsächliche Verwendung
+► Phase 2: Tatsächliche Verwendung
 
 1. Wann beginnt die tatsächliche erstmalige Verwendung?
 
@@ -17988,15 +17988,15 @@ Eine Berichtigung wird nicht durch die Bagatellregelungen ausgeschlossen.
 
 ---
 
-# Typische Klausurfallen
+⇨ Typische Klausurfallen
 
-## Fehler 1: Erst auf den abgeschlossenen Mietvertrag abstellen
+► Fehler 1: Erst auf den abgeschlossenen Mietvertrag abstellen
 
 Der ursprüngliche Vorsteuerabzug richtet sich bei noch nicht erfolgter Verwendung nach der nachgewiesenen Absicht im Zeitpunkt des Leistungsbezugs.
 
 ---
 
-## Fehler 2: Jede Vermietung an einen Unternehmer als optionsfähig behandeln
+► Fehler 2: Jede Vermietung an einen Unternehmer als optionsfähig behandeln
 
 Die Option nach § 9 Abs. 1 UStG genügt nicht.
 
@@ -18008,7 +18008,7 @@ die den Vorsteuerabzug nicht ausschließen.
 
 ---
 
-## Fehler 3: Kosmetische und medizinische Nutzung nicht unterscheiden
+► Fehler 3: Kosmetische und medizinische Nutzung nicht unterscheiden
 
 Heilbehandlungen können steuerfrei sein.
 
@@ -18018,7 +18018,7 @@ Die gemischte Nutzung kann die Option nach § 9 Abs. 2 UStG ausschließen.
 
 ---
 
-## Fehler 4: Kurzfristige Vermietung als steuerfrei behandeln
+► Fehler 4: Kurzfristige Vermietung als steuerfrei behandeln
 
 Die kurzfristige Beherbergung von Fremden ist von der Grundstückssteuerbefreiung ausgenommen.
 
@@ -18026,7 +18026,7 @@ Sie ist grundsätzlich steuerpflichtig.
 
 ---
 
-## Fehler 5: Herstellungskostenverteilung automatisch als Vorsteuerschlüssel verwenden
+► Fehler 5: Herstellungskostenverteilung automatisch als Vorsteuerschlüssel verwenden
 
 Die Aufteilung richtet sich nach der wirtschaftlichen Zuordnung.
 
@@ -18036,19 +18036,19 @@ auch wenn die Herstellungskosten unterschiedlich verteilt sind.
 
 ---
 
-## Fehler 6: Leerstand als erstmalige Verwendung behandeln
+► Fehler 6: Leerstand als erstmalige Verwendung behandeln
 
 Ein bloßer Leerstand ist grundsätzlich noch keine tatsächliche Verwendung.
 
 ---
 
-## Fehler 7: Berichtigungszeitraum ab Fertigstellung beginnen lassen
+► Fehler 7: Berichtigungszeitraum ab Fertigstellung beginnen lassen
 
 Der Berichtigungszeitraum beginnt grundsätzlich mit der tatsächlichen erstmaligen Verwendung.
 
 ---
 
-## Fehler 8: Vollständige Jahreskorrektur berechnen
+► Fehler 8: Vollständige Jahreskorrektur berechnen
 
 Beginnt die Verwendung erst im Laufe des Jahres,
 
@@ -18056,7 +18056,7 @@ ist der Jahresbetrag zeitanteilig nach Monaten zu berechnen.
 
 ---
 
-## Fehler 9: Berichtigung sofort in der Voranmeldung erfassen
+► Fehler 9: Berichtigung sofort in der Voranmeldung erfassen
 
 Beträgt die Jahresberichtigung höchstens 6.000 €,
 
@@ -18064,7 +18064,7 @@ erfolgt sie nach § 44 Abs. 3 UStDV grundsätzlich erst in der Jahressteuerfests
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 - Vor der tatsächlichen Nutzung entscheidet die objektiv nachgewiesene Verwendungsabsicht.
 - Steuerfreie Vermietung schließt den Vorsteuerabzug grundsätzlich aus.
@@ -18103,9 +18103,9 @@ erfolgt sie nach § 44 Abs. 3 UStDV grundsätzlich erst in der Jahressteuerfests
   ],
 
   body: `
-# Rücklagen und Vermögensbildung (§ 62 AO)
+⇨ Rücklagen und Vermögensbildung (§ 62 AO)
 
-## Grundsatz
+► Grundsatz
 
 Steuerbegünstigte Körperschaften müssen ihre Mittel grundsätzlich zeitnah verwenden (§ 55 Abs.1 Nr.5 AO).
 
@@ -18118,13 +18118,13 @@ Danach dürfen Mittel
 
 ---
 
-# I. Zulässige Rücklagen (§ 62 Abs.1 AO)
+⇨ I. Zulässige Rücklagen (§ 62 Abs.1 AO)
 
 Es existieren vier gesetzliche Rücklagenarten.
 
 ---
 
-## 1. Zweckgebundene Rücklage (§ 62 Abs.1 Nr.1 AO)
+► 1. Zweckgebundene Rücklage (§ 62 Abs.1 Nr.1 AO)
 
 Zulässig, soweit erforderlich, um die steuerbegünstigten satzungsmäßigen Zwecke nachhaltig zu erfüllen.
 
@@ -18150,7 +18150,7 @@ Keine konkrete Planung → keine zweckgebundene Rücklage.
 
 ---
 
-## 2. Wiederbeschaffungsrücklage (§ 62 Abs.1 Nr.2 AO)
+► 2. Wiederbeschaffungsrücklage (§ 62 Abs.1 Nr.2 AO)
 
 Dient der späteren Ersatzbeschaffung notwendiger Wirtschaftsgüter.
 
@@ -18170,7 +18170,7 @@ Eine höhere Zuführung ist zulässig, wenn sie sachlich nachgewiesen werden kan
 
 ---
 
-## 3. Freie Rücklage (§ 62 Abs.1 Nr.3 AO)
+► 3. Freie Rücklage (§ 62 Abs.1 Nr.3 AO)
 
 Maximal zulässig:
 
@@ -18188,7 +18188,7 @@ Merksatz:
 
 ---
 
-## 4. Rücklage zum Erwerb von Gesellschaftsrechten (§ 62 Abs.1 Nr.4 AO)
+► 4. Rücklage zum Erwerb von Gesellschaftsrechten (§ 62 Abs.1 Nr.4 AO)
 
 Zulässig zum Erhalt einer bestehenden prozentualen Beteiligung an Kapitalgesellschaften.
 
@@ -18196,7 +18196,7 @@ Die hierfür gebildete Rücklage vermindert den Höchstbetrag der freien Rückla
 
 ---
 
-# II. Auflösung der Rücklagen (§ 62 Abs.2 AO)
+⇨ II. Auflösung der Rücklagen (§ 62 Abs.2 AO)
 
 Die Rücklagenbildung muss innerhalb der Frist der zeitnahen Mittelverwendung erfolgen.
 
@@ -18212,11 +18212,11 @@ Die dadurch frei werdenden Mittel sind anschließend innerhalb der gesetzlichen 
 
 ---
 
-# III. Vermögenszuführungen (§ 62 Abs.3 AO)
+⇨ III. Vermögenszuführungen (§ 62 Abs.3 AO)
 
 Folgende Mittel unterliegen nicht der Pflicht zur zeitnahen Mittelverwendung und dürfen unmittelbar dem Vermögen zugeführt werden.
 
-## 1.
+► 1.
 
 Zuwendungen von Todes wegen
 
@@ -18226,7 +18226,7 @@ soweit der Erblasser keine Verwendung für den laufenden Aufwand vorgeschrieben 
 
 ---
 
-## 2.
+► 2.
 
 Zuwendungen,
 
@@ -18241,7 +18241,7 @@ bestimmt sind.
 
 ---
 
-## 3.
+► 3.
 
 Spenden aufgrund eines Spendenaufrufs,
 
@@ -18251,7 +18251,7 @@ dass die Mittel zur Vermögensbildung bestimmt sind.
 
 ---
 
-## 4.
+► 4.
 
 Sachzuwendungen,
 
@@ -18266,7 +18266,7 @@ Beispiele:
 
 ---
 
-# Prüfungsschema
+⇨ Prüfungsschema
 
 1. Liegt grundsätzlich zeitnah zu verwendendes Vermögen vor?
 
@@ -18301,7 +18301,7 @@ Beispiele:
 
 ---
 
-# Klausurhinweise
+⇨ Klausurhinweise
 
 Immer prüfen:
 
@@ -18321,7 +18321,7 @@ Immer prüfen:
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 • Rücklagen sind die Ausnahme vom Grundsatz der zeitnahen Mittelverwendung.
 
@@ -18369,9 +18369,9 @@ Immer prüfen:
 
   body: `
 
-# Feststellungsverjährung
+⇨ Feststellungsverjährung
 
-## Zweck
+► Zweck
 
 Die gesonderte Feststellung von Besteuerungsgrundlagen unterliegt eigenen Verjährungsvorschriften.
 
@@ -18383,7 +18383,7 @@ Sie bestimmen,
 
 ---
 
-# 1. Rechtsgrundlage
+⇨ 1. Rechtsgrundlage
 
 Für die gesonderte Feststellung gelten
 
@@ -18395,7 +18395,7 @@ i.V.m.
 
 ---
 
-# 2. Regelmäßige Feststellungsfrist
+⇨ 2. Regelmäßige Feststellungsfrist
 
 Grundsätzlich beträgt die Feststellungsfrist
 
@@ -18411,7 +18411,7 @@ spätestens jedoch nach den gesetzlichen Höchstgrenzen des § 170 AO.
 
 ---
 
-# 3. Ablaufhemmung (§ 171 AO)
+⇨ 3. Ablaufhemmung (§ 171 AO)
 
 Die Feststellungsfrist kann sich verlängern.
 
@@ -18424,7 +18424,7 @@ Wichtige Fälle:
 
 ---
 
-# 4. Außenprüfung
+⇨ 4. Außenprüfung
 
 Eine Außenprüfung hemmt den Ablauf der Feststellungsfrist,
 
@@ -18439,7 +18439,7 @@ tritt keine Ablaufhemmung mehr ein.
 
 ---
 
-# 5. Aufhebungsbescheid nach Eintritt der Feststellungsverjährung
+⇨ 5. Aufhebungsbescheid nach Eintritt der Feststellungsverjährung
 
 Ein Aufhebungsbescheid,
 
@@ -18457,7 +18457,7 @@ tritt Bestandskraft ein.
 
 ---
 
-# 6. Bindungswirkung
+⇨ 6. Bindungswirkung
 
 Feststellungsbescheide sind Grundlagenbescheide.
 
@@ -18471,7 +18471,7 @@ Dies gilt ebenso für wirksame Aufhebungsbescheide.
 
 ---
 
-# 7. Hinweis nach § 181 Abs. 5 AO
+⇨ 7. Hinweis nach § 181 Abs. 5 AO
 
 Eine Feststellung nach Ablauf der Feststellungsfrist
 
@@ -18487,7 +18487,7 @@ ist der Feststellungsbescheid rechtswidrig.
 
 ---
 
-# Prüfungsschema
+⇨ Prüfungsschema
 
 1. Gesonderte Feststellung?
 2. Feststellungsfrist bestimmen.
@@ -18501,15 +18501,15 @@ ist der Feststellungsbescheid rechtswidrig.
 
 ---
 
-# Klausurfallen
+⇨ Klausurfallen
 
-## Fehler 1
+► Fehler 1
 
 Festsetzungsverjährung und Feststellungsverjährung verwechseln.
 
 ---
 
-## Fehler 2
+► Fehler 2
 
 Außenprüfung hemmt immer.
 
@@ -18519,7 +18519,7 @@ Sie muss vor Fristablauf begonnen haben.
 
 ---
 
-## Fehler 3
+► Fehler 3
 
 Nach Eintritt der Verjährung sei jeder Bescheid nichtig.
 
@@ -18529,7 +18529,7 @@ Regelmäßig ist er lediglich anfechtbar.
 
 ---
 
-## Fehler 4
+► Fehler 4
 
 Bindungswirkung endet automatisch mit Eintritt der Verjährung.
 
@@ -18539,7 +18539,7 @@ Bestandskräftige Grundlagenbescheide entfalten weiterhin Bindungswirkung.
 
 ---
 
-## Fehler 5
+► Fehler 5
 
 § 181 Abs. 5 AO übersehen.
 
@@ -18547,7 +18547,7 @@ Bei einer Feststellung nach Fristablauf ist der Hinweis zwingend.
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 - Feststellungsverjährung richtet sich nach § 181 AO.
 - §§ 169–171 AO gelten entsprechend.
@@ -18593,9 +18593,9 @@ Bei einer Feststellung nach Fristablauf ist der Hinweis zwingend.
 
   body: `
 
-# Fristsetzung nach § 364b AO
+⇨ Fristsetzung nach § 364b AO
 
-## Zweck
+► Zweck
 
 § 364b AO ermöglicht dem Finanzamt, den Steuerpflichtigen aufzufordern,
 
@@ -18610,9 +18610,9 @@ Nach Ablauf dieser Frist können verspätete Angaben im Einspruchsverfahren ausg
 
 ---
 
-# Prüfung der Fristsetzung
+⇨ Prüfung der Fristsetzung
 
-## 1. Liegt ein Verwaltungsakt vor?
+► 1. Liegt ein Verwaltungsakt vor?
 
 Die Fristsetzung ist ein Verwaltungsakt (§ 118 AO), wenn
 
@@ -18622,7 +18622,7 @@ Die Fristsetzung ist ein Verwaltungsakt (§ 118 AO), wenn
 
 ---
 
-## 2. Einspruch gegen die Fristsetzung
+► 2. Einspruch gegen die Fristsetzung
 
 Zu prüfen sind:
 
@@ -18632,7 +18632,7 @@ Zu prüfen sind:
 - Beschwer (§ 350 AO)
 - Rechtsschutzbedürfnis
 
-### Besonderheit
+⇶  Besonderheit
 
 Nach der BFH-Rechtsprechung fehlt regelmäßig das Rechtsschutzbedürfnis.
 
@@ -18647,7 +18647,7 @@ Ein isolierter Einspruch gegen die Fristsetzung bleibt daher regelmäßig erfolg
 
 ---
 
-# Voraussetzungen des § 364b AO
+⇨ Voraussetzungen des § 364b AO
 
 Das Finanzamt muss
 
@@ -18659,7 +18659,7 @@ Das Finanzamt muss
 
 ---
 
-# Rechtsfolge
+⇨ Rechtsfolge
 
 Werden Tatsachen oder Beweismittel verspätet eingereicht,
 
@@ -18673,9 +18673,9 @@ Dies betrifft insbesondere
 
 ---
 
-# Wiedereinsetzung (§ 110 AO)
+⇨ Wiedereinsetzung (§ 110 AO)
 
-## Voraussetzungen
+► Voraussetzungen
 
 Es muss
 
@@ -18686,7 +18686,7 @@ Es muss
 
 vorliegen.
 
-### Kein fehlendes Verschulden
+⇶  Kein fehlendes Verschulden
 
 Nicht ausreichend sind insbesondere
 
@@ -18699,7 +18699,7 @@ Diese Umstände stellen regelmäßig einfache Fahrlässigkeit dar.
 
 ---
 
-# Auswirkungen im Einspruchsverfahren
+⇨ Auswirkungen im Einspruchsverfahren
 
 Gehen Steuererklärung oder Beweismittel erst nach Ablauf der Frist ein,
 
@@ -18709,7 +18709,7 @@ Das Finanzamt entscheidet hierüber nach pflichtgemäßem Ermessen.
 
 ---
 
-# Schlichte Änderung (§ 172 AO)
+⇨ Schlichte Änderung (§ 172 AO)
 
 Auch durch einen Antrag auf schlichte Änderung können Tatsachen,
 
@@ -18721,7 +18721,7 @@ Die Präklusionswirkung bleibt bestehen.
 
 ---
 
-# Schätzung (§ 162 AO)
+⇨ Schätzung (§ 162 AO)
 
 Wird keine Steuererklärung abgegeben,
 
@@ -18737,7 +18737,7 @@ sein.
 
 ---
 
-# Prüfungsschema
+⇨ Prüfungsschema
 
 1. Einspruchsverfahren anhängig?
 2. Fristsetzung nach § 364b AO?
@@ -18751,9 +18751,9 @@ sein.
 
 ---
 
-# Klausurfallen
+⇨ Klausurfallen
 
-## Fehler 1
+► Fehler 1
 
 Annahme, dass gegen jede Fristsetzung erfolgreich Einspruch eingelegt werden kann.
 
@@ -18763,7 +18763,7 @@ Regelmäßig fehlt das Rechtsschutzbedürfnis.
 
 ---
 
-## Fehler 2
+► Fehler 2
 
 Urlaub genügt für Wiedereinsetzung.
 
@@ -18773,7 +18773,7 @@ Urlaub schließt eigenes Verschulden regelmäßig nicht aus.
 
 ---
 
-## Fehler 3
+► Fehler 3
 
 Verspätete Steuererklärung muss immer berücksichtigt werden.
 
@@ -18783,7 +18783,7 @@ Falsch.
 
 ---
 
-## Fehler 4
+► Fehler 4
 
 Schlichte Änderung beseitigt die Präklusion.
 
@@ -18793,7 +18793,7 @@ Falsch.
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 - § 364b AO dient der Verfahrensbeschleunigung.
 - Präklusion setzt eine wirksame Fristsetzung voraus.
@@ -18822,9 +18822,9 @@ Falsch.
     "§ 5 EStG"
   ],
   body: `
-# Gewinnermittlung bei gewerblichen Personengesellschaften
+⇨ Gewinnermittlung bei gewerblichen Personengesellschaften
 
-## 1. Grundprinzip
+► 1. Grundprinzip
 
 Bei einer gewerblichen Personengesellschaft wird der steuerliche Gewinn in mehreren Stufen ermittelt.
 
@@ -18842,9 +18842,9 @@ Rechtsgrundlage:
 
 ---
 
-# 2. Zwei Ebenen der Gewinnermittlung
+⇨ 2. Zwei Ebenen der Gewinnermittlung
 
-## Ebene 1: Gesamthandsbereich
+► Ebene 1: Gesamthandsbereich
 
 Hier wird der Gewinn der Personengesellschaft ermittelt.
 
@@ -18856,7 +18856,7 @@ Typische Bestandteile:
 - Vorabgewinne,
 - Restgewinnverteilung.
 
-## Ebene 2: Sonderbereich der Gesellschafter
+► Ebene 2: Sonderbereich der Gesellschafter
 
 Hier werden Leistungen zwischen einem Gesellschafter und seiner Personengesellschaft erfasst.
 
@@ -18872,7 +18872,7 @@ Dazugehörige Aufwendungen des Gesellschafters sind Sonderbetriebsausgaben.
 
 ---
 
-# 3. Gesellschaftsrechtliche Gewinnverteilung
+⇨ 3. Gesellschaftsrechtliche Gewinnverteilung
 
 Die Gewinnverteilung richtet sich zunächst nach dem Gesellschaftsvertrag.
 
@@ -18883,7 +18883,7 @@ Typischer Aufbau:
 3. gegebenenfalls weitere Vorwegvergütungen,
 4. Verteilung des verbleibenden Restgewinns.
 
-## Formel
+► Formel
 
 Gesellschaftsgewinn
 
@@ -18897,11 +18897,11 @@ Der Restgewinn wird anschließend nach dem vereinbarten Schlüssel verteilt.
 
 ---
 
-# 4. Vorabgewinn und Sondervergütung unterscheiden
+⇨ 4. Vorabgewinn und Sondervergütung unterscheiden
 
 Diese Unterscheidung ist besonders wichtig.
 
-## Vorabgewinn
+► Vorabgewinn
 
 Ein Vorabgewinn ist Bestandteil der gesellschaftsrechtlichen Gewinnverteilung.
 
@@ -18913,7 +18913,7 @@ Beispiele:
 
 Der Vorabgewinn wird innerhalb der Gewinnverteilung berücksichtigt.
 
-## Sondervergütung
+► Sondervergütung
 
 Eine Sondervergütung beruht auf einem schuldrechtlichen Leistungsaustausch zwischen Gesellschafter und Gesellschaft.
 
@@ -18926,7 +18926,7 @@ Beispiele:
 
 Die Sondervergütung wird im Sonderbereich des Gesellschafters erfasst.
 
-## Merksatz
+► Merksatz
 
 Gesellschaftsvertragliche Gewinnverteilung
 
@@ -18938,7 +18938,7 @@ Schuldrechtlicher Vertrag mit dem Gesellschafter
 
 ---
 
-# 5. Sonderbetriebseinnahmen
+⇨ 5. Sonderbetriebseinnahmen
 
 Sonderbetriebseinnahmen sind Einnahmen, die ein Gesellschafter von seiner Personengesellschaft erhält.
 
@@ -18960,7 +18960,7 @@ erfasst.
 
 ---
 
-# 6. Sonderbetriebsausgaben
+⇨ 6. Sonderbetriebsausgaben
 
 Aufwendungen des Gesellschafters, die mit seinen Sonderbetriebseinnahmen oder seiner Beteiligung zusammenhängen, sind Sonderbetriebsausgaben.
 
@@ -18972,7 +18972,7 @@ Beispiele:
 - Beratungskosten,
 - laufende Grundstückskosten.
 
-## Formel
+► Formel
 
 Sonderbetriebseinnahmen
 
@@ -18982,11 +18982,11 @@ Sonderbetriebseinnahmen
 
 ---
 
-# 7. Außerbilanzielle Korrekturen
+⇨ 7. Außerbilanzielle Korrekturen
 
 Der handelsrechtliche oder steuerbilanzielle Gewinn kann steuerlich zu korrigieren sein.
 
-## Nicht abzugsfähige Betriebsausgaben
+► Nicht abzugsfähige Betriebsausgaben
 
 Nicht abzugsfähige Betriebsausgaben nach § 4 Abs. 5 EStG werden hinzugerechnet.
 
@@ -18994,7 +18994,7 @@ Beispiel:
 
 6.000 € nicht abzugsfähige Betriebsausgaben.
 
-## Steuerfreie Erträge
+► Steuerfreie Erträge
 
 Steuerfreie Erträge, die im bilanziellen Gewinn enthalten sind, werden abgezogen.
 
@@ -19002,7 +19002,7 @@ Beispiel:
 
 15.000 € steuerfreie Einnahmen.
 
-## Verteilung
+► Verteilung
 
 Die Korrekturen werden regelmäßig entsprechend dem allgemeinen Gewinnverteilungsschlüssel auf die Gesellschafter verteilt,
 
@@ -19010,13 +19010,13 @@ soweit keine besondere individuelle Zuordnung erforderlich ist.
 
 ---
 
-# 8. Allgemeines Berechnungsschema
+⇨ 8. Allgemeines Berechnungsschema
 
-## Schritt 1: Ausgangsgewinn
+► Schritt 1: Ausgangsgewinn
 
 Handelsrechtlicher beziehungsweise steuerbilanzieller Gewinn der Gesellschaft.
 
-## Schritt 2: Gesellschaftsvertragliche Vorabgewinne
+► Schritt 2: Gesellschaftsvertragliche Vorabgewinne
 
 Zum Beispiel:
 
@@ -19024,7 +19024,7 @@ Zum Beispiel:
 - Tätigkeitsvorab,
 - Geschäftsführungsvorab.
 
-## Schritt 3: Restgewinn
+► Schritt 3: Restgewinn
 
 Ausgangsgewinn
 
@@ -19032,7 +19032,7 @@ Ausgangsgewinn
 
 = Restgewinn.
 
-## Schritt 4: Restgewinn verteilen
+► Schritt 4: Restgewinn verteilen
 
 Verteilung beispielsweise
 
@@ -19040,7 +19040,7 @@ Verteilung beispielsweise
 - nach Beteiligungsquote,
 - oder nach einem besonderen vertraglichen Schlüssel.
 
-## Schritt 5: Bilanzielle Gewinnanteile
+► Schritt 5: Bilanzielle Gewinnanteile
 
 Vorabgewinn
 
@@ -19048,12 +19048,12 @@ Vorabgewinn
 
 = bilanzieller Gewinnanteil.
 
-## Schritt 6: Steuerliche Korrekturen
+► Schritt 6: Steuerliche Korrekturen
 
 - nicht abzugsfähige Betriebsausgaben hinzurechnen,
 - steuerfreie Erträge abziehen.
 
-## Schritt 7: Sonderbereiche
+► Schritt 7: Sonderbereiche
 
 Je Gesellschafter:
 
@@ -19061,7 +19061,7 @@ Sonderbetriebseinnahmen
 
 − Sonderbetriebsausgaben.
 
-## Schritt 8: Steuerlicher Gewinnanteil
+► Schritt 8: Steuerlicher Gewinnanteil
 
 Korrigierter Gewinnanteil
 
@@ -19071,9 +19071,9 @@ Korrigierter Gewinnanteil
 
 ---
 
-# 9. Beispiel 1 – KG mit drei Gesellschaftern
+⇨ 9. Beispiel 1 – KG mit drei Gesellschaftern
 
-## Sachverhalt
+► Sachverhalt
 
 Die KG erzielt einen Gewinn von
 
@@ -19102,7 +19102,7 @@ Weitere Sachverhalte:
 
 ---
 
-## Schritt 1: Restgewinn
+► Schritt 1: Restgewinn
 
 Gewinn:
 
@@ -19124,9 +19124,9 @@ Verteilung nach Köpfen:
 
 ---
 
-## Schritt 2: Bilanzielle Gewinnanteile
+► Schritt 2: Bilanzielle Gewinnanteile
 
-### A
+⇶  A
 
 128.000 €
 
@@ -19134,7 +19134,7 @@ Verteilung nach Köpfen:
 
 = 140.000 €.
 
-### B
+⇶  B
 
 128.000 €
 
@@ -19142,7 +19142,7 @@ Verteilung nach Köpfen:
 
 = 144.000 €.
 
-### C
+⇶  C
 
 128.000 €
 
@@ -19156,7 +19156,7 @@ Gesamt:
 
 ---
 
-## Schritt 3: Steuerliche Korrekturen
+► Schritt 3: Steuerliche Korrekturen
 
 Nicht abzugsfähige Betriebsausgaben:
 
@@ -19174,7 +19174,7 @@ Bei Verteilung nach Köpfen:
 
 5.000 € je Gesellschafter.
 
-### Korrigierte Gewinnanteile
+⇶  Korrigierte Gewinnanteile
 
 A:
 
@@ -19208,9 +19208,9 @@ C:
 
 ---
 
-## Schritt 4: Sonderbereiche
+► Schritt 4: Sonderbereiche
 
-### Sonderbereich A
+⇶  Sonderbereich A
 
 Mieteinnahmen:
 
@@ -19224,13 +19224,13 @@ Ergebnis:
 
 33.000 €.
 
-### Sonderbereich B
+⇶  Sonderbereich B
 
 Beraterhonorar:
 
 80.000 €.
 
-### Sonderbereich C
+⇶  Sonderbereich C
 
 Darlehenszinsen:
 
@@ -19238,9 +19238,9 @@ Darlehenszinsen:
 
 ---
 
-## Schritt 5: Steuerliche Gewinnanteile
+► Schritt 5: Steuerliche Gewinnanteile
 
-### A
+⇶  A
 
 137.000 €
 
@@ -19248,7 +19248,7 @@ Darlehenszinsen:
 
 = 170.000 €.
 
-### B
+⇶  B
 
 141.000 €
 
@@ -19256,7 +19256,7 @@ Darlehenszinsen:
 
 = 221.000 €.
 
-### C
+⇶  C
 
 133.000 €
 
@@ -19270,9 +19270,9 @@ Gesamtgewinn der Mitunternehmerschaft:
 
 ---
 
-# 10. Beispiel 2 – OHG mit Geschäftsführungsvorab
+⇨ 10. Beispiel 2 – OHG mit Geschäftsführungsvorab
 
-## Sachverhalt
+► Sachverhalt
 
 Gewinn der OHG:
 
@@ -19304,7 +19304,7 @@ Weitere Sachverhalte:
 
 ---
 
-## Schritt 1: Vorabgewinne
+► Schritt 1: Vorabgewinne
 
 Mehrkapitalverzinsung:
 
@@ -19320,7 +19320,7 @@ Gesamte Vorabgewinne:
 
 ---
 
-## Schritt 2: Restgewinn
+► Schritt 2: Restgewinn
 
 800.000 €
 
@@ -19330,13 +19330,13 @@ Gesamte Vorabgewinne:
 
 Verteilung:
 
-### A: 80 %
+⇶  A: 80 %
 
 540.000 € × 80 %
 
 = 432.000 €.
 
-### B: 20 %
+⇶  B: 20 %
 
 540.000 € × 20 %
 
@@ -19344,9 +19344,9 @@ Verteilung:
 
 ---
 
-## Schritt 3: Bilanzielle Gewinnanteile
+► Schritt 3: Bilanzielle Gewinnanteile
 
-### A
+⇶  A
 
 Mehrkapitalverzinsung:
 
@@ -19364,7 +19364,7 @@ Gesamt:
 
 688.000 €.
 
-### B
+⇶  B
 
 Mehrkapitalverzinsung:
 
@@ -19380,15 +19380,15 @@ Gesamt:
 
 ---
 
-## Schritt 4: Sonderbereiche
+► Schritt 4: Sonderbereiche
 
-### A
+⇶  A
 
 Darlehenszinsen:
 
 10.000 €.
 
-### B
+⇶  B
 
 Mieteinnahmen:
 
@@ -19404,9 +19404,9 @@ Ergebnis:
 
 ---
 
-## Schritt 5: Steuerliche Gewinnanteile
+► Schritt 5: Steuerliche Gewinnanteile
 
-### A
+⇶  A
 
 688.000 €
 
@@ -19414,7 +19414,7 @@ Ergebnis:
 
 = 698.000 €.
 
-### B
+⇶  B
 
 112.000 €
 
@@ -19428,7 +19428,7 @@ Gesamt:
 
 ---
 
-# 11. Besonderheit der Geschäftsführungsvergütung
+⇨ 11. Besonderheit der Geschäftsführungsvergütung
 
 Die Vergütung für A ist ausdrücklich als gesellschaftsvertragliche Vorweggewinnverteilung vereinbart.
 
@@ -19436,7 +19436,7 @@ Deshalb wird sie innerhalb der bilanziellen Gewinnverteilung berücksichtigt.
 
 Sie ist in diesem Fall kein zusätzlicher Sonderbereich.
 
-## Klausurhinweis
+► Klausurhinweis
 
 Nicht jede Geschäftsführungsvergütung ist automatisch gleich zu behandeln.
 
@@ -19449,9 +19449,9 @@ Die Formulierung des Sachverhalts ist entscheidend.
 
 ---
 
-# 12. Beispiel 3 – GbR und erfolgsneutral gebuchtes Beraterhonorar
+⇨ 12. Beispiel 3 – GbR und erfolgsneutral gebuchtes Beraterhonorar
 
-## Sachverhalt
+► Sachverhalt
 
 Die GbR weist zunächst einen Gewinn von
 
@@ -19486,7 +19486,7 @@ C erhält Darlehenszinsen:
 
 ---
 
-# 13. Erfolgsneutrale Buchung des Beraterhonorars
+⇨ 13. Erfolgsneutrale Buchung des Beraterhonorars
 
 Obwohl das Beraterhonorar nicht als Aufwand gebucht wurde,
 
@@ -19510,9 +19510,9 @@ Dadurch wird eine doppelte Zurechnung vermieden.
 
 ---
 
-# 14. Gewinnverteilung Beispiel 3
+⇨ 14. Gewinnverteilung Beispiel 3
 
-## Vorabgewinne
+► Vorabgewinne
 
 Gesamte Mehrkapitalverzinsung:
 
@@ -19524,7 +19524,7 @@ Gesamte Mehrkapitalverzinsung:
 
 = 15.000 €.
 
-## Restgewinn
+► Restgewinn
 
 270.000 €
 
@@ -19540,9 +19540,9 @@ Verteilung nach Köpfen:
 
 ---
 
-## Bilanzielle Gewinnanteile
+► Bilanzielle Gewinnanteile
 
-### A
+⇶  A
 
 85.000 €
 
@@ -19550,7 +19550,7 @@ Verteilung nach Köpfen:
 
 = 88.000 €.
 
-### B
+⇶  B
 
 85.000 €
 
@@ -19558,7 +19558,7 @@ Verteilung nach Köpfen:
 
 = 92.000 €.
 
-### C
+⇶  C
 
 85.000 €
 
@@ -19572,9 +19572,9 @@ Gesamt:
 
 ---
 
-# 15. Sonderbereiche Beispiel 3
+⇨ 15. Sonderbereiche Beispiel 3
 
-## Sonderbereich A
+► Sonderbereich A
 
 Mieteinnahmen:
 
@@ -19588,13 +19588,13 @@ Ergebnis:
 
 −15.000 €.
 
-## Sonderbereich B
+► Sonderbereich B
 
 Beraterhonorar:
 
 80.000 €.
 
-## Sonderbereich C
+► Sonderbereich C
 
 Darlehenszinsen:
 
@@ -19602,9 +19602,9 @@ Darlehenszinsen:
 
 ---
 
-# 16. Steuerliche Gewinnanteile Beispiel 3
+⇨ 16. Steuerliche Gewinnanteile Beispiel 3
 
-### A
+⇶  A
 
 88.000 €
 
@@ -19612,7 +19612,7 @@ Darlehenszinsen:
 
 = 73.000 €.
 
-### B
+⇶  B
 
 92.000 €
 
@@ -19620,7 +19620,7 @@ Darlehenszinsen:
 
 = 172.000 €.
 
-### C
+⇶  C
 
 90.000 €
 
@@ -19634,7 +19634,7 @@ Gesamt:
 
 ---
 
-# 17. Warum beträgt der steuerliche Gesamtgewinn 355.000 €?
+⇨ 17. Warum beträgt der steuerliche Gesamtgewinn 355.000 €?
 
 Ausgangsgewinn:
 
@@ -19658,9 +19658,9 @@ Gesamtwirkung:
 
 ---
 
-# 18. Typische Buchungs- und Prüfungslogik
+⇨ 18. Typische Buchungs- und Prüfungslogik
 
-## Zahlung an Gesellschafter wurde als Aufwand gebucht
+► Zahlung an Gesellschafter wurde als Aufwand gebucht
 
 Beispiele:
 
@@ -19674,7 +19674,7 @@ Der Gesamthandsgewinn ist bereits gemindert.
 
 Die Zahlung wird im Sonderbereich des Gesellschafters wieder als Sonderbetriebseinnahme erfasst.
 
-## Zahlung wurde erfolgsneutral als Entnahme gebucht
+► Zahlung wurde erfolgsneutral als Entnahme gebucht
 
 Folge:
 
@@ -19688,7 +19688,7 @@ und im Sonderbereich des betreffenden Gesellschafters zu erfassen.
 
 ---
 
-# Prüfungsschema
+⇨ Prüfungsschema
 
 1. Welche Rechtsform liegt vor?
 
@@ -19720,15 +19720,15 @@ und im Sonderbereich des betreffenden Gesellschafters zu erfassen.
 
 ---
 
-# Typische Klausurfallen
+⇨ Typische Klausurfallen
 
-## Fehler 1: Sondervergütung als andere Einkunftsart behandeln
+► Fehler 1: Sondervergütung als andere Einkunftsart behandeln
 
 Miete, Zinsen oder Tätigkeitsvergütungen eines Mitunternehmers gehören grundsätzlich zu den gewerblichen Einkünften nach § 15 Abs. 1 Satz 1 Nr. 2 EStG.
 
 ---
 
-## Fehler 2: Vorabgewinn und Sondervergütung verwechseln
+► Fehler 2: Vorabgewinn und Sondervergütung verwechseln
 
 Ein gesellschaftsvertraglicher Gewinnvorab wird innerhalb der Gewinnverteilung berücksichtigt.
 
@@ -19736,7 +19736,7 @@ Eine schuldrechtliche Vergütung wird im Sonderbereich erfasst.
 
 ---
 
-## Fehler 3: Sonderbetriebsausgaben vergessen
+► Fehler 3: Sonderbetriebsausgaben vergessen
 
 Von den Sonderbetriebseinnahmen sind die dazugehörigen Aufwendungen abzuziehen.
 
@@ -19750,7 +19750,7 @@ Beispiel:
 
 ---
 
-## Fehler 4: Nicht abzugsfähige Betriebsausgaben nicht korrigieren
+► Fehler 4: Nicht abzugsfähige Betriebsausgaben nicht korrigieren
 
 Wurden nicht abzugsfähige Betriebsausgaben als Aufwand erfasst,
 
@@ -19758,13 +19758,13 @@ müssen sie außerbilanziell hinzugerechnet werden.
 
 ---
 
-## Fehler 5: Steuerfreie Erträge im Gewinn belassen
+► Fehler 5: Steuerfreie Erträge im Gewinn belassen
 
 Steuerfreie Erträge werden außerbilanziell abgezogen.
 
 ---
 
-## Fehler 6: Erfolgsneutral gebuchte Vergütung doppelt zurechnen
+► Fehler 6: Erfolgsneutral gebuchte Vergütung doppelt zurechnen
 
 Wurde eine Gesellschaftervergütung als Entnahme gebucht,
 
@@ -19774,13 +19774,13 @@ Sie muss für die Gewinnverteilung aus der allgemeinen Verteilungsmasse herausge
 
 ---
 
-## Fehler 7: Kontrollrechnung unterlassen
+► Fehler 7: Kontrollrechnung unterlassen
 
 Die Summe der steuerlichen Gewinnanteile muss dem steuerlichen Gesamtgewinn der Mitunternehmerschaft entsprechen.
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 - Der Gesamtgewinn einer Mitunternehmerschaft besteht aus Gesamthandsgewinn und Sonderbereichen.
 - Gesellschaftsvertragliche Vorabgewinne gehören zur Gewinnverteilung.
@@ -19811,9 +19811,9 @@ Die Summe der steuerlichen Gewinnanteile muss dem steuerlichen Gesamtgewinn der 
     "§ 5 EStG"
   ],
   body: `
-# Gewinnermittlung bei gewerblichen Personengesellschaften
+⇨ Gewinnermittlung bei gewerblichen Personengesellschaften
 
-## 1. Grundprinzip
+► 1. Grundprinzip
 
 Bei einer gewerblichen Personengesellschaft wird der steuerliche Gewinn in mehreren Stufen ermittelt.
 
@@ -19831,9 +19831,9 @@ Rechtsgrundlage:
 
 ---
 
-# 2. Zwei Ebenen der Gewinnermittlung
+⇨ 2. Zwei Ebenen der Gewinnermittlung
 
-## Ebene 1: Gesamthandsbereich
+► Ebene 1: Gesamthandsbereich
 
 Hier wird der Gewinn der Personengesellschaft ermittelt.
 
@@ -19845,7 +19845,7 @@ Typische Bestandteile:
 - Vorabgewinne,
 - Restgewinnverteilung.
 
-## Ebene 2: Sonderbereich der Gesellschafter
+► Ebene 2: Sonderbereich der Gesellschafter
 
 Hier werden Leistungen zwischen einem Gesellschafter und seiner Personengesellschaft erfasst.
 
@@ -19861,7 +19861,7 @@ Dazugehörige Aufwendungen des Gesellschafters sind Sonderbetriebsausgaben.
 
 ---
 
-# 3. Gesellschaftsrechtliche Gewinnverteilung
+⇨ 3. Gesellschaftsrechtliche Gewinnverteilung
 
 Die Gewinnverteilung richtet sich zunächst nach dem Gesellschaftsvertrag.
 
@@ -19872,7 +19872,7 @@ Typischer Aufbau:
 3. gegebenenfalls weitere Vorwegvergütungen,
 4. Verteilung des verbleibenden Restgewinns.
 
-## Formel
+► Formel
 
 Gesellschaftsgewinn
 
@@ -19886,11 +19886,11 @@ Der Restgewinn wird anschließend nach dem vereinbarten Schlüssel verteilt.
 
 ---
 
-# 4. Vorabgewinn und Sondervergütung unterscheiden
+⇨ 4. Vorabgewinn und Sondervergütung unterscheiden
 
 Diese Unterscheidung ist besonders wichtig.
 
-## Vorabgewinn
+► Vorabgewinn
 
 Ein Vorabgewinn ist Bestandteil der gesellschaftsrechtlichen Gewinnverteilung.
 
@@ -19902,7 +19902,7 @@ Beispiele:
 
 Der Vorabgewinn wird innerhalb der Gewinnverteilung berücksichtigt.
 
-## Sondervergütung
+► Sondervergütung
 
 Eine Sondervergütung beruht auf einem schuldrechtlichen Leistungsaustausch zwischen Gesellschafter und Gesellschaft.
 
@@ -19915,7 +19915,7 @@ Beispiele:
 
 Die Sondervergütung wird im Sonderbereich des Gesellschafters erfasst.
 
-## Merksatz
+► Merksatz
 
 Gesellschaftsvertragliche Gewinnverteilung
 
@@ -19927,7 +19927,7 @@ Schuldrechtlicher Vertrag mit dem Gesellschafter
 
 ---
 
-# 5. Sonderbetriebseinnahmen
+⇨ 5. Sonderbetriebseinnahmen
 
 Sonderbetriebseinnahmen sind Einnahmen, die ein Gesellschafter von seiner Personengesellschaft erhält.
 
@@ -19949,7 +19949,7 @@ erfasst.
 
 ---
 
-# 6. Sonderbetriebsausgaben
+⇨ 6. Sonderbetriebsausgaben
 
 Aufwendungen des Gesellschafters, die mit seinen Sonderbetriebseinnahmen oder seiner Beteiligung zusammenhängen, sind Sonderbetriebsausgaben.
 
@@ -19961,7 +19961,7 @@ Beispiele:
 - Beratungskosten,
 - laufende Grundstückskosten.
 
-## Formel
+► Formel
 
 Sonderbetriebseinnahmen
 
@@ -19971,11 +19971,11 @@ Sonderbetriebseinnahmen
 
 ---
 
-# 7. Außerbilanzielle Korrekturen
+⇨ 7. Außerbilanzielle Korrekturen
 
 Der handelsrechtliche oder steuerbilanzielle Gewinn kann steuerlich zu korrigieren sein.
 
-## Nicht abzugsfähige Betriebsausgaben
+► Nicht abzugsfähige Betriebsausgaben
 
 Nicht abzugsfähige Betriebsausgaben nach § 4 Abs. 5 EStG werden hinzugerechnet.
 
@@ -19983,7 +19983,7 @@ Beispiel:
 
 6.000 € nicht abzugsfähige Betriebsausgaben.
 
-## Steuerfreie Erträge
+► Steuerfreie Erträge
 
 Steuerfreie Erträge, die im bilanziellen Gewinn enthalten sind, werden abgezogen.
 
@@ -19991,7 +19991,7 @@ Beispiel:
 
 15.000 € steuerfreie Einnahmen.
 
-## Verteilung
+► Verteilung
 
 Die Korrekturen werden regelmäßig entsprechend dem allgemeinen Gewinnverteilungsschlüssel auf die Gesellschafter verteilt,
 
@@ -19999,13 +19999,13 @@ soweit keine besondere individuelle Zuordnung erforderlich ist.
 
 ---
 
-# 8. Allgemeines Berechnungsschema
+⇨ 8. Allgemeines Berechnungsschema
 
-## Schritt 1: Ausgangsgewinn
+► Schritt 1: Ausgangsgewinn
 
 Handelsrechtlicher beziehungsweise steuerbilanzieller Gewinn der Gesellschaft.
 
-## Schritt 2: Gesellschaftsvertragliche Vorabgewinne
+► Schritt 2: Gesellschaftsvertragliche Vorabgewinne
 
 Zum Beispiel:
 
@@ -20013,7 +20013,7 @@ Zum Beispiel:
 - Tätigkeitsvorab,
 - Geschäftsführungsvorab.
 
-## Schritt 3: Restgewinn
+► Schritt 3: Restgewinn
 
 Ausgangsgewinn
 
@@ -20021,7 +20021,7 @@ Ausgangsgewinn
 
 = Restgewinn.
 
-## Schritt 4: Restgewinn verteilen
+► Schritt 4: Restgewinn verteilen
 
 Verteilung beispielsweise
 
@@ -20029,7 +20029,7 @@ Verteilung beispielsweise
 - nach Beteiligungsquote,
 - oder nach einem besonderen vertraglichen Schlüssel.
 
-## Schritt 5: Bilanzielle Gewinnanteile
+► Schritt 5: Bilanzielle Gewinnanteile
 
 Vorabgewinn
 
@@ -20037,12 +20037,12 @@ Vorabgewinn
 
 = bilanzieller Gewinnanteil.
 
-## Schritt 6: Steuerliche Korrekturen
+► Schritt 6: Steuerliche Korrekturen
 
 - nicht abzugsfähige Betriebsausgaben hinzurechnen,
 - steuerfreie Erträge abziehen.
 
-## Schritt 7: Sonderbereiche
+► Schritt 7: Sonderbereiche
 
 Je Gesellschafter:
 
@@ -20050,7 +20050,7 @@ Sonderbetriebseinnahmen
 
 − Sonderbetriebsausgaben.
 
-## Schritt 8: Steuerlicher Gewinnanteil
+► Schritt 8: Steuerlicher Gewinnanteil
 
 Korrigierter Gewinnanteil
 
@@ -20060,9 +20060,9 @@ Korrigierter Gewinnanteil
 
 ---
 
-# 9. Beispiel 1 – KG mit drei Gesellschaftern
+⇨ 9. Beispiel 1 – KG mit drei Gesellschaftern
 
-## Sachverhalt
+► Sachverhalt
 
 Die KG erzielt einen Gewinn von
 
@@ -20091,7 +20091,7 @@ Weitere Sachverhalte:
 
 ---
 
-## Schritt 1: Restgewinn
+► Schritt 1: Restgewinn
 
 Gewinn:
 
@@ -20113,9 +20113,9 @@ Verteilung nach Köpfen:
 
 ---
 
-## Schritt 2: Bilanzielle Gewinnanteile
+► Schritt 2: Bilanzielle Gewinnanteile
 
-### A
+⇶  A
 
 128.000 €
 
@@ -20123,7 +20123,7 @@ Verteilung nach Köpfen:
 
 = 140.000 €.
 
-### B
+⇶  B
 
 128.000 €
 
@@ -20131,7 +20131,7 @@ Verteilung nach Köpfen:
 
 = 144.000 €.
 
-### C
+⇶  C
 
 128.000 €
 
@@ -20145,7 +20145,7 @@ Gesamt:
 
 ---
 
-## Schritt 3: Steuerliche Korrekturen
+► Schritt 3: Steuerliche Korrekturen
 
 Nicht abzugsfähige Betriebsausgaben:
 
@@ -20163,7 +20163,7 @@ Bei Verteilung nach Köpfen:
 
 5.000 € je Gesellschafter.
 
-### Korrigierte Gewinnanteile
+⇶  Korrigierte Gewinnanteile
 
 A:
 
@@ -20197,9 +20197,9 @@ C:
 
 ---
 
-## Schritt 4: Sonderbereiche
+► Schritt 4: Sonderbereiche
 
-### Sonderbereich A
+⇶  Sonderbereich A
 
 Mieteinnahmen:
 
@@ -20213,13 +20213,13 @@ Ergebnis:
 
 33.000 €.
 
-### Sonderbereich B
+⇶  Sonderbereich B
 
 Beraterhonorar:
 
 80.000 €.
 
-### Sonderbereich C
+⇶  Sonderbereich C
 
 Darlehenszinsen:
 
@@ -20227,9 +20227,9 @@ Darlehenszinsen:
 
 ---
 
-## Schritt 5: Steuerliche Gewinnanteile
+► Schritt 5: Steuerliche Gewinnanteile
 
-### A
+⇶  A
 
 137.000 €
 
@@ -20237,7 +20237,7 @@ Darlehenszinsen:
 
 = 170.000 €.
 
-### B
+⇶  B
 
 141.000 €
 
@@ -20245,7 +20245,7 @@ Darlehenszinsen:
 
 = 221.000 €.
 
-### C
+⇶  C
 
 133.000 €
 
@@ -20259,9 +20259,9 @@ Gesamtgewinn der Mitunternehmerschaft:
 
 ---
 
-# 10. Beispiel 2 – OHG mit Geschäftsführungsvorab
+⇨ 10. Beispiel 2 – OHG mit Geschäftsführungsvorab
 
-## Sachverhalt
+► Sachverhalt
 
 Gewinn der OHG:
 
@@ -20293,7 +20293,7 @@ Weitere Sachverhalte:
 
 ---
 
-## Schritt 1: Vorabgewinne
+► Schritt 1: Vorabgewinne
 
 Mehrkapitalverzinsung:
 
@@ -20309,7 +20309,7 @@ Gesamte Vorabgewinne:
 
 ---
 
-## Schritt 2: Restgewinn
+► Schritt 2: Restgewinn
 
 800.000 €
 
@@ -20319,13 +20319,13 @@ Gesamte Vorabgewinne:
 
 Verteilung:
 
-### A: 80 %
+⇶  A: 80 %
 
 540.000 € × 80 %
 
 = 432.000 €.
 
-### B: 20 %
+⇶  B: 20 %
 
 540.000 € × 20 %
 
@@ -20333,9 +20333,9 @@ Verteilung:
 
 ---
 
-## Schritt 3: Bilanzielle Gewinnanteile
+► Schritt 3: Bilanzielle Gewinnanteile
 
-### A
+⇶  A
 
 Mehrkapitalverzinsung:
 
@@ -20353,7 +20353,7 @@ Gesamt:
 
 688.000 €.
 
-### B
+⇶  B
 
 Mehrkapitalverzinsung:
 
@@ -20369,15 +20369,15 @@ Gesamt:
 
 ---
 
-## Schritt 4: Sonderbereiche
+► Schritt 4: Sonderbereiche
 
-### A
+⇶  A
 
 Darlehenszinsen:
 
 10.000 €.
 
-### B
+⇶  B
 
 Mieteinnahmen:
 
@@ -20393,9 +20393,9 @@ Ergebnis:
 
 ---
 
-## Schritt 5: Steuerliche Gewinnanteile
+► Schritt 5: Steuerliche Gewinnanteile
 
-### A
+⇶  A
 
 688.000 €
 
@@ -20403,7 +20403,7 @@ Ergebnis:
 
 = 698.000 €.
 
-### B
+⇶  B
 
 112.000 €
 
@@ -20417,7 +20417,7 @@ Gesamt:
 
 ---
 
-# 11. Besonderheit der Geschäftsführungsvergütung
+⇨ 11. Besonderheit der Geschäftsführungsvergütung
 
 Die Vergütung für A ist ausdrücklich als gesellschaftsvertragliche Vorweggewinnverteilung vereinbart.
 
@@ -20425,7 +20425,7 @@ Deshalb wird sie innerhalb der bilanziellen Gewinnverteilung berücksichtigt.
 
 Sie ist in diesem Fall kein zusätzlicher Sonderbereich.
 
-## Klausurhinweis
+► Klausurhinweis
 
 Nicht jede Geschäftsführungsvergütung ist automatisch gleich zu behandeln.
 
@@ -20438,9 +20438,9 @@ Die Formulierung des Sachverhalts ist entscheidend.
 
 ---
 
-# 12. Beispiel 3 – GbR und erfolgsneutral gebuchtes Beraterhonorar
+⇨ 12. Beispiel 3 – GbR und erfolgsneutral gebuchtes Beraterhonorar
 
-## Sachverhalt
+► Sachverhalt
 
 Die GbR weist zunächst einen Gewinn von
 
@@ -20475,7 +20475,7 @@ C erhält Darlehenszinsen:
 
 ---
 
-# 13. Erfolgsneutrale Buchung des Beraterhonorars
+⇨ 13. Erfolgsneutrale Buchung des Beraterhonorars
 
 Obwohl das Beraterhonorar nicht als Aufwand gebucht wurde,
 
@@ -20499,9 +20499,9 @@ Dadurch wird eine doppelte Zurechnung vermieden.
 
 ---
 
-# 14. Gewinnverteilung Beispiel 3
+⇨ 14. Gewinnverteilung Beispiel 3
 
-## Vorabgewinne
+► Vorabgewinne
 
 Gesamte Mehrkapitalverzinsung:
 
@@ -20513,7 +20513,7 @@ Gesamte Mehrkapitalverzinsung:
 
 = 15.000 €.
 
-## Restgewinn
+► Restgewinn
 
 270.000 €
 
@@ -20529,9 +20529,9 @@ Verteilung nach Köpfen:
 
 ---
 
-## Bilanzielle Gewinnanteile
+► Bilanzielle Gewinnanteile
 
-### A
+⇶  A
 
 85.000 €
 
@@ -20539,7 +20539,7 @@ Verteilung nach Köpfen:
 
 = 88.000 €.
 
-### B
+⇶  B
 
 85.000 €
 
@@ -20547,7 +20547,7 @@ Verteilung nach Köpfen:
 
 = 92.000 €.
 
-### C
+⇶  C
 
 85.000 €
 
@@ -20561,9 +20561,9 @@ Gesamt:
 
 ---
 
-# 15. Sonderbereiche Beispiel 3
+⇨ 15. Sonderbereiche Beispiel 3
 
-## Sonderbereich A
+► Sonderbereich A
 
 Mieteinnahmen:
 
@@ -20577,13 +20577,13 @@ Ergebnis:
 
 −15.000 €.
 
-## Sonderbereich B
+► Sonderbereich B
 
 Beraterhonorar:
 
 80.000 €.
 
-## Sonderbereich C
+► Sonderbereich C
 
 Darlehenszinsen:
 
@@ -20591,9 +20591,9 @@ Darlehenszinsen:
 
 ---
 
-# 16. Steuerliche Gewinnanteile Beispiel 3
+⇨ 16. Steuerliche Gewinnanteile Beispiel 3
 
-### A
+⇶  A
 
 88.000 €
 
@@ -20601,7 +20601,7 @@ Darlehenszinsen:
 
 = 73.000 €.
 
-### B
+⇶  B
 
 92.000 €
 
@@ -20609,7 +20609,7 @@ Darlehenszinsen:
 
 = 172.000 €.
 
-### C
+⇶  C
 
 90.000 €
 
@@ -20623,7 +20623,7 @@ Gesamt:
 
 ---
 
-# 17. Warum beträgt der steuerliche Gesamtgewinn 355.000 €?
+⇨ 17. Warum beträgt der steuerliche Gesamtgewinn 355.000 €?
 
 Ausgangsgewinn:
 
@@ -20647,9 +20647,9 @@ Gesamtwirkung:
 
 ---
 
-# 18. Typische Buchungs- und Prüfungslogik
+⇨ 18. Typische Buchungs- und Prüfungslogik
 
-## Zahlung an Gesellschafter wurde als Aufwand gebucht
+► Zahlung an Gesellschafter wurde als Aufwand gebucht
 
 Beispiele:
 
@@ -20663,7 +20663,7 @@ Der Gesamthandsgewinn ist bereits gemindert.
 
 Die Zahlung wird im Sonderbereich des Gesellschafters wieder als Sonderbetriebseinnahme erfasst.
 
-## Zahlung wurde erfolgsneutral als Entnahme gebucht
+► Zahlung wurde erfolgsneutral als Entnahme gebucht
 
 Folge:
 
@@ -20677,7 +20677,7 @@ und im Sonderbereich des betreffenden Gesellschafters zu erfassen.
 
 ---
 
-# Prüfungsschema
+⇨ Prüfungsschema
 
 1. Welche Rechtsform liegt vor?
 
@@ -20709,15 +20709,15 @@ und im Sonderbereich des betreffenden Gesellschafters zu erfassen.
 
 ---
 
-# Typische Klausurfallen
+⇨ Typische Klausurfallen
 
-## Fehler 1: Sondervergütung als andere Einkunftsart behandeln
+► Fehler 1: Sondervergütung als andere Einkunftsart behandeln
 
 Miete, Zinsen oder Tätigkeitsvergütungen eines Mitunternehmers gehören grundsätzlich zu den gewerblichen Einkünften nach § 15 Abs. 1 Satz 1 Nr. 2 EStG.
 
 ---
 
-## Fehler 2: Vorabgewinn und Sondervergütung verwechseln
+► Fehler 2: Vorabgewinn und Sondervergütung verwechseln
 
 Ein gesellschaftsvertraglicher Gewinnvorab wird innerhalb der Gewinnverteilung berücksichtigt.
 
@@ -20725,7 +20725,7 @@ Eine schuldrechtliche Vergütung wird im Sonderbereich erfasst.
 
 ---
 
-## Fehler 3: Sonderbetriebsausgaben vergessen
+► Fehler 3: Sonderbetriebsausgaben vergessen
 
 Von den Sonderbetriebseinnahmen sind die dazugehörigen Aufwendungen abzuziehen.
 
@@ -20739,7 +20739,7 @@ Beispiel:
 
 ---
 
-## Fehler 4: Nicht abzugsfähige Betriebsausgaben nicht korrigieren
+► Fehler 4: Nicht abzugsfähige Betriebsausgaben nicht korrigieren
 
 Wurden nicht abzugsfähige Betriebsausgaben als Aufwand erfasst,
 
@@ -20747,13 +20747,13 @@ müssen sie außerbilanziell hinzugerechnet werden.
 
 ---
 
-## Fehler 5: Steuerfreie Erträge im Gewinn belassen
+► Fehler 5: Steuerfreie Erträge im Gewinn belassen
 
 Steuerfreie Erträge werden außerbilanziell abgezogen.
 
 ---
 
-## Fehler 6: Erfolgsneutral gebuchte Vergütung doppelt zurechnen
+► Fehler 6: Erfolgsneutral gebuchte Vergütung doppelt zurechnen
 
 Wurde eine Gesellschaftervergütung als Entnahme gebucht,
 
@@ -20763,13 +20763,13 @@ Sie muss für die Gewinnverteilung aus der allgemeinen Verteilungsmasse herausge
 
 ---
 
-## Fehler 7: Kontrollrechnung unterlassen
+► Fehler 7: Kontrollrechnung unterlassen
 
 Die Summe der steuerlichen Gewinnanteile muss dem steuerlichen Gesamtgewinn der Mitunternehmerschaft entsprechen.
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 - Der Gesamtgewinn einer Mitunternehmerschaft besteht aus Gesamthandsgewinn und Sonderbereichen.
 - Gesellschaftsvertragliche Vorabgewinne gehören zur Gewinnverteilung.
@@ -20799,9 +20799,9 @@ Die Summe der steuerlichen Gewinnanteile muss dem steuerlichen Gesamtgewinn der 
     "§ 15 UStG"
   ],
   body: `
-# Werkleistung eines EU-Unternehmers (§ 13b UStG)
+⇨ Werkleistung eines EU-Unternehmers (§ 13b UStG)
 
-## Sachverhalt
+► Sachverhalt
 
 Ein Unternehmer aus Österreich wartet den betrieblich genutzten LKW eines deutschen Unternehmers.
 
@@ -20809,9 +20809,9 @@ Die Rechnung beträgt 1.000 € ohne deutsche Umsatzsteuer.
 
 ---
 
-## Prüfung
+► Prüfung
 
-### 1. Art der Leistung
+⇶  1. Art der Leistung
 
 Es handelt sich um eine
 
@@ -20819,7 +20819,7 @@ Es handelt sich um eine
 
 ---
 
-### 2. Ort der Leistung
+⇶  2. Ort der Leistung
 
 B2B-Regel
 
@@ -20833,7 +20833,7 @@ wo der Leistungsempfänger sein Unternehmen betreibt.
 
 ---
 
-### 3. Steuerbarkeit
+⇶  3. Steuerbarkeit
 
 Die Leistung wird im Inland ausgeführt.
 
@@ -20841,13 +20841,13 @@ Die Leistung wird im Inland ausgeführt.
 
 ---
 
-### 4. Steuerbefreiung
+⇶  4. Steuerbefreiung
 
 Keine Steuerbefreiung nach § 4 UStG.
 
 ---
 
-### 5. Reverse Charge (§ 13b)
+⇶  5. Reverse Charge (§ 13b)
 
 Da der leistende Unternehmer im EU-Ausland ansässig ist,
 
@@ -20861,7 +20861,7 @@ gemäß § 13b UStG.
 
 ---
 
-### 6. Bemessungsgrundlage
+⇶  6. Bemessungsgrundlage
 
 Nettoentgelt:
 
@@ -20875,7 +20875,7 @@ Umsatzsteuer:
 
 ---
 
-### 7. Vorsteuer
+⇶  7. Vorsteuer
 
 Da die Leistung für das Unternehmen bezogen wurde,
 
@@ -20891,7 +20891,7 @@ Vorsteuer:
 
 ---
 
-# Abwandlung (Schweiz)
+⇨ Abwandlung (Schweiz)
 
 Der Unternehmer stammt aus der Schweiz.
 
@@ -20913,7 +20913,7 @@ Ergebnis:
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 • B2B-Dienstleistungen → grundsätzlich § 3a Abs.2 UStG.
 
@@ -20927,7 +20927,7 @@ Ergebnis:
 
 ---
 
-# Klausurfallen
+⇨ Klausurfallen
 
 Prüfungsfalle Nr.1
 
@@ -20969,9 +20969,9 @@ Die Umsatzsteuer entsteht weiterhin – sie wird nur vom Leistungsempfänger ges
     "§ 15 UStG"
   ],
   body: `
-# Grundstückslieferung mit Option zur Steuerpflicht (§ 13b Abs.2 Nr.3 UStG)
+⇨ Grundstückslieferung mit Option zur Steuerpflicht (§ 13b Abs.2 Nr.3 UStG)
 
-## Sachverhalt
+► Sachverhalt
 
 Eine Unternehmerin verkauft ein betrieblich genutztes Grundstück.
 
@@ -20985,15 +20985,15 @@ Kaufpreis:
 
 ---
 
-## Prüfung
+► Prüfung
 
-### 1. Art der Leistung
+⇶  1. Art der Leistung
 
 Lieferung eines Grundstücks.
 
 ---
 
-### 2. Ort der Lieferung
+⇶  2. Ort der Lieferung
 
 Unbewegter Gegenstand.
 
@@ -21007,7 +21007,7 @@ Ort des Grundstücks
 
 ---
 
-### 3. Steuerbarkeit
+⇶  3. Steuerbarkeit
 
 Lieferung gegen Entgelt.
 
@@ -21015,7 +21015,7 @@ Lieferung gegen Entgelt.
 
 ---
 
-### 4. Steuerbefreiung
+⇶  4. Steuerbefreiung
 
 Grundsätzlich
 
@@ -21033,7 +21033,7 @@ steuerpflichtig.
 
 ---
 
-### 5. Steuerschuld
+⇶  5. Steuerschuld
 
 Da § 13b Abs.2 Nr.3 UStG greift,
 
@@ -21047,7 +21047,7 @@ Reverse Charge.
 
 ---
 
-### 6. Bemessungsgrundlage
+⇶  6. Bemessungsgrundlage
 
 400.000 €
 
@@ -21059,7 +21059,7 @@ Umsatzsteuer 19 %
 
 ---
 
-### 7. Vorsteuer
+⇶  7. Vorsteuer
 
 Der Käufer kann
 
@@ -21075,7 +21075,7 @@ für steuerpflichtige Umsätze verwendet wird.
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 • Grundstückslieferungen sind grundsätzlich steuerfrei (§ 4 Nr.9a UStG).
 
@@ -21087,7 +21087,7 @@ für steuerpflichtige Umsätze verwendet wird.
 
 ---
 
-# Klausurfallen
+⇨ Klausurfallen
 
 Prüfungsfalle Nr.1
 
@@ -21134,9 +21134,9 @@ Option nach § 9 UStG und Reverse Charge sind zwei getrennte Prüfungsschritte.
     "§ 15 UStG"
   ],
   body: `
-# Binnenmarkt: Holzanbau und innergemeinschaftlicher Erwerb
+⇨ Binnenmarkt: Holzanbau und innergemeinschaftlicher Erwerb
 
-## Ausgangssachverhalt
+► Ausgangssachverhalt
 
 Ein deutscher Unternehmer Rens errichtet für einen deutschen Auftraggeber Thiesen einen Holzanbau.
 
@@ -21148,9 +21148,9 @@ Alle Unternehmer verwenden die USt-IdNr. ihres Heimatlandes.
 
 ---
 
-# 1. Ausgangsleistung Rens an Thiesen
+⇨ 1. Ausgangsleistung Rens an Thiesen
 
-## Art der Leistung
+► Art der Leistung
 
 Rens errichtet einen Holzanbau.
 
@@ -21169,7 +21169,7 @@ Zur Werklieferung gehören insbesondere:
 
 ---
 
-## Ort der Werklieferung
+► Ort der Werklieferung
 
 Bei einer unbewegten Werklieferung bestimmt sich der Ort nach § 3 Abs. 7 UStG.
 
@@ -21181,7 +21181,7 @@ Hünxe / Inland
 
 ---
 
-## Steuerbarkeit und Steuerpflicht
+► Steuerbarkeit und Steuerpflicht
 
 Die Werklieferung ist steuerbar nach § 1 Abs. 1 Nr. 1 UStG.
 
@@ -21191,7 +21191,7 @@ Damit ist der Umsatz steuerpflichtig zum Regelsteuersatz von 19 %.
 
 ---
 
-## Bemessungsgrundlage
+► Bemessungsgrundlage
 
 Gesamtpreis brutto:
 
@@ -21219,7 +21219,7 @@ Rechtsgrundlage:
 
 ---
 
-# 2. Steuerentstehung bei Anzahlung
+⇨ 2. Steuerentstehung bei Anzahlung
 
 Thiesen leistet am 21.01. eine Anzahlung von 1.000 € brutto.
 
@@ -21229,7 +21229,7 @@ Rechtsgrundlage:
 
 § 13 Abs. 1 Nr. 1 Buchst. a Satz 4 UStG
 
-## Berechnung Anzahlung
+► Berechnung Anzahlung
 
 Anzahlung brutto:
 
@@ -21247,7 +21247,7 @@ Die Umsatzsteuer entsteht mit Ablauf des VAZ 01.
 
 ---
 
-# 3. Reststeuer bei Leistungsausführung
+⇨ 3. Reststeuer bei Leistungsausführung
 
 Die Abnahme des Holzanbaus erfolgt am 20.03.
 
@@ -21273,13 +21273,13 @@ Die Umsatzsteuer entsteht mit Ablauf des VAZ 03.
 
 ---
 
-# 4. Transportleistung Rabens
+⇨ 4. Transportleistung Rabens
 
 Rabens transportiert die Holzverstrebungen von Brüssel nach Schermbeck.
 
 Die Rechnung wird jedoch nicht an Rens, sondern an Huise gestellt.
 
-## Folge für Rens
+► Folge für Rens
 
 Für Rens ist die Transportleistung umsatzsteuerlich unbeachtlich.
 
@@ -21296,7 +21296,7 @@ Vorsteuerabzug nur, wenn die Leistung an den Unternehmer ausgeführt wurde und e
 
 ---
 
-# 5. Eingangsleistung Huise an Rens
+⇨ 5. Eingangsleistung Huise an Rens
 
 Huise liefert Holzverstrebungen aus Belgien nach Deutschland.
 
@@ -21310,7 +21310,7 @@ Rechtsgrundlage:
 
 ---
 
-## Voraussetzungen des innergemeinschaftlichen Erwerbs
+► Voraussetzungen des innergemeinschaftlichen Erwerbs
 
 Ein innergemeinschaftlicher Erwerb liegt vor, wenn
 
@@ -21330,7 +21330,7 @@ Diese Voraussetzungen sind hier erfüllt.
 
 ---
 
-## Ort des innergemeinschaftlichen Erwerbs
+► Ort des innergemeinschaftlichen Erwerbs
 
 Der Ort des innergemeinschaftlichen Erwerbs bestimmt sich nach § 3d Satz 1 UStG.
 
@@ -21344,7 +21344,7 @@ Schermbeck / Inland
 
 ---
 
-## Steuerbarkeit
+► Steuerbarkeit
 
 Der innergemeinschaftliche Erwerb ist steuerbar nach § 1 Abs. 1 Nr. 5 UStG.
 
@@ -21352,7 +21352,7 @@ Eine Steuerbefreiung nach § 4b UStG greift nicht.
 
 ---
 
-## Steuersatz
+► Steuersatz
 
 Der Regelsteuersatz beträgt 19 %.
 
@@ -21360,7 +21360,7 @@ Der ermäßigte Steuersatz greift nicht.
 
 ---
 
-## Steuerschuldner
+► Steuerschuldner
 
 Steuerschuldner des innergemeinschaftlichen Erwerbs ist Rens.
 
@@ -21370,7 +21370,7 @@ Rechtsgrundlage:
 
 ---
 
-## Bemessungsgrundlage des innergemeinschaftlichen Erwerbs
+► Bemessungsgrundlage des innergemeinschaftlichen Erwerbs
 
 Nettoentgelt:
 
@@ -21386,7 +21386,7 @@ Umsatzsteuer:
 
 ---
 
-## Steuerentstehung beim innergemeinschaftlichen Erwerb
+► Steuerentstehung beim innergemeinschaftlichen Erwerb
 
 Die Steuer entsteht mit Ausstellung der Rechnung am 05.03.
 
@@ -21400,7 +21400,7 @@ VAZ:
 
 ---
 
-# 6. Vorsteuerabzug aus dem innergemeinschaftlichen Erwerb
+⇨ 6. Vorsteuerabzug aus dem innergemeinschaftlichen Erwerb
 
 Rens verwendet die Holzverstrebungen für seine steuerpflichtige Werklieferung an Thiesen.
 
@@ -21416,9 +21416,9 @@ Vorsteuer:
 
 ---
 
-# 7. Zusammenfassung der Beträge
+⇨ 7. Zusammenfassung der Beträge
 
-## Ausgangsumsatz Rens an Thiesen
+► Ausgangsumsatz Rens an Thiesen
 
 Netto:
 
@@ -21435,7 +21435,7 @@ Davon:
 
 ---
 
-## Innergemeinschaftlicher Erwerb Rens von Huise
+► Innergemeinschaftlicher Erwerb Rens von Huise
 
 Bemessungsgrundlage:
 
@@ -21455,7 +21455,7 @@ VAZ:
 
 ---
 
-# Prüfungsschema Werklieferung
+⇨ Prüfungsschema Werklieferung
 
 1. Liegt eine Lieferung oder sonstige Leistung vor?
 
@@ -21477,7 +21477,7 @@ VAZ:
 
 ---
 
-# Prüfungsschema innergemeinschaftlicher Erwerb
+⇨ Prüfungsschema innergemeinschaftlicher Erwerb
 
 1. Gegenstand gelangt aus EU-Ausland ins Inland.
 
@@ -21501,7 +21501,7 @@ VAZ:
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 Werklieferung:
 
@@ -21523,7 +21523,7 @@ Nur Vorsteuerabzug, wenn die Rechnung auf den Unternehmer lautet und die Leistun
 
 ---
 
-# Klausurfallen
+⇨ Klausurfallen
 
 Prüfungsfalle Nr. 1:
 
@@ -21578,9 +21578,9 @@ Bei Verwendung für steuerpflichtige Ausgangsumsätze ist der Vorsteuerabzug mö
     "§ 15 UStG"
   ],
   body: `
-# Innergemeinschaftlicher Erwerb von Türen
+⇨ Innergemeinschaftlicher Erwerb von Türen
 
-## Ausgangssachverhalt
+► Ausgangssachverhalt
 
 Der Unternehmer Becker aus Deutschland kauft zehn Türen von einem Unternehmer aus den Niederlanden.
 
@@ -21599,7 +21599,7 @@ Von den zehn Türen werden
 
 ---
 
-# 1. Innergemeinschaftlicher Erwerb
+⇨ 1. Innergemeinschaftlicher Erwerb
 
 Die Türen gelangen aus den Niederlanden nach Deutschland.
 
@@ -21617,7 +21617,7 @@ Alle Voraussetzungen sind erfüllt.
 
 ---
 
-# 2. Ort des innergemeinschaftlichen Erwerbs
+⇨ 2. Ort des innergemeinschaftlichen Erwerbs
 
 Der Ort bestimmt sich nach § 3d Satz 1 UStG.
 
@@ -21631,7 +21631,7 @@ Borken (Deutschland)
 
 ---
 
-# 3. Steuerbarkeit
+⇨ 3. Steuerbarkeit
 
 Der innergemeinschaftliche Erwerb ist steuerbar nach
 
@@ -21639,7 +21639,7 @@ Der innergemeinschaftliche Erwerb ist steuerbar nach
 
 ---
 
-# 4. Steuerbefreiung
+⇨ 4. Steuerbefreiung
 
 Eine Steuerbefreiung nach § 4b UStG greift nicht.
 
@@ -21651,7 +21651,7 @@ Steuersatz:
 
 ---
 
-# 5. Bemessungsgrundlage
+⇨ 5. Bemessungsgrundlage
 
 Nettoentgelt:
 
@@ -21675,7 +21675,7 @@ gemäß § 13a Abs. 1 Nr. 2 UStG.
 
 ---
 
-# 6. Steuerentstehung
+⇨ 6. Steuerentstehung
 
 Die Rechnung wird am 03.05. ausgestellt.
 
@@ -21691,7 +21691,7 @@ Mai
 
 ---
 
-# 7. Vorsteuerabzug
+⇨ 7. Vorsteuerabzug
 
 Grundsätzlich steht Becker der Vorsteuerabzug aus dem innergemeinschaftlichen Erwerb nach
 
@@ -21703,7 +21703,7 @@ Allerdings werden die Türen unterschiedlich verwendet.
 
 ---
 
-## Drei Türen
+► Drei Türen
 
 Die drei Türen werden für steuerpflichtige Umsätze verwendet.
 
@@ -21727,7 +21727,7 @@ Vorsteuerabzug:
 
 ---
 
-## Sieben Türen
+► Sieben Türen
 
 Sieben Türen werden in ein steuerfrei vermietetes Mehrfamilienhaus eingebaut.
 
@@ -21741,7 +21741,7 @@ Vorsteuer:
 
 ---
 
-# 8. Ergebnis
+⇨ 8. Ergebnis
 
 Erwerbsteuer:
 
@@ -21757,7 +21757,7 @@ Nicht abzugsfähige Vorsteuer:
 
 ---
 
-# Prüfungsschema
+⇨ Prüfungsschema
 
 1. Gelangt ein Gegenstand aus einem EU-Mitgliedstaat nach Deutschland?
 
@@ -21781,7 +21781,7 @@ Nicht abzugsfähige Vorsteuer:
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 Der innergemeinschaftliche Erwerb löst grundsätzlich Erwerbsteuer aus.
 
@@ -21793,7 +21793,7 @@ Beim gemischten Verwendungszweck ist die Vorsteuer aufzuteilen.
 
 ---
 
-# Klausurfallen
+⇨ Klausurfallen
 
 Prüfungsfalle Nr. 1:
 
@@ -21841,9 +21841,9 @@ Im Regelfall ist der Erwerb steuerpflichtig.
     "§ 15 UStG"
   ],
   body: `
-# Reihengeschäft – Beistelltische
+⇨ Reihengeschäft – Beistelltische
 
-## Ausgangssachverhalt
+► Ausgangssachverhalt
 
 Der Möbelhändler G verkauft drei Beistelltische an den norwegischen Händler K.
 
@@ -21857,7 +21857,7 @@ F → G → K
 
 ---
 
-# 1. Vorüberlegung – Reihengeschäft
+⇨ 1. Vorüberlegung – Reihengeschäft
 
 Mehrere Unternehmer schließen Kaufverträge über denselben Gegenstand.
 
@@ -21867,7 +21867,7 @@ Somit liegt ein Reihengeschäft nach § 3 Abs. 6a UStG vor.
 
 ---
 
-# 2. Zuordnung der Warenbewegung
+⇨ 2. Zuordnung der Warenbewegung
 
 Der Transport wird durch F veranlasst.
 
@@ -21907,7 +21907,7 @@ gemäß § 3 Abs. 7 Satz 2 Nr. 2 UStG.
 
 ---
 
-# 3. Lieferung des F an G
+⇨ 3. Lieferung des F an G
 
 F liefert die Tische an G.
 
@@ -21936,7 +21936,7 @@ Der Umsatz ist im Voranmeldungszeitraum Februar zu erklären.
 
 ---
 
-# 4. Fehlerhafte Rechnung des F
+⇨ 4. Fehlerhafte Rechnung des F
 
 F weist in seiner Rechnung
 
@@ -21957,7 +21957,7 @@ Folgen:
 
 ---
 
-# 5. Lieferung des G an K
+⇨ 5. Lieferung des G an K
 
 Diese Lieferung ist die unbewegte Lieferung.
 
@@ -21977,7 +21977,7 @@ Bemessungsgrundlage:
 
 ---
 
-# 6. Vorsteuerabzug des G
+⇨ 6. Vorsteuerabzug des G
 
 Grundsätzlich setzt der Vorsteuerabzug voraus,
 
@@ -21995,7 +21995,7 @@ Kein Vorsteuerabzug für G.
 
 ---
 
-# Prüfungsschema
+⇨ Prüfungsschema
 
 1. Liegt ein Reihengeschäft vor?
 
@@ -22015,7 +22015,7 @@ Kein Vorsteuerabzug für G.
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 Bei einem Reihengeschäft kann die Warenbewegung nur einer Lieferung zugeordnet werden.
 
@@ -22031,7 +22031,7 @@ berechtigt den Leistungsempfänger jedoch nicht zum Vorsteuerabzug.
 
 ---
 
-# Klausurfallen
+⇨ Klausurfallen
 
 Prüfungsfalle Nr. 1:
 
@@ -22067,9 +22067,9 @@ Die unbewegte Lieferung richtet sich nach § 3 Abs. 7 UStG und kann im Ausland a
     "Abschn. 15a.1 UStAE"
   ],
   body: `
-# Vorsteuerberichtigung aus Billigkeitsgründen
+⇨ Vorsteuerberichtigung aus Billigkeitsgründen
 
-## Grundsatz
+► Grundsatz
 
 Wird ein Wirtschaftsgut nur teilweise unternehmerisch genutzt, ist grundsätzlich nur der unternehmerisch genutzte Anteil zum Vorsteuerabzug berechtigt.
 
@@ -22079,7 +22079,7 @@ Die Bagatellgrenzen des § 44 UStDV müssen überschritten sein.
 
 ---
 
-## Ausgangsfall
+► Ausgangsfall
 
 PKW-Anschaffung
 
@@ -22106,7 +22106,7 @@ Vorsteuerabzug:
 
 ---
 
-## Jahr 03 – Erhöhung der unternehmerischen Nutzung
+► Jahr 03 – Erhöhung der unternehmerischen Nutzung
 
 Die unternehmerische Nutzung steigt von
 
@@ -22152,7 +22152,7 @@ zugunsten des Unternehmers.
 
 ---
 
-## Jahr 04 – Verkauf des PKW
+► Jahr 04 – Verkauf des PKW
 
 Der PKW wird für
 
@@ -22181,7 +22181,7 @@ Umsatzsteuer:
 
 ---
 
-## Weitere Vorsteuerberichtigung
+► Weitere Vorsteuerberichtigung
 
 Auch die Veräußerung stellt eine Änderung der Verhältnisse dar.
 
@@ -22223,7 +22223,7 @@ Diese Berichtigung erfolgt zugunsten des Unternehmers.
 
 ---
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Wirtschaftsgut mit Berichtigungszeitraum vorhanden?
 
@@ -22241,7 +22241,7 @@ Diese Berichtigung erfolgt zugunsten des Unternehmers.
 
 ---
 
-## Berechnungsformel
+► Berechnungsformel
 
 Vorsteuer insgesamt
 
@@ -22257,7 +22257,7 @@ Vorsteuerberichtigung
 
 ---
 
-## Merksätze
+► Merksätze
 
 Eine Erhöhung der unternehmerischen Nutzung führt regelmäßig zu einer Vorsteuerberichtigung zugunsten des Unternehmers.
 
@@ -22269,7 +22269,7 @@ Die Berichtigung erfolgt nur, wenn die Bagatellgrenzen des § 44 UStDV überschr
 
 ---
 
-## Klausurtipp
+► Klausurtipp
 
 Immer zuerst feststellen:
 
@@ -22300,7 +22300,7 @@ Erst danach wird der Berichtigungsbetrag berechnet.
   ],
   body: `
 
-# Unternehmer (§ 2 UStG)
+⇨ Unternehmer (§ 2 UStG)
 
 Unternehmer ist, wer
 
@@ -22315,17 +22315,17 @@ Dabei umfasst das Unternehmen grundsätzlich die gesamte gewerbliche oder berufl
 
 ---
 
-# Fall 1 – Finanzbeamter als Dozent
+⇨ Fall 1 – Finanzbeamter als Dozent
 
-## Sachverhalt
+► Sachverhalt
 
 Ein Finanzbeamter unterrichtet samstags an der Steuerberaterakademie.
 
 Seine Tätigkeit beim Finanzamt erfolgt weisungsgebunden.
 
-## Lösung
+► Lösung
 
-### Tätigkeit beim Finanzamt
+⇶  Tätigkeit beim Finanzamt
 
 Keine Selbständigkeit.
 
@@ -22335,7 +22335,7 @@ Rechtsgrundlage:
 
 § 2 Abs. 2 Nr. 1 UStG
 
-### Unterricht an der Steuerberaterakademie
+⇶  Unterricht an der Steuerberaterakademie
 
 Die Unterrichtstätigkeit erfolgt eigenverantwortlich.
 
@@ -22353,13 +22353,13 @@ Eine Person kann gleichzeitig Arbeitnehmer und Unternehmer sein.
 
 ---
 
-# Fall 2 – Arbeitnehmer stellt Rechnungen an seinen Arbeitgeber
+⇨ Fall 2 – Arbeitnehmer stellt Rechnungen an seinen Arbeitgeber
 
-## Sachverhalt
+► Sachverhalt
 
 Ein Arbeitnehmer arbeitet sonntags zusätzlich für seinen Arbeitgeber und schreibt hierfür Rechnungen.
 
-## Lösung
+► Lösung
 
 Entscheidend ist nicht die Rechnung,
 
@@ -22386,9 +22386,9 @@ Lohnsteuer und Umsatzsteuer schließen sich für dieselbe Tätigkeit aus.
 
 ---
 
-# Fall 3 – Sportgeschäft, Sonnenstudio und Vermietung
+⇨ Fall 3 – Sportgeschäft, Sonnenstudio und Vermietung
 
-## Sachverhalt
+► Sachverhalt
 
 Benno Ohm betreibt
 
@@ -22398,7 +22398,7 @@ Benno Ohm betreibt
 
 Zusätzlich besitzt er ein selbst bewohntes Einfamilienhaus.
 
-## Lösung
+► Lösung
 
 Unternehmer ist Ohm hinsichtlich
 
@@ -22418,7 +22418,7 @@ Jede Tätigkeit stellt zwar ein eigenes Grundgeschäft dar,
 
 gehört jedoch zum selben Unternehmen.
 
-### Nicht zum Unternehmen
+⇶  Nicht zum Unternehmen
 
 Das privat genutzte Einfamilienhaus.
 
@@ -22428,9 +22428,9 @@ Deshalb gehört es nicht zum Unternehmen.
 
 ---
 
-# Fall 4 – Möbelhändler mit mehreren Tätigkeiten
+⇨ Fall 4 – Möbelhändler mit mehreren Tätigkeiten
 
-## Sachverhalt
+► Sachverhalt
 
 Jab betreibt
 
@@ -22445,9 +22445,9 @@ Außerdem
 - ist Gesellschafter einer OHG,
 - ist Geschäftsführer einer GmbH.
 
-## Lösung
+► Lösung
 
-### Unternehmerische Tätigkeiten
+⇶  Unternehmerische Tätigkeiten
 
 Zum Unternehmen gehören
 
@@ -22459,7 +22459,7 @@ Vorträge und Bücher bilden gemeinsam das Grundgeschäft "Vogelkunde".
 
 ---
 
-### Verkauf des Porsche
+⇶  Verkauf des Porsche
 
 Der Verkauf eines früher betrieblich genutzten Wirtschaftsgutes stellt
 
@@ -22473,7 +22473,7 @@ Eine Nachhaltigkeit ist hierfür nicht erforderlich.
 
 ---
 
-### Beteiligung an der OHG
+⇶  Beteiligung an der OHG
 
 Die OHG
 
@@ -22483,7 +22483,7 @@ Die Beteiligung allein begründet keine eigene Unternehmereigenschaft.
 
 ---
 
-### Geschäftsführer der GmbH
+⇶  Geschäftsführer der GmbH
 
 Als Geschäftsführer handelt Jab
 
@@ -22503,9 +22503,9 @@ Rechtsgrundlage:
 
 ---
 
-# Fall 5 – Vorbereitungshandlungen
+⇨ Fall 5 – Vorbereitungshandlungen
 
-## Sachverhalt
+► Sachverhalt
 
 Ein angestellter Rechtsanwalt möchte sich selbständig machen.
 
@@ -22516,7 +22516,7 @@ Er
 
 gibt die Gründungsabsicht jedoch vor Aufnahme der Tätigkeit wieder auf.
 
-## Lösung
+► Lösung
 
 Bereits ernsthafte Vorbereitungshandlungen können
 
@@ -22540,7 +22540,7 @@ Der Unternehmerstatus entsteht bereits während der Vorbereitungsphase.
 
 ---
 
-# Prüfungsschema Unternehmereigenschaft
+⇨ Prüfungsschema Unternehmereigenschaft
 
 1. Liegt eine Tätigkeit vor?
 
@@ -22556,7 +22556,7 @@ Der Unternehmerstatus entsteht bereits während der Vorbereitungsphase.
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 Das Unternehmen umfasst grundsätzlich die gesamte gewerbliche und berufliche Tätigkeit.
 
@@ -22574,7 +22574,7 @@ Geschäftsführer einer GmbH handeln regelmäßig nicht selbständig.
 
 ---
 
-# Klausurtipps
+⇨ Klausurtipps
 
 Prüfungsfalle Nr. 1:
 
@@ -22612,7 +22612,7 @@ Bereits Vorbereitungshandlungen können den Unternehmerstatus begründen, auch w
     "§ 13a UStG"
   ],
   body: `
-# Unentgeltliche Wertabgaben
+⇨ Unentgeltliche Wertabgaben
 
 Die unentgeltliche Wertabgabe dient dazu, einen zuvor gewährten Vorsteuerabzug auszugleichen, wenn Gegenstände oder Leistungen anschließend privat oder außerunternehmerisch verwendet werden.
 
@@ -22623,11 +22623,11 @@ Es wird unterschieden zwischen:
 
 ---
 
-# Fall 1a – Material für eigenes Mietobjekt
+⇨ Fall 1a – Material für eigenes Mietobjekt
 
 Ein Elektriker entnimmt Kabel und Stecker aus seinem Lager und verwendet sie für ein ertragsteuerliches Privatvermögen zugeordnetes Mietwohnhaus.
 
-## Lösung
+► Lösung
 
 Das Mietwohnhaus gehört umsatzsteuerlich weiterhin zum Unternehmen (§ 2 UStG), da es der Erzielung von Einnahmen dient.
 
@@ -22645,7 +22645,7 @@ Privatvermögen im Ertragsteuerrecht bedeutet nicht automatisch Privatvermögen 
 
 ---
 
-# Fall 1b – iPad für private Nutzung
+⇨ Fall 1b – iPad für private Nutzung
 
 Ein zu 100 % dem Unternehmen zugeordnetes iPad wird
 
@@ -22659,7 +22659,7 @@ privat genutzt.
 
 Beim Kauf wurde die gesamte Vorsteuer abgezogen.
 
-## Lösung
+► Lösung
 
 Die private Nutzung stellt eine unentgeltliche Wertabgabe nach
 
@@ -22681,11 +22681,11 @@ Ergebnis:
 
 ---
 
-# Fall 1c – Gartenplanung durch Arbeitnehmer
+⇨ Fall 1c – Gartenplanung durch Arbeitnehmer
 
 Arbeitnehmer planen unentgeltlich den Garten des privaten Einfamilienhauses ihres Arbeitgebers.
 
-## Lösung
+► Lösung
 
 Es handelt sich um eine unentgeltliche sonstige Leistung.
 
@@ -22703,11 +22703,11 @@ Ergebnis:
 
 ---
 
-# Fall 1d – Geschenk eines Goldarmbands
+⇨ Fall 1d – Geschenk eines Goldarmbands
 
 Ein Juwelier schenkt seiner Tochter ein Goldarmband.
 
-## Lösung
+► Lösung
 
 Die Schenkung stellt eine unentgeltliche Lieferung dar.
 
@@ -22725,7 +22725,7 @@ Ergebnis:
 
 ---
 
-# Fall 2 – Unentgeltliche Dacheindeckung
+⇨ Fall 2 – Unentgeltliche Dacheindeckung
 
 Ein Dachdecker deckt unentgeltlich das Mietwohnhaus seiner Ehefrau.
 
@@ -22741,7 +22741,7 @@ Gesamtkosten:
 
 6.500 €
 
-## Lösung
+► Lösung
 
 Es handelt sich um eine unentgeltliche Werkleistung.
 
@@ -22773,14 +22773,14 @@ Umsatzsteuer:
 
 ---
 
-# Fall 3 – Dienstjubiläum
+⇨ Fall 3 – Dienstjubiläum
 
 Ein Arbeitnehmer erhält
 
 - einen Neuwagen
 - zusätzlich 600 € Bargeld.
 
-## Neuwagen
+► Neuwagen
 
 Der Wagen wird ausschließlich verschenkt.
 
@@ -22791,7 +22791,7 @@ Ergebnis:
 - kein Vorsteuerabzug
 - keine Wertabgabenbesteuerung
 
-## Bargeld
+► Bargeld
 
 Die Hingabe von Geld stellt keine Lieferung und keine sonstige Leistung dar.
 
@@ -22801,7 +22801,7 @@ Ergebnis:
 
 ---
 
-# Prüfungsschema
+⇨ Prüfungsschema
 
 1. Lieferung oder sonstige Leistung?
 
@@ -22819,7 +22819,7 @@ Ergebnis:
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 § 3 Abs. 1b UStG
 
@@ -22837,7 +22837,7 @@ Die Bemessungsgrundlage sind regelmäßig die Selbstkosten bzw. entstandenen Aus
 
 ---
 
-# Klausurtipps
+⇨ Klausurtipps
 
 Prüfungsfalle Nr. 1:
 
@@ -22881,7 +22881,7 @@ Bei Werkleistungen ist regelmäßig § 10 Abs. 4 UStG für die Bemessungsgrundla
     "§ 15 UStG"
   ],
   body: `
-# Kommission und Vermittlung
+⇨ Kommission und Vermittlung
 
 Bei Kommission und Vermittlung ist zuerst zu unterscheiden:
 
@@ -22893,9 +22893,9 @@ Bei Kommission und Vermittlung ist zuerst zu unterscheiden:
 
 ---
 
-# Fall 6 – Handelsvertreter vermittelt Maschine
+⇨ Fall 6 – Handelsvertreter vermittelt Maschine
 
-## Sachverhalt
+► Sachverhalt
 
 Handelsvertreter Ferter vermittelt eine Baumaschine.
 
@@ -22911,7 +22911,7 @@ Ferter erhält eine Provision von 10 % des Nettoverkaufspreises.
 
 Abrechnung erfolgt per Gutschrift.
 
-## Ausgangsseite – Lieferung der Maschine von Dast an Fastu
+► Ausgangsseite – Lieferung der Maschine von Dast an Fastu
 
 Dast liefert die Maschine an Fastu.
 
@@ -22937,7 +22937,7 @@ Steuerschuldner:
 
 Dast
 
-## Eingangsseite – Einkauf der Maschine
+► Eingangsseite – Einkauf der Maschine
 
 Da Dast keine ordnungsgemäße Rechnung nach § 14 UStG vorlegen kann,
 
@@ -22951,7 +22951,7 @@ Merksatz:
 
 Ohne ordnungsgemäße Rechnung kein Vorsteuerabzug.
 
-## Vermittlungsleistung des Ferter
+► Vermittlungsleistung des Ferter
 
 Ferter erbringt gegenüber Dast eine sonstige Leistung.
 
@@ -22982,7 +22982,7 @@ Umsatzsteuer:
 
 1.596,64 €
 
-## Vorsteuerabzug aus der Gutschrift
+► Vorsteuerabzug aus der Gutschrift
 
 Liegt eine ordnungsgemäße Gutschrift vor,
 
@@ -23002,9 +23002,9 @@ Vorsteuerabzug:
 
 ---
 
-# Fall 7 – Verkaufskommission Wein
+⇨ Fall 7 – Verkaufskommission Wein
 
-## Sachverhalt
+► Sachverhalt
 
 Kleber übernimmt von Winzer Pander 10.000 Liter Wein.
 
@@ -23020,7 +23020,7 @@ Verkauf:
 
 17.06. = 2.000 Liter
 
-## Vorüberlegung
+► Vorüberlegung
 
 Es liegt eine Verkaufskommission vor.
 
@@ -23041,7 +23041,7 @@ Es liegen gleichzeitig Lieferungen vor:
 
 Das bloße Verbringen des Weins in das Lager ist noch nicht entscheidend.
 
-## Lieferung des Kleber an die Großhändler
+► Lieferung des Kleber an die Großhändler
 
 Kleber liefert an die Großhändler.
 
@@ -23066,7 +23066,7 @@ Steuerschuldner:
 
 Kleber
 
-## Lieferung des Pander an Kleber
+► Lieferung des Pander an Kleber
 
 Pander liefert umsatzsteuerlich an Kleber.
 
@@ -23085,7 +23085,7 @@ Steuerschuldner:
 
 Pander
 
-## Vorsteuerabzug Kleber
+► Vorsteuerabzug Kleber
 
 Aus der ordnungsgemäßen Rechnung des Pander kann Kleber die Vorsteuer abziehen.
 
@@ -23099,7 +23099,7 @@ Voraussetzungen:
 - ordnungsgemäße Rechnung
 - kein Ausschluss nach § 15 Abs. 2 UStG
 
-## Merksatz
+► Merksatz
 
 Bei der Verkaufskommission gibt es umsatzsteuerlich zwei Lieferungen.
 
@@ -23109,9 +23109,9 @@ Kommissionär an Abnehmer.
 
 ---
 
-# Fall 8 – Kommission Messgeräte
+⇨ Fall 8 – Kommission Messgeräte
 
-## Sachverhalt
+► Sachverhalt
 
 Klein verkauft als Kommissionär für die Jung-OHG Messgeräte.
 
@@ -23133,7 +23133,7 @@ An die OHG zu überweisen:
 
 10.200 €
 
-## Lösung
+► Lösung
 
 Zwischen OHG und Klein liegt ein Kommissionsgeschäft vor.
 
@@ -23147,7 +23147,7 @@ Rechtsgrundlage:
 
 Umsatzsteuerlich werden Lieferungen fingiert.
 
-## Lieferung der OHG an Klein
+► Lieferung der OHG an Klein
 
 Die OHG liefert an Klein.
 
@@ -23172,13 +23172,13 @@ Steuerschuldner:
 
 OHG
 
-## Lieferung des Klein an die Kunden
+► Lieferung des Klein an die Kunden
 
 Klein liefert an die Kunden.
 
 Diese Lieferungen sind eigenständig zu beurteilen.
 
-## Gutschrift
+► Gutschrift
 
 Damit Klein den Vorsteuerabzug erhält,
 
@@ -23208,7 +23208,7 @@ gesamt:
 
 10.200 €
 
-## Merksatz
+► Merksatz
 
 Bei Kommission ist die Abrechnung wirtschaftlich oft nur eine Provisionsabrechnung.
 
@@ -23216,9 +23216,9 @@ Umsatzsteuerlich liegt trotzdem eine Lieferung des Kommittenten an den Kommissio
 
 ---
 
-# Fall 9 – Vermittlung eines Minibaggers
+⇨ Fall 9 – Vermittlung eines Minibaggers
 
-## Sachverhalt
+► Sachverhalt
 
 Jabes vermittelt den Verkauf eines Minibaggers.
 
@@ -23228,7 +23228,7 @@ Jabes erhält von Rosen eine Provision von brutto 500 €.
 
 Abrechnung erfolgt per Gutschrift.
 
-## Lösung
+► Lösung
 
 Jabes erbringt gegenüber Rosen eine Vermittlungsleistung.
 
@@ -23248,7 +23248,7 @@ Rechtsgrundlage:
 
 Die Leistung ist steuerbar und steuerpflichtig.
 
-## Bemessungsgrundlage
+► Bemessungsgrundlage
 
 Provision brutto:
 
@@ -23269,13 +23269,13 @@ Steuerschuldner:
 
 Jabes
 
-## Gutschrift
+► Gutschrift
 
 Die Gutschrift durch Rosen führt bei Jabes zu keinen weiteren umsatzsteuerlichen Folgen,
 
 wenn sie ordnungsgemäß erfolgt.
 
-## Merksatz
+► Merksatz
 
 Vermittlung ist keine Lieferung.
 
@@ -23285,7 +23285,7 @@ Die Provision ist das Entgelt.
 
 ---
 
-# Prüfungsschema Kommission
+⇨ Prüfungsschema Kommission
 
 1. Handelt jemand im eigenen Namen?
 
@@ -23307,7 +23307,7 @@ Die Provision ist das Entgelt.
 
 ---
 
-# Prüfungsschema Vermittlung
+⇨ Prüfungsschema Vermittlung
 
 1. Vermittler bringt einen Vertrag zustande.
 
@@ -23327,7 +23327,7 @@ Die Provision ist das Entgelt.
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 Kommission:
 
@@ -23355,7 +23355,7 @@ Ohne ordnungsgemäße Rechnung kein Vorsteuerabzug.
 
 ---
 
-# Klausurtipps
+⇨ Klausurtipps
 
 Prüfungsfalle Nr. 1:
 
@@ -23408,16 +23408,16 @@ Eine ordnungsgemäße Rechnung oder Gutschrift ist zwingend erforderlich.
     "Abschn. 15.15 UStAE"
   ],
   body: `
-# Preisausschreiben und Verlosung
+⇨ Preisausschreiben und Verlosung
 
-## Grundsatz
+► Grundsatz
 
 Bei einem Preisausschreiben oder einer Verlosung im Rahmen einer Werbemaßnahme ist umsatzsteuerlich zu prüfen:
 
 1. Ist der Einkauf der Preise zum Vorsteuerabzug berechtigt?
 2. Führt die spätere Hingabe an die Gewinner zu einer unentgeltlichen Wertabgabe?
 
-## Werbemaßnahme
+► Werbemaßnahme
 
 Ein Preisausschreiben kann eine unternehmerisch veranlasste Werbemaßnahme sein.
 
@@ -23425,7 +23425,7 @@ Die Zuwendung der Preise fällt dann grundsätzlich nicht unter das ertragsteuer
 
 Ein Vorsteuerausschluss nach § 15 Abs. 1a UStG liegt dann grundsätzlich nicht vor.
 
-## 1. Preis: Hochwertiger Gewinn
+► 1. Preis: Hochwertiger Gewinn
 
 Beispiel:
 
@@ -23437,13 +23437,13 @@ Einkauf:
 
 Der Roller wird von Anfang an mit der Absicht erworben, ihn im Rahmen der Werbeaktion zu verlosen.
 
-## Vorsteuerabzug beim hochwertigen Preis
+► Vorsteuerabzug beim hochwertigen Preis
 
 Steht bereits beim Leistungsbezug fest, dass der Gegenstand verlost werden soll, berechtigt der Einkauf grundsätzlich nicht zum Vorsteuerabzug, wenn die Voraussetzungen für eine spätere Wertabgabenbesteuerung nicht erfüllt sind.
 
 Der Gegenstand wird nicht für zum Vorsteuerabzug berechtigende Ausgangsumsätze verwendet, sondern zur unentgeltlichen Weitergabe an den Gewinner.
 
-## Unentgeltliche Wertabgabe beim hochwertigen Preis
+► Unentgeltliche Wertabgabe beim hochwertigen Preis
 
 Die Hingabe des Rollers erfolgt aus unternehmerischen Gründen.
 
@@ -23458,11 +23458,11 @@ Keine Vorsteuer beim Einkauf
 =
 keine Wertabgabenbesteuerung bei der Hingabe.
 
-## Geschenke von geringem Wert
+► Geschenke von geringem Wert
 
 Bei Geschenken von geringem Wert liegt keine steuerbare unentgeltliche Wertabgabe nach § 3 Abs. 1b Nr. 3 UStG vor.
 
-## 2. bis 10. Preis: Bücher
+► 2. bis 10. Preis: Bücher
 
 Beispiel:
 
@@ -23476,7 +23476,7 @@ Die Bücher stellen Geschenke von geringem Wert dar.
 
 Die Hingabe an die Gewinner ist daher nicht steuerbar nach § 3 Abs. 1b Nr. 3 UStG.
 
-## Vorsteuerabzug bei Büchern
+► Vorsteuerabzug bei Büchern
 
 Da die Bücher im Rahmen einer Werbemaßnahme eingesetzt werden und den unternehmerischen Umsätzen dienen, ist der Vorsteuerabzug grundsätzlich möglich.
 
@@ -23493,7 +23493,7 @@ Beispiel:
 
 Die Vorsteuer ist im Voranmeldungszeitraum des Leistungsbezugs abziehbar.
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Liegt eine Werbemaßnahme vor?
 
@@ -23509,7 +23509,7 @@ Die Vorsteuer ist im Voranmeldungszeitraum des Leistungsbezugs abziehbar.
 
 7. Liegt bei Hingabe eine unentgeltliche Wertabgabe nach § 3 Abs. 1b UStG vor?
 
-## Rechtsfolgen
+► Rechtsfolgen
 
 Hochwertiger Preis:
 
@@ -23521,7 +23521,7 @@ Geschenk von geringem Wert:
 - Vorsteuerabzug grundsätzlich möglich
 - Hingabe nicht steuerbar nach § 3 Abs. 1b Nr. 3 UStG
 
-## Prüfungsmerksätze
+► Prüfungsmerksätze
 
 Preisausschreiben ist regelmäßig eine Werbemaßnahme.
 
@@ -23531,7 +23531,7 @@ Bei hochwertigen Preisen ist der Vorsteuerabzug kritisch.
 
 Eine unentgeltliche Wertabgabe setzt regelmäßig voraus, dass der Gegenstand oder seine Bestandteile zum Vorsteuerabzug berechtigt haben.
 
-## Klausurtipp
+► Klausurtipp
 
 Typische Prüfungsfalle:
 
@@ -23572,15 +23572,15 @@ Vorsteuer meist möglich, keine Wertabgabe.
     "§ 13b Abs. 2 Nr. 3 UStG"
   ],
   body: `
-# Vorsteuerberichtigung bei gemischt genutzten Gebäuden
+⇨ Vorsteuerberichtigung bei gemischt genutzten Gebäuden
 
-## Grundsatz
+► Grundsatz
 
 Wird ein Gebäude sowohl unternehmerisch als auch privat genutzt, ist für den Vorsteuerabzug entscheidend, in welchem Umfang das Gebäude dem Unternehmen zugeordnet wurde und in welchem Umfang die Nutzung zum Vorsteuerabzug berechtigt.
 
 Ändert sich später die tatsächliche Verwendung, kann eine Vorsteuerberichtigung nach § 15a UStG erforderlich sein.
 
-## Berichtigungszeitraum
+► Berichtigungszeitraum
 
 Bei Grundstücken und Gebäuden beträgt der Berichtigungszeitraum 10 Jahre.
 
@@ -23594,7 +23594,7 @@ Erstmalige Verwendung:
 Berichtigungszeitraum:
 01.01.02 bis 31.12.11
 
-## Änderung der Verhältnisse
+► Änderung der Verhältnisse
 
 Eine Änderung der Verhältnisse liegt vor, wenn sich der Umfang der zum Vorsteuerabzug berechtigenden Verwendung ändert.
 
@@ -23607,7 +23607,7 @@ Beispiele:
 - steuerfreie Veräußerung
 - steuerpflichtige Veräußerung
 
-## Erhöhung der unternehmerischen Nutzung
+► Erhöhung der unternehmerischen Nutzung
 
 Erhöht sich die unternehmerische Nutzung, kann eine Berichtigung zugunsten des Unternehmers erfolgen.
 
@@ -23635,7 +23635,7 @@ Ergebnis:
 
 684 Euro sind zugunsten des Unternehmers zu korrigieren.
 
-## Erhöhung der privaten Nutzung
+► Erhöhung der privaten Nutzung
 
 Erhöht sich die private Nutzung, sinkt die unternehmerische Verwendung.
 
@@ -23665,13 +23665,13 @@ Ergebnis:
 
 855 Euro sind zu Ungunsten des Unternehmers zu korrigieren.
 
-## Veräußerung des Gebäudes
+► Veräußerung des Gebäudes
 
 Wird ein Gebäude innerhalb des Berichtigungszeitraums veräußert, ist ebenfalls § 15a UStG zu prüfen.
 
 Dabei kommt es darauf an, ob die Veräußerung steuerfrei oder steuerpflichtig erfolgt.
 
-## Steuerfreie Grundstücksveräußerung
+► Steuerfreie Grundstücksveräußerung
 
 Eine steuerfreie Veräußerung nach § 4 Nr. 9 Buchst. a UStG führt für den verbleibenden Berichtigungszeitraum zu einer Nutzung von 0 % zum Vorsteuerabzug.
 
@@ -23706,7 +23706,7 @@ Wenn noch die Jahre 09 bis 11 betroffen sind:
 
 Die Berichtigung erfolgt zu Ungunsten des Unternehmers.
 
-## Steuerpflichtige Grundstücksveräußerung
+► Steuerpflichtige Grundstücksveräußerung
 
 Wird zur Steuerpflicht optiert, gilt die Veräußerung für den verbleibenden Berichtigungszeitraum als Verwendung zu 100 % für vorsteuerunschädliche Umsätze.
 
@@ -23741,7 +23741,7 @@ Wenn noch die Jahre 09 bis 11 betroffen sind:
 
 Die Berichtigung erfolgt zugunsten des Unternehmers.
 
-## Zusammenfassung der Beispiele
+► Zusammenfassung der Beispiele
 
 Fall 1:
 
@@ -23783,7 +23783,7 @@ Steuerpflichtige Veräußerung:
 =
 60 Prozentpunkte Änderung zugunsten.
 
-## Bagatellgrenzen nach § 44 UStDV
+► Bagatellgrenzen nach § 44 UStDV
 
 Die Bagatellgrenzen des § 44 UStDV sind zu prüfen.
 
@@ -23791,7 +23791,7 @@ Wird die Grenze überschritten, ist die Vorsteuerberichtigung durchzuführen.
 
 Bei Grundstücksveräußerungen werden die Berichtigungsbeträge für die verbleibenden Jahre zusammengefasst.
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Wurde ursprünglich Vorsteuer abgezogen?
 
@@ -23817,7 +23817,7 @@ Vorsteuer / 10
 
 Restzeitraum zusammenfassen.
 
-## Prüfungsmerksätze
+► Prüfungsmerksätze
 
 Gebäude haben einen Berichtigungszeitraum von 10 Jahren.
 
@@ -23839,7 +23839,7 @@ Steuerpflichtige Veräußerung:
 
 100 % Vorsteuerverwendung.
 
-## Klausurtipp
+► Klausurtipp
 
 Typische Prüfungsfalle:
 
@@ -23864,7 +23864,7 @@ references:[
 
 body:`
 
-# Reverse Charge
+⇨ Reverse Charge
 
 Bei bestimmten Grundstückslieferungen schuldet nicht der Verkäufer,
 
@@ -23872,7 +23872,7 @@ sondern der Leistungsempfänger die Umsatzsteuer.
 
 ---
 
-## Bemessungsgrundlage
+► Bemessungsgrundlage
 
 Kaufpreis
 
@@ -23882,7 +23882,7 @@ Die Grunderwerbsteuer gehört nicht zum Entgelt.
 
 ---
 
-## Klausurhinweis
+► Klausurhinweis
 
 Immer prüfen,
 
@@ -23903,7 +23903,7 @@ references:[
 
 body:`
 
-# Uneinbringliche Forderungen
+⇨ Uneinbringliche Forderungen
 
 Wird eine Forderung uneinbringlich,
 
@@ -23911,7 +23911,7 @@ ist die Bemessungsgrundlage nach §17 UStG zu berichtigen.
 
 ---
 
-## Typischer Fall
+► Typischer Fall
 
 Eröffnung des Insolvenzverfahrens.
 
@@ -23919,7 +23919,7 @@ Ab diesem Zeitpunkt gelten offene Forderungen regelmäßig als uneinbringlich.
 
 ---
 
-## Folge
+► Folge
 
 Die Umsatzsteuer wird berichtigt.
 
@@ -23931,7 +23931,7 @@ soweit die Forderung uneinbringlich geworden ist.
 
 ---
 
-## Prüfung
+► Prüfung
 
 1. Forderung entstanden?
 
@@ -23952,7 +23952,7 @@ references:[
 
 body:`
 
-# Vollzuordnung
+⇨ Vollzuordnung
 
 Ordnet der Unternehmer das gesamte Gebäude seinem Unternehmen zu,
 
@@ -23962,7 +23962,7 @@ wie das Gebäude für unternehmerische Umsätze verwendet wird.
 
 ---
 
-## Laufende Kosten
+► Laufende Kosten
 
 Sind die Aufwendungen nicht eindeutig zuordenbar,
 
@@ -23970,7 +23970,7 @@ erfolgt die Aufteilung regelmäßig nach dem Verhältnis der Nutzflächen.
 
 ---
 
-## Merksatz
+► Merksatz
 
 Vollständige Zuordnung
 
@@ -23991,7 +23991,7 @@ references:[
 
 body:`
 
-# Vorsteuerabzug
+⇨ Vorsteuerabzug
 
 Der Leistungsempfänger kann die nach §13b geschuldete Umsatzsteuer gleichzeitig als Vorsteuer abziehen,
 
@@ -24005,7 +24005,7 @@ und
 
 ---
 
-## Folge
+► Folge
 
 Vorsteuerabzug in voller Höhe möglich.
 
@@ -24022,7 +24022,7 @@ Vorsteuerabzug in voller Höhe möglich.
 
   body:`
 
-# Prüfung
+⇨ Prüfung
 
 Eine nicht steuerbare Geschäftsveräußerung liegt nur vor, wenn
 
@@ -24034,7 +24034,7 @@ und
 
 ---
 
-## Keine Geschäftsveräußerung
+► Keine Geschäftsveräußerung
 
 Verwendet der Erwerber das Grundstück künftig für einen anderen Zweck,
 
@@ -24042,7 +24042,7 @@ liegt keine Geschäftsveräußerung im Ganzen vor.
 
 ---
 
-## Merksatz
+► Merksatz
 
 Andere Nutzung
 
@@ -24073,13 +24073,13 @@ keine Geschäftsveräußerung.
   ],
 
   body: `
-# Grundsatz
+⇨ Grundsatz
 
 Die Lieferung eines unbebauten Grundstücks ist grundsätzlich nach §4 Nr.9 Buchst. a UStG steuerfrei.
 
 ---
 
-# Option zur Steuerpflicht
+⇨ Option zur Steuerpflicht
 
 Verkauft der Unternehmer an einen anderen Unternehmer für dessen Unternehmen, kann auf die Steuerbefreiung verzichtet werden (§9 UStG).
 
@@ -24091,7 +24091,7 @@ Voraussetzungen:
 
 ---
 
-# Folge
+⇨ Folge
 
 Die Grundstückslieferung wird steuerpflichtig.
 
@@ -24106,9 +24106,9 @@ category:"Umsatzsteuer",
 
 body:`
 
-# Prüfung
+⇨ Prüfung
 
-## Endverbraucher
+► Endverbraucher
 
 Betriebsvorrichtungen
 
@@ -24118,7 +24118,7 @@ teilen regelmäßig das Schicksal der Hauptleistung.
 
 ---
 
-## Unternehmer (Zwischenvermietung)
+► Unternehmer (Zwischenvermietung)
 
 Betriebsvorrichtungen können eigenständig steuerpflichtig sein.
 
@@ -24126,7 +24126,7 @@ Eine Aufteilung der Leistungen ist zu prüfen.
 
 ---
 
-## Typische Klausurfalle
+► Typische Klausurfalle
 
 Nicht jede Lichtanlage ist automatisch Nebenleistung.
 
@@ -24150,7 +24150,7 @@ references:[
 
 body:`
 
-# Vermietung an Betreiber
+⇨ Vermietung an Betreiber
 
 Wird die Tennishalle an einen Unternehmer vermietet,
 
@@ -24160,7 +24160,7 @@ liegt eine Zwischenvermietung vor.
 
 ---
 
-## Aufteilung
+► Aufteilung
 
 Die Leistung ist aufzuteilen in
 
@@ -24172,7 +24172,7 @@ und
 
 ---
 
-## Betriebsvorrichtungen
+► Betriebsvorrichtungen
 
 Beispiele
 
@@ -24184,7 +24184,7 @@ Beispiele
 
 ---
 
-## Klausurhinweis
+► Klausurhinweis
 
 Zwischenvermietung
 
@@ -24211,13 +24211,13 @@ Hier erfolgt regelmäßig eine Aufteilung.
 
   body: `
 
-# Kurzfristige Hallenvermietung
+⇨ Kurzfristige Hallenvermietung
 
 Die Vermietung einer Tennishalle an Endverbraucher stellt eine sonstige Leistung (§3 Abs.9 UStG) dar.
 
 ---
 
-## Leistungsort
+► Leistungsort
 
 Grundstücksbezogene Leistung
 
@@ -24225,7 +24225,7 @@ Grundstücksbezogene Leistung
 
 ---
 
-## Lichtanlage
+► Lichtanlage
 
 Die Überlassung der Beleuchtung ist eine unselbständige Nebenleistung.
 
@@ -24235,7 +24235,7 @@ Keine getrennte Beurteilung.
 
 ---
 
-## Umsatzsteuer
+► Umsatzsteuer
 
 Die gesamte Leistung unterliegt dem Regelsteuersatz von 19 %.
 
@@ -24248,7 +24248,7 @@ erfolgt bei Vermietung an Endverbraucher nicht.
 
 ---
 
-## Merksatz
+► Merksatz
 
 Endverbraucher
 
@@ -24271,16 +24271,16 @@ Endverbraucher
   ],
   body: `
 
-# Prüfungsschema §15a UStG
+⇨ Prüfungsschema §15a UStG
 
-## 1. Ursprünglicher Vorsteuerabzug
+► 1. Ursprünglicher Vorsteuerabzug
 
 - ordnungsgemäße Rechnung (§15 UStG)
 - ursprünglicher Vorsteuerabzug zulässig
 
 ---
 
-## 2. Änderung der Verhältnisse
+► 2. Änderung der Verhältnisse
 
 Prüfen:
 
@@ -24294,7 +24294,7 @@ Beispiele
 
 ---
 
-## 3. Berichtigungsobjekt
+► 3. Berichtigungsobjekt
 
 Bei Gebäuden gehören eingebaute Bestandteile (Fenster, Türen, Heizungen usw.) nach Einbau regelmäßig zum Gebäude.
 
@@ -24304,7 +24304,7 @@ Eigenständiger Berichtigungszeitraum:
 
 ---
 
-## 4. Berichtigung
+► 4. Berichtigung
 
 Berichtigung jährlich
 
@@ -24314,7 +24314,7 @@ anteilige Monate berücksichtigen.
 
 ---
 
-## Merksatz
+► Merksatz
 
 Entscheidend ist nicht die geplante,
 
@@ -24337,9 +24337,9 @@ sondern die tatsächliche Verwendung.
   ],
   body: `
 
-# Anteilstausch
+⇨ Anteilstausch
 
-## Sachlicher Anwendungsbereich
+► Sachlicher Anwendungsbereich
 
 Ein Anteilstausch liegt vor, wenn
 
@@ -24349,13 +24349,13 @@ Ein Anteilstausch liegt vor, wenn
 
 ---
 
-## Persönlicher Anwendungsbereich
+► Persönlicher Anwendungsbereich
 
 Der übernehmende Rechtsträger muss unter den persönlichen Anwendungsbereich des UmwStG fallen (§1 Abs.4 UmwStG).
 
 ---
 
-## Steuerliche Wirkung
+► Steuerliche Wirkung
 
 Die steuerliche Wirkung tritt mit Übergang von Nutzen und Lasten ein.
 
@@ -24363,7 +24363,7 @@ Eine steuerliche Rückwirkung (§§2,20 UmwStG) ist beim Anteilstausch ausgeschl
 
 ---
 
-## Buchwertansatz (§21 Abs.1 S.2 UmwStG)
+► Buchwertansatz (§21 Abs.1 S.2 UmwStG)
 
 Voraussetzungen:
 
@@ -24373,7 +24373,7 @@ Voraussetzungen:
 
 ---
 
-## Folgen
+► Folgen
 
 Erfüllt:
 
@@ -24385,7 +24385,7 @@ Nicht erfüllt:
 
 ---
 
-## Merksatz
+► Merksatz
 
 Anteilstausch = steuerneutral nur über den Buchwertansatz des §21 UmwStG.
 
@@ -24411,9 +24411,9 @@ Anteilstausch = steuerneutral nur über den Buchwertansatz des §21 UmwStG.
   ],
   body: `
 
-# Sperrfrist nach § 22 UmwStG
+⇨ Sperrfrist nach § 22 UmwStG
 
-## Wann liegt ein Sperrfristverstoß vor?
+► Wann liegt ein Sperrfristverstoß vor?
 
 Ein Sperrfristverstoß liegt vor, wenn
 
@@ -24427,7 +24427,7 @@ Einbringungsgewinn II nach § 22 Abs. 2 UmwStG.
 
 ---
 
-## Berechnung
+► Berechnung
 
 Gemeiner Wert der eingebrachten Anteile
 
@@ -24441,7 +24441,7 @@ Gemeiner Wert der eingebrachten Anteile
 
 ---
 
-## Folgen bei der übernehmenden GmbH (§ 23 UmwStG)
+► Folgen bei der übernehmenden GmbH (§ 23 UmwStG)
 
 Der Einbringungsgewinn II
 
@@ -24455,7 +24455,7 @@ Keine Doppelbesteuerung.
 
 ---
 
-## Folgen beim Einbringenden
+► Folgen beim Einbringenden
 
 Der Einbringungsgewinn II gilt als nachträgliche Anschaffungskosten der neuen Beteiligung.
 
@@ -24465,7 +24465,7 @@ Bei einer späteren Veräußerung vermindert sich dadurch der steuerpflichtige V
 
 ---
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Einbringung nach § 21 UmwStG?
 2. Buchwert oder Zwischenwert?
@@ -24477,7 +24477,7 @@ Bei einer späteren Veräußerung vermindert sich dadurch der steuerpflichtige V
 
 ---
 
-## Klausurklassiker
+► Klausurklassiker
 
 ❌ Sperrfrist vergessen.
 
@@ -24487,7 +24487,7 @@ Bei einer späteren Veräußerung vermindert sich dadurch der steuerpflichtige V
 
 ---
 
-## Merksatz
+► Merksatz
 
 Einbringungsgewinn II besteuert nachträglich die bei der Einbringung zunächst aufgeschobenen stillen Reserven.
 
@@ -24512,9 +24512,9 @@ Einbringungsgewinn II besteuert nachträglich die bei der Einbringung zunächst 
   ],
   body: `
 
-# Wirtschaftlicher Geschäftsbetrieb – Freigrenze, Gewinnermittlung und Pauschalierung
+⇨ Wirtschaftlicher Geschäftsbetrieb – Freigrenze, Gewinnermittlung und Pauschalierung
 
-## 1. Freigrenze nach § 64 Abs. 3 AO
+► 1. Freigrenze nach § 64 Abs. 3 AO
 
 Die Vereinfachungsregelung des § 64 Abs. 3 AO stellt ausschließlich auf die **Bruttoeinnahmen** sämtlicher wirtschaftlicher Geschäftsbetriebe ab.
 
@@ -24530,7 +24530,7 @@ Aktuelle Freigrenze:
 
 ---
 
-### Prüfungsschema
+⇶  Prüfungsschema
 
 1. Alle Einnahmen sämtlicher wirtschaftlicher Geschäftsbetriebe addieren.
 2. Einnahmen ≤ 50.000 €?
@@ -24544,7 +24544,7 @@ Merksatz:
 
 ---
 
-## 2. Beispiel
+► 2. Beispiel
 
 Einnahmen:
 
@@ -24569,7 +24569,7 @@ Der Gewinn des wirtschaftlichen Geschäftsbetriebs ist vollständig nach allgeme
 
 ---
 
-## 3. Gewinnermittlung nach tatsächlichen Kosten
+► 3. Gewinnermittlung nach tatsächlichen Kosten
 
 Grundsatz:
 
@@ -24597,7 +24597,7 @@ Gemischt veranlasste Kosten sind sachgerecht aufzuteilen.
 
 ---
 
-## 4. Gewinnpauschalierung nach § 64 Abs. 6 AO
+► 4. Gewinnpauschalierung nach § 64 Abs. 6 AO
 
 Für bestimmte Tätigkeiten darf anstelle der tatsächlichen Gewinnermittlung eine Pauschale angewendet werden.
 
@@ -24635,7 +24635,7 @@ Bei Anwendung der Pauschalierung dürfen die tatsächlichen Betriebsausgaben hie
 
 ---
 
-## 5. Freibetrag nach § 24 KStG
+► 5. Freibetrag nach § 24 KStG
 
 Nach der Gewinnermittlung wird der Freibetrag geprüft.
 
@@ -24662,7 +24662,7 @@ Gewinn
 
 ---
 
-## Typische Prüfungsreihenfolge
+► Typische Prüfungsreihenfolge
 
 1. Liegt ein wirtschaftlicher Geschäftsbetrieb vor?
 2. Bruttoeinnahmen aller wGB addieren.
@@ -24674,7 +24674,7 @@ Gewinn
 
 ---
 
-## Klausurklassiker
+► Klausurklassiker
 
 ❌ Freigrenze auf den Gewinn anwenden.
 
@@ -24692,7 +24692,7 @@ Bei Anwendung des § 64 Abs. 6 AO sind die tatsächlichen Betriebsausgaben für 
 
 ---
 
-## Merksätze
+► Merksätze
 
 - 50.000 € = Bruttoeinnahmen, nicht Gewinn.
 - Erst nach Überschreiten der Freigrenze wird der Gewinn ermittelt.
@@ -24719,9 +24719,9 @@ Bei Anwendung des § 64 Abs. 6 AO sind die tatsächlichen Betriebsausgaben für 
     "§ 36a EStG"
   ],
   body: `
-# Kapitalertragsteuer bei gemeinnützigen Stiftungen
+⇨ Kapitalertragsteuer bei gemeinnützigen Stiftungen
 
-## Grundsatz
+► Grundsatz
 
 Gemeinnützige Stiftungen sind für den ideellen Bereich und die steuerfreie Vermögensverwaltung grundsätzlich von der Körperschaftsteuer und Gewerbesteuer befreit.
 
@@ -24730,7 +24730,7 @@ Rechtsgrundlagen:
 - § 5 Abs. 1 Nr. 9 KStG
 - § 3 Nr. 6 GewStG
 
-## Kapitalertragsteuer
+► Kapitalertragsteuer
 
 Auf Kapitalerträge wird häufig zunächst Kapitalertragsteuer einbehalten.
 
@@ -24740,7 +24740,7 @@ wenn der Bank oder Depotbank die Gemeinnützigkeit nicht rechtzeitig nachgewiese
 
 Der Steuerabzug erfolgt nach § 44a EStG.
 
-## Erstattung
+► Erstattung
 
 Die Stiftung kann die einbehaltene Kapitalertragsteuer auf Antrag zurückerhalten.
 
@@ -24750,7 +24750,7 @@ Voraussetzungen:
 - Antrag beim zuständigen Finanzamt
 - Voraussetzungen der §§ 36a und 44b EStG erfüllt
 
-## Behandlung in der Vermögensverwaltung
+► Behandlung in der Vermögensverwaltung
 
 Im steuerfreien Bereich der Vermögensverwaltung gilt:
 
@@ -24760,7 +24760,7 @@ Ebenso stellt die spätere Erstattung keine steuerpflichtige Einnahme dar.
 
 Die Kapitalertragsteuer beeinflusst deshalb die steuerliche Gewinnermittlung nicht.
 
-## Behandlung in der EÜR
+► Behandlung in der EÜR
 
 In der Einnahmenüberschussrechnung werden weder
 
@@ -24774,7 +24774,7 @@ als Betriebsausgabe oder Betriebseinnahme erfasst.
 
 Es handelt sich lediglich um Vermögensbewegungen.
 
-## Buchungslogik
+► Buchungslogik
 
 Steuerfreie Vermögensverwaltung:
 
@@ -24794,7 +24794,7 @@ Diese Buchungen betreffen ausschließlich die Vermögensrechnung.
 
 Eine Auswirkung auf die EÜR erfolgt nicht.
 
-## Wirtschaftlicher Geschäftsbetrieb
+► Wirtschaftlicher Geschäftsbetrieb
 
 Anders ist die Behandlung,
 
@@ -24802,7 +24802,7 @@ wenn Kapitalerträge dem steuerpflichtigen wirtschaftlichen Geschäftsbetrieb zu
 
 Dann sind die allgemeinen steuerlichen Vorschriften zu beachten und die Kapitalertragsteuer kann im Rahmen der steuerlichen Gewinnermittlung Bedeutung erlangen.
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Liegt eine gemeinnützige Körperschaft vor?
 
@@ -24821,7 +24821,7 @@ Dann sind die allgemeinen steuerlichen Vorschriften zu beachten und die Kapitale
 
 6. Hat die Zahlung Auswirkungen auf die EÜR?
 
-## Rechtsfolgen
+► Rechtsfolgen
 
 Ideeller Bereich:
 
@@ -24841,7 +24841,7 @@ Steuerpflichtiger wirtschaftlicher Geschäftsbetrieb:
 
 Gesonderte steuerliche Prüfung erforderlich.
 
-## Prüfungsmerksätze
+► Prüfungsmerksätze
 
 Gemeinnützige Stiftung + steuerfreie Vermögensverwaltung
 
@@ -24863,7 +24863,7 @@ keine Betriebseinnahme.
 
 Die EÜR bleibt unberührt.
 
-## Klausurtipp
+► Klausurtipp
 
 Typische Prüfungsfalle:
 
@@ -24899,9 +24899,9 @@ Keine Auswirkung auf den steuerlichen Gewinn.
     "§ 255 Abs. 2 HGB"
   ],
   body: `
-# Abschlagsrechnungen, Anzahlungen und unfertige Leistungen
+⇨ Abschlagsrechnungen, Anzahlungen und unfertige Leistungen
 
-## Grundsatz
+► Grundsatz
 
 Bei Anzahlungen, Abschlagszahlungen und Teilzahlungen ist zwischen
 
@@ -24913,7 +24913,7 @@ zu unterscheiden.
 
 Diese Bereiche folgen unterschiedlichen steuerlichen Grundsätzen.
 
-## Umsatzsteuer bei Anzahlungen
+► Umsatzsteuer bei Anzahlungen
 
 Die Umsatzsteuer entsteht bereits,
 
@@ -24941,7 +24941,7 @@ Rechtsgrundlage:
 
 § 13 Abs. 1 Nr. 1 Buchst. a UStG.
 
-## Abschlagsrechnung
+► Abschlagsrechnung
 
 Eine Abschlagsrechnung wird vor vollständiger Leistungserbringung erstellt.
 
@@ -24957,7 +24957,7 @@ Außerdem muss die zukünftige Leistung eindeutig beschrieben werden.
 
 Mehrere Abschlagszahlungen dürfen in einer Rechnung zusammengefasst werden.
 
-## Schlussrechnung
+► Schlussrechnung
 
 Nach vollständiger Leistung wird die Schlussrechnung erstellt.
 
@@ -24978,7 +24978,7 @@ Rechtsgrundlage:
 
 § 14 Abs. 5 UStG.
 
-## Fehlerhafte Schlussrechnung
+► Fehlerhafte Schlussrechnung
 
 Werden erhaltene Anzahlungen nicht abgezogen,
 
@@ -24986,7 +24986,7 @@ kann eine unrichtige Steuer nach § 14c UStG entstehen.
 
 Der Unternehmer schuldet dann den zu hoch ausgewiesenen Steuerbetrag.
 
-## Nicht ausgeführte Leistung
+► Nicht ausgeführte Leistung
 
 Wird die Leistung später nicht erbracht,
 
@@ -24996,7 +24996,7 @@ Rechtsgrundlage:
 
 § 17 UStG.
 
-## Bilanzierung von Anzahlungen
+► Bilanzierung von Anzahlungen
 
 Bilanzsteuerlich gilt:
 
@@ -25006,7 +25006,7 @@ Sie werden passiviert.
 
 Eine Gewinnrealisierung erfolgt dadurch noch nicht.
 
-## Unfertige Leistungen
+► Unfertige Leistungen
 
 Unfertige Leistungen sind zum Bilanzstichtag mit ihren Herstellungskosten zu aktivieren.
 
@@ -25018,7 +25018,7 @@ Zu den Herstellungskosten gehören sämtliche Aufwendungen,
 
 die unmittelbar oder mittelbar für die Herstellung entstanden sind.
 
-## Keine Saldierung
+► Keine Saldierung
 
 Erhaltene Anzahlungen dürfen nicht mit den unfertigen Leistungen verrechnet werden.
 
@@ -25034,7 +25034,7 @@ Erhaltene Anzahlungen
 
 Eine Saldierung ist nach herrschender Meinung unzulässig.
 
-## Bestandsveränderungen
+► Bestandsveränderungen
 
 Im Gesamtkostenverfahren werden Bestandsveränderungen der unfertigen Leistungen gesondert ausgewiesen.
 
@@ -25044,7 +25044,7 @@ Sie bleiben erfolgsneutral,
 
 bis die Leistung tatsächlich erbracht wird.
 
-## Gewinnrealisierung
+► Gewinnrealisierung
 
 Die Gewinnrealisierung erfolgt grundsätzlich erst,
 
@@ -25057,7 +25057,7 @@ wurde.
 
 Eine Teilgewinnrealisierung kommt nur bei entsprechender Teilleistung und Abrechnung in Betracht.
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Liegt eine Anzahlung oder Abschlagszahlung vor?
 
@@ -25083,7 +25083,7 @@ Keine Saldierung.
 
 → Keine Gewinnrealisierung.
 
-## Rechtsfolgen
+► Rechtsfolgen
 
 Umsatzsteuer:
 
@@ -25099,7 +25099,7 @@ Gewinn:
 
 Erst mit Leistungserbringung und Abrechnung.
 
-## Prüfungsmerksätze
+► Prüfungsmerksätze
 
 Anzahlung
 
@@ -25123,7 +25123,7 @@ Schlussrechnung:
 
 Anzahlungen und Umsatzsteuer müssen abgesetzt werden.
 
-## Klausurtipp
+► Klausurtipp
 
 Typische Prüfungsfallen:
 
@@ -25160,9 +25160,9 @@ Anzahlungen passiv.
     "BFH-Rechtsprechung zur Nachweispflicht bei Fahrzeugnutzung"
   ],
   body: `
-# Vereinsfahrzeug und Fahrtenbuch
+⇨ Vereinsfahrzeug und Fahrtenbuch
 
-## Grundsatz
+► Grundsatz
 
 Besitzt ein gemeinnütziger Verein einen PKW,
 
@@ -25172,7 +25172,7 @@ Hierzu gehört insbesondere der Nachweis,
 
 dass das Fahrzeug überwiegend oder ausschließlich für gemeinnützige Zwecke genutzt wird.
 
-## Fahrtenbuch
+► Fahrtenbuch
 
 Ein Fahrtenbuch ist das klassische Nachweismittel.
 
@@ -25180,7 +25180,7 @@ Es wird von der Finanzverwaltung bevorzugt.
 
 Ein Fahrtenbuch ist jedoch gesetzlich nicht zwingend vorgeschrieben.
 
-## Alternative Nachweise
+► Alternative Nachweise
 
 Der Nachweis kann auch durch andere geeignete Unterlagen geführt werden.
 
@@ -25198,7 +25198,7 @@ Entscheidend ist,
 
 dass die tatsächliche Nutzung nachvollziehbar dokumentiert werden kann.
 
-## Dokumentationspflicht
+► Dokumentationspflicht
 
 Aus den Unterlagen sollte insbesondere hervorgehen:
 
@@ -25213,7 +25213,7 @@ Je vollständiger die Dokumentation,
 
 desto geringer ist das Risiko steuerlicher Beanstandungen.
 
-## Ehrenamtliche Nutzung
+► Ehrenamtliche Nutzung
 
 Wird das Fahrzeug ausschließlich von ehrenamtlich Tätigen genutzt,
 
@@ -25223,7 +25223,7 @@ Auch hierbei genügt grundsätzlich eine nachvollziehbare Aufzeichnung,
 
 wenn sie die tatsächliche Nutzung ausreichend belegt.
 
-## Fehlende Nachweise
+► Fehlende Nachweise
 
 Kann der Verein die Nutzung nicht nachweisen,
 
@@ -25235,7 +25235,7 @@ Ohne geeignete Nachweise wird häufig mindestens ein privater Nutzungsanteil von
 
 soweit sich aus den Umständen nichts anderes ergibt.
 
-## Steuerliche Folgen
+► Steuerliche Folgen
 
 Eine fehlerhafte oder fehlende Dokumentation kann insbesondere folgende Folgen haben:
 
@@ -25245,7 +25245,7 @@ Eine fehlerhafte oder fehlende Dokumentation kann insbesondere folgende Folgen h
 - Gefährdung der Gemeinnützigkeit
 - steuerliche Mehrbelastungen
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Gehört der PKW zum Vereinsvermögen?
 
@@ -25261,7 +25261,7 @@ Gibt es andere geeignete Nachweise?
 
 6. Kann eine private Nutzung ausgeschlossen oder nachvollziehbar abgegrenzt werden?
 
-## Rechtsfolgen
+► Rechtsfolgen
 
 Ordnungsgemäße Dokumentation:
 
@@ -25273,7 +25273,7 @@ Schätzung der Privatnutzung möglich.
 
 Dadurch können steuerliche Nachteile entstehen.
 
-## Prüfungsmerksätze
+► Prüfungsmerksätze
 
 Ein Fahrtenbuch ist nicht zwingend vorgeschrieben.
 
@@ -25285,7 +25285,7 @@ Ohne Nachweise darf die Finanzverwaltung schätzen.
 
 Die Dokumentation dient dem Nachweis der ordnungsgemäßen Mittelverwendung.
 
-## Klausurtipp
+► Klausurtipp
 
 Typische Prüfungsfalle:
 
@@ -25321,9 +25321,9 @@ sondern der lückenlose Nachweis der gemeinnützigen Nutzung.
     "BMF-Schreiben vom 06.04.2023 (BStBl. I 2023, 669)"
   ],
   body: `
-# Tagesmütter – Einkommensteuer und Umsatzsteuer
+⇨ Tagesmütter – Einkommensteuer und Umsatzsteuer
 
-## Grundsatz
+► Grundsatz
 
 Tagesmütter erzielen ihre Einkünfte regelmäßig aus selbständiger Arbeit (§ 18 EStG).
 
@@ -25331,7 +25331,7 @@ Der Gewinn wird grundsätzlich durch Einnahmenüberschussrechnung (EÜR) ermitte
 
 Für typische Aufwendungen kann die Betriebsausgabenpauschale der Finanzverwaltung genutzt werden.
 
-## Betriebsausgabenpauschale
+► Betriebsausgabenpauschale
 
 Für tatsächlich belegte Betreuungsplätze gilt grundsätzlich:
 
@@ -25345,7 +25345,7 @@ Die Pauschale ersetzt den Einzelnachweis der gewöhnlichen Betriebsausgaben.
 
 Der Nachweis höherer tatsächlicher Betriebsausgaben bleibt möglich.
 
-## Freihalteplätze
+► Freihalteplätze
 
 Freihalteplätze sind Plätze,
 
@@ -25367,7 +25367,7 @@ Sind die tatsächlichen Aufwendungen höher,
 
 können diese durch Einzelnachweis geltend gemacht werden.
 
-## Nachweis tatsächlicher Betriebsausgaben
+► Nachweis tatsächlicher Betriebsausgaben
 
 Die Betriebsausgabenpauschale ist nicht verpflichtend.
 
@@ -25379,7 +25379,7 @@ Dies kann insbesondere sinnvoll sein,
 
 wenn außergewöhnlich hohe Aufwendungen entstanden sind.
 
-## Umsatzsteuer
+► Umsatzsteuer
 
 Für Tagesmütter gelten grundsätzlich die allgemeinen Vorschriften des Umsatzsteuergesetzes.
 
@@ -25401,7 +25401,7 @@ Wird diese Grenze im laufenden Kalenderjahr überschritten,
 
 unterliegen die Umsätze ab diesem Zeitpunkt der Regelbesteuerung.
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Liegt eine selbständige Kindertagespflege vor?
 
@@ -25415,7 +25415,7 @@ unterliegen die Umsätze ab diesem Zeitpunkt der Regelbesteuerung.
 
 6. Umsatzgrenze eingehalten?
 
-## Rechtsfolgen
+► Rechtsfolgen
 
 Belegte Plätze:
 
@@ -25432,7 +25432,7 @@ Alternativ:
 
 Einzelnachweis der tatsächlichen Betriebsausgaben.
 
-## Prüfungsmerksätze
+► Prüfungsmerksätze
 
 Tagesmütter erzielen regelmäßig Einkünfte nach § 18 EStG.
 
@@ -25444,7 +25444,7 @@ Für Freihalteplätze gilt eine gesonderte Pauschale von 50 Euro je Monat.
 
 Die tatsächlichen Betriebsausgaben können jederzeit durch Einzelnachweis geltend gemacht werden.
 
-## Klausurtipp
+► Klausurtipp
 
 Typische Prüfungsfallen:
 
@@ -25475,21 +25475,21 @@ Höhere tatsächliche Kosten = Einzelnachweis.
     "Altersvorsorgereformgesetz 2026"
   ],
   body: `
-# Altersvorsorgedepot
+⇨ Altersvorsorgedepot
 
-## Hinweis
+► Hinweis
 
 Dieser Eintrag gibt den derzeitigen Gesetzesstand wieder.
 
 Vor Anwendung in der Praxis sind stets aktuelle Gesetzesänderungen und BMF-Schreiben zu prüfen.
 
-## Grundidee
+► Grundidee
 
 Ab 2027 soll ein steuerlich gefördertes Altersvorsorgedepot eingeführt werden.
 
 Es soll langfristige Wertpapieranlagen fördern und die bisherige Riester-Förderung ersetzen.
 
-## Förderung
+► Förderung
 
 Geplant sind insbesondere:
 
@@ -25497,14 +25497,14 @@ Geplant sind insbesondere:
 - staatliche Zulagen
 - nachgelagerte Besteuerung
 
-## Voraussetzungen
+► Voraussetzungen
 
 - zertifiziertes Altersvorsorgedepot
 - Eigenbeiträge
 - förderberechtigter Personenkreis
 - gesetzliche Anforderungen an das Produkt
 
-## Besteuerung
+► Besteuerung
 
 Während der Ansparphase:
 
@@ -25514,7 +25514,7 @@ Während der Auszahlungsphase:
 
 nachgelagerte Besteuerung.
 
-## Prüfungsmerksatz
+► Prüfungsmerksatz
 
 Aktuelles Steuerrecht.
 
@@ -25537,9 +25537,9 @@ Vor jeder steuerlichen Beratung den neuesten Gesetzesstand prüfen.
     "§ 27 KStG"
   ],
   body: `
-# Freibetrag nach § 24 KStG bei Familienstiftungen
+⇨ Freibetrag nach § 24 KStG bei Familienstiftungen
 
-## Grundsatz
+► Grundsatz
 
 Körperschaften können unter den Voraussetzungen des § 24 KStG einen Freibetrag erhalten.
 
@@ -25557,7 +25557,7 @@ Entscheidend ist allein,
 
 dass die Stiftung solche Leistungen nach ihrer Satzung oder ihrer Rechtsnatur grundsätzlich erbringen kann.
 
-## Ausschluss des Freibetrags
+► Ausschluss des Freibetrags
 
 Der Freibetrag ist ausgeschlossen,
 
@@ -25571,7 +25571,7 @@ dass im betreffenden Wirtschaftsjahr tatsächlich Ausschüttungen erfolgen.
 
 Auch eine satzungsmäßige Ausschüttungssperre oder die bloße Nichtausschüttung ändern daran grundsätzlich nichts.
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Liegt eine Körperschaft vor?
 
@@ -25585,7 +25585,7 @@ Auch eine satzungsmäßige Ausschüttungssperre oder die bloße Nichtausschüttu
 
 => Freibetrag nach § 24 KStG ausgeschlossen.
 
-## Einnahmen nach § 20 Abs. 1 Nr. 1 EStG
+► Einnahmen nach § 20 Abs. 1 Nr. 1 EStG
 
 Hierzu gehören insbesondere:
 
@@ -25595,7 +25595,7 @@ Hierzu gehören insbesondere:
 - verdeckte Gewinnausschüttungen
 - wirtschaftlich vergleichbare Ausschüttungen
 
-## Einnahmen nach § 20 Abs. 1 Nr. 2 EStG
+► Einnahmen nach § 20 Abs. 1 Nr. 2 EStG
 
 Hierzu gehören insbesondere:
 
@@ -25609,7 +25609,7 @@ Soweit keine Rückzahlung von
 
 vorliegt.
 
-## Nicht unter § 20 Abs. 1 Nr. 1 oder Nr. 2 EStG fallen
+► Nicht unter § 20 Abs. 1 Nr. 1 oder Nr. 2 EStG fallen
 
 - Rückzahlung des Stammkapitals
 - Rückzahlung des Grundkapitals
@@ -25617,7 +25617,7 @@ vorliegt.
 - Leistungen ohne kapitalmäßige Beteiligung
 - Leistungen bestimmter steuerbefreiter Körperschaften ohne Ausschüttungsmöglichkeit
 
-## Meinungsstand
+► Meinungsstand
 
 Finanzverwaltung,
 
@@ -25639,7 +25639,7 @@ sondern
 
 ob Ausschüttungen ihrer Art nach zu Einnahmen nach § 20 EStG führen können.
 
-## Rechtsfolge
+► Rechtsfolge
 
 Sind Leistungen grundsätzlich geeignet,
 
@@ -25655,7 +25655,7 @@ wenn
 - Ausschüttungen dauerhaft unterbleiben,
 - die Stiftung ausschließlich Vermögensverwaltung betreibt.
 
-## Prüfungsmerksätze
+► Prüfungsmerksätze
 
 Nicht die tatsächliche Ausschüttung ist entscheidend.
 
@@ -25663,7 +25663,7 @@ Entscheidend ist die grundsätzliche Möglichkeit einer Ausschüttung.
 
 § 24 KStG knüpft an die Art der möglichen Leistungen an.
 
-## Klausurtipp
+► Klausurtipp
 
 Typische Prüfungsfalle:
 
@@ -25700,9 +25700,9 @@ Die tatsächliche Ausschüttung ist nicht erforderlich.
     "§§ 51 ff. AO"
   ],
   body: `
-# Verdeckte Gewinnausschüttung (vGA) bei gemeinnützigen Vereinen
+⇨ Verdeckte Gewinnausschüttung (vGA) bei gemeinnützigen Vereinen
 
-## Grundsatz
+► Grundsatz
 
 Auch bei gemeinnützigen Vereinen können verdeckte Gewinnausschüttungen (vGA) vorliegen.
 
@@ -25714,7 +25714,7 @@ Entscheidend ist,
 
 ob Vereinsvermögen einem Mitglied oder einer nahestehenden Person ohne angemessene Gegenleistung zugewendet wird.
 
-## Gesetzliche Grundlage
+► Gesetzliche Grundlage
 
 Rechtsgrundlage:
 
@@ -25731,7 +25731,7 @@ und
 
 diese Vermögensminderung durch das Mitgliedschaftsverhältnis veranlasst ist.
 
-## Keine Vereinbarung erforderlich
+► Keine Vereinbarung erforderlich
 
 Für die Annahme einer vGA ist keine schriftliche oder mündliche Vereinbarung erforderlich.
 
@@ -25741,7 +25741,7 @@ Maßgeblich ist allein,
 
 ob der Vorteil aufgrund des Mitgliedschaftsverhältnisses gewährt wurde.
 
-## Fremdvergleich
+► Fremdvergleich
 
 Entscheidend ist der Fremdvergleich.
 
@@ -25753,7 +25753,7 @@ Wenn nein,
 
 spricht dies für eine verdeckte Gewinnausschüttung.
 
-## Typische Fälle
+► Typische Fälle
 
 Eine vGA kann insbesondere vorliegen bei
 
@@ -25764,7 +25764,7 @@ Eine vGA kann insbesondere vorliegen bei
 - Erlass von Forderungen gegenüber Mitgliedern,
 - sonstigen Vermögensvorteilen zugunsten von Mitgliedern oder nahestehenden Personen.
 
-## Gemeinnützigkeitsrecht
+► Gemeinnützigkeitsrecht
 
 Neben den körperschaftsteuerlichen Folgen kann eine vGA auch gegen das Gemeinnützigkeitsrecht verstoßen.
 
@@ -25772,7 +25772,7 @@ Unzulässige Begünstigungen von Mitgliedern widersprechen dem Grundsatz der Sel
 
 Dadurch kann die Gemeinnützigkeit gefährdet werden.
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Liegt eine Vermögensminderung oder verhinderte Vermögensmehrung vor?
 
@@ -25788,7 +25788,7 @@ Dadurch kann die Gemeinnützigkeit gefährdet werden.
 
 Verdeckte Gewinnausschüttung ja oder nein.
 
-## Rechtsfolgen
+► Rechtsfolgen
 
 Liegt eine vGA vor,
 
@@ -25802,7 +25802,7 @@ Außerdem können
 
 betroffen sein.
 
-## Prüfungsmerksätze
+► Prüfungsmerksätze
 
 Eine schriftliche Vereinbarung ist nicht erforderlich.
 
@@ -25814,7 +25814,7 @@ Unangemessene Vorteile können jedoch eine vGA darstellen.
 
 Auch gemeinnützige Vereine können verdeckte Gewinnausschüttungen vornehmen.
 
-## Klausurtipp
+► Klausurtipp
 
 Typische Prüfungsfalle:
 
@@ -25852,9 +25852,9 @@ sondern die unangemessene Begünstigung eines Mitglieds.
     "§ 2 ErbStG"
   ],
   body: `
-# Zweitwohnsitz
+⇨ Zweitwohnsitz
 
-## Einkommensteuer
+► Einkommensteuer
 
 Eine doppelte Haushaltsführung setzt voraus:
 
@@ -25864,7 +25864,7 @@ Eine doppelte Haushaltsführung setzt voraus:
 
 Dann können Aufwendungen steuerlich abzugsfähig sein.
 
-## Private Gründe
+► Private Gründe
 
 Wird der Zweitwohnsitz ausschließlich aus privaten Gründen (z. B. bei einer Tante) begründet,
 
@@ -25872,13 +25872,13 @@ liegt keine doppelte Haushaltsführung vor.
 
 Die Kosten sind dann grundsätzlich nicht abzugsfähig.
 
-## Betriebsstätte
+► Betriebsstätte
 
 Besteht am Zweitwohnsitz eine weitere Betriebsstätte,
 
 können Fahrten zwischen den Betriebsstätten Betriebsausgaben sein.
 
-## Erbschaftsteuer
+► Erbschaftsteuer
 
 Der Wohnsitz beeinflusst die Steuerpflicht.
 
@@ -25890,13 +25890,13 @@ Beschränkte Steuerpflicht:
 
 kein Wohnsitz im Inland.
 
-## Zweitwohnungsteuer
+► Zweitwohnungsteuer
 
 Kommunale Aufwandsteuer.
 
 Unabhängig vom Verwandtschaftsverhältnis.
 
-## Prüfungsmerksatz
+► Prüfungsmerksatz
 
 Beruflicher Zweitwohnsitz:
 
@@ -25923,15 +25923,15 @@ regelmäßig kein Werbungskosten- oder Betriebsausgabenabzug.
     "BFH II R 46/08"
   ],
   body: `
-# Schwache Erwachsenenadoption
+⇨ Schwache Erwachsenenadoption
 
-## Grundsatz
+► Grundsatz
 
 Bei der schwachen Erwachsenenadoption bleibt das Verwandtschaftsverhältnis zu den leiblichen Eltern bestehen.
 
 Steuerlich wird der Adoptierte dennoch gegenüber dem Adoptierenden wie ein leibliches Kind behandelt.
 
-## Erbschaftsteuer
+► Erbschaftsteuer
 
 Der Adoptierte gehört gegenüber dem Adoptierenden zur Steuerklasse I.
 
@@ -25943,17 +25943,17 @@ Folgen:
 - Freibetrag wie Kind
 - günstigere Steuersätze
 
-## Leibliche Eltern
+► Leibliche Eltern
 
 Auch gegenüber den leiblichen Eltern bleibt die Steuerklasse I bestehen.
 
 Die Adoption führt insoweit zu keinem Verlust der steuerlichen Begünstigungen.
 
-## Einkommensteuer
+► Einkommensteuer
 
 Die Erwachsenenadoption hat grundsätzlich keine unmittelbaren Auswirkungen auf die Einkommensteuer.
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Liegt eine Erwachsenenadoption vor?
 
@@ -25963,7 +25963,7 @@ Die Erwachsenenadoption hat grundsätzlich keine unmittelbaren Auswirkungen auf 
 
 4. Steuerklasse nach § 15 ErbStG bestimmen.
 
-## Prüfungsmerksatz
+► Prüfungsmerksatz
 
 Erwachsenenadoption:
 
@@ -25987,9 +25987,9 @@ Ertragsteuerlich grundsätzlich ohne Bedeutung.
     "§§ 52 ff. AO"
   ],
   body: `
-# Zinsloses Darlehen an einen gemeinnützigen Verein
+⇨ Zinsloses Darlehen an einen gemeinnützigen Verein
 
-## Grundsatz
+► Grundsatz
 
 Ein Darlehen kann auch ohne Verzinsung wirksam vereinbart werden.
 
@@ -25997,7 +25997,7 @@ Die fehlende Verzinsung berührt die Wirksamkeit des Darlehensvertrages nach § 
 
 Die Rückzahlungsverpflichtung bleibt bestehen.
 
-## Zivilrecht
+► Zivilrecht
 
 Nach § 488 BGB verpflichtet sich der Darlehensnehmer,
 
@@ -26006,7 +26006,7 @@ Nach § 488 BGB verpflichtet sich der Darlehensnehmer,
 
 Ein zinsloses Darlehen ist zivilrechtlich zulässig.
 
-## Steuerliche Prüfung
+► Steuerliche Prüfung
 
 Bei gemeinnützigen Vereinen ist zusätzlich zu prüfen,
 
@@ -26016,7 +26016,7 @@ Bei gemeinnützigen Vereinen ist zusätzlich zu prüfen,
 
 Die Vereinbarung sollte schriftlich erfolgen und tatsächlich durchgeführt werden.
 
-## Rückzahlung ins Ausland
+► Rückzahlung ins Ausland
 
 Die Rückzahlung eines Darlehens an einen Darlehensgeber im Ausland ist grundsätzlich zulässig.
 
@@ -26030,7 +26030,7 @@ Die Auszahlung darf die Gemeinnützigkeit nicht gefährden.
 
 Nach § 51 Abs. 2 AO können Mittel auch ins Ausland fließen, wenn die gemeinnützigkeitsrechtlichen Voraussetzungen erfüllt werden.
 
-## Darlehensverzicht
+► Darlehensverzicht
 
 Verzichtet der Darlehensgeber auf die Rückzahlung,
 
@@ -26052,7 +26052,7 @@ Besonders kritisch sind Darlehen von
 - Vorständen,
 - nahestehenden Personen.
 
-## Fremdvergleich
+► Fremdvergleich
 
 Bei Darlehen zwischen Verein und nahestehenden Personen gilt der Fremdvergleich.
 
@@ -26065,7 +26065,7 @@ Zu prüfen ist insbesondere:
 
 Nur fremdübliche Vereinbarungen werden steuerlich anerkannt.
 
-## Kein Kontakt zum Darlehensgeber
+► Kein Kontakt zum Darlehensgeber
 
 Ist der Darlehensgeber nicht mehr erreichbar,
 
@@ -26081,7 +26081,7 @@ dass die Forderung endgültig nicht mehr besteht oder uneinbringlich geworden is
 
 Eine bloße Nichterreichbarkeit genügt hierfür regelmäßig nicht.
 
-## Bilanzielle Behandlung
+► Bilanzielle Behandlung
 
 Bis zur endgültigen Klärung:
 
@@ -26093,7 +26093,7 @@ Prüfung einer gewinnerhöhenden Auflösung der Verbindlichkeit.
 
 Dabei sind zusätzlich die gemeinnützigkeitsrechtlichen Folgen zu prüfen.
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Liegt ein wirksamer Darlehensvertrag nach § 488 BGB vor?
 
@@ -26109,7 +26109,7 @@ Dabei sind zusätzlich die gemeinnützigkeitsrechtlichen Folgen zu prüfen.
 
 7. Sind steuerliche Folgen (Spende, Schenkungsteuer oder Gewinnrealisierung) zu prüfen?
 
-## Rechtsfolgen
+► Rechtsfolgen
 
 Zinsloses Darlehen:
 Zivilrechtlich wirksam.
@@ -26126,7 +26126,7 @@ Verbindlichkeit bleibt bestehen.
 Ausbuchung:
 Erst bei endgültigem Wegfall der Rückzahlungsverpflichtung zulässig.
 
-## Prüfungsmerksätze
+► Prüfungsmerksätze
 
 Ein zinsloses Darlehen ist zivilrechtlich wirksam.
 
@@ -26138,7 +26138,7 @@ Darlehensverzicht kann steuerliche Folgen auslösen.
 
 Eine bloße Nichterreichbarkeit des Darlehensgebers berechtigt nicht zur Ausbuchung.
 
-## Klausurtipp
+► Klausurtipp
 
 Typische Prüfungsfalle:
 
@@ -26167,9 +26167,9 @@ Steuerliche Folgen entstehen erst durch besondere Umstände, z. B. einen Darlehe
     "BMF-Schreiben zu Auslandsreisekosten"
   ],
   body: `
-# Reisekosten: steuerfreie Erstattung und Verpflegungspauschalen
+⇨ Reisekosten: steuerfreie Erstattung und Verpflegungspauschalen
 
-## 1. Steuerfreie Reisekostenerstattung durch den Arbeitgeber
+► 1. Steuerfreie Reisekostenerstattung durch den Arbeitgeber
 
 Erstattet der Arbeitgeber seinem Arbeitnehmer anlässlich einer beruflich veranlassten Auswärtstätigkeit die tatsächlichen Reisekosten, kann diese Erstattung nach § 3 Nr. 16 EStG steuerfrei sein.
 
@@ -26181,7 +26181,7 @@ Steuerfrei erstattungsfähig sind insbesondere:
 
 Die Steuerfreiheit gilt nur, soweit die Erstattung die nach § 9 EStG als Werbungskosten abziehbaren Aufwendungen nicht übersteigt.
 
-## 2. Voraussetzungen für die Steuerfreiheit
+► 2. Voraussetzungen für die Steuerfreiheit
 
 Die Erstattung bleibt steuerfrei, wenn:
 
@@ -26193,7 +26193,7 @@ Die Erstattung bleibt steuerfrei, wenn:
 Wichtig:
 Ohne ausreichende Nachweise besteht das Risiko, dass die Erstattung als steuerpflichtiger Arbeitslohn behandelt wird.
 
-## 3. Buchhalterische Behandlung
+► 3. Buchhalterische Behandlung
 
 Die steuerfreie Erstattung ist als Reisekostenerstattung zu buchen.
 
@@ -26206,7 +26206,7 @@ Eine Lohnversteuerung entfällt in diesem Fall.
 
 Übersteigt die Erstattung die tatsächlichen Kosten oder die zulässigen Pauschalen, ist der übersteigende Betrag steuerpflichtiger Arbeitslohn.
 
-## 4. Werbungskostenabzug beim Arbeitnehmer
+► 4. Werbungskostenabzug beim Arbeitnehmer
 
 Soweit der Arbeitgeber Reisekosten steuerfrei erstattet, ist ein Werbungskostenabzug beim Arbeitnehmer ausgeschlossen.
 
@@ -26215,13 +26215,13 @@ Steuerfrei erstattet = kein Werbungskostenabzug.
 
 Nur nicht erstattete oder nicht vollständig erstattete berufliche Reisekosten können beim Arbeitnehmer noch als Werbungskosten berücksichtigt werden.
 
-## 5. Verpflegungsmehraufwendungen bei Auswärtstätigkeit
+► 5. Verpflegungsmehraufwendungen bei Auswärtstätigkeit
 
 Für Verpflegungsmehraufwendungen werden keine tatsächlichen Kosten angesetzt, sondern gesetzliche Pauschbeträge.
 
 Bei Auslandsreisen gelten länderspezifische Pauschalen, die regelmäßig durch das BMF veröffentlicht werden.
 
-## 6. Zweitägige Dienstreise nach Brüssel
+► 6. Zweitägige Dienstreise nach Brüssel
 
 Sachverhalt:
 - Hinreise: 04.02.
@@ -26247,7 +26247,7 @@ Insgesamt:
 
 Da die Reise nur zwei Tage dauert, gibt es keinen vollen Zwischentag.
 
-## 7. Kürzung bei gestellten Mahlzeiten
+► 7. Kürzung bei gestellten Mahlzeiten
 
 Werden Mahlzeiten vom Arbeitgeber oder auf dessen Veranlassung gestellt, sind die Verpflegungspauschalen zu kürzen.
 
@@ -26269,7 +26269,7 @@ Abendessen:
 
 Die Kürzung erfolgt auch an An- und Abreisetagen grundsätzlich anhand der vollen Tagespauschale.
 
-## 8. Steuerfreie Erstattung der Verpflegungspauschalen
+► 8. Steuerfreie Erstattung der Verpflegungspauschalen
 
 Erstattet der Arbeitgeber die Verpflegungspauschalen steuerfrei, ist ein Werbungskostenabzug beim Arbeitnehmer insoweit ausgeschlossen.
 
@@ -26283,7 +26283,7 @@ Steuerfreie Erstattung durch Arbeitgeber:
 Folge:
 Kein zusätzlicher Werbungskostenabzug beim Arbeitnehmer.
 
-## 9. Prüfungs-Merksätze
+► 9. Prüfungs-Merksätze
 
 Reisekostenerstattung:
 Nach § 3 Nr. 16 EStG steuerfrei, soweit die Erstattung die nach § 9 EStG abziehbaren Werbungskosten nicht übersteigt.
@@ -26327,9 +26327,9 @@ Steuerfrei vom Arbeitgeber ersetzt = kein Werbungskostenabzug beim Arbeitnehmer.
     "§ 34 EStG"
   ],
   body: `
-# Betriebsveräußerung durch Erben
+⇨ Betriebsveräußerung durch Erben
 
-## Grundsatz
+► Grundsatz
 
 Erwirbt ein Erbe durch Erbfall einen Betrieb oder einen Mitunternehmeranteil und veräußert diesen anschließend, kann er die steuerlichen Begünstigungen nach § 16 Abs. 4 EStG und § 34 Abs. 3 EStG in Anspruch nehmen.
 
@@ -26337,7 +26337,7 @@ Eine vorherige Mitunternehmerstellung ist nicht erforderlich.
 
 Entscheidend ist, dass der Erbe durch den Erbfall selbst Mitunternehmer wird.
 
-## Freibetrag nach § 16 Abs. 4 EStG
+► Freibetrag nach § 16 Abs. 4 EStG
 
 Der Freibetrag kann auch einem Erben zustehen.
 
@@ -26349,7 +26349,7 @@ Voraussetzungen:
 
 Eine frühere Beteiligung am Betrieb ist nicht erforderlich.
 
-## Tarifermäßigung nach § 34 Abs. 3 EStG
+► Tarifermäßigung nach § 34 Abs. 3 EStG
 
 Auch die Tarifermäßigung kann vom Erben beansprucht werden.
 
@@ -26361,7 +26361,7 @@ Voraussetzungen:
 
 Der Erbe wird steuerlich so behandelt, als hätte er den Betrieb selbst veräußert.
 
-## Mitunternehmerstellung des Erben
+► Mitunternehmerstellung des Erben
 
 Mitunternehmer muss der Erbe erst zum Zeitpunkt der Veräußerung sein.
 
@@ -26369,13 +26369,13 @@ Es ist nicht erforderlich, dass er bereits vor dem Erbfall Mitunternehmer war.
 
 Der Eintritt in die Mitunternehmerstellung erfolgt durch den Erbfall.
 
-## Meinungsstand
+► Meinungsstand
 
 Rechtsprechung, Literatur und Finanzverwaltung vertreten übereinstimmend die Auffassung, dass die Begünstigungen auch Erben zustehen.
 
 Eine Beschränkung auf bereits vor dem Erbfall beteiligte Mitunternehmer besteht nicht.
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Liegt ein Erbfall vor?
 
@@ -26389,7 +26389,7 @@ Eine Beschränkung auf bereits vor dem Erbfall beteiligte Mitunternehmer besteht
 
 6. Freibetrag und Tarifermäßigung prüfen.
 
-## Rechtsfolge
+► Rechtsfolge
 
 Sind sämtliche Voraussetzungen erfüllt,
 
@@ -26400,7 +26400,7 @@ kann der Erbe
 
 beanspruchen.
 
-## Prüfungsmerksätze
+► Prüfungsmerksätze
 
 Eine vorherige Mitunternehmerstellung ist nicht erforderlich.
 
@@ -26410,7 +26410,7 @@ Die steuerlichen Begünstigungen gelten auch für Erben.
 
 Maßgeblich ist die Veräußerung des gesamten Betriebs oder Mitunternehmeranteils.
 
-## Klausurtipp
+► Klausurtipp
 
 Typische Prüfungsfalle:
 
@@ -26437,9 +26437,9 @@ Entscheidend ist allein, dass der Erbe durch den Erbfall Mitunternehmer wird und
     "§ 73c SGB V"
   ],
   body: `
-# Ärzte und Psychotherapeuten
+⇨ Ärzte und Psychotherapeuten
 
-## Umsatzsteuerbefreiung
+► Umsatzsteuerbefreiung
 
 Heilberufliche Leistungen sind nach § 4 Nr. 14 UStG steuerfrei,
 
@@ -26457,7 +26457,7 @@ Die Steuerbefreiung gilt daher auch für:
 - Berufsausübungsgemeinschaften
 - GmbH & Co. KG
 
-## Nicht steuerfrei
+► Nicht steuerfrei
 
 Keine Steuerbefreiung besteht insbesondere bei
 
@@ -26465,13 +26465,13 @@ Keine Steuerbefreiung besteht insbesondere bei
 - rein organisatorischen Leistungen
 - Leistungen ohne therapeutischen Zweck
 
-## Medikamente
+► Medikamente
 
 Die Abgabe von Medikamenten kann eine unselbständige Nebenleistung sein,
 
 wenn sie für die Heilbehandlung notwendig ist.
 
-## Hausarztverträge
+► Hausarztverträge
 
 Auch Leistungen nach
 
@@ -26480,7 +26480,7 @@ Auch Leistungen nach
 
 können unter die Umsatzsteuerbefreiung fallen.
 
-## Einkommensteuer
+► Einkommensteuer
 
 Ärzte und Psychotherapeuten erzielen grundsätzlich Einkünfte aus selbständiger Arbeit (§ 18 EStG).
 
@@ -26494,14 +26494,14 @@ Die Tätigkeit wird
 
 ausgeübt.
 
-## Aktuelle Prüfungsschwerpunkte
+► Aktuelle Prüfungsschwerpunkte
 
 - Abgrenzung freiberuflich / gewerblich
 - Mitunternehmerschaft in Gemeinschaftspraxen
 - Delegation ärztlicher Tätigkeiten
 - Einsatz fachlich qualifizierter Mitarbeiter
 
-## Prüfungsmerksätze
+► Prüfungsmerksätze
 
 Heilbehandlung + therapeutischer Zweck + Qualifikation
 =
@@ -26534,9 +26534,9 @@ Freiberufliche Einkünfte nach § 18 EStG.
     "§ 34 Abs. 3 EStG"
   ],
   body: `
-# Praxisveräußerung: Freibetrag und Tarifermäßigung
+⇨ Praxisveräußerung: Freibetrag und Tarifermäßigung
 
-## Grundsatz
+► Grundsatz
 
 Veräußert ein Freiberufler seine gesamte Praxis, können unter bestimmten Voraussetzungen zwei steuerliche Begünstigungen in Anspruch genommen werden:
 
@@ -26545,7 +26545,7 @@ Veräußert ein Freiberufler seine gesamte Praxis, können unter bestimmten Vora
 
 Beide Begünstigungen dienen dazu, die steuerliche Belastung des einmaligen Veräußerungsgewinns zu reduzieren.
 
-## Freibetrag nach § 16 Abs. 4 EStG
+► Freibetrag nach § 16 Abs. 4 EStG
 
 Der Freibetrag beträgt grundsätzlich:
 
@@ -26559,7 +26559,7 @@ Voraussetzungen:
 
 Der Freibetrag gilt auch bei der Veräußerung einer freiberuflichen Praxis (§ 18 Abs. 3 EStG).
 
-## Kürzung des Freibetrags
+► Kürzung des Freibetrags
 
 Der Freibetrag wird gekürzt,
 
@@ -26599,7 +26599,7 @@ Freibetrag:
 
 Ab einem Veräußerungsgewinn von 181.000 Euro entfällt der Freibetrag vollständig.
 
-## Tarifermäßigung nach § 34 Abs. 3 EStG
+► Tarifermäßigung nach § 34 Abs. 3 EStG
 
 Zusätzlich kann auf Antrag die Tarifermäßigung nach § 34 Abs. 3 EStG beansprucht werden.
 
@@ -26612,7 +26612,7 @@ Voraussetzungen:
 
 Die Tarifermäßigung kann nur einmal im Leben beansprucht werden.
 
-## Berechnung
+► Berechnung
 
 Zunächst:
 
@@ -26632,7 +26632,7 @@ mindestens jedoch
 
 14 %.
 
-## Zweck der Tarifermäßigung
+► Zweck der Tarifermäßigung
 
 Die Tarifermäßigung soll die Progressionswirkung vermeiden,
 
@@ -26640,7 +26640,7 @@ die entsteht,
 
 wenn ein hoher Veräußerungsgewinn in einem einzigen Veranlagungszeitraum zufließt.
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Liegt eine Betriebs- oder Praxisveräußerung vor?
 
@@ -26656,7 +26656,7 @@ wenn ein hoher Veräußerungsgewinn in einem einzigen Veranlagungszeitraum zufli
 
 7. Ermäßigten Steuersatz anwenden.
 
-## Beispiel
+► Beispiel
 
 Praxisverkauf:
 
@@ -26673,7 +26673,7 @@ Steuerlich begünstigter Gewinn:
 
 Dieser Gewinn wird anschließend nach § 34 Abs. 3 EStG mit dem ermäßigten Steuersatz besteuert.
 
-## Rechtsfolgen
+► Rechtsfolgen
 
 Freibetrag:
 
@@ -26688,7 +26688,7 @@ mindestens 14 %.
 
 Beide Begünstigungen können grundsätzlich miteinander kombiniert werden.
 
-## Prüfungsmerksätze
+► Prüfungsmerksätze
 
 Der Freibetrag beträgt grundsätzlich 45.000 Euro.
 
@@ -26702,7 +26702,7 @@ mindestens jedoch 14 %.
 
 Beide Vergünstigungen können nur einmal im Leben beansprucht werden.
 
-## Klausurtipp
+► Klausurtipp
 
 Typische Prüfungsfalle:
 
@@ -26738,9 +26738,9 @@ Erst Freibetrag – dann Tarifermäßigung.
     "BFH VIII R 6/24"
   ],
   body: `
-# Häusliches Arbeitszimmer
+⇨ Häusliches Arbeitszimmer
 
-## Grundsatz
+► Grundsatz
 
 Die besondere Aufzeichnungspflicht des § 4 Abs. 7 EStG gilt ausschließlich für Steuerpflichtige mit Gewinneinkünften.
 
@@ -26752,7 +26752,7 @@ Sie betrifft insbesondere:
 
 Nicht betroffen sind Arbeitnehmer, die Aufwendungen als Werbungskosten nach § 9 EStG geltend machen.
 
-## Arbeitnehmer
+► Arbeitnehmer
 
 Arbeitnehmer müssen keine zeitnahen Einzelaufzeichnungen führen.
 
@@ -26764,7 +26764,7 @@ Erforderlich sind lediglich:
 
 Die BFH-Rechtsprechung zur Aufzeichnungspflicht ist auf Arbeitnehmer nicht übertragbar.
 
-## Selbständige
+► Selbständige
 
 Nach dem BFH-Urteil VIII R 6/24 gilt:
 
@@ -26789,13 +26789,13 @@ Nicht ausreichend sind:
 - nachträgliche Excel-Listen
 - erst bei Erstellung der Steuererklärung erstellte Übersichten
 
-## Jahrespauschale
+► Jahrespauschale
 
 Wird ab VZ 2023 die Jahrespauschale genutzt,
 
 entfällt die besondere Aufzeichnungspflicht nach § 4 Abs. 7 EStG.
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Liegt ein häusliches Arbeitszimmer nach § 4 Abs. 5 Nr. 6b EStG vor?
 
@@ -26807,7 +26807,7 @@ entfällt die besondere Aufzeichnungspflicht nach § 4 Abs. 7 EStG.
 
 5. Wird stattdessen die Jahrespauschale genutzt?
 
-## Rechtsfolge
+► Rechtsfolge
 
 Verstoß gegen § 4 Abs. 7 EStG:
 
@@ -26817,7 +26817,7 @@ Ausnahme:
 
 Eine offenbare Unrichtigkeit kann ggf. nach § 129 AO berichtigt werden.
 
-## Prüfungsmerksätze
+► Prüfungsmerksätze
 
 Selbständige:
 Zeitnahe Einzelaufzeichnung zwingend.
@@ -26848,9 +26848,9 @@ Bloße Belegsammlung genügt nicht.
     "BFH Sachbezüge"
   ],
   body: `
-# Gutscheinkarten als Sachbezug
+⇨ Gutscheinkarten als Sachbezug
 
-## Grundsatz
+► Grundsatz
 
 Gutscheinkarten können steuerfrei an Arbeitnehmer ausgegeben werden, wenn sie die Voraussetzungen eines begünstigten Sachbezugs erfüllen.
 
@@ -26861,7 +26861,7 @@ Typische Anlässe:
 - Jubiläum
 - Anerkennung besonderer Leistungen
 
-## Begünstigte Gutscheinkarten
+► Begünstigte Gutscheinkarten
 
 Grundsätzlich können begünstigt sein:
 
@@ -26872,13 +26872,13 @@ Grundsätzlich können begünstigt sein:
 
 Voraussetzung ist, dass die Gutscheinkarte ausschließlich zum Bezug von Waren oder Dienstleistungen berechtigt.
 
-## Voraussetzungen
+► Voraussetzungen
 
 Die Gutscheinkarte muss die Voraussetzungen des § 2 Abs. 1 Nr. 10 ZAG erfüllen.
 
 Begünstigt sind insbesondere:
 
-### Closed-Loop-Karten
+⇶  Closed-Loop-Karten
 
 Einlösbar ausschließlich bei einem Händler.
 
@@ -26888,23 +26888,23 @@ Beispiele:
 
 Diese sind grundsätzlich begünstigt.
 
-### Controlled-Loop-Karten
+⇶  Controlled-Loop-Karten
 
 Einlösbar bei einem begrenzten Kreis von Akzeptanzstellen im Inland.
 
 Auch diese können steuerlich begünstigt sein.
 
-### Amazon
+⇶  Amazon
 
 Amazon-Gutscheine sind nur begünstigt, wenn sie ausschließlich für Eigenprodukte von Amazon verwendet werden können.
 
 Sind sie auch für Marketplace-Händler bzw. Fremdanbieter verwendbar, liegt regelmäßig keine begünstigte Sachzuwendung vor.
 
-### Netflix
+⇶  Netflix
 
 Netflix-Gutscheine sind grundsätzlich begünstigt, wenn sie ausschließlich für Streaming-Leistungen von Netflix eingesetzt werden können.
 
-## Weitere Voraussetzungen
+► Weitere Voraussetzungen
 
 Die Gutscheinkarte muss:
 
@@ -26922,7 +26922,7 @@ Nicht zulässig sind insbesondere:
 - Devisengeschäfte
 - allgemeine Zahlungsfunktion
 
-## 50-Euro-Freigrenze
+► 50-Euro-Freigrenze
 
 Die Freigrenze beträgt:
 
@@ -26940,7 +26940,7 @@ sondern der gesamte Sachbezug steuerpflichtig.
 
 Es handelt sich um eine Freigrenze und nicht um einen Freibetrag.
 
-## Werbungskosten oder Lohn?
+► Werbungskosten oder Lohn?
 
 Die Gutscheinkarte stellt keinen steuerpflichtigen Arbeitslohn dar,
 
@@ -26950,7 +26950,7 @@ wenn
 - die Freigrenze eingehalten wird,
 - die Zusätzlichkeitsvoraussetzung erfüllt ist.
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Liegt eine Gutscheinkarte oder Geldkarte vor?
 
@@ -26966,7 +26966,7 @@ wenn
 
 7. Freigrenze von 50 Euro eingehalten?
 
-## Amazon-Gutscheine
+► Amazon-Gutscheine
 
 Besondere Vorsicht:
 
@@ -26978,7 +26978,7 @@ Nicht begünstigt:
 - Fremdanbieter
 - allgemeine Zahlungsfunktion
 
-## Prüfungsmerksätze
+► Prüfungsmerksätze
 
 50 Euro sind eine Freigrenze.
 
@@ -26994,7 +26994,7 @@ Closed-Loop und Controlled-Loop können begünstigt sein.
 
 Amazon-Gutscheine immer besonders prüfen.
 
-## Klausurtipp
+► Klausurtipp
 
 Bei Gutscheinen immer folgende Reihenfolge prüfen:
 
@@ -27030,9 +27030,9 @@ Merksatz:
     "AEAO zu §§ 55, 64 und 65 AO"
   ],
   body: `
-# Wissenschaftliche Veranstaltungen eines gemeinnützigen Vereins
+⇨ Wissenschaftliche Veranstaltungen eines gemeinnützigen Vereins
 
-## Grundsatz
+► Grundsatz
 
 Organisiert ein gemeinnütziger Verein wissenschaftliche Veranstaltungen und erhebt hierfür Teilnehmerbeiträge, sind die Einnahmen und Ausgaben grundsätzlich dem Zweckbetrieb zuzuordnen.
 
@@ -27046,7 +27046,7 @@ Rechtsgrundlagen:
 - § 65 AO
 - § 68 Nr. 9 AO
 
-## Zweckbetrieb
+► Zweckbetrieb
 
 Ein Zweckbetrieb liegt vor, wenn
 
@@ -27072,7 +27072,7 @@ Typische Ausgaben:
 
 Alle diese Einnahmen und Aufwendungen gehören zum Zweckbetrieb.
 
-## Ideelle Sphäre
+► Ideelle Sphäre
 
 Eine Zuordnung zur ideellen Sphäre kommt nur in Betracht,
 
@@ -27088,7 +27088,7 @@ Sobald Teilnehmer für eine konkrete Leistung bezahlen,
 
 liegt regelmäßig keine ideelle Tätigkeit mehr vor.
 
-## Leistungsaustausch
+► Leistungsaustausch
 
 Leistungsaustausch bedeutet:
 
@@ -27103,7 +27103,7 @@ Beispiele:
 
 Dann gehören Einnahmen und Ausgaben grundsätzlich zum Zweckbetrieb.
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Ist der Verein gemeinnützig?
 
@@ -27121,11 +27121,11 @@ Dann gehören Einnahmen und Ausgaben grundsätzlich zum Zweckbetrieb.
 
 => Zweckbetrieb nach §§ 65, 68 AO.
 
-## Folgen einer falschen Zuordnung
+► Folgen einer falschen Zuordnung
 
 Eine fehlerhafte Zuordnung kann erhebliche Folgen haben.
 
-### Steuerrechtliche Folgen
+⇶  Steuerrechtliche Folgen
 
 Wird eine Tätigkeit fälschlich der ideellen Sphäre zugeordnet,
 
@@ -27145,7 +27145,7 @@ drohen insbesondere:
 
 Besonders kritisch ist eine unzulässige Mittelverwendung nach § 55 AO.
 
-## Wirtschaftlicher Geschäftsbetrieb
+► Wirtschaftlicher Geschäftsbetrieb
 
 Liegt keine unmittelbare Zweckverwirklichung mehr vor,
 
@@ -27153,7 +27153,7 @@ kann stattdessen ein steuerpflichtiger wirtschaftlicher Geschäftsbetrieb entste
 
 Dann gelten die Vorschriften des § 64 AO.
 
-## Gemeinnützigkeit
+► Gemeinnützigkeit
 
 Eine dauerhafte Finanzierung steuerpflichtiger wirtschaftlicher Tätigkeiten aus Mitteln der ideellen Sphäre kann gegen § 55 AO verstoßen.
 
@@ -27167,13 +27167,13 @@ beispielsweise:
 - kurzfristige Verlustübernahme
 - Rückführung der Mittel innerhalb von zwölf Monaten
 
-## Zivilrechtliche Folgen
+► Zivilrechtliche Folgen
 
 Ein eingetragener Verein nach § 21 BGB muss überwiegend ideelle Zwecke verfolgen.
 
 Eine dauerhafte wirtschaftliche Tätigkeit kann den Vereinsstatus gefährden.
 
-## Haftungsrisiken
+► Haftungsrisiken
 
 Fehlerhafte Zuordnungen können zu einer persönlichen Haftung der Vorstandsmitglieder führen.
 
@@ -27185,7 +27185,7 @@ Mögliche Rechtsgrundlagen:
 
 Bei vorsätzlichen oder leichtfertigen Pflichtverletzungen können zusätzlich steuerstrafrechtliche Folgen eintreten.
 
-## Zuschüsse und Fördermittel
+► Zuschüsse und Fördermittel
 
 Auch öffentliche Zuschüsse sind zutreffend zuzuordnen.
 
@@ -27201,7 +27201,7 @@ ausgelöst werden.
 
 Außerdem können Verstöße gegen Förderbedingungen zu Rückforderungen führen.
 
-## Meinungsstand
+► Meinungsstand
 
 Finanzverwaltung, Literatur und Rechtsprechung vertreten übereinstimmend,
 
@@ -27215,7 +27215,7 @@ wenn
 
 Gemischt veranlasste Aufwendungen sind sachgerecht aufzuteilen.
 
-## Prüfungsmerksätze
+► Prüfungsmerksätze
 
 Leistungsaustausch
 
@@ -27233,7 +27233,7 @@ Spenden und echte Mitgliedsbeiträge
 
 = ideelle Sphäre.
 
-## Klausurtipp
+► Klausurtipp
 
 Typische Prüfungsfalle:
 
@@ -27265,9 +27265,9 @@ Damit gehören sowohl die Einnahmen als auch die dazugehörigen Aufwendungen gru
     "§ 27 KStG"
   ],
   body: `
-# Jahresabschlussanalyse: GuV, EBIT, Kennzahlen und KSt-Korrekturen
+⇨ Jahresabschlussanalyse: GuV, EBIT, Kennzahlen und KSt-Korrekturen
 
-## 1. GuV nach § 275 Abs. 2 HGB – Gesamtkostenverfahren
+► 1. GuV nach § 275 Abs. 2 HGB – Gesamtkostenverfahren
 
 Bei der Gewinn- und Verlustrechnung nach dem Gesamtkostenverfahren werden Erträge und Aufwendungen nach dem Schema des § 275 Abs. 2 HGB geordnet.
 
@@ -27326,7 +27326,7 @@ Nach Steuern vom Einkommen und Ertrag:
 83.390 - 4.270 = 79.120 Jahresüberschuss
 
 
-## 2. Ordentliches Betriebsergebnis / EBIT
+► 2. Ordentliches Betriebsergebnis / EBIT
 
 Das ordentliche Betriebsergebnis zeigt den Erfolg des eigentlichen Kerngeschäfts.
 
@@ -27373,7 +27373,7 @@ Merksatz:
 Das ordentliche Betriebsergebnis zeigt die wirtschaftliche Leistung aus dem Kerngeschäft. Neutrale, außerordentliche und periodenfremde Vorgänge sowie das Zinsergebnis werden herausgerechnet.
 
 
-## 3. Kapitalstruktur- und Rentabilitätskennzahlen
+► 3. Kapitalstruktur- und Rentabilitätskennzahlen
 
 Gegeben:
 Durchschnittliches Eigenkapital: 1.400.000  
@@ -27407,7 +27407,7 @@ Gesamtkapitalrentabilität:
 (192.500 + 157.500) / 3.625.000 x 100 = 9,66 %
 
 
-## 4. Investition und Leverage-Effekt
+► 4. Investition und Leverage-Effekt
 
 Investition:
 Anschaffungskosten 1.125.000  
@@ -27456,7 +27456,7 @@ FK-Zinssatz 9 %
 Die Eigenkapitalrentabilität steigt von 13,75 % auf 17,25 %. Gleichzeitig sinkt die Eigenkapitalquote von 38,62 % auf 34,21 %. Das bedeutet: höhere Rendite, aber auch höhere Verschuldung.
 
 
-## 5. Vorratskennzahlen
+► 5. Vorratskennzahlen
 
 Umschlagshäufigkeit der Vorräte:
 Materialaufwand / durchschnittlicher Vorratsbestand
@@ -27483,7 +27483,7 @@ Hohe Umschlagshäufigkeit = kurze Lagerdauer.
 Niedrige Umschlagshäufigkeit = lange Lagerdauer.
 
 
-## 6. Forderungen und Verbindlichkeiten
+► 6. Forderungen und Verbindlichkeiten
 
 Umschlagshäufigkeit Forderungen:
 Umsatzerlöse / durchschnittlicher Forderungsbestand
@@ -27504,7 +27504,7 @@ Bei 19 % Umsatzsteuer:
 Netto = Brutto / 1,19
 
 
-## 7. Körperschaftsteuer: vGA und verdeckte Einlage
+► 7. Körperschaftsteuer: vGA und verdeckte Einlage
 
 Prüfungsschema:
 1. Liegt eine vGA, eine verdeckte Einlage oder kein steuerlicher Korrekturfall vor?
@@ -27512,7 +27512,7 @@ Prüfungsschema:
 3. Ist der Vorgang fremdüblich?
 4. Welche außerbilanzielle Korrektur ist vorzunehmen?
 
-## Verdeckte Gewinnausschüttung
+► Verdeckte Gewinnausschüttung
 
 Rechtsgrundlage:
 § 8 Abs. 3 Satz 2 KStG
@@ -27539,7 +27539,7 @@ Rückwirkende Gehaltserhöhung 9.000
 => + 9.000 außerbilanziell hinzurechnen
 
 
-## Verdeckte Einlage
+► Verdeckte Einlage
 
 Rechtsgrundlage:
 § 8 Abs. 3 Satz 3 KStG
@@ -27574,7 +27574,7 @@ Außerdem:
 Zugang zum steuerlichen Einlagekonto nach § 27 KStG.
 
 
-## 8. Grundstücksübertragung als verdeckte Einlage
+► 8. Grundstücksübertragung als verdeckte Einlage
 
 Überträgt ein Gesellschafter ein Grundstück unentgeltlich auf eine GmbH, liegt regelmäßig eine verdeckte Einlage vor.
 
@@ -27594,7 +27594,7 @@ Typischer Prüfungssatz:
 Die Grundstücksübertragung stellt eine verdeckte Einlage nach § 8 Abs. 3 Satz 3 KStG dar, da ein einlagefähiger Vermögensvorteil gesellschaftlich veranlasst zugewendet wird.
 
 
-## 9. Ermittlung des zu versteuernden Einkommens einer GmbH
+► 9. Ermittlung des zu versteuernden Einkommens einer GmbH
 
 Ausgangspunkt:
 Handelsrechtlicher Jahresüberschuss
@@ -27623,7 +27623,7 @@ Anrechnung von Kapitalertragsteuer und Körperschaftsteuervorauszahlungen.
 Wenn die Vorauszahlungen und Steuerabzüge höher sind als die festgesetzte KSt, ergibt sich eine Erstattung.
 
 
-## 10. Prüfungs-Merksätze
+► 10. Prüfungs-Merksätze
 
 vGA:
 Aufwand bei der GmbH wegen Vorteil an Gesellschafter.
@@ -29100,12 +29100,12 @@ Neue Prüfungslogik
     id: "kfz-wertabgabe-1prozent",
     title: "Kfz-Wertabgabe nach 1-%-Methode",
     short:
-      "Berechnung der privaten Kfz-Nutzung, USt-Aufteilung # 8921 0 / # 8924 0 und Kostendeckelung.",
+      "Berechnung der privaten Kfz-Nutzung, USt-Aufteilung ⇨ 8921 0 / ⇨ 8924 0 und Kostendeckelung.",
     category: "DATEV",
     source: "Internes Arbeitspapier — JA Vorlage Unentgeltliche Wertabgaben Kfz.",
     keywords:
       /(1\s*%|1-%|ein\s*prozent)[-\s]*methode|kfz.?wertabgabe|private\s+kfz.?nutzung|bruttolistenpreis|kostendeckelung|8921|8924|fahrten\s+wohnung.?betrieb|firmenwagen/i,
-    references: ["# 8921 0", "# 8924 0", "# 4679 0", "# 4680 0", "§ 6 Abs. 1 Nr. 4 EStG"],
+    references: ["⇨ 8921 0", "⇨ 8924 0", "⇨ 4679 0", "⇨ 4680 0", "§ 6 Abs. 1 Nr. 4 EStG"],
     body: `Die 1-%-Methode pauschaliert den privaten Nutzungsanteil eines betrieblichen Fahrzeugs. Voraussetzung ist regelmäßig eine betriebliche Nutzung von mehr als 50 %.
 
 1) 1-%-Wert (Privatfahrten)
@@ -29117,19 +29117,19 @@ Neue Prüfungslogik
 - 0,03 % vom Bruttolistenpreis × Entfernungskilometer × Nutzungsmonate.
 - Abzüglich Arbeitstage × Entfernung × 0,30 € (Entfernungspauschale).
 - Differenz = nicht abzugsfähige Betriebsausgaben → außerbilanzielle Korrektur
-  per # 4679 0 an # 4680 0.
+  per ⇨ 4679 0 an ⇨ 4680 0.
 
 3) Kostendeckelung
 - Mit Vorsteuer belastete Fahrzeugkosten netto = Gesamtfahrzeugkosten netto
   abzüglich nicht mit Vorsteuer belastete Kosten.
 - Maximalwert für die USt-Bemessungsgrundlage = 50 % der mit Vorsteuer belasteten
   Fahrzeugkosten netto.
-- Tatsächliche BMG # 8921 0 = Minimum aus 1-%-BMG und 50-%-Deckel.
+- Tatsächliche BMG ⇨ 8921 0 = Minimum aus 1-%-BMG und 50-%-Deckel.
 
 4) DATEV-Konten
-- # 8921 0 Unentgeltliche Wertabgaben Kfz 19 % USt.
-- # 8924 0 Unentgeltliche Wertabgaben Kfz ohne USt.
-- Differenz zwischen 1-%-Wert + Fahrten W/B und BMG # 8921 0 wird auf # 8924 0
+- ⇨ 8921 0 Unentgeltliche Wertabgaben Kfz 19 % USt.
+- ⇨ 8924 0 Unentgeltliche Wertabgaben Kfz ohne USt.
+- Differenz zwischen 1-%-Wert + Fahrten W/B und BMG ⇨ 8921 0 wird auf ⇨ 8924 0
   ausgewiesen.
 
 5) Typische Vorsteuer-Einordnung

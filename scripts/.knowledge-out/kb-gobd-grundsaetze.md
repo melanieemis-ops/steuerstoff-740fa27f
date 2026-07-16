@@ -6,7 +6,7 @@ source: Internes Schulungspapier GoBD (Teil I) — Gärtner / Rühmann.
 references: § 145 Abs. 1 AO, § 146 Abs. 1 und 4 AO, § 238 Abs. 1 HGB, § 239 Abs. 2 und 3 HGB, BMF-Schreiben GoBD
 ---
 
-# GoBD — Grundsätze ordnungsgemäßer Buchführung
+⇨ GoBD — Grundsätze ordnungsgemäßer Buchführung
 
 _Nachvollziehbarkeit, Vollständigkeit, Richtigkeit, Zeitgerechtheit, Ordnung und Unveränderbarkeit als Kernpflichten jeder Buchhaltung._
 

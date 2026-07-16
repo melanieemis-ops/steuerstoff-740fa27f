@@ -6,14 +6,14 @@ source: Interne Steuerstoff-Prüfungsvorbereitung
 references: § 18 EStG, § 19 UStG, BMF-Schreiben vom 06.04.2023 (BStBl. I 2023, 669)
 ---
 
-# Tagesmütter: Gewinnermittlung, Betriebsausgabenpauschale und Kleinunternehmerregelung
+⇨ Tagesmütter: Gewinnermittlung, Betriebsausgabenpauschale und Kleinunternehmerregelung
 
 _Steuerliche Behandlung von Tagesmüttern: Betriebsausgabenpauschalen, Freihalteplätze und umsatzsteuerliche Kleinunternehmerregelung._
 
 
-# Tagesmütter – Einkommensteuer und Umsatzsteuer
+⇨ Tagesmütter – Einkommensteuer und Umsatzsteuer
 
-## Grundsatz
+► Grundsatz
 
 Tagesmütter erzielen ihre Einkünfte regelmäßig aus selbständiger Arbeit (§ 18 EStG).
 
@@ -21,7 +21,7 @@ Der Gewinn wird grundsätzlich durch Einnahmenüberschussrechnung (EÜR) ermitte
 
 Für typische Aufwendungen kann die Betriebsausgabenpauschale der Finanzverwaltung genutzt werden.
 
-## Betriebsausgabenpauschale
+► Betriebsausgabenpauschale
 
 Für tatsächlich belegte Betreuungsplätze gilt grundsätzlich:
 
@@ -35,7 +35,7 @@ Die Pauschale ersetzt den Einzelnachweis der gewöhnlichen Betriebsausgaben.
 
 Der Nachweis höherer tatsächlicher Betriebsausgaben bleibt möglich.
 
-## Freihalteplätze
+► Freihalteplätze
 
 Freihalteplätze sind Plätze,
 
@@ -57,7 +57,7 @@ Sind die tatsächlichen Aufwendungen höher,
 
 können diese durch Einzelnachweis geltend gemacht werden.
 
-## Nachweis tatsächlicher Betriebsausgaben
+► Nachweis tatsächlicher Betriebsausgaben
 
 Die Betriebsausgabenpauschale ist nicht verpflichtend.
 
@@ -69,7 +69,7 @@ Dies kann insbesondere sinnvoll sein,
 
 wenn außergewöhnlich hohe Aufwendungen entstanden sind.
 
-## Umsatzsteuer
+► Umsatzsteuer
 
 Für Tagesmütter gelten grundsätzlich die allgemeinen Vorschriften des Umsatzsteuergesetzes.
 
@@ -91,7 +91,7 @@ Wird diese Grenze im laufenden Kalenderjahr überschritten,
 
 unterliegen die Umsätze ab diesem Zeitpunkt der Regelbesteuerung.
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Liegt eine selbständige Kindertagespflege vor?
 
@@ -105,7 +105,7 @@ unterliegen die Umsätze ab diesem Zeitpunkt der Regelbesteuerung.
 
 6. Umsatzgrenze eingehalten?
 
-## Rechtsfolgen
+► Rechtsfolgen
 
 Belegte Plätze:
 
@@ -122,7 +122,7 @@ Alternativ:
 
 Einzelnachweis der tatsächlichen Betriebsausgaben.
 
-## Prüfungsmerksätze
+► Prüfungsmerksätze
 
 Tagesmütter erzielen regelmäßig Einkünfte nach § 18 EStG.
 
@@ -134,7 +134,7 @@ Für Freihalteplätze gilt eine gesonderte Pauschale von 50 Euro je Monat.
 
 Die tatsächlichen Betriebsausgaben können jederzeit durch Einzelnachweis geltend gemacht werden.
 
-## Klausurtipp
+► Klausurtipp
 
 Typische Prüfungsfallen:
 

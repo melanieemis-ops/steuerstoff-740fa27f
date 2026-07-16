@@ -6,7 +6,7 @@ source: Internes Arbeitspapier – Mittelverwendungsrechnung / Rücklagen
 references: § 55 AO, § 62 AO, § 63 AO
 ---
 
-# Mittelverwendungsrechnung, Rücklagen und Verwendungsüberhang
+⇨ Mittelverwendungsrechnung, Rücklagen und Verwendungsüberhang
 
 _Prüfung der zeitnahen Mittelverwendung, zulässiger Rücklagen, Rücklagenspiegel und Verwendungsüberhang bei gemeinnützigen Körperschaften._
 

@@ -62,7 +62,7 @@ async function ask(qq: Q) {
       retrievedCount += it.results.length;
       for (const r of it.results.slice(0, 3)) {
         const chunk = (r.content ?? []).map((c) => c.text ?? "").join("\n");
-        const m = chunk.replace(/^---[\s\S]*?---\s*/m, "").match(/^#\s+(.+)$/m);
+        const m = chunk.replace(/^---[\s\S]*?---\s*/m, "").match(/^⇨\s+(.+)$/m);
         titles.push(m ? m[1].trim() : (r.filename ?? "?"));
       }
     }

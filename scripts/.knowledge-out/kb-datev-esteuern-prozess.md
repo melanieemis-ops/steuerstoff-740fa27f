@@ -5,7 +5,7 @@ category: DATEV
 source: Internes Handout NPO-Team — DATEV eSteuern.
 ---
 
-# DATEV eSteuern — digitaler Einkommensteuerprozess
+⇨ DATEV eSteuern — digitaler Einkommensteuerprozess
 
 _Vollmacht, vorausgefüllte Steuererklärung, Steuerkonto online, Bescheiddatenabgleich und DIVA 2 im Überblick._
 

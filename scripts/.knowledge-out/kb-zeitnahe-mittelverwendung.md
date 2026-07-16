@@ -6,7 +6,7 @@ source: Internes Arbeitspapier — Zeitnahe Mittelverwendung und Mittelverwendun
 references: § 55 Abs. 1 Nr. 5 AO, § 62 AO, § 63 Abs. 4 AO
 ---
 
-# Zeitnahe Mittelverwendung (§ 55 Abs. 1 Nr. 5 AO)
+⇨ Zeitnahe Mittelverwendung (§ 55 Abs. 1 Nr. 5 AO)
 
 _Verwendungspflicht innerhalb von zwei Folgejahren, 45.000-€-Ausnahme, Nachweis über Mittelverwendungsrechnung._
 

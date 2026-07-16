@@ -6,7 +6,7 @@ source: beck-chat Arbeitsnotiz – Gemeinnützigkeit und Satzung
 references: §§ 51–68 AO, § 60 AO, § 60a AO, § 63 AO
 ---
 
-# Gemeinnützigkeit: Satzung und tatsächliche Geschäftsführung
+⇨ Gemeinnützigkeit: Satzung und tatsächliche Geschäftsführung
 
 _Prüfung, ob Satzung und tatsächliche Geschäftsführung die Voraussetzungen der Gemeinnützigkeit erfüllen._
 

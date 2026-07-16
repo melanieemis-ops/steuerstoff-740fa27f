@@ -6,7 +6,7 @@ source: Internes Handout — Sphären, Risiken, Abschlusslogik (NPO).
 references: §§ 14, 64–68 AO, § 12 Abs. 2 Nr. 8a UStG
 ---
 
-# Die vier Sphären gemeinnütziger Körperschaften
+⇨ Die vier Sphären gemeinnütziger Körperschaften
 
 _Ideeller Bereich, Vermögensverwaltung, Zweckbetrieb, wirtschaftlicher Geschäftsbetrieb — Wirkung und Abgrenzung._
 

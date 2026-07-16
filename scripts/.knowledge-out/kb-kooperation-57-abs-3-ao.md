@@ -6,7 +6,7 @@ source: Kanzleinotizen zu BFH-Beschluss vom 22.05.2025, V R 22/23.
 references: § 57 Abs. 1, 3 AO, §§ 51–68 AO, § 4 Nr. 29 UStG, Art. 132 Abs. 1 lit. f MwStSystRL, Art. 107, 108 AEUV, BFH 22.05.2025, V R 22/23, FG Hamburg 26.09.2023, 5 K 11/23, BFH 04.09.2024, XI R 37/21
 ---
 
-# Servicegesellschaften & Kooperationen — § 57 Abs. 3 AO
+⇨ Servicegesellschaften & Kooperationen — § 57 Abs. 3 AO
 
 _Planmäßiges Zusammenwirken gemeinnütziger Körperschaften, doppeltes Satzungserfordernis, EuGH-Vorlage des BFH (V R 22/23) und Alternativen (§ 4 Nr. 29 UStG)._
 

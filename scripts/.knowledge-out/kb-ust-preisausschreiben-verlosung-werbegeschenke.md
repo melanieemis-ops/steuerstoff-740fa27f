@@ -6,21 +6,21 @@ source: Interne Steuerstoff-Prüfungsvorbereitung
 references: § 3 Abs. 1b UStG, § 15 Abs. 1 UStG, § 15 Abs. 1a UStG, § 4 Abs. 5 Nr. 1 EStG, § 12 Abs. 2 Nr. 1 UStG, Anlage 2 zum UStG, Abschn. 15.15 UStAE
 ---
 
-# Preisausschreiben und Verlosung: Vorsteuer und unentgeltliche Wertabgabe
+⇨ Preisausschreiben und Verlosung: Vorsteuer und unentgeltliche Wertabgabe
 
 _Umsatzsteuerliche Behandlung von Preisen aus Werbeaktionen: Vorsteuerabzug, Geschenke geringen Werts und unentgeltliche Wertabgabe._
 
 
-# Preisausschreiben und Verlosung
+⇨ Preisausschreiben und Verlosung
 
-## Grundsatz
+► Grundsatz
 
 Bei einem Preisausschreiben oder einer Verlosung im Rahmen einer Werbemaßnahme ist umsatzsteuerlich zu prüfen:
 
 1. Ist der Einkauf der Preise zum Vorsteuerabzug berechtigt?
 2. Führt die spätere Hingabe an die Gewinner zu einer unentgeltlichen Wertabgabe?
 
-## Werbemaßnahme
+► Werbemaßnahme
 
 Ein Preisausschreiben kann eine unternehmerisch veranlasste Werbemaßnahme sein.
 
@@ -28,7 +28,7 @@ Die Zuwendung der Preise fällt dann grundsätzlich nicht unter das ertragsteuer
 
 Ein Vorsteuerausschluss nach § 15 Abs. 1a UStG liegt dann grundsätzlich nicht vor.
 
-## 1. Preis: Hochwertiger Gewinn
+► 1. Preis: Hochwertiger Gewinn
 
 Beispiel:
 
@@ -40,13 +40,13 @@ Einkauf:
 
 Der Roller wird von Anfang an mit der Absicht erworben, ihn im Rahmen der Werbeaktion zu verlosen.
 
-## Vorsteuerabzug beim hochwertigen Preis
+► Vorsteuerabzug beim hochwertigen Preis
 
 Steht bereits beim Leistungsbezug fest, dass der Gegenstand verlost werden soll, berechtigt der Einkauf grundsätzlich nicht zum Vorsteuerabzug, wenn die Voraussetzungen für eine spätere Wertabgabenbesteuerung nicht erfüllt sind.
 
 Der Gegenstand wird nicht für zum Vorsteuerabzug berechtigende Ausgangsumsätze verwendet, sondern zur unentgeltlichen Weitergabe an den Gewinner.
 
-## Unentgeltliche Wertabgabe beim hochwertigen Preis
+► Unentgeltliche Wertabgabe beim hochwertigen Preis
 
 Die Hingabe des Rollers erfolgt aus unternehmerischen Gründen.
 
@@ -61,11 +61,11 @@ Keine Vorsteuer beim Einkauf
 =
 keine Wertabgabenbesteuerung bei der Hingabe.
 
-## Geschenke von geringem Wert
+► Geschenke von geringem Wert
 
 Bei Geschenken von geringem Wert liegt keine steuerbare unentgeltliche Wertabgabe nach § 3 Abs. 1b Nr. 3 UStG vor.
 
-## 2. bis 10. Preis: Bücher
+► 2. bis 10. Preis: Bücher
 
 Beispiel:
 
@@ -79,7 +79,7 @@ Die Bücher stellen Geschenke von geringem Wert dar.
 
 Die Hingabe an die Gewinner ist daher nicht steuerbar nach § 3 Abs. 1b Nr. 3 UStG.
 
-## Vorsteuerabzug bei Büchern
+► Vorsteuerabzug bei Büchern
 
 Da die Bücher im Rahmen einer Werbemaßnahme eingesetzt werden und den unternehmerischen Umsätzen dienen, ist der Vorsteuerabzug grundsätzlich möglich.
 
@@ -96,7 +96,7 @@ Beispiel:
 
 Die Vorsteuer ist im Voranmeldungszeitraum des Leistungsbezugs abziehbar.
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Liegt eine Werbemaßnahme vor?
 
@@ -112,7 +112,7 @@ Die Vorsteuer ist im Voranmeldungszeitraum des Leistungsbezugs abziehbar.
 
 7. Liegt bei Hingabe eine unentgeltliche Wertabgabe nach § 3 Abs. 1b UStG vor?
 
-## Rechtsfolgen
+► Rechtsfolgen
 
 Hochwertiger Preis:
 
@@ -124,7 +124,7 @@ Geschenk von geringem Wert:
 - Vorsteuerabzug grundsätzlich möglich
 - Hingabe nicht steuerbar nach § 3 Abs. 1b Nr. 3 UStG
 
-## Prüfungsmerksätze
+► Prüfungsmerksätze
 
 Preisausschreiben ist regelmäßig eine Werbemaßnahme.
 
@@ -134,7 +134,7 @@ Bei hochwertigen Preisen ist der Vorsteuerabzug kritisch.
 
 Eine unentgeltliche Wertabgabe setzt regelmäßig voraus, dass der Gegenstand oder seine Bestandteile zum Vorsteuerabzug berechtigt haben.
 
-## Klausurtipp
+► Klausurtipp
 
 Typische Prüfungsfalle:
 

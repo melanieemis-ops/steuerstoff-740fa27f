@@ -6,7 +6,7 @@ source: Internes Handout — Mitunternehmerschaft.
 references: § 15 Abs. 1 Nr. 2 EStG, § 180 AO, §§ 118, 166 HGB
 ---
 
-# Mitunternehmerschaft (§ 15 Abs. 1 Nr. 2 EStG)
+⇨ Mitunternehmerschaft (§ 15 Abs. 1 Nr. 2 EStG)
 
 _Initiative + Risiko; gesonderte und einheitliche Feststellung; Sonder- und Ergänzungsbilanzen._
 

@@ -6,14 +6,14 @@ source: Interne Steuerstoff-Prüfungsvorbereitung
 references: § 488 BGB, § 51 AO, §§ 52 ff. AO
 ---
 
-# Zinsloses Darlehen an einen gemeinnützigen Verein
+⇨ Zinsloses Darlehen an einen gemeinnützigen Verein
 
 _Zivilrechtliche und steuerliche Behandlung zinsloser Darlehen, Rückzahlung, Darlehensverzicht und Gemeinnützigkeitsrecht._
 
 
-# Zinsloses Darlehen an einen gemeinnützigen Verein
+⇨ Zinsloses Darlehen an einen gemeinnützigen Verein
 
-## Grundsatz
+► Grundsatz
 
 Ein Darlehen kann auch ohne Verzinsung wirksam vereinbart werden.
 
@@ -21,7 +21,7 @@ Die fehlende Verzinsung berührt die Wirksamkeit des Darlehensvertrages nach § 
 
 Die Rückzahlungsverpflichtung bleibt bestehen.
 
-## Zivilrecht
+► Zivilrecht
 
 Nach § 488 BGB verpflichtet sich der Darlehensnehmer,
 
@@ -30,7 +30,7 @@ Nach § 488 BGB verpflichtet sich der Darlehensnehmer,
 
 Ein zinsloses Darlehen ist zivilrechtlich zulässig.
 
-## Steuerliche Prüfung
+► Steuerliche Prüfung
 
 Bei gemeinnützigen Vereinen ist zusätzlich zu prüfen,
 
@@ -40,7 +40,7 @@ Bei gemeinnützigen Vereinen ist zusätzlich zu prüfen,
 
 Die Vereinbarung sollte schriftlich erfolgen und tatsächlich durchgeführt werden.
 
-## Rückzahlung ins Ausland
+► Rückzahlung ins Ausland
 
 Die Rückzahlung eines Darlehens an einen Darlehensgeber im Ausland ist grundsätzlich zulässig.
 
@@ -54,7 +54,7 @@ Die Auszahlung darf die Gemeinnützigkeit nicht gefährden.
 
 Nach § 51 Abs. 2 AO können Mittel auch ins Ausland fließen, wenn die gemeinnützigkeitsrechtlichen Voraussetzungen erfüllt werden.
 
-## Darlehensverzicht
+► Darlehensverzicht
 
 Verzichtet der Darlehensgeber auf die Rückzahlung,
 
@@ -76,7 +76,7 @@ Besonders kritisch sind Darlehen von
 - Vorständen,
 - nahestehenden Personen.
 
-## Fremdvergleich
+► Fremdvergleich
 
 Bei Darlehen zwischen Verein und nahestehenden Personen gilt der Fremdvergleich.
 
@@ -89,7 +89,7 @@ Zu prüfen ist insbesondere:
 
 Nur fremdübliche Vereinbarungen werden steuerlich anerkannt.
 
-## Kein Kontakt zum Darlehensgeber
+► Kein Kontakt zum Darlehensgeber
 
 Ist der Darlehensgeber nicht mehr erreichbar,
 
@@ -105,7 +105,7 @@ dass die Forderung endgültig nicht mehr besteht oder uneinbringlich geworden is
 
 Eine bloße Nichterreichbarkeit genügt hierfür regelmäßig nicht.
 
-## Bilanzielle Behandlung
+► Bilanzielle Behandlung
 
 Bis zur endgültigen Klärung:
 
@@ -117,7 +117,7 @@ Prüfung einer gewinnerhöhenden Auflösung der Verbindlichkeit.
 
 Dabei sind zusätzlich die gemeinnützigkeitsrechtlichen Folgen zu prüfen.
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Liegt ein wirksamer Darlehensvertrag nach § 488 BGB vor?
 
@@ -133,7 +133,7 @@ Dabei sind zusätzlich die gemeinnützigkeitsrechtlichen Folgen zu prüfen.
 
 7. Sind steuerliche Folgen (Spende, Schenkungsteuer oder Gewinnrealisierung) zu prüfen?
 
-## Rechtsfolgen
+► Rechtsfolgen
 
 Zinsloses Darlehen:
 Zivilrechtlich wirksam.
@@ -150,7 +150,7 @@ Verbindlichkeit bleibt bestehen.
 Ausbuchung:
 Erst bei endgültigem Wegfall der Rückzahlungsverpflichtung zulässig.
 
-## Prüfungsmerksätze
+► Prüfungsmerksätze
 
 Ein zinsloses Darlehen ist zivilrechtlich wirksam.
 
@@ -162,7 +162,7 @@ Darlehensverzicht kann steuerliche Folgen auslösen.
 
 Eine bloße Nichterreichbarkeit des Darlehensgebers berechtigt nicht zur Ausbuchung.
 
-## Klausurtipp
+► Klausurtipp
 
 Typische Prüfungsfalle:
 

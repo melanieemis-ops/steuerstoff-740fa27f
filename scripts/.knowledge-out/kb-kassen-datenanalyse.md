@@ -6,7 +6,7 @@ source: Internes Team-Handout — Kassenprozesse, Datenanalyse und prüfbare Kas
 references: § 146a AO, § 147 Abs. 6 AO, KassenSichV, DSFinV-K
 ---
 
-# Kassenprozesse, Datenanalyse und prüfbare Kassendaten
+⇨ Kassenprozesse, Datenanalyse und prüfbare Kassendaten
 
 _IKS, Risikoanalyse, Statistik, Benford/Chi-Quadrat, Visualisierung sowie DSFinV-K- und TSE-Datenexport._
 

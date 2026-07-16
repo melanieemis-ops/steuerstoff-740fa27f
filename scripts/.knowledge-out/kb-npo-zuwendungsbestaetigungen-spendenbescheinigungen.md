@@ -6,7 +6,7 @@ source: beck-chat Arbeitsnotiz – Zuwendungsbestätigungen
 references: § 10b EStG, § 50 EStDV, § 63 AO, § 60a AO
 ---
 
-# Zuwendungsbestätigungen und Spendenbescheinigungen
+⇨ Zuwendungsbestätigungen und Spendenbescheinigungen
 
 _Voraussetzungen, Pflichtangaben und Risiken bei der Ausstellung von Zuwendungsbestätigungen._
 

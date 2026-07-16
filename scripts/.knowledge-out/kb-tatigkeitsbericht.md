@@ -6,7 +6,7 @@ source: Internes NPO-Handout (Abschnitt 5).
 references: § 63 AO
 ---
 
-# Tätigkeitsbericht und tatsächliche Geschäftsführung
+⇨ Tätigkeitsbericht und tatsächliche Geschäftsführung
 
 _Pflicht­nachweis der satzungs­gemäßen Mittelverwendung; Abgleich mit Buchhaltung und Sphären­zuordnung._
 

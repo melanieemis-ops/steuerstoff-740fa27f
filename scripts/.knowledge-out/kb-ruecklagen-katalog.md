@@ -6,7 +6,7 @@ source: Interne NPO-Checkliste (Rücklagen) und Arbeitspapier Mittelverwendung.
 references: § 62 AO, § 63 Abs. 4 AO
 ---
 
-# Rücklagen nach § 62 AO — Überblick
+⇨ Rücklagen nach § 62 AO — Überblick
 
 _Zweckgebundene, Wiederbeschaffungs-, freie und Beteiligungs­rücklage — Voraussetzungen, Nachweise, Auflösung._
 

@@ -97,9 +97,9 @@ export const KNOWLEDGE_TOPICS: Array<KnowledgeTopic | Record<string, unknown>> =
     "Abschn. 13b.3a UStAE"
   ],
   body: `
-# Elektrizitätslieferungen und Reverse Charge
+⇨ Elektrizitätslieferungen und Reverse Charge
 
-## 1. Grundsatz
+► 1. Grundsatz
 
 Bei bestimmten Lieferungen von Elektrizität schuldet nicht der liefernde Unternehmer, sondern der Leistungsempfänger die Umsatzsteuer.
 
@@ -115,13 +115,13 @@ Die Voraussetzungen hängen insbesondere davon ab,
 
 ---
 
-## 2. Lieferung von Elektrizität
+► 2. Lieferung von Elektrizität
 
 Elektrizität ist umsatzsteuerlich ein Liefergegenstand.
 
 Es liegt eine Lieferung nach § 3 Abs. 1 UStG vor.
 
-## Ort der Lieferung
+► Ort der Lieferung
 
 Bei Lieferungen an einen Wiederverkäufer bestimmt sich der Lieferort nach § 3g UStG.
 
@@ -141,7 +141,7 @@ Mecklenburg-Vorpommern und damit Inland.
 
 ---
 
-## 3. Steuerbarkeit und Steuerpflicht
+► 3. Steuerbarkeit und Steuerpflicht
 
 Die Lieferung wird im Inland gegen Entgelt im Rahmen eines Unternehmens ausgeführt.
 
@@ -151,7 +151,7 @@ Mangels Steuerbefreiung ist sie grundsätzlich mit 19 % steuerpflichtig.
 
 ---
 
-## 4. Wiederverkäufer
+► 4. Wiederverkäufer
 
 Wiederverkäufer ist ein Unternehmer,
 
@@ -163,7 +163,7 @@ Die Wiederverkäufereigenschaft sollte durch eine gültige Bescheinigung der Fin
 
 ---
 
-## 5. Steuerschuldnerschaft des Leistungsempfängers
+► 5. Steuerschuldnerschaft des Leistungsempfängers
 
 Bei den gesetzlich erfassten Elektrizitätslieferungen schuldet der Leistungsempfänger die Umsatzsteuer.
 
@@ -180,7 +180,7 @@ Bei Lieferungen eines im Ausland ansässigen Unternehmers gelten die besonderen 
 
 ---
 
-## 6. Zahlenbeispiel
+► 6. Zahlenbeispiel
 
 Nettoentgelt:
 
@@ -196,7 +196,7 @@ Der Leistungsempfänger meldet die Umsatzsteuer von 190.000 € als Steuerschuld
 
 ---
 
-## 7. Rechnung
+► 7. Rechnung
 
 Der Lieferer stellt eine Nettorechnung aus.
 
@@ -212,7 +212,7 @@ Rechtsgrundlage:
 
 ---
 
-## 8. Vorsteuerabzug
+► 8. Vorsteuerabzug
 
 Der Leistungsempfänger kann die nach § 13b UStG geschuldete Steuer nach
 
@@ -239,7 +239,7 @@ Die Beträge sind grundsätzlich betragsidentisch und zeitgleich zu erfassen.
 
 ---
 
-# Prüfungsschema
+⇨ Prüfungsschema
 
 1. Liegt eine Lieferung von Elektrizität vor?
 
@@ -263,25 +263,25 @@ Die Beträge sind grundsätzlich betragsidentisch und zeitgleich zu erfassen.
 
 ---
 
-# Typische Klausurfallen
+⇨ Typische Klausurfallen
 
-## Fehler 1: Jede Stromlieferung unterliegt Reverse Charge
+► Fehler 1: Jede Stromlieferung unterliegt Reverse Charge
 
 Falsch.
 
 Die besonderen persönlichen Voraussetzungen des § 13b Abs. 5 UStG müssen erfüllt sein.
 
-## Fehler 2: Wiederverkäufereigenschaft nicht prüfen
+► Fehler 2: Wiederverkäufereigenschaft nicht prüfen
 
 Die bloße Unternehmereigenschaft reicht nicht in jedem Fall aus.
 
-## Fehler 3: Umsatzsteuer offen ausweisen
+► Fehler 3: Umsatzsteuer offen ausweisen
 
 Bei Reverse Charge ist grundsätzlich nur das Nettoentgelt auszuweisen.
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 - Strom ist umsatzsteuerlich ein Liefergegenstand.
 - Der Lieferort kann sich nach § 3g UStG bestimmen.
@@ -342,11 +342,11 @@ Bei Reverse Charge ist grundsätzlich nur das Nettoentgelt auszuweisen.
   ],
 
   body: `
-# Entgeltlicher Verzicht auf ein Nießbrauchsrecht an einem vermieteten Grundstück
+⇨ Entgeltlicher Verzicht auf ein Nießbrauchsrecht an einem vermieteten Grundstück
 
-## 1. Entscheidung
+► 1. Entscheidung
 
-### BFH, Urteil vom 10.10.2025 – IX R 4/24
+⇶  BFH, Urteil vom 10.10.2025 – IX R 4/24
 
 Das Entgelt für den Verzicht auf die Ausübung eines Nießbrauchsrechts an einem dem Privatvermögen zugehörigen Grundstück ist eine steuerbare Entschädigung gemäß § 24 Nr. 1 Buchst. a EStG, wenn
 
@@ -358,17 +358,17 @@ Die Entschädigung gehört in diesem Fall zu den Einkünften aus Vermietung und 
 
 ---
 
-# 2. Zentraler Lernsatz
+⇨ 2. Zentraler Lernsatz
 
 **Verzichtet ein Nießbraucher gegen Entgelt auf sein Nießbrauchsrecht an einem von ihm tatsächlich vermieteten Privatgrundstück, ist die Ablösezahlung als Entschädigung für künftig entgehende Mieteinnahmen nach § 24 Nr. 1 Buchst. a EStG in Verbindung mit § 21 Abs. 1 Satz 1 Nr. 1 EStG steuerbar.**
 
 ---
 
-# 3. Prüfungsschema
+⇨ 3. Prüfungsschema
 
-## Schritt 1: Besteht ein Nießbrauchsrecht?
+► Schritt 1: Besteht ein Nießbrauchsrecht?
 
-### Rechtsgrundlagen
+⇶  Rechtsgrundlagen
 
 § 1030 Abs. 1 BGB und § 100 BGB.
 
@@ -378,33 +378,33 @@ Zu den Nutzungen gehören gemäß § 100 BGB insbesondere die Früchte einer Sac
 
 Bei einem Grundstück gehören hierzu auch die durch Vermietung erzielten Mieteinnahmen.
 
-### Prüfungssatz
+⇶  Prüfungssatz
 
 **Der Nießbrauch berechtigt den Nießbraucher nach § 1030 Abs. 1 BGB dazu, die Nutzungen des Grundstücks im Sinne des § 100 BGB zu ziehen.**
 
 ---
 
-## Schritt 2: Gehört das Nießbrauchsrecht zum Privatvermögen?
+► Schritt 2: Gehört das Nießbrauchsrecht zum Privatvermögen?
 
 Die Entscheidung betrifft ein Nießbrauchsrecht, das sich im Zeitpunkt des entgeltlichen Verzichts im Privatvermögen des Nießbrauchers befand.
 
-### Prüfungshinweis
+⇶  Prüfungshinweis
 
 Befindet sich das Nießbrauchsrecht im Betriebsvermögen, sind zunächst die Folgen innerhalb der jeweiligen Gewinneinkunftsart zu prüfen.
 
 ---
 
-## Schritt 3: Hat der Nießbraucher das Grundstück tatsächlich vermietet?
+► Schritt 3: Hat der Nießbraucher das Grundstück tatsächlich vermietet?
 
 Der Nießbraucher muss das Grundstück im Zeitpunkt des Verzichts tatsächlich zur Erzielung von Einkünften aus Vermietung und Verpachtung nutzen.
 
 Nicht ausreichend ist allein die abstrakte Möglichkeit, das Grundstück aufgrund des Nießbrauchsrechts vermieten zu dürfen.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Für die Anwendung des BFH-Urteils muss das Grundstück im Zeitpunkt des Verzichts tatsächlich durch den Nießbraucher vermietet sein.**
 
-### Offene Rechtsfrage
+⇶  Offene Rechtsfrage
 
 Der BFH hat ausdrücklich nicht entschieden, ob § 24 Nr. 1 Buchst. a EStG auch anwendbar ist, wenn das Grundstück im Zeitpunkt des Verzichts nicht vermietet ist.
 
@@ -412,7 +412,7 @@ In einem solchen Fall darf der Chatbot daher keine gesicherte Steuerbarkeit nach
 
 ---
 
-## Schritt 4: Sind die Vermietungseinkünfte dem Nießbraucher zuzurechnen?
+► Schritt 4: Sind die Vermietungseinkünfte dem Nießbraucher zuzurechnen?
 
 Die Einkünfte aus Vermietung und Verpachtung müssen dem Nießbraucher persönlich steuerlich zuzurechnen sein.
 
@@ -423,35 +423,35 @@ Dies setzt regelmäßig voraus, dass der Nießbraucher
 - die Vermieterrechte und -pflichten trägt und
 - die Mieteinnahmen für eigene Rechnung erzielt.
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 21 Abs. 1 Satz 1 Nr. 1 EStG.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Eine Entschädigung nach § 24 Nr. 1 Buchst. a EStG kann nur derjenigen Person zugerechnet werden, der auch die ersetzten Einnahmen steuerlich zuzurechnen gewesen wären.**
 
 ---
 
-## Schritt 5: Wofür wird die Zahlung geleistet?
+► Schritt 5: Wofür wird die Zahlung geleistet?
 
 Es ist zwischen zwei Fallgruppen zu unterscheiden.
 
-### Fallgruppe A: Ersatz für entgehende Einnahmen
+⇶  Fallgruppe A: Ersatz für entgehende Einnahmen
 
 Wird die Zahlung dafür geleistet, dass dem Nießbraucher infolge des Verzichts künftig Mieteinnahmen entgehen, liegt eine Entschädigung nach § 24 Nr. 1 Buchst. a EStG vor.
 
-### Fallgruppe B: Ersatz für den Verlust eines Wirtschaftsguts
+⇶  Fallgruppe B: Ersatz für den Verlust eines Wirtschaftsguts
 
 Wird die Zahlung dagegen ausschließlich für den Verlust oder die Aufgabe des Nießbrauchsrechts als Wirtschaftsgut geleistet, ohne dass damit steuerbare Einnahmen ersetzt werden, ist § 24 Nr. 1 Buchst. a EStG grundsätzlich nicht erfüllt.
 
-### Abgrenzungssatz
+⇶  Abgrenzungssatz
 
 **Entscheidend ist, ob die Zahlung die künftig entgehenden Einnahmen oder lediglich den Verlust des Wirtschaftsguts ausgleichen soll.**
 
 ---
 
-# 4. Bedeutung des Nießbrauchsrechts als Wirtschaftsgut
+⇨ 4. Bedeutung des Nießbrauchsrechts als Wirtschaftsgut
 
 Das Nießbrauchsrecht an einer Immobilie ist ein selbständiges Wirtschaftsgut.
 
@@ -466,19 +466,19 @@ Bei einem vermieteten Grundstück lassen sich daher
 
 nicht ohne Weiteres voneinander trennen.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Bei einem tatsächlich vermieteten Grundstück ist die Einkunftserzielung der wirtschaftliche Kern des Nießbrauchsrechts.**
 
 ---
 
-# 5. Entschädigung nach § 24 Nr. 1 Buchst. a EStG
+⇨ 5. Entschädigung nach § 24 Nr. 1 Buchst. a EStG
 
-## Gesetzliche Voraussetzung
+► Gesetzliche Voraussetzung
 
 Nach § 24 Nr. 1 Buchst. a EStG gehören zu den Einkünften im Sinne des § 2 Abs. 1 EStG auch Entschädigungen, die als Ersatz für entgangene oder entgehende Einnahmen gewährt werden.
 
-## Kausale Verknüpfung
+► Kausale Verknüpfung
 
 Zwischen
 
@@ -487,13 +487,13 @@ Zwischen
 
 muss ein ursächlicher wirtschaftlicher Zusammenhang bestehen.
 
-### Prüfungssatz
+⇶  Prüfungssatz
 
 **Die Entschädigung muss an die Stelle der ohne den Verzicht weiter zufließenden Mieteinnahmen treten.**
 
 ---
 
-# 6. § 24 EStG begründet keine neue Einkunftsart
+⇨ 6. § 24 EStG begründet keine neue Einkunftsart
 
 § 24 EStG erweitert die sieben Einkunftsarten des § 2 Abs. 1 EStG nicht.
 
@@ -501,7 +501,7 @@ Die Vorschrift stellt vielmehr klar, welcher Einkunftsart eine Ersatzleistung zu
 
 Die Entschädigung erhält steuerlich grundsätzlich die Qualifikation der Einnahmen, an deren Stelle sie tritt.
 
-### Surrogationsprinzip
+⇶  Surrogationsprinzip
 
 Die Ersatzleistung folgt steuerlich den ersetzten Einnahmen.
 
@@ -513,29 +513,29 @@ Entgangene Mieteinnahmen
 Entschädigung für diese Mieteinnahmen  
 → ebenfalls Einkünfte aus Vermietung und Verpachtung gemäß § 24 Nr. 1 Buchst. a in Verbindung mit § 21 Abs. 1 Satz 1 Nr. 1 EStG.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Die Entschädigung wird grundsätzlich derselben Einkunftsart zugeordnet wie die Einnahmen, die durch sie ersetzt werden.**
 
 ---
 
-# 7. Positive und negative Wirkung des § 24 EStG
+⇨ 7. Positive und negative Wirkung des § 24 EStG
 
-## Positive Wirkung
+► Positive Wirkung
 
 § 24 Nr. 1 Buchst. a EStG bestimmt, zu welcher Einkunftsart eine Entschädigung gehört.
 
-## Negative Wirkung
+► Negative Wirkung
 
 Wären die entgangenen Einnahmen selbst nicht steuerbar, kann auch die dafür geleistete Entschädigung grundsätzlich nicht allein aufgrund des § 24 Nr. 1 Buchst. a EStG steuerbar werden.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Eine Entschädigung darf nicht unter weitergehenden Voraussetzungen besteuert werden als die Einnahmen, an deren Stelle sie tritt.**
 
 ---
 
-# 8. Freiwilliger Verzicht
+⇨ 8. Freiwilliger Verzicht
 
 Für die Steuerbarkeit nach § 24 Nr. 1 Buchst. a EStG ist nicht erforderlich, dass der Nießbraucher
 
@@ -547,21 +547,21 @@ auf das Nießbrauchsrecht verzichtet.
 
 Auch ein freiwillig vereinbarter entgeltlicher Verzicht kann steuerbar sein.
 
-### Prüfungssatz
+⇶  Prüfungssatz
 
 **Eine Druck- oder Zwangssituation ist kein Tatbestandsmerkmal des § 24 Nr. 1 Buchst. a EStG.**
 
 ---
 
-# 9. Abgrenzung zur Tarifermäßigung nach § 34 EStG
+⇨ 9. Abgrenzung zur Tarifermäßigung nach § 34 EStG
 
 Die Steuerbarkeit der Entschädigung und die Tarifermäßigung sind getrennt zu prüfen.
 
-## Erste Prüfung
+► Erste Prüfung
 
 Ist die Zahlung nach § 24 Nr. 1 Buchst. a EStG steuerbar?
 
-## Zweite Prüfung
+► Zweite Prüfung
 
 Liegen zusätzlich die Voraussetzungen für eine Tarifermäßigung nach § 34 Abs. 1 und Abs. 2 Nr. 2 EStG vor?
 
@@ -569,11 +569,11 @@ Eine mögliche Druck- oder Zwangssituation betrifft nach der BFH-Entscheidung ni
 
 Sie kann vielmehr im Rahmen der gesonderten Prüfung des § 34 EStG Bedeutung erlangen.
 
-### Lernsatz
+⇶  Lernsatz
 
 **§ 24 EStG entscheidet über die Steuerbarkeit; § 34 EStG entscheidet gesondert über eine mögliche Tarifermäßigung.**
 
-### Achtung
+⇶  Achtung
 
 Die Bezeichnung einer Zahlung als Entschädigung führt nicht automatisch zu einer ermäßigten Besteuerung nach § 34 EStG.
 
@@ -581,7 +581,7 @@ Insbesondere müssen die Voraussetzungen der Zusammenballung und die weiteren An
 
 ---
 
-# 10. Abgrenzung zum privaten Veräußerungsgeschäft
+⇨ 10. Abgrenzung zum privaten Veräußerungsgeschäft
 
 Das Finanzamt hatte die Ablösung des Nießbrauchsrechts ursprünglich als privates Veräußerungsgeschäft nach
 
@@ -592,21 +592,21 @@ behandelt.
 
 Der BFH musste diese Frage nicht abschließend entscheiden.
 
-## Grund
+► Grund
 
 Nach § 23 Abs. 2 EStG sind Einkünfte aus privaten Veräußerungsgeschäften gegenüber anderen Einkunftsarten subsidiär.
 
 Ist die Zahlung bereits nach § 24 Nr. 1 Buchst. a EStG in Verbindung mit § 21 Abs. 1 Satz 1 Nr. 1 EStG den Einkünften aus Vermietung und Verpachtung zuzuordnen, kommt eine Besteuerung nach § 23 EStG nicht mehr vorrangig in Betracht.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Die Besteuerung nach § 24 Nr. 1 Buchst. a in Verbindung mit § 21 EStG geht einer Einordnung als privates Veräußerungsgeschäft vor, § 23 Abs. 2 EStG.**
 
 ---
 
-# 11. Rechtsprechungsänderung
+⇨ 11. Rechtsprechungsänderung
 
-## Frühere Auffassung
+► Frühere Auffassung
 
 Nach der früheren Rechtsprechung des X. Senats wurde die Gegenleistung für den Verzicht auf ein im Privatvermögen befindliches Nießbrauchsrecht grundsätzlich nicht als Entschädigung für entgehende Einnahmen behandelt.
 
@@ -614,7 +614,7 @@ Insbesondere:
 
 BFH, Urteil vom 25.11.1992 – X R 34/89.
 
-## Neue Auffassung
+► Neue Auffassung
 
 Der IX. Senat behandelt das Entgelt nunmehr jedenfalls dann als steuerbare Entschädigung, wenn
 
@@ -624,13 +624,13 @@ Der IX. Senat behandelt das Entgelt nunmehr jedenfalls dann als steuerbare Entsc
 
 Der X. Senat hat mitgeteilt, dass er an seiner bisherigen entgegenstehenden Auffassung nicht mehr festhält.
 
-### Prüfungssatz
+⇶  Prüfungssatz
 
 **BFH IX R 4/24 stellt für tatsächlich vermietete Privatgrundstücke eine Rechtsprechungsänderung gegenüber BFH X R 34/89 dar.**
 
 ---
 
-# 12. Sachverhalt der BFH-Entscheidung
+⇨ 12. Sachverhalt der BFH-Entscheidung
 
 Der Steuerpflichtigen war im Wege eines Vermächtnisses ein lebenslanges Nießbrauchsrecht an einem Grundstück zugewendet worden.
 
@@ -654,7 +654,7 @@ Nach Auffassung des BFH war die Entschädigung im Umfang des entgeltlichen Teils
 
 ---
 
-# 13. Entgeltlicher und unentgeltlicher Teil
+⇨ 13. Entgeltlicher und unentgeltlicher Teil
 
 Übersteigt die gezahlte Ablösesumme den tatsächlichen Wert des Nießbrauchsrechts, kann die Zahlung in
 
@@ -667,13 +667,13 @@ Nur der als Entschädigung geleistete entgeltliche Teil ist nach den Grundsätze
 
 Ein übersteigender unentgeltlicher Teil kann schenkungsteuerlich zu untersuchen sein.
 
-### Prüfungshinweis
+⇶  Prüfungshinweis
 
 **Ablösesumme und objektiver Wert des Nießbrauchsrechts sind miteinander zu vergleichen.**
 
 ---
 
-# 14. Nicht automatisch übertragbare Fälle
+⇨ 14. Nicht automatisch übertragbare Fälle
 
 Das Urteil darf nicht ohne weitere Prüfung auf sämtliche Ablösungen von Nutzungsrechten übertragen werden.
 
@@ -688,19 +688,19 @@ Gesondert zu beurteilen sind insbesondere:
 - ein unentgeltlicher Verzicht,
 - eine Zahlung, die teilweise Schenkungscharakter besitzt.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Nicht jede Ablösung eines Nießbrauchsrechts ist steuerbar; entscheidend sind die tatsächliche Einkunftserzielung und der Zweck der Zahlung.**
 
 ---
 
-# 15. Prüfungssichere Formulierung
+⇨ 15. Prüfungssichere Formulierung
 
 **Die Zahlung für den entgeltlichen Verzicht auf das Nießbrauchsrecht stellt eine Entschädigung im Sinne des § 24 Nr. 1 Buchst. a EStG dar. Der Steuerpflichtige hat das Grundstück im Zeitpunkt des Verzichts aufgrund seines Nießbrauchsrechts tatsächlich im eigenen Namen vermietet, sodass ihm die Einkünfte aus Vermietung und Verpachtung gemäß § 21 Abs. 1 Satz 1 Nr. 1 EStG persönlich zuzurechnen waren. Die Ablösezahlung tritt wirtschaftlich an die Stelle der künftig entgehenden Mieteinnahmen. Sie ist daher den Einkünften aus Vermietung und Verpachtung zuzuordnen. Eine rechtliche, wirtschaftliche oder tatsächliche Drucksituation ist für die Steuerbarkeit nach § 24 Nr. 1 Buchst. a EStG nicht erforderlich. Eine mögliche Tarifermäßigung ist gesondert nach § 34 EStG zu prüfen.**
 
 ---
 
-# 16. Kompakte Lernsätze
+⇨ 16. Kompakte Lernsätze
 
 1. Das Nießbrauchsrecht berechtigt nach § 1030 Abs. 1 BGB zur Ziehung der Nutzungen im Sinne des § 100 BGB.
 
@@ -748,7 +748,7 @@ Gesondert zu beurteilen sind insbesondere:
 
 ---
 
-# 17. Antwortlogik für den Steuerstoff-Chatbot
+⇨ 17. Antwortlogik für den Steuerstoff-Chatbot
 
 Bei Fragen zur Ablösung eines Nießbrauchsrechts soll der Chatbot folgende Punkte abfragen:
 
@@ -776,7 +776,7 @@ Bei Fragen zur Ablösung eines Nießbrauchsrechts soll der Chatbot folgende Punk
 
 ---
 
-# 18. Kurzantwort des Chatbots
+⇨ 18. Kurzantwort des Chatbots
 
 **Nach BFH IX R 4/24 ist das Entgelt für den Verzicht auf ein Nießbrauchsrecht an einem Privatgrundstück als Entschädigung nach § 24 Nr. 1 Buchst. a EStG steuerbar, wenn der Nießbraucher das Grundstück im Zeitpunkt des Verzichts tatsächlich selbst vermietet und ihm die Vermietungseinkünfte nach § 21 Abs. 1 Satz 1 Nr. 1 EStG zuzurechnen sind. Die Zahlung ersetzt dann die künftig entgehenden Mieteinnahmen. Eine Druck- oder Zwangssituation ist für die Steuerbarkeit nicht erforderlich. Ob eine Tarifermäßigung nach § 34 EStG möglich ist, muss gesondert geprüft werden.**
 `
@@ -804,9 +804,9 @@ Bei Fragen zur Ablösung eines Nießbrauchsrechts soll der Chatbot folgende Punk
     "§ 15 Abs. 2 UStG"
   ],
   body: `
-# Übertragung von Treibhausgas-Emissionszertifikaten
+⇨ Übertragung von Treibhausgas-Emissionszertifikaten
 
-## 1. Art der Leistung
+► 1. Art der Leistung
 
 Die Übertragung von Treibhausgas-Emissionszertifikaten ist keine Lieferung eines körperlichen Gegenstands.
 
@@ -814,7 +814,7 @@ Es liegt eine sonstige Leistung nach § 3 Abs. 9 UStG vor.
 
 ---
 
-## 2. Ort der sonstigen Leistung
+► 2. Ort der sonstigen Leistung
 
 Wird die Leistung an einen Unternehmer für dessen Unternehmen ausgeführt,
 
@@ -832,7 +832,7 @@ Köln und damit Inland.
 
 ---
 
-## 3. Steuerbarkeit und Steuerpflicht
+► 3. Steuerbarkeit und Steuerpflicht
 
 Die sonstige Leistung wird im Inland gegen Entgelt im Rahmen eines Unternehmens ausgeführt.
 
@@ -842,7 +842,7 @@ Mangels Steuerbefreiung ist sie mit 19 % steuerpflichtig.
 
 ---
 
-## 4. Steuerschuldnerschaft
+► 4. Steuerschuldnerschaft
 
 Bei der Übertragung von Emissionszertifikaten schuldet der Leistungsempfänger die Umsatzsteuer.
 
@@ -856,7 +856,7 @@ in Verbindung mit
 
 ---
 
-## 5. Zahlenbeispiel
+► 5. Zahlenbeispiel
 
 Wert der Zertifikate:
 
@@ -872,7 +872,7 @@ Der Leistungsempfänger meldet 190.000 € Umsatzsteuer an.
 
 ---
 
-## 6. Rechnung
+► 6. Rechnung
 
 Der leistende Unternehmer stellt eine Rechnung über das Nettoentgelt aus.
 
@@ -884,7 +884,7 @@ Pflichthinweis:
 
 ---
 
-## 7. Steuerentstehung
+► 7. Steuerentstehung
 
 Die Steuer entsteht nach den besonderen Vorschriften des § 13b UStG.
 
@@ -896,7 +896,7 @@ Im Klausurfall ist insbesondere zu prüfen,
 
 ---
 
-## 8. Vorsteuerabzug
+► 8. Vorsteuerabzug
 
 Der Leistungsempfänger kann die nach § 13b UStG geschuldete Steuer als Vorsteuer abziehen,
 
@@ -917,7 +917,7 @@ Vorsteuer:
 
 ---
 
-# Prüfungsschema
+⇨ Prüfungsschema
 
 1. Übertragung eines Emissionszertifikats?
 
@@ -939,23 +939,23 @@ Vorsteuer:
 
 ---
 
-# Typische Klausurfallen
+⇨ Typische Klausurfallen
 
-## Fehler 1: Zertifikat als körperlichen Gegenstand behandeln
+► Fehler 1: Zertifikat als körperlichen Gegenstand behandeln
 
 Die Übertragung ist eine sonstige Leistung.
 
-## Fehler 2: Leistungsort beim Leistenden annehmen
+► Fehler 2: Leistungsort beim Leistenden annehmen
 
 Im B2B-Fall gilt regelmäßig der Empfängerort.
 
-## Fehler 3: Umsatzsteuer in der Rechnung ausweisen
+► Fehler 3: Umsatzsteuer in der Rechnung ausweisen
 
 Bei Reverse Charge darf der Leistende grundsätzlich keine Umsatzsteuer offen ausweisen.
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 - Emissionszertifikate führen zu einer sonstigen Leistung.
 - Im B2B-Fall liegt der Ort grundsätzlich beim Leistungsempfänger.
@@ -992,9 +992,9 @@ Bei Reverse Charge darf der Leistende grundsätzlich keine Umsatzsteuer offen au
     "Anlage 3 zum UStG"
   ],
   body: `
-# Schrottlieferung und tauschähnlicher Umsatz
+⇨ Schrottlieferung und tauschähnlicher Umsatz
 
-## 1. Ausgangssachverhalt
+► 1. Ausgangssachverhalt
 
 Ein Metallverarbeitungsbetrieb stellt Spezialmuttern her.
 
@@ -1020,7 +1020,7 @@ Wert des überlassenen Schrotts:
 
 ---
 
-## 2. Tauschähnlicher Umsatz
+► 2. Tauschähnlicher Umsatz
 
 Es liegt ein tauschähnlicher Umsatz mit Baraufgabe vor.
 
@@ -1035,21 +1035,21 @@ Rechtsgrundlage:
 
 ---
 
-# 3. Lieferung des Stahlschrotts
+⇨ 3. Lieferung des Stahlschrotts
 
-## Lieferung
+► Lieferung
 
 Der Auftraggeber überträgt dem Verarbeiter den bei der Bearbeitung verbleibenden Stahlschrott.
 
 Es liegt eine Lieferung nach § 3 Abs. 1 UStG vor.
 
-## Ort
+► Ort
 
 Da sich der Schrott bei Übertragung bereits beim Verarbeiter in Berlin befindet,
 
 liegt der Ort der unbewegten Lieferung in Berlin.
 
-## Steuerbarkeit und Steuerpflicht
+► Steuerbarkeit und Steuerpflicht
 
 Die Lieferung wird im Inland gegen Entgelt im Rahmen eines Unternehmens ausgeführt.
 
@@ -1057,7 +1057,7 @@ Sie ist steuerbar und mit 19 % steuerpflichtig.
 
 ---
 
-## 4. Schrott nach Anlage 3 UStG
+► 4. Schrott nach Anlage 3 UStG
 
 Stahlschrott ist ein Gegenstand der Anlage 3 zum UStG.
 
@@ -1069,7 +1069,7 @@ Rechtsgrundlage:
 
 ---
 
-## 5. Bemessungsgrundlage der Schrottlieferung
+► 5. Bemessungsgrundlage der Schrottlieferung
 
 Ausgangswert der gesamten Gegenleistung:
 
@@ -1099,7 +1099,7 @@ In älteren Unterrichtsfällen wurde teilweise mit gerundeten oder vereinfachten
 
 ---
 
-## 6. Rechnung oder Gutschrift
+► 6. Rechnung oder Gutschrift
 
 Der Leistungsempfänger kann über die an ihn ausgeführte Schrottlieferung im Gutschriftverfahren abrechnen.
 
@@ -1109,7 +1109,7 @@ Sie muss auf die Steuerschuldnerschaft des Leistungsempfängers hinweisen.
 
 ---
 
-## 7. Vorsteuerabzug beim Leistungsempfänger
+► 7. Vorsteuerabzug beim Leistungsempfänger
 
 Der Leistungsempfänger kann die nach § 13b UStG geschuldete Steuer als Vorsteuer abziehen,
 
@@ -1120,9 +1120,9 @@ wenn
 
 ---
 
-# 8. Herstellung der Muttern
+⇨ 8. Herstellung der Muttern
 
-## Werkleistung
+► Werkleistung
 
 Der Auftraggeber stellt den Hauptstoff Stahl zur Verfügung.
 
@@ -1134,7 +1134,7 @@ Rechtsgrundlage:
 
 § 3 Abs. 9 UStG.
 
-## Leistungsort
+► Leistungsort
 
 Im B2B-Fall bestimmt sich der Ort nach § 3a Abs. 2 UStG.
 
@@ -1142,7 +1142,7 @@ Er liegt am Sitz des Auftraggebers.
 
 ---
 
-## 9. Bemessungsgrundlage der Werkleistung
+► 9. Bemessungsgrundlage der Werkleistung
 
 Zur Gegenleistung gehören
 
@@ -1172,7 +1172,7 @@ Steuerschuldner für die Werkleistung ist grundsätzlich der leistende Unternehm
 
 ---
 
-# Prüfungsschema
+⇨ Prüfungsschema
 
 1. Welche Leistungen werden gegenseitig ausgetauscht?
 
@@ -1194,27 +1194,27 @@ Steuerschuldner für die Werkleistung ist grundsätzlich der leistende Unternehm
 
 ---
 
-# Typische Klausurfallen
+⇨ Typische Klausurfallen
 
-## Fehler 1: Nur einen Umsatz annehmen
+► Fehler 1: Nur einen Umsatz annehmen
 
 Bei einem tauschähnlichen Umsatz liegen grundsätzlich zwei Leistungen vor.
 
-## Fehler 2: Schrottlieferung übersehen
+► Fehler 2: Schrottlieferung übersehen
 
 Das Behalten des Schrotts kann eine Gegenleistung in Geldeswert darstellen.
 
-## Fehler 3: § 13b nur auf die Werkleistung anwenden
+► Fehler 3: § 13b nur auf die Werkleistung anwenden
 
 Reverse Charge betrifft hier die Schrottlieferung, nicht automatisch die Werkleistung.
 
-## Fehler 4: Bruttowert nicht korrekt entnetten
+► Fehler 4: Bruttowert nicht korrekt entnetten
 
 Ein Bruttowert ist durch 1,19 zu teilen oder mit 19/119 aufzuteilen.
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 - Material des Auftraggebers spricht für eine Werkleistung.
 - Schrott kann Teil der Gegenleistung sein.
@@ -1250,9 +1250,9 @@ Ein Bruttowert ist durch 1,19 zu teilen oder mit 19/119 aufzuteilen.
     "Abschn. 13b.5 UStAE"
   ],
   body: `
-# Gebäudereinigungsleistungen und Reverse Charge
+⇨ Gebäudereinigungsleistungen und Reverse Charge
 
-## 1. Ausgangssachverhalt
+► 1. Ausgangssachverhalt
 
 Ein Unternehmer betreibt einen Hausmeisterservice für Ferienwohnungen.
 
@@ -1267,9 +1267,9 @@ Für die Endreinigung beauftragt er einen selbständigen Gebäudereiniger.
 
 ---
 
-# 2. Hausmeisterservice gegenüber den Eigentümern
+⇨ 2. Hausmeisterservice gegenüber den Eigentümern
 
-## Art der Leistung
+► Art der Leistung
 
 Der Hausmeisterservice erbringt sonstige Leistungen nach § 3 Abs. 9 UStG.
 
@@ -1279,7 +1279,7 @@ kann es insgesamt als Gebäudereinigungsleistung einzuordnen sein,
 
 wenn die Reinigung den Leistungsumfang maßgeblich prägt.
 
-## Leistungsort
+► Leistungsort
 
 Gebäudereinigungsleistungen stehen unmittelbar mit Grundstücken in Zusammenhang.
 
@@ -1287,11 +1287,11 @@ Der Ort liegt dort,
 
 wo sich das jeweilige Gebäude befindet.
 
-## Steuerbarkeit und Steuerpflicht
+► Steuerbarkeit und Steuerpflicht
 
 Die Leistungen sind im Inland steuerbar und grundsätzlich mit 19 % steuerpflichtig.
 
-## Steuerschuldner
+► Steuerschuldner
 
 Die Wohnungseigentümer werden nicht allein durch den Bezug der Leistung Steuerschuldner nach § 13b Abs. 2 Nr. 8 UStG.
 
@@ -1303,15 +1303,15 @@ Steuerschuldner bleibt daher grundsätzlich der Hausmeisterservice.
 
 ---
 
-# 3. Leistung des Gebäudereinigers an den Hausmeisterservice
+⇨ 3. Leistung des Gebäudereinigers an den Hausmeisterservice
 
-## Gebäudereinigungsleistung
+► Gebäudereinigungsleistung
 
 Die Endreinigung von Ferienwohnungen ist eine Gebäudereinigungsleistung.
 
 Sie fällt unter § 13b Abs. 2 Nr. 8 UStG.
 
-## Persönliche Voraussetzung
+► Persönliche Voraussetzung
 
 Der Leistungsempfänger schuldet die Umsatzsteuer nur,
 
@@ -1321,7 +1321,7 @@ Der Zusammenhang mit einem bestimmten Ausgangsumsatz ist nicht erforderlich.
 
 Der Nachweis kann durch die Bescheinigung USt 1 TG geführt werden.
 
-## Rechtsfolge
+► Rechtsfolge
 
 Erbringt der Hausmeisterservice selbst nachhaltig Gebäudereinigungsleistungen,
 
@@ -1329,7 +1329,7 @@ schuldet er als Leistungsempfänger die Umsatzsteuer nach § 13b Abs. 5 Satz 5 U
 
 ---
 
-## 4. Rechnung oder Gutschrift
+► 4. Rechnung oder Gutschrift
 
 Der Gebäudereiniger stellt eine Nettorechnung aus.
 
@@ -1343,7 +1343,7 @@ Ein offener Umsatzsteuerausweis ist unzulässig.
 
 ---
 
-## 5. Vorsteuerabzug
+► 5. Vorsteuerabzug
 
 Der Leistungsempfänger kann die nach § 13b UStG geschuldete Steuer als Vorsteuer abziehen,
 
@@ -1354,7 +1354,7 @@ wenn
 
 ---
 
-# 6. Leistungsempfänger ist Kleinunternehmer
+⇨ 6. Leistungsempfänger ist Kleinunternehmer
 
 Ist der Hausmeisterservice Kleinunternehmer,
 
@@ -1369,13 +1369,13 @@ Folge:
 - Umsatzsteuer nach § 13b anmelden,
 - regelmäßig kein Vorsteuerabzug im Rahmen der Kleinunternehmerbesteuerung.
 
-## Merksatz
+► Merksatz
 
 Kleinunternehmer können Reverse-Charge-Steuer schulden.
 
 ---
 
-# 7. Leistender Gebäudereiniger ist Kleinunternehmer
+⇨ 7. Leistender Gebäudereiniger ist Kleinunternehmer
 
 Ist der leistende Gebäudereiniger Kleinunternehmer,
 
@@ -1391,7 +1391,7 @@ Die Wissensdatenbank sollte deshalb bei diesem Sonderfall einen Hinweis ausgeben
 
 ---
 
-# 8. Vorauszahlungen
+⇨ 8. Vorauszahlungen
 
 Zahlt der Leistungsempfänger das Entgelt vor Ausführung der Leistung,
 
@@ -1403,7 +1403,7 @@ wenn die allgemeinen Voraussetzungen erfüllt sind.
 
 ---
 
-# Prüfungsschema
+⇨ Prüfungsschema
 
 1. Liegt eine Reinigung eines Gebäudes oder Gebäudeteils vor?
 
@@ -1429,33 +1429,33 @@ wenn die allgemeinen Voraussetzungen erfüllt sind.
 
 ---
 
-# Typische Klausurfallen
+⇨ Typische Klausurfallen
 
-## Fehler 1: Jeder Unternehmer wird Steuerschuldner
+► Fehler 1: Jeder Unternehmer wird Steuerschuldner
 
 Der Leistungsempfänger muss grundsätzlich selbst nachhaltig Gebäudereinigungsleistungen erbringen.
 
-## Fehler 2: Unmittelbaren Zusammenhang verlangen
+► Fehler 2: Unmittelbaren Zusammenhang verlangen
 
 Es ist nicht erforderlich,
 
 dass die bezogene Reinigung für einen eigenen Reinigungsauftrag verwendet wird.
 
-## Fehler 3: Kleinunternehmer ignorieren
+► Fehler 3: Kleinunternehmer ignorieren
 
 Auch Kleinunternehmer können Steuer nach § 13b schulden.
 
-## Fehler 4: Rechnung mit Umsatzsteuer ausstellen
+► Fehler 4: Rechnung mit Umsatzsteuer ausstellen
 
 Bei Reverse Charge wird netto abgerechnet.
 
-## Fehler 5: Vorauszahlungen erst bei Leistungsausführung erfassen
+► Fehler 5: Vorauszahlungen erst bei Leistungsausführung erfassen
 
 Bei Vorauszahlungen kann die Steuer bereits früher entstehen.
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 - Gebäudereinigung ist ein eigener Reverse-Charge-Tatbestand.
 - Der Leistungsempfänger muss selbst nachhaltig Gebäudereinigungsleistungen erbringen.
@@ -1519,7 +1519,7 @@ Bei Vorauszahlungen kann die Steuer bereits früher entstehen.
   ],
 
   body: `
-# Prüfungssichere Lernsätze zu Bilanzierung, Vorsteuer und Gemeinnützigkeit
+⇨ Prüfungssichere Lernsätze zu Bilanzierung, Vorsteuer und Gemeinnützigkeit
 
 Die nachfolgenden Aussagen sind als kurze Lernsätze für Klausuren und zur Verwendung durch den Steuerstoff-Chatbot formuliert.
 
@@ -1529,35 +1529,35 @@ Einige verbreitete Kurzfassungen sind zu pauschal oder enthalten ungenaue Fundst
 
 ---
 
-# Teil A: Grundlagen der Bilanzierung
+⇨ Teil A: Grundlagen der Bilanzierung
 
-## 1. Buchführungspflicht
+► 1. Buchführungspflicht
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 238 Abs. 1 HGB.
 
-### Lernsatz
+⇶  Lernsatz
 
 Jeder Kaufmann ist verpflichtet, Bücher zu führen und darin seine Handelsgeschäfte sowie die Lage seines Vermögens nach den Grundsätzen ordnungsmäßiger Buchführung ersichtlich zu machen.
 
-### Kurzfassung
+⇶  Kurzfassung
 
 **Kaufmann bedeutet grundsätzlich Buchführungspflicht nach § 238 Abs. 1 HGB.**
 
-### Prüfungshinweis
+⇶  Prüfungshinweis
 
 Von der handelsrechtlichen Buchführungspflicht können insbesondere Einzelkaufleute unter den Voraussetzungen des § 241a HGB befreit sein.
 
 ---
 
-## 2. Aufstellung von Bilanz und Gewinn- und Verlustrechnung
+► 2. Aufstellung von Bilanz und Gewinn- und Verlustrechnung
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 242 Abs. 1 bis 3 HGB.
 
-### Regelungen
+⇶  Regelungen
 
 § 242 Abs. 1 HGB:
 
@@ -1578,19 +1578,19 @@ Dies ist die Gewinn- und Verlustrechnung.
 
 Bilanz und Gewinn- und Verlustrechnung bilden gemeinsam den Jahresabschluss.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Die Bilanz beruht auf § 242 Abs. 1 HGB, die GuV auf § 242 Abs. 2 HGB. Zusammen bilden sie nach § 242 Abs. 3 HGB den Jahresabschluss.**
 
 ---
 
-## 3. Vollständigkeitsgebot
+► 3. Vollständigkeitsgebot
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 246 Abs. 1 Satz 1 HGB.
 
-### Lernsatz
+⇶  Lernsatz
 
 Der Jahresabschluss muss grundsätzlich sämtliche
 
@@ -1602,11 +1602,11 @@ Der Jahresabschluss muss grundsätzlich sämtliche
 
 enthalten, soweit gesetzlich nichts anderes bestimmt ist.
 
-### Prüfungssatz
+⇶  Prüfungssatz
 
 **Alle bilanzierungsfähigen Vermögensgegenstände und Schulden sind vollständig in den Jahresabschluss aufzunehmen, § 246 Abs. 1 Satz 1 HGB.**
 
-### Ergänzung
+⇶  Ergänzung
 
 § 246 Abs. 1 HGB regelt außerdem die wirtschaftliche Zurechnung.
 
@@ -1616,23 +1616,23 @@ Ist er jedoch wirtschaftlich einer anderen Person zuzurechnen, muss der wirtscha
 
 ---
 
-## 4. Saldierungs- beziehungsweise Verrechnungsverbot
+► 4. Saldierungs- beziehungsweise Verrechnungsverbot
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 246 Abs. 2 Satz 1 HGB.
 
-### Lernsatz
+⇶  Lernsatz
 
 Posten der Aktivseite dürfen grundsätzlich nicht mit Posten der Passivseite verrechnet werden.
 
 Aufwendungen dürfen grundsätzlich nicht mit Erträgen verrechnet werden.
 
-### Prüfungssatz
+⇶  Prüfungssatz
 
 **Forderungen und Verbindlichkeiten sowie Aufwendungen und Erträge sind grundsätzlich getrennt auszuweisen, § 246 Abs. 2 Satz 1 HGB.**
 
-### Einschränkung
+⇶  Einschränkung
 
 Das Verrechnungsverbot gilt nicht ausnahmslos.
 
@@ -1640,15 +1640,15 @@ Das Verrechnungsverbot gilt nicht ausnahmslos.
 
 ---
 
-# Teil B: Anlage- und Umlaufvermögen
+⇨ Teil B: Anlage- und Umlaufvermögen
 
-## 5. Gliederung der Bilanz
+► 5. Gliederung der Bilanz
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 247 Abs. 1 HGB.
 
-### Lernsatz
+⇶  Lernsatz
 
 In der Bilanz sind insbesondere gesondert auszuweisen:
 
@@ -1658,7 +1658,7 @@ In der Bilanz sind insbesondere gesondert auszuweisen:
 - Schulden und
 - Rechnungsabgrenzungsposten.
 
-### Wichtige Korrektur
+⇶  Wichtige Korrektur
 
 § 247 Abs. 1 HGB enthält die grundsätzliche Gliederung in Anlage- und Umlaufvermögen.
 
@@ -1668,21 +1668,21 @@ In der Bilanz sind insbesondere gesondert auszuweisen:
 
 ---
 
-## 6. Anlagevermögen
+► 6. Anlagevermögen
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 247 Abs. 2 HGB.
 
-### Gesetzliche Definition
+⇶  Gesetzliche Definition
 
 Beim Anlagevermögen sind nur die Gegenstände auszuweisen, die bestimmt sind, dauernd dem Geschäftsbetrieb zu dienen.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Dient ein Vermögensgegenstand dauerhaft dem Geschäftsbetrieb, gehört er zum Anlagevermögen, § 247 Abs. 2 HGB.**
 
-### Beispiele
+⇶  Beispiele
 
 - Betriebsgrundstücke,
 - Betriebsgebäude,
@@ -1691,7 +1691,7 @@ Beim Anlagevermögen sind nur die Gegenstände auszuweisen, die bestimmt sind, d
 - Betriebs- und Geschäftsausstattung,
 - langfristig gehaltene Beteiligungen.
 
-### Entscheidend
+⇶  Entscheidend
 
 Maßgebend ist nicht allein die Art des Gegenstands, sondern seine betriebliche Zweckbestimmung.
 
@@ -1704,17 +1704,17 @@ Beispiel:
 
 ---
 
-## 7. Umlaufvermögen
+► 7. Umlaufvermögen
 
 Das Umlaufvermögen wird in § 247 Abs. 2 HGB nicht ausdrücklich definiert.
 
 Es umfasst grundsätzlich Vermögensgegenstände, die nicht dazu bestimmt sind, dem Geschäftsbetrieb dauerhaft zu dienen.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Was nicht dauerhaft dem Geschäftsbetrieb dienen soll und nicht einem anderen Bilanzposten zuzuordnen ist, gehört regelmäßig zum Umlaufvermögen.**
 
-### Gliederung bei Kapitalgesellschaften
+⇶  Gliederung bei Kapitalgesellschaften
 
 § 266 Abs. 2 B HGB nennt insbesondere:
 
@@ -1723,7 +1723,7 @@ Es umfasst grundsätzlich Vermögensgegenstände, die nicht dazu bestimmt sind, 
 3. Wertpapiere,
 4. Kassenbestand, Bundesbankguthaben, Guthaben bei Kreditinstituten und Schecks.
 
-### Achtung
+⇶  Achtung
 
 Nicht jede Forderung gehört zwingend zum Umlaufvermögen.
 
@@ -1733,63 +1733,63 @@ Gewöhnliche Forderungen aus Lieferungen und Leistungen gehören dagegen regelm�
 
 ---
 
-# Teil C: Allgemeine Bewertungsgrundsätze
+⇨ Teil C: Allgemeine Bewertungsgrundsätze
 
-## 8. Bilanzidentität
+► 8. Bilanzidentität
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 252 Abs. 1 Nr. 1 HGB.
 
-### Lernsatz
+⇶  Lernsatz
 
 Die Wertansätze in der Eröffnungsbilanz eines Geschäftsjahres müssen mit den Wertansätzen der Schlussbilanz des vorhergehenden Geschäftsjahres übereinstimmen.
 
-### Kurzform
+⇶  Kurzform
 
 **Schlussbilanz des Vorjahres gleich Eröffnungsbilanz des Folgejahres.**
 
 ---
 
-## 9. Fortführungsgrundsatz
+► 9. Fortführungsgrundsatz
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 252 Abs. 1 Nr. 2 HGB.
 
-### Lernsatz
+⇶  Lernsatz
 
 Bei der Bewertung ist grundsätzlich von der Fortführung der Unternehmenstätigkeit auszugehen, sofern keine tatsächlichen oder rechtlichen Umstände entgegenstehen.
 
-### Kurzform
+⇶  Kurzform
 
 **Bewertet wird grundsätzlich unter der Annahme, dass das Unternehmen fortgeführt wird.**
 
 ---
 
-## 10. Einzelbewertungsgrundsatz
+► 10. Einzelbewertungsgrundsatz
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 252 Abs. 1 Nr. 3 HGB.
 
-### Lernsatz
+⇶  Lernsatz
 
 Vermögensgegenstände und Schulden sind zum Abschlussstichtag grundsätzlich einzeln zu bewerten.
 
-### Kurzform
+⇶  Kurzform
 
 **Jeder Vermögensgegenstand und jede Schuld werden grundsätzlich einzeln bewertet.**
 
 ---
 
-## 11. Vorsichtsprinzip
+► 11. Vorsichtsprinzip
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 252 Abs. 1 Nr. 4 HGB.
 
-### Lernsatz
+⇶  Lernsatz
 
 Bei der Bewertung ist vorsichtig zu verfahren.
 
@@ -1797,21 +1797,21 @@ Alle vorhersehbaren Risiken und Verluste, die bis zum Abschlussstichtag entstand
 
 ---
 
-## 12. Realisationsprinzip
+► 12. Realisationsprinzip
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 252 Abs. 1 Nr. 4 Halbsatz 2 HGB.
 
-### Lernsatz
+⇶  Lernsatz
 
 Gewinne dürfen erst berücksichtigt werden, wenn sie am Abschlussstichtag realisiert sind.
 
-### Kurzform
+⇶  Kurzform
 
 **Unrealisierte Gewinne dürfen nicht ausgewiesen werden.**
 
-### Wichtige Korrektur
+⇶  Wichtige Korrektur
 
 Das Realisationsprinzip steht nicht in § 252 Abs. 1 Nr. 5 HGB.
 
@@ -1819,85 +1819,85 @@ Es ist Bestandteil von § 252 Abs. 1 Nr. 4 HGB.
 
 ---
 
-## 13. Imparitätsprinzip
+► 13. Imparitätsprinzip
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 252 Abs. 1 Nr. 4 HGB.
 
-### Lernsatz
+⇶  Lernsatz
 
 Vorhersehbare Verluste sind bereits zu berücksichtigen, bevor sie endgültig realisiert sind.
 
 Unrealisierte Gewinne dürfen dagegen grundsätzlich nicht ausgewiesen werden.
 
-### Kurzform
+⇶  Kurzform
 
 **Verluste früh, Gewinne erst bei Realisation.**
 
-### Wichtige Korrektur
+⇶  Wichtige Korrektur
 
 Das Imparitätsprinzip steht ebenfalls in § 252 Abs. 1 Nr. 4 HGB und nicht in Nr. 6.
 
 ---
 
-## 14. Periodengerechte Abgrenzung
+► 14. Periodengerechte Abgrenzung
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 252 Abs. 1 Nr. 5 HGB.
 
-### Lernsatz
+⇶  Lernsatz
 
 Aufwendungen und Erträge sind unabhängig von den Zeitpunkten der entsprechenden Zahlungen dem Geschäftsjahr zuzuordnen, zu dem sie wirtschaftlich gehören.
 
-### Kurzform
+⇶  Kurzform
 
 **Nicht der Zahlungszeitpunkt, sondern die wirtschaftliche Zugehörigkeit entscheidet.**
 
 ---
 
-## 15. Bewertungsstetigkeit
+► 15. Bewertungsstetigkeit
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 252 Abs. 1 Nr. 6 HGB.
 
-### Lernsatz
+⇶  Lernsatz
 
 Die auf den vorhergehenden Jahresabschluss angewandten Bewertungsmethoden sind grundsätzlich beizubehalten.
 
-### Kurzform
+⇶  Kurzform
 
 **Einmal gewählte Bewertungsmethoden sind grundsätzlich stetig anzuwenden.**
 
 ---
 
-# Teil D: Anschaffungs- und Herstellungskosten
+⇨ Teil D: Anschaffungs- und Herstellungskosten
 
-## 16. Bewertungsobergrenze
+► 16. Bewertungsobergrenze
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 253 Abs. 1 Satz 1 HGB.
 
-### Lernsatz
+⇶  Lernsatz
 
 Vermögensgegenstände dürfen grundsätzlich höchstens mit den Anschaffungs- oder Herstellungskosten, vermindert um erforderliche Abschreibungen, angesetzt werden.
 
-### Kurzform
+⇶  Kurzform
 
 **Anschaffungs- beziehungsweise Herstellungskosten bilden grundsätzlich die Bewertungsobergrenze.**
 
 ---
 
-## 17. Anschaffungskosten
+► 17. Anschaffungskosten
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 255 Abs. 1 HGB.
 
-### Definition
+⇶  Definition
 
 Anschaffungskosten sind die Aufwendungen, die geleistet werden, um einen Vermögensgegenstand
 
@@ -1906,7 +1906,7 @@ Anschaffungskosten sind die Aufwendungen, die geleistet werden, um einen Vermög
 
 soweit die Aufwendungen dem Vermögensgegenstand einzeln zugeordnet werden können.
 
-### Berechnungsschema
+⇶  Berechnungsschema
 
 Anschaffungspreis  
 + Anschaffungsnebenkosten  
@@ -1914,7 +1914,7 @@ Anschaffungspreis
 ./. Anschaffungspreisminderungen  
 = Anschaffungskosten
 
-### Beispiele für Anschaffungsnebenkosten
+⇶  Beispiele für Anschaffungsnebenkosten
 
 - Transportkosten,
 - Frachtkosten,
@@ -1926,13 +1926,13 @@ Anschaffungspreis
 
 ---
 
-## 18. Herstellungskosten
+► 18. Herstellungskosten
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 255 Abs. 2 HGB.
 
-### Lernsatz
+⇶  Lernsatz
 
 Herstellungskosten sind die Aufwendungen, die durch
 
@@ -1941,23 +1941,23 @@ Herstellungskosten sind die Aufwendungen, die durch
 
 für die Herstellung, Erweiterung oder wesentliche Verbesserung eines Vermögensgegenstands entstehen.
 
-### Kurzform
+⇶  Kurzform
 
 **Anschaffung bedeutet Erwerb; Herstellung bedeutet eigenes Schaffen, Erweitern oder wesentliches Verbessern.**
 
 ---
 
-## 19. Abziehbare Vorsteuer und Anschaffungskosten
+► 19. Abziehbare Vorsteuer und Anschaffungskosten
 
-### Rechtsgrundlagen
+⇶  Rechtsgrundlagen
 
 § 15 Abs. 1 UStG und für die steuerliche Gewinnermittlung ausdrücklich § 9b Abs. 1 EStG.
 
-### Lernsatz
+⇶  Lernsatz
 
 Vorsteuer, die nach § 15 UStG abgezogen werden kann, gehört nicht zu den Anschaffungs- oder Herstellungskosten.
 
-### Beispiel
+⇶  Beispiel
 
 Nettokaufpreis Maschine:
 
@@ -1977,17 +1977,17 @@ Die Vorsteuer von 1.900 Euro wird als Forderung gegenüber dem Finanzamt behande
 
 ---
 
-## 20. Nicht abziehbare Vorsteuer
+► 20. Nicht abziehbare Vorsteuer
 
-### Rechtsgrundlagen
+⇶  Rechtsgrundlagen
 
 § 255 Abs. 1 beziehungsweise Abs. 2 HGB sowie § 9b Abs. 1 EStG im Umkehrschluss für die Steuerbilanz.
 
-### Lernsatz
+⇶  Lernsatz
 
 Nicht abziehbare Umsatzsteuer gehört zu den Anschaffungs- oder Herstellungskosten, soweit sie dem Erwerb oder der Herstellung des Vermögensgegenstands unmittelbar zuzurechnen ist.
 
-### Beispiel
+⇶  Beispiel
 
 Nettokaufpreis:
 
@@ -2003,7 +2003,7 @@ Anschaffungskosten:
 
 11.900 Euro.
 
-### Einschränkung
+⇶  Einschränkung
 
 Nicht abziehbare Umsatzsteuer ist nicht immer zwingend zu aktivieren.
 
@@ -2011,93 +2011,93 @@ Betrifft sie einen sofort abzugsfähigen Aufwand, gehört auch die nicht abziehb
 
 ---
 
-# Teil E: Abschreibungen und Wertminderungen
+⇨ Teil E: Abschreibungen und Wertminderungen
 
-## 21. Planmäßige Abschreibung
+► 21. Planmäßige Abschreibung
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 253 Abs. 3 Satz 1 HGB.
 
-### Lernsatz
+⇶  Lernsatz
 
 Bei Vermögensgegenständen des Anlagevermögens mit zeitlich begrenzter Nutzungsdauer sind die Anschaffungs- oder Herstellungskosten planmäßig auf die Geschäftsjahre der voraussichtlichen Nutzungsdauer zu verteilen.
 
-### Kurzform
+⇶  Kurzform
 
 **Abnutzbares Anlagevermögen muss planmäßig abgeschrieben werden.**
 
 ---
 
-## 22. Außerplanmäßige Abschreibung im Anlagevermögen
+► 22. Außerplanmäßige Abschreibung im Anlagevermögen
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 253 Abs. 3 Satz 5 HGB.
 
-### Lernsatz
+⇶  Lernsatz
 
 Bei einer voraussichtlich dauernden Wertminderung ist ein Vermögensgegenstand des Anlagevermögens auf den niedrigeren beizulegenden Wert abzuschreiben.
 
-### Finanzanlagen
+⇶  Finanzanlagen
 
 Bei Finanzanlagen darf gemäß § 253 Abs. 3 Satz 6 HGB auch bei einer voraussichtlich nicht dauernden Wertminderung eine außerplanmäßige Abschreibung vorgenommen werden.
 
 ---
 
-## 23. Niederstwertprinzip im Umlaufvermögen
+► 23. Niederstwertprinzip im Umlaufvermögen
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 253 Abs. 4 HGB.
 
-### Lernsatz
+⇶  Lernsatz
 
 Vermögensgegenstände des Umlaufvermögens sind auf den niedrigeren Börsen- oder Marktpreis beziehungsweise den niedrigeren beizulegenden Wert abzuschreiben.
 
-### Kurzform
+⇶  Kurzform
 
 **Im Umlaufvermögen gilt das strenge Niederstwertprinzip.**
 
-### Prüfungshinweis
+⇶  Prüfungshinweis
 
 Anders als beim gewöhnlichen Anlagevermögen muss die Wertminderung im Umlaufvermögen nicht dauerhaft sein.
 
 ---
 
-## 24. Wertaufholungsgebot
+► 24. Wertaufholungsgebot
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 253 Abs. 5 Satz 1 HGB.
 
-### Lernsatz
+⇶  Lernsatz
 
 Fällt der Grund für eine frühere außerplanmäßige Abschreibung weg, muss grundsätzlich eine Zuschreibung vorgenommen werden.
 
-### Bewertungsobergrenze
+⇶  Bewertungsobergrenze
 
 Die fortgeführten Anschaffungs- oder Herstellungskosten dürfen nicht überschritten werden.
 
-### Ausnahme
+⇶  Ausnahme
 
 Für einen entgeltlich erworbenen Geschäfts- oder Firmenwert besteht nach § 253 Abs. 5 Satz 2 HGB ein Wertaufholungsverbot.
 
-### Kurzform
+⇶  Kurzform
 
 **Fällt der Abschreibungsgrund weg, muss grundsätzlich bis höchstens zu den fortgeführten AK oder HK zugeschrieben werden.**
 
 ---
 
-# Teil F: Rückstellungen und Verbindlichkeiten
+⇨ Teil F: Rückstellungen und Verbindlichkeiten
 
-## 25. Rückstellungen für ungewisse Verbindlichkeiten
+► 25. Rückstellungen für ungewisse Verbindlichkeiten
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 249 Abs. 1 Satz 1 HGB.
 
-### Lernsatz
+⇶  Lernsatz
 
 Für ungewisse Verbindlichkeiten sind Rückstellungen zu bilden.
 
@@ -2107,7 +2107,7 @@ Ungewiss kann insbesondere sein:
 - in welcher Höhe sie besteht oder
 - wann sie erfüllt werden muss.
 
-### Beispiele
+⇶  Beispiele
 
 - Prozessrisiken,
 - Gewährleistungsverpflichtungen,
@@ -2116,61 +2116,61 @@ Ungewiss kann insbesondere sein:
 
 ---
 
-## 26. Drohverlustrückstellungen
+► 26. Drohverlustrückstellungen
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 249 Abs. 1 Satz 1 HGB.
 
-### Lernsatz
+⇶  Lernsatz
 
 Für drohende Verluste aus schwebenden Geschäften muss handelsrechtlich eine Rückstellung gebildet werden.
 
-### Kurzform
+⇶  Kurzform
 
 **Übersteigt bei einem noch nicht vollständig erfüllten Vertrag die eigene Leistungspflicht den erwarteten Anspruch, ist der drohende Verlust zurückzustellen.**
 
 ---
 
-## 27. Abgrenzung Rückstellung und Verbindlichkeit
+► 27. Abgrenzung Rückstellung und Verbindlichkeit
 
-### Lernsatz
+⇶  Lernsatz
 
 Ist eine Verpflichtung dem Grunde und der Höhe nach hinreichend sicher, wird grundsätzlich eine Verbindlichkeit ausgewiesen.
 
 Ist die Verpflichtung dem Grunde, der Höhe oder dem Zeitpunkt nach ungewiss, kommt eine Rückstellung in Betracht.
 
-### Kurzform
+⇶  Kurzform
 
 **Sicher und bestimmbar bedeutet regelmäßig Verbindlichkeit; ungewiss bedeutet regelmäßig Rückstellung.**
 
-### Achtung
+⇶  Achtung
 
 Der Kurzsatz ersetzt nicht die Prüfung, ob bereits eine Außenverpflichtung vorliegt.
 
 ---
 
-# Teil G: Gewinn- und Verlustrechnung
+⇨ Teil G: Gewinn- und Verlustrechnung
 
-## 28. Pflicht zur Aufstellung der GuV
+► 28. Pflicht zur Aufstellung der GuV
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 242 Abs. 2 HGB.
 
-### Lernsatz
+⇶  Lernsatz
 
 Der Kaufmann hat für den Schluss jedes Geschäftsjahres die Aufwendungen und Erträge in einer Gewinn- und Verlustrechnung gegenüberzustellen.
 
 ---
 
-## 29. Gliederung der GuV bei Kapitalgesellschaften
+► 29. Gliederung der GuV bei Kapitalgesellschaften
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 275 Abs. 1 HGB.
 
-### Lernsatz
+⇶  Lernsatz
 
 Kapitalgesellschaften stellen die Gewinn- und Verlustrechnung in Staffelform auf.
 
@@ -2179,19 +2179,19 @@ Zulässig sind:
 - Gesamtkostenverfahren oder
 - Umsatzkostenverfahren.
 
-### Achtung
+⇶  Achtung
 
 § 275 HGB gehört zu den ergänzenden Vorschriften für Kapitalgesellschaften und bestimmte gleichgestellte Gesellschaften.
 
 ---
 
-## 30. Umsatzsteuer und Umsatzerlöse
+► 30. Umsatzsteuer und Umsatzerlöse
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 277 Abs. 1 HGB.
 
-### Lernsatz
+⇶  Lernsatz
 
 Umsatzerlöse werden nach Abzug von
 
@@ -2201,11 +2201,11 @@ Umsatzerlöse werden nach Abzug von
 
 ausgewiesen.
 
-### Kurzform
+⇶  Kurzform
 
 **Die vereinnahmte Umsatzsteuer ist kein Umsatzerlös, sondern grundsätzlich eine Verbindlichkeit gegenüber dem Finanzamt.**
 
-### Wichtige Korrektur
+⇶  Wichtige Korrektur
 
 § 277 HGB enthält keine allgemeine Definition sämtlicher Aufwendungen und Erträge.
 
@@ -2213,7 +2213,7 @@ Die Vorschrift regelt einzelne Posten der GuV, insbesondere die Umsatzerlöse.
 
 ---
 
-## 31. Umsatzsteuer ist nicht immer erfolgsneutral
+► 31. Umsatzsteuer ist nicht immer erfolgsneutral
 
 Die Aussage „Umsatzsteuer ist niemals Aufwand“ ist zu pauschal.
 
@@ -2223,21 +2223,21 @@ Richtig ist:
 - vereinnahmte Umsatzsteuer ist grundsätzlich eine Verbindlichkeit und kein Ertrag,
 - nicht abziehbare Vorsteuer kann jedoch Aufwand oder Bestandteil der Anschaffungs- beziehungsweise Herstellungskosten sein.
 
-### Prüfungssatz
+⇶  Prüfungssatz
 
 **Nur abzugsfähige Vorsteuer und ordnungsgemäß geschuldete Umsatzsteuer sind grundsätzlich erfolgsneutral.**
 
 ---
 
-# Teil H: Bilanzielle Behandlung der Vorsteuer
+⇨ Teil H: Bilanzielle Behandlung der Vorsteuer
 
-## 32. Entstehung des Vorsteuerabzugs
+► 32. Entstehung des Vorsteuerabzugs
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 15 Abs. 1 UStG.
 
-### Lernsatz
+⇶  Lernsatz
 
 Der Unternehmer kann die gesetzlich geschuldete Steuer für Leistungen eines anderen Unternehmers als Vorsteuer abziehen, wenn die gesetzlichen Voraussetzungen erfüllt sind.
 
@@ -2251,15 +2251,15 @@ Dazu gehören insbesondere:
 
 ---
 
-## 33. Vorsteuer als Forderung
+► 33. Vorsteuer als Forderung
 
-### Rechtsgrundlagen
+⇶  Rechtsgrundlagen
 
 § 246 Abs. 1 Satz 1 HGB,  
 § 266 Abs. 2 B. II. 4 HGB und  
 § 15 Abs. 1 UStG.
 
-### Lernsatz
+⇶  Lernsatz
 
 Ein Vorsteueranspruch ist handelsrechtlich als Forderung gegenüber dem Finanzamt zu behandeln.
 
@@ -2267,7 +2267,7 @@ Bei Kapitalgesellschaften erfolgt der Ausweis regelmäßig unter:
 
 **Sonstige Vermögensgegenstände gemäß § 266 Abs. 2 B. II. 4 HGB.**
 
-### Wichtige Korrektur
+⇶  Wichtige Korrektur
 
 Die Vorsteuerforderung gehört nicht zu den Forderungen aus Lieferungen und Leistungen.
 
@@ -2275,31 +2275,31 @@ Der Schuldner ist das Finanzamt und nicht ein Kunde aus einer Lieferung oder Lei
 
 ---
 
-## 34. Vorsteuer und Umlaufvermögen
+► 34. Vorsteuer und Umlaufvermögen
 
-### Rechtsgrundlagen
+⇶  Rechtsgrundlagen
 
 § 247 Abs. 1 HGB und § 266 Abs. 2 B. II. 4 HGB.
 
-### Lernsatz
+⇶  Lernsatz
 
 Vorsteuerforderungen gehören regelmäßig zum Umlaufvermögen, weil sie nicht dazu bestimmt sind, dem Geschäftsbetrieb dauerhaft zu dienen.
 
-### Kurzform
+⇶  Kurzform
 
 **Vorsteuerüberhang bedeutet regelmäßig Forderung gegenüber dem Finanzamt und damit sonstiger Vermögensgegenstand des Umlaufvermögens.**
 
 ---
 
-## 35. Vorsteuerüberhang
+► 35. Vorsteuerüberhang
 
-### Lernsatz
+⇶  Lernsatz
 
 Übersteigen die abziehbaren Vorsteuerbeträge die geschuldete Umsatzsteuer, besteht grundsätzlich ein Vorsteuerüberhang beziehungsweise Umsatzsteuererstattungsanspruch.
 
 Dieser ist auf der Aktivseite der Bilanz auszuweisen.
 
-### Bilanzposten
+⇶  Bilanzposten
 
 Sonstige Vermögensgegenstände:
 
@@ -2307,7 +2307,7 @@ Sonstige Vermögensgegenstände:
 
 ---
 
-## 36. Umsatzsteuerzahllast
+► 36. Umsatzsteuerzahllast
 
 Übersteigt die geschuldete Umsatzsteuer die abziehbaren Vorsteuerbeträge, besteht eine Umsatzsteuerzahllast.
 
@@ -2321,82 +2321,82 @@ nach § 266 Abs. 3 C. 8 HGB in Betracht.
 
 ---
 
-## 37. Zentraler Prüfungssatz zur Vorsteuer
+► 37. Zentraler Prüfungssatz zur Vorsteuer
 
 **Abziehbare Vorsteuer ist kein Aufwand, sondern zunächst eine Forderung gegenüber dem Finanzamt. Ein Vorsteuerüberhang wird als sonstiger Vermögensgegenstand des Umlaufvermögens ausgewiesen, § 15 Abs. 1 UStG in Verbindung mit § 246 Abs. 1 und § 266 Abs. 2 B. II. 4 HGB.**
 
 ---
 
-# Teil I: Grundlagen der Gemeinnützigkeit
+⇨ Teil I: Grundlagen der Gemeinnützigkeit
 
-## 38. Steuerbegünstigung gemeinnütziger Körperschaften
+► 38. Steuerbegünstigung gemeinnütziger Körperschaften
 
-### Rechtsgrundlagen
+⇶  Rechtsgrundlagen
 
 §§ 51 bis 68 AO und § 5 Abs. 1 Nr. 9 KStG.
 
-### Lernsatz
+⇶  Lernsatz
 
 Körperschaften, die nach ihrer Satzung und tatsächlichen Geschäftsführung ausschließlich und unmittelbar gemeinnützigen, mildtätigen oder kirchlichen Zwecken dienen, sind grundsätzlich von der Körperschaftsteuer befreit.
 
-### Einschränkung
+⇶  Einschränkung
 
 Die Steuerbefreiung erstreckt sich grundsätzlich nicht auf steuerpflichtige wirtschaftliche Geschäftsbetriebe, die keine Zweckbetriebe sind.
 
 ---
 
-## 39. Tatsächliche Geschäftsführung
+► 39. Tatsächliche Geschäftsführung
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 63 Abs. 1 AO.
 
-### Lernsatz
+⇶  Lernsatz
 
 Die tatsächliche Geschäftsführung muss
 
 - auf die ausschließliche und unmittelbare Erfüllung der steuerbegünstigten Zwecke gerichtet sein und
 - den gemeinnützigkeitsrechtlichen Vorgaben der Satzung entsprechen.
 
-### Prüfungssatz
+⇶  Prüfungssatz
 
 **Nicht nur die Satzung, sondern auch das tatsächliche Handeln der Körperschaft muss gemeinnützig sein, § 63 Abs. 1 AO.**
 
-### Folge eines Verstoßes
+⇶  Folge eines Verstoßes
 
 Weicht die tatsächliche Geschäftsführung von den gemeinnützigkeitsrechtlichen Satzungsvorgaben ab, können die Voraussetzungen der Steuerbegünstigung entfallen.
 
 ---
 
-## 40. Maßgeblichkeit der tatsächlichen Mittelverwendung
+► 40. Maßgeblichkeit der tatsächlichen Mittelverwendung
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 63 Abs. 1 AO.
 
-### Lernsatz
+⇶  Lernsatz
 
 Für die Gemeinnützigkeit ist entscheidend, wie die Körperschaft ihre Mittel tatsächlich verwendet.
 
 Eine bloße Absicht oder eine entsprechende Formulierung in der Satzung genügt nicht.
 
-### Kurzform
+⇶  Kurzform
 
 **Entscheidend ist die tatsächliche Verwendung der Mittel, nicht nur die erklärte Absicht.**
 
 ---
 
-## 41. Nachweis durch ordnungsmäßige Aufzeichnungen
+► 41. Nachweis durch ordnungsmäßige Aufzeichnungen
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 63 Abs. 3 AO.
 
-### Lernsatz
+⇶  Lernsatz
 
 Die Körperschaft muss durch ordnungsmäßige Aufzeichnungen über ihre Einnahmen und Ausgaben nachweisen, dass ihre tatsächliche Geschäftsführung den gemeinnützigkeitsrechtlichen Anforderungen entspricht.
 
-### Nachweise nach dem AEAO
+⇶  Nachweise nach dem AEAO
 
 Hierzu gehören insbesondere:
 
@@ -2406,7 +2406,7 @@ Hierzu gehören insbesondere:
 - Nachweise über die Bildung und Entwicklung von Rücklagen,
 - Belege über die tatsächliche Mittelverwendung.
 
-### Wichtige Korrektur
+⇶  Wichtige Korrektur
 
 Die Nachweis- und Aufzeichnungspflicht ergibt sich aus § 63 Abs. 3 AO.
 
@@ -2414,27 +2414,27 @@ Die Nachweis- und Aufzeichnungspflicht ergibt sich aus § 63 Abs. 3 AO.
 
 ---
 
-## 42. Bedeutung des § 63 Abs. 4 AO
+► 42. Bedeutung des § 63 Abs. 4 AO
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 63 Abs. 4 AO.
 
-### Lernsatz
+⇶  Lernsatz
 
 Hat eine Körperschaft Mittel ohne ausreichende gesetzliche Grundlage angesammelt, kann das Finanzamt eine angemessene Frist zur Verwendung der Mittel setzen.
 
 Verwendet die Körperschaft die Mittel innerhalb dieser Frist für steuerbegünstigte Zwecke, gilt die tatsächliche Geschäftsführung insoweit als ordnungsgemäß.
 
-### Kurzform
+⇶  Kurzform
 
 **§ 63 Abs. 4 AO ist eine Heilungsregelung für unzulässig angesammelte Mittel und keine Vorschrift über die Vier-Sphären-Buchhaltung.**
 
 ---
 
-# Teil J: Die vier steuerlichen Bereiche
+⇨ Teil J: Die vier steuerlichen Bereiche
 
-## 43. Vier-Sphären-Modell
+► 43. Vier-Sphären-Modell
 
 Die Tätigkeit einer gemeinnützigen Körperschaft wird in der Praxis in folgende Bereiche gegliedert:
 
@@ -2443,7 +2443,7 @@ Die Tätigkeit einer gemeinnützigen Körperschaft wird in der Praxis in folgend
 3. Zweckbetrieb,
 4. steuerpflichtiger wirtschaftlicher Geschäftsbetrieb.
 
-### Gesetzliche Einordnung
+⇶  Gesetzliche Einordnung
 
 Die Begriffe ergeben sich insbesondere aus:
 
@@ -2452,13 +2452,13 @@ Die Begriffe ergeben sich insbesondere aus:
 - §§ 65 bis 68 AO,
 - § 5 Abs. 1 Nr. 9 KStG.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Jeder Geschäftsvorfall einer gemeinnützigen Körperschaft muss dem zutreffenden steuerlichen Tätigkeitsbereich zugeordnet werden.**
 
 ---
 
-## 44. Getrennte Aufzeichnung der Tätigkeitsbereiche
+► 44. Getrennte Aufzeichnung der Tätigkeitsbereiche
 
 Die AO enthält in § 63 Abs. 3 die Pflicht, die ordnungsgemäße tatsächliche Geschäftsführung durch Aufzeichnungen nachzuweisen.
 
@@ -2470,11 +2470,11 @@ Damit
 
 nachvollziehbar sind, müssen die Einnahmen und Ausgaben den jeweiligen Tätigkeitsbereichen sachgerecht zugeordnet werden.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Ideeller Bereich, Vermögensverwaltung, Zweckbetrieb und steuerpflichtiger wirtschaftlicher Geschäftsbetrieb sind buchhalterisch beziehungsweise rechnerisch nachvollziehbar voneinander abzugrenzen.**
 
-### Rechtsgrundlagen
+⇶  Rechtsgrundlagen
 
 § 63 Abs. 3 AO,  
 AEAO zu § 63 Nr. 1 sowie  
@@ -2482,13 +2482,13 @@ AEAO zu § 63 Nr. 1 sowie
 
 ---
 
-# Teil K: Ideeller Bereich
+⇨ Teil K: Ideeller Bereich
 
-## 45. Begriff
+► 45. Begriff
 
 Zum ideellen Bereich gehören Tätigkeiten, mit denen die Körperschaft unmittelbar ihre steuerbegünstigten Satzungszwecke verfolgt, ohne dass ein steuerpflichtiger wirtschaftlicher Geschäftsbetrieb oder eine Vermögensverwaltung vorliegt.
 
-### Typische Einnahmen
+⇶  Typische Einnahmen
 
 - echte Mitgliedsbeiträge,
 - Spenden,
@@ -2499,49 +2499,49 @@ Zum ideellen Bereich gehören Tätigkeiten, mit denen die Körperschaft unmittel
 
 ---
 
-## 46. Körperschaftsteuer im ideellen Bereich
+► 46. Körperschaftsteuer im ideellen Bereich
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 5 Abs. 1 Nr. 9 KStG.
 
-### Lernsatz
+⇶  Lernsatz
 
 Einnahmen und Tätigkeiten des ideellen Bereichs werden grundsätzlich von der Körperschaftsteuerbefreiung der gemeinnützigen Körperschaft erfasst.
 
 ---
 
-## 47. Umsatzsteuer im ideellen Bereich
+► 47. Umsatzsteuer im ideellen Bereich
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 1 Abs. 1 Nr. 1 UStG.
 
-### Lernsatz
+⇶  Lernsatz
 
 Echte Mitgliedsbeiträge und echte Spenden sind nicht umsatzsteuerbar, wenn ihnen keine konkrete Leistung der Körperschaft gegenübersteht.
 
-### Wichtig
+⇶  Wichtig
 
 Nicht jede Einnahme, die buchhalterisch dem ideellen Bereich zugeordnet wird, ist allein deshalb umsatzsteuerlich nicht steuerbar.
 
 Entscheidend ist, ob ein Leistungsaustausch vorliegt.
 
-### Prüfungssatz
+⇶  Prüfungssatz
 
 **Ohne Leistung gegen Gegenleistung liegt grundsätzlich kein steuerbarer Umsatz nach § 1 Abs. 1 Nr. 1 UStG vor.**
 
 ---
 
-# Teil L: Vermögensverwaltung
+⇨ Teil L: Vermögensverwaltung
 
-## 48. Begriff der Vermögensverwaltung
+► 48. Begriff der Vermögensverwaltung
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 14 AO.
 
-### Lernsatz
+⇶  Lernsatz
 
 Vermögensverwaltung liegt regelmäßig vor, wenn vorhandenes Vermögen genutzt wird.
 
@@ -2551,25 +2551,25 @@ Typische Beispiele sind:
 - langfristige Vermietung von unbeweglichem Vermögen,
 - Verpachtung eigenen Vermögens.
 
-### Abgrenzung
+⇶  Abgrenzung
 
 Eine Tätigkeit wird zum wirtschaftlichen Geschäftsbetrieb, wenn sie über die bloße Nutzung und Verwaltung des eigenen Vermögens hinausgeht.
 
 ---
 
-## 49. Körperschaftsteuer bei Vermögensverwaltung
+► 49. Körperschaftsteuer bei Vermögensverwaltung
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 5 Abs. 1 Nr. 9 KStG in Verbindung mit § 14 AO.
 
-### Lernsatz
+⇶  Lernsatz
 
 Die gewöhnliche Vermögensverwaltung einer gemeinnützigen Körperschaft wird grundsätzlich von der Körperschaftsteuerbefreiung erfasst.
 
 ---
 
-## 50. Umsatzsteuer bei Vermögensverwaltung
+► 50. Umsatzsteuer bei Vermögensverwaltung
 
 Die körperschaftsteuerliche Steuerbefreiung führt nicht automatisch zur Umsatzsteuerfreiheit.
 
@@ -2579,17 +2579,17 @@ Beispiele:
 - bestimmte Kapitalumsätze können nach § 4 Nr. 8 UStG steuerfrei sein,
 - andere Leistungen können steuerpflichtig sein.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Körperschaftsteuerliche Vermögensverwaltung und umsatzsteuerliche Steuerfreiheit sind getrennt zu prüfen.**
 
 ---
 
-# Teil M: Zweckbetrieb
+⇨ Teil M: Zweckbetrieb
 
-## 51. Allgemeiner Zweckbetrieb
+► 51. Allgemeiner Zweckbetrieb
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 65 AO.
 
@@ -2599,13 +2599,13 @@ Ein Zweckbetrieb liegt vor, wenn alle drei Voraussetzungen erfüllt sind:
 2. Die steuerbegünstigten Zwecke können nur durch einen solchen Geschäftsbetrieb erreicht werden.
 3. Der Geschäftsbetrieb tritt zu nicht begünstigten Betrieben derselben oder ähnlicher Art nicht stärker in Wettbewerb, als es zur Erfüllung der steuerbegünstigten Zwecke unvermeidbar ist.
 
-### Merksatz
+⇶  Merksatz
 
 **Satzungszweck, Erforderlichkeit und unvermeidbarer Wettbewerb bilden die drei Voraussetzungen des § 65 AO.**
 
 ---
 
-## 52. Besondere Zweckbetriebe
+► 52. Besondere Zweckbetriebe
 
 Besondere Zweckbetriebe ergeben sich insbesondere aus:
 
@@ -2614,19 +2614,19 @@ Besondere Zweckbetriebe ergeben sich insbesondere aus:
 - § 67a AO: sportliche Veranstaltungen,
 - § 68 AO: gesetzlich aufgezählte einzelne Zweckbetriebe.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Vor der Prüfung des allgemeinen § 65 AO ist zu prüfen, ob bereits ein besonderer Zweckbetrieb nach §§ 66 bis 68 AO vorliegt.**
 
 ---
 
-## 53. Körperschaftsteuer beim Zweckbetrieb
+► 53. Körperschaftsteuer beim Zweckbetrieb
 
-### Rechtsgrundlagen
+⇶  Rechtsgrundlagen
 
 § 5 Abs. 1 Nr. 9 KStG und § 64 Abs. 1 AO.
 
-### Lernsatz
+⇶  Lernsatz
 
 Ein Zweckbetrieb gehört zur steuerbegünstigten Tätigkeit der Körperschaft.
 
@@ -2634,33 +2634,33 @@ Seine Besteuerungsgrundlagen unterliegen grundsätzlich nicht der Körperschaft-
 
 ---
 
-## 54. Umsatzsteuer beim Zweckbetrieb
+► 54. Umsatzsteuer beim Zweckbetrieb
 
-### Rechtsgrundlagen
+⇶  Rechtsgrundlagen
 
 § 1 Abs. 1 Nr. 1 UStG und § 12 Abs. 2 Nr. 8 Buchst. a UStG.
 
-### Lernsatz
+⇶  Lernsatz
 
 Leistungen eines Zweckbetriebs sind nicht automatisch umsatzsteuerfrei.
 
 Liegt ein steuerbarer und steuerpflichtiger Leistungsaustausch vor, muss der anzuwendende Steuersatz geprüft werden.
 
-### Ermäßigter Steuersatz
+⇶  Ermäßigter Steuersatz
 
 Der ermäßigte Steuersatz nach § 12 Abs. 2 Nr. 8 Buchst. a UStG kann angewendet werden, wenn die dort genannten zusätzlichen Voraussetzungen erfüllt sind.
 
-### Prüfungssatz
+⇶  Prüfungssatz
 
 **Zweckbetrieb bedeutet Körperschaftsteuerbegünstigung, aber nicht automatisch Umsatzsteuerfreiheit oder automatisch sieben Prozent Umsatzsteuer.**
 
 ---
 
-# Teil N: Wirtschaftlicher Geschäftsbetrieb
+⇨ Teil N: Wirtschaftlicher Geschäftsbetrieb
 
-## 55. Definition
+► 55. Definition
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 14 Satz 1 AO.
 
@@ -2671,57 +2671,57 @@ Ein wirtschaftlicher Geschäftsbetrieb ist eine
 
 durch die Einnahmen oder andere wirtschaftliche Vorteile erzielt werden und die über den Rahmen einer Vermögensverwaltung hinausgeht.
 
-### Nicht erforderlich
+⇶  Nicht erforderlich
 
 Eine Gewinnerzielungsabsicht ist nach § 14 AO nicht erforderlich.
 
 Eine Beteiligung am allgemeinen wirtschaftlichen Verkehr ist ebenfalls nicht zwingend erforderlich.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Für einen wirtschaftlichen Geschäftsbetrieb genügt eine selbständige, nachhaltige und über die Vermögensverwaltung hinausgehende Einnahmetätigkeit.**
 
 ---
 
-## 56. Körperschaft- und Gewerbesteuerpflicht
+► 56. Körperschaft- und Gewerbesteuerpflicht
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 64 Abs. 1 AO.
 
-### Lernsatz
+⇶  Lernsatz
 
 Unterhält eine steuerbegünstigte Körperschaft einen wirtschaftlichen Geschäftsbetrieb, der kein Zweckbetrieb ist, entfällt die Steuerbegünstigung insoweit für die diesem Geschäftsbetrieb zuzurechnenden Besteuerungsgrundlagen.
 
-### Kurzform
+⇶  Kurzform
 
 **Der steuerpflichtige wirtschaftliche Geschäftsbetrieb ist körperschaft- und gewerbesteuerlich grundsätzlich steuerpflichtig, ohne dass dadurch automatisch die gesamte Gemeinnützigkeit entfällt.**
 
 ---
 
-## 57. Einnahmengrenze von 50.000 Euro
+► 57. Einnahmengrenze von 50.000 Euro
 
-### Rechtsgrundlage
+⇶  Rechtsgrundlage
 
 § 64 Abs. 3 AO.
 
-### Lernsatz
+⇶  Lernsatz
 
 Übersteigen die Einnahmen einschließlich Umsatzsteuer aus sämtlichen wirtschaftlichen Geschäftsbetrieben, die keine Zweckbetriebe sind, insgesamt nicht 50.000 Euro im Jahr, unterliegen die diesen Geschäftsbetrieben zuzurechnenden Besteuerungsgrundlagen nicht der Körperschaft- und Gewerbesteuer.
 
-### Wichtig
+⇶  Wichtig
 
 Maßgebend sind die Einnahmen einschließlich Umsatzsteuer, nicht der Gewinn.
 
 Mehrere steuerpflichtige wirtschaftliche Geschäftsbetriebe werden für die Grenze zusammengerechnet.
 
-### Freigrenze
+⇶  Freigrenze
 
 Die Grenze ist eine Freigrenze und kein Freibetrag.
 
 Wird sie überschritten, wird nicht lediglich der übersteigende Einnahmenbetrag betrachtet.
 
-### Zentrale Einschränkung
+⇶  Zentrale Einschränkung
 
 § 64 Abs. 3 AO betrifft nur Körperschaft- und Gewerbesteuer.
 
@@ -2729,20 +2729,20 @@ Die Vorschrift enthält keine Umsatzsteuerbefreiung.
 
 ---
 
-## 58. Umsatzsteuer beim wirtschaftlichen Geschäftsbetrieb
+► 58. Umsatzsteuer beim wirtschaftlichen Geschäftsbetrieb
 
-### Rechtsgrundlagen
+⇶  Rechtsgrundlagen
 
 § 1 Abs. 1 Nr. 1 und § 2 Abs. 1 UStG.
 
-### Lernsatz
+⇶  Lernsatz
 
 Umsätze des wirtschaftlichen Geschäftsbetriebs sind umsatzsteuerbar, wenn
 
 1. die Körperschaft insoweit als Unternehmer handelt und
 2. eine Lieferung oder sonstige Leistung gegen Entgelt im Inland ausführt.
 
-### Weitere Prüfung
+⇶  Weitere Prüfung
 
 Anschließend sind insbesondere zu prüfen:
 
@@ -2752,33 +2752,33 @@ Anschließend sind insbesondere zu prüfen:
 - Steuerschuldnerschaft,
 - Vorsteuerabzug.
 
-### Prüfungssatz
+⇶  Prüfungssatz
 
 **Die Einnahmengrenze des § 64 Abs. 3 AO hat keinen unmittelbaren Einfluss auf die Umsatzsteuer.**
 
 ---
 
-# Teil O: Steuerliche Folgen der vier Bereiche
+⇨ Teil O: Steuerliche Folgen der vier Bereiche
 
-## 59. Ideeller Bereich
+► 59. Ideeller Bereich
 
-### Körperschaftsteuer
+⇶  Körperschaftsteuer
 
 Grundsätzlich steuerbefreit nach § 5 Abs. 1 Nr. 9 KStG.
 
-### Umsatzsteuer
+⇶  Umsatzsteuer
 
 Echte Spenden und echte Mitgliedsbeiträge sind mangels Leistungsaustauschs regelmäßig nicht steuerbar, § 1 Abs. 1 Nr. 1 UStG.
 
 ---
 
-## 60. Vermögensverwaltung
+► 60. Vermögensverwaltung
 
-### Körperschaftsteuer
+⇶  Körperschaftsteuer
 
 Grundsätzlich von der Steuerbefreiung erfasst, § 5 Abs. 1 Nr. 9 KStG in Verbindung mit § 14 AO.
 
-### Umsatzsteuer
+⇶  Umsatzsteuer
 
 Gesondert zu prüfen.
 
@@ -2786,13 +2786,13 @@ Je nach Tätigkeit steuerpflichtig oder nach § 4 UStG steuerfrei.
 
 ---
 
-## 61. Zweckbetrieb
+► 61. Zweckbetrieb
 
-### Körperschaftsteuer
+⇶  Körperschaftsteuer
 
 Grundsätzlich steuerbegünstigt, § 5 Abs. 1 Nr. 9 KStG in Verbindung mit §§ 64 bis 68 AO.
 
-### Umsatzsteuer
+⇶  Umsatzsteuer
 
 Nicht automatisch steuerfrei.
 
@@ -2800,15 +2800,15 @@ Der ermäßigte Steuersatz nach § 12 Abs. 2 Nr. 8 Buchst. a UStG kann unter den
 
 ---
 
-## 62. Steuerpflichtiger wirtschaftlicher Geschäftsbetrieb
+► 62. Steuerpflichtiger wirtschaftlicher Geschäftsbetrieb
 
-### Körperschaft- und Gewerbesteuer
+⇶  Körperschaft- und Gewerbesteuer
 
 Grundsätzlich steuerpflichtig nach § 64 Abs. 1 AO.
 
 Die Einnahmengrenze des § 64 Abs. 3 AO ist zu prüfen.
 
-### Umsatzsteuer
+⇶  Umsatzsteuer
 
 Bei Vorliegen der Voraussetzungen des § 1 Abs. 1 Nr. 1 UStG grundsätzlich steuerbar.
 
@@ -2816,7 +2816,7 @@ Steuerbefreiungen und Steuersatz sind gesondert zu prüfen.
 
 ---
 
-# Teil P: Kompakte Lernsatz-Sammlung
+⇨ Teil P: Kompakte Lernsatz-Sammlung
 
 1. Jeder Kaufmann ist grundsätzlich nach § 238 Abs. 1 HGB zur Buchführung verpflichtet.
 
@@ -2922,9 +2922,9 @@ Steuerbefreiungen und Steuersatz sind gesondert zu prüfen.
     "§ 25c UStG"
   ],
   body: `
-# Anlagegold – Steuerbefreiung, Option und Reverse Charge
+⇨ Anlagegold – Steuerbefreiung, Option und Reverse Charge
 
-## 1. Grundsatz
+► 1. Grundsatz
 
 Die Lieferung von Anlagegold ist grundsätzlich von der Umsatzsteuer befreit.
 
@@ -2938,7 +2938,7 @@ wenn die gesetzlichen Voraussetzungen an Feingehalt und Marktgängigkeit erfüll
 
 ---
 
-## 2. Ausgangssachverhalt
+► 2. Ausgangssachverhalt
 
 Ein Goldhändler überlässt einer Scheideanstalt verunreinigtes Gold.
 
@@ -2952,7 +2952,7 @@ Später verzichtet der Händler gegen Entgelt auf seinen Herausgabeanspruch.
 
 ---
 
-## 3. Lieferung des Anlagegolds
+► 3. Lieferung des Anlagegolds
 
 Der entgeltliche Verzicht auf den Herausgabeanspruch kann eine Übertragung der Verfügungsmacht und damit eine Lieferung darstellen.
 
@@ -2964,13 +2964,13 @@ wo sich das Anlagegold bei Übertragung befindet.
 
 ---
 
-## 4. Steuerbefreiung
+► 4. Steuerbefreiung
 
 Die Lieferung von Anlagegold ist grundsätzlich nach § 25c UStG steuerfrei.
 
 ---
 
-## 5. Option zur Steuerpflicht
+► 5. Option zur Steuerpflicht
 
 Unter den Voraussetzungen des § 25c UStG kann der Unternehmer auf die Steuerbefreiung verzichten.
 
@@ -2982,7 +2982,7 @@ ist die Lieferung steuerpflichtig.
 
 ---
 
-## 6. Reverse Charge
+► 6. Reverse Charge
 
 Bei einer steuerpflichtigen Lieferung von Anlagegold kann der Leistungsempfänger die Umsatzsteuer schulden.
 
@@ -3002,7 +3002,7 @@ Die Rechnung enthält den Hinweis:
 
 ---
 
-## 7. Vorsteuerabzug
+► 7. Vorsteuerabzug
 
 Der Leistungsempfänger kann die nach § 13b UStG geschuldete Steuer nach § 15 Abs. 1 Satz 1 Nr. 4 UStG als Vorsteuer abziehen,
 
@@ -3013,7 +3013,7 @@ wenn
 
 ---
 
-# Prüfungsschema
+⇨ Prüfungsschema
 
 1. Handelt es sich um Anlagegold im Sinne des § 25c UStG?
 
@@ -3035,27 +3035,27 @@ wenn
 
 ---
 
-# Typische Klausurfallen
+⇨ Typische Klausurfallen
 
-## Fehler 1: Jede Goldlieferung ist steuerfrei
+► Fehler 1: Jede Goldlieferung ist steuerfrei
 
 Nur Anlagegold im Sinne des § 25c UStG fällt unter die besondere Befreiung.
 
-## Fehler 2: Option übersehen
+► Fehler 2: Option übersehen
 
 Unter den gesetzlichen Voraussetzungen kann zur Steuerpflicht optiert werden.
 
-## Fehler 3: Steuer beim Lieferer erfassen
+► Fehler 3: Steuer beim Lieferer erfassen
 
 Bei steuerpflichtiger Anlagegoldlieferung kann der Leistungsempfänger Steuerschuldner sein.
 
-## Fehler 4: Goldkonto ohne Lieferung behandeln
+► Fehler 4: Goldkonto ohne Lieferung behandeln
 
 Auch die Übertragung oder Aufgabe eines Herausgabeanspruchs kann eine Lieferung auslösen.
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 - Anlagegold ist grundsätzlich steuerfrei.
 - Eine Option zur Steuerpflicht kann möglich sein.
@@ -3097,9 +3097,9 @@ Auch die Übertragung oder Aufgabe eines Herausgabeanspruchs kann eine Lieferung
     "Abschn. 13b.3 UStAE"
   ],
   body: `
-# Fassadenerneuerung – komplexer Umsatzsteuerfall
+⇨ Fassadenerneuerung – komplexer Umsatzsteuerfall
 
-## 1. Sachverhalt im Überblick
+► 1. Sachverhalt im Überblick
 
 Eine KG übernimmt für die Bundesagentur für Arbeit die Verkleidung eines Dienstgebäudes mit Granitplatten.
 
@@ -3127,9 +3127,9 @@ Zu prüfen sind:
 
 ---
 
-# 2. Fassadenverkleidung durch die KG
+⇨ 2. Fassadenverkleidung durch die KG
 
-## Art der Leistung
+► Art der Leistung
 
 Die KG bringt selbst beschaffte Granitfliesen an dem Gebäude an.
 
@@ -3137,7 +3137,7 @@ Die Granitfliesen bestimmen den wirtschaftlichen Gehalt der Leistung und stellen
 
 Damit liegt eine Werklieferung nach § 3 Abs. 4 UStG vor.
 
-## Einschaltung von Subunternehmern
+► Einschaltung von Subunternehmern
 
 Die KG schuldet gegenüber der Bundesagentur das fertige Werk.
 
@@ -3145,7 +3145,7 @@ Dass sie sich zur Ausführung eines Fliesenlegers bedient, ist unschädlich.
 
 Der Fliesenleger ist umsatzsteuerlich Erfüllungsgehilfe der KG.
 
-## Zeitpunkt der Leistung
+► Zeitpunkt der Leistung
 
 Die Werklieferung ist mit der Abnahme des fertigen Werks ausgeführt.
 
@@ -3153,7 +3153,7 @@ Im Beispiel:
 
 10.09.
 
-## Ort der Leistung
+► Ort der Leistung
 
 Der Ort der unbewegten Werklieferung befindet sich am Belegenheitsort des Gebäudes.
 
@@ -3161,7 +3161,7 @@ Im Beispiel:
 
 Wuppertal.
 
-## Steuerbarkeit und Steuerpflicht
+► Steuerbarkeit und Steuerpflicht
 
 Die Werklieferung ist im Inland steuerbar und mangels Steuerbefreiung mit 19 % steuerpflichtig.
 
@@ -3177,13 +3177,13 @@ Umsatzsteuer:
 
 ---
 
-# 3. Keine Steuerschuldnerschaft der Bundesagentur
+⇨ 3. Keine Steuerschuldnerschaft der Bundesagentur
 
-## § 13b Abs. 2 Nr. 1 UStG
+► § 13b Abs. 2 Nr. 1 UStG
 
 Diese Vorschrift greift nicht, weil die KG kein im Ausland ansässiger Unternehmer ist.
 
-## § 13b Abs. 2 Nr. 4 UStG
+► § 13b Abs. 2 Nr. 4 UStG
 
 Die Bundesagentur erhält die Leistung für ihren hoheitlichen Bereich.
 
@@ -3191,7 +3191,7 @@ Sie empfängt die Leistung nicht im Rahmen eines Betriebs gewerblicher Art, der 
 
 Daher wird sie nicht Steuerschuldner nach § 13b Abs. 5 Satz 2 UStG.
 
-## Rechtsfolge
+► Rechtsfolge
 
 Steuerschuldner bleibt die KG nach § 13a Abs. 1 Nr. 1 UStG.
 
@@ -3203,11 +3203,11 @@ anmelden und abführen.
 
 ---
 
-# 4. Fehlerhafter Reverse-Charge-Hinweis
+⇨ 4. Fehlerhafter Reverse-Charge-Hinweis
 
 Die KG stellt eine Rechnung ohne Umsatzsteuerausweis aus und weist fälschlich auf die Steuerschuldnerschaft der Bundesagentur hin.
 
-## Folge
+► Folge
 
 Der Hinweis ist sachlich falsch.
 
@@ -3215,7 +3215,7 @@ Da jedoch keine Umsatzsteuer offen ausgewiesen wurde, entsteht keine zusätzlich
 
 Die KG schuldet dennoch die gesetzlich entstandene Umsatzsteuer von 95.000 €.
 
-## Merksatz
+► Merksatz
 
 Falscher Reverse-Charge-Hinweis
 
@@ -3225,9 +3225,9 @@ führt nicht automatisch zu § 14c UStG.
 
 ---
 
-# 5. Verlegearbeiten des Fliesenlegers
+⇨ 5. Verlegearbeiten des Fliesenlegers
 
-## Art der Leistung
+► Art der Leistung
 
 Die KG stellt sämtliche Granitfliesen und damit die Hauptstoffe zur Verfügung.
 
@@ -3235,7 +3235,7 @@ Der Fliesenleger führt ausschließlich die Verlegearbeiten aus.
 
 Damit liegt keine Werklieferung, sondern eine Werkleistung und somit eine sonstige Leistung nach § 3 Abs. 9 UStG vor.
 
-## Zeitpunkt
+► Zeitpunkt
 
 Die Leistung ist mit Beendigung der Verlegearbeiten ausgeführt.
 
@@ -3243,33 +3243,33 @@ Im Beispiel:
 
 30.08.
 
-## Ort
+► Ort
 
 Die Leistung steht unmittelbar mit einem Grundstück in Zusammenhang.
 
 Ort der Leistung ist Wuppertal.
 
-## Steuerbarkeit
+► Steuerbarkeit
 
 Die Leistung ist im Inland steuerbar und steuerpflichtig.
 
 ---
 
-# 6. Reverse Charge für die Verlegearbeiten
+⇨ 6. Reverse Charge für die Verlegearbeiten
 
-## Bauleistung
+► Bauleistung
 
 Das Verlegen von Granitfliesen an einer Gebäudefassade dient der Instandhaltung oder Änderung eines Bauwerks.
 
 Es handelt sich um eine Bauleistung nach § 13b Abs. 2 Nr. 4 UStG.
 
-## Leistungsempfänger
+► Leistungsempfänger
 
 Die KG erbringt selbst Bauleistungen.
 
 Daher schuldet sie als Leistungsempfängerin die Umsatzsteuer nach § 13b Abs. 5 Satz 2 UStG.
 
-## Bemessungsgrundlage
+► Bemessungsgrundlage
 
 160.000 €
 
@@ -3279,7 +3279,7 @@ Umsatzsteuer:
 
 = 30.400 €
 
-## Steuerentstehung ohne Rechnung
+► Steuerentstehung ohne Rechnung
 
 Der Fliesenleger stellt trotz Aufforderung zunächst keine Rechnung aus.
 
@@ -3287,7 +3287,7 @@ Bei Leistungen nach § 13b UStG entsteht die Steuer spätestens nach den gesetzl
 
 Da die Leistung am 30.08. ausgeführt wurde und keine Rechnung vorliegt, ist die Umsatzsteuer im Voranmeldungszeitraum September zu erfassen.
 
-## Vorsteuerabzug
+► Vorsteuerabzug
 
 Die KG kann die nach § 13b UStG geschuldete Steuer nach § 15 Abs. 1 Satz 1 Nr. 4 UStG als Vorsteuer abziehen.
 
@@ -3304,21 +3304,21 @@ Voraussetzung bleibt:
 
 Da die Verlegeleistung unmittelbar für den steuerpflichtigen Fassadenumsatz verwendet wird, besteht der Vorsteuerabzug vollständig.
 
-## Merksatz
+► Merksatz
 
 Bei § 13b-Umsätzen ist der Vorsteuerabzug nach § 15 Abs. 1 Satz 1 Nr. 4 UStG grundsätzlich auch ohne Rechnung möglich.
 
 ---
 
-# 7. Gerüstbauleistung
+⇨ 7. Gerüstbauleistung
 
-## Art der Leistung
+► Art der Leistung
 
 Der Gerüstbauer errichtet und entfernt das Baugerüst.
 
 Es handelt sich um eine Werkleistung und damit um eine sonstige Leistung nach § 3 Abs. 9 UStG.
 
-## Zeitpunkt
+► Zeitpunkt
 
 Die Leistung ist mit Abschluss der geschuldeten Arbeiten ausgeführt.
 
@@ -3326,7 +3326,7 @@ Im Beispiel:
 
 Abbau des Gerüsts im August.
 
-## Ort
+► Ort
 
 Die Gerüstbauleistung steht mit dem Grundstück in Zusammenhang.
 
@@ -3334,19 +3334,19 @@ Ort:
 
 Wuppertal.
 
-## Steuerbarkeit und Steuerpflicht
+► Steuerbarkeit und Steuerpflicht
 
 Die Leistung ist im Inland steuerbar und mit 19 % steuerpflichtig.
 
 ---
 
-# 8. Personalgestellung als Leistungsbeistellung
+⇨ 8. Personalgestellung als Leistungsbeistellung
 
 Die KG stellt dem Gerüstbauer fünf eigene Hilfskräfte zur Verfügung.
 
 Diese werden ausschließlich auf der Baustelle eingesetzt und weiterhin von der KG bezahlt.
 
-## Beurteilung
+► Beurteilung
 
 Die Personalgestellung erfolgt lediglich zur Unterstützung der Leistung des Gerüstbauers.
 
@@ -3354,13 +3354,13 @@ Sie nimmt nicht an einem eigenständigen Leistungsaustausch teil.
 
 Es handelt sich um eine nicht steuerbare Leistungsbeistellung.
 
-## Folge
+► Folge
 
 Das vereinbarte Entgelt für die Gerüstbauleistung wird durch die Personalgestellung nicht gemindert.
 
 ---
 
-# 9. Kein Reverse Charge beim Gerüstbau
+⇨ 9. Kein Reverse Charge beim Gerüstbau
 
 Nach der im Fall zugrunde gelegten Verwaltungsauffassung stellt das bloße Auf- und Abbauen eines Gerüsts keine Bauleistung im Sinne des § 13b Abs. 2 Nr. 4 UStG dar.
 
@@ -3368,7 +3368,7 @@ Daher geht die Steuerschuld nicht auf die KG über.
 
 Steuerschuldner bleibt der Gerüstbauer nach § 13a Abs. 1 Nr. 1 UStG.
 
-## Bemessungsgrundlage
+► Bemessungsgrundlage
 
 Ursprüngliches Entgelt:
 
@@ -3390,7 +3390,7 @@ Umsatzsteuer:
 
 ---
 
-# 10. Vertragsstrafe
+⇨ 10. Vertragsstrafe
 
 Der Gerüstbauer führt die Arbeiten nicht fristgerecht aus.
 
@@ -3398,7 +3398,7 @@ Die KG kürzt deshalb die Abschlusszahlung um eine vereinbarte Vertragsstrafe vo
 
 5.000 €.
 
-## Umsatzsteuerliche Beurteilung
+► Umsatzsteuerliche Beurteilung
 
 Die Vertragsstrafe wird wegen nicht ordnungsgemäßer Erfüllung gezahlt.
 
@@ -3406,7 +3406,7 @@ Sie hat Schadensersatzcharakter.
 
 Es liegt insoweit kein Leistungsaustausch vor.
 
-## Keine Entgeltminderung
+► Keine Entgeltminderung
 
 Die Vertragsstrafe mindert nicht das Entgelt für die Gerüstbauleistung.
 
@@ -3418,13 +3418,13 @@ Umsatzsteuer bleibt:
 
 17.100 €
 
-## Merksatz
+► Merksatz
 
 Echter Schadensersatz mindert die umsatzsteuerliche Bemessungsgrundlage nicht.
 
 ---
 
-# 11. Anzahlung beim Gerüstbauer
+⇨ 11. Anzahlung beim Gerüstbauer
 
 Im Mai wird eine Anzahlung gezahlt:
 
@@ -3436,7 +3436,7 @@ zuzüglich
 
 Der Gerüstbauer stellt eine ordnungsgemäße Anzahlungsrechnung aus.
 
-## Vorsteuerabzug aus der Anzahlung
+► Vorsteuerabzug aus der Anzahlung
 
 Die KG kann die Vorsteuer bereits im Voranmeldungszeitraum Mai abziehen, wenn
 
@@ -3447,7 +3447,7 @@ Vorsteuer Mai:
 
 1.900 €
 
-## Restlicher Vorsteuerabzug
+► Restlicher Vorsteuerabzug
 
 Gesamte Umsatzsteuer:
 
@@ -3469,7 +3469,7 @@ August.
 
 ---
 
-# 12. Zahlungsrechnung
+⇨ 12. Zahlungsrechnung
 
 Schlussrechnung:
 
@@ -3503,9 +3503,9 @@ Die Vertragsstrafe verändert die umsatzsteuerliche Bemessungsgrundlage nicht.
 
 ---
 
-# Prüfungsschema Fassadenerneuerung
+⇨ Prüfungsschema Fassadenerneuerung
 
-## Für jede einzelne Leistung getrennt prüfen
+► Für jede einzelne Leistung getrennt prüfen
 
 1. Wer leistet an wen?
 
@@ -3535,9 +3535,9 @@ Die Vertragsstrafe verändert die umsatzsteuerliche Bemessungsgrundlage nicht.
 
 ---
 
-# Typische Klausurfallen
+⇨ Typische Klausurfallen
 
-## Fehler 1: Jeder Fassadenauftrag ist automatisch Reverse Charge
+► Fehler 1: Jeder Fassadenauftrag ist automatisch Reverse Charge
 
 Falsch.
 
@@ -3547,7 +3547,7 @@ Eine juristische Person des öffentlichen Rechts im hoheitlichen Bereich wird ni
 
 ---
 
-## Fehler 2: Hauptstoffe übersehen
+► Fehler 2: Hauptstoffe übersehen
 
 Stellt der Auftragnehmer die Hauptstoffe, liegt regelmäßig eine Werklieferung vor.
 
@@ -3555,7 +3555,7 @@ Stellt der Auftraggeber die Hauptstoffe, liegt regelmäßig eine Werkleistung vo
 
 ---
 
-## Fehler 3: Fehlende Rechnung verhindert § 13b-Vorsteuerabzug
+► Fehler 3: Fehlende Rechnung verhindert § 13b-Vorsteuerabzug
 
 Falsch.
 
@@ -3563,19 +3563,19 @@ Für den Vorsteuerabzug nach § 15 Abs. 1 Satz 1 Nr. 4 UStG ist eine Rechnung gr
 
 ---
 
-## Fehler 4: Gerüstbau automatisch als Bauleistung behandeln
+► Fehler 4: Gerüstbau automatisch als Bauleistung behandeln
 
 Nach der im Fall verwendeten Verwaltungsauffassung ist das bloße Auf- und Abbauen eines Gerüsts keine Bauleistung im Sinne des § 13b Abs. 2 Nr. 4 UStG.
 
 ---
 
-## Fehler 5: Personalgestellung als Gegenleistung behandeln
+► Fehler 5: Personalgestellung als Gegenleistung behandeln
 
 Werden eigene Arbeitnehmer lediglich zur Unterstützung des Auftragnehmers bereitgestellt, kann eine nicht steuerbare Leistungsbeistellung vorliegen.
 
 ---
 
-## Fehler 6: Vertragsstrafe vom Entgelt abziehen
+► Fehler 6: Vertragsstrafe vom Entgelt abziehen
 
 Eine Vertragsstrafe wegen verspäteter oder mangelhafter Leistung kann echten Schadensersatz darstellen.
 
@@ -3583,13 +3583,13 @@ Dann mindert sie die Bemessungsgrundlage nicht.
 
 ---
 
-## Fehler 7: Anzahlungs-Vorsteuer zu spät abziehen
+► Fehler 7: Anzahlungs-Vorsteuer zu spät abziehen
 
 Bei ordnungsgemäßer Anzahlungsrechnung und Zahlung kann die Vorsteuer bereits vor Ausführung der Leistung abgezogen werden.
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 - Eigene Hauptstoffe des Auftragnehmers sprechen für eine Werklieferung.
 - Hauptstoffe des Auftraggebers sprechen für eine Werkleistung.
@@ -3636,9 +3636,9 @@ Bei ordnungsgemäßer Anzahlungsrechnung und Zahlung kann die Vorsteuer bereits 
     "§ 19 UStG"
   ],
   body: `
-# Reverse Charge nach § 13b Abs. 2 Nr. 1–4 UStG
+⇨ Reverse Charge nach § 13b Abs. 2 Nr. 1–4 UStG
 
-## 1. Grundprinzip
+► 1. Grundprinzip
 
 Beim Reverse-Charge-Verfahren schuldet nicht der leistende Unternehmer, sondern der Leistungsempfänger die Umsatzsteuer.
 
@@ -3662,9 +3662,9 @@ Ob ein Vorsteuerabzug möglich ist, ist eine zweite Frage.
 
 ---
 
-# Allgemeines Prüfungsschema
+⇨ Allgemeines Prüfungsschema
 
-## Schritt 1: Leistung bestimmen
+► Schritt 1: Leistung bestimmen
 
 Zu prüfen ist:
 
@@ -3675,17 +3675,17 @@ Zu prüfen ist:
 - Lieferung von Sicherungsgut
 - oder Bauleistung.
 
-## Schritt 2: Ort der Leistung bestimmen
+► Schritt 2: Ort der Leistung bestimmen
 
 Nur wenn die Leistung im Inland steuerbar ist, kommt deutsche Umsatzsteuer in Betracht.
 
-## Schritt 3: Steuerbarkeit und Steuerbefreiung prüfen
+► Schritt 3: Steuerbarkeit und Steuerbefreiung prüfen
 
 - § 1 Abs. 1 Nr. 1 UStG
 - Steuerbefreiungen nach § 4 UStG
 - ggf. Option nach § 9 UStG
 
-## Schritt 4: Tatbestand des § 13b UStG prüfen
+► Schritt 4: Tatbestand des § 13b UStG prüfen
 
 Insbesondere:
 
@@ -3694,7 +3694,7 @@ Insbesondere:
 - § 13b Abs. 2 Nr. 3 UStG
 - § 13b Abs. 2 Nr. 4 UStG
 
-## Schritt 5: Bemessungsgrundlage und Umsatzsteuer
+► Schritt 5: Bemessungsgrundlage und Umsatzsteuer
 
 Bemessungsgrundlage:
 
@@ -3704,7 +3704,7 @@ Umsatzsteuer regelmäßig:
 
 19 % nach § 12 Abs. 1 UStG.
 
-## Schritt 6: Zeitpunkt der Steuerentstehung
+► Schritt 6: Zeitpunkt der Steuerentstehung
 
 Der Zeitpunkt richtet sich nach den besonderen Regelungen des § 13b UStG.
 
@@ -3714,7 +3714,7 @@ Dabei ist insbesondere zu prüfen:
 - Zeitpunkt der Leistungsausführung
 - Ablauf des folgenden Kalendermonats
 
-## Schritt 7: Vorsteuerabzug
+► Schritt 7: Vorsteuerabzug
 
 Der Leistungsempfänger kann die nach § 13b UStG geschuldete Steuer nach § 15 Abs. 1 Satz 1 Nr. 4 UStG als Vorsteuer abziehen, wenn
 
@@ -3723,9 +3723,9 @@ Der Leistungsempfänger kann die nach § 13b UStG geschuldete Steuer nach § 15 
 
 ---
 
-# 2. § 13b Abs. 2 Nr. 1 UStG – ausländischer Unternehmer
+⇨ 2. § 13b Abs. 2 Nr. 1 UStG – ausländischer Unternehmer
 
-## Fall: Wintergarten durch niederländischen Unternehmer
+► Fall: Wintergarten durch niederländischen Unternehmer
 
 Ein deutscher Unternehmer beauftragt einen in den Niederlanden ansässigen Unternehmer mit der Errichtung eines Wintergartens auf einem unternehmerisch genutzten Grundstück in Wuppertal.
 
@@ -3739,7 +3739,7 @@ Festpreis:
 
 30.000 € netto.
 
-## Art der Leistung
+► Art der Leistung
 
 Es liegt eine Werklieferung vor.
 
@@ -3751,7 +3751,7 @@ Rechtsgrundlage:
 
 § 3 Abs. 4 UStG.
 
-## Ort der Lieferung
+► Ort der Lieferung
 
 Der Wintergarten wird fest mit dem Grundstück verbunden.
 
@@ -3763,7 +3763,7 @@ Wuppertal.
 
 Die Leistung wird damit im Inland ausgeführt.
 
-## Steuerbarkeit
+► Steuerbarkeit
 
 Die Werklieferung ist nach § 1 Abs. 1 Nr. 1 UStG steuerbar.
 
@@ -3773,7 +3773,7 @@ Steuersatz:
 
 19 %.
 
-## Steuerschuldnerschaft
+► Steuerschuldnerschaft
 
 Der leistende Unternehmer ist im Ausland ansässig.
 
@@ -3789,7 +3789,7 @@ Umsatzsteuer:
 
 = 5.700 €
 
-## Steuerentstehung
+► Steuerentstehung
 
 Wird die Rechnung am 20.09. ausgestellt, entsteht die Steuer im Voranmeldungszeitraum September.
 
@@ -3799,7 +3799,7 @@ Bei Leistungsausführung im September:
 
 spätestens Voranmeldungszeitraum Oktober.
 
-## Vorsteuerabzug
+► Vorsteuerabzug
 
 Bezieht der Leistungsempfänger den Wintergarten für sein Unternehmen, kann er die nach § 13b UStG geschuldete Umsatzsteuer als Vorsteuer abziehen.
 
@@ -3813,19 +3813,19 @@ Keine Ausschlussgründe nach § 15 Abs. 2 UStG.
 
 ---
 
-# 3. Abwandlung: steuerfreie Vermietung
+⇨ 3. Abwandlung: steuerfreie Vermietung
 
 Der Unternehmer lässt den Wintergarten an einem zu Wohnzwecken vermieteten Einfamilienhaus errichten.
 
 Die Vermietung erfolgt an eine Privatperson.
 
-## Steuerschuld
+► Steuerschuld
 
 Die Steuerschuldnerschaft nach § 13b UStG bleibt bestehen.
 
 Der Leistungsempfänger schuldet die Umsatzsteuer.
 
-## Vorsteuerabzug
+► Vorsteuerabzug
 
 Kein Vorsteuerabzug.
 
@@ -3837,21 +3837,21 @@ Damit greift der Vorsteuerausschluss nach § 15 Abs. 2 UStG.
 
 Eine Option zur Steuerpflicht nach § 9 UStG ist nicht möglich, wenn der Mieter das Grundstück nicht für sein Unternehmen verwendet.
 
-## Merksatz
+► Merksatz
 
 Reverse Charge kann vorliegen, obwohl kein Vorsteuerabzug besteht.
 
 ---
 
-# 4. Abwandlung: private Selbstnutzung
+⇨ 4. Abwandlung: private Selbstnutzung
 
 Der Unternehmer lässt den Wintergarten an seinem privat genutzten Einfamilienhaus errichten.
 
-## Steuerschuld
+► Steuerschuld
 
 Auch bei Bezug für den außerunternehmerischen Bereich kann die Steuerschuldnerschaft nach § 13b UStG auf den Leistungsempfänger übergehen.
 
-## Vorsteuerabzug
+► Vorsteuerabzug
 
 Kein Vorsteuerabzug.
 
@@ -3861,7 +3861,7 @@ Die Leistung wird nicht für das Unternehmen bezogen.
 
 Die Voraussetzungen des § 15 Abs. 1 UStG sind nicht erfüllt.
 
-## Merksatz
+► Merksatz
 
 Private Nutzung verhindert nicht zwingend § 13b UStG.
 
@@ -3869,21 +3869,21 @@ Sie verhindert jedoch regelmäßig den Vorsteuerabzug.
 
 ---
 
-# 5. Abwandlung: Kleinunternehmer
+⇨ 5. Abwandlung: Kleinunternehmer
 
 Der Leistungsempfänger ist Kleinunternehmer.
 
-## Steuerschuld
+► Steuerschuld
 
 Die Steuerschuldnerschaft nach § 13b UStG kann auch bei einem Kleinunternehmer auf den Leistungsempfänger übergehen.
 
 Die Kleinunternehmerregelung schützt nicht vor der Steuerschuld nach § 13b UStG.
 
-## Vorsteuerabzug
+► Vorsteuerabzug
 
 Der Kleinunternehmer kann die geschuldete Umsatzsteuer grundsätzlich nicht als Vorsteuer abziehen.
 
-## Rechtsfolge
+► Rechtsfolge
 
 Umsatzsteuer:
 
@@ -3895,7 +3895,7 @@ Zahlung an das Finanzamt:
 
 Kein entsprechender Vorsteuerabzug.
 
-## Merksatz
+► Merksatz
 
 Kleinunternehmer + § 13b UStG:
 
@@ -3903,7 +3903,7 @@ Steuer zahlen, aber regelmäßig keine Vorsteuer abziehen.
 
 ---
 
-# 6. Abwandlung: Rechnung mit offen ausgewiesener Umsatzsteuer
+⇨ 6. Abwandlung: Rechnung mit offen ausgewiesener Umsatzsteuer
 
 Der ausländische Unternehmer stellt eine Rechnung über
 
@@ -3913,7 +3913,7 @@ zzgl. 5.700 € Umsatzsteuer.
 
 Der Leistungsempfänger zahlt lediglich 30.000 €.
 
-## Steuerschuld des Leistungsempfängers
+► Steuerschuld des Leistungsempfängers
 
 Der Leistungsempfänger schuldet weiterhin die Umsatzsteuer nach § 13b UStG.
 
@@ -3925,19 +3925,19 @@ Umsatzsteuer:
 
 5.700 €
 
-## Unrichtiger Steuerausweis
+► Unrichtiger Steuerausweis
 
 Der leistende Unternehmer darf die Umsatzsteuer bei Anwendung des Reverse-Charge-Verfahrens nicht offen ausweisen.
 
 Weist er dennoch Umsatzsteuer aus, kann er diese nach § 14c Abs. 1 UStG schulden.
 
-## Kein Vorsteuerabzug aus der falschen Rechnung
+► Kein Vorsteuerabzug aus der falschen Rechnung
 
 Der Leistungsempfänger kann aus dem unrichtigen Steuerausweis grundsätzlich keinen zusätzlichen Vorsteuerabzug beanspruchen.
 
 Der Vorsteuerabzug richtet sich nach der nach § 13b UStG geschuldeten Steuer.
 
-## Rechnungshinweis
+► Rechnungshinweis
 
 Die Rechnung muss auf die Steuerschuldnerschaft des Leistungsempfängers hinweisen.
 
@@ -3947,9 +3947,9 @@ Typischer Hinweis:
 
 ---
 
-# 7. § 13b Abs. 2 Nr. 2 UStG – Lieferung von Sicherungsgut
+⇨ 7. § 13b Abs. 2 Nr. 2 UStG – Lieferung von Sicherungsgut
 
-## Grundfall
+► Grundfall
 
 Ein LKW wurde zur Sicherung einer Forderung an einen Gläubiger sicherungsübereignet.
 
@@ -3957,7 +3957,7 @@ Später wird der LKW durch den Sicherungsgeber veräußert.
 
 Dadurch kann umsatzsteuerlich eine Lieferung des Sicherungsnehmers an den Sicherungsgeber ausgelöst werden.
 
-## Lieferung des Sicherungsguts
+► Lieferung des Sicherungsguts
 
 Die Lieferung des Sicherungsguts fällt unter § 13b Abs. 2 Nr. 2 UStG.
 
@@ -3975,13 +3975,13 @@ Umsatzsteuer:
 
 = 11.210 €
 
-## Steuerentstehung
+► Steuerentstehung
 
 Die Umsatzsteuer entsteht nach den besonderen Regeln des § 13b UStG.
 
 Im Beispielsfall erfolgt die Anmeldung im entsprechenden Voranmeldungszeitraum nach der Verwertung des Sicherungsguts.
 
-## Vorsteuerabzug
+► Vorsteuerabzug
 
 Der Leistungsempfänger kann die nach § 13b UStG geschuldete Umsatzsteuer als Vorsteuer abziehen, wenn
 
@@ -3994,7 +3994,7 @@ Vorsteuer:
 
 ---
 
-# 8. Veräußerung des LKW an einen Käufer im Drittland
+⇨ 8. Veräußerung des LKW an einen Käufer im Drittland
 
 Wird der LKW an einen Unternehmer in der Schweiz veräußert und in das Drittland befördert, kann die Lieferung als Ausfuhrlieferung steuerfrei sein.
 
@@ -4010,7 +4010,7 @@ Bei steuerfreien Ausfuhrlieferungen bleibt der Vorsteuerabzug grundsätzlich erh
 
 ---
 
-# 9. Vorsteuer aus einem Zeitungsinserat
+⇨ 9. Vorsteuer aus einem Zeitungsinserat
 
 Ein Verlag veröffentlicht eine Anzeige für den Verkauf des LKW.
 
@@ -4020,7 +4020,7 @@ Rechnung:
 
 + 38 € Umsatzsteuer.
 
-## Leistung
+► Leistung
 
 Der Verlag erbringt eine sonstige Leistung.
 
@@ -4030,7 +4030,7 @@ Inland.
 
 Der Umsatz des Verlags ist steuerpflichtig.
 
-## Vorsteuerabzug
+► Vorsteuerabzug
 
 Die Umsatzsteuer von 38 € ist als Vorsteuer abziehbar, wenn
 
@@ -4039,9 +4039,9 @@ Die Umsatzsteuer von 38 € ist als Vorsteuer abziehbar, wenn
 
 ---
 
-# 10. § 13b Abs. 2 Nr. 3 UStG – Grundstückslieferung
+⇨ 10. § 13b Abs. 2 Nr. 3 UStG – Grundstückslieferung
 
-## Fall
+► Fall
 
 Eine Unternehmerin verkauft ein unternehmerisch genutztes Grundstück für
 
@@ -4053,7 +4053,7 @@ Das Grundstück war zuvor vermietet.
 
 Der Verkäufer verzichtet im notariellen Kaufvertrag auf die Steuerbefreiung nach § 4 Nr. 9a UStG.
 
-## Lieferung
+► Lieferung
 
 Die Übertragung eines Grundstücks stellt eine Lieferung dar.
 
@@ -4065,7 +4065,7 @@ Ort:
 
 Lage des Grundstücks.
 
-## Keine Geschäftsveräußerung im Ganzen
+► Keine Geschäftsveräußerung im Ganzen
 
 Eine Geschäftsveräußerung im Ganzen nach § 1 Abs. 1a UStG liegt nicht vor, wenn der Erwerber die bisherige Vermietungstätigkeit nicht fortführt.
 
@@ -4073,7 +4073,7 @@ Beispiel:
 
 Der Erwerber nutzt das Grundstück als Parkplatz für eigene Lastkraftwagen.
 
-## Steuerbefreiung und Option
+► Steuerbefreiung und Option
 
 Grundstückslieferungen sind grundsätzlich nach § 4 Nr. 9a UStG steuerfrei.
 
@@ -4081,7 +4081,7 @@ Der Verkäufer kann unter den Voraussetzungen des § 9 UStG zur Steuerpflicht op
 
 Bei Grundstückslieferungen muss die Option regelmäßig im notariellen Vertrag erklärt werden.
 
-## Steuerschuldnerschaft
+► Steuerschuldnerschaft
 
 Bei einer steuerpflichtigen Grundstückslieferung schuldet der Leistungsempfänger die Umsatzsteuer nach § 13b Abs. 2 Nr. 3 UStG.
 
@@ -4095,11 +4095,11 @@ Umsatzsteuer:
 
 = 76.000 €
 
-## Vorsteuerabzug
+► Vorsteuerabzug
 
 Der Erwerber kann die Umsatzsteuer von 76.000 € als Vorsteuer abziehen, wenn er das Grundstück für steuerpflichtige Unternehmensumsätze verwendet.
 
-## Merksatz
+► Merksatz
 
 Steuerpflichtige Grundstückslieferung zwischen Unternehmern:
 
@@ -4107,9 +4107,9 @@ Umsatzsteuer regelmäßig beim Käufer nach § 13b UStG.
 
 ---
 
-# 11. § 13b Abs. 2 Nr. 4 UStG – Bauleistungen
+⇨ 11. § 13b Abs. 2 Nr. 4 UStG – Bauleistungen
 
-## Fall
+► Fall
 
 Ein Fliesenleger verlegt in den Geschäftsräumen eines Trockenbauunternehmens neue Fliesen.
 
@@ -4121,7 +4121,7 @@ Entgelt:
 
 10.000 € netto.
 
-## Art der Leistung
+► Art der Leistung
 
 Es liegt eine Werklieferung vor.
 
@@ -4129,7 +4129,7 @@ Begründung:
 
 Der Fliesenleger verwendet selbst beschaffte Hauptstoffe und erstellt ein fertiges Werk.
 
-## Ort der Leistung
+► Ort der Leistung
 
 Die Werklieferung wird an einem Grundstück in Köln ausgeführt.
 
@@ -4137,7 +4137,7 @@ Ort:
 
 Köln.
 
-## Steuerbarkeit
+► Steuerbarkeit
 
 Der Umsatz ist im Inland steuerbar und mangels Steuerbefreiung steuerpflichtig.
 
@@ -4145,7 +4145,7 @@ Steuersatz:
 
 19 %.
 
-## Steuerschuldnerschaft
+► Steuerschuldnerschaft
 
 Der Leistungsempfänger erbringt selbst nachhaltig Bauleistungen.
 
@@ -4163,17 +4163,17 @@ Umsatzsteuer:
 
 = 1.900 €
 
-## Steuerentstehung
+► Steuerentstehung
 
 Die Steuer entsteht nach den besonderen Regeln des § 13b UStG.
 
 Wird die Rechnung im September ausgestellt, ist die Steuer im entsprechenden Voranmeldungszeitraum anzumelden.
 
-## Vorsteuerabzug
+► Vorsteuerabzug
 
 Der Leistungsempfänger kann die geschuldete Umsatzsteuer von 1.900 € als Vorsteuer abziehen, wenn die Bauleistung für sein Unternehmen verwendet wird und keine Ausschlussgründe vorliegen.
 
-## Rechnung
+► Rechnung
 
 Der Fliesenleger darf keine Umsatzsteuer offen ausweisen.
 
@@ -4185,9 +4185,9 @@ Der leistende Unternehmer meldet den Nettoumsatz in seiner Umsatzsteuer-Voranmel
 
 ---
 
-# Übersicht § 13b Abs. 2 Nr. 1–4 UStG
+⇨ Übersicht § 13b Abs. 2 Nr. 1–4 UStG
 
-## Nr. 1
+► Nr. 1
 
 Bestimmte steuerpflichtige Leistungen eines im Ausland ansässigen Unternehmers.
 
@@ -4195,7 +4195,7 @@ Beispiel:
 
 Niederländischer Unternehmer errichtet Wintergarten in Deutschland.
 
-## Nr. 2
+► Nr. 2
 
 Lieferung sicherungsübereigneter Gegenstände durch den Sicherungsgeber an den Sicherungsnehmer außerhalb des Insolvenzverfahrens.
 
@@ -4203,7 +4203,7 @@ Beispiel:
 
 Verwertung eines sicherungsübereigneten LKW.
 
-## Nr. 3
+► Nr. 3
 
 Steuerpflichtige Grundstückslieferung nach wirksamer Option.
 
@@ -4211,7 +4211,7 @@ Beispiel:
 
 Unternehmer verkauft Grundstück an einen anderen Unternehmer.
 
-## Nr. 4
+► Nr. 4
 
 Bauleistungen an einen Unternehmer, der selbst nachhaltig entsprechende Bauleistungen erbringt.
 
@@ -4221,9 +4221,9 @@ Fliesenleger arbeitet für Trockenbauunternehmer.
 
 ---
 
-# Typische Klausurfallen
+⇨ Typische Klausurfallen
 
-## Fehler 1: Reverse Charge und Vorsteuerabzug gleichsetzen
+► Fehler 1: Reverse Charge und Vorsteuerabzug gleichsetzen
 
 Falsch:
 
@@ -4241,7 +4241,7 @@ Beispiele:
 
 ---
 
-## Fehler 2: ausländischer Unternehmer weist Umsatzsteuer aus
+► Fehler 2: ausländischer Unternehmer weist Umsatzsteuer aus
 
 Bei § 13b UStG darf der leistende Unternehmer grundsätzlich keine deutsche Umsatzsteuer offen ausweisen.
 
@@ -4249,7 +4249,7 @@ Ein unrichtiger Steuerausweis kann zu einer Steuerschuld nach § 14c UStG führe
 
 ---
 
-## Fehler 3: Grundstückslieferung automatisch steuerpflichtig behandeln
+► Fehler 3: Grundstückslieferung automatisch steuerpflichtig behandeln
 
 Grundstückslieferungen sind grundsätzlich steuerfrei.
 
@@ -4259,7 +4259,7 @@ Bei wirksamer Option kann der Leistungsempfänger die Steuer nach § 13b UStG sc
 
 ---
 
-## Fehler 4: jede handwerkliche Leistung ist automatisch eine Bauleistung
+► Fehler 4: jede handwerkliche Leistung ist automatisch eine Bauleistung
 
 Es muss geprüft werden,
 
@@ -4268,7 +4268,7 @@ Es muss geprüft werden,
 
 ---
 
-## Fehler 5: Kleinunternehmer muss § 13b UStG nicht anwenden
+► Fehler 5: Kleinunternehmer muss § 13b UStG nicht anwenden
 
 Falsch.
 
@@ -4278,7 +4278,7 @@ Er hat dann jedoch regelmäßig keinen Vorsteuerabzug.
 
 ---
 
-# Prüfungs-Merksätze
+⇨ Prüfungs-Merksätze
 
 - § 13b UStG verlagert die Steuerschuld auf den Leistungsempfänger.
 - Steuerschuld und Vorsteuerabzug sind immer getrennt zu prüfen.
@@ -4291,7 +4291,7 @@ Er hat dann jedoch regelmäßig keinen Vorsteuerabzug.
 
 ---
 
-# Kurzes Klausurschema
+⇨ Kurzes Klausurschema
 
 1. Leistung bestimmen.
 2. Ort der Leistung bestimmen.
@@ -4381,9 +4381,9 @@ Er hat dann jedoch regelmäßig keinen Vorsteuerabzug.
     "Abschn. 13b.2 und 13b.3 UStAE"
   ],
   body: `
-# Bauträger – Umsatzsteuer, § 13b und Vorsteuerberichtigung
+⇨ Bauträger – Umsatzsteuer, § 13b und Vorsteuerberichtigung
 
-## 1. Ausgangssachverhalt
+► 1. Ausgangssachverhalt
 
 Eine KG betreibt
 
@@ -4416,9 +4416,9 @@ aus dem eigenen Baustoffhandel für das Bauträgergeschäft verwendet.
 
 ---
 
-# 2. Ausgangsumsätze des Bauträgers
+⇨ 2. Ausgangsumsätze des Bauträgers
 
-## Einheitliche Grundstückslieferung
+► Einheitliche Grundstückslieferung
 
 Die Errichtung eines Gebäudes auf einem eigenen Grundstück und die anschließende Veräußerung des bebauten Grundstücks bilden eine einheitliche Lieferung.
 
@@ -4432,13 +4432,13 @@ Im Beispiel:
 
 Mettmann.
 
-## Steuerbarkeit
+► Steuerbarkeit
 
 Die Lieferung wird im Inland gegen Entgelt im Rahmen des Unternehmens ausgeführt.
 
 Sie ist daher nach § 1 Abs. 1 Nr. 1 UStG steuerbar.
 
-## Steuerbefreiung
+► Steuerbefreiung
 
 Die Veräußerung des Grundstücks ist nach
 
@@ -4450,7 +4450,7 @@ Bemessungsgrundlage:
 
 8.000.000 €
 
-## Keine Option zur Steuerpflicht
+► Keine Option zur Steuerpflicht
 
 Eine Option nach § 9 UStG scheidet aus, wenn die Grundstücke an Privatpersonen verkauft werden.
 
@@ -4462,9 +4462,9 @@ Die Grundstückslieferungen bleiben steuerfrei.
 
 ---
 
-# 3. Subunternehmerleistungen
+⇨ 3. Subunternehmerleistungen
 
-## Art der Leistung
+► Art der Leistung
 
 Die Subunternehmer errichten einzelne Gewerke und verwenden dabei eigene Hauptstoffe.
 
@@ -4477,7 +4477,7 @@ Beispiele:
 - Fensterbau mit eigenen Fenstern
 - Heizungsanlage mit eigenem Material
 
-## Ort der Werklieferung
+► Ort der Werklieferung
 
 Die Gewerke werden fest mit dem Grundstück verbunden.
 
@@ -4487,7 +4487,7 @@ Im Beispiel:
 
 Mettmann.
 
-## Steuerbarkeit und Steuerpflicht
+► Steuerbarkeit und Steuerpflicht
 
 Die Subunternehmerleistungen sind im Inland steuerbar.
 
@@ -4497,13 +4497,13 @@ Sie sind daher mit 19 % steuerpflichtig.
 
 ---
 
-# 4. Keine Steuerschuldnerschaft des Bauträgers nach § 13b
+⇨ 4. Keine Steuerschuldnerschaft des Bauträgers nach § 13b
 
-## Grundsatz bei Bauleistungen
+► Grundsatz bei Bauleistungen
 
 Bei Bauleistungen kann der Leistungsempfänger nach § 13b Abs. 5 Satz 2 UStG Steuerschuldner werden, wenn er selbst nachhaltig Bauleistungen erbringt.
 
-## Besonderheit beim Bauträger
+► Besonderheit beim Bauträger
 
 Ein Bauträger, der ausschließlich
 
@@ -4524,13 +4524,13 @@ Entscheidend bleibt:
 
 Der Bauträger liefert ein eigenes bebautes Grundstück.
 
-## Rechtsfolge
+► Rechtsfolge
 
 Der Bauträger wird für die empfangenen Subunternehmerleistungen grundsätzlich nicht Steuerschuldner nach § 13b Abs. 5 Satz 2 UStG.
 
 Steuerschuldner bleiben die Subunternehmer nach § 13a Abs. 1 Nr. 1 UStG.
 
-## Zahlenbeispiel
+► Zahlenbeispiel
 
 Bemessungsgrundlage:
 
@@ -4546,15 +4546,15 @@ Die Subunternehmer stellen Rechnungen mit offen ausgewiesener Umsatzsteuer aus.
 
 ---
 
-# 5. Vorsteuerabzug aus Subunternehmerleistungen
+⇨ 5. Vorsteuerabzug aus Subunternehmerleistungen
 
-## Grundvoraussetzung
+► Grundvoraussetzung
 
 Grundsätzlich liegen Leistungen für das Unternehmen vor.
 
 Damit könnte zunächst ein Vorsteuerabzug nach § 15 Abs. 1 Nr. 1 UStG in Betracht kommen.
 
-## Ausschluss wegen steuerfreier Ausgangsumsätze
+► Ausschluss wegen steuerfreier Ausgangsumsätze
 
 Die Subunternehmerleistungen stehen jedoch direkt und unmittelbar mit den steuerfreien Grundstückslieferungen an Privatpersonen in Zusammenhang.
 
@@ -4562,7 +4562,7 @@ Daher greift der Vorsteuerausschluss nach
 
 § 15 Abs. 2 Nr. 1 UStG.
 
-## Ergebnis
+► Ergebnis
 
 Kein Vorsteuerabzug aus den Subunternehmerrechnungen.
 
@@ -4570,7 +4570,7 @@ Nicht abziehbare Vorsteuer:
 
 304.000 €
 
-## Merksatz
+► Merksatz
 
 Steuerpflichtige Eingangsleistung
 
@@ -4582,9 +4582,9 @@ führt regelmäßig zum Ausschluss des Vorsteuerabzugs.
 
 ---
 
-# 6. Baustoffe aus dem eigenen Baustoffhandel
+⇨ 6. Baustoffe aus dem eigenen Baustoffhandel
 
-## Ursprünglicher Erwerb
+► Ursprünglicher Erwerb
 
 Die KG hatte Baustoffe für ihren Baustoffhandel erworben.
 
@@ -4598,7 +4598,7 @@ Vorsteuer:
 
 76.000 €
 
-## Verwendung im Bauträgergeschäft
+► Verwendung im Bauträgergeschäft
 
 Die Baustoffe werden anschließend aus dem Baustoffhandel entnommen und in die zum Verkauf bestimmten Gebäude eingebaut.
 
@@ -4608,19 +4608,19 @@ Es liegt daher kein steuerbarer Innenumsatz vor.
 
 ---
 
-# 7. Vorsteuerberichtigung nach § 15a Abs. 2 UStG
+⇨ 7. Vorsteuerberichtigung nach § 15a Abs. 2 UStG
 
-## Einmalige Verwendung
+► Einmalige Verwendung
 
 Die Baustoffe sind Wirtschaftsgüter, die nur einmalig zur Ausführung eines Umsatzes verwendet werden.
 
 Daher ist § 15a Abs. 2 UStG zu prüfen.
 
-## Ursprüngliche Verhältnisse
+► Ursprüngliche Verhältnisse
 
 Beim Erwerb der Baustoffe war der Vorsteuerabzug vollständig zulässig, weil sie für den steuerpflichtigen Baustoffhandel bestimmt waren.
 
-## Tatsächliche Verwendung
+► Tatsächliche Verwendung
 
 Später werden die Baustoffe für steuerfreie Grundstückslieferungen eingesetzt.
 
@@ -4628,7 +4628,7 @@ Diese Grundstückslieferungen schließen den Vorsteuerabzug nach § 15 Abs. 2 Nr
 
 Damit ändern sich die für den ursprünglichen Vorsteuerabzug maßgeblichen Verhältnisse.
 
-## Rechtsfolge
+► Rechtsfolge
 
 Die ursprünglich abgezogene Vorsteuer ist nach § 15a Abs. 2 UStG zu berichtigen.
 
@@ -4642,7 +4642,7 @@ Die Bagatellgrenzen des § 44 UStDV sind überschritten.
 
 ---
 
-# Prüfungsschema Bauträger
+⇨ Prüfungsschema Bauträger
 
 1. Ausgangsleistung bestimmen:
    - Grundstückslieferung oder Bauleistung?
@@ -4669,9 +4669,9 @@ Die Bagatellgrenzen des § 44 UStDV sind überschritten.
 
 ---
 
-# Typische Klausurfallen
+⇨ Typische Klausurfallen
 
-## Fehler 1: Bauträger automatisch als Bauleistenden behandeln
+► Fehler 1: Bauträger automatisch als Bauleistenden behandeln
 
 Falsch:
 
@@ -4683,13 +4683,13 @@ Verkauft er eigene bebaute Grundstücke, erbringt er Grundstückslieferungen.
 
 ---
 
-## Fehler 2: Einfluss der Käufer überbewerten
+► Fehler 2: Einfluss der Käufer überbewerten
 
 Sonderwünsche und Mitspracherechte der Käufer machen die Grundstückslieferung nicht automatisch zu einer Bauleistung.
 
 ---
 
-## Fehler 3: Vorsteuer aus Subunternehmerleistungen abziehen
+► Fehler 3: Vorsteuer aus Subunternehmerleistungen abziehen
 
 Die Leistungen stehen unmittelbar mit steuerfreien Grundstückslieferungen in Zusammenhang.
 
@@ -4697,7 +4697,7 @@ Daher ist der Vorsteuerabzug ausgeschlossen.
 
 ---
 
-## Fehler 4: Baustoffentnahme als steuerbaren Umsatz behandeln
+► Fehler 4: Baustoffentnahme als steuerbaren Umsatz behandeln
 
 Die Übertragung zwischen verschiedenen Tätigkeitsbereichen desselben Unternehmens ist grundsätzlich ein nicht steuerbarer Innenumsatz.
 
@@ -4705,13 +4705,13 @@ Die tatsächliche steuerliche Korrektur erfolgt über § 15a UStG.
 
 ---
 
-## Fehler 5: § 15a UStG übersehen
+► Fehler 5: § 15a UStG übersehen
 
 Wurden Baustoffe zunächst für steuerpflichtige Umsätze angeschafft und später für steuerfreie Grundstückslieferungen verwendet, ist der ursprüngliche Vorsteuerabzug zu berichtigen.
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 - Bauträger verkaufen regelmäßig bebaute Grundstücke.
 - Grundstückslieferungen an Privatpersonen sind regelmäßig steuerfrei.

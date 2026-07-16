@@ -5,11 +5,11 @@ category: Umsatzsteuer
 references: §15 Abs.1 Nr.4 UStG
 ---
 
-# Vorsteuerabzug beim Grundstückserwerb
+⇨ Vorsteuerabzug beim Grundstückserwerb
 
 
 
-# Vorsteuerabzug
+⇨ Vorsteuerabzug
 
 Der Leistungsempfänger kann die nach §13b geschuldete Umsatzsteuer gleichzeitig als Vorsteuer abziehen,
 
@@ -23,7 +23,7 @@ und
 
 ---
 
-## Folge
+► Folge
 
 Vorsteuerabzug in voller Höhe möglich.
 

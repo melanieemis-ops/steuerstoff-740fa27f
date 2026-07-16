@@ -6,7 +6,7 @@ source: Internes Handout — ErbSt / EStG / Bilanzierung / UmwStG.
 references: §§ 1, 3, 6, 7, 9, 10, 11, 12, 13, 20 ErbStG, §§ 11, 151, 182–198 BewG, § 1922 BGB
 ---
 
-# Erbschaftsteuer & Bewertung — Merksätze
+⇨ Erbschaftsteuer & Bewertung — Merksätze
 
 _Erbanfall, Vor-/Nacherbschaft, Nachlassverbindlichkeiten, Familienheim, nicht notierte Anteile und Grundbesitzbewertung._
 

@@ -5,11 +5,11 @@ category: Umsatzsteuer
 references: §1 Abs.1a UStG
 ---
 
-# Geschäftsveräußerung im Ganzen bei Grundstücken
+⇨ Geschäftsveräußerung im Ganzen bei Grundstücken
 
 
 
-# Prüfung
+⇨ Prüfung
 
 Eine nicht steuerbare Geschäftsveräußerung liegt nur vor, wenn
 
@@ -21,7 +21,7 @@ und
 
 ---
 
-## Keine Geschäftsveräußerung
+► Keine Geschäftsveräußerung
 
 Verwendet der Erwerber das Grundstück künftig für einen anderen Zweck,
 
@@ -29,7 +29,7 @@ liegt keine Geschäftsveräußerung im Ganzen vor.
 
 ---
 
-## Merksatz
+► Merksatz
 
 Andere Nutzung
 

@@ -6,7 +6,7 @@ source: Internes Arbeitspapier — Dokumentationsstandards Rücklagen.
 references: § 62 AO, § 63 AO
 ---
 
-# Vorstandsbeschlüsse und Dokumentation
+⇨ Vorstandsbeschlüsse und Dokumentation
 
 _Rücklagen sollten durch Beschlüsse und Nachweise dokumentiert werden._
 

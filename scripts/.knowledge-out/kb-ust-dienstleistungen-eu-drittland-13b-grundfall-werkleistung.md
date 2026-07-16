@@ -6,14 +6,14 @@ source: Interne Steuerstoff-Prüfungsvorbereitung
 references: § 3a UStG, § 10 UStG, § 12 UStG, § 13b UStG, § 15 UStG
 ---
 
-# § 13b UStG – Werkleistung eines EU-Unternehmers
+⇨ § 13b UStG – Werkleistung eines EU-Unternehmers
 
 _Werkleistung eines Unternehmers aus dem EU-Ausland an einen deutschen Unternehmer (Reverse Charge)._
 
 
-# Werkleistung eines EU-Unternehmers (§ 13b UStG)
+⇨ Werkleistung eines EU-Unternehmers (§ 13b UStG)
 
-## Sachverhalt
+► Sachverhalt
 
 Ein Unternehmer aus Österreich wartet den betrieblich genutzten LKW eines deutschen Unternehmers.
 
@@ -21,9 +21,9 @@ Die Rechnung beträgt 1.000 € ohne deutsche Umsatzsteuer.
 
 ---
 
-## Prüfung
+► Prüfung
 
-### 1. Art der Leistung
+⇶  1. Art der Leistung
 
 Es handelt sich um eine
 
@@ -31,7 +31,7 @@ Es handelt sich um eine
 
 ---
 
-### 2. Ort der Leistung
+⇶  2. Ort der Leistung
 
 B2B-Regel
 
@@ -45,7 +45,7 @@ wo der Leistungsempfänger sein Unternehmen betreibt.
 
 ---
 
-### 3. Steuerbarkeit
+⇶  3. Steuerbarkeit
 
 Die Leistung wird im Inland ausgeführt.
 
@@ -53,13 +53,13 @@ Die Leistung wird im Inland ausgeführt.
 
 ---
 
-### 4. Steuerbefreiung
+⇶  4. Steuerbefreiung
 
 Keine Steuerbefreiung nach § 4 UStG.
 
 ---
 
-### 5. Reverse Charge (§ 13b)
+⇶  5. Reverse Charge (§ 13b)
 
 Da der leistende Unternehmer im EU-Ausland ansässig ist,
 
@@ -73,7 +73,7 @@ gemäß § 13b UStG.
 
 ---
 
-### 6. Bemessungsgrundlage
+⇶  6. Bemessungsgrundlage
 
 Nettoentgelt:
 
@@ -87,7 +87,7 @@ Umsatzsteuer:
 
 ---
 
-### 7. Vorsteuer
+⇶  7. Vorsteuer
 
 Da die Leistung für das Unternehmen bezogen wurde,
 
@@ -103,7 +103,7 @@ Vorsteuer:
 
 ---
 
-# Abwandlung (Schweiz)
+⇨ Abwandlung (Schweiz)
 
 Der Unternehmer stammt aus der Schweiz.
 
@@ -125,7 +125,7 @@ Ergebnis:
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 • B2B-Dienstleistungen → grundsätzlich § 3a Abs.2 UStG.
 
@@ -139,7 +139,7 @@ Ergebnis:
 
 ---
 
-# Klausurfallen
+⇨ Klausurfallen
 
 Prüfungsfalle Nr.1
 

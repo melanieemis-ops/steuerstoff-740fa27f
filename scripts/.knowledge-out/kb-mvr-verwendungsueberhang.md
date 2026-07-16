@@ -6,7 +6,7 @@ source: Internes Arbeitspapier — Auswertung MVR.
 references: § 55 AO, § 63 Abs. 4 AO
 ---
 
-# Verwendungsüberhang
+⇨ Verwendungsüberhang
 
 _Ein positiver Verwendungsüberhang kann auf nicht zeitnah verwendete Mittel hinweisen._
 

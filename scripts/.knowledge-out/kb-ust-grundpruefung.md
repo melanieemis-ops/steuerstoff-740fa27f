@@ -6,7 +6,7 @@ source: Internes Handout — USt-Grundprüfung.
 references: § 1 Abs. 1 Nr. 1 UStG, § 3 Abs. 6, 7 UStG, § 3a UStG, § 4 UStG, § 10 Abs. 1 UStG, § 12 UStG, § 13 Abs. 1 Nr. 1 a UStG, § 13a Abs. 1 Nr. 1 UStG, § 13b UStG
 ---
 
-# Umsatzsteuer — Grundprüfung (Steuerbarkeit, Ort, Steuerschuldner)
+⇨ Umsatzsteuer — Grundprüfung (Steuerbarkeit, Ort, Steuerschuldner)
 
 _Prüffolge: Leistungsaustausch → Leistungsort → Steuerbefreiung → Bemessungsgrundlage → Steuersatz → Steuerschuldner → Entstehungszeitpunkt._
 

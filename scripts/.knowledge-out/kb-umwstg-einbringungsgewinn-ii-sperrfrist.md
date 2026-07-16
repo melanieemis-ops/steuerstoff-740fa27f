@@ -6,15 +6,15 @@ source: Interne Steuerstoff-Prüfungsvorbereitung
 references: § 21 UmwStG, § 22 UmwStG, § 23 UmwStG, § 17 EStG, § 3 Nr. 40 EStG, § 3c Abs. 2 EStG, § 8b KStG
 ---
 
-# Umwandlungssteuer: Sperrfrist und Einbringungsgewinn II
+⇨ Umwandlungssteuer: Sperrfrist und Einbringungsgewinn II
 
 _Prüfungsschema zum Sperrfristverstoß nach § 22 UmwStG und den steuerlichen Folgen für Einbringenden und übernehmende Kapitalgesellschaft._
 
 
 
-# Sperrfrist nach § 22 UmwStG
+⇨ Sperrfrist nach § 22 UmwStG
 
-## Wann liegt ein Sperrfristverstoß vor?
+► Wann liegt ein Sperrfristverstoß vor?
 
 Ein Sperrfristverstoß liegt vor, wenn
 
@@ -28,7 +28,7 @@ Einbringungsgewinn II nach § 22 Abs. 2 UmwStG.
 
 ---
 
-## Berechnung
+► Berechnung
 
 Gemeiner Wert der eingebrachten Anteile
 
@@ -42,7 +42,7 @@ Gemeiner Wert der eingebrachten Anteile
 
 ---
 
-## Folgen bei der übernehmenden GmbH (§ 23 UmwStG)
+► Folgen bei der übernehmenden GmbH (§ 23 UmwStG)
 
 Der Einbringungsgewinn II
 
@@ -56,7 +56,7 @@ Keine Doppelbesteuerung.
 
 ---
 
-## Folgen beim Einbringenden
+► Folgen beim Einbringenden
 
 Der Einbringungsgewinn II gilt als nachträgliche Anschaffungskosten der neuen Beteiligung.
 
@@ -66,7 +66,7 @@ Bei einer späteren Veräußerung vermindert sich dadurch der steuerpflichtige V
 
 ---
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Einbringung nach § 21 UmwStG?
 2. Buchwert oder Zwischenwert?
@@ -78,7 +78,7 @@ Bei einer späteren Veräußerung vermindert sich dadurch der steuerpflichtige V
 
 ---
 
-## Klausurklassiker
+► Klausurklassiker
 
 ❌ Sperrfrist vergessen.
 
@@ -88,7 +88,7 @@ Bei einer späteren Veräußerung vermindert sich dadurch der steuerpflichtige V
 
 ---
 
-## Merksatz
+► Merksatz
 
 Einbringungsgewinn II besteuert nachträglich die bei der Einbringung zunächst aufgeschobenen stillen Reserven.
 

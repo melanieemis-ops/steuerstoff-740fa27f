@@ -6,13 +6,13 @@ source: Interne Steuerstoff-Prüfungsvorbereitung
 references: § 2 Abs. 1 UStG, § 2 Abs. 2 Nr. 1 UStG, Abschn. 2.1 UStAE, Abschn. 2.6 UStAE, Abschn. 2.7 UStAE
 ---
 
-# Unternehmer und Rahmen des Unternehmens (§ 2 UStG)
+⇨ Unternehmer und Rahmen des Unternehmens (§ 2 UStG)
 
 _Bestimmung der Unternehmereigenschaft, des Unternehmensumfangs sowie der Abgrenzung zwischen selbständiger und nichtselbständiger Tätigkeit._
 
 
 
-# Unternehmer (§ 2 UStG)
+⇨ Unternehmer (§ 2 UStG)
 
 Unternehmer ist, wer
 
@@ -27,17 +27,17 @@ Dabei umfasst das Unternehmen grundsätzlich die gesamte gewerbliche oder berufl
 
 ---
 
-# Fall 1 – Finanzbeamter als Dozent
+⇨ Fall 1 – Finanzbeamter als Dozent
 
-## Sachverhalt
+► Sachverhalt
 
 Ein Finanzbeamter unterrichtet samstags an der Steuerberaterakademie.
 
 Seine Tätigkeit beim Finanzamt erfolgt weisungsgebunden.
 
-## Lösung
+► Lösung
 
-### Tätigkeit beim Finanzamt
+⇶  Tätigkeit beim Finanzamt
 
 Keine Selbständigkeit.
 
@@ -47,7 +47,7 @@ Rechtsgrundlage:
 
 § 2 Abs. 2 Nr. 1 UStG
 
-### Unterricht an der Steuerberaterakademie
+⇶  Unterricht an der Steuerberaterakademie
 
 Die Unterrichtstätigkeit erfolgt eigenverantwortlich.
 
@@ -65,13 +65,13 @@ Eine Person kann gleichzeitig Arbeitnehmer und Unternehmer sein.
 
 ---
 
-# Fall 2 – Arbeitnehmer stellt Rechnungen an seinen Arbeitgeber
+⇨ Fall 2 – Arbeitnehmer stellt Rechnungen an seinen Arbeitgeber
 
-## Sachverhalt
+► Sachverhalt
 
 Ein Arbeitnehmer arbeitet sonntags zusätzlich für seinen Arbeitgeber und schreibt hierfür Rechnungen.
 
-## Lösung
+► Lösung
 
 Entscheidend ist nicht die Rechnung,
 
@@ -98,9 +98,9 @@ Lohnsteuer und Umsatzsteuer schließen sich für dieselbe Tätigkeit aus.
 
 ---
 
-# Fall 3 – Sportgeschäft, Sonnenstudio und Vermietung
+⇨ Fall 3 – Sportgeschäft, Sonnenstudio und Vermietung
 
-## Sachverhalt
+► Sachverhalt
 
 Benno Ohm betreibt
 
@@ -110,7 +110,7 @@ Benno Ohm betreibt
 
 Zusätzlich besitzt er ein selbst bewohntes Einfamilienhaus.
 
-## Lösung
+► Lösung
 
 Unternehmer ist Ohm hinsichtlich
 
@@ -130,7 +130,7 @@ Jede Tätigkeit stellt zwar ein eigenes Grundgeschäft dar,
 
 gehört jedoch zum selben Unternehmen.
 
-### Nicht zum Unternehmen
+⇶  Nicht zum Unternehmen
 
 Das privat genutzte Einfamilienhaus.
 
@@ -140,9 +140,9 @@ Deshalb gehört es nicht zum Unternehmen.
 
 ---
 
-# Fall 4 – Möbelhändler mit mehreren Tätigkeiten
+⇨ Fall 4 – Möbelhändler mit mehreren Tätigkeiten
 
-## Sachverhalt
+► Sachverhalt
 
 Jab betreibt
 
@@ -157,9 +157,9 @@ Außerdem
 - ist Gesellschafter einer OHG,
 - ist Geschäftsführer einer GmbH.
 
-## Lösung
+► Lösung
 
-### Unternehmerische Tätigkeiten
+⇶  Unternehmerische Tätigkeiten
 
 Zum Unternehmen gehören
 
@@ -171,7 +171,7 @@ Vorträge und Bücher bilden gemeinsam das Grundgeschäft "Vogelkunde".
 
 ---
 
-### Verkauf des Porsche
+⇶  Verkauf des Porsche
 
 Der Verkauf eines früher betrieblich genutzten Wirtschaftsgutes stellt
 
@@ -185,7 +185,7 @@ Eine Nachhaltigkeit ist hierfür nicht erforderlich.
 
 ---
 
-### Beteiligung an der OHG
+⇶  Beteiligung an der OHG
 
 Die OHG
 
@@ -195,7 +195,7 @@ Die Beteiligung allein begründet keine eigene Unternehmereigenschaft.
 
 ---
 
-### Geschäftsführer der GmbH
+⇶  Geschäftsführer der GmbH
 
 Als Geschäftsführer handelt Jab
 
@@ -215,9 +215,9 @@ Rechtsgrundlage:
 
 ---
 
-# Fall 5 – Vorbereitungshandlungen
+⇨ Fall 5 – Vorbereitungshandlungen
 
-## Sachverhalt
+► Sachverhalt
 
 Ein angestellter Rechtsanwalt möchte sich selbständig machen.
 
@@ -228,7 +228,7 @@ Er
 
 gibt die Gründungsabsicht jedoch vor Aufnahme der Tätigkeit wieder auf.
 
-## Lösung
+► Lösung
 
 Bereits ernsthafte Vorbereitungshandlungen können
 
@@ -252,7 +252,7 @@ Der Unternehmerstatus entsteht bereits während der Vorbereitungsphase.
 
 ---
 
-# Prüfungsschema Unternehmereigenschaft
+⇨ Prüfungsschema Unternehmereigenschaft
 
 1. Liegt eine Tätigkeit vor?
 
@@ -268,7 +268,7 @@ Der Unternehmerstatus entsteht bereits während der Vorbereitungsphase.
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 Das Unternehmen umfasst grundsätzlich die gesamte gewerbliche und berufliche Tätigkeit.
 
@@ -286,7 +286,7 @@ Geschäftsführer einer GmbH handeln regelmäßig nicht selbständig.
 
 ---
 
-# Klausurtipps
+⇨ Klausurtipps
 
 Prüfungsfalle Nr. 1:
 

@@ -5,7 +5,7 @@ category: DATEV
 source: Internes Team-Handout — Automatisierungsservice Rechnungen (Kanzlei-Rechnungswesen).
 ---
 
-# Automatisierungsservice Rechnungen — Voraussetzungen und AS1
+⇨ Automatisierungsservice Rechnungen — Voraussetzungen und AS1
 
 _Voraussetzungen, Aktivierung, Symbolik (grün/gelb/rot), echte Automatisierung über die Spalte AS1 messen._
 

@@ -507,8 +507,8 @@ function inferYearFromText(text: string): number | undefined {
 
 function findInvoiceNumber(text: string): string | undefined {
   const patterns = [
-    /(?:rechnungs(?:nummer|nr\.?|\s*nr\.?)|rechnung\s*nr\.?|beleg(?:nummer|nr\.?)|invoice\s*(?:number|no\.?)|receipt\s*(?:number|no\.?))\s*[:#\-]?\s*([A-Z0-9][A-Z0-9\-/_\.]{2,})/i,
-    /\b(?:nr\.|no\.)\s*[:#\-]?\s*([A-Z0-9][A-Z0-9\-/_\.]{2,})/i,
+    /(?:rechnungs(?:nummer|nr\.?|\s*nr\.?)|rechnung\s*nr\.?|beleg(?:nummer|nr\.?)|invoice\s*(?:number|no\.?)|receipt\s*(?:number|no\.?))\s*[:⇨\-]?\s*([A-Z0-9][A-Z0-9\-/_\.]{2,})/i,
+    /\b(?:nr\.|no\.)\s*[:⇨\-]?\s*([A-Z0-9][A-Z0-9\-/_\.]{2,})/i,
   ];
 
   for (const pattern of patterns) {

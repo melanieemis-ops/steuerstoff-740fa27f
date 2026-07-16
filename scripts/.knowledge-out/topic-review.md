@@ -4,13 +4,13 @@ title: Review
 category: Wissensthema (Review)
 ---
 
-# Review
+⇨ Review
 
 Risiken, Dokumentation, Steuerberater-Review
 
 Offene Punkte, Risikostufen und Steuerberater-Review dokumentieren.
 
-## Checkliste
+► Checkliste
 - Risikostufe Grün / Gelb / Rot
 - Steuerberater-Review erforderlich?
 - Haftungsrelevanter Punkt?

@@ -4,13 +4,13 @@ title: Rückfragen
 category: Wissensthema (Rückfragen)
 ---
 
-# Rückfragen
+⇨ Rückfragen
 
 Fehlende Angaben sauber klären
 
 Fehlende Angaben erkennen und mandantenfreundliche Rückfragen formulieren.
 
-## Checkliste
+► Checkliste
 - Welche Angaben fehlen?
 - Welche Belege fehlen?
 - Welche steuerliche Einordnung ist unklar?

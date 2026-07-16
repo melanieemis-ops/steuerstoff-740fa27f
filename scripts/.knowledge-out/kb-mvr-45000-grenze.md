@@ -6,7 +6,7 @@ source: Internes Arbeitspapier — Mittelverwendung, Schwellenprüfung.
 references: § 55 Abs. 1 Nr. 5 S. 4 AO
 ---
 
-# 45.000-€-Grenze
+⇨ 45.000-€-Grenze
 
 _Kleine Körperschaften mit Einnahmen bis 45.000 € sind nach der hinterlegten Logik von der Pflicht zur zeitnahen Mittelverwendung ausgenommen._
 

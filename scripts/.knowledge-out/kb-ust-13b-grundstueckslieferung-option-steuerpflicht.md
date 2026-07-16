@@ -6,14 +6,14 @@ source: Interne Steuerstoff-Prüfungsvorbereitung
 references: § 3 UStG, § 4 Nr. 9a UStG, § 9 UStG, § 10 UStG, § 12 UStG, § 13b Abs.2 Nr.3 UStG, § 15 UStG
 ---
 
-# § 13b UStG – Grundstückslieferung mit Option zur Steuerpflicht
+⇨ § 13b UStG – Grundstückslieferung mit Option zur Steuerpflicht
 
 _Verkauf eines Grundstücks mit Verzicht auf die Steuerbefreiung (§ 9 UStG) und Steuerschuld des Leistungsempfängers._
 
 
-# Grundstückslieferung mit Option zur Steuerpflicht (§ 13b Abs.2 Nr.3 UStG)
+⇨ Grundstückslieferung mit Option zur Steuerpflicht (§ 13b Abs.2 Nr.3 UStG)
 
-## Sachverhalt
+► Sachverhalt
 
 Eine Unternehmerin verkauft ein betrieblich genutztes Grundstück.
 
@@ -27,15 +27,15 @@ Kaufpreis:
 
 ---
 
-## Prüfung
+► Prüfung
 
-### 1. Art der Leistung
+⇶  1. Art der Leistung
 
 Lieferung eines Grundstücks.
 
 ---
 
-### 2. Ort der Lieferung
+⇶  2. Ort der Lieferung
 
 Unbewegter Gegenstand.
 
@@ -49,7 +49,7 @@ Ort des Grundstücks
 
 ---
 
-### 3. Steuerbarkeit
+⇶  3. Steuerbarkeit
 
 Lieferung gegen Entgelt.
 
@@ -57,7 +57,7 @@ Lieferung gegen Entgelt.
 
 ---
 
-### 4. Steuerbefreiung
+⇶  4. Steuerbefreiung
 
 Grundsätzlich
 
@@ -75,7 +75,7 @@ steuerpflichtig.
 
 ---
 
-### 5. Steuerschuld
+⇶  5. Steuerschuld
 
 Da § 13b Abs.2 Nr.3 UStG greift,
 
@@ -89,7 +89,7 @@ Reverse Charge.
 
 ---
 
-### 6. Bemessungsgrundlage
+⇶  6. Bemessungsgrundlage
 
 400.000 €
 
@@ -101,7 +101,7 @@ Umsatzsteuer 19 %
 
 ---
 
-### 7. Vorsteuer
+⇶  7. Vorsteuer
 
 Der Käufer kann
 
@@ -117,7 +117,7 @@ für steuerpflichtige Umsätze verwendet wird.
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 • Grundstückslieferungen sind grundsätzlich steuerfrei (§ 4 Nr.9a UStG).
 
@@ -129,7 +129,7 @@ für steuerpflichtige Umsätze verwendet wird.
 
 ---
 
-# Klausurfallen
+⇨ Klausurfallen
 
 Prüfungsfalle Nr.1
 

@@ -6,7 +6,7 @@ source: Internes Arbeitspapier — Vermietung von Immobilien und Mobilien.
 references: § 14 AO, § 4 Nr. 12 UStG, § 9 UStG, § 12 Abs. 2 Nr. 8a UStG, § 15a UStG
 ---
 
-# Vermietung: Vermögensverwaltung vs. wirtschaftlicher Geschäftsbetrieb
+⇨ Vermietung: Vermögensverwaltung vs. wirtschaftlicher Geschäftsbetrieb
 
 _Langfristige Raumvermietung = VV; Kurzfristigkeit, Sonderleistungen oder Inventardominanz kippen in den wGB._
 

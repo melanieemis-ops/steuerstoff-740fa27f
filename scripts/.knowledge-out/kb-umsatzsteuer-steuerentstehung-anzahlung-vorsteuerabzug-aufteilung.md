@@ -6,14 +6,14 @@ source: Interne Steuerstoff-Prüfungsvorbereitung – Steuerentstehung und Vorst
 references: § 2 UStG, § 3 Abs. 1 UStG, § 3 Abs. 6 UStG, § 3 Abs. 7 UStG, § 3 Abs. 8 UStG, § 3 Abs. 9 UStG, § 3 Abs. 12 UStG, § 3d UStG, § 10 UStG, § 13 Abs. 1 Nr. 1 Buchst. a UStG, § 13b UStG, § 14 UStG, § 14a UStG, § 14c UStG, § 15 Abs. 1 Satz 1 Nr. 1 UStG, § 15 Abs. 1 Satz 1 Nr. 2 UStG, § 15 Abs. 1 Satz 1 Nr. 3 UStG, § 15 Abs. 1 Satz 1 Nr. 4 UStG, § 15 Abs. 1a UStG, § 15 Abs. 1b UStG, § 15 Abs. 2 UStG, § 15 Abs. 3 UStG, § 15 Abs. 4 UStG, § 16 Abs. 6 UStG, § 17 UStG, § 4 Abs. 5 EStG, UStAE zu §§ 13 und 15 UStG
 ---
 
-# Steuerentstehung, Anzahlungen und Vorsteuerabzug nach §§ 13 und 15 UStG
+⇨ Steuerentstehung, Anzahlungen und Vorsteuerabzug nach §§ 13 und 15 UStG
 
 _Sollbesteuerung, Leistungszeitpunkt, Teil- und Anzahlungen, Voraussetzungen und Zeitpunkt des Vorsteuerabzugs sowie Aufteilung und besondere Vorsteuerausschlüsse._
 
 
-# Steuerentstehung, Anzahlungen und Vorsteuerabzug
+⇨ Steuerentstehung, Anzahlungen und Vorsteuerabzug
 
-## 1. Überblick
+► 1. Überblick
 
 Bei einem umsatzsteuerlichen Sachverhalt sind Steuerentstehung und Vorsteuerabzug getrennt zu prüfen.
 
@@ -36,9 +36,9 @@ Merksatz:
 
 ---
 
-# 2. Sollbesteuerung nach vereinbarten Entgelten
+⇨ 2. Sollbesteuerung nach vereinbarten Entgelten
 
-## Grundsatz
+► Grundsatz
 
 Bei der Besteuerung nach vereinbarten Entgelten entsteht die Umsatzsteuer grundsätzlich mit Ablauf des Voranmeldungszeitraums, in dem die Leistung ausgeführt wurde.
 
@@ -58,7 +58,7 @@ Kurzform:
 
 ---
 
-# 3. Bedeutung des Leistungszeitpunkts
+⇨ 3. Bedeutung des Leistungszeitpunkts
 
 Der Leistungszeitpunkt richtet sich nach der Art der jeweiligen Leistung.
 
@@ -80,9 +80,9 @@ Merksatz:
 
 ---
 
-# 4. Bewegte Lieferung
+⇨ 4. Bewegte Lieferung
 
-## Grundsatz
+► Grundsatz
 
 Eine bewegte Lieferung wird grundsätzlich mit Beginn der Beförderung oder Versendung ausgeführt.
 
@@ -104,7 +104,7 @@ Die Steuer entsteht mit Ablauf des Voranmeldungszeitraums März.
 
 ---
 
-# 5. Bewegte Lieferung im Reihengeschäft
+⇨ 5. Bewegte Lieferung im Reihengeschäft
 
 Auch bei einem Reihengeschäft ist für die bewegte Lieferung grundsätzlich der Beginn der Beförderung oder Versendung maßgeblich.
 
@@ -117,9 +117,9 @@ Erst danach kann der Leistungszeitpunkt der jeweiligen Lieferung bestimmt werden
 
 ---
 
-# 6. Unbewegte Lieferung
+⇨ 6. Unbewegte Lieferung
 
-## Grundsatz
+► Grundsatz
 
 Bei einer unbewegten Lieferung ist regelmäßig der Zeitpunkt der Verschaffung der Verfügungsmacht maßgeblich.
 
@@ -141,7 +141,7 @@ Die Umsatzsteuer entsteht mit Ablauf des Voranmeldungszeitraums September.
 
 ---
 
-# 7. Unbewegte Lieferung im Reihengeschäft
+⇨ 7. Unbewegte Lieferung im Reihengeschäft
 
 Bei unbewegten Lieferungen im Reihengeschäft richtet sich der Leistungszeitpunkt nach der jeweils einschlägigen Ortsvorschrift.
 
@@ -154,9 +154,9 @@ Die konkrete Zuordnung richtet sich nach § 3 Abs. 7 UStG.
 
 ---
 
-# 8. Sonstige Leistung und Werkleistung
+⇨ 8. Sonstige Leistung und Werkleistung
 
-## Grundsatz
+► Grundsatz
 
 Eine sonstige Leistung ist grundsätzlich ausgeführt, wenn sie
 
@@ -179,9 +179,9 @@ Die Steuer entsteht mit Ablauf des Voranmeldungszeitraums Juni.
 
 ---
 
-# 9. Teilleistungen
+⇨ 9. Teilleistungen
 
-## Begriff
+► Begriff
 
 Eine Teilleistung liegt vor, wenn
 
@@ -200,7 +200,7 @@ Typische Fälle:
 - gesondert abgenommene Bauabschnitte,
 - einzelne Leistungsphasen eines Gesamtprojekts.
 
-## Steuerentstehung
+► Steuerentstehung
 
 Bei Teilleistungen entsteht die Umsatzsteuer mit Ablauf des Voranmeldungszeitraums, in dem die jeweilige Teilleistung ausgeführt wurde.
 
@@ -210,7 +210,7 @@ Eine Wartungsleistung wird monatlich erbracht und abgerechnet.
 
 Die Umsatzsteuer entsteht monatlich.
 
-## Abgrenzung zur Abschlagszahlung
+► Abgrenzung zur Abschlagszahlung
 
 Eine bloße Abschlagszahlung führt nicht automatisch zu einer Teilleistung.
 
@@ -224,9 +224,9 @@ wird.
 
 ---
 
-# 10. Anzahlungen
+⇨ 10. Anzahlungen
 
-## Begriff
+► Begriff
 
 Eine Anzahlung liegt vor, wenn
 
@@ -237,13 +237,13 @@ Rechtsgrundlage:
 
 § 13 Abs. 1 Nr. 1 Buchst. a Satz 4 UStG.
 
-## Voraussetzungen
+► Voraussetzungen
 
 1. Entgelt oder Teilentgelt wird vereinnahmt.
 2. Die Vereinnahmung erfolgt vor Ausführung der Leistung oder Teilleistung.
 3. Die spätere Leistung ist hinreichend bestimmt.
 
-## Steuerentstehung
+► Steuerentstehung
 
 Die Umsatzsteuer entsteht insoweit mit Ablauf des Voranmeldungszeitraums der Vereinnahmung.
 
@@ -263,7 +263,7 @@ Merksatz:
 
 ---
 
-# 11. Anzahlungen bei Teilleistungen
+⇨ 11. Anzahlungen bei Teilleistungen
 
 Auch vor der Ausführung einer vereinbarten Teilleistung kann eine Anzahlung geleistet werden.
 
@@ -273,7 +273,7 @@ Später ist bei Ausführung der Teilleistung nur noch der noch nicht versteuerte
 
 ---
 
-# 12. Rechnung bei Anzahlungen
+⇨ 12. Rechnung bei Anzahlungen
 
 Die Steuerentstehung bei einer Anzahlung hängt grundsätzlich nicht davon ab, ob bereits eine Rechnung ausgestellt wurde.
 
@@ -283,7 +283,7 @@ Für den Vorsteuerabzug des Leistungsempfängers ist dagegen eine ordnungsgemä�
 
 ---
 
-# 13. Anzahlungen in Fremdwährung
+⇨ 13. Anzahlungen in Fremdwährung
 
 Bei Anzahlungen in fremder Währung ist die Umrechnung grundsätzlich nach dem im Monat der Vereinnahmung geltenden Durchschnittskurs vorzunehmen.
 
@@ -291,7 +291,7 @@ Spätere Kursänderungen beeinflussen die bereits entstandene Anzahlungssteuer g
 
 ---
 
-# 14. Nichtausführung der angezahlten Leistung
+⇨ 14. Nichtausführung der angezahlten Leistung
 
 Wird später festgestellt, dass die angezahlte Leistung nicht ausgeführt wird, sind
 
@@ -306,7 +306,7 @@ Merksatz:
 
 ---
 
-# 15. Steuerfreie Leistungen
+⇨ 15. Steuerfreie Leistungen
 
 Auch bei steuerfreien Leistungen ist der Leistungszeitpunkt zu bestimmen.
 
@@ -316,15 +316,15 @@ Es entsteht zwar keine zu zahlende Umsatzsteuer, der Umsatz muss aber dem richti
 
 ---
 
-# 16. Grundvoraussetzungen des Vorsteuerabzugs
+⇨ 16. Grundvoraussetzungen des Vorsteuerabzugs
 
 Der Vorsteuerabzug nach § 15 Abs. 1 Satz 1 Nr. 1 UStG setzt persönliche und sachliche Voraussetzungen voraus.
 
-## Persönliche Voraussetzung
+► Persönliche Voraussetzung
 
 Der Leistungsempfänger muss Unternehmer sein.
 
-## Sachliche Voraussetzungen
+► Sachliche Voraussetzungen
 
 Erforderlich sind grundsätzlich:
 
@@ -335,7 +335,7 @@ Erforderlich sind grundsätzlich:
 
 ---
 
-# 17. Unternehmereigenschaft des Leistungsempfängers
+⇨ 17. Unternehmereigenschaft des Leistungsempfängers
 
 Der Leistungsempfänger muss Unternehmer im Sinne des § 2 UStG sein.
 
@@ -343,7 +343,7 @@ Die Unternehmereigenschaft ist grundsätzlich unabhängig davon, wo der Unterneh
 
 Auch ein ausländischer Unternehmer kann zum Vorsteuerabzug berechtigt sein.
 
-## Beginn der Unternehmereigenschaft
+► Beginn der Unternehmereigenschaft
 
 Die Unternehmereigenschaft kann bereits vor Ausführung der ersten Ausgangsumsätze beginnen.
 
@@ -356,13 +356,13 @@ Beispiele:
 
 Voraussetzung ist, dass die beabsichtigte unternehmerische Tätigkeit durch objektive Merkmale nachgewiesen wird.
 
-## Erfolgloser Unternehmer
+► Erfolgloser Unternehmer
 
 Auch wenn das Unternehmen später keine Umsätze erzielt, kann die Unternehmereigenschaft bestehen, wenn die ernsthafte Absicht zur unternehmerischen Tätigkeit objektiv belegt ist.
 
 ---
 
-# 18. Leistung durch einen anderen Unternehmer
+⇨ 18. Leistung durch einen anderen Unternehmer
 
 Der leistende Unternehmer muss die Leistung im Rahmen seines Unternehmens ausführen.
 
@@ -376,7 +376,7 @@ Merksatz:
 
 ---
 
-# 19. Gesetzlich geschuldete Steuer
+⇨ 19. Gesetzlich geschuldete Steuer
 
 Abziehbar ist grundsätzlich nur die gesetzlich geschuldete Umsatzsteuer.
 
@@ -386,7 +386,7 @@ Nicht abziehbar ist insbesondere:
 - zu hoch ausgewiesene Umsatzsteuer,
 - Steuer nach § 14c UStG, soweit sie nicht gesetzlich für den Umsatz geschuldet wird.
 
-## Niedrigerer Wert
+► Niedrigerer Wert
 
 Für den Vorsteuerabzug gilt grundsätzlich der niedrigere Betrag aus:
 
@@ -409,7 +409,7 @@ Abziehbar sind höchstens:
 
 ---
 
-# 20. Prüfung des Eingangsumsatzes
+⇨ 20. Prüfung des Eingangsumsatzes
 
 Vor dem Vorsteuerabzug muss der Eingangsumsatz auf Seiten des Leistenden geprüft werden.
 
@@ -427,7 +427,7 @@ Merksatz:
 
 ---
 
-# 21. Fremdwährungsrechnungen
+⇨ 21. Fremdwährungsrechnungen
 
 Bei Rechnungen in fremder Währung ist die Umsatzsteuer nach § 16 Abs. 6 UStG in Euro umzurechnen.
 
@@ -435,7 +435,7 @@ Abziehbar ist nur die nach den deutschen umsatzsteuerlichen Vorschriften gesetzl
 
 ---
 
-# 22. Leistungsbezug für das Unternehmen
+⇨ 22. Leistungsbezug für das Unternehmen
 
 Eine Leistung wird für das Unternehmen bezogen, wenn sie dazu bestimmt ist, der unternehmerischen Tätigkeit zu dienen.
 
@@ -443,7 +443,7 @@ Maßgeblich ist grundsätzlich die beabsichtigte Verwendung im Zeitpunkt des Lei
 
 Nicht entscheidend ist zunächst eine später abweichende tatsächliche Verwendung.
 
-## Prüfung
+► Prüfung
 
 1. Welcher Ausgangstätigkeit soll die Eingangsleistung dienen?
 2. Sind die geplanten Ausgangsumsätze steuerpflichtig oder steuerfrei?
@@ -452,19 +452,19 @@ Nicht entscheidend ist zunächst eine später abweichende tatsächliche Verwendu
 
 ---
 
-# 23. Zusammenhang mit Ausgangsumsätzen
+⇨ 23. Zusammenhang mit Ausgangsumsätzen
 
 Der Vorsteuerabzug richtet sich nach dem direkten und unmittelbaren Zusammenhang der Eingangsleistung mit den geplanten Ausgangsumsätzen.
 
-## Steuerpflichtige Ausgangsumsätze
+► Steuerpflichtige Ausgangsumsätze
 
 Steht die Eingangsleistung ausschließlich mit steuerpflichtigen Ausgangsumsätzen in Zusammenhang, ist die Vorsteuer grundsätzlich abziehbar.
 
-## Steuerfreie Ausschlussumsätze
+► Steuerfreie Ausschlussumsätze
 
 Steht sie ausschließlich mit steuerfreien Umsätzen in Zusammenhang, die den Vorsteuerabzug nach § 15 Abs. 2 UStG ausschließen, ist die Vorsteuer grundsätzlich nicht abziehbar.
 
-## Gemischte Verwendung
+► Gemischte Verwendung
 
 Dient die Eingangsleistung sowohl
 
@@ -475,7 +475,7 @@ ist die Vorsteuer nach § 15 Abs. 4 UStG aufzuteilen.
 
 ---
 
-# 24. Beabsichtigte Verwendung
+⇨ 24. Beabsichtigte Verwendung
 
 Für die erstmalige Beurteilung des Vorsteuerabzugs ist die im Zeitpunkt des Leistungsbezugs nachweisbare Verwendungsabsicht maßgeblich.
 
@@ -490,15 +490,15 @@ Eine spätere Änderung der tatsächlichen Verwendung kann eine Vorsteuerbericht
 
 ---
 
-# 25. Unternehmensvermögen und Betriebsvermögen
+⇨ 25. Unternehmensvermögen und Betriebsvermögen
 
 Umsatzsteuerliches Unternehmensvermögen und ertragsteuerliches Betriebsvermögen sind nicht identisch.
 
-## Betriebsvermögen
+► Betriebsvermögen
 
 Zum Betriebsvermögen gehören Wirtschaftsgüter, die einem Gewerbebetrieb oder freien Beruf dienen.
 
-## Unternehmensvermögen
+► Unternehmensvermögen
 
 Zum Unternehmensvermögen gehören Gegenstände, die dem Unternehmen im Sinne des § 2 UStG dienen.
 
@@ -515,7 +515,7 @@ Ein vermietetes Mehrfamilienhaus kann ertragsteuerlich Privatvermögen, umsatzst
 
 ---
 
-# 26. Zuordnung gemischt genutzter Gegenstände
+⇨ 26. Zuordnung gemischt genutzter Gegenstände
 
 Bei gemischt unternehmerisch und privat verwendeten Gegenständen kann ein Zuordnungswahlrecht bestehen.
 
@@ -531,7 +531,7 @@ Bei Grundstücken ist zusätzlich § 15 Abs. 1b UStG zu beachten.
 
 ---
 
-# 27. Ordnungsgemäße Rechnung
+⇨ 27. Ordnungsgemäße Rechnung
 
 Für den Vorsteuerabzug nach § 15 Abs. 1 Satz 1 Nr. 1 UStG muss der Leistungsempfänger grundsätzlich im Besitz einer ordnungsgemäßen Rechnung sein.
 
@@ -552,7 +552,7 @@ Wesentliche Pflichtangaben sind insbesondere:
 
 ---
 
-# 28. Fehlende Rechnungsangaben
+⇨ 28. Fehlende Rechnungsangaben
 
 Fehlen wesentliche Pflichtangaben nach § 14 Abs. 4 UStG, ist der Vorsteuerabzug grundsätzlich zunächst nicht zulässig.
 
@@ -562,7 +562,7 @@ Die Berichtigung muss grundsätzlich durch den Rechnungsaussteller erfolgen.
 
 ---
 
-# 29. Zu hoch ausgewiesene Umsatzsteuer
+⇨ 29. Zu hoch ausgewiesene Umsatzsteuer
 
 Ist in einer Rechnung mehr Umsatzsteuer ausgewiesen als gesetzlich geschuldet, darf der Leistungsempfänger grundsätzlich nur die gesetzlich geschuldete Steuer als Vorsteuer abziehen.
 
@@ -584,9 +584,9 @@ höchstens 700 €.
 
 ---
 
-# 30. Zeitpunkt des Vorsteuerabzugs
+⇨ 30. Zeitpunkt des Vorsteuerabzugs
 
-## Grundsatz
+► Grundsatz
 
 Der Vorsteuerabzug ist in dem Voranmeldungszeitraum möglich, in dem beide Voraussetzungen erfüllt sind:
 
@@ -601,7 +601,7 @@ Merksatz:
 
 ---
 
-# 31. Beispiel zum Zeitpunkt des Vorsteuerabzugs
+⇨ 31. Beispiel zum Zeitpunkt des Vorsteuerabzugs
 
 Leistungsausführung:
 
@@ -622,7 +622,7 @@ Der Vorsteuerabzug ist grundsätzlich erst im April möglich, weil erst dann
 
 ---
 
-# 32. Vorsteuerabzug bei Anzahlungen
+⇨ 32. Vorsteuerabzug bei Anzahlungen
 
 Bei Anzahlungen ist der Vorsteuerabzug bereits vor Leistungsausführung möglich.
 
@@ -637,7 +637,7 @@ Rechtsgrundlage:
 
 § 15 Abs. 1 Satz 1 Nr. 1 Satz 3 UStG.
 
-## Zeitpunkt
+► Zeitpunkt
 
 Der Vorsteuerabzug erfolgt im Voranmeldungszeitraum der Zahlung, sofern zu diesem Zeitpunkt die ordnungsgemäße Rechnung vorliegt.
 
@@ -647,13 +647,13 @@ Merksatz:
 
 ---
 
-# 33. Gegenüberstellung Steuerentstehung und Vorsteuer bei Anzahlungen
+⇨ 33. Gegenüberstellung Steuerentstehung und Vorsteuer bei Anzahlungen
 
-## Leistender Unternehmer
+► Leistender Unternehmer
 
 Steuerentstehung mit Vereinnahmung der Anzahlung.
 
-## Leistungsempfänger
+► Leistungsempfänger
 
 Vorsteuerabzug mit Zahlung der Anzahlung und Besitz einer ordnungsgemäßen Rechnung.
 
@@ -661,7 +661,7 @@ Dadurch sollen Umsatzsteuer und Vorsteuer grundsätzlich zeitlich korrespondiere
 
 ---
 
-# 34. Vorsteuerausschluss nach § 15 Abs. 2 UStG
+⇨ 34. Vorsteuerausschluss nach § 15 Abs. 2 UStG
 
 Vorsteuerbeträge sind grundsätzlich nicht abziehbar, soweit die Eingangsleistungen für steuerfreie Ausgangsumsätze verwendet werden.
 
@@ -677,7 +677,7 @@ Entscheidend ist der direkte und unmittelbare Zusammenhang zwischen Eingangs- un
 
 ---
 
-# 35. Rückausnahmen nach § 15 Abs. 3 UStG
+⇨ 35. Rückausnahmen nach § 15 Abs. 3 UStG
 
 Bestimmte steuerfreie Umsätze führen trotz Steuerbefreiung nicht zum Ausschluss des Vorsteuerabzugs.
 
@@ -695,9 +695,9 @@ Merksatz:
 
 ---
 
-# 36. Aufteilung von Vorsteuerbeträgen
+⇨ 36. Aufteilung von Vorsteuerbeträgen
 
-## Grundsatz
+► Grundsatz
 
 Eine Aufteilung nach § 15 Abs. 4 UStG ist erforderlich, wenn eine Eingangsleistung sowohl
 
@@ -706,25 +706,25 @@ Eine Aufteilung nach § 15 Abs. 4 UStG ist erforderlich, wenn eine Eingangsleist
 
 verwendet wird.
 
-## Vorrang der direkten Zuordnung
+► Vorrang der direkten Zuordnung
 
 Zunächst ist stets zu prüfen, ob die Vorsteuer direkt einem bestimmten Ausgangsumsatz zugeordnet werden kann.
 
-### Direkter Zusammenhang mit Abzugsumsätzen
+⇶  Direkter Zusammenhang mit Abzugsumsätzen
 
 Vorsteuer vollständig abziehbar.
 
-### Direkter Zusammenhang mit Ausschlussumsätzen
+⇶  Direkter Zusammenhang mit Ausschlussumsätzen
 
 Vorsteuer grundsätzlich nicht abziehbar, sofern keine Rückausnahme nach § 15 Abs. 3 UStG greift.
 
-### Gemischter Zusammenhang
+⇶  Gemischter Zusammenhang
 
 Aufteilung nach § 15 Abs. 4 UStG.
 
 ---
 
-# 37. Prüfungsschema Vorsteueraufteilung
+⇨ 37. Prüfungsschema Vorsteueraufteilung
 
 1. Eingangsleistung für das Unternehmen?
 2. Direkte Zuordnung möglich?
@@ -739,7 +739,7 @@ Aufteilung nach § 15 Abs. 4 UStG.
 
 ---
 
-# 38. Aufteilungsmaßstab
+⇨ 38. Aufteilungsmaßstab
 
 Die Aufteilung ist nach einer sachgerechten Schätzung vorzunehmen.
 
@@ -761,9 +761,9 @@ Merksatz:
 
 ---
 
-# 39. Aufteilung bei Gebäuden
+⇨ 39. Aufteilung bei Gebäuden
 
-## Direkte Zuordnung
+► Direkte Zuordnung
 
 Kann eine Eingangsleistung einem bestimmten Gebäudeteil direkt zugeordnet werden, ist keine Aufteilung erforderlich.
 
@@ -775,7 +775,7 @@ Folge:
 
 Vorsteuer grundsätzlich vollständig abziehbar.
 
-## Keine direkte Zuordnung
+► Keine direkte Zuordnung
 
 Bei Kosten, die das gesamte Gebäude betreffen, ist eine Aufteilung erforderlich.
 
@@ -791,7 +791,7 @@ Bei Gebäuden ist häufig das Verhältnis der Nutzflächen ein sachgerechter Auf
 
 ---
 
-# 40. Herstellungskosten eines Gebäudes
+⇨ 40. Herstellungskosten eines Gebäudes
 
 Bei Anschaffungs- oder Herstellungskosten eines gemischt genutzten Gebäudes ist regelmäßig eine Gesamtbetrachtung erforderlich.
 
@@ -801,7 +801,7 @@ Ein einmal gewählter sachgerechter Aufteilungsmaßstab kann für Folgejahre bin
 
 ---
 
-# 41. Erhaltungsaufwendungen
+⇨ 41. Erhaltungsaufwendungen
 
 Bei Erhaltungsaufwendungen ist vorrangig zu prüfen, ob sie einem konkreten Gebäudeteil zugeordnet werden können.
 
@@ -823,11 +823,11 @@ Vorsteueraufteilung erforderlich.
 
 ---
 
-# 42. Weitere abziehbare Vorsteuerbeträge
+⇨ 42. Weitere abziehbare Vorsteuerbeträge
 
 Neben § 15 Abs. 1 Satz 1 Nr. 1 UStG bestehen weitere Vorsteuerabzugstatbestände.
 
-## Einfuhrumsatzsteuer
+► Einfuhrumsatzsteuer
 
 Nach § 15 Abs. 1 Satz 1 Nr. 2 UStG kann die für die Einfuhr eines Gegenstands entrichtete Einfuhrumsatzsteuer als Vorsteuer abziehbar sein.
 
@@ -835,13 +835,13 @@ Voraussetzung:
 
 Einfuhr für das Unternehmen.
 
-## Innergemeinschaftlicher Erwerb
+► Innergemeinschaftlicher Erwerb
 
 Nach § 15 Abs. 1 Satz 1 Nr. 3 UStG kann die Steuer für einen innergemeinschaftlichen Erwerb als Vorsteuer abziehbar sein.
 
 Voraussetzung ist insbesondere, dass der innergemeinschaftliche Erwerb im Inland steuerbar ist.
 
-## Reverse Charge
+► Reverse Charge
 
 Nach § 15 Abs. 1 Satz 1 Nr. 4 UStG kann die vom Leistungsempfänger nach § 13b UStG geschuldete Umsatzsteuer als Vorsteuer abziehbar sein.
 
@@ -849,23 +849,23 @@ Voraussetzung:
 
 Die Leistung wird für das Unternehmen bezogen und es greift kein Vorsteuerausschluss.
 
-## Rechnungserfordernis
+► Rechnungserfordernis
 
 In diesen Fällen ist nicht immer eine Rechnung im Sinne des § 14 UStG Voraussetzung für den Vorsteuerabzug, weil der Leistungsempfänger selbst Steuerschuldner ist oder die Steuer bei der Einfuhr entsteht.
 
 ---
 
-# 43. Besonderheiten nach § 15 Abs. 1a UStG
+⇨ 43. Besonderheiten nach § 15 Abs. 1a UStG
 
-## Grundsatz
+► Grundsatz
 
 Vorsteuerbeträge, die mit nicht abziehbaren Betriebsausgaben im Sinne des § 4 Abs. 5 EStG zusammenhängen, können umsatzsteuerlich vom Abzug ausgeschlossen sein.
 
-## Geschenke
+► Geschenke
 
 Vorsteuer aus nicht abzugsfähigen Geschenken kann vollständig vom Vorsteuerabzug ausgeschlossen sein.
 
-## Bewirtungsaufwendungen
+► Bewirtungsaufwendungen
 
 Bei unangemessenen Bewirtungsaufwendungen kann der Vorsteuerabzug insoweit ausgeschlossen sein, wie die Aufwendungen unangemessen sind.
 
@@ -878,9 +878,9 @@ Prüfung:
 
 ---
 
-# 44. Grundstücke mit privater Mitverwendung
+⇨ 44. Grundstücke mit privater Mitverwendung
 
-## § 15 Abs. 1b UStG
+► § 15 Abs. 1b UStG
 
 Wird ein Grundstück sowohl
 
@@ -891,7 +891,7 @@ verwendet, ist der Vorsteuerabzug auf den unternehmerisch verwendeten Anteil beg
 
 Dies gilt insbesondere bei privater Nutzung eines Gebäudeteils.
 
-## Beispiel
+► Beispiel
 
 Ein Unternehmer errichtet ein Gebäude.
 
@@ -906,7 +906,7 @@ Auch bei vollständiger Zuordnung zum Unternehmen führt § 15 Abs. 1b UStG zu e
 
 ---
 
-# 45. Private Nutzung durch Personal
+⇨ 45. Private Nutzung durch Personal
 
 Auch eine Verwendung für den privaten Bedarf des Personals kann zu einer Vorsteuerbeschränkung führen.
 
@@ -919,15 +919,15 @@ dient.
 
 ---
 
-# 46. Typische Klausurfallen
+⇨ 46. Typische Klausurfallen
 
-## Fehler 1: Steuerentstehung an die Rechnungsstellung knüpfen
+► Fehler 1: Steuerentstehung an die Rechnungsstellung knüpfen
 
 Bei der Sollbesteuerung ist grundsätzlich die Leistungsausführung maßgeblich.
 
 ---
 
-## Fehler 2: Zahlung bei normaler Leistungsausführung für entscheidend halten
+► Fehler 2: Zahlung bei normaler Leistungsausführung für entscheidend halten
 
 Der Zahlungszeitpunkt ist bei der Sollbesteuerung grundsätzlich unerheblich.
 
@@ -937,79 +937,79 @@ Anzahlung vor Leistungsausführung.
 
 ---
 
-## Fehler 3: Abschlagszahlung mit Teilleistung verwechseln
+► Fehler 3: Abschlagszahlung mit Teilleistung verwechseln
 
 Eine Zahlung allein begründet noch keine Teilleistung.
 
 ---
 
-## Fehler 4: Anzahlungssteuer erst bei Rechnungsstellung erfassen
+► Fehler 4: Anzahlungssteuer erst bei Rechnungsstellung erfassen
 
 Beim Leistenden entsteht die Steuer grundsätzlich mit Vereinnahmung des Entgelts.
 
 ---
 
-## Fehler 5: Vorsteuer bei Anzahlung ohne Zahlung abziehen
+► Fehler 5: Vorsteuer bei Anzahlung ohne Zahlung abziehen
 
 Für den Anzahlungs-Vorsteuerabzug muss die Anzahlung tatsächlich geleistet worden sein.
 
 ---
 
-## Fehler 6: Vorsteuer ohne Rechnung abziehen
+► Fehler 6: Vorsteuer ohne Rechnung abziehen
 
 Bei § 15 Abs. 1 Satz 1 Nr. 1 UStG ist grundsätzlich eine ordnungsgemäße Rechnung erforderlich.
 
 ---
 
-## Fehler 7: Zu hoch ausgewiesene Steuer vollständig abziehen
+► Fehler 7: Zu hoch ausgewiesene Steuer vollständig abziehen
 
 Abziehbar ist grundsätzlich höchstens die gesetzlich geschuldete Steuer.
 
 ---
 
-## Fehler 8: Nur den Eingangsbeleg prüfen
+► Fehler 8: Nur den Eingangsbeleg prüfen
 
 Die gesetzlich geschuldete Steuer kann erst nach Prüfung des Ausgangsumsatzes des Leistenden bestimmt werden.
 
 ---
 
-## Fehler 9: Spätere tatsächliche Nutzung für die erstmalige Zuordnung verwenden
+► Fehler 9: Spätere tatsächliche Nutzung für die erstmalige Zuordnung verwenden
 
 Maßgeblich ist grundsätzlich die Verwendungsabsicht im Zeitpunkt des Leistungsbezugs.
 
 ---
 
-## Fehler 10: Sofort einen Umsatzschlüssel anwenden
+► Fehler 10: Sofort einen Umsatzschlüssel anwenden
 
 Zunächst ist immer die direkte Zuordnung zu prüfen.
 
 ---
 
-## Fehler 11: Gemischte Vorsteuer vollständig abziehen
+► Fehler 11: Gemischte Vorsteuer vollständig abziehen
 
 Bei Verwendung für Abzugs- und Ausschlussumsätze ist § 15 Abs. 4 UStG zu prüfen.
 
 ---
 
-## Fehler 12: Steuerfreie Umsätze automatisch als vorsteuerschädlich behandeln
+► Fehler 12: Steuerfreie Umsätze automatisch als vorsteuerschädlich behandeln
 
 Rückausnahmen nach § 15 Abs. 3 UStG sind zu prüfen.
 
 ---
 
-## Fehler 13: Betriebsvermögen und Unternehmensvermögen gleichsetzen
+► Fehler 13: Betriebsvermögen und Unternehmensvermögen gleichsetzen
 
 Die Begriffe gehören zu unterschiedlichen Steuerarten und können voneinander abweichen.
 
 ---
 
-## Fehler 14: Grundstück vollständig dem Unternehmen zuordnen und volle Vorsteuer abziehen
+► Fehler 14: Grundstück vollständig dem Unternehmen zuordnen und volle Vorsteuer abziehen
 
 Bei privater Mitverwendung begrenzt § 15 Abs. 1b UStG den Vorsteuerabzug.
 
 ---
 
-# 47. Prüfungsschema Steuerentstehung
+⇨ 47. Prüfungsschema Steuerentstehung
 
 1. Art der Leistung bestimmen.
 2. Leistungsort bestimmen.
@@ -1025,7 +1025,7 @@ Bei privater Mitverwendung begrenzt § 15 Abs. 1b UStG den Vorsteuerabzug.
 
 ---
 
-# 48. Prüfungsschema Vorsteuerabzug
+⇨ 48. Prüfungsschema Vorsteuerabzug
 
 1. Leistungsempfänger ist Unternehmer?
 2. Leistung wurde von einem anderen Unternehmer ausgeführt?
@@ -1042,7 +1042,7 @@ Bei privater Mitverwendung begrenzt § 15 Abs. 1b UStG den Vorsteuerabzug.
 
 ---
 
-# 49. Merksätze
+⇨ 49. Merksätze
 
 - Bei der Sollbesteuerung entsteht die Steuer grundsätzlich mit Leistungsausführung.
 - Die Rechnung ist für die Steuerentstehung regelmäßig nicht entscheidend.

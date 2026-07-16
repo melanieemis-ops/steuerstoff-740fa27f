@@ -6,14 +6,14 @@ source: BFH-Verfahren VII R 24/25, vormals V R 27/25; BFH-Beschluss vom 30.07.20
 references: §§ 51 bis 68 AO, § 55 Abs. 1 Nr. 1 AO, § 55 Abs. 1 Nr. 4 AO, § 58 Nr. 1 AO, § 59 AO, § 61 Abs. 1 AO, § 61 Abs. 3 AO, § 63 Abs. 1 AO, § 63 Abs. 2 AO, § 63 Abs. 3 AO, § 64 AO, § 65 AO, § 175 Abs. 1 Satz 1 Nr. 2 AO, § 5 Abs. 1 Nr. 9 Satz 1 KStG, § 11 KStG, § 13 KStG, § 10b EStG, § 47 BGB, § 48 BGB, § 49 BGB, § 51 BGB, § 53 BGB, § 87c BGB, BFH, Beschluss vom 30.07.2025 – V B 3/24, BFH, anhängiges Verfahren VII R 24/25, vormals BFH V R 27/25, FG Münster, Urteil vom 29.11.2023 – 13 K 1127/22 K, BFH, Urteil vom 16.05.2007 – I R 14/06, BFH, Urteil vom 23.07.2003 – I R 29/02
 ---
 
-# Gemeinnützigkeit einer Körperschaft während der Liquidations- und Abwicklungsphase
+⇨ Gemeinnützigkeit einer Körperschaft während der Liquidations- und Abwicklungsphase
 
 _Der Eintritt in die Liquidation führt nach derzeit noch nicht abschließend geklärter Rechtslage nicht zwingend automatisch zum Verlust der Gemeinnützigkeit. Entscheidend sind insbesondere die tatsächliche Geschäftsführung, die fortbestehende Vermögensbindung, die ordnungsgemäße Gläubigerbefriedigung und die abschließende Auskehr des Restvermögens an den steuerbegünstigten Anfallsberechtigten._
 
 
-# Gemeinnützigkeit in der Liquidationsphase
+⇨ Gemeinnützigkeit in der Liquidationsphase
 
-## 1. Aktueller Rechtsstand
+► 1. Aktueller Rechtsstand
 
 Die Frage, ob eine steuerbegünstigte Körperschaft auch während ihrer Liquidations- oder Abwicklungsphase gemeinnützig bleiben kann, ist höchstrichterlich noch nicht abschließend entschieden.
 
@@ -33,7 +33,7 @@ Vorinstanz ist das Urteil des FG Münster vom 29.11.2023 – 13 K 1127/22 K.
 
 Die Revision wurde durch den BFH-Beschluss vom 30.07.2025 – V B 3/24 zugelassen.
 
-## Zwingender Hinweis für den Chatbot
+► Zwingender Hinweis für den Chatbot
 
 Der Chatbot darf nicht behaupten, der BFH habe bereits entschieden, dass
 
@@ -45,23 +45,23 @@ Diese Fragen sind Gegenstand des noch anhängigen Revisionsverfahrens.
 
 ---
 
-# 2. Zentrale Rechtsfragen des BFH-Verfahrens
+⇨ 2. Zentrale Rechtsfragen des BFH-Verfahrens
 
 Der BFH wird insbesondere folgende Fragen klären:
 
-## Erste Rechtsfrage
+► Erste Rechtsfrage
 
 **Führen die Auflösung oder Aufhebung einer Körperschaft und der Eintritt in die Liquidation bereits für sich genommen zum Verlust der Steuerbefreiung nach § 5 Abs. 1 Nr. 9 KStG?**
 
-## Zweite Rechtsfrage
+► Zweite Rechtsfrage
 
 **Kann bei Auflösung oder Aufhebung einer Körperschaft aufgrund von § 61 Abs. 3 Satz 2 und § 63 Abs. 2 AO eine Nachversteuerung für Steuern erfolgen, die innerhalb der letzten zehn Kalenderjahre vor der Auflösung oder Aufhebung entstanden sind?**
 
 ---
 
-# 3. Ausgangspunkt der Steuerbefreiung
+⇨ 3. Ausgangspunkt der Steuerbefreiung
 
-## § 5 Abs. 1 Nr. 9 Satz 1 KStG
+► § 5 Abs. 1 Nr. 9 Satz 1 KStG
 
 Von der Körperschaftsteuer sind Körperschaften, Personenvereinigungen und Vermögensmassen befreit, die
 
@@ -72,13 +72,13 @@ ausschließlich und unmittelbar gemeinnützigen, mildtätigen oder kirchlichen Z
 
 Die Voraussetzungen richten sich nach den §§ 51 bis 68 AO.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Die Gemeinnützigkeit verlangt sowohl eine ordnungsgemäße Satzung als auch eine den Satzungsbestimmungen entsprechende tatsächliche Geschäftsführung.**
 
 ---
 
-# 4. Liquidation beendet die Körperschaft nicht sofort
+⇨ 4. Liquidation beendet die Körperschaft nicht sofort
 
 Die Auflösung einer Körperschaft und ihr endgültiges Erlöschen sind voneinander zu unterscheiden.
 
@@ -86,21 +86,21 @@ Mit dem Auflösungsbeschluss beginnt regelmäßig zunächst die Liquidations- od
 
 Die Körperschaft besteht während dieser Phase für die Zwecke der Liquidation grundsätzlich fort.
 
-## Beispiel Verein
+► Beispiel Verein
 
 Nach § 49 Abs. 2 BGB gilt der Verein bis zur Beendigung der Liquidation als fortbestehend, soweit der Zweck der Liquidation dies erfordert.
 
-## Beispiel Stiftung
+► Beispiel Stiftung
 
 Für Stiftungen ergeben sich die Regelungen zur Vermögensabwicklung insbesondere aus § 87c BGB.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Auflösung ist nicht gleich Erlöschen. Die Körperschaft besteht während der notwendigen Liquidationsphase für Abwicklungszwecke fort.**
 
 ---
 
-# 5. Zivilrechtliche Aufgaben des Liquidators
+⇨ 5. Zivilrechtliche Aufgaben des Liquidators
 
 Nach § 49 Abs. 1 BGB haben die Liquidatoren insbesondere
 
@@ -112,11 +112,11 @@ Nach § 49 Abs. 1 BGB haben die Liquidatoren insbesondere
 
 Zur Beendigung schwebender Geschäfte dürfen die Liquidatoren auch neue, dem Liquidationszweck dienende Geschäfte eingehen.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Die Befriedigung bestehender Gläubiger ist eine gesetzliche Liquidationsaufgabe und geht der Auskehr des Restvermögens an den Anfallsberechtigten voraus.**
 
-### Achtung
+⇶  Achtung
 
 Die Begleichung bestehender Verbindlichkeiten ist nicht allein deshalb gemeinnützigkeitsschädlich, weil der Gläubiger selbst keine steuerbegünstigte Körperschaft ist.
 
@@ -129,15 +129,15 @@ Es muss geprüft werden,
 
 ---
 
-# 6. Tatsächliche Geschäftsführung während der Liquidation
+⇨ 6. Tatsächliche Geschäftsführung während der Liquidation
 
-## § 63 Abs. 1 AO
+► § 63 Abs. 1 AO
 
 Die tatsächliche Geschäftsführung muss auf die ausschließliche und unmittelbare Erfüllung der steuerbegünstigten Zwecke gerichtet sein und den Satzungsbestimmungen entsprechen.
 
 Auch während der Liquidationsphase muss daher geprüft werden, wie die Körperschaft ihr Vermögen tatsächlich verwaltet und verwendet.
 
-### Maßgebliche Fragen
+⇶  Maßgebliche Fragen
 
 - Werden nur notwendige Abwicklungsmaßnahmen durchgeführt?
 - Werden bestehende und berechtigte Gläubiger befriedigt?
@@ -147,15 +147,15 @@ Auch während der Liquidationsphase muss daher geprüft werden, wie die Körpers
 - Wird die Liquidation ohne sachlich nicht gerechtfertigte Verzögerung durchgeführt?
 - Werden Satzung, Gesetz und Vermögensbindung eingehalten?
 
-### Lernsatz
+⇶  Lernsatz
 
 **Auch in der Liquidation ist nicht die bloße Bezeichnung als gemeinnützig entscheidend, sondern die tatsächliche Verwendung und Verwaltung des Vermögens.**
 
 ---
 
-# 7. Grundsatz der Vermögensbindung
+⇨ 7. Grundsatz der Vermögensbindung
 
-## § 55 Abs. 1 Nr. 4 AO
+► § 55 Abs. 1 Nr. 4 AO
 
 Bei Auflösung oder Aufhebung der Körperschaft oder bei Wegfall ihres bisherigen Zwecks darf das Vermögen grundsätzlich nur für steuerbegünstigte Zwecke verwendet werden.
 
@@ -168,15 +168,15 @@ Die Vermögensbindung kann insbesondere erfüllt werden, indem das Restvermögen
 
 zur Verwendung für steuerbegünstigte Zwecke übertragen wird.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Das nach Abschluss der Liquidation verbleibende gebundene Vermögen muss dem satzungsmäßigen steuerbegünstigten Anfallsberechtigten zugeführt oder für den genau bezeichneten steuerbegünstigten Zweck verwendet werden.**
 
 ---
 
-# 8. Satzungsmäßige Vermögensbindung
+⇨ 8. Satzungsmäßige Vermögensbindung
 
-## § 61 Abs. 1 AO
+► § 61 Abs. 1 AO
 
 Die Satzung muss den Verwendungszweck des Vermögens bei
 
@@ -186,40 +186,40 @@ Die Satzung muss den Verwendungszweck des Vermögens bei
 
 so genau bestimmen, dass geprüft werden kann, ob der vorgesehene Vermögensanfall steuerbegünstigt ist.
 
-### Erforderlich ist grundsätzlich
+⇶  Erforderlich ist grundsätzlich
 
 - die genaue Bezeichnung eines steuerbegünstigten Anfallsberechtigten oder
 - die genaue Bezeichnung des steuerbegünstigten Verwendungszwecks.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Die Satzung muss eine anderweitige, insbesondere privatnützige Verwendung des verbleibenden Restvermögens ausschließen.**
 
 ---
 
-# 9. Formelle und tatsächliche Vermögensbindung
+⇨ 9. Formelle und tatsächliche Vermögensbindung
 
 Es sind zwei Ebenen zu unterscheiden.
 
-## Formelle Vermögensbindung
+► Formelle Vermögensbindung
 
 Die Satzung enthält eine den Anforderungen des § 61 Abs. 1 AO entsprechende Vermögensbindungsklausel.
 
-## Tatsächliche Vermögensbindung
+► Tatsächliche Vermögensbindung
 
 Die Körperschaft und ihre Liquidatoren verwenden das Vermögen tatsächlich entsprechend der Satzung und den §§ 55, 61 und 63 AO.
 
-### Wichtig
+⇶  Wichtig
 
 Eine formal ordnungsgemäße Satzung schützt nicht vor dem Verlust der Gemeinnützigkeit, wenn die tatsächliche Geschäftsführung das Vermögen entgegen der Bindung verwendet.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Die Vermögensbindung muss sowohl in der Satzung als auch in der tatsächlichen Abwicklung eingehalten werden.**
 
 ---
 
-# 10. Nicht jede Verzögerung der Vermögensauskehr ist automatisch schädlich
+⇨ 10. Nicht jede Verzögerung der Vermögensauskehr ist automatisch schädlich
 
 Das Restvermögen kann regelmäßig erst ausgekehrt werden, nachdem
 
@@ -232,7 +232,7 @@ Das Restvermögen kann regelmäßig erst ausgekehrt werden, nachdem
 
 Die bloße Tatsache, dass die Auskehr nicht unmittelbar nach dem Auflösungsbeschluss erfolgt, begründet daher nicht ohne Weiteres einen Verstoß gegen die Vermögensbindung.
 
-### Entscheidend sind
+⇶  Entscheidend sind
 
 - der Grund der Verzögerung,
 - die Notwendigkeit der noch laufenden Abwicklung,
@@ -241,15 +241,15 @@ Die bloße Tatsache, dass die Auskehr nicht unmittelbar nach dem Auflösungsbesc
 - die Tätigkeit des Liquidators und
 - die ernsthafte Vorbereitung der endgültigen Vermögensauskehr.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Eine sachlich notwendige Verzögerung der Auskehr ist von einer gemeinnützigkeitsschädlichen Zweckentfremdung des Vermögens zu unterscheiden.**
 
 ---
 
-# 11. Der Fall des FG Münster
+⇨ 11. Der Fall des FG Münster
 
-## Sachverhalt in Grundzügen
+► Sachverhalt in Grundzügen
 
 Bei der Klägerin handelte es sich um eine Stiftung, die durch die Stiftungsaufsicht aufgehoben worden war und sich in Liquidation befand.
 
@@ -259,7 +259,7 @@ Nach ihrer Aufhebung verfolgte sie keine operativen gemeinnützigen Zwecke mehr,
 
 Das Vermögen wurde nicht an den satzungsmäßigen steuerbegünstigten Anfallsberechtigten ausgekehrt.
 
-## Entscheidung des FG Münster
+► Entscheidung des FG Münster
 
 Das FG Münster nahm einen Verstoß der tatsächlichen Geschäftsführung gegen den Grundsatz der Vermögensbindung an.
 
@@ -274,7 +274,7 @@ Nach Auffassung des FG
 
 Das FG stellte außerdem darauf ab, dass keine strikte Trennung zwischen dem für die Rentenverpflichtung bestimmten Vermögen und dem gemeinnützig gebundenen Vermögen erfolgt war.
 
-### Wichtig
+⇶  Wichtig
 
 Das FG hat nicht lediglich abstrakt entschieden, dass jede Liquidation automatisch gemeinnützigkeitsschädlich sei.
 
@@ -282,53 +282,53 @@ Das Gericht stellte maßgeblich auf die konkrete tatsächliche Geschäftsführun
 
 ---
 
-# 12. Keine Verschuldensprüfung nach Auffassung des FG Münster
+⇨ 12. Keine Verschuldensprüfung nach Auffassung des FG Münster
 
 Das FG Münster ging davon aus, dass die Nachversteuerung nach § 63 Abs. 2 in Verbindung mit § 61 Abs. 3 AO an einen objektiven Verstoß gegen die Vermögensbindung anknüpft.
 
 Ein persönliches Verschulden der Stiftung oder des Liquidators sei danach nicht erforderlich.
 
-### Lernsatz zur FG-Entscheidung
+⇶  Lernsatz zur FG-Entscheidung
 
 **Nach Auffassung des FG Münster kann ein objektiver Verstoß gegen die tatsächliche Vermögensbindung auch ohne Verschulden zu einer rückwirkenden Nachversteuerung führen.**
 
-### Achtung
+⇶  Achtung
 
 Ob der BFH diese Auffassung bestätigt, ist noch offen.
 
 ---
 
-# 13. Die Gegenauffassung: Gemeinnützige Abwicklungsphase
+⇨ 13. Die Gegenauffassung: Gemeinnützige Abwicklungsphase
 
 In der Fachliteratur wird vertreten, dass einer steuerbegünstigten Körperschaft spiegelbildlich zur anerkannten Anlaufphase auch eine notwendige gemeinnützige Abwicklungsphase zuzugestehen ist.
 
 Danach führt die Einstellung der operativen Zweckverwirklichung während einer notwendigen Liquidation nicht automatisch zum Verlust der Gemeinnützigkeit.
 
-## Begründungsansätze
+► Begründungsansätze
 
-### 1. Spiegelbildlichkeit zur Anlaufphase
+⇶  1. Spiegelbildlichkeit zur Anlaufphase
 
 Kann eine Körperschaft bereits während vorbereitender Maßnahmen gemeinnützig sein, obwohl sie ihren Satzungszweck noch nicht vollständig verwirklicht, soll dies entsprechend auch für die notwendige Abwicklungsphase gelten.
 
-### 2. Gesetzliche Notwendigkeit der Liquidation
+⇶  2. Gesetzliche Notwendigkeit der Liquidation
 
 Die Liquidation ist gesetzlich vorgeschrieben und notwendiger Teil der rechtlichen Beendigung einer Körperschaft.
 
-### 3. Einheit der Rechtsordnung
+⇶  3. Einheit der Rechtsordnung
 
 Steuerrecht und Zivilrecht sollten nicht widersprüchliche Anforderungen stellen.
 
 Ein Liquidator darf Vermögen nicht an den Anfallsberechtigten auskehren, solange berechtigte Gläubiger noch nicht befriedigt oder gesichert sind.
 
-### 4. Fortbestehende Vermögensbindung
+⇶  4. Fortbestehende Vermögensbindung
 
 Auch während der Liquidation bleibt das Restvermögen gemeinnützig gebunden.
 
-### 5. Finale gemeinnützige Mittelverwendung
+⇶  5. Finale gemeinnützige Mittelverwendung
 
 Die abschließende Zuwendung des Restvermögens an den steuerbegünstigten Anfallsberechtigten kann als letzter Akt der gemeinnützigen Mittelverwendung verstanden werden.
 
-## Zwingender Statushinweis
+► Zwingender Statushinweis
 
 Diese sogenannte gemeinnützige Abwicklungsphase ist eine in der Literatur vertretene Rechtsauffassung.
 
@@ -336,21 +336,21 @@ Sie ist bislang nicht als allgemeiner Grundsatz durch eine abschließende BFH-En
 
 ---
 
-# 14. Einordnung als Förderkörperschaft
+⇨ 14. Einordnung als Förderkörperschaft
 
 Nach einer in der Literatur vertretenen Auffassung kann sich die operative Körperschaft während der Liquidation funktional zu einer Förderkörperschaft entwickeln.
 
-## § 58 Nr. 1 AO
+► § 58 Nr. 1 AO
 
 Die Steuervergünstigung wird nicht dadurch ausgeschlossen, dass eine Körperschaft einer anderen Körperschaft oder einer juristischen Person des öffentlichen Rechts Mittel zur Verwirklichung steuerbegünstigter Zwecke zuwendet.
 
 Die abschließende Auskehr des Restvermögens an den steuerbegünstigten Anfallsberechtigten könnte danach als eigene steuerbegünstigte Zweckverwirklichung durch Mittelweitergabe beurteilt werden.
 
-### Vorsichtige Formulierung
+⇶  Vorsichtige Formulierung
 
 **Nach einer Literaturauffassung kann die abschließende Auskehr des Restvermögens an einen steuerbegünstigten Anfallsberechtigten als Fördertätigkeit im Sinne des § 58 Nr. 1 AO verstanden werden.**
 
-### Nicht zulässige Formulierung
+⇶  Nicht zulässige Formulierung
 
 **Mit der Auflösung wird jede gemeinnützige Körperschaft automatisch und rechtssicher zu einer Förderkörperschaft.**
 
@@ -358,7 +358,7 @@ Diese Aussage wäre derzeit zu weitgehend und höchstrichterlich nicht abgesiche
 
 ---
 
-# 15. Zulässige Abwicklungsmaßnahmen
+⇨ 15. Zulässige Abwicklungsmaßnahmen
 
 Folgende Maßnahmen können grundsätzlich notwendige und gemeinnützigkeitsrechtlich unschädliche Liquidationshandlungen sein:
 
@@ -375,7 +375,7 @@ Folgende Maßnahmen können grundsätzlich notwendige und gemeinnützigkeitsrech
 - Ermittlung des verbleibenden Restvermögens,
 - Vorbereitung und Durchführung der Auskehr an den Anfallsberechtigten.
 
-### Voraussetzung
+⇶  Voraussetzung
 
 Die Maßnahmen müssen
 
@@ -386,7 +386,7 @@ Die Maßnahmen müssen
 
 ---
 
-# 16. Mögliche gemeinnützigkeitsschädliche Vorgänge
+⇨ 16. Mögliche gemeinnützigkeitsschädliche Vorgänge
 
 Gemeinnützigkeitsrechtlich problematisch können insbesondere sein:
 
@@ -405,9 +405,9 @@ Gemeinnützigkeitsrechtlich problematisch können insbesondere sein:
 
 ---
 
-# 17. Zehnjährige rückwirkende Nachversteuerung
+⇨ 17. Zehnjährige rückwirkende Nachversteuerung
 
-## Gesetzlicher Ausgangspunkt
+► Gesetzlicher Ausgangspunkt
 
 Nach § 63 Abs. 2 AO gilt für eine Verletzung der Vermögensbindung § 61 Abs. 3 AO.
 
@@ -415,29 +415,29 @@ Nach § 63 Abs. 2 AO gilt für eine Verletzung der Vermögensbindung § 61 Abs. 
 
 Dadurch können unter den gesetzlichen Voraussetzungen Steuerbescheide für einen Zeitraum von bis zu zehn Kalenderjahren betroffen sein.
 
-## Auffassung des FG Münster
+► Auffassung des FG Münster
 
 Das FG Münster hielt im konkreten Fall eine rückwirkende Aberkennung der Gemeinnützigkeit für zehn Jahre für zulässig.
 
-## Gegenauffassung
+► Gegenauffassung
 
 In der Literatur wird vertreten, dass der bloße Eintritt in die Liquidation jedenfalls keine rückwirkende Aberkennung für bereits abgeschlossene Zeiträume rechtfertige.
 
 Selbst bei einem Verlust der Gemeinnützigkeit solle die Wirkung danach grundsätzlich erst ab Eintritt in die schädliche Liquidations- oder Geschäftsführungsphase eintreten.
 
-## Offene BFH-Frage
+► Offene BFH-Frage
 
 Ob und unter welchen Voraussetzungen die zehnjährige Rückwirkung im Fall der Auflösung oder Aufhebung einer Körperschaft eingreift, ist ausdrücklich Gegenstand des anhängigen BFH-Verfahrens.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Eine zehnjährige Rückwirkung ist keine automatische Folge jeder Liquidation, kann aber bei einem tatsächlichen Verstoß gegen die Vermögensbindung nach §§ 61 Abs. 3, 63 Abs. 2 AO in Betracht kommen.**
 
 ---
 
-# 18. Abgrenzung: Liquidation und Verstoß gegen die Vermögensbindung
+⇨ 18. Abgrenzung: Liquidation und Verstoß gegen die Vermögensbindung
 
-## Liquidation allein
+► Liquidation allein
 
 - Auflösungsbeschluss wurde gefasst.
 - Operative Tätigkeit wird beendet.
@@ -445,7 +445,7 @@ Ob und unter welchen Voraussetzungen die zehnjährige Rückwirkung im Fall der A
 - Restvermögen bleibt gesichert.
 - Auskehr an den steuerbegünstigten Anfallsberechtigten wird vorbereitet.
 
-## Möglicher schädlicher Verstoß
+► Möglicher schädlicher Verstoß
 
 - Vermögen wird tatsächlich zweckwidrig verbraucht.
 - Privatnützige Verpflichtungen werden aus gebundenem Vermögen erfüllt, obwohl dies unzulässig ist.
@@ -453,13 +453,13 @@ Ob und unter welchen Voraussetzungen die zehnjährige Rückwirkung im Fall der A
 - Die Satzungsbindung wird tatsächlich nicht eingehalten.
 - Die Körperschaft verfolgt ausschließlich sachfremde Zwecke.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Nicht der formale Liquidationsstatus, sondern die konkrete tatsächliche Geschäftsführung und Vermögensverwendung können den entscheidenden Gemeinnützigkeitsverstoß begründen.**
 
 ---
 
-# 19. Körperschaftsteuer während der Liquidation
+⇨ 19. Körperschaftsteuer während der Liquidation
 
 Besteht die Steuerbefreiung nach § 5 Abs. 1 Nr. 9 KStG fort, können insbesondere weiterhin steuerfrei sein:
 
@@ -471,13 +471,13 @@ Einkünfte aus einem steuerpflichtigen wirtschaftlichen Geschäftsbetrieb bleibe
 
 Entfällt die Steuerbefreiung, können auch zuvor steuerfreie Vermögensverwaltungs- oder Zweckbetriebserträge der Körperschaftsteuer unterliegen.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Die Liquidation ändert nicht automatisch die Einordnung sämtlicher Tätigkeitsbereiche; entscheidend ist zunächst, ob die Steuerbefreiung nach § 5 Abs. 1 Nr. 9 KStG fortbesteht.**
 
 ---
 
-# 20. Zuwendungsbestätigungen während der Liquidation
+⇨ 20. Zuwendungsbestätigungen während der Liquidation
 
 Eine Körperschaft darf nicht allein deshalb Zuwendungsbestätigungen ausstellen, weil sie früher gemeinnützig war.
 
@@ -488,25 +488,25 @@ Vor Ausstellung muss geprüft werden, ob
 - die tatsächliche Geschäftsführung weiterhin den §§ 51 ff. AO entspricht und
 - die Zuwendung tatsächlich für steuerbegünstigte Zwecke verwendet wird.
 
-### Besondere Vorsicht
+⇶  Besondere Vorsicht
 
 Bestehen erhebliche Zweifel am Fortbestand der Gemeinnützigkeit oder befindet sich die Körperschaft in einem streitigen Liquidationsfall, sollte die Ausstellung von Zuwendungsbestätigungen vorab mit dem zuständigen Finanzamt abgestimmt werden.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Der Liquidationsstatus allein berechtigt weder zur Ausstellung noch führt er automatisch zum Verbot von Zuwendungsbestätigungen; maßgeblich ist der aktuelle steuerliche Gemeinnützigkeitsstatus.**
 
 ---
 
-# 21. Abgrenzung zum Insolvenzverfahren
+⇨ 21. Abgrenzung zum Insolvenzverfahren
 
 Liquidation und Insolvenz sind nicht gleichzusetzen.
 
-## Liquidation
+► Liquidation
 
 Die Körperschaft wird geordnet abgewickelt. Grundsätzlich sollen sämtliche Gläubiger befriedigt und das verbleibende Restvermögen ausgekehrt werden.
 
-## Insolvenz
+► Insolvenz
 
 Das Vermögen reicht regelmäßig nicht aus, um alle Gläubiger vollständig zu befriedigen, oder die Körperschaft ist zahlungsunfähig.
 
@@ -517,15 +517,15 @@ Der BFH hat für einen Insolvenzfall entschieden, dass die Körperschaftsteuerbe
 
 Ob bereits die Insolvenzeröffnung allein genügt oder zusätzliche Voraussetzungen erforderlich sind, ist in der Literatur umstritten.
 
-### Lernsatz
+⇶  Lernsatz
 
 **Die Rechtsprechung zum Insolvenzverfahren darf nicht ohne weitere Prüfung auf eine geordnete Liquidation übertragen werden.**
 
 ---
 
-# 22. Prüfungsschema Gemeinnützigkeit in Liquidation
+⇨ 22. Prüfungsschema Gemeinnützigkeit in Liquidation
 
-## Schritt 1: Körperschaft und Auflösungsgrund feststellen
+► Schritt 1: Körperschaft und Auflösungsgrund feststellen
 
 - Verein?
 - Stiftung?
@@ -535,20 +535,20 @@ Ob bereits die Insolvenzeröffnung allein genügt oder zusätzliche Voraussetzun
 - behördliche Aufhebung?
 - Insolvenz?
 
-## Schritt 2: Zivilrechtlichen Status prüfen
+► Schritt 2: Zivilrechtlichen Status prüfen
 
 - Auflösung beschlossen?
 - Liquidatoren bestellt?
 - Körperschaft bereits erloschen?
 - Liquidation noch nicht beendet?
 
-## Schritt 3: Satzungsmäßige Voraussetzungen prüfen
+► Schritt 3: Satzungsmäßige Voraussetzungen prüfen
 
 - Steuerbegünstigter Zweck weiterhin enthalten?
 - Ordnungsgemäße Vermögensbindung nach § 61 Abs. 1 AO?
 - Steuerbegünstigter Anfallsberechtigter eindeutig bestimmt?
 
-## Schritt 4: Tatsächliche Geschäftsführung prüfen
+► Schritt 4: Tatsächliche Geschäftsführung prüfen
 
 - Welche Tätigkeiten werden noch ausgeübt?
 - Dienen sie der notwendigen Abwicklung?
@@ -557,7 +557,7 @@ Ob bereits die Insolvenzeröffnung allein genügt oder zusätzliche Voraussetzun
 - Werden nur Altverbindlichkeiten erfüllt?
 - Gibt es privatnützige Zahlungen?
 
-## Schritt 5: Vermögensbindung prüfen
+► Schritt 5: Vermögensbindung prüfen
 
 - Ist das Restvermögen gesichert?
 - Wird es für steuerbegünstigte Zwecke erhalten?
@@ -565,7 +565,7 @@ Ob bereits die Insolvenzeröffnung allein genügt oder zusätzliche Voraussetzun
 - Bestehen unzulässige Vermögensabflüsse?
 - Wurde gebundenes Vermögen verbraucht?
 
-## Schritt 6: Gläubigerbefriedigung prüfen
+► Schritt 6: Gläubigerbefriedigung prüfen
 
 - Besteht die Verbindlichkeit rechtlich?
 - Wurde sie bereits vor der Liquidation wirksam begründet?
@@ -573,14 +573,14 @@ Ob bereits die Insolvenzeröffnung allein genügt oder zusätzliche Voraussetzun
 - Ist die Zahlung angemessen?
 - Liegt eine verdeckte Begünstigung vor?
 
-## Schritt 7: Steuerbefreiung beurteilen
+► Schritt 7: Steuerbefreiung beurteilen
 
 - Fortbestand nach § 5 Abs. 1 Nr. 9 KStG vertretbar?
 - Nur einzelne wirtschaftliche Geschäftsbetriebe steuerpflichtig?
 - Vollständiger Verlust der Gemeinnützigkeit?
 - Rechtslage wegen BFH VII R 24/25 offen?
 
-## Schritt 8: Rückwirkung prüfen
+► Schritt 8: Rückwirkung prüfen
 
 - Liegt tatsächlich ein Verstoß gegen die Vermögensbindung vor?
 - Wann begann der Verstoß?
@@ -590,9 +590,9 @@ Ob bereits die Insolvenzeröffnung allein genügt oder zusätzliche Voraussetzun
 
 ---
 
-# 23. Risikostufen für die Chatbot-Antwort
+⇨ 23. Risikostufen für die Chatbot-Antwort
 
-## Geringeres Risiko
+► Geringeres Risiko
 
 - Abwicklung erfolgt zügig.
 - Gläubiger werden ordnungsgemäß befriedigt.
@@ -601,7 +601,7 @@ Ob bereits die Insolvenzeröffnung allein genügt oder zusätzliche Voraussetzun
 - Auskehr wird vorbereitet.
 - Sämtliche Vorgänge sind dokumentiert.
 
-## Mittleres Risiko
+► Mittleres Risiko
 
 - Liquidation dauert mehrere Jahre.
 - Einzelne Rechtsstreitigkeiten oder Dauerschuldverhältnisse bestehen.
@@ -609,7 +609,7 @@ Ob bereits die Insolvenzeröffnung allein genügt oder zusätzliche Voraussetzun
 - Restvermögen ist grundsätzlich noch gesichert.
 - Abstimmung mit dem Finanzamt fehlt.
 
-## Hohes Risiko
+► Hohes Risiko
 
 - Gebundenes Vermögen wird laufend für privatnützige Zwecke verbraucht.
 - Eine Auskehr an den Anfallsberechtigten ist nicht absehbar.
@@ -620,7 +620,7 @@ Ob bereits die Insolvenzeröffnung allein genügt oder zusätzliche Voraussetzun
 
 ---
 
-# 24. Kompakte Lernsätze
+⇨ 24. Kompakte Lernsätze
 
 1. Die Auflösung einer Körperschaft ist von ihrem endgültigen Erlöschen zu unterscheiden.
 
@@ -688,19 +688,19 @@ Ob bereits die Insolvenzeröffnung allein genügt oder zusätzliche Voraussetzun
 
 ---
 
-# 25. Prüfungssichere Formulierung
+⇨ 25. Prüfungssichere Formulierung
 
 **Die Auflösung der Körperschaft und der Eintritt in die Liquidation führen nach der bislang nicht abschließend geklärten Rechtslage nicht zwingend bereits für sich genommen zum Verlust der Steuerbefreiung nach § 5 Abs. 1 Nr. 9 KStG. Auch während der Liquidation müssen jedoch die satzungsmäßigen Voraussetzungen und die Anforderungen an die tatsächliche Geschäftsführung nach §§ 59, 61 und 63 AO eingehalten werden. Insbesondere muss das nach Befriedigung der Gläubiger verbleibende Vermögen entsprechend § 55 Abs. 1 Nr. 4 AO an den satzungsmäßigen steuerbegünstigten Anfallsberechtigten ausgekehrt oder für den bestimmten steuerbegünstigten Zweck verwendet werden. Ob der bloße Eintritt in die Liquidation zum Verlust der Steuerbefreiung führt und ob eine zehnjährige rückwirkende Nachversteuerung nach §§ 61 Abs. 3, 63 Abs. 2 und 175 Abs. 1 Satz 1 Nr. 2 AO zulässig ist, ist Gegenstand des anhängigen BFH-Verfahrens VII R 24/25, vormals V R 27/25.**
 
 ---
 
-# 26. Kurzantwort des Chatbots
+⇨ 26. Kurzantwort des Chatbots
 
 **Die Liquidation einer gemeinnützigen Körperschaft führt nach derzeit noch ungeklärter Rechtslage nicht automatisch zum Verlust der Gemeinnützigkeit. Entscheidend ist, ob die tatsächliche Geschäftsführung weiterhin den §§ 51 ff. AO entspricht, die Gläubiger ordnungsgemäß befriedigt werden und das verbleibende Vermögen nach § 55 Abs. 1 Nr. 4 und § 61 AO dem steuerbegünstigten Anfallsberechtigten zufließt. Das FG Münster hat in einem konkreten Fall wegen eines Verstoßes gegen die Vermögensbindung eine zehnjährige Nachversteuerung bestätigt. Ob diese Grundsätze Bestand haben und bereits die Liquidation als solche schädlich ist, wird der BFH im anhängigen Verfahren VII R 24/25, vormals V R 27/25, klären.**
 
 ---
 
-# 27. Antwortlogik für den Steuerstoff-Chatbot
+⇨ 27. Antwortlogik für den Steuerstoff-Chatbot
 
 Bei Fragen zur Gemeinnützigkeit in der Liquidation soll der Chatbot zunächst folgende Informationen erfragen:
 
@@ -746,7 +746,7 @@ Bei Fragen zur Gemeinnützigkeit in der Liquidation soll der Chatbot zunächst f
 
 ---
 
-# 28. Verbotene Übervereinfachungen
+⇨ 28. Verbotene Übervereinfachungen
 
 Der Chatbot darf nicht pauschal sagen:
 

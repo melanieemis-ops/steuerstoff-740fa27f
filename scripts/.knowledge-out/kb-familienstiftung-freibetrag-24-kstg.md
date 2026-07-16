@@ -6,14 +6,14 @@ source: Interne Steuerstoff-Prüfungsvorbereitung
 references: § 24 KStG, § 20 Abs. 1 Nr. 1 EStG, § 20 Abs. 1 Nr. 2 EStG, § 27 KStG
 ---
 
-# Familienstiftung und Freibetrag nach § 24 KStG
+⇨ Familienstiftung und Freibetrag nach § 24 KStG
 
 _Voraussetzungen und Ausschluss des Freibetrags nach § 24 KStG bei Familienstiftungen sowie Abgrenzung zu § 20 Abs. 1 Nr. 1 und 2 EStG._
 
 
-# Freibetrag nach § 24 KStG bei Familienstiftungen
+⇨ Freibetrag nach § 24 KStG bei Familienstiftungen
 
-## Grundsatz
+► Grundsatz
 
 Körperschaften können unter den Voraussetzungen des § 24 KStG einen Freibetrag erhalten.
 
@@ -31,7 +31,7 @@ Entscheidend ist allein,
 
 dass die Stiftung solche Leistungen nach ihrer Satzung oder ihrer Rechtsnatur grundsätzlich erbringen kann.
 
-## Ausschluss des Freibetrags
+► Ausschluss des Freibetrags
 
 Der Freibetrag ist ausgeschlossen,
 
@@ -45,7 +45,7 @@ dass im betreffenden Wirtschaftsjahr tatsächlich Ausschüttungen erfolgen.
 
 Auch eine satzungsmäßige Ausschüttungssperre oder die bloße Nichtausschüttung ändern daran grundsätzlich nichts.
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Liegt eine Körperschaft vor?
 
@@ -59,7 +59,7 @@ Auch eine satzungsmäßige Ausschüttungssperre oder die bloße Nichtausschüttu
 
 => Freibetrag nach § 24 KStG ausgeschlossen.
 
-## Einnahmen nach § 20 Abs. 1 Nr. 1 EStG
+► Einnahmen nach § 20 Abs. 1 Nr. 1 EStG
 
 Hierzu gehören insbesondere:
 
@@ -69,7 +69,7 @@ Hierzu gehören insbesondere:
 - verdeckte Gewinnausschüttungen
 - wirtschaftlich vergleichbare Ausschüttungen
 
-## Einnahmen nach § 20 Abs. 1 Nr. 2 EStG
+► Einnahmen nach § 20 Abs. 1 Nr. 2 EStG
 
 Hierzu gehören insbesondere:
 
@@ -83,7 +83,7 @@ Soweit keine Rückzahlung von
 
 vorliegt.
 
-## Nicht unter § 20 Abs. 1 Nr. 1 oder Nr. 2 EStG fallen
+► Nicht unter § 20 Abs. 1 Nr. 1 oder Nr. 2 EStG fallen
 
 - Rückzahlung des Stammkapitals
 - Rückzahlung des Grundkapitals
@@ -91,7 +91,7 @@ vorliegt.
 - Leistungen ohne kapitalmäßige Beteiligung
 - Leistungen bestimmter steuerbefreiter Körperschaften ohne Ausschüttungsmöglichkeit
 
-## Meinungsstand
+► Meinungsstand
 
 Finanzverwaltung,
 
@@ -113,7 +113,7 @@ sondern
 
 ob Ausschüttungen ihrer Art nach zu Einnahmen nach § 20 EStG führen können.
 
-## Rechtsfolge
+► Rechtsfolge
 
 Sind Leistungen grundsätzlich geeignet,
 
@@ -129,7 +129,7 @@ wenn
 - Ausschüttungen dauerhaft unterbleiben,
 - die Stiftung ausschließlich Vermögensverwaltung betreibt.
 
-## Prüfungsmerksätze
+► Prüfungsmerksätze
 
 Nicht die tatsächliche Ausschüttung ist entscheidend.
 
@@ -137,7 +137,7 @@ Entscheidend ist die grundsätzliche Möglichkeit einer Ausschüttung.
 
 § 24 KStG knüpft an die Art der möglichen Leistungen an.
 
-## Klausurtipp
+► Klausurtipp
 
 Typische Prüfungsfalle:
 

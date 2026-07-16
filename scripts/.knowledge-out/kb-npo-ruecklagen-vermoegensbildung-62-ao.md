@@ -6,14 +6,14 @@ source: Interne Steuerstoff-Wissensdatenbank – § 62 AO Rücklagen und Vermög
 references: § 55 Abs. 1 Nr. 5 AO, § 62 AO, AEAO zu § 62 AO
 ---
 
-# Rücklagen und Vermögensbildung nach § 62 AO
+⇨ Rücklagen und Vermögensbildung nach § 62 AO
 
 _Zulässige Rücklagen und Vermögenszuführungen bei steuerbegünstigten Körperschaften nach § 62 AO._
 
 
-# Rücklagen und Vermögensbildung (§ 62 AO)
+⇨ Rücklagen und Vermögensbildung (§ 62 AO)
 
-## Grundsatz
+► Grundsatz
 
 Steuerbegünstigte Körperschaften müssen ihre Mittel grundsätzlich zeitnah verwenden (§ 55 Abs.1 Nr.5 AO).
 
@@ -26,13 +26,13 @@ Danach dürfen Mittel
 
 ---
 
-# I. Zulässige Rücklagen (§ 62 Abs.1 AO)
+⇨ I. Zulässige Rücklagen (§ 62 Abs.1 AO)
 
 Es existieren vier gesetzliche Rücklagenarten.
 
 ---
 
-## 1. Zweckgebundene Rücklage (§ 62 Abs.1 Nr.1 AO)
+► 1. Zweckgebundene Rücklage (§ 62 Abs.1 Nr.1 AO)
 
 Zulässig, soweit erforderlich, um die steuerbegünstigten satzungsmäßigen Zwecke nachhaltig zu erfüllen.
 
@@ -58,7 +58,7 @@ Keine konkrete Planung → keine zweckgebundene Rücklage.
 
 ---
 
-## 2. Wiederbeschaffungsrücklage (§ 62 Abs.1 Nr.2 AO)
+► 2. Wiederbeschaffungsrücklage (§ 62 Abs.1 Nr.2 AO)
 
 Dient der späteren Ersatzbeschaffung notwendiger Wirtschaftsgüter.
 
@@ -78,7 +78,7 @@ Eine höhere Zuführung ist zulässig, wenn sie sachlich nachgewiesen werden kan
 
 ---
 
-## 3. Freie Rücklage (§ 62 Abs.1 Nr.3 AO)
+► 3. Freie Rücklage (§ 62 Abs.1 Nr.3 AO)
 
 Maximal zulässig:
 
@@ -96,7 +96,7 @@ Merksatz:
 
 ---
 
-## 4. Rücklage zum Erwerb von Gesellschaftsrechten (§ 62 Abs.1 Nr.4 AO)
+► 4. Rücklage zum Erwerb von Gesellschaftsrechten (§ 62 Abs.1 Nr.4 AO)
 
 Zulässig zum Erhalt einer bestehenden prozentualen Beteiligung an Kapitalgesellschaften.
 
@@ -104,7 +104,7 @@ Die hierfür gebildete Rücklage vermindert den Höchstbetrag der freien Rückla
 
 ---
 
-# II. Auflösung der Rücklagen (§ 62 Abs.2 AO)
+⇨ II. Auflösung der Rücklagen (§ 62 Abs.2 AO)
 
 Die Rücklagenbildung muss innerhalb der Frist der zeitnahen Mittelverwendung erfolgen.
 
@@ -120,11 +120,11 @@ Die dadurch frei werdenden Mittel sind anschließend innerhalb der gesetzlichen 
 
 ---
 
-# III. Vermögenszuführungen (§ 62 Abs.3 AO)
+⇨ III. Vermögenszuführungen (§ 62 Abs.3 AO)
 
 Folgende Mittel unterliegen nicht der Pflicht zur zeitnahen Mittelverwendung und dürfen unmittelbar dem Vermögen zugeführt werden.
 
-## 1.
+► 1.
 
 Zuwendungen von Todes wegen
 
@@ -134,7 +134,7 @@ soweit der Erblasser keine Verwendung für den laufenden Aufwand vorgeschrieben 
 
 ---
 
-## 2.
+► 2.
 
 Zuwendungen,
 
@@ -149,7 +149,7 @@ bestimmt sind.
 
 ---
 
-## 3.
+► 3.
 
 Spenden aufgrund eines Spendenaufrufs,
 
@@ -159,7 +159,7 @@ dass die Mittel zur Vermögensbildung bestimmt sind.
 
 ---
 
-## 4.
+► 4.
 
 Sachzuwendungen,
 
@@ -174,7 +174,7 @@ Beispiele:
 
 ---
 
-# Prüfungsschema
+⇨ Prüfungsschema
 
 1. Liegt grundsätzlich zeitnah zu verwendendes Vermögen vor?
 
@@ -209,7 +209,7 @@ Beispiele:
 
 ---
 
-# Klausurhinweise
+⇨ Klausurhinweise
 
 Immer prüfen:
 
@@ -229,7 +229,7 @@ Immer prüfen:
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 • Rücklagen sind die Ausnahme vom Grundsatz der zeitnahen Mittelverwendung.
 

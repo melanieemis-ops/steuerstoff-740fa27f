@@ -6,7 +6,7 @@ source: beck-chat Arbeitsnotiz – Sphären und Mittelverwendung
 references: § 14 AO, §§ 64–68 AO, § 62 AO
 ---
 
-# Zuordnung von Einnahmen und Ausgaben zu NPO-Sphären
+⇨ Zuordnung von Einnahmen und Ausgaben zu NPO-Sphären
 
 _Einordnung von Einnahmen, Ausgaben und Mittelverwendung in ideellen Bereich, Vermögensverwaltung, Zweckbetrieb und wirtschaftlichen Geschäftsbetrieb._
 

@@ -5,7 +5,7 @@ category: DATEV
 source: Internes Meeting-Handout — DMS Dokumentenmanagementsystem.
 ---
 
-# DMS — Dokumentenmanagement in der Kanzlei
+⇨ DMS — Dokumentenmanagement in der Kanzlei
 
 _Revisionssicherheit, Ablageknigge, Status, Suche, Vorgangsmappen, Ein-/Auschecken._
 

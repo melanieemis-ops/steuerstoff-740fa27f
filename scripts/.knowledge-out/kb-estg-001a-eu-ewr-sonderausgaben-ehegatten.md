@@ -9,14 +9,14 @@ source: Gesetze im Internet – Einkommensteuergesetz, § 1a EStG
 references: § 1a EStG, § 1 Abs. 1 EStG, § 1 Abs. 2 EStG, § 1 Abs. 3 EStG, § 10 Abs. 1a EStG, § 26 Abs. 1 Satz 1 EStG, § 32a Abs. 1 Satz 2 Nr. 1 EStG
 ---
 
-# § 1a EStG – EU-/EWR-Sonderregelungen
+⇨ § 1a EStG – EU-/EWR-Sonderregelungen
 
 _Erweitert für bestimmte EU-/EWR-Sachverhalte den Sonderausgabenabzug und die Ehegattenbesteuerung bei grenzüberschreitenden Fällen._
 
 
-# § 1a EStG – EU-/EWR-Sonderregelungen
+⇨ § 1a EStG – EU-/EWR-Sonderregelungen
 
-## Gesetz
+► Gesetz
 
 § 1a EStG enthält besondere Regelungen für grenzüberschreitende Sachverhalte innerhalb der Europäischen Union und des Europäischen Wirtschaftsraums.
 
@@ -28,7 +28,7 @@ Die Vorschrift ergänzt insbesondere:
 
 ---
 
-# 1. Persönlicher Anwendungsbereich
+⇨ 1. Persönlicher Anwendungsbereich
 
 § 1a Abs. 1 EStG gilt grundsätzlich für Staatsangehörige
 
@@ -49,13 +49,13 @@ Erforderlich sind zusätzlich:
 
 ---
 
-# 2. Sonderausgabenabzug bei ausländischem Empfänger
+⇨ 2. Sonderausgabenabzug bei ausländischem Empfänger
 
-## Grundsatz
+► Grundsatz
 
 Bestimmte Aufwendungen nach § 10 Abs. 1a EStG können auch dann als Sonderausgaben abgezogen werden, wenn der Empfänger nicht in Deutschland unbeschränkt einkommensteuerpflichtig ist.
 
-## Tatbestandsvoraussetzungen
+► Tatbestandsvoraussetzungen
 
 Der Sonderausgabenabzug setzt voraus, dass
 
@@ -67,11 +67,11 @@ Der Sonderausgabenabzug setzt voraus, dass
 
 4. die Besteuerung der Leistung beim Empfänger durch eine Bescheinigung der zuständigen ausländischen Steuerbehörde nachgewiesen wird.
 
-## Rechtsfolge
+► Rechtsfolge
 
 Bei Vorliegen der Voraussetzungen kann die Zahlung trotz ausländischen Empfängers als Sonderausgabe berücksichtigt werden.
 
-## Wichtig
+► Wichtig
 
 Die ausländische Besteuerung muss nachgewiesen werden.
 
@@ -81,28 +81,28 @@ Erforderlich ist eine Bescheinigung der zuständigen ausländischen Steuerbehör
 
 ---
 
-# 3. Ehegatte mit Wohnsitz im EU-/EWR-Ausland
+⇨ 3. Ehegatte mit Wohnsitz im EU-/EWR-Ausland
 
-## Grundfall
+► Grundfall
 
 Der nicht dauernd getrennt lebende Ehegatte hat
 
 - keinen Wohnsitz im Inland und
 - keinen gewöhnlichen Aufenthalt im Inland.
 
-## Voraussetzung
+► Voraussetzung
 
 Der Ehegatte lebt in einem anderen Mitgliedstaat der Europäischen Union oder des Europäischen Wirtschaftsraums.
 
 Zusätzlich muss ein Antrag gestellt werden.
 
-## Rechtsfolge
+► Rechtsfolge
 
 Der ausländische Ehegatte wird für die Anwendung des § 26 Abs. 1 Satz 1 EStG als unbeschränkt einkommensteuerpflichtig behandelt.
 
 Dadurch kann insbesondere eine Zusammenveranlagung in Betracht kommen.
 
-## Einschränkung
+► Einschränkung
 
 Die Gleichstellung erfolgt nicht allgemein für das gesamte Einkommensteuerrecht.
 
@@ -110,13 +110,13 @@ Sie gilt speziell für die Anwendung der Ehegattenveranlagung nach § 26 Abs. 1 
 
 ---
 
-# 4. Prüfung der Einkunftsgrenzen bei Ehegatten
+⇨ 4. Prüfung der Einkunftsgrenzen bei Ehegatten
 
 Wird § 1 Abs. 3 Satz 2 EStG angewendet, sind die Einkünfte beider Ehegatten gemeinsam zu betrachten.
 
 Dabei wird der Grundfreibetrag nach § 32a Abs. 1 Satz 2 Nr. 1 EStG verdoppelt.
 
-## Prüfung
+► Prüfung
 
 Zu berücksichtigen sind:
 
@@ -124,7 +124,7 @@ Zu berücksichtigen sind:
 - die Einkünfte des ausländischen Ehegatten und
 - der verdoppelte Grundfreibetrag.
 
-## Merksatz
+► Merksatz
 
 Bei der Ehegattenprüfung nach § 1a EStG werden nicht nur die Einkünfte eines Ehegatten betrachtet.
 
@@ -132,7 +132,7 @@ Die Einkünfte beider Ehegatten sind einzubeziehen.
 
 ---
 
-# 5. Sonderregelung für bestimmte Personen an ausländischen Dienstorten
+⇨ 5. Sonderregelung für bestimmte Personen an ausländischen Dienstorten
 
 § 1a Abs. 2 EStG erweitert die Ehegattenregelung auf besondere Personengruppen.
 
@@ -141,26 +141,26 @@ Erfasst werden insbesondere:
 - bestimmte deutsche Staatsangehörige im ausländischen öffentlichen Dienst nach § 1 Abs. 2 EStG und
 - bestimmte nach § 1 Abs. 3 EStG unbeschränkt steuerpflichtige Personen, die an einem ausländischen Dienstort tätig sind.
 
-## Besonderheit
+► Besonderheit
 
 Bei diesen Personen wird für die Beurteilung des Wohnsitzes oder gewöhnlichen Aufenthalts des Ehegatten auf den Staat des ausländischen Dienstortes abgestellt.
 
-## Rechtsfolge
+► Rechtsfolge
 
 Die Regelung des § 1a Abs. 1 Nr. 2 EStG über die Ehegattenbesteuerung gilt entsprechend.
 
 ---
 
-# 6. Prüfungsschema
+⇨ 6. Prüfungsschema
 
-## Schritt 1: Staatsangehörigkeit
+► Schritt 1: Staatsangehörigkeit
 
 Ist die betroffene Person Staatsangehöriger eines EU- oder EWR-Staates?
 
 - Ja: weiterprüfen.
 - Nein: § 1a Abs. 1 EStG grundsätzlich nicht anwendbar.
 
-## Schritt 2: Steuerpflicht
+► Schritt 2: Steuerpflicht
 
 Liegt
 
@@ -169,31 +169,31 @@ Liegt
 
 vor?
 
-## Schritt 3: Begünstigter Sachverhalt
+► Schritt 3: Begünstigter Sachverhalt
 
 Geht es um
 
 - Sonderausgaben nach § 10 Abs. 1a EStG oder
 - die Ehegattenveranlagung nach § 26 EStG?
 
-## Schritt 4: EU-/EWR-Bezug
+► Schritt 4: EU-/EWR-Bezug
 
 Hat der Empfänger beziehungsweise Ehegatte seinen Wohnsitz oder gewöhnlichen Aufenthalt in einem EU- oder EWR-Staat?
 
-## Schritt 5: Nachweise
+► Schritt 5: Nachweise
 
 Bei Leistungen nach § 10 Abs. 1a EStG:
 
 Liegt eine Bescheinigung der zuständigen ausländischen Steuerbehörde über die Besteuerung beim Empfänger vor?
 
-## Schritt 6: Rechtsfolge
+► Schritt 6: Rechtsfolge
 
 - Sonderausgabenabzug zulässig oder
 - Ehegatte wird für § 26 Abs. 1 Satz 1 EStG als unbeschränkt steuerpflichtig behandelt.
 
 ---
 
-# 7. Praxisbeispiel: Sonderausgaben
+⇨ 7. Praxisbeispiel: Sonderausgaben
 
 Eine französische Staatsangehörige lebt in Deutschland und ist hier unbeschränkt einkommensteuerpflichtig.
 
@@ -203,7 +203,7 @@ Der Empfänger ist in Deutschland nicht unbeschränkt einkommensteuerpflichtig.
 
 Die französische Steuerbehörde bescheinigt, dass die Zahlung beim Empfänger besteuert wird.
 
-## Lösung
+► Lösung
 
 Die Steuerpflichtige ist Staatsangehörige eines EU-Mitgliedstaates und in Deutschland unbeschränkt einkommensteuerpflichtig.
 
@@ -217,7 +217,7 @@ Die Aufwendungen können bei Vorliegen der weiteren Voraussetzungen als Sonderau
 
 ---
 
-# 8. Praxisbeispiel: Ausländischer Ehegatte
+⇨ 8. Praxisbeispiel: Ausländischer Ehegatte
 
 Ein deutscher Steuerpflichtiger lebt und arbeitet in Deutschland.
 
@@ -227,7 +227,7 @@ Die Ehegatten leben nicht dauernd getrennt.
 
 Die Ehefrau hat keinen Wohnsitz und keinen gewöhnlichen Aufenthalt in Deutschland.
 
-## Lösung
+► Lösung
 
 Österreich ist Mitgliedstaat der Europäischen Union.
 
@@ -237,33 +237,33 @@ Die weiteren Voraussetzungen der Ehegattenveranlagung müssen zusätzlich erfül
 
 ---
 
-# 9. Ausnahmen und Abgrenzungen
+⇨ 9. Ausnahmen und Abgrenzungen
 
-## Keine automatische Gleichstellung
+► Keine automatische Gleichstellung
 
 Ein ausländischer Empfänger oder Ehegatte wird nicht automatisch unbeschränkt einkommensteuerpflichtig.
 
 Die Rechtsfolge hängt von den jeweiligen Voraussetzungen und gegebenenfalls von einem Antrag ab.
 
-## Kein weltweiter Anwendungsbereich
+► Kein weltweiter Anwendungsbereich
 
 § 1a EStG ist grundsätzlich auf EU-/EWR-Sachverhalte beschränkt.
 
 Drittstaatenfälle sind nicht ohne Weiteres erfasst.
 
-## Nachweispflicht beachten
+► Nachweispflicht beachten
 
 Bei Leistungen an ausländische Empfänger ist die Bescheinigung der zuständigen ausländischen Steuerbehörde eine zentrale Voraussetzung.
 
-## Weggefallene Nummern
+► Weggefallene Nummern
 
 § 1a Abs. 1 Nr. 1a und Nr. 1b EStG sind weggefallen und haben keinen eigenständigen Regelungsinhalt mehr.
 
 ---
 
-# 10. Typische Klausurfallen
+⇨ 10. Typische Klausurfallen
 
-## Fehler 1: Nur auf den Wohnsitz abstellen
+► Fehler 1: Nur auf den Wohnsitz abstellen
 
 Falsch:
 
@@ -275,7 +275,7 @@ Auch die Staatsangehörigkeit sowie die unbeschränkte Steuerpflicht oder Gleich
 
 ---
 
-## Fehler 2: Sonderausgaben ohne Nachweis anerkennen
+► Fehler 2: Sonderausgaben ohne Nachweis anerkennen
 
 Falsch:
 
@@ -287,7 +287,7 @@ Die Besteuerung beim Empfänger muss grundsätzlich durch eine Bescheinigung der
 
 ---
 
-## Fehler 3: Ehegatten automatisch zusammen veranlagen
+► Fehler 3: Ehegatten automatisch zusammen veranlagen
 
 Falsch:
 
@@ -299,7 +299,7 @@ Die Behandlung als unbeschränkt einkommensteuerpflichtig für § 26 Abs. 1 Satz
 
 ---
 
-## Fehler 4: Nur die Einkünfte eines Ehegatten prüfen
+► Fehler 4: Nur die Einkünfte eines Ehegatten prüfen
 
 Falsch:
 
@@ -311,7 +311,7 @@ Im Anwendungsbereich des § 1a Abs. 1 Nr. 2 EStG sind die Einkünfte beider Eheg
 
 ---
 
-# 11. Merksätze
+⇨ 11. Merksätze
 
 - § 1a EStG ist eine EU-/EWR-Sonderregelung.
 

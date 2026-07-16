@@ -5,7 +5,7 @@ category: DATEV
 source: Internes Team-Handout — KI-Agenten in Langdock.
 ---
 
-# KI-Agenten in Langdock — Aufbau und Einsatz im Kanzleialltag
+⇨ KI-Agenten in Langdock — Aufbau und Einsatz im Kanzleialltag
 
 _Spezialisierte Chatbots mit Anweisungen, Skills und Wissensquellen — stark bei Konvertierung, Importvorbereitung und Vorprüfung._
 

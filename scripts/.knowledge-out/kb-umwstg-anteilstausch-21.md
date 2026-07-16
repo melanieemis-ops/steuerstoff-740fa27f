@@ -5,15 +5,15 @@ category: Umwandlungssteuer
 references: § 21 UmwStG, § 22 UmwStG, § 1 UmwStG
 ---
 
-# Anteilstausch nach § 21 UmwStG
+⇨ Anteilstausch nach § 21 UmwStG
 
 _Prüfung des Anteilstauschs und Voraussetzungen für den Buchwertansatz._
 
 
 
-# Anteilstausch
+⇨ Anteilstausch
 
-## Sachlicher Anwendungsbereich
+► Sachlicher Anwendungsbereich
 
 Ein Anteilstausch liegt vor, wenn
 
@@ -23,13 +23,13 @@ Ein Anteilstausch liegt vor, wenn
 
 ---
 
-## Persönlicher Anwendungsbereich
+► Persönlicher Anwendungsbereich
 
 Der übernehmende Rechtsträger muss unter den persönlichen Anwendungsbereich des UmwStG fallen (§1 Abs.4 UmwStG).
 
 ---
 
-## Steuerliche Wirkung
+► Steuerliche Wirkung
 
 Die steuerliche Wirkung tritt mit Übergang von Nutzen und Lasten ein.
 
@@ -37,7 +37,7 @@ Eine steuerliche Rückwirkung (§§2,20 UmwStG) ist beim Anteilstausch ausgeschl
 
 ---
 
-## Buchwertansatz (§21 Abs.1 S.2 UmwStG)
+► Buchwertansatz (§21 Abs.1 S.2 UmwStG)
 
 Voraussetzungen:
 
@@ -47,7 +47,7 @@ Voraussetzungen:
 
 ---
 
-## Folgen
+► Folgen
 
 Erfüllt:
 
@@ -59,7 +59,7 @@ Nicht erfüllt:
 
 ---
 
-## Merksatz
+► Merksatz
 
 Anteilstausch = steuerneutral nur über den Buchwertansatz des §21 UmwStG.
 

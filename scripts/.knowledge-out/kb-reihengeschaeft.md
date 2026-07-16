@@ -6,7 +6,7 @@ source: Internes Handout — Reihengeschäft (UStAE 3.14).
 references: § 3 Abs. 6, 7 UStG, § 6a UStG, UStAE 3.14 Abs. 3–11
 ---
 
-# Reihengeschäft (§ 3 Abs. 6, 7 UStG)
+⇨ Reihengeschäft (§ 3 Abs. 6, 7 UStG)
 
 _Mehrere Umsatzgeschäfte, eine Warenbewegung; nur eine Lieferung ist die bewegte, alle anderen ruhen._
 

@@ -6,12 +6,12 @@ source: Interne Steuerstoff-Prüfungsvorbereitung – Ausgangsumsätze, Lieferun
 references: § 1 Abs. 1 Nr. 1 UStG, § 1 Abs. 2 UStG, § 1 Abs. 2a UStG, § 3 Abs. 1 UStG, § 3 Abs. 4 UStG, § 3 Abs. 6 UStG, § 3 Abs. 6a UStG, § 3 Abs. 7 UStG, § 3 Abs. 8 UStG, § 3 Abs. 9 UStG, § 3 Abs. 12 UStG, § 3a UStG, § 3c UStG, § 3d UStG, § 3g UStG, § 4 UStG, § 4 Nr. 1 Buchst. a UStG, § 4 Nr. 1 Buchst. b UStG, § 4 Nr. 8 UStG, § 4 Nr. 9 Buchst. a UStG, § 4 Nr. 10 UStG, § 4 Nr. 11 UStG, § 4 Nr. 12 UStG, § 4 Nr. 14 UStG, § 6 UStG, § 6a UStG, § 9 UStG, § 10 UStG, § 12 UStG, § 13 UStG, § 13a UStG, § 13b UStG, § 14c UStG, § 16 Abs. 6 UStG, § 39 Abs. 2 Nr. 1 AO, § 868 BGB, § 873 BGB, § 925 BGB, § 929 BGB, § 930 BGB, § 931 BGB, § 449 BGB, Abschn. 1.9 UStAE, Abschn. 1.10 UStAE, Abschn. 3.12 UStAE
 ---
 
-# Prüfung von Ausgangsumsätzen, Lieferort und Reihengeschäften
+⇨ Prüfung von Ausgangsumsätzen, Lieferort und Reihengeschäften
 
 _Umfassendes Prüfungsschema für umsatzsteuerliche Ausgangsumsätze: Leistungsart, Leistungsumfang, Ort, Zeitpunkt, Steuerbarkeit, Steuerbefreiung, Steuersatz, Bemessungsgrundlage, Verfügungsmacht sowie bewegte und unbewegte Lieferungen im Reihengeschäft._
 
 
-# Prüfung von Ausgangsumsätzen
+⇨ Prüfung von Ausgangsumsätzen
 
 Ein umsatzsteuerlicher Ausgangsumsatz sollte immer in einer festen Reihenfolge geprüft werden.
 
@@ -30,9 +30,9 @@ Erst danach folgen Steuerbarkeit, Steuerbefreiung, Steuerschuldnerschaft, Steuer
 
 ---
 
-# 1. Vollständiges Prüfungsschema für Ausgangsumsätze
+⇨ 1. Vollständiges Prüfungsschema für Ausgangsumsätze
 
-## Prüfungsreihenfolge
+► Prüfungsreihenfolge
 
 1. Art der Leistung,
 2. Umfang der Leistung,
@@ -50,7 +50,7 @@ Erst danach folgen Steuerbarkeit, Steuerbefreiung, Steuerschuldnerschaft, Steuer
 
 ---
 
-# 2. Art der Leistung
+⇨ 2. Art der Leistung
 
 Zunächst ist zu bestimmen, welche umsatzsteuerliche Leistung vorliegt.
 
@@ -64,7 +64,7 @@ In Betracht kommen insbesondere:
 
 ---
 
-# 3. Lieferung nach § 3 Abs. 1 UStG
+⇨ 3. Lieferung nach § 3 Abs. 1 UStG
 
 Eine Lieferung liegt vor, wenn der leistende Unternehmer den Leistungsempfänger befähigt, im eigenen Namen über einen Gegenstand zu verfügen.
 
@@ -74,7 +74,7 @@ Es kommt nicht ausschließlich darauf an, wer zivilrechtlicher Eigentümer ist.
 
 Maßgeblich ist, wer wirtschaftlich wie ein Eigentümer über den Gegenstand verfügen kann.
 
-## Typische Lieferungen
+► Typische Lieferungen
 
 - Verkauf einer Ware,
 - Verkauf einer Maschine,
@@ -83,13 +83,13 @@ Maßgeblich ist, wer wirtschaftlich wie ein Eigentümer über den Gegenstand ver
 - Übertragung eines Grundstücks,
 - Lieferung eines Gebäudes.
 
-## Merksatz
+► Merksatz
 
 Eine Lieferung ist die Verschaffung der wirtschaftlichen Verfügungsmacht an einem Gegenstand.
 
 ---
 
-# 4. Werklieferung nach § 3 Abs. 4 UStG
+⇨ 4. Werklieferung nach § 3 Abs. 4 UStG
 
 Eine Werklieferung liegt vor, wenn der Unternehmer
 
@@ -98,19 +98,19 @@ Eine Werklieferung liegt vor, wenn der Unternehmer
 
 Die Werklieferung wird umsatzsteuerlich als Lieferung behandelt.
 
-## Beispiele
+► Beispiele
 
 - Ein Unternehmer baut mit selbst beschafften Fenstern neue Fenster in ein Gebäude ein.
 - Ein Heizungsbauer liefert und montiert eine von ihm beschaffte Heizungsanlage.
 - Ein Bauunternehmer errichtet mit eigenen Hauptstoffen ein Bauwerk auf dem Grundstück des Auftraggebers.
 
-## Abgrenzung zur Werkleistung
+► Abgrenzung zur Werkleistung
 
 Werden keine selbst beschafften Hauptstoffe verwendet oder handelt es sich nur um Nebenstoffe, liegt regelmäßig eine Werkleistung vor.
 
 ---
 
-# 5. Sonstige Leistung nach § 3 Abs. 9 UStG
+⇨ 5. Sonstige Leistung nach § 3 Abs. 9 UStG
 
 Sonstige Leistungen sind Leistungen, die keine Lieferungen sind.
 
@@ -128,20 +128,20 @@ Typische sonstige Leistungen:
 
 ---
 
-# 6. Werkleistung
+⇨ 6. Werkleistung
 
 Eine Werkleistung ist eine sonstige Leistung.
 
 Sie liegt insbesondere vor, wenn ein Unternehmer einen Gegenstand bearbeitet, ohne selbst beschaffte Hauptstoffe einzusetzen.
 
-## Beispiele
+► Beispiele
 
 - Reparatur einer Maschine mit nur geringfügigen Hilfsstoffen,
 - Wartung eines Fahrzeugs,
 - reine Montage beigestellter Bauteile,
 - Reinigung eines Gebäudes.
 
-## Merksatz
+► Merksatz
 
 Werklieferung:
 
@@ -153,7 +153,7 @@ Sonstige Leistung ohne eigene Hauptstoffe.
 
 ---
 
-# 7. Umfang der Leistung
+⇨ 7. Umfang der Leistung
 
 Nach der Bestimmung der Leistungsart ist zu prüfen, ob
 
@@ -166,7 +166,7 @@ vorliegen.
 
 ---
 
-# 8. Hauptleistung und Nebenleistung
+⇨ 8. Hauptleistung und Nebenleistung
 
 Nebenleistungen teilen grundsätzlich das umsatzsteuerliche Schicksal der Hauptleistung.
 
@@ -177,7 +177,7 @@ Eine Nebenleistung liegt typischerweise vor, wenn sie
 - im Vergleich zur Hauptleistung nebensächlich ist und
 - üblicherweise zusammen mit der Hauptleistung erbracht wird.
 
-## Typische Nebenleistungen
+► Typische Nebenleistungen
 
 - Transport,
 - Verpackung,
@@ -186,7 +186,7 @@ Eine Nebenleistung liegt typischerweise vor, wenn sie
 - Anschlusskosten,
 - Nebenkosten einer Vermietung.
 
-## Beispiel
+► Beispiel
 
 Ein Unternehmer verkauft eine Maschine und berechnet zusätzlich Transportkosten.
 
@@ -203,13 +203,13 @@ der Maschinenlieferung.
 
 ---
 
-# 9. Gemischter Vertrag
+⇨ 9. Gemischter Vertrag
 
 Ein Vertrag kann mehrere selbständige Hauptleistungen enthalten.
 
 Dann ist jede Leistung umsatzsteuerlich getrennt zu beurteilen.
 
-## Beispiel
+► Beispiel
 
 Ein Unternehmer vermietet
 
@@ -220,13 +220,13 @@ Die Grundstücksvermietung kann nach § 4 Nr. 12 Buchst. a UStG steuerfrei sein.
 
 Die eigenständige Vermietung des Baukrans ist grundsätzlich steuerpflichtig.
 
-## Abgrenzungsfrage
+► Abgrenzungsfrage
 
 Ist die weitere Leistung lediglich eine übliche Nebenleistung zur Grundstücksvermietung oder hat sie für den Mieter einen eigenständigen wirtschaftlichen Zweck?
 
 ---
 
-# 10. Teilleistungen
+⇨ 10. Teilleistungen
 
 Teilleistungen sind wirtschaftlich teilbare Teile einer Gesamtleistung, für die das Entgelt gesondert vereinbart wird.
 
@@ -236,7 +236,7 @@ Voraussetzungen:
 - gesonderte Vereinbarung des Teilentgelts,
 - gesonderte Ausführung des Leistungsteils.
 
-## Beispiele
+► Beispiele
 
 - monatliche Vermietungsleistungen,
 - abschnittsweise Bauleistungen,
@@ -247,7 +247,7 @@ Die Umsatzsteuer entsteht bei Sollversteuerung grundsätzlich mit Ablauf des Vor
 
 ---
 
-# 11. Ort der Leistung
+⇨ 11. Ort der Leistung
 
 Nur Umsätze, deren Leistungsort im Inland liegt, können nach § 1 Abs. 1 Nr. 1 UStG im Inland steuerbar sein.
 
@@ -261,7 +261,7 @@ vorliegt.
 
 ---
 
-# 12. Ort einer bewegten Lieferung
+⇨ 12. Ort einer bewegten Lieferung
 
 Eine bewegte Lieferung liegt vor, wenn der Gegenstand im Zusammenhang mit der Lieferung befördert oder versendet wird.
 
@@ -271,7 +271,7 @@ Rechtsgrundlage:
 
 Der Ort der Lieferung liegt grundsätzlich dort, wo die Beförderung oder Versendung beginnt.
 
-## Merksatz
+► Merksatz
 
 Bei bewegten Lieferungen gilt:
 
@@ -281,7 +281,7 @@ Zeitpunkt = Beginn der Warenbewegung.
 
 ---
 
-# 13. Beförderung
+⇨ 13. Beförderung
 
 Eine Beförderung liegt vor, wenn der Gegenstand transportiert wird durch
 
@@ -292,7 +292,7 @@ Eine Beförderung liegt vor, wenn der Gegenstand transportiert wird durch
 
 Der Transport erfolgt damit durch einen unmittelbar am Umsatz beteiligten Unternehmer oder dessen Arbeitnehmer.
 
-## Beispiel
+► Beispiel
 
 Der Lieferer fährt die Ware mit dem eigenen Fahrzeug zum Kunden.
 
@@ -300,7 +300,7 @@ Es liegt eine Beförderung vor.
 
 ---
 
-# 14. Versendung
+⇨ 14. Versendung
 
 Eine Versendung liegt vor, wenn der Gegenstand durch einen selbständigen Dritten transportiert wird.
 
@@ -315,11 +315,11 @@ Typische selbständige Transportpersonen:
 
 Der selbständige Dritte kann vom Lieferer oder vom Abnehmer beauftragt werden.
 
-## Beginn der Versendung
+► Beginn der Versendung
 
 Die Versendung beginnt grundsätzlich mit der Übergabe des Gegenstands an den selbständigen Transporteur.
 
-## Wichtig
+► Wichtig
 
 Ein Arbeitnehmer ist kein selbständiger Dritter.
 
@@ -327,7 +327,7 @@ Der Transport durch einen Arbeitnehmer ist daher eine Beförderung und keine Ver
 
 ---
 
-# 15. Feststehender Abnehmer
+⇨ 15. Feststehender Abnehmer
 
 Eine Beförderungs- oder Versendungslieferung setzt voraus, dass der Abnehmer bei Beginn der Beförderung oder Versendung bereits feststeht.
 
@@ -335,7 +335,7 @@ Steht der Abnehmer noch nicht fest, liegt durch den Transport allein noch keine 
 
 Es kann sich zunächst um ein rechtsgeschäftsloses Verbringen handeln.
 
-## Beispiel
+► Beispiel
 
 Ein Unternehmer transportiert einen Teppich in die Schweiz.
 
@@ -347,13 +347,13 @@ Der Transport ist daher noch nicht zwingend Teil einer Lieferung an diesen Inter
 
 Der Ort der späteren Lieferung ist nach den tatsächlichen Umständen gesondert zu bestimmen.
 
-## Merksatz
+► Merksatz
 
 Ohne feststehenden Abnehmer keine bewegte Lieferung an diesen Abnehmer.
 
 ---
 
-# 16. Ort einer unbewegten Lieferung
+⇨ 16. Ort einer unbewegten Lieferung
 
 Eine unbewegte Lieferung liegt vor, wenn der Gegenstand nicht im Zusammenhang mit der Lieferung befördert oder versendet wird.
 
@@ -363,7 +363,7 @@ Rechtsgrundlage:
 
 Der Ort liegt dort, wo sich der Gegenstand im Zeitpunkt der Verschaffung der Verfügungsmacht befindet.
 
-## Merksatz
+► Merksatz
 
 Unbewegte Lieferung:
 
@@ -371,7 +371,7 @@ Ort = Standort des Gegenstands bei Verschaffung der Verfügungsmacht.
 
 ---
 
-# 17. Zeitpunkt der unbewegten Lieferung
+⇨ 17. Zeitpunkt der unbewegten Lieferung
 
 Der Zeitpunkt richtet sich nach dem Übergang der wirtschaftlichen Verfügungsmacht.
 
@@ -381,13 +381,13 @@ Bei Grundstücken erfolgt der Übergang der wirtschaftlichen Verfügungsmacht h�
 
 ---
 
-# 18. Zivilrechtliche Eigentumsübertragung beweglicher Sachen
+⇨ 18. Zivilrechtliche Eigentumsübertragung beweglicher Sachen
 
 Die zivilrechtliche Eigentumsübertragung ist nicht mit der umsatzsteuerlichen Lieferung gleichzusetzen, kann aber ein wichtiges Indiz für die Verschaffung der Verfügungsmacht sein.
 
 ---
 
-# 19. Einigung und Übergabe nach § 929 Satz 1 BGB
+⇨ 19. Einigung und Übergabe nach § 929 Satz 1 BGB
 
 Die Eigentumsübertragung einer beweglichen Sache setzt grundsätzlich voraus:
 
@@ -399,7 +399,7 @@ Mit der Übergabe wird regelmäßig auch die wirtschaftliche Verfügungsmacht ve
 
 ---
 
-# 20. Übergabe kurzer Hand nach § 929 Satz 2 BGB
+⇨ 20. Übergabe kurzer Hand nach § 929 Satz 2 BGB
 
 Befindet sich der Erwerber bereits im Besitz der Sache, ist eine erneute tatsächliche Übergabe nicht erforderlich.
 
@@ -409,7 +409,7 @@ Erforderlich sind:
 - bereits bestehender Besitz des Erwerbers,
 - Berechtigung des Veräußerers.
 
-## Beispiel
+► Beispiel
 
 Ein Unternehmer hat ein Fahrzeug zunächst gemietet.
 
@@ -419,7 +419,7 @@ Da sich das Fahrzeug bereits bei ihm befindet, ist keine erneute Übergabe erfor
 
 ---
 
-# 21. Besitzkonstitut nach §§ 929, 930 BGB
+⇨ 21. Besitzkonstitut nach §§ 929, 930 BGB
 
 Beim Besitzkonstitut bleibt der Veräußerer unmittelbarer Besitzer des Gegenstands.
 
@@ -434,13 +434,13 @@ Der bisherige Eigentümer kann den Gegenstand danach beispielsweise weiter besit
 
 Der Erwerber wird mittelbarer Besitzer im Sinne des § 868 BGB.
 
-## Beispiel
+► Beispiel
 
 Ein Unternehmer verkauft eine Maschine und mietet sie gleichzeitig vom Käufer zurück.
 
 ---
 
-# 22. Abtretung des Herausgabeanspruchs nach §§ 929, 931 BGB
+⇨ 22. Abtretung des Herausgabeanspruchs nach §§ 929, 931 BGB
 
 Befindet sich der Gegenstand bei einem Dritten, kann die Übergabe durch Abtretung des Herausgabeanspruchs ersetzt werden.
 
@@ -452,7 +452,7 @@ Voraussetzungen:
 
 ---
 
-# 23. Grundstücksübertragung
+⇨ 23. Grundstücksübertragung
 
 Die zivilrechtliche Eigentumsübertragung eines Grundstücks setzt grundsätzlich voraus:
 
@@ -466,7 +466,7 @@ Entscheidend ist der Übergang der wirtschaftlichen Verfügungsmacht.
 
 ---
 
-# 24. Wirtschaftliches Eigentum
+⇨ 24. Wirtschaftliches Eigentum
 
 Wirtschaftliches Eigentum liegt nach § 39 Abs. 2 Nr. 1 AO vor, wenn eine andere Person als der zivilrechtliche Eigentümer
 
@@ -477,7 +477,7 @@ Für die umsatzsteuerliche Lieferung ist entscheidend, wann der Erwerber wirtsch
 
 ---
 
-# 25. Übergang von Nutzen und Lasten bei Grundstücken
+⇨ 25. Übergang von Nutzen und Lasten bei Grundstücken
 
 Bei Grundstücken geht die wirtschaftliche Verfügungsmacht regelmäßig mit dem vertraglich vereinbarten Übergang von Nutzen und Lasten über.
 
@@ -489,7 +489,7 @@ Typische Folgen des Übergangs von Nutzen und Lasten:
 - der Erwerber trägt Grundsteuer und Versicherungen,
 - der Erwerber kann das Grundstück wirtschaftlich nutzen.
 
-## Beispiel
+► Beispiel
 
 Notarieller Kaufvertrag:
 
@@ -509,7 +509,7 @@ Die Grundstückslieferung wird daher regelmäßig bereits am 1. Januar 2026 ausg
 
 ---
 
-# 26. Eigentumsvorbehalt
+⇨ 26. Eigentumsvorbehalt
 
 Bei einem Verkauf unter Eigentumsvorbehalt bleibt der Verkäufer bis zur vollständigen Zahlung zivilrechtlicher Eigentümer.
 
@@ -517,28 +517,28 @@ Die wirtschaftliche Verfügungsmacht kann dennoch bereits mit der Übergabe auf 
 
 Der Käufer kann dann wirtschaftlicher Eigentümer sein, obwohl das zivilrechtliche Eigentum noch beim Verkäufer liegt.
 
-## Merksatz
+► Merksatz
 
 Eigentumsvorbehalt verhindert nicht automatisch eine umsatzsteuerliche Lieferung.
 
 ---
 
-# 27. Ort sonstiger Leistungen
+⇨ 27. Ort sonstiger Leistungen
 
 Bei sonstigen Leistungen ist folgende Reihenfolge einzuhalten:
 
 1. Zunächst besondere Ortsvorschriften und Ausnahmekataloge prüfen.
 2. Erst danach die allgemeinen Regeln für B2B- oder B2C-Leistungen anwenden.
 
-## B2B-Grundregel
+► B2B-Grundregel
 
 Bei Leistungen an einen Unternehmer für dessen Unternehmen liegt der Leistungsort grundsätzlich beim Leistungsempfänger.
 
-## B2C-Grundregel
+► B2C-Grundregel
 
 Bei Leistungen an Nichtunternehmer liegt der Leistungsort grundsätzlich beim leistenden Unternehmer.
 
-## Wichtig
+► Wichtig
 
 Sonderregelungen können insbesondere bestehen für:
 
@@ -552,32 +552,32 @@ Sonderregelungen können insbesondere bestehen für:
 
 ---
 
-# 28. Zeitpunkt der Leistung
+⇨ 28. Zeitpunkt der Leistung
 
-## Bewegte Lieferung
+► Bewegte Lieferung
 
 Zeitpunkt der Lieferung ist grundsätzlich der Beginn der Beförderung oder Versendung.
 
-## Unbewegte Lieferung
+► Unbewegte Lieferung
 
 Zeitpunkt ist die Verschaffung der Verfügungsmacht.
 
 Bei Grundstücken ist regelmäßig der Übergang von Nutzen und Lasten entscheidend.
 
-## Sonstige Leistung
+► Sonstige Leistung
 
 Eine sonstige Leistung wird grundsätzlich ausgeführt mit
 
 - Vollendung der Leistung und
 - vollständiger Zuwendung an den Leistungsempfänger.
 
-## Teilleistung
+► Teilleistung
 
 Eine Teilleistung wird mit Ablauf des jeweiligen Teilleistungszeitraums ausgeführt.
 
 ---
 
-# 29. Leistungsaustausch
+⇨ 29. Leistungsaustausch
 
 Ein steuerbarer Umsatz setzt grundsätzlich einen Leistungsaustausch voraus.
 
@@ -596,7 +596,7 @@ Die Gegenleistung kann bestehen aus:
 - Sachleistung,
 - sonstiger Leistung.
 
-## Wichtig
+► Wichtig
 
 Die Bezeichnung der Zahlung ist nicht entscheidend.
 
@@ -611,17 +611,17 @@ können Entgelt sein, wenn ein unmittelbarer Zusammenhang mit einer Leistung bes
 
 ---
 
-# 30. Tausch und tauschähnlicher Umsatz
+⇨ 30. Tausch und tauschähnlicher Umsatz
 
-## Tausch
+► Tausch
 
 Ein Tausch liegt vor, wenn die Gegenleistung für eine Lieferung ebenfalls in einer Lieferung besteht.
 
-## Tauschähnlicher Umsatz
+► Tauschähnlicher Umsatz
 
 Ein tauschähnlicher Umsatz liegt vor, wenn mindestens eine der ausgetauschten Leistungen eine sonstige Leistung ist.
 
-## Tausch mit Baraufgabe
+► Tausch mit Baraufgabe
 
 Zusätzlich zur Sach- oder Dienstleistung kann eine Geldzahlung vereinbart werden.
 
@@ -631,21 +631,21 @@ Bei der Bemessungsgrundlage ist die jeweilige Gegenleistung einschließlich eine
 
 ---
 
-# 31. Ausführung im Rahmen des Unternehmens
+⇨ 31. Ausführung im Rahmen des Unternehmens
 
 Die Leistung muss im Rahmen des Unternehmens ausgeführt werden.
 
-## Grundgeschäfte
+► Grundgeschäfte
 
 Grundgeschäfte sind die laufenden und nachhaltigen Umsätze der eigentlichen Unternehmenstätigkeit.
 
-## Hilfs- und Nebengeschäfte
+► Hilfs- und Nebengeschäfte
 
 Auch Hilfs- und Nebengeschäfte werden im Rahmen des Unternehmens ausgeführt, obwohl sie nicht ständig oder nachhaltig vorkommen.
 
 Voraussetzung ist ein wirtschaftlicher Zusammenhang mit der unternehmerischen Haupttätigkeit.
 
-## Beispiele
+► Beispiele
 
 - Verkauf einer betrieblichen Maschine,
 - Veräußerung eines betrieblichen Fahrzeugs,
@@ -654,7 +654,7 @@ Voraussetzung ist ein wirtschaftlicher Zusammenhang mit der unternehmerischen Ha
 
 ---
 
-# 32. Steuerbarkeit nach § 1 Abs. 1 Nr. 1 UStG
+⇨ 32. Steuerbarkeit nach § 1 Abs. 1 Nr. 1 UStG
 
 Ein Umsatz ist steuerbar, wenn
 
@@ -672,7 +672,7 @@ Erst danach ist die Steuerbefreiung zu prüfen.
 
 ---
 
-# 33. Steuerbefreiung
+⇨ 33. Steuerbefreiung
 
 Nach Feststellung der Steuerbarkeit ist zu prüfen, ob der Umsatz nach § 4 oder § 4b UStG steuerfrei ist.
 
@@ -688,7 +688,7 @@ Typische Steuerbefreiungen:
 
 ---
 
-# 34. Ausfuhrlieferung
+⇨ 34. Ausfuhrlieferung
 
 Eine Ausfuhrlieferung kann nach § 4 Nr. 1 Buchst. a in Verbindung mit § 6 UStG steuerfrei sein.
 
@@ -701,7 +701,7 @@ Voraussetzungen sind insbesondere:
 
 ---
 
-# 35. Innergemeinschaftliche Lieferung
+⇨ 35. Innergemeinschaftliche Lieferung
 
 Eine innergemeinschaftliche Lieferung kann nach § 4 Nr. 1 Buchst. b in Verbindung mit § 6a UStG steuerfrei sein.
 
@@ -716,7 +716,7 @@ Typische Voraussetzungen:
 
 ---
 
-# 36. Grundstückslieferung
+⇨ 36. Grundstückslieferung
 
 Umsätze, die unter das Grunderwerbsteuergesetz fallen, sind grundsätzlich nach § 4 Nr. 9 Buchst. a UStG steuerfrei.
 
@@ -728,7 +728,7 @@ Eine Option zur Steuerpflicht nach § 9 UStG kann unter den gesetzlichen Vorauss
 
 ---
 
-# 37. Grundstücksvermietung
+⇨ 37. Grundstücksvermietung
 
 Die Vermietung und Verpachtung von Grundstücken ist grundsätzlich nach § 4 Nr. 12 Buchst. a UStG steuerfrei.
 
@@ -742,7 +742,7 @@ Ausnahmen können insbesondere gelten für:
 
 ---
 
-# 38. Option nach § 9 UStG
+⇨ 38. Option nach § 9 UStG
 
 Bei einer Steuerbefreiung ist immer zu prüfen, ob auf die Steuerbefreiung verzichtet werden kann.
 
@@ -750,14 +750,14 @@ Der Verzicht führt dazu, dass der Umsatz steuerpflichtig behandelt wird.
 
 Dadurch kann ein ansonsten ausgeschlossener Vorsteuerabzug ermöglicht werden.
 
-## Typische Voraussetzungen
+► Typische Voraussetzungen
 
 - gesetzlich optionsfähiger Umsatz,
 - Leistung an einen anderen Unternehmer,
 - Bezug der Leistung für dessen Unternehmen,
 - bei Grundstücksvermietung zusätzlich die Voraussetzungen des § 9 Abs. 2 UStG.
 
-## Merksatz
+► Merksatz
 
 Nach jeder Steuerbefreiung:
 
@@ -765,13 +765,13 @@ Option nach § 9 UStG prüfen.
 
 ---
 
-# 39. Steuerschuldner
+⇨ 39. Steuerschuldner
 
-## Grundsatz
+► Grundsatz
 
 Steuerschuldner ist grundsätzlich der leistende Unternehmer nach § 13a Abs. 1 Nr. 1 UStG.
 
-## Weitere Fälle
+► Weitere Fälle
 
 Je nach Sachverhalt können insbesondere Steuerschuldner sein:
 
@@ -780,19 +780,19 @@ Je nach Sachverhalt können insbesondere Steuerschuldner sein:
 - Rechnungsaussteller bei unberechtigtem oder unrichtigem Steuerausweis nach § 14c UStG,
 - letzter Abnehmer bei besonderen Dreiecksgeschäften.
 
-## Reverse Charge
+► Reverse Charge
 
 Bei § 13b UStG schuldet nicht der leistende Unternehmer, sondern der Leistungsempfänger die Umsatzsteuer.
 
 ---
 
-# 40. Steuersatz
+⇨ 40. Steuersatz
 
-## Regelsteuersatz
+► Regelsteuersatz
 
 Der Regelsteuersatz beträgt nach § 12 Abs. 1 UStG grundsätzlich 19 Prozent.
 
-## Ermäßigter Steuersatz
+► Ermäßigter Steuersatz
 
 Der ermäßigte Steuersatz beträgt grundsätzlich 7 Prozent.
 
@@ -806,7 +806,7 @@ Typische Anwendungsfälle:
 - bestimmte Personenbeförderungen,
 - kurzfristige Vermietung von Wohn- und Schlafräumen.
 
-## Prüfungsregel
+► Prüfungsregel
 
 Zuerst prüfen, ob eine Steuerbefreiung vorliegt.
 
@@ -814,7 +814,7 @@ Nur bei einem steuerpflichtigen Umsatz ist der Steuersatz zu bestimmen.
 
 ---
 
-# 41. Bemessungsgrundlage
+⇨ 41. Bemessungsgrundlage
 
 Die Bemessungsgrundlage richtet sich grundsätzlich nach dem Entgelt.
 
@@ -824,7 +824,7 @@ Rechtsgrundlage:
 
 § 10 Abs. 1 UStG.
 
-## Geldzahlung
+► Geldzahlung
 
 Bei einer Geldzahlung ist die Umsatzsteuer aus dem Bruttobetrag herauszurechnen.
 
@@ -838,7 +838,7 @@ Bruttobetrag ÷ 1,07 = Nettoentgelt.
 
 ---
 
-# 42. Durchlaufende Posten
+⇨ 42. Durchlaufende Posten
 
 Durchlaufende Posten gehören nicht zum Entgelt.
 
@@ -853,7 +853,7 @@ Eigene Aufwendungen des Unternehmers sind keine durchlaufenden Posten, auch wenn
 
 ---
 
-# 43. Entgelt von dritter Seite
+⇨ 43. Entgelt von dritter Seite
 
 Auch die Zahlung eines Dritten kann zum Entgelt gehören.
 
@@ -866,7 +866,7 @@ Voraussetzungen:
 
 ---
 
-# 44. Fremdwährung
+⇨ 44. Fremdwährung
 
 Wird das Entgelt in einer ausländischen Währung vereinbart, ist es nach § 16 Abs. 6 UStG in Euro umzurechnen.
 
@@ -874,9 +874,9 @@ Maßgeblich ist grundsätzlich der Durchschnittskurs für den Zeitraum, in dem d
 
 ---
 
-# 45. Entstehung der Steuer bei Sollversteuerung
+⇨ 45. Entstehung der Steuer bei Sollversteuerung
 
-## Grundfall
+► Grundfall
 
 Bei der Besteuerung nach vereinbarten Entgelten entsteht die Umsatzsteuer grundsätzlich mit Ablauf des Voranmeldungszeitraums, in dem die Leistung ausgeführt wurde.
 
@@ -884,11 +884,11 @@ Rechtsgrundlage:
 
 § 13 Abs. 1 Nr. 1 Buchst. a UStG.
 
-## Teilleistung
+► Teilleistung
 
 Bei Teilleistungen entsteht die Steuer mit Ablauf des Voranmeldungszeitraums, in dem die jeweilige Teilleistung ausgeführt wurde.
 
-## Anzahlung
+► Anzahlung
 
 Wird das Entgelt oder ein Teil des Entgelts vor Ausführung der Leistung vereinnahmt, entsteht die Steuer bereits mit Ablauf des Voranmeldungszeitraums der Vereinnahmung.
 
@@ -897,7 +897,7 @@ Voraussetzungen:
 - Zahlung vor Ausführung der Leistung oder Teilleistung,
 - Vereinnahmung eines Entgelts oder Teilentgelts.
 
-## Wichtig
+► Wichtig
 
 Eine Anzahlung ist keine Teilleistung.
 
@@ -905,7 +905,7 @@ Bei einer Anzahlung wurde noch keine vollständige Leistung oder Teilleistung au
 
 ---
 
-# 46. Steuerfreie Umsätze und Leistungszeitpunkt
+⇨ 46. Steuerfreie Umsätze und Leistungszeitpunkt
 
 Bei einem steuerfreien Umsatz entsteht keine zu zahlende Umsatzsteuer.
 
@@ -919,7 +919,7 @@ Der Zeitpunkt der Leistung muss dennoch bestimmt werden, beispielsweise für
 
 ---
 
-# 47. Umsatzsteuerliche Gebietsbegriffe
+⇨ 47. Umsatzsteuerliche Gebietsbegriffe
 
 Für die Beurteilung grenzüberschreitender Umsätze sind die umsatzsteuerlichen Gebietsbegriffe maßgeblich.
 
@@ -933,7 +933,7 @@ Zu unterscheiden sind:
 
 ---
 
-# 48. Inland
+⇨ 48. Inland
 
 Inland ist grundsätzlich das Gebiet der Bundesrepublik Deutschland.
 
@@ -949,7 +949,7 @@ Diese Gebiete werden umsatzsteuerlich wie Drittlandsgebiet behandelt.
 
 ---
 
-# 49. Übriges Gemeinschaftsgebiet
+⇨ 49. Übriges Gemeinschaftsgebiet
 
 Das übrige Gemeinschaftsgebiet umfasst die umsatzsteuerlichen Gebiete der anderen Mitgliedstaaten der Europäischen Union.
 
@@ -963,7 +963,7 @@ Warenbewegungen aus dem übrigen Gemeinschaftsgebiet in das Inland können inner
 
 ---
 
-# 50. Gemeinschaftsgebiet
+⇨ 50. Gemeinschaftsgebiet
 
 Das Gemeinschaftsgebiet umfasst das umsatzsteuerliche Inland und das übrige Gemeinschaftsgebiet.
 
@@ -973,7 +973,7 @@ Bestimmte Sondergebiete können umsatzsteuerlich ausgenommen sein.
 
 ---
 
-# 51. Drittlandsgebiet
+⇨ 51. Drittlandsgebiet
 
 Drittlandsgebiet sind grundsätzlich die Gebiete, die nicht zum umsatzsteuerlichen Gemeinschaftsgebiet gehören.
 
@@ -990,7 +990,7 @@ Warenbewegungen aus dem Drittlandsgebiet in das Inland können Einfuhren darstel
 
 ---
 
-# 52. Ausland
+⇨ 52. Ausland
 
 Ausland sind alle Gebiete, die nicht Inland sind.
 
@@ -999,7 +999,7 @@ Das Ausland umfasst daher:
 - das übrige Gemeinschaftsgebiet und
 - das Drittlandsgebiet.
 
-## Merksatz
+► Merksatz
 
 Ausland ist nicht automatisch Drittland.
 
@@ -1007,7 +1007,7 @@ Auch ein anderer EU-Mitgliedstaat ist aus deutscher Sicht Ausland, aber kein Dri
 
 ---
 
-# 53. Einfuhrlieferung nach § 3 Abs. 8 UStG
+⇨ 53. Einfuhrlieferung nach § 3 Abs. 8 UStG
 
 Bei einer Lieferung aus dem Drittlandsgebiet kann sich der Lieferort nach § 3 Abs. 8 UStG in das Inland verlagern.
 
@@ -1017,7 +1017,7 @@ Die Vorschrift ist bei Einfuhrsachverhalten gesondert zu prüfen.
 
 ---
 
-# 54. Reihengeschäft
+⇨ 54. Reihengeschäft
 
 Ein Reihengeschäft liegt vor, wenn
 
@@ -1026,7 +1026,7 @@ Ein Reihengeschäft liegt vor, wenn
 - Umsatzgeschäfte abschließen und
 - der Gegenstand unmittelbar vom ersten Unternehmer zum letzten Abnehmer gelangt.
 
-## Beispiel
+► Beispiel
 
 Unternehmer A verkauft an Unternehmer B.
 
@@ -1043,7 +1043,7 @@ Es gibt aber nur eine Warenbewegung.
 
 ---
 
-# 55. Nur eine bewegte Lieferung
+⇨ 55. Nur eine bewegte Lieferung
 
 Innerhalb eines Reihengeschäfts kann nur eine Lieferung die bewegte Lieferung sein.
 
@@ -1051,13 +1051,13 @@ Nur diese Lieferung wird nach § 3 Abs. 6 UStG beurteilt.
 
 Alle übrigen Lieferungen sind unbewegte Lieferungen nach § 3 Abs. 7 Satz 2 UStG.
 
-## Merksatz
+► Merksatz
 
 Mehrere Lieferungen, aber nur eine bewegte Lieferung.
 
 ---
 
-# 56. Direkte Warenbewegung
+⇨ 56. Direkte Warenbewegung
 
 Der Gegenstand muss unmittelbar vom ersten Unternehmer zum letzten Abnehmer gelangen.
 
@@ -1067,11 +1067,11 @@ Ein echter Verkauf oder eine freie Verfügung über die Ware während der Unterb
 
 ---
 
-# 57. Warenbewegung durch den ersten Unternehmer
+⇨ 57. Warenbewegung durch den ersten Unternehmer
 
 Wird der Gegenstand durch den ersten Unternehmer in der Reihe befördert oder versendet, ist grundsätzlich dessen Lieferung die bewegte Lieferung.
 
-## Beispiel
+► Beispiel
 
 A verkauft an B.
 
@@ -1093,11 +1093,11 @@ Ihr Ort liegt grundsätzlich dort, wo die Warenbewegung endet.
 
 ---
 
-# 58. Warenbewegung durch den letzten Abnehmer
+⇨ 58. Warenbewegung durch den letzten Abnehmer
 
 Wird der Gegenstand durch den letzten Abnehmer befördert oder versendet, ist grundsätzlich die an ihn ausgeführte Lieferung die bewegte Lieferung.
 
-## Beispiel
+► Beispiel
 
 A verkauft an B.
 
@@ -1119,7 +1119,7 @@ Ihr Ort liegt grundsätzlich dort, wo die Warenbewegung beginnt.
 
 ---
 
-# 59. Warenbewegung durch einen Zwischenhändler
+⇨ 59. Warenbewegung durch einen Zwischenhändler
 
 Ein Zwischenhändler ist ein Unternehmer innerhalb der Reihe, der zugleich
 
@@ -1130,17 +1130,17 @@ ist.
 
 Transportiert der Zwischenhändler die Ware, ist zu bestimmen, welcher seiner beiden Lieferungen die Warenbewegung zugeordnet wird.
 
-## Grundvermutung
+► Grundvermutung
 
 Grundsätzlich wird die Warenbewegung der Lieferung an den Zwischenhändler zugeordnet.
 
-## Abweichende Zuordnung
+► Abweichende Zuordnung
 
 Unter den gesetzlichen Voraussetzungen kann die Warenbewegung der Lieferung des Zwischenhändlers an seinen Abnehmer zugeordnet werden.
 
 Dabei kann insbesondere die Verwendung einer Umsatzsteuer-Identifikationsnummer des Abgangsstaats von Bedeutung sein.
 
-## Prüfung
+► Prüfung
 
 1. Wer organisiert den Transport?
 2. Handelt diese Person als Lieferer oder Abnehmer?
@@ -1151,19 +1151,19 @@ Dabei kann insbesondere die Verwendung einer Umsatzsteuer-Identifikationsnummer 
 
 ---
 
-# 60. Unbewegte Lieferung vor der bewegten Lieferung
+⇨ 60. Unbewegte Lieferung vor der bewegten Lieferung
 
 Eine unbewegte Lieferung, die der bewegten Lieferung vorausgeht, wird nach § 3 Abs. 7 Satz 2 Nr. 1 UStG dort ausgeführt, wo die Beförderung oder Versendung beginnt.
 
-## Ort
+► Ort
 
 Abgangsort.
 
-## Zeitpunkt
+► Zeitpunkt
 
 Beginn der Beförderung oder Versendung.
 
-## Beispiel
+► Beispiel
 
 A verkauft an B.
 
@@ -1181,19 +1181,19 @@ Abgangsort der Ware.
 
 ---
 
-# 61. Unbewegte Lieferung nach der bewegten Lieferung
+⇨ 61. Unbewegte Lieferung nach der bewegten Lieferung
 
 Eine unbewegte Lieferung, die der bewegten Lieferung folgt, wird nach § 3 Abs. 7 Satz 2 Nr. 2 UStG dort ausgeführt, wo die Beförderung oder Versendung endet.
 
-## Ort
+► Ort
 
 Ankunftsort.
 
-## Zeitpunkt
+► Zeitpunkt
 
 Ende der Beförderung oder Versendung.
 
-## Beispiel
+► Beispiel
 
 A verkauft an B.
 
@@ -1211,19 +1211,19 @@ Ankunftsort der Ware.
 
 ---
 
-# 62. Transport als Nebenleistung
+⇨ 62. Transport als Nebenleistung
 
 Bei einer Warenlieferung gehört der Transport regelmäßig als unselbständige Nebenleistung zur Lieferung.
 
 In einer Sachverhaltsskizze sollte deshalb der Beförderer oder Versender unmittelbar beim Pfeil derjenigen Lieferung eingetragen werden, der die Warenbewegung zugeordnet wird.
 
-## Klausurhinweis
+► Klausurhinweis
 
 Der Transportpfeil entscheidet häufig darüber, welche Lieferung die bewegte Lieferung ist.
 
 ---
 
-# 63. Skizze eines Reihengeschäfts
+⇨ 63. Skizze eines Reihengeschäfts
 
 Ein Reihengeschäft sollte immer grafisch dargestellt werden.
 
@@ -1240,7 +1240,7 @@ Zusätzlich eintragen:
 - verwendete Umsatzsteuer-Identifikationsnummern,
 - Beginn und Ende des Transports.
 
-## Merksatz
+► Merksatz
 
 Erst Rechnungsweg zeichnen.
 
@@ -1250,7 +1250,7 @@ Dann bewegte Lieferung zuordnen.
 
 ---
 
-# 64. Prüfungsschema Reihengeschäft
+⇨ 64. Prüfungsschema Reihengeschäft
 
 1. Schließen mehrere Unternehmer Umsatzgeschäfte über denselben Gegenstand ab?
 2. Gelangt der Gegenstand unmittelbar vom ersten Unternehmer zum letzten Abnehmer?
@@ -1269,7 +1269,7 @@ Dann bewegte Lieferung zuordnen.
 
 ---
 
-# 65. Prüfungsschema bewegte Lieferung
+⇨ 65. Prüfungsschema bewegte Lieferung
 
 1. Lieferung nach § 3 Abs. 1 UStG?
 2. Feststehender Abnehmer?
@@ -1285,7 +1285,7 @@ Dann bewegte Lieferung zuordnen.
 
 ---
 
-# 66. Prüfungsschema unbewegte Lieferung
+⇨ 66. Prüfungsschema unbewegte Lieferung
 
 1. Lieferung nach § 3 Abs. 1 UStG?
 2. Keine der Lieferung zugeordnete Warenbewegung?
@@ -1300,7 +1300,7 @@ Dann bewegte Lieferung zuordnen.
 
 ---
 
-# 67. Formulierungshilfe bewegte Lieferung
+⇨ 67. Formulierungshilfe bewegte Lieferung
 
 Es liegt eine Lieferung im Sinne des § 3 Abs. 1 UStG vor, da der leistende Unternehmer dem Leistungsempfänger die Verfügungsmacht an dem Gegenstand verschafft.
 
@@ -1312,7 +1312,7 @@ Die Lieferung wird mit Beginn der Beförderung oder Versendung ausgeführt.
 
 ---
 
-# 68. Formulierungshilfe unbewegte Lieferung
+⇨ 68. Formulierungshilfe unbewegte Lieferung
 
 Es liegt eine unbewegte Lieferung im Sinne des § 3 Abs. 1 UStG vor.
 
@@ -1322,7 +1322,7 @@ Der Ort der Lieferung befindet sich nach § 3 Abs. 7 UStG dort, wo sich der Gege
 
 ---
 
-# 69. Formulierungshilfe Reihengeschäft
+⇨ 69. Formulierungshilfe Reihengeschäft
 
 Mehrere Unternehmer haben über denselben Gegenstand Umsatzgeschäfte abgeschlossen.
 
@@ -1336,9 +1336,9 @@ Die übrigen Lieferungen sind unbewegte Lieferungen nach § 3 Abs. 7 Satz 2 UStG
 
 ---
 
-# 70. Typische Klausurfallen
+⇨ 70. Typische Klausurfallen
 
-## Fehler 1: Sofort mit der Steuerbefreiung beginnen
+► Fehler 1: Sofort mit der Steuerbefreiung beginnen
 
 Zuerst müssen Leistungsart, Ort und Steuerbarkeit bestimmt werden.
 
@@ -1346,13 +1346,13 @@ Eine Steuerbefreiung kann nur für einen steuerbaren Umsatz geprüft werden.
 
 ---
 
-## Fehler 2: Transport automatisch als eigene Leistung behandeln
+► Fehler 2: Transport automatisch als eigene Leistung behandeln
 
 Transport, Verpackung oder Versicherung sind häufig Nebenleistungen und teilen das Schicksal der Hauptleistung.
 
 ---
 
-## Fehler 3: Werklieferung und Werkleistung verwechseln
+► Fehler 3: Werklieferung und Werkleistung verwechseln
 
 Eigene Hauptstoffe:
 
@@ -1364,37 +1364,37 @@ Werkleistung.
 
 ---
 
-## Fehler 4: Zivilrechtliches Eigentum mit Verfügungsmacht gleichsetzen
+► Fehler 4: Zivilrechtliches Eigentum mit Verfügungsmacht gleichsetzen
 
 Für die umsatzsteuerliche Lieferung ist die wirtschaftliche Verfügungsmacht entscheidend.
 
 ---
 
-## Fehler 5: Grundstückslieferung erst bei Grundbucheintragung annehmen
+► Fehler 5: Grundstückslieferung erst bei Grundbucheintragung annehmen
 
 Die Verfügungsmacht kann bereits mit Übergang von Nutzen und Lasten übergehen.
 
 ---
 
-## Fehler 6: Eigentumsvorbehalt als Hindernis für eine Lieferung ansehen
+► Fehler 6: Eigentumsvorbehalt als Hindernis für eine Lieferung ansehen
 
 Trotz Eigentumsvorbehalt kann der Käufer bereits wirtschaftlicher Eigentümer sein.
 
 ---
 
-## Fehler 7: Ohne feststehenden Abnehmer eine bewegte Lieferung annehmen
+► Fehler 7: Ohne feststehenden Abnehmer eine bewegte Lieferung annehmen
 
 Steht der Abnehmer zu Beginn des Transports noch nicht fest, kann zunächst ein rechtsgeschäftsloses Verbringen vorliegen.
 
 ---
 
-## Fehler 8: Bei einem Reihengeschäft mehrere bewegte Lieferungen annehmen
+► Fehler 8: Bei einem Reihengeschäft mehrere bewegte Lieferungen annehmen
 
 Innerhalb eines Reihengeschäfts gibt es nur eine bewegte Lieferung.
 
 ---
 
-## Fehler 9: Rechnungsweg und Warenweg verwechseln
+► Fehler 9: Rechnungsweg und Warenweg verwechseln
 
 Der Rechnungsweg verläuft zwischen allen Vertragspartnern.
 
@@ -1402,7 +1402,7 @@ Der Warenweg verläuft unmittelbar vom ersten Unternehmer zum letzten Abnehmer.
 
 ---
 
-## Fehler 10: Unbewegte Lieferungen im Reihengeschäft nicht prüfen
+► Fehler 10: Unbewegte Lieferungen im Reihengeschäft nicht prüfen
 
 Jede Lieferung muss einen eigenen Ort erhalten.
 
@@ -1416,7 +1416,7 @@ Ankunftsort.
 
 ---
 
-## Fehler 11: Jeden EU-Staat als Inland behandeln
+► Fehler 11: Jeden EU-Staat als Inland behandeln
 
 Inland ist aus deutscher Sicht grundsätzlich nur das deutsche Umsatzsteuergebiet.
 
@@ -1424,7 +1424,7 @@ Andere EU-Mitgliedstaaten gehören zum übrigen Gemeinschaftsgebiet.
 
 ---
 
-## Fehler 12: Ausland und Drittland gleichsetzen
+► Fehler 12: Ausland und Drittland gleichsetzen
 
 Das Ausland umfasst sowohl
 
@@ -1433,13 +1433,13 @@ Das Ausland umfasst sowohl
 
 ---
 
-## Fehler 13: Option nach § 9 UStG vergessen
+► Fehler 13: Option nach § 9 UStG vergessen
 
 Bei einer grundsätzlich steuerfreien Grundstückslieferung oder Grundstücksvermietung ist immer die Option zu prüfen.
 
 ---
 
-## Fehler 14: Anzahlungen wie Teilleistungen behandeln
+► Fehler 14: Anzahlungen wie Teilleistungen behandeln
 
 Eine Anzahlung ist eine Zahlung vor Leistungsausführung.
 
@@ -1447,7 +1447,7 @@ Eine Teilleistung ist bereits ein ausgeführter wirtschaftlich teilbarer Leistun
 
 ---
 
-# 71. Merksätze
+⇨ 71. Merksätze
 
 - Erst Leistungsart, dann Leistungsort, dann Steuerbarkeit.
 - Eine Lieferung setzt die Verschaffung der Verfügungsmacht voraus.

@@ -173,7 +173,7 @@ export const Route =
         },
         {
           name: "theme-color",
-          content: "#0F172A",
+          content: "⇨0F172A",
         },
         {
           name: "application-name",

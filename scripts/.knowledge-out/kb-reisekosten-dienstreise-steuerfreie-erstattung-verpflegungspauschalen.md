@@ -6,14 +6,14 @@ source: Interne Steuerstoff-Prüfungsvorbereitung
 references: § 3 Nr. 16 EStG, § 9 EStG, LStR / LStH Reisekosten, BMF-Schreiben zu Auslandsreisekosten
 ---
 
-# Reisekosten: steuerfreie Erstattung und Verpflegungspauschalen
+⇨ Reisekosten: steuerfreie Erstattung und Verpflegungspauschalen
 
 _Steuerfreie Reisekostenerstattung nach § 3 Nr. 16 EStG, Belegpflichten, Buchungslogik und Verpflegungsmehraufwand bei Auswärtstätigkeiten._
 
 
-# Reisekosten: steuerfreie Erstattung und Verpflegungspauschalen
+⇨ Reisekosten: steuerfreie Erstattung und Verpflegungspauschalen
 
-## 1. Steuerfreie Reisekostenerstattung durch den Arbeitgeber
+► 1. Steuerfreie Reisekostenerstattung durch den Arbeitgeber
 
 Erstattet der Arbeitgeber seinem Arbeitnehmer anlässlich einer beruflich veranlassten Auswärtstätigkeit die tatsächlichen Reisekosten, kann diese Erstattung nach § 3 Nr. 16 EStG steuerfrei sein.
 
@@ -25,7 +25,7 @@ Steuerfrei erstattungsfähig sind insbesondere:
 
 Die Steuerfreiheit gilt nur, soweit die Erstattung die nach § 9 EStG als Werbungskosten abziehbaren Aufwendungen nicht übersteigt.
 
-## 2. Voraussetzungen für die Steuerfreiheit
+► 2. Voraussetzungen für die Steuerfreiheit
 
 Die Erstattung bleibt steuerfrei, wenn:
 
@@ -37,7 +37,7 @@ Die Erstattung bleibt steuerfrei, wenn:
 Wichtig:
 Ohne ausreichende Nachweise besteht das Risiko, dass die Erstattung als steuerpflichtiger Arbeitslohn behandelt wird.
 
-## 3. Buchhalterische Behandlung
+► 3. Buchhalterische Behandlung
 
 Die steuerfreie Erstattung ist als Reisekostenerstattung zu buchen.
 
@@ -50,7 +50,7 @@ Eine Lohnversteuerung entfällt in diesem Fall.
 
 Übersteigt die Erstattung die tatsächlichen Kosten oder die zulässigen Pauschalen, ist der übersteigende Betrag steuerpflichtiger Arbeitslohn.
 
-## 4. Werbungskostenabzug beim Arbeitnehmer
+► 4. Werbungskostenabzug beim Arbeitnehmer
 
 Soweit der Arbeitgeber Reisekosten steuerfrei erstattet, ist ein Werbungskostenabzug beim Arbeitnehmer ausgeschlossen.
 
@@ -59,13 +59,13 @@ Steuerfrei erstattet = kein Werbungskostenabzug.
 
 Nur nicht erstattete oder nicht vollständig erstattete berufliche Reisekosten können beim Arbeitnehmer noch als Werbungskosten berücksichtigt werden.
 
-## 5. Verpflegungsmehraufwendungen bei Auswärtstätigkeit
+► 5. Verpflegungsmehraufwendungen bei Auswärtstätigkeit
 
 Für Verpflegungsmehraufwendungen werden keine tatsächlichen Kosten angesetzt, sondern gesetzliche Pauschbeträge.
 
 Bei Auslandsreisen gelten länderspezifische Pauschalen, die regelmäßig durch das BMF veröffentlicht werden.
 
-## 6. Zweitägige Dienstreise nach Brüssel
+► 6. Zweitägige Dienstreise nach Brüssel
 
 Sachverhalt:
 - Hinreise: 04.02.
@@ -91,7 +91,7 @@ Insgesamt:
 
 Da die Reise nur zwei Tage dauert, gibt es keinen vollen Zwischentag.
 
-## 7. Kürzung bei gestellten Mahlzeiten
+► 7. Kürzung bei gestellten Mahlzeiten
 
 Werden Mahlzeiten vom Arbeitgeber oder auf dessen Veranlassung gestellt, sind die Verpflegungspauschalen zu kürzen.
 
@@ -113,7 +113,7 @@ Abendessen:
 
 Die Kürzung erfolgt auch an An- und Abreisetagen grundsätzlich anhand der vollen Tagespauschale.
 
-## 8. Steuerfreie Erstattung der Verpflegungspauschalen
+► 8. Steuerfreie Erstattung der Verpflegungspauschalen
 
 Erstattet der Arbeitgeber die Verpflegungspauschalen steuerfrei, ist ein Werbungskostenabzug beim Arbeitnehmer insoweit ausgeschlossen.
 
@@ -127,7 +127,7 @@ Steuerfreie Erstattung durch Arbeitgeber:
 Folge:
 Kein zusätzlicher Werbungskostenabzug beim Arbeitnehmer.
 
-## 9. Prüfungs-Merksätze
+► 9. Prüfungs-Merksätze
 
 Reisekostenerstattung:
 Nach § 3 Nr. 16 EStG steuerfrei, soweit die Erstattung die nach § 9 EStG abziehbaren Werbungskosten nicht übersteigt.

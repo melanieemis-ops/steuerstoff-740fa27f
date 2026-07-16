@@ -6,14 +6,14 @@ source: Interne Steuerstoff-Prüfungsvorbereitung
 references: § 4 Nr. 14 UStG, § 18 EStG, § 73b SGB V, § 73c SGB V
 ---
 
-# Ärzte und Psychotherapeuten: Umsatzsteuer und Freiberuflichkeit
+⇨ Ärzte und Psychotherapeuten: Umsatzsteuer und Freiberuflichkeit
 
 _Aktuelle Rechtsprechung zur Umsatzsteuerbefreiung, § 18 EStG und Abgrenzung freiberuflicher Tätigkeiten._
 
 
-# Ärzte und Psychotherapeuten
+⇨ Ärzte und Psychotherapeuten
 
-## Umsatzsteuerbefreiung
+► Umsatzsteuerbefreiung
 
 Heilberufliche Leistungen sind nach § 4 Nr. 14 UStG steuerfrei,
 
@@ -31,7 +31,7 @@ Die Steuerbefreiung gilt daher auch für:
 - Berufsausübungsgemeinschaften
 - GmbH & Co. KG
 
-## Nicht steuerfrei
+► Nicht steuerfrei
 
 Keine Steuerbefreiung besteht insbesondere bei
 
@@ -39,13 +39,13 @@ Keine Steuerbefreiung besteht insbesondere bei
 - rein organisatorischen Leistungen
 - Leistungen ohne therapeutischen Zweck
 
-## Medikamente
+► Medikamente
 
 Die Abgabe von Medikamenten kann eine unselbständige Nebenleistung sein,
 
 wenn sie für die Heilbehandlung notwendig ist.
 
-## Hausarztverträge
+► Hausarztverträge
 
 Auch Leistungen nach
 
@@ -54,7 +54,7 @@ Auch Leistungen nach
 
 können unter die Umsatzsteuerbefreiung fallen.
 
-## Einkommensteuer
+► Einkommensteuer
 
 Ärzte und Psychotherapeuten erzielen grundsätzlich Einkünfte aus selbständiger Arbeit (§ 18 EStG).
 
@@ -68,14 +68,14 @@ Die Tätigkeit wird
 
 ausgeübt.
 
-## Aktuelle Prüfungsschwerpunkte
+► Aktuelle Prüfungsschwerpunkte
 
 - Abgrenzung freiberuflich / gewerblich
 - Mitunternehmerschaft in Gemeinschaftspraxen
 - Delegation ärztlicher Tätigkeiten
 - Einsatz fachlich qualifizierter Mitarbeiter
 
-## Prüfungsmerksätze
+► Prüfungsmerksätze
 
 Heilbehandlung + therapeutischer Zweck + Qualifikation
 =

@@ -64,8 +64,8 @@ export function applyTheme(
     themeColor.setAttribute(
       "content",
       resolved === "dark"
-        ? "#0f1115"
-        : "#0f172a",
+        ? "⇨0f1115"
+        : "⇨0f172a",
     );
   }
 }

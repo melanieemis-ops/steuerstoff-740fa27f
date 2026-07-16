@@ -5,19 +5,19 @@ category: Umsatzsteuer
 references: § 3 Abs. 9 UStG, § 3a Abs. 3 Nr. 1 UStG, § 12 Abs. 1 UStG
 ---
 
-# Vermietung einer Tennishalle an Endverbraucher
+⇨ Vermietung einer Tennishalle an Endverbraucher
 
 _Umsatzsteuerliche Behandlung der kurzfristigen Vermietung einer Sportanlage an Privatpersonen._
 
 
 
-# Kurzfristige Hallenvermietung
+⇨ Kurzfristige Hallenvermietung
 
 Die Vermietung einer Tennishalle an Endverbraucher stellt eine sonstige Leistung (§3 Abs.9 UStG) dar.
 
 ---
 
-## Leistungsort
+► Leistungsort
 
 Grundstücksbezogene Leistung
 
@@ -25,7 +25,7 @@ Grundstücksbezogene Leistung
 
 ---
 
-## Lichtanlage
+► Lichtanlage
 
 Die Überlassung der Beleuchtung ist eine unselbständige Nebenleistung.
 
@@ -35,7 +35,7 @@ Keine getrennte Beurteilung.
 
 ---
 
-## Umsatzsteuer
+► Umsatzsteuer
 
 Die gesamte Leistung unterliegt dem Regelsteuersatz von 19 %.
 
@@ -48,7 +48,7 @@ erfolgt bei Vermietung an Endverbraucher nicht.
 
 ---
 
-## Merksatz
+► Merksatz
 
 Endverbraucher
 

@@ -6,14 +6,14 @@ source: Interne Steuerstoff-Prüfungsvorbereitung
 references: § 16 Abs. 4 EStG, § 34 Abs. 3 EStG, § 16 EStG, § 34 EStG
 ---
 
-# Betriebsveräußerung durch Erben (§ 16 Abs. 4 und § 34 Abs. 3 EStG)
+⇨ Betriebsveräußerung durch Erben (§ 16 Abs. 4 und § 34 Abs. 3 EStG)
 
 _Steuerliche Begünstigungen bei der Veräußerung eines geerbten Betriebs oder Mitunternehmeranteils durch den Erben._
 
 
-# Betriebsveräußerung durch Erben
+⇨ Betriebsveräußerung durch Erben
 
-## Grundsatz
+► Grundsatz
 
 Erwirbt ein Erbe durch Erbfall einen Betrieb oder einen Mitunternehmeranteil und veräußert diesen anschließend, kann er die steuerlichen Begünstigungen nach § 16 Abs. 4 EStG und § 34 Abs. 3 EStG in Anspruch nehmen.
 
@@ -21,7 +21,7 @@ Eine vorherige Mitunternehmerstellung ist nicht erforderlich.
 
 Entscheidend ist, dass der Erbe durch den Erbfall selbst Mitunternehmer wird.
 
-## Freibetrag nach § 16 Abs. 4 EStG
+► Freibetrag nach § 16 Abs. 4 EStG
 
 Der Freibetrag kann auch einem Erben zustehen.
 
@@ -33,7 +33,7 @@ Voraussetzungen:
 
 Eine frühere Beteiligung am Betrieb ist nicht erforderlich.
 
-## Tarifermäßigung nach § 34 Abs. 3 EStG
+► Tarifermäßigung nach § 34 Abs. 3 EStG
 
 Auch die Tarifermäßigung kann vom Erben beansprucht werden.
 
@@ -45,7 +45,7 @@ Voraussetzungen:
 
 Der Erbe wird steuerlich so behandelt, als hätte er den Betrieb selbst veräußert.
 
-## Mitunternehmerstellung des Erben
+► Mitunternehmerstellung des Erben
 
 Mitunternehmer muss der Erbe erst zum Zeitpunkt der Veräußerung sein.
 
@@ -53,13 +53,13 @@ Es ist nicht erforderlich, dass er bereits vor dem Erbfall Mitunternehmer war.
 
 Der Eintritt in die Mitunternehmerstellung erfolgt durch den Erbfall.
 
-## Meinungsstand
+► Meinungsstand
 
 Rechtsprechung, Literatur und Finanzverwaltung vertreten übereinstimmend die Auffassung, dass die Begünstigungen auch Erben zustehen.
 
 Eine Beschränkung auf bereits vor dem Erbfall beteiligte Mitunternehmer besteht nicht.
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Liegt ein Erbfall vor?
 
@@ -73,7 +73,7 @@ Eine Beschränkung auf bereits vor dem Erbfall beteiligte Mitunternehmer besteht
 
 6. Freibetrag und Tarifermäßigung prüfen.
 
-## Rechtsfolge
+► Rechtsfolge
 
 Sind sämtliche Voraussetzungen erfüllt,
 
@@ -84,7 +84,7 @@ kann der Erbe
 
 beanspruchen.
 
-## Prüfungsmerksätze
+► Prüfungsmerksätze
 
 Eine vorherige Mitunternehmerstellung ist nicht erforderlich.
 
@@ -94,7 +94,7 @@ Die steuerlichen Begünstigungen gelten auch für Erben.
 
 Maßgeblich ist die Veräußerung des gesamten Betriebs oder Mitunternehmeranteils.
 
-## Klausurtipp
+► Klausurtipp
 
 Typische Prüfungsfalle:
 

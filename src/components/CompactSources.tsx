@@ -9,7 +9,7 @@ export type DisplaySource = {
 
 function cleanText(value: string | null | undefined): string {
   return String(value ?? "")
-    .replace(/^#{1,6}\s*/gm, "")
+    .replace(/^⇨{1,6}\s*/gm, "")
     .replace(/[*_`>]/g, "")
     .replace(/^["“”]+|["“”]+$/g, "")
     .replace(/\s+/g, " ")

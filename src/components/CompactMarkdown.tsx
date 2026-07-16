@@ -42,7 +42,7 @@ function tokenize(markdown: string): Token[] {
       continue;
     }
 
-    const heading = line.match(/^(#{1,4})\s+(.+)$/);
+    const heading = line.match(/^(⇨{1,4})\s+(.+)$/);
     if (heading) {
       flushParagraph();
       tokens.push({

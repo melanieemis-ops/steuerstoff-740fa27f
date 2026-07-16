@@ -6,14 +6,14 @@ source: Interne Steuerstoff-Prüfungsvorbereitung
 references: §§ 51 ff. AO, § 55 AO, § 64 AO, § 65 AO, § 68 Nr. 9 AO, § 21 BGB, §§ 69, 71 AO, § 130 OWiG, AEAO zu §§ 55, 64 und 65 AO
 ---
 
-# Wissenschaftliche Veranstaltungen: Zweckbetrieb oder ideelle Sphäre?
+⇨ Wissenschaftliche Veranstaltungen: Zweckbetrieb oder ideelle Sphäre?
 
 _Zuordnung wissenschaftlicher Veranstaltungen eines gemeinnützigen Vereins zum Zweckbetrieb, Abgrenzung zur ideellen Sphäre und Folgen fehlerhafter Zuordnungen._
 
 
-# Wissenschaftliche Veranstaltungen eines gemeinnützigen Vereins
+⇨ Wissenschaftliche Veranstaltungen eines gemeinnützigen Vereins
 
-## Grundsatz
+► Grundsatz
 
 Organisiert ein gemeinnütziger Verein wissenschaftliche Veranstaltungen und erhebt hierfür Teilnehmerbeiträge, sind die Einnahmen und Ausgaben grundsätzlich dem Zweckbetrieb zuzuordnen.
 
@@ -27,7 +27,7 @@ Rechtsgrundlagen:
 - § 65 AO
 - § 68 Nr. 9 AO
 
-## Zweckbetrieb
+► Zweckbetrieb
 
 Ein Zweckbetrieb liegt vor, wenn
 
@@ -53,7 +53,7 @@ Typische Ausgaben:
 
 Alle diese Einnahmen und Aufwendungen gehören zum Zweckbetrieb.
 
-## Ideelle Sphäre
+► Ideelle Sphäre
 
 Eine Zuordnung zur ideellen Sphäre kommt nur in Betracht,
 
@@ -69,7 +69,7 @@ Sobald Teilnehmer für eine konkrete Leistung bezahlen,
 
 liegt regelmäßig keine ideelle Tätigkeit mehr vor.
 
-## Leistungsaustausch
+► Leistungsaustausch
 
 Leistungsaustausch bedeutet:
 
@@ -84,7 +84,7 @@ Beispiele:
 
 Dann gehören Einnahmen und Ausgaben grundsätzlich zum Zweckbetrieb.
 
-## Prüfungsschema
+► Prüfungsschema
 
 1. Ist der Verein gemeinnützig?
 
@@ -102,11 +102,11 @@ Dann gehören Einnahmen und Ausgaben grundsätzlich zum Zweckbetrieb.
 
 => Zweckbetrieb nach §§ 65, 68 AO.
 
-## Folgen einer falschen Zuordnung
+► Folgen einer falschen Zuordnung
 
 Eine fehlerhafte Zuordnung kann erhebliche Folgen haben.
 
-### Steuerrechtliche Folgen
+⇶  Steuerrechtliche Folgen
 
 Wird eine Tätigkeit fälschlich der ideellen Sphäre zugeordnet,
 
@@ -126,7 +126,7 @@ drohen insbesondere:
 
 Besonders kritisch ist eine unzulässige Mittelverwendung nach § 55 AO.
 
-## Wirtschaftlicher Geschäftsbetrieb
+► Wirtschaftlicher Geschäftsbetrieb
 
 Liegt keine unmittelbare Zweckverwirklichung mehr vor,
 
@@ -134,7 +134,7 @@ kann stattdessen ein steuerpflichtiger wirtschaftlicher Geschäftsbetrieb entste
 
 Dann gelten die Vorschriften des § 64 AO.
 
-## Gemeinnützigkeit
+► Gemeinnützigkeit
 
 Eine dauerhafte Finanzierung steuerpflichtiger wirtschaftlicher Tätigkeiten aus Mitteln der ideellen Sphäre kann gegen § 55 AO verstoßen.
 
@@ -148,13 +148,13 @@ beispielsweise:
 - kurzfristige Verlustübernahme
 - Rückführung der Mittel innerhalb von zwölf Monaten
 
-## Zivilrechtliche Folgen
+► Zivilrechtliche Folgen
 
 Ein eingetragener Verein nach § 21 BGB muss überwiegend ideelle Zwecke verfolgen.
 
 Eine dauerhafte wirtschaftliche Tätigkeit kann den Vereinsstatus gefährden.
 
-## Haftungsrisiken
+► Haftungsrisiken
 
 Fehlerhafte Zuordnungen können zu einer persönlichen Haftung der Vorstandsmitglieder führen.
 
@@ -166,7 +166,7 @@ Mögliche Rechtsgrundlagen:
 
 Bei vorsätzlichen oder leichtfertigen Pflichtverletzungen können zusätzlich steuerstrafrechtliche Folgen eintreten.
 
-## Zuschüsse und Fördermittel
+► Zuschüsse und Fördermittel
 
 Auch öffentliche Zuschüsse sind zutreffend zuzuordnen.
 
@@ -182,7 +182,7 @@ ausgelöst werden.
 
 Außerdem können Verstöße gegen Förderbedingungen zu Rückforderungen führen.
 
-## Meinungsstand
+► Meinungsstand
 
 Finanzverwaltung, Literatur und Rechtsprechung vertreten übereinstimmend,
 
@@ -196,7 +196,7 @@ wenn
 
 Gemischt veranlasste Aufwendungen sind sachgerecht aufzuteilen.
 
-## Prüfungsmerksätze
+► Prüfungsmerksätze
 
 Leistungsaustausch
 
@@ -214,7 +214,7 @@ Spenden und echte Mitgliedsbeiträge
 
 = ideelle Sphäre.
 
-## Klausurtipp
+► Klausurtipp
 
 Typische Prüfungsfalle:
 

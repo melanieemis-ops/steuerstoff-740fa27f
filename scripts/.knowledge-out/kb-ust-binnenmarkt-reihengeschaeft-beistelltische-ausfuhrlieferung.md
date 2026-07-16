@@ -6,14 +6,14 @@ source: Interne Steuerstoff-Prüfungsvorbereitung
 references: § 1 UStG, § 3 Abs. 6 UStG, § 3 Abs. 7 UStG, § 4 Nr. 1a UStG, § 6 UStG, § 10 UStG, § 13 UStG, § 14c UStG, § 15 UStG
 ---
 
-# Binnenmarkt: Reihengeschäft mit Beistelltischen und Ausfuhrlieferung
+⇨ Binnenmarkt: Reihengeschäft mit Beistelltischen und Ausfuhrlieferung
 
 _Reihengeschäft mit Ausfuhrlieferung nach Norwegen, Zuordnung der Warenbewegung, Lieferort, § 14c UStG und Vorsteuerabzug._
 
 
-# Reihengeschäft – Beistelltische
+⇨ Reihengeschäft – Beistelltische
 
-## Ausgangssachverhalt
+► Ausgangssachverhalt
 
 Der Möbelhändler G verkauft drei Beistelltische an den norwegischen Händler K.
 
@@ -27,7 +27,7 @@ F → G → K
 
 ---
 
-# 1. Vorüberlegung – Reihengeschäft
+⇨ 1. Vorüberlegung – Reihengeschäft
 
 Mehrere Unternehmer schließen Kaufverträge über denselben Gegenstand.
 
@@ -37,7 +37,7 @@ Somit liegt ein Reihengeschäft nach § 3 Abs. 6a UStG vor.
 
 ---
 
-# 2. Zuordnung der Warenbewegung
+⇨ 2. Zuordnung der Warenbewegung
 
 Der Transport wird durch F veranlasst.
 
@@ -77,7 +77,7 @@ gemäß § 3 Abs. 7 Satz 2 Nr. 2 UStG.
 
 ---
 
-# 3. Lieferung des F an G
+⇨ 3. Lieferung des F an G
 
 F liefert die Tische an G.
 
@@ -106,7 +106,7 @@ Der Umsatz ist im Voranmeldungszeitraum Februar zu erklären.
 
 ---
 
-# 4. Fehlerhafte Rechnung des F
+⇨ 4. Fehlerhafte Rechnung des F
 
 F weist in seiner Rechnung
 
@@ -127,7 +127,7 @@ Folgen:
 
 ---
 
-# 5. Lieferung des G an K
+⇨ 5. Lieferung des G an K
 
 Diese Lieferung ist die unbewegte Lieferung.
 
@@ -147,7 +147,7 @@ Bemessungsgrundlage:
 
 ---
 
-# 6. Vorsteuerabzug des G
+⇨ 6. Vorsteuerabzug des G
 
 Grundsätzlich setzt der Vorsteuerabzug voraus,
 
@@ -165,7 +165,7 @@ Kein Vorsteuerabzug für G.
 
 ---
 
-# Prüfungsschema
+⇨ Prüfungsschema
 
 1. Liegt ein Reihengeschäft vor?
 
@@ -185,7 +185,7 @@ Kein Vorsteuerabzug für G.
 
 ---
 
-# Merksätze
+⇨ Merksätze
 
 Bei einem Reihengeschäft kann die Warenbewegung nur einer Lieferung zugeordnet werden.
 
@@ -201,7 +201,7 @@ berechtigt den Leistungsempfänger jedoch nicht zum Vorsteuerabzug.
 
 ---
 
-# Klausurfallen
+⇨ Klausurfallen
 
 Prüfungsfalle Nr. 1:
 

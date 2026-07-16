@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { BookOpenText } from "lucide-react";
-import coverImage from "../assets/cover.png"
+import coverImage from "@cover.png"
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 

@@ -70,10 +70,9 @@ function MagazinPage() {
                   className="absolute inset-x-8 bottom-0 top-12 rounded-[2rem] bg-foreground/15 blur-3xl"
                 />
 
-                <div className="relative overflow-hidden rounded-[1.4rem] border border-border/70 bg-card p-2 shadow-[0_24px_70px_-28px_rgba(15,23,42,0.45)]">
-         <MagazineFlipbook />
-
-                </div>
+              <article className="min-w-0">
+  <MagazineFlipbook />
+</article>
               </div>
             </article>
 

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { BookOpenText } from "lucide-react";
-import {magazineCover} from "@/assets/steuerstoff-magazin-cover.png";
+import { magazineCover } from "@/assets/steuerstoff-magazin-cover.png";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 

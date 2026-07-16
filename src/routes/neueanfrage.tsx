@@ -34,9 +34,9 @@ import {
 } from "@/lib/curatedExamples";
 
 export const Route = createFileRoute(
-  "/neueanfrage",
+  "/neue-anfrage",
 )({
-  component: NeueAnfrage,
+  component: neue-anfrage,
   head: () => ({
     meta: [
       {
@@ -118,7 +118,7 @@ function suggestedTitleFromFile(
   return cleaned.slice(0, 200);
 }
 
-function NeueAnfrage() {
+function neue-anfrage() {
   const navigate = useNavigate();
   const fileInputRef =
     useRef<HTMLInputElement | null>(null);

@@ -422,7 +422,7 @@ function Page() {
     } catch {
       /* ignore */
     }
-    window.location.href = "/neueanfrage";
+    window.location.href = "/neue-anfrage";
   };
 
   return (

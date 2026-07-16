@@ -12,7 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as WissensdatenbankRouteImport } from './routes/wissensdatenbank'
 import { Route as SkrKonverterRouteImport } from './routes/skr-konverter'
 import { Route as NpoPruefassistentRouteImport } from './routes/npo-pruefassistent'
-import { Route as NeueAnfrageRouteImport } from './routes/neueanfrage'
+import { Route as neue-anfrageRouteImport } from './routes/neue-anfrage'
 import { Route as MittelverwendungsrechnerRouteImport } from './routes/mittelverwendungsrechner'
 import { Route as LerngebieteRouteImport } from './routes/lerngebiete'
 import { Route as LernenRouteImport } from './routes/lernen'
@@ -45,9 +45,9 @@ const NpoPruefassistentRoute = NpoPruefassistentRouteImport.update({
   path: '/npo-pruefassistent',
   getParentRoute: () => rootRouteImport,
 } as any)
-const NeueAnfrageRoute = NeueAnfrageRouteImport.update({
-  id: '/neueanfrage',
-  path: '/neueanfrage',
+const neue-anfrageRoute = neue-anfrageRouteImport.update({
+  id: '/neue-anfrage',
+  path: '/neue-anfrage',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MittelverwendungsrechnerRoute = MittelverwendungsrechnerRouteImport.update({
@@ -148,7 +148,7 @@ export interface FileRoutesByFullPath {
   '/lernen': typeof LernenRoute
   '/lerngebiete': typeof LerngebieteRoute
   '/mittelverwendungsrechner': typeof MittelverwendungsrechnerRoute
-  '/neueanfrage': typeof NeueAnfrageRoute
+  '/neue-anfrage': typeof neue-anfrageRoute
   '/npo-pruefassistent': typeof NpoPruefassistentRoute
   '/skr-konverter': typeof SkrKonverterRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
@@ -170,7 +170,7 @@ export interface FileRoutesByTo {
   '/lernen': typeof LernenRoute
   '/lerngebiete': typeof LerngebieteRoute
   '/mittelverwendungsrechner': typeof MittelverwendungsrechnerRoute
-  '/neueanfrage': typeof NeueAnfrageRoute
+  '/neue-anfrage': typeof neue-anfrageRoute
   '/npo-pruefassistent': typeof NpoPruefassistentRoute
   '/skr-konverter': typeof SkrKonverterRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
@@ -193,7 +193,7 @@ export interface FileRoutesById {
   '/lernen': typeof LernenRoute
   '/lerngebiete': typeof LerngebieteRoute
   '/mittelverwendungsrechner': typeof MittelverwendungsrechnerRoute
-  '/neueanfrage': typeof NeueAnfrageRoute
+  '/neue-anfrage': typeof neue-anfrageRoute
   '/npo-pruefassistent': typeof NpoPruefassistentRoute
   '/skr-konverter': typeof SkrKonverterRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
@@ -217,7 +217,7 @@ export interface FileRouteTypes {
     | '/lernen'
     | '/lerngebiete'
     | '/mittelverwendungsrechner'
-    | '/neueanfrage'
+    | '/neue-anfrage'
     | '/npo-pruefassistent'
     | '/skr-konverter'
     | '/wissensdatenbank'
@@ -239,7 +239,7 @@ export interface FileRouteTypes {
     | '/lernen'
     | '/lerngebiete'
     | '/mittelverwendungsrechner'
-    | '/neueanfrage'
+    | '/neue-anfrage'
     | '/npo-pruefassistent'
     | '/skr-konverter'
     | '/wissensdatenbank'
@@ -261,7 +261,7 @@ export interface FileRouteTypes {
     | '/lernen'
     | '/lerngebiete'
     | '/mittelverwendungsrechner'
-    | '/neueanfrage'
+    | '/neue-anfrage'
     | '/npo-pruefassistent'
     | '/skr-konverter'
     | '/wissensdatenbank'
@@ -271,7 +271,7 @@ export interface RootRouteChildren {
   WissensdatenbankRoute: typeof WissensdatenbankRoute
   SkrKonverterRoute: typeof SkrKonverterRoute
   NpoPruefassistentRoute: typeof NpoPruefassistentRoute
-  NeueAnfrageRoute: typeof NeueAnfrageRoute
+  neue-anfrageRoute: typeof neue-anfrageRoute
   MittelverwendungsrechnerRoute: typeof MittelverwendungsrechnerRoute
   LerngebieteRoute: typeof LerngebieteRoute
   LernenRoute: typeof LernenRoute
@@ -313,11 +313,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NpoPruefassistentRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/neueanfrage': {
-      id: '/neueanfrage'
-      path: '/neueanfrage'
-      fullPath: '/neueanfrage'
-      preLoaderRoute: typeof NeueAnfrageRouteImport
+    '/neue-anfrage': {
+      id: '/neue-anfrage'
+      path: '/neue-anfrage'
+      fullPath: '/neue-anfrage'
+      preLoaderRoute: typeof neue-anfrageRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/mittelverwendungsrechner': {
@@ -439,7 +439,7 @@ const rootRouteChildren: RootRouteChildren = {
   WissensdatenbankRoute: WissensdatenbankRoute,
   SkrKonverterRoute: SkrKonverterRoute,
   NpoPruefassistentRoute: NpoPruefassistentRoute,
-  NeueAnfrageRoute: NeueAnfrageRoute,
+  neue-anfrageRoute: neue-anfrageRoute,
   MittelverwendungsrechnerRoute: MittelverwendungsrechnerRoute,
   LerngebieteRoute: LerngebieteRoute,
   LernenRoute: LernenRoute,

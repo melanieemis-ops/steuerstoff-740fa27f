@@ -31,7 +31,7 @@ export const SECTIONS = [
     short: "Home",
   },
   {
-    to: "/neueanfrage",
+    to: "/neue-anfrage",
     label: "Anfrage",
     short: "Anfrage",
   },
@@ -194,7 +194,7 @@ export function MobileBottomNav() {
       Icon: Home,
     },
     {
-      to: "/neueanfrage",
+      to: "/neue-anfrage",
       label: "Anfrage",
       Icon: FilePlus,
     },

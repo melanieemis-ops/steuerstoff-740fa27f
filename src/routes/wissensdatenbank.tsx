@@ -263,7 +263,7 @@ Bei rein eigener Belegschaft (z. B. Weihnachtsfeier) gelten gesonderte Regeln â€
       "Liegt eine maschinelle Rechnung vor?",
     ],
     relatedModules: [
-      { label: "Neue Anfrage starten", to: "/neueanfrage" },
+      { label: "Neue Anfrage starten", to: "/neue-anfrage" },
     ],
   },
   {

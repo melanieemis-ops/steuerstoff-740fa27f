@@ -66,11 +66,11 @@ export const KNOWLEDGE_TOPICS: Array<KnowledgeTopic | Record<string, unknown>> =
       "Ordnungsgemäße Rechnung vorhanden?",
     ],
     quickActions: [
-      { label: "USt-Fall prüfen", to: "/neueanfrage" },
+      { label: "USt-Fall prüfen", to: "/neue-anfrage" },
       { label: "Rückfrage formulieren", to: "/chat" },
-      { label: "Buchungsvorschlag erstellen", to: "/neueanfrage" },
+      { label: "Buchungsvorschlag erstellen", to: "/neue-anfrage" },
     ],
-    module: { label: "Neue Anfrage starten", to: "/neueanfrage" },
+    module: { label: "Neue Anfrage starten", to: "/neue-anfrage" },
     handoutCategory: "USt",
   },
 {
@@ -4741,7 +4741,7 @@ Wurden Baustoffe zunächst für steuerpflichtige Umsätze angeschafft und späte
       "Individueller Kontenrahmen",
     ],
     quickActions: [
-      { label: "Buchungsvorschlag erstellen", to: "/neueanfrage" },
+      { label: "Buchungsvorschlag erstellen", to: "/neue-anfrage" },
       { label: "SKR-Konverter öffnen", to: "/skr-konverter" },
       { label: "DATEV-Handouts anzeigen", to: "/wissensdatenbank" },
     ],
@@ -4790,11 +4790,11 @@ Wurden Baustoffe zunächst für steuerpflichtige Umsätze angeschafft und späte
       "Welche Rückfrage ist intern für Review relevant?",
     ],
     quickActions: [
-      { label: "Rückfragebrief erstellen", to: "/neueanfrage" },
+      { label: "Rückfragebrief erstellen", to: "/neue-anfrage" },
       { label: "Mandantenantwort formulieren", to: "/chat" },
-      { label: "Prüfnotiz erstellen", to: "/neueanfrage" },
+      { label: "Prüfnotiz erstellen", to: "/neue-anfrage" },
     ],
-    module: { label: "Neue Anfrage starten", to: "/neueanfrage" },
+    module: { label: "Neue Anfrage starten", to: "/neue-anfrage" },
     handoutCategory: "Rückfragen",
   },
   {
@@ -4813,7 +4813,7 @@ Wurden Baustoffe zunächst für steuerpflichtige Umsätze angeschafft und späte
       "Dokumentation ausreichend?",
     ],
     quickActions: [
-      { label: "Prüfnotiz erstellen", to: "/neueanfrage" },
+      { label: "Prüfnotiz erstellen", to: "/neue-anfrage" },
       { label: "Review-Liste öffnen", to: "/fallverlauf" },
       { label: "Export als Prüfnotiz", to: "/fallverlauf" },
     ],

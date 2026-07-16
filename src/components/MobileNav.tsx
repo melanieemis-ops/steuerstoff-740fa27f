@@ -45,6 +45,7 @@ export const SECTIONS = [
     label: "Wissen",
     short: "Wissen",
   },
+ { to: "/magazin", label: "Magazin", short: "Magazin" }, 
   {
     to: "/skr-konverter",
     label: "SKR",

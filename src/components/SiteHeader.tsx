@@ -59,6 +59,7 @@ const baseNav: NavItem[] = [
     label: "Wissensdatenbank",
     Icon: Database,
   },
+  { to: "/magazin", label: "Magazin" },
   {
     to: "/gesetz-importieren",
     label: "Gesetz importieren",

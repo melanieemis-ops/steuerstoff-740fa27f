@@ -52,7 +52,7 @@ function Fallverlauf() {
               </p>
             </div>
             <Button asChild>
-              <Link to="/neue-anfrage">
+              <Link to="/neueanfrage">
                 <Plus className="h-4 w-4" /> Neue Anfrage
               </Link>
             </Button>

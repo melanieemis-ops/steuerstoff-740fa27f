@@ -34,7 +34,7 @@ import {
 } from "@/lib/curatedExamples";
 
 export const Route = createFileRoute(
-  "/neue-anfrage",
+  "/neueanfrage",
 )({
   component: NeueAnfrage,
   head: () => ({

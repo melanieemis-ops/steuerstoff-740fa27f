@@ -774,7 +774,7 @@ function classifyUstSachverhalt(q: string): ChatAnswer | null {
     knowledge: "Umsatzsteuer / Prüfschema",
     links: [
       { label: "Wissensdatenbank öffnen", to: "/wissensdatenbank" },
-      { label: "Strukturierte Anfrage anlegen", to: "/neue-anfrage" },
+      { label: "Strukturierte Anfrage anlegen", to: "/neueanfrage" },
     ],
     scenarioType: scenarioType ?? undefined,
     paragraphs: [c.paragraph],
@@ -1608,7 +1608,7 @@ function _generateAnswerImpl(rawQuestion: string, router: RouterResult): ChatAns
       "Welche Beträge und Zeiträume liegen vor?",
     ],
     nextStep: "Strukturierte Anfrage in 'Neue Anfrage' erfassen.",
-    links: [{ label: "Neue Anfrage öffnen", to: "/neue-anfrage" }],
+    links: [{ label: "Neue Anfrage öffnen", to: "/neueanfrage" }],
   };
 }
 

@@ -78,7 +78,7 @@ const quickstart = [
     desc: "Sachverhalt strukturieren, Steuerbarkeit und Satz klären.",
     cta: "USt-Fall prüfen",
     accent: "var(--magenta)",
-    to: "/neue-anfrage" as const,
+    to: "/neueanfrage" as const,
   },
   {
     icon: Building2,
@@ -94,7 +94,7 @@ const quickstart = [
     desc: "Konten und Belegfluss nach SKR42 / DATEV.",
     cta: "Buchungsvorschlag erstellen",
     accent: "var(--cyan)",
-    to: "/neue-anfrage" as const,
+    to: "/neueanfrage" as const,
   },
   {
     icon: MessageSquareText,
@@ -102,7 +102,7 @@ const quickstart = [
     desc: "Fehlende Angaben erkennen und Mandantenanfrage formulieren.",
     cta: "Rückfrage formulieren",
     accent: "var(--deep-blue)",
-    to: "/neue-anfrage" as const,
+    to: "/neueanfrage" as const,
   },
   {
     icon: ArrowRightLeft,
@@ -194,7 +194,7 @@ function Home() {
 
               <div className="mt-5 flex flex-col items-stretch justify-center gap-2 sm:flex-row sm:items-center">
                 <Button asChild size="default" className="h-10 px-5">
-                  <Link to="/neue-anfrage">
+                  <Link to="/neueanfrage">
                     Neue steuerliche Anfrage
                     <ArrowRight className="ml-1.5 h-4 w-4" />
                   </Link>

@@ -45,7 +45,7 @@ const baseNav: NavItem[] = [
     Icon: GraduationCap,
   },
   {
-    to: "/neue-anfrage",
+    to: "/neueanfrage",
     label: "Neue Anfrage",
     Icon: FilePlus2,
   },

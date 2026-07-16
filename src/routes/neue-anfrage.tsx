@@ -14,7 +14,7 @@ import {
 } from "@/lib/curatedExamples";
 import { ArrowRight, Sparkles } from "lucide-react";
 
-export const Route = createFileRoute("/neue-anfrage")({
+export const Route = createFileRoute("/neueanfrage")({
   component: NeueAnfrage,
   head: () => ({ meta: [{ title: "Neue Anfrage · steuerstoff" }] }),
 });

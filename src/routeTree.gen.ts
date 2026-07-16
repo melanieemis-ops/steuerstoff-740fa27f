@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as WissensdatenbankRouteImport } from './routes/wissensdatenbank'
 import { Route as SkrKonverterRouteImport } from './routes/skr-konverter'
 import { Route as NpoPruefassistentRouteImport } from './routes/npo-pruefassistent'
+import { Route as NeueAnfrageRouteImport } from './routes/neue-anfrage'
 import { Route as MittelverwendungsrechnerRouteImport } from './routes/mittelverwendungsrechner'
 import { Route as LerngebieteRouteImport } from './routes/lerngebiete'
 import { Route as LernenRouteImport } from './routes/lernen'
@@ -25,7 +26,6 @@ import { Route as ChatRouteImport } from './routes/chat'
 import { Route as AkademieRouteImport } from './routes/akademie'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as FallCaseIdRouteImport } from './routes/fall.$caseId'
-import { Route as ApiAnalyzeDocumentRouteImport } from './routes/api/analyze-document'
 import { Route as ApiTranscribeRouteImport } from './routes/api/transcribe'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 
@@ -43,13 +43,18 @@ const NpoPruefassistentRoute = NpoPruefassistentRouteImport.update({
   id: '/npo-pruefassistent',
   path: '/npo-pruefassistent',
   getParentRoute: () => rootRouteImport,
-
 } as any)
-const MittelverwendungsrechnerRoute = MittelverwendungsrechnerRouteImport.update({
-  id: '/mittelverwendungsrechner',
-  path: '/mittelverwendungsrechner',
+const NeueAnfrageRoute = NeueAnfrageRouteImport.update({
+  id: '/neue-anfrage',
+  path: '/neue-anfrage',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MittelverwendungsrechnerRoute =
+  MittelverwendungsrechnerRouteImport.update({
+    id: '/mittelverwendungsrechner',
+    path: '/mittelverwendungsrechner',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const LerngebieteRoute = LerngebieteRouteImport.update({
   id: '/lerngebiete',
   path: '/lerngebiete',
@@ -110,11 +115,6 @@ const FallCaseIdRoute = FallCaseIdRouteImport.update({
   path: '/fall/$caseId',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiAnalyzeDocumentRoute = ApiAnalyzeDocumentRouteImport.update({
-  id: '/api/analyze-document',
-  path: '/api/analyze-document',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ApiTranscribeRoute = ApiTranscribeRouteImport.update({
   id: '/api/transcribe',
   path: '/api/transcribe',
@@ -129,80 +129,76 @@ const ApiChatRoute = ApiChatRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/akademie': typeof AkademieRoute
-  '/api/analyze-document': typeof ApiAnalyzeDocumentRoute
-  '/api/chat': typeof ApiChatRoute
-  '/api/transcribe': typeof ApiTranscribeRoute
   '/chat': typeof ChatRoute
   '/csv-konverter': typeof CsvKonverterRoute
   '/einstellungen': typeof EinstellungenRoute
   '/erfolge': typeof ErfolgeRoute
-  '/fall/$caseId': typeof FallCaseIdRoute
   '/fallverlauf': typeof FallverlaufRoute
   '/gesetz-importieren': typeof GesetzImportierenRoute
   '/kfz-wertabgabe': typeof KfzWertabgabeRoute
   '/lernen': typeof LernenRoute
   '/lerngebiete': typeof LerngebieteRoute
   '/mittelverwendungsrechner': typeof MittelverwendungsrechnerRoute
+  '/neue-anfrage': typeof NeueAnfrageRoute
   '/npo-pruefassistent': typeof NpoPruefassistentRoute
   '/skr-konverter': typeof SkrKonverterRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
+  '/api/chat': typeof ApiChatRoute
+  '/api/transcribe': typeof ApiTranscribeRoute
+  '/fall/$caseId': typeof FallCaseIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/akademie': typeof AkademieRoute
-  '/api/analyze-document': typeof ApiAnalyzeDocumentRoute
-  '/api/chat': typeof ApiChatRoute
-  '/api/transcribe': typeof ApiTranscribeRoute
   '/chat': typeof ChatRoute
   '/csv-konverter': typeof CsvKonverterRoute
   '/einstellungen': typeof EinstellungenRoute
   '/erfolge': typeof ErfolgeRoute
-  '/fall/$caseId': typeof FallCaseIdRoute
   '/fallverlauf': typeof FallverlaufRoute
   '/gesetz-importieren': typeof GesetzImportierenRoute
   '/kfz-wertabgabe': typeof KfzWertabgabeRoute
   '/lernen': typeof LernenRoute
   '/lerngebiete': typeof LerngebieteRoute
   '/mittelverwendungsrechner': typeof MittelverwendungsrechnerRoute
+  '/neue-anfrage': typeof NeueAnfrageRoute
   '/npo-pruefassistent': typeof NpoPruefassistentRoute
   '/skr-konverter': typeof SkrKonverterRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
+  '/api/chat': typeof ApiChatRoute
+  '/api/transcribe': typeof ApiTranscribeRoute
+  '/fall/$caseId': typeof FallCaseIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/akademie': typeof AkademieRoute
-  '/api/analyze-document': typeof ApiAnalyzeDocumentRoute
-  '/api/chat': typeof ApiChatRoute
-  '/api/transcribe': typeof ApiTranscribeRoute
   '/chat': typeof ChatRoute
   '/csv-konverter': typeof CsvKonverterRoute
   '/einstellungen': typeof EinstellungenRoute
   '/erfolge': typeof ErfolgeRoute
-  '/fall/$caseId': typeof FallCaseIdRoute
   '/fallverlauf': typeof FallverlaufRoute
   '/gesetz-importieren': typeof GesetzImportierenRoute
   '/kfz-wertabgabe': typeof KfzWertabgabeRoute
   '/lernen': typeof LernenRoute
   '/lerngebiete': typeof LerngebieteRoute
   '/mittelverwendungsrechner': typeof MittelverwendungsrechnerRoute
+  '/neue-anfrage': typeof NeueAnfrageRoute
   '/npo-pruefassistent': typeof NpoPruefassistentRoute
   '/skr-konverter': typeof SkrKonverterRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
+  '/api/chat': typeof ApiChatRoute
+  '/api/transcribe': typeof ApiTranscribeRoute
+  '/fall/$caseId': typeof FallCaseIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/akademie'
-    | '/api/analyze-document'
-    | '/api/chat'
-    | '/api/transcribe'
     | '/chat'
     | '/csv-konverter'
     | '/einstellungen'
     | '/erfolge'
-    | '/fall/$caseId'
     | '/fallverlauf'
     | '/gesetz-importieren'
     | '/kfz-wertabgabe'
@@ -213,18 +209,17 @@ export interface FileRouteTypes {
     | '/npo-pruefassistent'
     | '/skr-konverter'
     | '/wissensdatenbank'
+    | '/api/chat'
+    | '/api/transcribe'
+    | '/fall/$caseId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/akademie'
-    | '/api/analyze-document'
-    | '/api/chat'
-    | '/api/transcribe'
     | '/chat'
     | '/csv-konverter'
     | '/einstellungen'
     | '/erfolge'
-    | '/fall/$caseId'
     | '/fallverlauf'
     | '/gesetz-importieren'
     | '/kfz-wertabgabe'
@@ -235,18 +230,17 @@ export interface FileRouteTypes {
     | '/npo-pruefassistent'
     | '/skr-konverter'
     | '/wissensdatenbank'
+    | '/api/chat'
+    | '/api/transcribe'
+    | '/fall/$caseId'
   id:
     | '__root__'
     | '/'
     | '/akademie'
-    | '/api/analyze-document'
-    | '/api/chat'
-    | '/api/transcribe'
     | '/chat'
     | '/csv-konverter'
     | '/einstellungen'
     | '/erfolge'
-    | '/fall/$caseId'
     | '/fallverlauf'
     | '/gesetz-importieren'
     | '/kfz-wertabgabe'
@@ -257,28 +251,31 @@ export interface FileRouteTypes {
     | '/npo-pruefassistent'
     | '/skr-konverter'
     | '/wissensdatenbank'
+    | '/api/chat'
+    | '/api/transcribe'
+    | '/fall/$caseId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  WissensdatenbankRoute: typeof WissensdatenbankRoute
-  SkrKonverterRoute: typeof SkrKonverterRoute
-  NpoPruefassistentRoute: typeof NpoPruefassistentRoute
-  MittelverwendungsrechnerRoute: typeof MittelverwendungsrechnerRoute
-  LerngebieteRoute: typeof LerngebieteRoute
-  LernenRoute: typeof LernenRoute
-  KfzWertabgabeRoute: typeof KfzWertabgabeRoute
-  GesetzImportierenRoute: typeof GesetzImportierenRoute
-  FallverlaufRoute: typeof FallverlaufRoute
-  ErfolgeRoute: typeof ErfolgeRoute
-  EinstellungenRoute: typeof EinstellungenRoute
-  CsvKonverterRoute: typeof CsvKonverterRoute
-  ChatRoute: typeof ChatRoute
-  AkademieRoute: typeof AkademieRoute
   IndexRoute: typeof IndexRoute
-  FallCaseIdRoute: typeof FallCaseIdRoute
-  ApiAnalyzeDocumentRoute: typeof ApiAnalyzeDocumentRoute
-  ApiTranscribeRoute: typeof ApiTranscribeRoute
+  AkademieRoute: typeof AkademieRoute
+  ChatRoute: typeof ChatRoute
+  CsvKonverterRoute: typeof CsvKonverterRoute
+  EinstellungenRoute: typeof EinstellungenRoute
+  ErfolgeRoute: typeof ErfolgeRoute
+  FallverlaufRoute: typeof FallverlaufRoute
+  GesetzImportierenRoute: typeof GesetzImportierenRoute
+  KfzWertabgabeRoute: typeof KfzWertabgabeRoute
+  LernenRoute: typeof LernenRoute
+  LerngebieteRoute: typeof LerngebieteRoute
+  MittelverwendungsrechnerRoute: typeof MittelverwendungsrechnerRoute
+  NeueAnfrageRoute: typeof NeueAnfrageRoute
+  NpoPruefassistentRoute: typeof NpoPruefassistentRoute
+  SkrKonverterRoute: typeof SkrKonverterRoute
+  WissensdatenbankRoute: typeof WissensdatenbankRoute
   ApiChatRoute: typeof ApiChatRoute
+  ApiTranscribeRoute: typeof ApiTranscribeRoute
+  FallCaseIdRoute: typeof FallCaseIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -302,6 +299,13 @@ declare module '@tanstack/react-router' {
       path: '/npo-pruefassistent'
       fullPath: '/npo-pruefassistent'
       preLoaderRoute: typeof NpoPruefassistentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/neue-anfrage': {
+      id: '/neue-anfrage'
+      path: '/neue-anfrage'
+      fullPath: '/neue-anfrage'
+      preLoaderRoute: typeof NeueAnfrageRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/mittelverwendungsrechner': {
@@ -395,13 +399,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FallCaseIdRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/analyze-document': {
-      id: '/api/analyze-document'
-      path: '/api/analyze-document'
-      fullPath: '/api/analyze-document'
-      preLoaderRoute: typeof ApiAnalyzeDocumentRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/api/transcribe': {
       id: '/api/transcribe'
       path: '/api/transcribe'
@@ -420,26 +417,25 @@ declare module '@tanstack/react-router' {
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  WissensdatenbankRoute: WissensdatenbankRoute,
-  SkrKonverterRoute: SkrKonverterRoute,
-  NpoPruefassistentRoute: NpoPruefassistentRoute,
-
-  MittelverwendungsrechnerRoute: MittelverwendungsrechnerRoute,
-  LerngebieteRoute: LerngebieteRoute,
-  LernenRoute: LernenRoute,
-  KfzWertabgabeRoute: KfzWertabgabeRoute,
-  GesetzImportierenRoute: GesetzImportierenRoute,
-  FallverlaufRoute: FallverlaufRoute,
-  ErfolgeRoute: ErfolgeRoute,
-  EinstellungenRoute: EinstellungenRoute,
-  CsvKonverterRoute: CsvKonverterRoute,
-  ChatRoute: ChatRoute,
-  AkademieRoute: AkademieRoute,
   IndexRoute: IndexRoute,
-  FallCaseIdRoute: FallCaseIdRoute,
-  ApiAnalyzeDocumentRoute: ApiAnalyzeDocumentRoute,
-  ApiTranscribeRoute: ApiTranscribeRoute,
+  AkademieRoute: AkademieRoute,
+  ChatRoute: ChatRoute,
+  CsvKonverterRoute: CsvKonverterRoute,
+  EinstellungenRoute: EinstellungenRoute,
+  ErfolgeRoute: ErfolgeRoute,
+  FallverlaufRoute: FallverlaufRoute,
+  GesetzImportierenRoute: GesetzImportierenRoute,
+  KfzWertabgabeRoute: KfzWertabgabeRoute,
+  LernenRoute: LernenRoute,
+  LerngebieteRoute: LerngebieteRoute,
+  MittelverwendungsrechnerRoute: MittelverwendungsrechnerRoute,
+  NeueAnfrageRoute: NeueAnfrageRoute,
+  NpoPruefassistentRoute: NpoPruefassistentRoute,
+  SkrKonverterRoute: SkrKonverterRoute,
+  WissensdatenbankRoute: WissensdatenbankRoute,
   ApiChatRoute: ApiChatRoute,
+  ApiTranscribeRoute: ApiTranscribeRoute,
+  FallCaseIdRoute: FallCaseIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

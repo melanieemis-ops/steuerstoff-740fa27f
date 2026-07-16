@@ -31,6 +31,11 @@ export const SECTIONS = [
     short: "Home",
   },
   {
+    to: "/neue-anfrage",
+    label: "Anfrage",
+    short: "Anfrage",
+  },
+  {
     to: "/fallverlauf",
     label: "Verlauf",
     short: "Verlauf",
@@ -40,11 +45,6 @@ export const SECTIONS = [
     label: "Wissen",
     short: "Wissen",
   },
-  { 
-  to: "/magazin",
-   label: "Magazin",
-    short: "Magazin" 
-  }, 
   {
     to: "/skr-konverter",
     label: "SKR",

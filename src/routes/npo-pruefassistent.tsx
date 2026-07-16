@@ -33,7 +33,7 @@ function formatTime(d: Date): string {
   return d.toLocaleTimeString("de-DE", { hour: "2-digit", minute: "2-digit" });
 }
 
-export const Route = createFileRoute("/npo-pruefassistent")({
+export const Route = createFileRoute("/npo-pruefassistent" as never)({
   component: Page,
   head: () => ({
     meta: [

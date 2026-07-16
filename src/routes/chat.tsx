@@ -385,6 +385,19 @@ function ChatPage() {
     setPhase("active");
   }
 
+  const voice = useVoiceInput({
+    onTranscript: (text) => {
+      setInput((prev) => {
+        const t = text.trim();
+        if (!t) return prev;
+        const base = prev.trimEnd();
+        return base ? `${base} ${t}` : t;
+      });
+      if (phase !== "active") activateChatImmediately();
+      setTimeout(() => textareaRef.current?.focus(), 0);
+    },
+  });
+
   function submitMessage(text: string) {
     const trimmed = text.trim();
     if (!trimmed || busy) return;

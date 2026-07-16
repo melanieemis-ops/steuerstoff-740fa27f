@@ -7,6 +7,7 @@ import {
 } from "react";
 import {
   ArrowRightLeft,
+  BookOpenText,
   Car,
   Database,
   FilePlus2,
@@ -25,7 +26,6 @@ import {
 
 import { OnboardingTour } from "@/components/OnboardingTour";
 import { useIsAdmin } from "@/hooks/useIsAdmin";
-import { Magazin } from "@/routes/magazin";
 
 type NavItem = {
   to: string;
@@ -60,9 +60,10 @@ const baseNav: NavItem[] = [
     label: "Wissensdatenbank",
     Icon: Database,
   },
-  { to: "/magazin",
-     label: "Magazin",
-    Icon: Magazin
+  {
+    to: "/magazin",
+    label: "Magazin",
+    Icon: BookOpenText,
   },
   {
     to: "/gesetz-importieren",
@@ -117,9 +118,11 @@ export function SiteHeader() {
     useState(false);
 
   const location = useLocation();
+
   const panelRef = useRef<HTMLDivElement | null>(
     null,
   );
+
   const buttonRef =
     useRef<HTMLButtonElement | null>(null);
 
@@ -235,155 +238,155 @@ export function SiteHeader() {
   return (
     <>
       <header className="sticky top-0 z-40 w-full border-b border-border/70 bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
-      <div className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between gap-3 px-4 sm:h-16 sm:px-6">
-        <Link
-          to="/"
-          className="flex min-w-0 shrink items-center gap-2"
-        >
-          <span
-            className="inline-block h-2.5 w-2.5 shrink-0 rounded-full"
-            style={{
-              background:
-                "var(--gradient-accent)",
-            }}
-            aria-hidden="true"
-          />
-
-          <span className="shrink-0 text-base font-semibold lowercase tracking-tight text-foreground sm:text-lg">
-            steuerstoff
-          </span>
-
-          <span className="hidden whitespace-nowrap text-[11px] font-normal tracking-tight text-muted-foreground/80 min-[390px]:inline sm:text-xs">
-            by Melanie Misakian
-          </span>
-
-          <span
-            aria-hidden={!refreshing}
-            className={[
-              "inline-flex h-4 w-4 shrink-0 items-center justify-center transition-opacity",
-              refreshing
-                ? "opacity-100"
-                : "opacity-0",
-            ].join(" ")}
+        <div className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between gap-3 px-4 sm:h-16 sm:px-6">
+          <Link
+            to="/"
+            className="flex min-w-0 shrink items-center gap-2"
           >
-            <Loader2 className="h-3.5 w-3.5 animate-spin text-muted-foreground" />
-          </span>
-        </Link>
-
-        <nav
-          className="hidden min-w-0 items-center gap-1 overflow-x-auto md:flex"
-          data-onboarding-target="menu"
-          aria-label="Desktop Navigation"
-        >
-          {navigation.map((item) => (
-            <Link
-              key={item.to}
-              to={item.to}
-              data-onboarding-target={onboardingTargetForPath(
-                item.to,
-              )}
-              className="shrink-0 whitespace-nowrap rounded-md px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
-              activeProps={{
-                className:
-                  "shrink-0 whitespace-nowrap rounded-md bg-accent px-3 py-1.5 text-sm text-foreground",
+            <span
+              className="inline-block h-2.5 w-2.5 shrink-0 rounded-full"
+              style={{
+                background:
+                  "var(--gradient-accent)",
               }}
+              aria-hidden="true"
+            />
+
+            <span className="shrink-0 text-base font-semibold lowercase tracking-tight text-foreground sm:text-lg">
+              steuerstoff
+            </span>
+
+            <span className="hidden whitespace-nowrap text-[11px] font-normal tracking-tight text-muted-foreground/80 min-[390px]:inline sm:text-xs">
+              by Melanie Misakian
+            </span>
+
+            <span
+              aria-hidden={!refreshing}
+              className={[
+                "inline-flex h-4 w-4 shrink-0 items-center justify-center transition-opacity",
+                refreshing
+                  ? "opacity-100"
+                  : "opacity-0",
+              ].join(" ")}
             >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+              <Loader2 className="h-3.5 w-3.5 animate-spin text-muted-foreground" />
+            </span>
+          </Link>
 
-        <button
-          ref={buttonRef}
-          type="button"
-          aria-label={
-            open
-              ? "Menü schließen"
-              : "Menü öffnen"
-          }
-          aria-expanded={open}
-          data-onboarding-target="menu"
-          onClick={() =>
-            setOpen((current) => !current)
-          }
-          className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-foreground transition-colors hover:bg-accent md:hidden"
-        >
-          {open ? (
-            <X className="h-4 w-4" />
-          ) : (
-            <Menu className="h-4 w-4" />
-          )}
-        </button>
-      </div>
-
-      {open && (
-        <div
-          ref={panelRef}
-          data-no-swipe="true"
-          className="border-t border-border bg-background shadow-lg md:hidden"
-        >
           <nav
-            className="mx-auto flex max-h-[calc(100dvh-3.5rem)] w-full max-w-6xl flex-col gap-1 overflow-y-auto px-4 py-3 pb-[calc(env(safe-area-inset-bottom)+1rem)]"
-            aria-label="Hauptmenü"
+            className="hidden min-w-0 items-center gap-1 overflow-x-auto md:flex"
+            data-onboarding-target="menu"
+            aria-label="Desktop Navigation"
           >
-            {navigation.map(
-              ({ to, label, Icon }) => {
-                const active =
-                  location.pathname === to ||
-                  (to !== "/" &&
-                    location.pathname.startsWith(
-                      to,
-                    ));
+            {navigation.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                data-onboarding-target={onboardingTargetForPath(
+                  item.to,
+                )}
+                className="shrink-0 whitespace-nowrap rounded-md px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+                activeProps={{
+                  className:
+                    "shrink-0 whitespace-nowrap rounded-md bg-accent px-3 py-1.5 text-sm text-foreground",
+                }}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
 
-                return (
-                  <Link
-                    key={to}
-                    to={to}
-                    onClick={() => setOpen(false)}
-                    className={[
-                      "flex items-center gap-3 rounded-2xl px-3 py-3 text-sm font-medium transition-colors",
-                      active
-                        ? "bg-foreground text-background"
-                        : "text-foreground hover:bg-accent",
-                    ].join(" ")}
-                  >
-                    <span
+          <button
+            ref={buttonRef}
+            type="button"
+            aria-label={
+              open
+                ? "Menü schließen"
+                : "Menü öffnen"
+            }
+            aria-expanded={open}
+            data-onboarding-target="menu"
+            onClick={() =>
+              setOpen((current) => !current)
+            }
+            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-foreground transition-colors hover:bg-accent md:hidden"
+          >
+            {open ? (
+              <X className="h-4 w-4" />
+            ) : (
+              <Menu className="h-4 w-4" />
+            )}
+          </button>
+        </div>
+
+        {open && (
+          <div
+            ref={panelRef}
+            data-no-swipe="true"
+            className="border-t border-border bg-background shadow-lg md:hidden"
+          >
+            <nav
+              className="mx-auto flex max-h-[calc(100dvh-3.5rem)] w-full max-w-6xl flex-col gap-1 overflow-y-auto px-4 py-3 pb-[calc(env(safe-area-inset-bottom)+1rem)]"
+              aria-label="Hauptmenü"
+            >
+              {navigation.map(
+                ({ to, label, Icon }) => {
+                  const active =
+                    location.pathname === to ||
+                    (to !== "/" &&
+                      location.pathname.startsWith(
+                        to,
+                      ));
+
+                  return (
+                    <Link
+                      key={to}
+                      to={to}
+                      onClick={() => setOpen(false)}
                       className={[
-                        "inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl",
+                        "flex items-center gap-3 rounded-2xl px-3 py-3 text-sm font-medium transition-colors",
                         active
-                          ? "bg-background/15"
-                          : "bg-muted",
+                          ? "bg-foreground text-background"
+                          : "text-foreground hover:bg-accent",
                       ].join(" ")}
                     >
-                      <Icon
-                        className="h-4 w-4"
-                        aria-hidden="true"
-                      />
-                    </span>
-
-                    <span className="min-w-0 flex-1">
-                      {label}
-                    </span>
-
-                    {to === "/lernen" && (
                       <span
                         className={[
-                          "rounded-full px-2 py-0.5 text-[10px] font-semibold",
+                          "inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl",
                           active
-                            ? "bg-background/15 text-background"
-                            : "bg-emerald-100 text-emerald-700",
+                            ? "bg-background/15"
+                            : "bg-muted",
                         ].join(" ")}
                       >
-                        Neu
+                        <Icon
+                          className="h-4 w-4"
+                          aria-hidden="true"
+                        />
                       </span>
-                    )}
-                  </Link>
-                );
-              },
-            )}
-          </nav>
-        </div>
-      )}
+
+                      <span className="min-w-0 flex-1">
+                        {label}
+                      </span>
+
+                      {to === "/lernen" && (
+                        <span
+                          className={[
+                            "rounded-full px-2 py-0.5 text-[10px] font-semibold",
+                            active
+                              ? "bg-background/15 text-background"
+                              : "bg-emerald-100 text-emerald-700",
+                          ].join(" ")}
+                        >
+                          Neu
+                        </span>
+                      )}
+                    </Link>
+                  );
+                },
+              )}
+            </nav>
+          </div>
+        )}
       </header>
 
       {location.pathname === "/" && (

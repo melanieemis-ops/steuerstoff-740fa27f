@@ -696,13 +696,53 @@ function ChatPage() {
       >
         <div className="mx-auto w-full max-w-3xl px-3 pt-3">
           <div className="flex items-end gap-2 rounded-3xl border border-border bg-card px-3 py-2 shadow-sm focus-within:border-foreground/30">
+            {voice.isSupported && (
+              <button
+                type="button"
+                onClick={() => {
+                  if (voice.isTranscribing) return;
+                  if (voice.isRecording) voice.stopRecording();
+                  else void voice.startRecording();
+                }}
+                disabled={voice.isTranscribing}
+                aria-label={
+                  voice.isTranscribing
+                    ? "Sprache wird transkribiert"
+                    : voice.isRecording
+                    ? "Sprachaufnahme beenden"
+                    : "Frage diktieren"
+                }
+                aria-pressed={voice.isRecording}
+                className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-colors ${
+                  voice.isTranscribing
+                    ? "bg-muted text-muted-foreground"
+                    : voice.isRecording
+                    ? "bg-red-500 text-white animate-pulse hover:bg-red-600"
+                    : "bg-muted text-foreground hover:bg-muted/70"
+                }`}
+              >
+                {voice.isTranscribing ? (
+                  <LoaderCircle className="h-4 w-4 animate-spin" />
+                ) : voice.isRecording ? (
+                  <Square className="h-4 w-4" fill="currentColor" />
+                ) : (
+                  <Mic className="h-4 w-4" />
+                )}
+              </button>
+            )}
             <textarea
               ref={textareaRef}
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
               rows={1}
-              placeholder="Stell eine steuerliche Frage …"
+              placeholder={
+                voice.isRecording
+                  ? "Ich höre zu …"
+                  : voice.isTranscribing
+                  ? "Sprache wird in Text umgewandelt …"
+                  : "Stell eine steuerliche Frage …"
+              }
               className="flex-1 resize-none bg-transparent px-2 py-2 text-[15px] leading-relaxed text-foreground outline-none placeholder:text-muted-foreground"
               style={{ maxHeight: 180 }}
               aria-label="Nachricht eingeben"
@@ -720,6 +760,30 @@ function ChatPage() {
               <ArrowUp className="h-4 w-4" />
             </button>
           </div>
+          {(voice.isRecording || voice.isTranscribing || voice.error) && (
+            <div className="px-2 pt-1.5" aria-live="polite">
+              {voice.isRecording && (
+                <p className="text-[11px] text-muted-foreground">
+                  Aufnahme läuft · {voice.elapsedSeconds}s von 60s · Mikrofon erneut antippen zum Beenden
+                </p>
+              )}
+              {voice.isTranscribing && (
+                <p className="text-[11px] text-muted-foreground">Sprache wird in Text umgewandelt …</p>
+              )}
+              {voice.error && !voice.isRecording && !voice.isTranscribing && (
+                <p role="alert" className="text-[11px] text-red-500">
+                  {voice.error}{" "}
+                  <button
+                    type="button"
+                    onClick={voice.clearError}
+                    className="underline hover:no-underline"
+                  >
+                    Ausblenden
+                  </button>
+                </p>
+              )}
+            </div>
+          )}
           <div className="flex items-center justify-between px-2 pb-2 pt-1.5">
             <p className="text-[10px] text-muted-foreground">
               Arbeitshilfe, keine verbindliche Beratung.
@@ -735,6 +799,7 @@ function ChatPage() {
               </button>
             )}
           </div>
+
         </div>
       </form>
     </div>

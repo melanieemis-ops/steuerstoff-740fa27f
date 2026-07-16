@@ -3,6 +3,7 @@ import { BookOpenText } from "lucide-react";
 
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import { MagazineFlipbook } from "@/components/MagazineFlipbook";
 
 export const Route = createFileRoute("/magazin")({
   component: MagazinPage,

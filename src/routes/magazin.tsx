@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { BookOpenText } from "lucide-react";
-import { magazineCover } from "@/assets/steuerstoff-magazin-cover.png";
+
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 
@@ -71,7 +71,7 @@ function MagazinPage() {
 
                 <div className="relative overflow-hidden rounded-[1.4rem] border border-border/70 bg-card p-2 shadow-[0_24px_70px_-28px_rgba(15,23,42,0.45)]">
 <img
-  src={magazineCover}
+  src="/steuerstoff-magazin-cover.png"
   alt="Cover des steuerstoff Magazins – Ausgabe 01/2026"
   className="block h-auto w-full rounded-[1rem] object-contain"
   loading="eager"

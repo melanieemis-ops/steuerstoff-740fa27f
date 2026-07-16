@@ -61,8 +61,8 @@ const baseNav: NavItem[] = [
     Icon: Database,
   },
   { to: "/magazin",
-     label: "Magazin" 
-     Icon: MagazinPage,
+     label: "Magazin", 
+     adminOnly: MagazinPage,
     },
   {
     to: "/gesetz-importieren",

@@ -322,12 +322,12 @@ body,
 
 /* Chat-Seite: tiefes Navy */
 .chat-bg-deep {
-  background: ⇨07142f;
-  color: ⇨e8eef9;
+  background: #07142f;
+  color: #e8eef9;
 }
 .chat-bg-deep [data-no-swipe="true"] textarea,
 .chat-bg-deep [data-no-swipe="true"] input {
-  color: ⇨0b1a3a;
+  color: #0b1a3a;
 }
 
 /* Hero-Chip: aktiver Surface-Flow-Ring */
@@ -359,8 +359,8 @@ body,
     var(--magenta)
   );
   -webkit-mask:
-    linear-gradient(⇨000 0 0) content-box,
-    linear-gradient(⇨000 0 0);
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
           mask-composite: exclude;
   animation: chip-ring-flow 4.5s linear infinite;

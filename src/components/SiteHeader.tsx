@@ -23,6 +23,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
+import { OnboardingTour } from "@/components/OnboardingTour";
 import { useIsAdmin } from "@/hooks/useIsAdmin";
 
 type NavItem = {
@@ -90,6 +91,20 @@ const baseNav: NavItem[] = [
     Icon: Settings,
   },
 ];
+
+function onboardingTargetForPath(
+  path: string,
+): "learn" | "skr" | undefined {
+  if (path === "/lernen") {
+    return "learn";
+  }
+
+  if (path === "/skr-konverter") {
+    return "skr";
+  }
+
+  return undefined;
+}
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -213,7 +228,8 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-border/70 bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
+    <>
+      <header className="sticky top-0 z-40 w-full border-b border-border/70 bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
       <div className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between gap-3 px-4 sm:h-16 sm:px-6">
         <Link
           to="/"
@@ -249,11 +265,18 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        <nav className="hidden min-w-0 items-center gap-1 overflow-x-auto md:flex">
+        <nav
+          className="hidden min-w-0 items-center gap-1 overflow-x-auto md:flex"
+          data-onboarding-target="menu"
+          aria-label="Desktop Navigation"
+        >
           {navigation.map((item) => (
             <Link
               key={item.to}
               to={item.to}
+              data-onboarding-target={onboardingTargetForPath(
+                item.to,
+              )}
               className="shrink-0 whitespace-nowrap rounded-md px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
               activeProps={{
                 className:
@@ -274,6 +297,7 @@ export function SiteHeader() {
               : "Menü öffnen"
           }
           aria-expanded={open}
+          data-onboarding-target="menu"
           onClick={() =>
             setOpen((current) => !current)
           }
@@ -355,6 +379,11 @@ export function SiteHeader() {
           </nav>
         </div>
       )}
-    </header>
+      </header>
+
+      {location.pathname === "/" && (
+        <OnboardingTour />
+      )}
+    </>
   );
 }

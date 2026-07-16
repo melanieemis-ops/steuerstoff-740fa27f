@@ -3,7 +3,7 @@ import {
   useLocation,
   useNavigate,
 } from "@tanstack/react-router";
-import { useRef } from "react";
+import { useRef, type ReactNode } from "react";
 import {
   ArrowRightLeft,
   FilePlus,
@@ -95,7 +95,7 @@ function currentIndex(pathname: string): number {
 export function GlobalSwipeArea({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   const ref = useRef<HTMLDivElement | null>(null);
   const navigate = useNavigate();
@@ -219,6 +219,13 @@ export function MobileBottomNav() {
             (to !== "/" &&
               location.pathname.startsWith(to));
 
+          const onboardingTarget =
+            to === "/lernen"
+              ? "learn"
+              : to === "/skr-konverter"
+                ? "skr"
+                : undefined;
+
           return (
             <li
               key={to}
@@ -226,6 +233,7 @@ export function MobileBottomNav() {
             >
               <Link
                 to={to}
+                data-onboarding-target={onboardingTarget}
                 className={[
                   "flex min-w-0 flex-col items-center justify-center gap-0.5 py-2 text-[10px] transition-colors",
                   active

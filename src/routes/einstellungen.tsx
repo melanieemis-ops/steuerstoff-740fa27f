@@ -1,10 +1,11 @@
-
-
-
-import { createFileRoute } from "@tanstack/react-router";
+import {
+  createFileRoute,
+  useNavigate,
+} from "@tanstack/react-router";
 import {
   Moon,
   Monitor,
+  RotateCcw,
   Sun,
 } from "lucide-react";
 import {
@@ -39,6 +40,8 @@ export const Route = createFileRoute(
 
 const SETTINGS_KEY =
   "steuerstoff.settings.v1";
+const ONBOARDING_KEY =
+  "steuerstoff.onboarding.v1";
 
 interface Settings {
   kanzlei: string;
@@ -85,6 +88,8 @@ const THEME_OPTIONS: {
 ];
 
 function Einstellungen() {
+  const navigate = useNavigate();
+
   const [settings, setSettings] =
     useState<Settings>(DEFAULTS);
   const [theme, setTheme] =
@@ -137,6 +142,16 @@ function Einstellungen() {
       () => setSaved(false),
       1500,
     );
+  }
+
+  function restartOnboarding() {
+    window.localStorage.removeItem(
+      ONBOARDING_KEY,
+    );
+
+    void navigate({
+      to: "/",
+    });
   }
 
   function resetData() {
@@ -240,6 +255,35 @@ function Einstellungen() {
                     );
                   },
                 )}
+              </div>
+            </section>
+
+            <section className="rounded-2xl border border-border bg-card p-5 shadow-card-soft sm:p-6">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <h2 className="text-base font-semibold text-foreground">
+                    Einführung
+                  </h2>
+
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                    Zeigt dir noch einmal die
+                    wichtigsten Bereiche von
+                    steuerstoff.
+                  </p>
+                </div>
+
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={restartOnboarding}
+                  className="w-full shrink-0 sm:w-auto"
+                >
+                  <RotateCcw
+                    className="mr-2 h-4 w-4"
+                    aria-hidden="true"
+                  />
+                  Einführung erneut starten
+                </Button>
               </div>
             </section>
 

@@ -154,9 +154,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
   transition:
     background-color 220ms ease,
     color 220ms ease;
@@ -195,11 +192,11 @@ body,
     ),
     linear-gradient(
       180deg,
-      #15171d 0%,
-      #101217 55%,
-      #0c0e12 100%
+      ⇨15171d 0%,
+      ⇨101217 55%,
+      ⇨0c0e12 100%
     );
-  color: #f4f6fb;
+  color: ⇨f4f6fb;
 }
 
 .dark .steuerstoff-welcome-byline,
@@ -236,14 +233,6 @@ body,
   html, body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    min-height: 100%;
-  }
-
-  body {
-    overflow-x: hidden;
-    overflow-y: auto;
-    overscroll-behavior-y: none;
-    -webkit-overflow-scrolling: touch;
   }
 
   /* PWA Standalone (iOS/Android): Safe Areas respektieren (Notch / Dynamic Island / Home-Indicator). */
@@ -495,7 +484,7 @@ body,
     min-width: 0;
   }
 
-  :root,
+  ⇨root,
   [data-app-root],
   [data-page] {
     width: 100%;
@@ -506,7 +495,7 @@ body,
   }
 
   @supports not (overflow-x: clip) {
-    :root,
+    ⇨root,
     [data-app-root],
     [data-page] {
       overflow-x: hidden;

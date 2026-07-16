@@ -12,7 +12,7 @@ import {
   findCuratedExample,
   type CuratedExample,
 } from "@/lib/curatedExamples";
-import { ArrowRight, FileText, Sparkles, UploadCloud, X } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 
 export const Route = createFileRoute("/neue-anfrage")({
   component: NeueAnfrage,
@@ -29,10 +29,6 @@ function NeueAnfrage() {
   const [selectedExampleId, setSelectedExampleId] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [file, setFile] = useState<File | null>(null);
-  const [isAnalyzing, setIsAnalyzing] = useState(false);
-  const [analysisResult, setAnalysisResult] = useState<string>("");
-  const [analysisMode, setAnalysisMode] = useState<"preview" | "case">("preview");
 
   const canSubmit = description.trim().length >= 5;
   const visibleExamples = useMemo<CuratedExample[]>(
@@ -47,42 +43,19 @@ function NeueAnfrage() {
     setSelectedExampleId(example.id);
   }
 
-  async function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
     if (!canSubmit) {
       setError("Bitte beschreibe deine Frage oder den Sachverhalt (mindestens 5 Zeichen).");
       return;
     }
-
     setSubmitting(true);
-    setIsAnalyzing(true);
-    setAnalysisResult("");
-
     try {
       const desc = description.trim();
       const trimmedTitle = title.trim();
 
-      if (file) {
-        const formData = new FormData();
-        formData.append("file", file);
-        formData.append("description", desc);
-
-        const response = await fetch("/api/analyze-document", {
-          method: "POST",
-          body: formData,
-        });
-
-        const data = await response.json().catch(() => null);
-
-        if (!response.ok) {
-          throw new Error(data?.error || "Die Unterlage konnte nicht analysiert werden.");
-        }
-
-        setAnalysisResult(data?.analysis || "");
-        setAnalysisMode("preview");
-      }
-
+      // Kuratierte Musterantwort nur, wenn die Auswahl unverändert ist.
       let presetKnowledge: Parameters<typeof createCase>[0]["presetKnowledge"];
       if (selectedExampleId) {
         const example = findCuratedExample(selectedExampleId);
@@ -116,10 +89,8 @@ function NeueAnfrage() {
       });
       navigate({ to: "/fall/$caseId", params: { caseId: rec.id } });
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Unbekannter Fehler");
-    } finally {
       setSubmitting(false);
-      setIsAnalyzing(false);
+      setError(err instanceof Error ? err.message : "Unbekannter Fehler");
     }
   }
 
@@ -205,49 +176,6 @@ function NeueAnfrage() {
               <p className="mt-1 text-xs text-muted-foreground">{description.length} / 4000 Zeichen</p>
             </div>
 
-            <div>
-              <p className="text-sm font-medium text-foreground">Unterlagen hochladen</p>
-              <label
-                htmlFor="document-upload"
-                className="mt-2 flex cursor-pointer flex-col items-center justify-center rounded-2xl border border-dashed border-border bg-card/60 px-6 py-10 text-center transition hover:bg-card"
-              >
-                <UploadCloud className="mb-3 h-8 w-8 text-muted-foreground" aria-hidden="true" />
-                <span className="text-sm font-medium text-foreground">PDF oder Bild auswählen</span>
-                <span className="mt-1 text-xs text-muted-foreground">Zulässig: PDF, JPG und PNG</span>
-                <input
-                  id="document-upload"
-                  type="file"
-                  accept=".pdf,image/jpeg,image/png"
-                  className="sr-only"
-                  onChange={(event) => {
-                    const selectedFile = event.target.files?.[0] ?? null;
-                    setFile(selectedFile);
-                    setError(null);
-                  }}
-                />
-              </label>
-            </div>
-
-            {file && (
-              <div className="flex items-center justify-between rounded-xl border border-border bg-card px-4 py-3">
-                <div className="flex min-w-0 items-center gap-3">
-                  <FileText className="h-5 w-5 shrink-0 text-muted-foreground" aria-hidden="true" />
-                  <div className="min-w-0">
-                    <p className="truncate text-sm font-medium text-foreground">{file.name}</p>
-                    <p className="text-xs text-muted-foreground">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
-                  </div>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setFile(null)}
-                  aria-label="Datei entfernen"
-                  className="rounded-full p-2 text-muted-foreground hover:bg-muted"
-                >
-                  <X className="h-4 w-4" aria-hidden="true" />
-                </button>
-              </div>
-            )}
-
             {error && (
               <div className="rounded-md border border-destructive/40 bg-destructive/10 px-3 py-2 text-sm text-destructive">
                 {error}
@@ -260,73 +188,11 @@ function NeueAnfrage() {
               </p>
               <Button type="submit" disabled={!canSubmit || submitting} className="h-10 px-5">
                 <Sparkles className="h-4 w-4" />
-                {submitting ? "Wird beantwortet …" : file ? "Erste Einschätzung erstellen" : "Antwort generieren"}
+                {submitting ? "Wird beantwortet …" : "Antwort generieren"}
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </div>
           </form>
-
-          {isAnalyzing && (
-            <div className="mt-6 rounded-2xl border border-border bg-card p-5 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2 font-medium text-foreground">
-                <Sparkles className="h-4 w-4" />
-                Erste steuerliche Einschätzung wird vorbereitet …
-              </div>
-              <p className="mt-2 leading-6">
-                Die hochgeladene Unterlage wird geprüft, der Sachverhalt fachlich eingeordnet und in eine strukturierte Kanzlei-Notiz umgewandelt.
-              </p>
-            </div>
-          )}
-
-          {analysisResult && (
-            <div className="mt-6 rounded-2xl border border-border bg-card p-5 shadow-card-soft">
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <div>
-                  <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Erste steuerliche Einschätzung</p>
-                  <h2 className="mt-1 text-lg font-semibold text-foreground">Strukturierte Prüfungshilfe</h2>
-                </div>
-                <div className="rounded-full border border-border bg-background px-3 py-1 text-xs text-muted-foreground">
-                  {file ? "Mit Upload" : "Nur mit Sachverhalt"}
-                </div>
-              </div>
-
-              <div className="mt-5 space-y-5">
-                {analysisResult.split(/\n\n/).filter(Boolean).map((paragraph, index) => {
-                  const headingMatch = paragraph.match(/^(Sachverhalt|Mögliche steuerliche Themen|Was besonders zu beachten ist|Fehlende Unterlagen|Rückfragen|Empfohlene nächste Schritte|Hinweis)\s*$/i);
-                  const isHeading = Boolean(headingMatch);
-                  const lines = paragraph.split(/\n/).filter(Boolean);
-
-                  if (isHeading) {
-                    return (
-                      <div key={`${paragraph.slice(0, 20)}-${index}`}>
-                        <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-foreground">
-                          {headingMatch?.[1]}
-                        </h3>
-                      </div>
-                    );
-                  }
-
-                  if (lines.some((line) => /^[-•]\s+/.test(line))) {
-                    return (
-                      <ul key={`${paragraph.slice(0, 20)}-${index}`} className="space-y-2 pl-5 text-sm leading-7 text-foreground">
-                        {lines.map((line, lineIndex) => (
-                          <li key={`${line.slice(0, 20)}-${lineIndex}`} className="list-disc">
-                            {line.replace(/^[-•]\s*/, "")}
-                          </li>
-                        ))}
-                      </ul>
-                    );
-                  }
-
-                  return (
-                    <p key={`${paragraph.slice(0, 20)}-${index}`} className="whitespace-pre-wrap text-sm leading-7 text-foreground">
-                      {paragraph}
-                    </p>
-                  );
-                })}
-              </div>
-            </div>
-          )}
 
           <div className="mt-8">
             <h2 className="text-sm font-medium text-foreground">Beispiele für {topic}</h2>

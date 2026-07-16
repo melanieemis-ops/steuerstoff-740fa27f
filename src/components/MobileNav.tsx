@@ -6,7 +6,6 @@ import {
 import { useRef, type ReactNode } from "react";
 import {
   ArrowRightLeft,
-  CalendarDays,
   FilePlus,
   GraduationCap,
   Home,
@@ -198,11 +197,6 @@ export function MobileBottomNav() {
       to: "/neue-anfrage",
       label: "Anfrage",
       Icon: FilePlus,
-    },
-    {
-      to: "/fristenkalender",
-      label: "Fristen",
-      Icon: CalendarDays,
     },
     {
       to: "/skr-konverter",

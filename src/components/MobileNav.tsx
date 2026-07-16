@@ -31,11 +31,6 @@ export const SECTIONS = [
     short: "Home",
   },
   {
-    to: "/neue-anfrage",
-    label: "Anfrage",
-    short: "Anfrage",
-  },
-  {
     to: "/fallverlauf",
     label: "Verlauf",
     short: "Verlauf",

@@ -32,6 +32,7 @@ function NeueAnfrage() {
   const [file, setFile] = useState<File | null>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [analysisResult, setAnalysisResult] = useState<string>("");
+  const [analysisMode, setAnalysisMode] = useState<"preview" | "case">("preview");
 
   const canSubmit = description.trim().length >= 5;
   const visibleExamples = useMemo<CuratedExample[]>(
@@ -79,6 +80,7 @@ function NeueAnfrage() {
         }
 
         setAnalysisResult(data?.analysis || "");
+        setAnalysisMode("preview");
       }
 
       let presetKnowledge: Parameters<typeof createCase>[0]["presetKnowledge"];
@@ -266,15 +268,62 @@ function NeueAnfrage() {
 
           {isAnalyzing && (
             <div className="mt-6 rounded-2xl border border-border bg-card p-5 text-sm text-muted-foreground">
-              Die Unterlage wird analysiert und in eine erste steuerliche Einschätzung umgewandelt …
+              <div className="flex items-center gap-2 font-medium text-foreground">
+                <Sparkles className="h-4 w-4" />
+                Erste steuerliche Einschätzung wird vorbereitet …
+              </div>
+              <p className="mt-2 leading-6">
+                Die hochgeladene Unterlage wird geprüft, der Sachverhalt fachlich eingeordnet und in eine strukturierte Kanzlei-Notiz umgewandelt.
+              </p>
             </div>
           )}
 
           {analysisResult && (
             <div className="mt-6 rounded-2xl border border-border bg-card p-5 shadow-card-soft">
-              <h2 className="text-lg font-semibold text-foreground">Erste steuerliche Einschätzung</h2>
-              <div className="mt-4 whitespace-pre-wrap text-sm leading-7 text-foreground">
-                {analysisResult}
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <div>
+                  <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Erste steuerliche Einschätzung</p>
+                  <h2 className="mt-1 text-lg font-semibold text-foreground">Strukturierte Prüfungshilfe</h2>
+                </div>
+                <div className="rounded-full border border-border bg-background px-3 py-1 text-xs text-muted-foreground">
+                  {file ? "Mit Upload" : "Nur mit Sachverhalt"}
+                </div>
+              </div>
+
+              <div className="mt-5 space-y-5">
+                {analysisResult.split(/\n\n/).filter(Boolean).map((paragraph, index) => {
+                  const headingMatch = paragraph.match(/^(Sachverhalt|Mögliche steuerliche Themen|Was besonders zu beachten ist|Fehlende Unterlagen|Rückfragen|Empfohlene nächste Schritte|Hinweis)\s*$/i);
+                  const isHeading = Boolean(headingMatch);
+                  const lines = paragraph.split(/\n/).filter(Boolean);
+
+                  if (isHeading) {
+                    return (
+                      <div key={`${paragraph.slice(0, 20)}-${index}`}>
+                        <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-foreground">
+                          {headingMatch?.[1]}
+                        </h3>
+                      </div>
+                    );
+                  }
+
+                  if (lines.some((line) => /^[-•]\s+/.test(line))) {
+                    return (
+                      <ul key={`${paragraph.slice(0, 20)}-${index}`} className="space-y-2 pl-5 text-sm leading-7 text-foreground">
+                        {lines.map((line, lineIndex) => (
+                          <li key={`${line.slice(0, 20)}-${lineIndex}`} className="list-disc">
+                            {line.replace(/^[-•]\s*/, "")}
+                          </li>
+                        ))}
+                      </ul>
+                    );
+                  }
+
+                  return (
+                    <p key={`${paragraph.slice(0, 20)}-${index}`} className="whitespace-pre-wrap text-sm leading-7 text-foreground">
+                      {paragraph}
+                    </p>
+                  );
+                })}
               </div>
             </div>
           )}

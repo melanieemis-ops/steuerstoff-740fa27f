@@ -61,7 +61,8 @@ const baseNav: NavItem[] = [
     Icon: Database,
   },
   { to: "/magazin",
-     label: "Magazin",
+     label: "Magazin"
+     Icon: MagazinPage,
   },
 
   {

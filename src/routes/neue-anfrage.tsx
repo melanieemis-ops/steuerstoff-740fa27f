@@ -12,7 +12,7 @@ import {
   findCuratedExample,
   type CuratedExample,
 } from "@/lib/curatedExamples";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, FileText, Sparkles, UploadCloud, X } from "lucide-react";
 
 export const Route = createFileRoute("/neue-anfrage")({
   component: NeueAnfrage,
@@ -29,6 +29,9 @@ function NeueAnfrage() {
   const [selectedExampleId, setSelectedExampleId] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [file, setFile] = useState<File | null>(null);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [analysisResult, setAnalysisResult] = useState<string>("");
 
   const canSubmit = description.trim().length >= 5;
   const visibleExamples = useMemo<CuratedExample[]>(
@@ -43,19 +46,41 @@ function NeueAnfrage() {
     setSelectedExampleId(example.id);
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
     if (!canSubmit) {
       setError("Bitte beschreibe deine Frage oder den Sachverhalt (mindestens 5 Zeichen).");
       return;
     }
+
     setSubmitting(true);
+    setIsAnalyzing(true);
+    setAnalysisResult("");
+
     try {
       const desc = description.trim();
       const trimmedTitle = title.trim();
 
-      // Kuratierte Musterantwort nur, wenn die Auswahl unverändert ist.
+      if (file) {
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("description", desc);
+
+        const response = await fetch("/api/analyze-document", {
+          method: "POST",
+          body: formData,
+        });
+
+        const data = await response.json().catch(() => null);
+
+        if (!response.ok) {
+          throw new Error(data?.error || "Die Unterlage konnte nicht analysiert werden.");
+        }
+
+        setAnalysisResult(data?.analysis || "");
+      }
+
       let presetKnowledge: Parameters<typeof createCase>[0]["presetKnowledge"];
       if (selectedExampleId) {
         const example = findCuratedExample(selectedExampleId);
@@ -89,8 +114,10 @@ function NeueAnfrage() {
       });
       navigate({ to: "/fall/$caseId", params: { caseId: rec.id } });
     } catch (err) {
-      setSubmitting(false);
       setError(err instanceof Error ? err.message : "Unbekannter Fehler");
+    } finally {
+      setSubmitting(false);
+      setIsAnalyzing(false);
     }
   }
 
@@ -176,6 +203,49 @@ function NeueAnfrage() {
               <p className="mt-1 text-xs text-muted-foreground">{description.length} / 4000 Zeichen</p>
             </div>
 
+            <div>
+              <p className="text-sm font-medium text-foreground">Unterlagen hochladen</p>
+              <label
+                htmlFor="document-upload"
+                className="mt-2 flex cursor-pointer flex-col items-center justify-center rounded-2xl border border-dashed border-border bg-card/60 px-6 py-10 text-center transition hover:bg-card"
+              >
+                <UploadCloud className="mb-3 h-8 w-8 text-muted-foreground" aria-hidden="true" />
+                <span className="text-sm font-medium text-foreground">PDF oder Bild auswählen</span>
+                <span className="mt-1 text-xs text-muted-foreground">Zulässig: PDF, JPG und PNG</span>
+                <input
+                  id="document-upload"
+                  type="file"
+                  accept=".pdf,image/jpeg,image/png"
+                  className="sr-only"
+                  onChange={(event) => {
+                    const selectedFile = event.target.files?.[0] ?? null;
+                    setFile(selectedFile);
+                    setError(null);
+                  }}
+                />
+              </label>
+            </div>
+
+            {file && (
+              <div className="flex items-center justify-between rounded-xl border border-border bg-card px-4 py-3">
+                <div className="flex min-w-0 items-center gap-3">
+                  <FileText className="h-5 w-5 shrink-0 text-muted-foreground" aria-hidden="true" />
+                  <div className="min-w-0">
+                    <p className="truncate text-sm font-medium text-foreground">{file.name}</p>
+                    <p className="text-xs text-muted-foreground">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setFile(null)}
+                  aria-label="Datei entfernen"
+                  className="rounded-full p-2 text-muted-foreground hover:bg-muted"
+                >
+                  <X className="h-4 w-4" aria-hidden="true" />
+                </button>
+              </div>
+            )}
+
             {error && (
               <div className="rounded-md border border-destructive/40 bg-destructive/10 px-3 py-2 text-sm text-destructive">
                 {error}
@@ -188,11 +258,26 @@ function NeueAnfrage() {
               </p>
               <Button type="submit" disabled={!canSubmit || submitting} className="h-10 px-5">
                 <Sparkles className="h-4 w-4" />
-                {submitting ? "Wird beantwortet …" : "Antwort generieren"}
+                {submitting ? "Wird beantwortet …" : file ? "Erste Einschätzung erstellen" : "Antwort generieren"}
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </div>
           </form>
+
+          {isAnalyzing && (
+            <div className="mt-6 rounded-2xl border border-border bg-card p-5 text-sm text-muted-foreground">
+              Die Unterlage wird analysiert und in eine erste steuerliche Einschätzung umgewandelt …
+            </div>
+          )}
+
+          {analysisResult && (
+            <div className="mt-6 rounded-2xl border border-border bg-card p-5 shadow-card-soft">
+              <h2 className="text-lg font-semibold text-foreground">Erste steuerliche Einschätzung</h2>
+              <div className="mt-4 whitespace-pre-wrap text-sm leading-7 text-foreground">
+                {analysisResult}
+              </div>
+            </div>
+          )}
 
           <div className="mt-8">
             <h2 className="text-sm font-medium text-foreground">Beispiele für {topic}</h2>

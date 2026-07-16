@@ -29,6 +29,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as FallCaseIdRouteImport } from './routes/fall.$caseId'
 import { Route as ApiTranscribeRouteImport } from './routes/api/transcribe'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
+import { Route as ApiAnalyzeDocumentRouteImport } from './routes/api/analyze-document'
 
 const WissensdatenbankRoute = WissensdatenbankRouteImport.update({
   id: '/wissensdatenbank',
@@ -131,6 +132,11 @@ const ApiChatRoute = ApiChatRouteImport.update({
   path: '/api/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiAnalyzeDocumentRoute = ApiAnalyzeDocumentRouteImport.update({
+  id: '/api/analyze-document',
+  path: '/api/analyze-document',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -150,6 +156,7 @@ export interface FileRoutesByFullPath {
   '/npo-pruefassistent': typeof NpoPruefassistentRoute
   '/skr-konverter': typeof SkrKonverterRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
+  '/api/analyze-document': typeof ApiAnalyzeDocumentRoute
   '/api/chat': typeof ApiChatRoute
   '/api/transcribe': typeof ApiTranscribeRoute
   '/fall/$caseId': typeof FallCaseIdRoute
@@ -172,6 +179,7 @@ export interface FileRoutesByTo {
   '/npo-pruefassistent': typeof NpoPruefassistentRoute
   '/skr-konverter': typeof SkrKonverterRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
+  '/api/analyze-document': typeof ApiAnalyzeDocumentRoute
   '/api/chat': typeof ApiChatRoute
   '/api/transcribe': typeof ApiTranscribeRoute
   '/fall/$caseId': typeof FallCaseIdRoute
@@ -195,6 +203,7 @@ export interface FileRoutesById {
   '/npo-pruefassistent': typeof NpoPruefassistentRoute
   '/skr-konverter': typeof SkrKonverterRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
+  '/api/analyze-document': typeof ApiAnalyzeDocumentRoute
   '/api/chat': typeof ApiChatRoute
   '/api/transcribe': typeof ApiTranscribeRoute
   '/fall/$caseId': typeof FallCaseIdRoute
@@ -219,6 +228,7 @@ export interface FileRouteTypes {
     | '/npo-pruefassistent'
     | '/skr-konverter'
     | '/wissensdatenbank'
+    | '/api/analyze-document'
     | '/api/chat'
     | '/api/transcribe'
     | '/fall/$caseId'
@@ -241,6 +251,7 @@ export interface FileRouteTypes {
     | '/npo-pruefassistent'
     | '/skr-konverter'
     | '/wissensdatenbank'
+    | '/api/analyze-document'
     | '/api/chat'
     | '/api/transcribe'
     | '/fall/$caseId'
@@ -263,6 +274,7 @@ export interface FileRouteTypes {
     | '/npo-pruefassistent'
     | '/skr-konverter'
     | '/wissensdatenbank'
+    | '/api/analyze-document'
     | '/api/chat'
     | '/api/transcribe'
     | '/fall/$caseId'
@@ -286,6 +298,7 @@ export interface RootRouteChildren {
   NpoPruefassistentRoute: typeof NpoPruefassistentRoute
   SkrKonverterRoute: typeof SkrKonverterRoute
   WissensdatenbankRoute: typeof WissensdatenbankRoute
+  ApiAnalyzeDocumentRoute: typeof ApiAnalyzeDocumentRoute
   ApiChatRoute: typeof ApiChatRoute
   ApiTranscribeRoute: typeof ApiTranscribeRoute
   FallCaseIdRoute: typeof FallCaseIdRoute
@@ -433,6 +446,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiChatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/analyze-document': {
+      id: '/api/analyze-document'
+      path: '/api/analyze-document'
+      fullPath: '/api/analyze-document'
+      preLoaderRoute: typeof ApiAnalyzeDocumentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -454,6 +474,7 @@ const rootRouteChildren: RootRouteChildren = {
   NpoPruefassistentRoute: NpoPruefassistentRoute,
   SkrKonverterRoute: SkrKonverterRoute,
   WissensdatenbankRoute: WissensdatenbankRoute,
+  ApiAnalyzeDocumentRoute: ApiAnalyzeDocumentRoute,
   ApiChatRoute: ApiChatRoute,
   ApiTranscribeRoute: ApiTranscribeRoute,
   FallCaseIdRoute: FallCaseIdRoute,

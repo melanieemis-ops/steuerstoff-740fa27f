@@ -70,11 +70,11 @@ function MagazinPage() {
                 />
 
                 <div className="relative overflow-hidden rounded-[1.4rem] border border-border/70 bg-card p-2 shadow-[0_24px_70px_-28px_rgba(15,23,42,0.45)]">
-                  <img
-                    src= "/icons/cover.png"
-                    loading="eager"
-                    decoding="async"
-                  />
+                <img
+  src="/cover.png"
+  alt="Cover des steuerstoff Magazins – Ausgabe 01/2026"
+  className="block h-auto w-full rounded-[1rem] object-contain"
+/>
                 </div>
               </div>
             </article>

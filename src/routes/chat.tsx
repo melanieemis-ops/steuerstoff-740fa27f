@@ -12,8 +12,12 @@ import {
   AlertCircle,
   ArrowRight,
   Sparkles,
+  Mic,
+  Square,
+  LoaderCircle,
 } from "lucide-react";
 import { generateAnswer, REVIEW_HINT, type ChatAnswer } from "@/lib/chatHeuristics";
+import { useVoiceInput } from "@/hooks/useVoiceInput";
 
 
 

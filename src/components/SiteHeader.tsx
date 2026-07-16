@@ -25,7 +25,7 @@ import {
 
 import { OnboardingTour } from "@/components/OnboardingTour";
 import { useIsAdmin } from "@/hooks/useIsAdmin";
-import MagazinPage from "@/routes/magazin";
+import { Magazin } from "@/routes/magazin";
 
 type NavItem = {
   to: string;
@@ -62,7 +62,8 @@ const baseNav: NavItem[] = [
   },
   { to: "/magazin",
      label: "Magazin",
-    Icon: MagazinPage},
+    Icon: Magazin
+  },
   {
     to: "/gesetz-importieren",
     label: "Gesetz importieren",

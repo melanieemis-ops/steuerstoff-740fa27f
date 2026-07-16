@@ -71,8 +71,8 @@ function MagazinPage() {
                 />
 
               <article className="min-w-0">
-  <MagazineFlipbook />
-</article>
+                <MagazineFlipbook />
+              </article>
               </div>
             </article>
 

@@ -1,5 +1,6 @@
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import {
+  useEffect,
   useRef,
   useState,
   type TouchEvent,
@@ -24,8 +25,24 @@ export function MagazineFlipbook() {
   const [isFlipping, setIsFlipping] = useState(false);
   const [direction, setDirection] =
     useState<FlipDirection>("next");
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   const touchStartX = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (!isFullscreen) {
+      return;
+    }
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsFullscreen(false);
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isFullscreen]);
 
   const turnToPage = (nextIndex: number) => {
     if (
@@ -99,6 +116,8 @@ export function MagazineFlipbook() {
       : "rotateY(180deg)"
     : "rotateY(0deg)";
 
+  const currentPage = magazinePages[pageIndex];
+
   return (
     <div className="mx-auto w-full max-w-[420px]">
       <div
@@ -116,24 +135,35 @@ export function MagazineFlipbook() {
             draggable={false}
           />
 
-          {/* Aktuelle Seite, die beim Umblättern gedreht wird */}
-          <img
-            src={magazinePages[pageIndex].src}
-            alt={magazinePages[pageIndex].alt}
-            className="absolute inset-0 z-10 h-full w-full object-contain transition-transform duration-700 ease-in-out"
-            style={{
-              transform: pageTransform,
-              transformOrigin:
-                direction === "next"
-                  ? "left center"
-                  : "right center",
-              backfaceVisibility: "hidden",
-              WebkitBackfaceVisibility: "hidden",
-              willChange: "transform",
-            }}
-            onTransitionEnd={handleFlipEnd}
-            draggable={false}
-          />
+          <button
+            type="button"
+            onClick={() => setIsFullscreen(true)}
+            className="absolute inset-0 z-10 cursor-zoom-in"
+            aria-label={`Seite ${pageIndex + 1} im Vollbild öffnen`}
+          >
+            {/* Aktuelle Seite, die beim Umblättern gedreht wird */}
+            <img
+              src={magazinePages[pageIndex].src}
+              alt={magazinePages[pageIndex].alt}
+              className="absolute inset-0 h-full w-full object-contain transition-transform duration-700 ease-in-out"
+              style={{
+                transform: pageTransform,
+                transformOrigin:
+                  direction === "next"
+                    ? "left center"
+                    : "right center",
+                backfaceVisibility: "hidden",
+                WebkitBackfaceVisibility: "hidden",
+                willChange: "transform",
+              }}
+              onTransitionEnd={handleFlipEnd}
+              draggable={false}
+            />
+
+            <span className="pointer-events-none absolute bottom-4 right-4 rounded-full bg-background/90 px-3 py-1.5 text-[11px] font-medium text-foreground shadow-sm backdrop-blur">
+              Vollbild
+            </span>
+          </button>
 
           {/* Dezente Papierkante */}
           <div className="pointer-events-none absolute inset-y-0 left-0 z-20 w-3 bg-gradient-to-r from-black/10 to-transparent" />
@@ -197,6 +227,32 @@ export function MagazineFlipbook() {
           · Zum Umblättern wischen
         </span>
       </p>
+
+      {isFullscreen ? (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-3 sm:p-6"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Magazinseite im Vollbild"
+        >
+          <div className="relative w-full max-w-5xl">
+            <button
+              type="button"
+              onClick={() => setIsFullscreen(false)}
+              className="absolute right-2 top-2 z-10 rounded-full border border-border/70 bg-background/90 p-2 text-foreground shadow-lg backdrop-blur"
+              aria-label="Vollbild schließen"
+            >
+              <X className="h-5 w-5" />
+            </button>
+
+            <img
+              src={currentPage.src}
+              alt={currentPage.alt}
+              className="max-h-[90vh] w-full rounded-[1.25rem] object-contain shadow-2xl"
+            />
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }

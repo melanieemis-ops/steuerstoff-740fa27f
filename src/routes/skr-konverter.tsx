@@ -36,7 +36,7 @@ import {
 
 const OFFICIAL_COUNT = OFFICIAL_MAPPINGS.length;
 
-export const Route = createFileRoute("/skr-konverter"as never)({
+export const Route = createFileRoute("/skr-konverter")({
   component: SkrKonverter,
   head: () => ({
     meta: [

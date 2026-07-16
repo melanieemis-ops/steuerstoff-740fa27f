@@ -11,7 +11,7 @@ import { HandoutsManager } from "@/components/HandoutsManager";
 import { listHandouts, type Handout } from "@/lib/knowledgeTopics";
 import { useIsAdmin } from "@/hooks/useIsAdmin";
 
-export const Route = createFileRoute("/wissensdatenbank" as never)({
+export const Route = createFileRoute("/wissensdatenbank")({
   component: Wissensdatenbank,
   head: () => ({ meta: [{ title: "Wissensdatenbank · steuerstoff" }] }),
 });

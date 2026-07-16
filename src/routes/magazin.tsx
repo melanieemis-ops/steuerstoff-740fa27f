@@ -3,7 +3,6 @@ import { BookOpenText } from "lucide-react";
 
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
-import { ConversationCursorPage } from "openai/pagination";
 
 export const Route = createFileRoute("/magazin")({
   component: MagazinPage,
@@ -71,13 +70,13 @@ function MagazinPage() {
                 />
 
                 <div className="relative overflow-hidden rounded-[1.4rem] border border-border/70 bg-card p-2 shadow-[0_24px_70px_-28px_rgba(15,23,42,0.45)]">
-<img
-  src='/icons/cover.png'
-  alt="Cover des steuerstoff Magazins – Ausgabe 01/2026"
-  className="block h-auto w-full rounded-[1rem] object-contain"
-  loading="eager"
-  decoding="async"
-/>
+                  <img
+                    src="/steuerstoff-magazin-cover.png"
+                    alt="Cover des steuerstoff Magazins – Ausgabe 01/2026"
+                    className="block h-auto w-full rounded-[1rem] object-contain"
+                    loading="eager"
+                    decoding="async"
+                  />
                 </div>
               </div>
             </article>

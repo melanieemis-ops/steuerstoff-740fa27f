@@ -258,7 +258,7 @@ export const Route = createFileRoute("/api/tts")({
 
         return jsonError(
           400,
-          "Bitte manifest=1 oder segment=N angeben. Die Gesamtdatei wird nicht mehr erzeugt.",
+          "Bitte manifest=1, hls=1 oder segment=N angeben. Die Gesamtdatei wird nicht mehr erzeugt.",
         );
       },
     },

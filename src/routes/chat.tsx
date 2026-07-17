@@ -494,11 +494,19 @@ function ChatPage() {
       if (assistantInserted) {
         setMessages((prev) => prev.filter((m) => m.id !== assistantId));
       }
-      try {
-        const fallback = withFallbackMarker(generateAnswer(trimmed));
-        const aiMsg: Msg = { id: uid(), role: "assistant", answer: fallback, t: Date.now() };
-        setMessages((prev) => [...prev, aiMsg]);
-      } catch {
+      const hasAttachments = usedAttachments.length > 0;
+      let fellBack = false;
+      if (!hasAttachments && trimmed) {
+        try {
+          const fallback = withFallbackMarker(generateAnswer(trimmed));
+          const aiMsg: Msg = { id: uid(), role: "assistant", answer: fallback, t: Date.now() };
+          setMessages((prev) => [...prev, aiMsg]);
+          fellBack = true;
+        } catch {
+          /* fällt unten in Fehlermeldung */
+        }
+      }
+      if (!fellBack) {
         const errMsg: Msg = {
           id: uid(),
           role: "error",
@@ -543,10 +551,12 @@ function ChatPage() {
 
   function submitMessage(text: string) {
     const trimmed = text.trim();
-    if (!trimmed || busy) return;
+    const currentAtts = attachmentsRef.current;
+    if ((!trimmed && currentAtts.length === 0) || busy) return;
     if (phase !== "active") activateChatImmediately();
-    void ask(trimmed);
+    void ask(trimmed, undefined, currentAtts);
   }
+
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();

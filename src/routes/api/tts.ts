@@ -137,6 +137,7 @@ export const Route = createFileRoute("/api/tts")({
         const articleId = (url.searchParams.get("articleId") ?? "").trim();
         const v = (url.searchParams.get("v") ?? "").trim();
         const manifestFlag = url.searchParams.get("manifest") === "1";
+        const hlsFlag = url.searchParams.get("hls") === "1";
         const segmentParam = url.searchParams.get("segment");
 
         if (!articleId || !isAudioAllowed(articleId)) {

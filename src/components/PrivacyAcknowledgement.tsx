@@ -32,6 +32,8 @@ export function hasCurrentPrivacyAcknowledgement(): boolean {
 export function PrivacyAcknowledgementGate({ onAccepted }: { onAccepted: () => void }) {
   const [mounted, setMounted] = useState(false);
   const headingRef = useRef<HTMLHeadingElement | null>(null);
+  const dialogRef = useRef<HTMLDivElement | null>(null);
+  const previouslyFocusedRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -42,11 +44,74 @@ export function PrivacyAcknowledgementGate({ onAccepted }: { onAccepted: () => v
     const body = document.body;
     const prev = body.style.overflow;
     body.style.overflow = "hidden";
-    headingRef.current?.focus();
+
+    previouslyFocusedRef.current =
+      (document.activeElement as HTMLElement | null) ?? null;
+
+    // Fokus initial auf die Überschrift setzen (nach dem Mount).
+    const focusTimer = window.setTimeout(() => {
+      headingRef.current?.focus();
+    }, 0);
+
+    function getFocusable(): HTMLElement[] {
+      const root = dialogRef.current;
+      if (!root) return [];
+      const selector =
+        'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
+      return Array.from(root.querySelectorAll<HTMLElement>(selector)).filter(
+        (el) => !el.hasAttribute("disabled") && el.offsetParent !== null,
+      );
+    }
+
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key !== "Tab") return;
+      const focusables = getFocusable();
+      if (focusables.length === 0) {
+        e.preventDefault();
+        headingRef.current?.focus();
+        return;
+      }
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      const active = document.activeElement as HTMLElement | null;
+      const insideDialog = dialogRef.current?.contains(active ?? null) ?? false;
+
+      if (!insideDialog) {
+        e.preventDefault();
+        first.focus();
+        return;
+      }
+
+      if (e.shiftKey) {
+        if (active === first || active === headingRef.current) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        if (active === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    }
+
+    document.addEventListener("keydown", onKeyDown, true);
+
     return () => {
+      window.clearTimeout(focusTimer);
+      document.removeEventListener("keydown", onKeyDown, true);
       body.style.overflow = prev;
+      const prevFocus = previouslyFocusedRef.current;
+      if (prevFocus && typeof prevFocus.focus === "function") {
+        try {
+          prevFocus.focus();
+        } catch {
+          /* ignore */
+        }
+      }
     };
   }, [mounted]);
+
 
   function confirm() {
     try {

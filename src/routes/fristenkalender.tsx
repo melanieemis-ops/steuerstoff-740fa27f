@@ -207,6 +207,10 @@ function FristenkalenderPage() {
   const [prefillDate, setPrefillDate] = useState<Date | null>(null);
   const [agendaFilter, setAgendaFilter] = useState<string>("all");
   const [hideCompleted, setHideCompleted] = useState<boolean>(false);
+  const [dayPanelDate, setDayPanelDate] = useState<Date | null>(null);
+  const [noteDates, setNoteDates] = useState<Set<string>>(() => getDayNoteDateSet());
+  const [toast, setToast] = useState<string | null>(null);
+  const dayAnchorRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const unsub = subscribe(() => setEvents(loadEvents()));
@@ -214,8 +218,19 @@ function FristenkalenderPage() {
   }, []);
 
   useEffect(() => {
+    const unsub = subscribeDayNotes(() => setNoteDates(getDayNoteDateSet()));
+    return unsub;
+  }, []);
+
+  useEffect(() => {
     window.scrollTo({ top: 0, left: 0 });
   }, []);
+
+  useEffect(() => {
+    if (!toast) return;
+    const id = window.setTimeout(() => setToast(null), 2500);
+    return () => window.clearTimeout(id);
+  }, [toast]);
 
   const overdue = useMemo(() => overdueOccurrences(events), [events]);
   const todays = useMemo(() => todaysOccurrences(events), [events]);

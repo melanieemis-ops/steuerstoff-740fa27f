@@ -10,6 +10,8 @@ import {
 import { createPortal } from "react-dom";
 
 import { magazineArticles, type MagazineArticle } from "@/data/magazineArticles";
+import { ArticleAudioPlayer } from "@/components/magazine/ArticleAudioPlayer";
+import { isAudioAllowed } from "@/lib/articleSpeechText";
 
 type MagazinePage =
   | { kind: "cover"; src: string; alt: string }
@@ -203,7 +205,7 @@ function blockToPlainText(block: ArticleBlockLike): string {
 // Local alias to make blockToPlainText typing simple
 type ArticleBlockLike = MagazineArticle["blocks"][number];
 
-function ArticleToolbar({ article }: { article: MagazineArticle }) {
+function ArticleToolbar({ article, hideSpeak = false }: { article: MagazineArticle; hideSpeak?: boolean }) {
   const bookmarkKey = `steuerstoff-magazin-bookmark-${article.id}`;
   const [bookmarked, setBookmarked] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
@@ -296,14 +298,16 @@ function ArticleToolbar({ article }: { article: MagazineArticle }) {
       >
         {bookmarked ? "★ Gemerkt" : "☆ Merken"}
       </button>
-      <button
-        type="button"
-        onClick={speak}
-        aria-pressed={isSpeaking}
-        className="inline-flex items-center gap-1.5 rounded-full border border-[#22d3ee]/30 bg-[#0b1220]/5 px-3 py-1.5 text-[12px] font-medium text-[#0b1220] transition hover:bg-[#0b1220]/10"
-      >
-        {isSpeaking ? "⏹ Stoppen" : "▶ Vorlesen"}
-      </button>
+      {hideSpeak ? null : (
+        <button
+          type="button"
+          onClick={speak}
+          aria-pressed={isSpeaking}
+          className="inline-flex items-center gap-1.5 rounded-full border border-[#22d3ee]/30 bg-[#0b1220]/5 px-3 py-1.5 text-[12px] font-medium text-[#0b1220] transition hover:bg-[#0b1220]/10"
+        >
+          {isSpeaking ? "⏹ Stoppen" : "▶ Vorlesen"}
+        </button>
+      )}
       <button
         type="button"
         onClick={share}
@@ -526,7 +530,18 @@ function FullArticle({ article }: { article: MagazineArticle }) {
             : {}),
         }}
       >
-        {isSpecial ? <ArticleToolbar article={article} /> : null}
+        {isSpecial && isAudioAllowed(article.id) ? (
+          <ArticleAudioPlayer
+            articleId={article.id}
+            browserSpeakContext={{
+              title: article.title,
+              subtitle: article.subtitle,
+              lead: article.lead,
+              bodyText: article.blocks.map(blockToPlainText).filter(Boolean).join(". "),
+            }}
+          />
+        ) : null}
+        {isSpecial ? <ArticleToolbar article={article} hideSpeak={isAudioAllowed(article.id)} /> : null}
         {isSpecial ? (
           <p
             className="font-medium leading-[1.65] text-[#3a2f20]"

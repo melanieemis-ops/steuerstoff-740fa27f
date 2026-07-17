@@ -220,6 +220,8 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
 
   const startBrowserFallback = useCallback(() => {
     if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
+    // Andere Audio-Ausgaben (Chat, anderes Magazin-Audio) stoppen.
+    requestStopAllAudio(sourceId);
     cleanupAudio();
     const synth = window.speechSynthesis;
     synth.cancel();
@@ -241,7 +243,7 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
       }
       synth.speak(u);
     });
-  }, [browserSpeakContext, cleanupAudio]);
+  }, [browserSpeakContext, cleanupAudio, sourceId]);
 
   const stopBrowserFallback = useCallback(() => {
     stopBrowserSpeech();

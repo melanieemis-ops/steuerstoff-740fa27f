@@ -298,14 +298,16 @@ function ArticleToolbar({ article, hideSpeak = false }: { article: MagazineArtic
       >
         {bookmarked ? "★ Gemerkt" : "☆ Merken"}
       </button>
-      <button
-        type="button"
-        onClick={speak}
-        aria-pressed={isSpeaking}
-        className="inline-flex items-center gap-1.5 rounded-full border border-[#22d3ee]/30 bg-[#0b1220]/5 px-3 py-1.5 text-[12px] font-medium text-[#0b1220] transition hover:bg-[#0b1220]/10"
-      >
-        {isSpeaking ? "⏹ Stoppen" : "▶ Vorlesen"}
-      </button>
+      {hideSpeak ? null : (
+        <button
+          type="button"
+          onClick={speak}
+          aria-pressed={isSpeaking}
+          className="inline-flex items-center gap-1.5 rounded-full border border-[#22d3ee]/30 bg-[#0b1220]/5 px-3 py-1.5 text-[12px] font-medium text-[#0b1220] transition hover:bg-[#0b1220]/10"
+        >
+          {isSpeaking ? "⏹ Stoppen" : "▶ Vorlesen"}
+        </button>
+      )}
       <button
         type="button"
         onClick={share}

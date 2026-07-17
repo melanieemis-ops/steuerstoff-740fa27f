@@ -4,19 +4,346 @@ export type ArticleBlock =
   | { type: "subheading"; text: string }
   | { type: "list"; items: string[] }
   | { type: "notice"; variant?: "wichtig" | "merke" | "praxistipp"; text: string }
-  | { type: "summary"; title: string; items: string[] };
+  | { type: "summary"; title: string; items: string[] }
+  | {
+      type: "keyNumbers";
+      title: string;
+      items: { big: string; label: string }[];
+    }
+  | { type: "legalStatus"; label: string; text: string }
+  | {
+      type: "change";
+      number: number;
+      title: string;
+      lawRef: string;
+      paragraphs: string[];
+      list?: string[];
+      practice?: string;
+      effective?: string;
+    }
+  | { type: "editorial"; title: string; paragraphs: string[] }
+  | {
+      type: "checklist";
+      title: string;
+      storageKey: string;
+      items: string[];
+    }
+  | {
+      type: "sourceLink";
+      title: string;
+      text: string;
+      buttonLabel: string;
+      url: string;
+      note?: string;
+    };
+
+export type ArticleFormat = "standard" | "special";
 
 export interface MagazineArticle {
   id: string;
+  slug?: string;
   category: string;
   issueLabel: string;
   title: string;
+  subtitle?: string;
   lead: string;
   highlights: { label: string; value: string }[];
   blocks: ArticleBlock[];
+  format?: ArticleFormat;
+  status?: string;
+  statusLabel?: string;
+  specialtyLabel?: string;
+  pinned?: boolean;
+  legalStatusDate?: string;
+  publishedAt?: string;
+  author?: string;
+  readingTime?: number;
+  tags?: string[];
 }
 
 export const magazineArticles: MagazineArticle[] = [
+  {
+    id: "jstg-2026-einkommensteuer",
+    slug: "jstg-2026-einkommensteuer",
+    category: "Gesetzgebung",
+    issueLabel: "Spezial · Gesetzgebung",
+    title: "Jahressteuergesetz 2026: Diese Änderungen plant das BMF",
+    subtitle:
+      "Neue Regeln für Grundstückskaufpreise, Lohnsteuer, Quellensteuerentlastung und erste Tätigkeitsstätten",
+    format: "special",
+    status: "referentenentwurf",
+    statusLabel: "Referentenentwurf",
+    specialtyLabel: "steuerstoff SPEZIAL",
+    pinned: true,
+    legalStatusDate: "2026-05-19",
+    publishedAt: "2026-07-17",
+    author: "Melanie Misakian",
+    readingTime: 9,
+    tags: [
+      "JStG 2026",
+      "Einkommensteuer",
+      "Lohnsteuer",
+      "§ 50c EStG",
+      "Immobilien",
+      "Gesetzgebung",
+    ],
+    lead:
+      "Das BMF hat den Referentenentwurf des Jahressteuergesetzes 2026 veröffentlicht. Geplant sind unter anderem eine gesetzliche Kaufpreisaufteilung für bebaute Grundstücke, neue Meldepflichten bei der Lohnsteuer, höhere Freigrenzen bei § 50a und § 50c EStG sowie eine Verkürzung des Zuordnungszeitraums bei inländischen ersten Tätigkeitsstätten.",
+    highlights: [
+      { label: "Erste Tätigkeitsstätte", value: "48 → 24 Monate" },
+      { label: "§ 50a Freigrenze", value: "250 → 500 €" },
+      { label: "§ 50c antragslos", value: "10.000 → 100.000 €" },
+      { label: "Kaufpreisaufteilung", value: "Neuer § 6f EStG" },
+    ],
+    blocks: [
+      {
+        type: "legalStatus",
+        label: "Rechtsstand",
+        text: "Der Beitrag behandelt den Referentenentwurf des Bundesministeriums der Finanzen vom 19. Mai 2026. Das Gesetzgebungsverfahren ist noch nicht abgeschlossen. Einzelne Inhalte, Anwendungszeitpunkte und Formulierungen können sich im weiteren Verfahren ändern.",
+      },
+      {
+        type: "keyNumbers",
+        title: "Die wichtigsten Zahlen",
+        items: [
+          {
+            big: "48 → 24 Monate",
+            label: "Dauerhafte Zuordnung zu einer inländischen ersten Tätigkeitsstätte",
+          },
+          {
+            big: "250 → 500 €",
+            label: "Freigrenze für Kleinhonorare nach § 50a EStG",
+          },
+          {
+            big: "10.000 → 100.000 €",
+            label: "Antragslose Quellensteuerentlastung nach § 50c EStG",
+          },
+          {
+            big: "Neuer § 6f EStG",
+            label: "Gesetzliche Aufteilung von Grundstückskaufpreisen",
+          },
+        ],
+      },
+      { type: "heading", text: "Einleitung" },
+      {
+        type: "paragraph",
+        text: "Das Bundesministerium der Finanzen hat den Referentenentwurf eines Jahressteuergesetzes 2026 veröffentlicht. Der Entwurf bündelt zahlreiche Einzelmaßnahmen aus unterschiedlichen Bereichen des Steuerrechts.",
+      },
+      {
+        type: "paragraph",
+        text: "Nach Darstellung des Ministeriums besteht insbesondere Anpassungsbedarf an das Recht der Europäischen Union, an die Rechtsprechung des Europäischen Gerichtshofs sowie an Entscheidungen des Bundesfinanzhofs und des Bundesverfassungsgerichts.",
+      },
+      {
+        type: "paragraph",
+        text: "Daneben enthält der Entwurf Maßnahmen zur Digitalisierung, zum Bürokratieabbau, zur Vermeidung steuerlicher Gestaltungen sowie Änderungen von Verfahrens- und Zuständigkeitsregelungen.",
+      },
+      {
+        type: "paragraph",
+        text: "Besonders praxisrelevant sind die geplante Neuregelung der umsatzsteuerlichen Organschaft, die Erleichterung der Quellensteuerentlastung nach § 50c EStG, die Anpassung des Zinssatzes für die Vollverzinsung und die gesetzliche Regelung zur Aufteilung eines Gesamtkaufpreises für bebaute Grundstücke.",
+      },
+      {
+        type: "paragraph",
+        text: "Dieser erste Teil des steuerstoff-Spezials konzentriert sich auf die vorgesehenen Änderungen im Einkommensteuergesetz.",
+      },
+      { type: "heading", text: "Die geplanten Änderungen im Einkommensteuergesetz" },
+      {
+        type: "change",
+        number: 1,
+        title: "Grundlohn bei Sonn-, Feiertags- und Nachtzuschlägen",
+        lawRef: "§ 3b Abs. 2 Satz 1 EStG",
+        paragraphs: [
+          "Als Reaktion auf das BFH-Urteil vom 10. August 2023, VI R 11/21, soll die bisherige Verwaltungspraxis zur Ermittlung des Grundlohns gesetzlich festgeschrieben werden.",
+          "Für die Berechnung steuerfreier Sonn-, Feiertags- und Nachtzuschläge soll künftig grundsätzlich der steuerpflichtige und nicht nach § 40 EStG pauschal besteuerte laufende Arbeitslohn maßgebend sein.",
+          "Einbezogen werden außerdem laufende steuerfreie Arbeitgeberbeträge nach § 3 Nr. 56 oder Nr. 63 EStG. Andere steuerfreie, nicht steuerbare oder pauschal besteuerte Bezüge sollen nicht in den maßgebenden Grundlohn einfließen.",
+        ],
+        practice:
+          "Für die Lohnabrechnung wird damit deutlicher abgegrenzt, welche laufenden Vergütungsbestandteile in die Berechnung der steuerfreien Zuschläge eingehen.",
+        effective: "Ab 1. Januar 2027",
+      },
+      {
+        type: "change",
+        number: 2,
+        title: "Kaufpreisaufteilung bei bebauten Grundstücken",
+        lawRef: "§ 6f EStG – neu",
+        paragraphs: [
+          "Mit dem neuen § 6f EStG soll die Aufteilung eines Gesamtkaufpreises für ein bebautes Grundstück auf Grund und Boden sowie Gebäude erstmals ausdrücklich gesetzlich geregelt werden.",
+          "Eine im Kaufvertrag vorgenommene Aufteilung soll grundsätzlich anzuerkennen sein, wenn sie die tatsächlichen Wertverhältnisse nicht grundlegend verfehlt und wirtschaftlich haltbar erscheint.",
+          "Kann keine geeignete vertragliche Aufteilung zugrunde gelegt werden, sollen Boden- und Gebäudewert zunächst gesondert ermittelt werden. Der Gesamtkaufpreis wird anschließend im Verhältnis dieser Werte auf Grund und Boden sowie Gebäude verteilt.",
+          "Für die Wertermittlung soll die Immobilienwertermittlungsverordnung herangezogen werden. Der Gebäudewertanteil wird im Grundsatz aus dem marktangepassten vorläufigen Verfahrenswert des bebauten Grundstücks abzüglich des Bodenwerts ermittelt.",
+          "Das BMF soll eine offizielle Arbeitshilfe zur vereinfachten Kaufpreisaufteilung bereitstellen. Ein abweichender Wert kann durch ein qualifiziertes Sachverständigengutachten nachgewiesen werden.",
+        ],
+        practice:
+          "Die Aufteilung entscheidet insbesondere bei vermieteten Immobilien über die Höhe der abschreibungsfähigen Gebäudeanschaffungskosten. Der auf Grund und Boden entfallende Anteil ist nicht abschreibbar.",
+        effective:
+          "Für Anschaffungen aufgrund eines nach der Verkündung rechtswirksam abgeschlossenen Vertrags.",
+      },
+      {
+        type: "change",
+        number: 3,
+        title: "Erste Tätigkeitsstätte",
+        lawRef: "§ 9 Abs. 4 Satz 3 EStG",
+        paragraphs: [
+          "Der Zeitraum, ab dem bei einer Zuordnung zu einer inländischen Tätigkeitsstätte von Dauerhaftigkeit ausgegangen werden kann, soll von mehr als 48 Monaten auf mehr als 24 Monate verkürzt werden.",
+          "Für Tätigkeitsstätten im Ausland soll es weiterhin beim Zeitraum von mehr als 48 Monaten bleiben.",
+        ],
+        practice:
+          "Die Änderung kann die Abgrenzung zwischen einer ersten Tätigkeitsstätte und einer beruflich veranlassten Auswärtstätigkeit beeinflussen. Damit können sich Auswirkungen auf Fahrtkosten, Verpflegungsmehraufwendungen und Übernachtungskosten ergeben.",
+        effective: "Ab 1. Januar 2027",
+      },
+      {
+        type: "change",
+        number: 4,
+        title: "Kinder- und Ausbildungsfreibetrag bei EU-/EWR-Wohnsitz",
+        lawRef: "§ 32 Abs. 6 Satz 4 und § 33a Abs. 2 Satz 2 EStG",
+        paragraphs: [
+          "Kinderfreibeträge und der Ausbildungsfreibetrag sollen künftig ungekürzt gewährt werden, wenn das Kind seinen Wohnsitz in einem Mitgliedstaat der Europäischen Union oder in einem Staat des Europäischen Wirtschaftsraums hat.",
+          "Eine Kürzung entsprechend den Lebensverhältnissen des Wohnsitzstaats soll nur noch für Kinder möglich sein, deren Wohnsitz außerhalb der EU und des EWR liegt.",
+        ],
+        practice:
+          "Die geplante Änderung kann sich auch auf noch offene Veranlagungs- und Rechtsbehelfsverfahren auswirken.",
+        effective: "In allen offenen Fällen",
+      },
+      {
+        type: "change",
+        number: 5,
+        title: "Tarifermäßigung bei außerordentlichen Einkünften",
+        lawRef: "§ 34 Abs. 2 Nr. 1 EStG",
+        paragraphs: [
+          "Die Tarifermäßigung nach § 34 EStG soll bei bestimmten Veräußerungsgewinnen weiter eingeschränkt werden.",
+          "Bereits bislang sind solche Veräußerungsgewinne von der Begünstigung ausgenommen, deren steuerpflichtiger Teil dem Teileinkünfteverfahren unterliegt.",
+          "Dieser Ausschluss soll auf Veräußerungsgewinne erweitert werden, die ganz oder teilweise aus der Veräußerung von Investment- oder Spezial-Investmentanteilen stammen und für die eine Steuerbefreiung beziehungsweise Teilfreistellung nach dem Investmentsteuergesetz zur Anwendung kommt.",
+          "Damit soll eine doppelte steuerliche Begünstigung vermieden werden.",
+        ],
+        effective: "Ab 1. Januar 2027",
+      },
+      {
+        type: "change",
+        number: 6,
+        title: "Korrekturen der Lohnsteuerbescheinigung",
+        lawRef: "§ 41b Abs. 1 EStG",
+        paragraphs: [
+          "Arbeitgeber sollen künftig verpflichtet sein, unzutreffende oder unvollständige Angaben der elektronischen Lohnsteuerbescheinigung innerhalb der gesetzlich festgelegten Korrekturfrist zu berichtigen.",
+          "Die Korrektur soll grundsätzlich spätestens bis zum letzten Tag des Monats Februar erfolgen. Daneben bleiben Korrekturpflichten aufgrund anderer gesetzlicher Änderungsvorschriften bestehen.",
+        ],
+        practice:
+          "Arbeitgeber und Lohnbüros sollten ihre Jahresabschlussprozesse und Kontrollschritte so organisieren, dass fehlerhafte oder unvollständige Meldedaten rechtzeitig erkannt werden.",
+        effective: "Ab 1. Januar 2028",
+      },
+      {
+        type: "change",
+        number: 7,
+        title: "Erweiterte Angaben in der Lohnsteuerbescheinigung",
+        lawRef: "§ 41b Abs. 1 Satz 2 EStG",
+        paragraphs: [
+          "Der Datenumfang der elektronischen Lohnsteuerbescheinigung soll erheblich erweitert und stärker aufgegliedert werden.",
+          "Vorgesehen sind insbesondere zusätzliche Angaben zu:",
+        ],
+        list: [
+          "Kurzarbeitergeld, Mutterschaftsgeldzuschüssen, Infektionsschutzentschädigungen, Altersteilzeit-Aufstockungsbeträgen und Qualifizierungsgeld – jeweils nach Leistungszeitraum und Betrag,",
+          "steuerfreien Reisekostenerstattungen, getrennt nach Fahrtkosten, Verpflegungsmehraufwendungen, Übernachtungskosten und Reisenebenkosten,",
+          "steuerfreien Erstattungen bei doppelter Haushaltsführung, aufgeteilt nach Familienheimfahrten, Verpflegung, Unterkunft und sonstigen Mehraufwendungen,",
+          "steuerfreien Arbeitgeberleistungen für die Betreuung nicht schulpflichtiger Kinder,",
+          "nicht besteuerten Vorteilen aus der Übertragung von Vermögensbeteiligungen nach § 19a EStG,",
+          "der Überlassung eines betrieblichen Kraftfahrzeugs durch das neue Kennzeichen ‚D‘,",
+          "nach § 3 Nr. 21 EStG steuerfreien Einnahmen.",
+        ],
+        practice:
+          "Die Änderungen erfordern voraussichtlich umfangreiche Anpassungen in Lohnabrechnungsprogrammen, Schnittstellen und betrieblichen Datenerfassungsprozessen.",
+        effective: "Ab 1. Januar 2028",
+      },
+      {
+        type: "change",
+        number: 8,
+        title: "Erweiterter Datenzugriff bei der Lohnsteuer-Nachschau",
+        lawRef: "§ 42g Abs. 3 EStG",
+        paragraphs: [
+          "Im Rahmen einer Lohnsteuer-Nachschau sollen Amtsträger künftig ausdrücklich auf elektronisch gespeicherte Daten über die nachschaupflichtigen Sachverhalte zugreifen dürfen.",
+          "Soweit erforderlich, darf dafür auch das im Unternehmen eingesetzte Datenverarbeitungssystem genutzt werden.",
+          "Das Zugriffsrecht soll ausdrücklich elektronische Rechnungen im Sinne des § 14 Abs. 1 Satz 3 UStG sowie sonstige Rechnungen in elektronischen Formaten einschließen.",
+        ],
+        practice:
+          "Unternehmen sollten Lohn-, Reisekosten-, Rechnungs- und Abrechnungssysteme so organisieren, dass relevante Daten nachvollziehbar, vollständig und prüfbar bereitgestellt werden können.",
+        effective: "Ab 1. Januar 2027",
+      },
+      {
+        type: "change",
+        number: 9,
+        title: "Höhere Freigrenze für Kleinhonorare",
+        lawRef: "§ 50a Abs. 2 Satz 3 EStG",
+        paragraphs: [
+          "Die Freigrenze für kleine Einzelhonorare, bei denen kein Steuerabzug nach § 50a EStG vorzunehmen ist, soll von bisher 250 Euro auf 500 Euro angehoben werden.",
+          "Die seit langer Zeit unveränderte Grenze soll damit an das gestiegene Vergütungsniveau angepasst werden.",
+        ],
+        practice:
+          "Zu beachten ist, dass es sich um eine Freigrenze und nicht um einen Freibetrag handelt.",
+        effective: "Ab 1. Januar 2027",
+      },
+      {
+        type: "change",
+        number: 10,
+        title: "Antragslose Quellensteuerentlastung",
+        lawRef: "§ 50c Abs. 2 Satz 1 Nr. 2 EStG",
+        paragraphs: [
+          "Die Freigrenze für das vereinfachte antragslose Freistellungsverfahren soll deutlich steigen.",
+          "Vergütungsschuldner sollen unter den gesetzlichen Voraussetzungen künftig bei Zahlungen von insgesamt bis zu 100.000 Euro innerhalb eines Kalenderjahres ohne vorherige Freistellungsbescheinigung vom Steuerabzug nach § 50a EStG absehen können.",
+          "Die bisherige Grenze beträgt 10.000 Euro.",
+          "Die Erhöhung soll insbesondere Vergütungsschuldner entlasten, die mit wechselnden ausländischen Rechteinhabern oder anderen beschränkt steuerpflichtigen Vergütungsgläubigern arbeiten, beispielsweise Verlage oder Rundfunksender bei der Überlassung von Bildrechten.",
+        ],
+        practice:
+          "Die Verzehnfachung der Freigrenze kann in geeigneten Fällen erheblichen Verwaltungsaufwand reduzieren. Die weiteren Tatbestandsvoraussetzungen des § 50c EStG müssen jedoch weiterhin vollständig erfüllt und dokumentiert werden.",
+        effective: "Für Einkünfte, die nach dem 31. Dezember 2026 zufließen.",
+      },
+      {
+        type: "change",
+        number: 11,
+        title: "Kein Freistellungsverfahren für bestimmte Aktienerträge",
+        lawRef: "§ 50c Abs. 2 Satz 6 EStG – neu",
+        paragraphs: [
+          "Das Freistellungsverfahren soll für Kapitalerträge aus sammel- oder sonderverwahrt gehaltenen Aktien im Sinne des § 43 Abs. 1 Satz 1 Nr. 1a EStG ausgeschlossen werden.",
+          "Betroffen sind insbesondere Fälle, in denen beschränkt steuerpflichtige Anteilseigner aufgrund einer qualifizierten Beteiligung bislang eine Freistellungsbescheinigung für Dividendenerträge nutzen konnten.",
+          "Künftig soll zunächst Kapitalertragsteuer einbehalten werden. Eine Entlastung wäre anschließend nur noch im Erstattungsverfahren nach § 50c Abs. 3 EStG möglich.",
+          "Der Entwurf begründet die Änderung mit der Missbrauchsanfälligkeit des bisherigen Freistellungsverfahrens.",
+        ],
+        practice:
+          "Für betroffene Großaktionäre verschiebt sich die Entlastung damit vom Freistellungs- in das nachgelagerte Erstattungsverfahren. Das kann erhebliche Auswirkungen auf Liquidität und Verfahrensdauer haben.",
+        effective: "Für Kapitalerträge, die nach dem 31. Dezember 2026 zufließen.",
+      },
+      {
+        type: "editorial",
+        title: "steuerstoff Einordnung",
+        paragraphs: [
+          "Der Referentenentwurf enthält keine einheitliche große Steuerreform, sondern zahlreiche fachlich und technisch geprägte Einzeländerungen.",
+          "Für die tägliche Praxis stechen im Bereich der Einkommensteuer vor allem vier Themen hervor:",
+          "1. Die neue Kaufpreisaufteilung nach § 6f EStG kann für Immobilienkäufe und Abschreibungsvolumen erhebliche Bedeutung gewinnen.",
+          "2. Die Verkürzung von 48 auf 24 Monate bei inländischen Tätigkeitsstätten kann die Reisekostenbehandlung früher verändern als bisher.",
+          "3. Die erweiterten Angaben in der Lohnsteuerbescheinigung führen zu neuen Daten- und Dokumentationsanforderungen bei Arbeitgebern und Lohnabrechnungsstellen.",
+          "4. Die Anhebung der §-50c-Grenze auf 100.000 Euro kann das Verfahren bei bestimmten grenzüberschreitenden Lizenz- und Rechtevergütungen deutlich erleichtern.",
+          "Da sich das Vorhaben noch im Referentenentwurfsstadium befindet, sollten bestehende Prozesse noch nicht allein auf Grundlage des Entwurfs umgestellt werden. Die betroffenen Bereiche sollten jedoch frühzeitig identifiziert und im weiteren Gesetzgebungsverfahren beobachtet werden.",
+        ],
+      },
+      {
+        type: "checklist",
+        title: "Was sollte die Praxis jetzt beobachten?",
+        storageKey: "steuerstoff-magazin-checklist-jstg-2026-v1",
+        items: [
+          "Kaufverträge für bebaute Grundstücke und vorhandene Kaufpreisaufteilungen überprüfen",
+          "Inländische Tätigkeitszuordnungen mit einer geplanten Dauer von mehr als 24 Monaten identifizieren",
+          "Lohnabrechnungssoftware auf die geplanten erweiterten Bescheinigungsdaten vorbereiten",
+          "Prozesse für elektronische Unterlagen bei der Lohnsteuer-Nachschau dokumentieren",
+          "Zahlungen nach § 50a EStG und deren Jahressummen auswerten",
+          "Bestehende Freistellungsbescheinigungen für Dividendenerträge prüfen",
+          "Gesetzgebungsverfahren und mögliche Änderungen am Entwurf beobachten",
+        ],
+      },
+      {
+        type: "sourceLink",
+        title: "Amtliche Quelle",
+        text: "Bundesministerium der Finanzen, Referentenentwurf eines Jahressteuergesetzes 2026, Bearbeitungsstand 19. Mai 2026.",
+        buttonLabel: "Referentenentwurf beim BMF öffnen",
+        url: "https://www.bundesfinanzministerium.de/Content/DE/Gesetzestexte/Gesetze_Gesetzesvorhaben/Abteilungen/Abteilung_IV/21_Legislaturperiode/2026-05-19-JStG2026/1-Referentenentwurf.pdf?__blob=publicationFile&v=2",
+        note: "steuerstoff fasst den Inhalt redaktionell zusammen; maßgeblich bleibt die amtliche Quelle.",
+      },
+    ],
+  },
   {
     id: "est-reform-2027",
     category: "Einkommensteuer",

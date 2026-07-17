@@ -158,6 +158,9 @@ export function overdueOccurrences(
 }
 
 export function todaysOccurrences(events: CalendarEvent[]) {
+  // Includes informational entries (holidays) so they show up in today's list,
+  // but excludes completed ones. Labels that imply "open" must additionally
+  // filter out informational at the call site.
   return occurrencesOnDay(events, today()).filter((o) => !o.event.completed);
 }
 
@@ -167,7 +170,7 @@ export function thisWeekCount(events: CalendarEvent[]): number {
     events,
     startOfWeek(t, DE_LOCALE),
     endOfWeek(t, DE_LOCALE),
-  ).filter((o) => !o.event.completed).length;
+  ).filter((o) => !o.event.completed && !o.event.informational).length;
 }
 
 export function monthCount(

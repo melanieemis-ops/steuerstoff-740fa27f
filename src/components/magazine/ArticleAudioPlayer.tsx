@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AUDIO_CONTENT_VERSION } from "@/lib/articleSpeechText";
-import { onAudioStop } from "@/lib/chatTtsClient";
+import { onAudioStop, requestStopAllAudio } from "@/lib/chatTtsClient";
 import { normalizeForSpeech } from "@/lib/speech-normalize";
 
 type BrowserSpeakContext = {
@@ -49,6 +49,7 @@ function positionKey(articleId: string) {
 }
 
 export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
+  const sourceId = `magazine-article:${articleId}`;
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [status, setStatus] = useState<"idle" | "loading" | "ready" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
@@ -102,13 +103,16 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
   }, [stopBrowserSpeech]);
 
   // Wenn eine andere Audio-Ausgabe startet (z. B. Chat-Vorlesen), diese pausieren.
+  // Eigene Stop-Events (z. B. beim eigenen Play-Start) ignorieren, sonst
+  // würde der Player sich selbst sofort wieder pausieren.
   useEffect(() => {
-    return onAudioStop(() => {
+    return onAudioStop((source) => {
+      if (source === sourceId) return;
       stopBrowserSpeech();
       const el = audioRef.current;
       if (el && !el.paused) el.pause();
     });
-  }, [stopBrowserSpeech]);
+  }, [sourceId, stopBrowserSpeech]);
 
   const ensureLoaded = useCallback(() => {
     if (audioRef.current) return audioRef.current;
@@ -163,12 +167,14 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
   }, [articleId, audioSrc, muted, speed]);
 
   const handlePlayPause = useCallback(async () => {
-    stopBrowserSpeech();
     const el = ensureLoaded();
     if (isPlaying) {
       el.pause();
       return;
     }
+    // Andere Audio-Ausgaben (Chat-Vorlesen, Browserstimme) beim Start stoppen.
+    requestStopAllAudio(sourceId);
+    stopBrowserSpeech();
     try {
       if (status === "idle") {
         setStatus("loading");
@@ -179,7 +185,7 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
       setStatus("error");
       setErrorMsg("Wiedergabe konnte nicht gestartet werden.");
     }
-  }, [ensureLoaded, isPlaying, status, stopBrowserSpeech]);
+  }, [ensureLoaded, isPlaying, sourceId, status, stopBrowserSpeech]);
 
   const seekBy = useCallback(
     (delta: number) => {
@@ -214,6 +220,8 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
 
   const startBrowserFallback = useCallback(() => {
     if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
+    // Andere Audio-Ausgaben (Chat, anderes Magazin-Audio) stoppen.
+    requestStopAllAudio(sourceId);
     cleanupAudio();
     const synth = window.speechSynthesis;
     synth.cancel();
@@ -235,7 +243,7 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
       }
       synth.speak(u);
     });
-  }, [browserSpeakContext, cleanupAudio]);
+  }, [browserSpeakContext, cleanupAudio, sourceId]);
 
   const stopBrowserFallback = useCallback(() => {
     stopBrowserSpeech();

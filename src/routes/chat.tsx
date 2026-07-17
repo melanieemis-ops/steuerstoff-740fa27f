@@ -26,7 +26,6 @@ import {
 import { generateAnswer, REVIEW_HINT, type ChatAnswer } from "@/lib/chatHeuristics";
 import { useVoiceInput } from "@/hooks/useVoiceInput";
 import { SpeechProvider, useSpeechContext } from "@/hooks/useSpeechSynthesis";
-import { MessageSpeechControls } from "@/components/chat/MessageSpeechControls";
 import { ChatMessageAudioButton } from "@/components/chat/ChatMessageAudioButton";
 import { SpeechMiniPlayer } from "@/components/chat/SpeechMiniPlayer";
 
@@ -1222,8 +1221,7 @@ function AssistantCard({
         )}
 
         <ChatMessageAudioButton messageId={msg.id} text={speechText} isStreaming={isStreaming} />
-        {/* Browserstimme als leichtgewichtige Zusatzoption erhalten. */}
-        <MessageSpeechControls messageId={msg.id} rawText={speechText} isStreaming={isStreaming} />
+
       </div>
     </div>
   );

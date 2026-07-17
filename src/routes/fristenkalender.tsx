@@ -227,13 +227,35 @@ function FristenkalenderPage() {
   const [toast, setToast] = useState<string | null>(null);
   const dayAnchorRef = useRef<HTMLElement | null>(null);
 
+function FristenkalenderPage() {
+  const [userEvents, setUserEvents] = useState<CalendarEvent[]>(() => loadEvents());
+  const [presetSettings, setPresetSettings] = useState<PresetSettings>(() =>
+    loadPresetSettings(),
+  );
+  const [view, setView] = useState<CalendarView>("month");
+  const [cursor, setCursor] = useState<Date>(() => today());
+  const [editing, setEditing] = useState<CalendarEvent | "new" | null>(null);
+  const [detailsEvent, setDetailsEvent] = useState<CalendarEvent | null>(null);
+  const [prefillDate, setPrefillDate] = useState<Date | null>(null);
+  const [agendaFilter, setAgendaFilter] = useState<string>("all");
+  const [hideCompleted, setHideCompleted] = useState<boolean>(false);
+  const [dayPanelDate, setDayPanelDate] = useState<Date | null>(null);
+  const [noteDates, setNoteDates] = useState<Set<string>>(() => getDayNoteDateSet());
+  const [toast, setToast] = useState<string | null>(null);
+  const dayAnchorRef = useRef<HTMLElement | null>(null);
+
   useEffect(() => {
-    const unsub = subscribe(() => setEvents(loadEvents()));
+    const unsub = subscribe(() => setUserEvents(loadEvents()));
     return unsub;
   }, []);
 
   useEffect(() => {
     const unsub = subscribeDayNotes(() => setNoteDates(getDayNoteDateSet()));
+    return unsub;
+  }, []);
+
+  useEffect(() => {
+    const unsub = subscribePresetSettings(() => setPresetSettings(loadPresetSettings()));
     return unsub;
   }, []);
 
@@ -247,6 +269,15 @@ function FristenkalenderPage() {
     return () => window.clearTimeout(id);
   }, [toast]);
 
+  const presetEvents = useMemo(
+    () => buildStandardEvents(presetSettings),
+    [presetSettings],
+  );
+  const events = useMemo<CalendarEvent[]>(
+    () => [...userEvents, ...presetEvents],
+    [userEvents, presetEvents],
+  );
+
   const overdue = useMemo(() => overdueOccurrences(events), [events]);
   const todays = useMemo(() => todaysOccurrences(events), [events]);
   const thisWeek = useMemo(() => thisWeekCount(events), [events]);
@@ -258,6 +289,7 @@ function FristenkalenderPage() {
   }, []);
 
   const openEdit = useCallback((e: CalendarEvent) => {
+    if (isPresetEvent(e)) return;
     setEditing(e);
     setDetailsEvent(null);
   }, []);

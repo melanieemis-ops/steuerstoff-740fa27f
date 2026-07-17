@@ -1221,8 +1221,7 @@ function AssistantCard({
         )}
 
         <ChatMessageAudioButton messageId={msg.id} text={speechText} isStreaming={isStreaming} />
-        {/* Browserstimme als leichtgewichtige Zusatzoption erhalten. */}
-        <MessageSpeechControls messageId={msg.id} rawText={speechText} isStreaming={isStreaming} />
+
       </div>
     </div>
   );

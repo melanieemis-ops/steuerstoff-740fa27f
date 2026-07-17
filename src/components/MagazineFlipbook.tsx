@@ -31,21 +31,39 @@ export function MagazineFlipbook() {
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   const touchStartX = useRef<number | null>(null);
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (!isFullscreen) {
-      return;
-    }
+    if (!isFullscreen) return;
 
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setIsFullscreen(false);
-      }
+      if (event.key === "Escape") setIsFullscreen(false);
     };
-
     window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
+
+    // Lock background scroll while overlay is open, restore on close.
+    const body = document.body;
+    const html = document.documentElement;
+    const prevBody = body.style.overflow;
+    const prevHtml = html.style.overflow;
+    body.style.overflow = "hidden";
+    html.style.overflow = "hidden";
+
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      body.style.overflow = prevBody;
+      html.style.overflow = prevHtml;
+    };
   }, [isFullscreen]);
+
+  useLayoutEffect(() => {
+    if (!isFullscreen) return;
+    // Always start at top, page 1.
+    scrollContainerRef.current?.scrollTo({ top: 0 });
+    closeButtonRef.current?.focus();
+  }, [isFullscreen]);
+
 
   const turnToPage = (nextIndex: number) => {
     if (

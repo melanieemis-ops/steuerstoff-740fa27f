@@ -1160,7 +1160,8 @@ function AgendaView({
     if (hideCompleted && o.event.completed) return false;
     if (filter === "all") return true;
     if (filter === "done") return o.event.completed;
-    if (filter === "overdue") return !o.event.completed && o.date < today();
+    if (filter === "overdue")
+      return !o.event.completed && !o.event.informational && o.date < today();
     return o.event.category === filter;
   });
 
@@ -1170,14 +1171,17 @@ function AgendaView({
     "Morgen": [],
     "Diese Woche": [],
     "Später": [],
+    "Vergangene Standardtermine": [],
     "Erledigt": [],
   };
   const t = today();
   const weekEnd = endOfWeek(t, DE_LOCALE);
   for (const o of filtered) {
     if (o.event.completed) groups["Erledigt"].push(o);
-    else if (o.date < t) groups["Überfällig"].push(o);
-    else if (isSameDay(o.date, t)) groups["Heute"].push(o);
+    else if (o.date < t) {
+      if (o.event.informational) groups["Vergangene Standardtermine"].push(o);
+      else groups["Überfällig"].push(o);
+    } else if (isSameDay(o.date, t)) groups["Heute"].push(o);
     else if (isSameDay(o.date, addDays(t, 1))) groups["Morgen"].push(o);
     else if (o.date <= weekEnd) groups["Diese Woche"].push(o);
     else groups["Später"].push(o);

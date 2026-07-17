@@ -154,57 +154,43 @@ export function AttachmentPlusButton({
       {open && isMobile && typeof document !== "undefined" &&
         createPortal(
           <div
-            className="fixed inset-0 z-[100] flex flex-col justify-end"
-            role="dialog"
-            aria-modal="true"
+            id="attachment-floating-menu"
+            role="menu"
             aria-label="Anhang hinzufügen"
+            className="fixed z-[100] overflow-hidden rounded-2xl border border-white/40 bg-white/85 shadow-2xl backdrop-blur-xl dark:border-white/10 dark:bg-neutral-900/85"
+            style={{
+              left: "14px",
+              width: "min(380px, calc(100vw - 28px))",
+              minWidth: "260px",
+              bottom: "calc(170px + env(safe-area-inset-bottom, 0px))",
+            }}
           >
-            <button
-              type="button"
-              aria-label="Schließen"
-              onClick={() => setOpen(false)}
-              className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-            />
-            <div
-              className="relative mx-3 mb-3 rounded-3xl border border-border bg-card shadow-2xl"
-              style={{ paddingBottom: "max(16px, env(safe-area-inset-bottom))" }}
-            >
-              <div className="flex justify-center pt-2">
-                <div className="h-1 w-10 rounded-full bg-muted-foreground/30" aria-hidden="true" />
-              </div>
-              <div className="flex items-center justify-between px-5 pt-3 pb-2">
-                <h2 className="text-base font-semibold text-foreground">Anhang hinzufügen</h2>
-                <button
-                  type="button"
-                  onClick={() => setOpen(false)}
-                  aria-label="Schließen"
-                  className="inline-flex h-9 w-9 items-center justify-center rounded-full text-muted-foreground hover:bg-muted hover:text-foreground"
+            {items.map((it, idx) => (
+              <button
+                key={it.label}
+                type="button"
+                role="menuitem"
+                onClick={() => pick(it.ref)}
+                className={`flex w-full items-center gap-3 px-5 text-left text-[16px] font-medium text-foreground transition-colors hover:bg-black/5 dark:hover:bg-white/10 ${
+                  idx > 0 ? "border-t border-black/10 dark:border-white/10" : ""
+                }`}
+                style={{ minHeight: "56px" }}
+              >
+                <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center text-foreground">
+                  {it.icon}
+                </span>
+                <span
+                  className="flex-1 whitespace-nowrap"
+                  style={{
+                    overflowWrap: "normal",
+                    wordBreak: "normal",
+                    writingMode: "horizontal-tb",
+                  }}
                 >
-                  <X className="h-4 w-4" />
-                </button>
-              </div>
-              <div className="flex flex-col gap-1 px-3 pb-2">
-                {items.map((it) => (
-                  <button
-                    key={it.label}
-                    type="button"
-                    role="menuitem"
-                    onClick={() => pick(it.ref)}
-                    className="flex w-full items-center gap-3 rounded-2xl px-4 py-3.5 text-left text-[15px] font-medium text-foreground transition-colors hover:bg-accent min-h-[52px]"
-                  >
-                    <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-muted text-foreground">
-                      {it.icon}
-                    </span>
-                    <span
-                      className="flex-1 whitespace-nowrap break-normal"
-                      style={{ overflowWrap: "normal", writingMode: "horizontal-tb" }}
-                    >
-                      {it.label}
-                    </span>
-                  </button>
-                ))}
-              </div>
-            </div>
+                  {it.label}
+                </span>
+              </button>
+            ))}
           </div>,
           document.body,
         )}

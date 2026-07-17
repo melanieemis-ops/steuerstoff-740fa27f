@@ -15,31 +15,30 @@ type MagazinePage =
   | { kind: "cover"; src: string; alt: string }
   | { kind: "article"; article: MagazineArticle };
 
-const article = magazineArticles[0];
-
 const magazinePages: MagazinePage[] = [
   {
     kind: "cover",
     src: "/cover.png",
     alt: "Cover des steuerstoff Magazins – Ausgabe 01/2026",
   },
-  { kind: "article", article },
+  ...magazineArticles.map<MagazinePage>((a) => ({ kind: "article", article: a })),
 ];
 
 type FlipDirection = "next" | "previous";
 
 function ArticleTeaser({ article }: { article: MagazineArticle }) {
+  const leadFirst = article.lead.split(/\n\n+/)[0] ?? article.lead;
   return (
     <div className="flex h-full w-full flex-col justify-between gap-3 px-5 py-6 text-[#2b2117]">
       <div className="min-w-0">
         <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#8a6b3a]">
-          Ausgabe 01 · Einkommensteuer
+          {article.issueLabel}
         </p>
         <h3 className="mt-2 text-[17px] font-semibold leading-snug tracking-tight">
           {article.title}
         </h3>
         <p className="mt-3 line-clamp-6 text-[12.5px] leading-relaxed text-[#4a3d2c]">
-          {article.lead}
+          {leadFirst}
         </p>
       </div>
 
@@ -65,6 +64,12 @@ function ArticleTeaser({ article }: { article: MagazineArticle }) {
     </div>
   );
 }
+
+const NOTICE_LABEL: Record<"wichtig" | "merke" | "praxistipp", string> = {
+  wichtig: "Wichtig",
+  merke: "Merke",
+  praxistipp: "Praxistipp",
+};
 
 function renderPageContent(page: MagazinePage): ReactNode {
   if (page.kind === "cover") {
@@ -99,7 +104,7 @@ function FullArticle({ article }: { article: MagazineArticle }) {
     >
       <header>
         <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8a6b3a]">
-          steuerstoff Magazin · Ausgabe 01
+          steuerstoff Magazin · {article.issueLabel.replace(/^Ausgabe\s+/, "Ausgabe ")}
         </p>
         <h1
           className="mt-3 font-semibold leading-tight tracking-tight"
@@ -107,14 +112,15 @@ function FullArticle({ article }: { article: MagazineArticle }) {
         >
           {article.title}
         </h1>
-        <p
-          className="mt-5 font-medium leading-[1.65] text-[#3a2f20]"
-          style={{
-            fontSize: "clamp(1.075rem, 1rem + 0.45vw, 1.235rem)",
-          }}
-        >
-          {article.lead}
-        </p>
+        {article.lead.split(/\n\n+/).map((para, i) => (
+          <p
+            key={i}
+            className="mt-5 font-medium leading-[1.65] text-[#3a2f20]"
+            style={{ fontSize: "clamp(1.075rem, 1rem + 0.45vw, 1.235rem)" }}
+          >
+            {para}
+          </p>
+        ))}
       </header>
 
       <div
@@ -135,7 +141,51 @@ function FullArticle({ article }: { article: MagazineArticle }) {
               </h2>
             );
           }
+          if (block.type === "subheading") {
+            return (
+              <h3
+                key={i}
+                className="pt-1 font-semibold tracking-tight text-[#1c160e]"
+                style={{ fontSize: "clamp(1.075rem, 1rem + 0.45vw, 1.25rem)" }}
+              >
+                {block.text}
+              </h3>
+            );
+          }
+          if (block.type === "list") {
+            return (
+              <ul
+                key={i}
+                className="list-disc space-y-1.5 pl-6 marker:text-[#8a6b3a]"
+              >
+                {block.items.map((it, j) => (
+                  <li key={j}>{it}</li>
+                ))}
+              </ul>
+            );
+          }
+          if (block.type === "summary") {
+            return (
+              <aside
+                key={i}
+                className="rounded-xl border border-[#d9c9ac] bg-[#efe4cf]/70 px-5 py-4"
+                aria-label={block.title}
+              >
+                <div className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#8a6b3a]">
+                  {block.title}
+                </div>
+                <ul className="mt-2 list-disc space-y-1.5 pl-5 marker:text-[#8a6b3a]">
+                  {block.items.map((it, j) => (
+                    <li key={j}>{it}</li>
+                  ))}
+                </ul>
+              </aside>
+            );
+          }
           if (block.type === "notice") {
+            const label = block.variant
+              ? NOTICE_LABEL[block.variant]
+              : "Beachten Sie";
             return (
               <aside
                 key={i}
@@ -143,7 +193,7 @@ function FullArticle({ article }: { article: MagazineArticle }) {
                 className="rounded-lg border-l-4 border-[#b98a3a] bg-[#efe4cf] px-4 py-3 text-[#2b2117]"
               >
                 <span className="mr-2 font-semibold uppercase tracking-wider text-[#8a6b3a]">
-                  Beachten Sie
+                  {label}
                 </span>
                 <span>{block.text}</span>
               </aside>
@@ -394,7 +444,17 @@ export function MagazineFlipbook() {
                     />
                   </figure>
 
-                  <FullArticle article={article} />
+                  {magazineArticles.map((a, idx) => (
+                    <div key={a.id}>
+                      {idx > 0 ? (
+                        <div
+                          className="mx-auto my-4 h-px w-24 bg-white/20"
+                          aria-hidden="true"
+                        />
+                      ) : null}
+                      <FullArticle article={a} />
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>,

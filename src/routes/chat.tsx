@@ -304,40 +304,91 @@ function ChatPage() {
     ta.style.height = Math.min(ta.scrollHeight, 180) + "px";
   }, [input]);
 
-  async function ask(text: string, retryOf?: string) {
+  async function ask(text: string, retryOf?: string, atts?: ChatAttachment[]) {
     const trimmed = text.trim();
-    if (!trimmed || busy) return;
-    const userMsg: Msg = { id: uid(), role: "user", text: trimmed, t: Date.now() };
+    const usedAttachments = atts ?? [];
+    if (!trimmed && usedAttachments.length === 0) return;
+    if (busy) return;
+    const userMsg: Msg = {
+      id: uid(),
+      role: "user",
+      text: trimmed,
+      t: Date.now(),
+      ...(usedAttachments.length > 0
+        ? {
+            attachments: usedAttachments.map((a) => ({
+              id: a.id,
+              name: a.name,
+              size: a.size,
+              mime: a.mime,
+              kind: a.kind,
+              // previewUrl bewusst mitführen (nicht persistiert), damit die
+              // Blase nach dem Senden das Thumbnail zeigt.
+              previewUrl: a.previewUrl,
+            })) as unknown as PersistedAttachment[],
+          }
+        : {}),
+    };
     const assistantId = uid();
     setMessages((prev) => {
       const base = retryOf ? prev.filter((m) => m.id !== retryOf) : prev;
       return [...base, userMsg];
     });
     setInput("");
+    // Nach dem Übernehmen in die Nachricht die Auswahl leeren; ObjectURLs bleiben
+    // gültig, weil die Blase die gleichen previewUrls referenziert. Freigabe
+    // erfolgt beim Verlauf-Löschen bzw. beim Unmount.
+    if (usedAttachments.length > 0) {
+      setAttachments([]);
+      setAttachError(null);
+    }
     setBusy(true);
 
     // Kompakter Verlauf: nur die letzten 8 user/assistant-Turns.
     const priorMsgs = messages.filter((m) => m.role === "user" || m.role === "assistant");
     const history = priorMsgs
       .slice(-8)
-      .map((m) =>
-        m.role === "user"
-          ? { role: "user" as const, content: m.text }
-          : { role: "assistant" as const, content: m.answer.summary },
-      );
+      .map((m) => {
+        if (m.role === "user") {
+          const attNote =
+            m.attachments && m.attachments.length > 0
+              ? ` [frühere Anhänge: ${m.attachments.map((a) => a.name).join(", ")}]`
+              : "";
+          return { role: "user" as const, content: (m.text || "(nur Anhänge)") + attNote };
+        }
+        return { role: "assistant" as const, content: m.answer.summary };
+      });
 
     let assistantInserted = false;
     let accumulated = "";
 
     try {
-      const resp = await fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: trimmed, history }),
-      });
-      if (!resp.ok || !resp.body) {
-        throw new Error(`HTTP ${resp.status}`);
+      let resp: Response;
+      if (usedAttachments.length > 0) {
+        const fd = new FormData();
+        fd.set("message", trimmed);
+        fd.set("history", JSON.stringify(history));
+        for (const a of usedAttachments) fd.append("attachment", a.file, a.name);
+        resp = await fetch("/api/chat", { method: "POST", body: fd });
+      } else {
+        resp = await fetch("/api/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: trimmed, history }),
+        });
       }
+      if (!resp.ok || !resp.body) {
+        // Versuche, JSON-Fehlermeldung des Servers zu lesen.
+        let serverMsg = "";
+        try {
+          const j = await resp.clone().json();
+          if (j && typeof j.error === "string") serverMsg = j.error;
+        } catch {
+          /* ignore */
+        }
+        throw new Error(serverMsg || `HTTP ${resp.status}`);
+      }
+
       const reader = resp.body.getReader();
       const decoder = new TextDecoder();
       let buf = "";

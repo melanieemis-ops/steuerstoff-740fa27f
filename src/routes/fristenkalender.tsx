@@ -35,6 +35,7 @@ import {
   CheckCircle2,
   Clock,
   X,
+  StickyNote,
 } from "lucide-react";
 
 import { SiteHeader } from "@/components/SiteHeader";
@@ -94,6 +95,13 @@ import {
   subscribe,
   upsertEvent,
 } from "@/lib/calendar-storage";
+import {
+  getDayNoteByDate,
+  getDayNoteDateSet,
+  saveDayNote,
+  deleteDayNote,
+  subscribeDayNotes,
+} from "@/lib/calendar-notes-storage";
 import { downloadIcs } from "@/lib/create-ics";
 
 export const Route = createFileRoute("/fristenkalender")({
@@ -199,6 +207,10 @@ function FristenkalenderPage() {
   const [prefillDate, setPrefillDate] = useState<Date | null>(null);
   const [agendaFilter, setAgendaFilter] = useState<string>("all");
   const [hideCompleted, setHideCompleted] = useState<boolean>(false);
+  const [dayPanelDate, setDayPanelDate] = useState<Date | null>(null);
+  const [noteDates, setNoteDates] = useState<Set<string>>(() => getDayNoteDateSet());
+  const [toast, setToast] = useState<string | null>(null);
+  const dayAnchorRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const unsub = subscribe(() => setEvents(loadEvents()));
@@ -206,8 +218,19 @@ function FristenkalenderPage() {
   }, []);
 
   useEffect(() => {
+    const unsub = subscribeDayNotes(() => setNoteDates(getDayNoteDateSet()));
+    return unsub;
+  }, []);
+
+  useEffect(() => {
     window.scrollTo({ top: 0, left: 0 });
   }, []);
+
+  useEffect(() => {
+    if (!toast) return;
+    const id = window.setTimeout(() => setToast(null), 2500);
+    return () => window.clearTimeout(id);
+  }, [toast]);
 
   const overdue = useMemo(() => overdueOccurrences(events), [events]);
   const todays = useMemo(() => todaysOccurrences(events), [events]);
@@ -499,9 +522,10 @@ function FristenkalenderPage() {
               <MonthView
                 cursor={cursor}
                 events={events}
-                onOpenDay={(d) => {
-                  setCursor(d);
-                  setView("week");
+                noteDates={noteDates}
+                onOpenDay={(d, el) => {
+                  dayAnchorRef.current = el ?? null;
+                  setDayPanelDate(d);
                 }}
                 onOpenEvent={openDetails}
                 onLongPressDay={(d) => openNew(d)}
@@ -511,6 +535,11 @@ function FristenkalenderPage() {
               <WeekView
                 cursor={cursor}
                 events={events}
+                noteDates={noteDates}
+                onOpenDay={(d, el) => {
+                  dayAnchorRef.current = el ?? null;
+                  setDayPanelDate(d);
+                }}
                 onOpenEvent={openDetails}
               />
             )}
@@ -522,6 +551,8 @@ function FristenkalenderPage() {
                 hideCompleted={hideCompleted}
                 setHideCompleted={setHideCompleted}
                 onOpenEvent={openDetails}
+                noteDates={noteDates}
+                onOpenDay={(d) => setDayPanelDate(d)}
               />
             )}
           </div>
@@ -560,6 +591,35 @@ function FristenkalenderPage() {
           onToggleComplete={() => toggleComplete(detailsEvent)}
           onDuplicate={() => duplicate(detailsEvent)}
         />
+      )}
+
+      {dayPanelDate && (
+        <DayNotePanel
+          date={dayPanelDate}
+          onClose={() => setDayPanelDate(null)}
+          onOpenWeek={(d) => {
+            setCursor(d);
+            setView("week");
+            setDayPanelDate(null);
+          }}
+          onAddEvent={(d) => {
+            setDayPanelDate(null);
+            openNew(d);
+          }}
+          onNotify={(msg) => setToast(msg)}
+        />
+      )}
+
+      {toast && (
+        <div
+          role="status"
+          aria-live="polite"
+          className="pointer-events-none fixed inset-x-0 bottom-24 z-[80] flex justify-center px-4 md:bottom-10"
+        >
+          <div className="pointer-events-auto rounded-full border border-border bg-card px-4 py-2 text-sm text-foreground shadow-lg">
+            {toast}
+          </div>
+        </div>
       )}
     </div>
   );
@@ -763,13 +823,15 @@ function MiniMonth({
 function MonthView({
   cursor,
   events,
+  noteDates,
   onOpenDay,
   onOpenEvent,
   onLongPressDay,
 }: {
   cursor: Date;
   events: CalendarEvent[];
-  onOpenDay: (d: Date) => void;
+  noteDates: Set<string>;
+  onOpenDay: (d: Date, el?: HTMLElement | null) => void;
   onOpenEvent: (e: CalendarEvent) => void;
   onLongPressDay: (d: Date) => void;
 }) {
@@ -840,17 +902,27 @@ function MonthView({
             >
               <button
                 type="button"
-                onClick={() => onOpenDay(d)}
+                onClick={(ev) => onOpenDay(d, ev.currentTarget)}
+                aria-label={`Tagesnotiz für ${fmtDE(d)} öffnen`}
                 className="mb-0.5 flex w-full items-center justify-between text-[11px] sm:text-xs"
               >
                 <span className={isCur ? "font-semibold" : ""}>{d.getDate()}</span>
-                {list.length > 0 && (
-                  <span className="flex gap-0.5">
-                    {list.slice(0, 3).map((o, i) => (
-                      <CategoryDot key={i} category={o.event.category} />
-                    ))}
-                  </span>
-                )}
+                <span className="flex items-center gap-0.5">
+                  {noteDates.has(key) && (
+                    <StickyNote
+                      className="h-2.5 w-2.5"
+                      style={{ color: "var(--magenta, oklch(0.7 0.18 340))" }}
+                      aria-label="Tagesnotiz vorhanden"
+                    />
+                  )}
+                  {list.length > 0 && (
+                    <span className="flex gap-0.5">
+                      {list.slice(0, 3).map((o, i) => (
+                        <CategoryDot key={i} category={o.event.category} />
+                      ))}
+                    </span>
+                  )}
+                </span>
               </button>
               <div className="flex flex-col gap-0.5">
                 {list.slice(0, maxShow).map((o, i) => (
@@ -896,11 +968,15 @@ function MonthView({
 function WeekView({
   cursor,
   events,
+  noteDates,
   onOpenEvent,
+  onOpenDay,
 }: {
   cursor: Date;
   events: CalendarEvent[];
+  noteDates: Set<string>;
   onOpenEvent: (e: CalendarEvent) => void;
+  onOpenDay: (d: Date, el?: HTMLElement | null) => void;
 }) {
   const days = weekDays(cursor);
   const from = startOfWeek(cursor, DE_LOCALE);
@@ -920,8 +996,10 @@ function WeekView({
   return (
     <div className="flex flex-col gap-2">
       {days.map((d, i) => {
-        const list = byDay.get(toISODate(d)) ?? [];
+        const key = toISODate(d);
+        const list = byDay.get(key) ?? [];
         const isCur = isToday(d);
+        const hasNote = noteDates.has(key);
         return (
           <div
             key={i}
@@ -930,17 +1008,29 @@ function WeekView({
               isCur ? "neon-active border-transparent" : "border-border bg-background",
             ].join(" ")}
           >
-            <div className="mb-2 flex items-baseline justify-between">
-              <div>
+            <button
+              type="button"
+              onClick={(ev) => onOpenDay(d, ev.currentTarget)}
+              aria-label={`Tagesnotiz für ${fmtDE(d)} öffnen`}
+              className="mb-2 flex w-full items-baseline justify-between text-left"
+            >
+              <div className="min-w-0">
                 <p className="text-xs uppercase tracking-wide text-muted-foreground">
                   {WEEKDAY_LONG[i]}
                 </p>
                 <p className="font-serif text-lg">{fmtDE(d, "dd.MM.")}</p>
               </div>
-              <span className="text-xs text-muted-foreground">
+              <span className="flex shrink-0 items-center gap-2 text-xs text-muted-foreground">
+                {hasNote && (
+                  <StickyNote
+                    className="h-3.5 w-3.5"
+                    style={{ color: "var(--magenta, oklch(0.7 0.18 340))" }}
+                    aria-label="Tagesnotiz vorhanden"
+                  />
+                )}
                 {list.length} Termin{list.length === 1 ? "" : "e"}
               </span>
-            </div>
+            </button>
             {list.length === 0 ? (
               <p className="text-xs text-muted-foreground">Keine Termine.</p>
             ) : (
@@ -1004,6 +1094,8 @@ function AgendaView({
   hideCompleted,
   setHideCompleted,
   onOpenEvent,
+  noteDates: _noteDates,
+  onOpenDay: _onOpenDay,
 }: {
   events: CalendarEvent[];
   filter: string;
@@ -1011,6 +1103,8 @@ function AgendaView({
   hideCompleted: boolean;
   setHideCompleted: (b: boolean) => void;
   onOpenEvent: (e: CalendarEvent) => void;
+  noteDates: Set<string>;
+  onOpenDay: (d: Date) => void;
 }) {
   const from = addYears(today(), -1);
   const to = addYears(today(), 2);
@@ -1247,7 +1341,7 @@ function EventDialog({
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
               <Label htmlFor="ev-start">Datum *</Label>
               <Input
@@ -1287,7 +1381,7 @@ function EventDialog({
           </div>
 
           {!form.allDay && (
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
                 <Label htmlFor="ev-stime">Uhrzeit</Label>
                 <Input
@@ -1315,7 +1409,7 @@ function EventDialog({
             </div>
           )}
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
               <Label>Kategorie</Label>
               <Select
@@ -1356,7 +1450,7 @@ function EventDialog({
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
               <Label>Wiederholung</Label>
               <Select
@@ -1614,3 +1708,131 @@ function EventDetailsDialog({
 
 // silence unused import for icons used only conditionally
 void CalendarDays;
+
+// ============================================================
+// Day-Note Panel (Tagesnotiz)
+// ============================================================
+
+function DayNotePanel({
+  date,
+  onClose,
+  onOpenWeek,
+  onAddEvent,
+  onNotify,
+}: {
+  date: Date;
+  onClose: () => void;
+  onOpenWeek: (d: Date) => void;
+  onAddEvent: (d: Date) => void;
+  onNotify: (msg: string) => void;
+}) {
+  const iso = toISODate(date);
+  const existing = getDayNoteByDate(iso);
+  const [content, setContent] = useState<string>(existing?.content ?? "");
+  const [saving, setSaving] = useState<boolean>(false);
+  const initialRef = useRef<string>(existing?.content ?? "");
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+
+  useEffect(() => {
+    const t = window.setTimeout(() => textareaRef.current?.focus(), 60);
+    return () => window.clearTimeout(t);
+  }, []);
+
+  const dirty = content !== initialRef.current;
+
+  const save = () => {
+    setSaving(true);
+    try {
+      const trimmed = content.trim();
+      if (trimmed.length === 0) {
+        if (existing) deleteDayNote(existing.date);
+        onNotify("Tagesnotiz gelöscht");
+      } else {
+        saveDayNote({ date: iso, content: trimmed });
+        onNotify("Tagesnotiz gespeichert");
+      }
+      initialRef.current = trimmed;
+      onClose();
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const remove = () => {
+    if (existing) {
+      deleteDayNote(existing.date);
+      onNotify("Tagesnotiz gelöscht");
+    }
+    onClose();
+  };
+
+  return (
+    <Dialog open onOpenChange={(o) => { if (!o) onClose(); }}>
+      <DialogContent className="max-w-lg">
+        <DialogHeader>
+          <DialogTitle className="flex items-center gap-2">
+            <StickyNote className="h-4 w-4" aria-hidden="true" />
+            Tagesnotiz · {fmtDE(date, "EEEE, dd.MM.yyyy")}
+          </DialogTitle>
+        </DialogHeader>
+
+        <div className="flex flex-col gap-3">
+          <Textarea
+            ref={textareaRef}
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            placeholder="Was ist an diesem Tag wichtig? (nur Text, wird lokal gespeichert)"
+            className="min-h-[160px] w-full min-w-0 max-w-full"
+          />
+          <div className="flex flex-wrap gap-2">
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              onClick={() => onOpenWeek(date)}
+            >
+              <CalendarDays className="mr-1.5 h-4 w-4" />
+              Woche öffnen
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              onClick={() => onAddEvent(date)}
+            >
+              <Plus className="mr-1.5 h-4 w-4" />
+              Termin anlegen
+            </Button>
+          </div>
+        </div>
+
+        <DialogFooter className="flex flex-wrap gap-2">
+          {existing && (
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
+              onClick={remove}
+              className="text-destructive hover:text-destructive"
+            >
+              <Trash2 className="mr-1.5 h-4 w-4" />
+              Notiz löschen
+            </Button>
+          )}
+          <Button variant="ghost" size="sm" onClick={onClose}>
+            <X className="mr-1.5 h-4 w-4" />
+            Schließen
+          </Button>
+          <Button
+            type="button"
+            size="sm"
+            disabled={!dirty || saving}
+            onClick={save}
+          >
+            Speichern
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  );
+}

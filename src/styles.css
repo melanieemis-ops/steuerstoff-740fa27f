@@ -261,6 +261,19 @@ body,
       padding-bottom: env(safe-area-inset-bottom);
     }
   }
+
+  /* Prevent native date/time inputs (esp. iOS Safari) from exceeding
+     their container width and overlapping siblings inside grids. */
+  input[type="date"],
+  input[type="time"],
+  input[type="datetime-local"],
+  input[type="month"],
+  input[type="week"] {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
 }
 
 @layer utilities {

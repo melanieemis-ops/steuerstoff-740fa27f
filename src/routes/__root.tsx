@@ -29,6 +29,7 @@ import {
   getThemeMode,
   watchSystemTheme,
 } from "@/lib/theme";
+import { startScrollLockWatchdog } from "@/lib/scroll-lock-watchdog";
 
 function NotFoundComponent() {
   return (
@@ -305,6 +306,8 @@ function RootComponent() {
     Route.useRouteContext();
 
   useEffect(() => {
+    const stopWatchdog = startScrollLockWatchdog();
+
     const applyCurrentTheme = () => {
       applyTheme(getThemeMode());
     };
@@ -330,6 +333,7 @@ function RootComponent() {
     );
 
     return () => {
+      stopWatchdog();
       stopWatchingSystem();
 
       window.removeEventListener(

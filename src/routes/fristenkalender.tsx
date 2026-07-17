@@ -522,9 +522,10 @@ function FristenkalenderPage() {
               <MonthView
                 cursor={cursor}
                 events={events}
-                onOpenDay={(d) => {
-                  setCursor(d);
-                  setView("week");
+                noteDates={noteDates}
+                onOpenDay={(d, el) => {
+                  dayAnchorRef.current = el ?? null;
+                  setDayPanelDate(d);
                 }}
                 onOpenEvent={openDetails}
                 onLongPressDay={(d) => openNew(d)}
@@ -534,6 +535,11 @@ function FristenkalenderPage() {
               <WeekView
                 cursor={cursor}
                 events={events}
+                noteDates={noteDates}
+                onOpenDay={(d, el) => {
+                  dayAnchorRef.current = el ?? null;
+                  setDayPanelDate(d);
+                }}
                 onOpenEvent={openDetails}
               />
             )}
@@ -545,6 +551,8 @@ function FristenkalenderPage() {
                 hideCompleted={hideCompleted}
                 setHideCompleted={setHideCompleted}
                 onOpenEvent={openDetails}
+                noteDates={noteDates}
+                onOpenDay={(d) => setDayPanelDate(d)}
               />
             )}
           </div>

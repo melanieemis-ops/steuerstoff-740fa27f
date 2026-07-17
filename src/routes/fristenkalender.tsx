@@ -362,7 +362,7 @@ function FristenkalenderPage() {
               <StatusCard
                 label="Diese Woche"
                 title={`${thisWeek} Termin${thisWeek === 1 ? "" : "e"}`}
-                sub="KW " + String(isoWeek(today()))
+                sub={`KW ${isoWeek(today())}`}
                 accent="var(--violet)"
               />
               <StatusCard

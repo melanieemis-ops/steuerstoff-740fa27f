@@ -137,7 +137,7 @@ export function MagazineFlipbook() {
       : "rotateY(180deg)"
     : "rotateY(0deg)";
 
-  const currentPage = magazinePages[pageIndex];
+  
 
   return (
     <div className="mx-auto w-full max-w-[420px]">

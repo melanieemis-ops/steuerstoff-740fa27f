@@ -1312,7 +1312,7 @@ function EventDialog({
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
               <Label htmlFor="ev-start">Datum *</Label>
               <Input
@@ -1352,7 +1352,7 @@ function EventDialog({
           </div>
 
           {!form.allDay && (
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
                 <Label htmlFor="ev-stime">Uhrzeit</Label>
                 <Input
@@ -1380,7 +1380,7 @@ function EventDialog({
             </div>
           )}
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
               <Label>Kategorie</Label>
               <Select
@@ -1421,7 +1421,7 @@ function EventDialog({
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
               <Label>Wiederholung</Label>
               <Select

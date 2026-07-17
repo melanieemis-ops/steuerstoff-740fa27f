@@ -382,6 +382,12 @@ function RootComponent() {
           <PwaStatus />
         </GlobalSwipeArea>
       </div>
+      {!privacyAccepted && (
+        <PrivacyAcknowledgementGate
+          onAccepted={() => setPrivacyAccepted(true)}
+        />
+      )}
     </QueryClientProvider>
+
   );
 }

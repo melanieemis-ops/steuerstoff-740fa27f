@@ -1913,3 +1913,103 @@ function DayNotePanel({
     </Dialog>
   );
 }
+
+function PresetSettingsPopover({
+  settings,
+  onChange,
+}: {
+  settings: PresetSettings;
+  onChange: (s: PresetSettings) => void;
+}) {
+  const set = <K extends keyof PresetSettings>(k: K, v: PresetSettings[K]) =>
+    onChange({ ...settings, [k]: v });
+  const Row = ({
+    id,
+    label,
+    checked,
+    onCheck,
+  }: {
+    id: string;
+    label: string;
+    checked: boolean;
+    onCheck: (v: boolean) => void;
+  }) => (
+    <label
+      htmlFor={id}
+      className="flex cursor-pointer items-center gap-2 rounded-md px-2 py-1.5 text-sm hover:bg-muted/60"
+    >
+      <Checkbox
+        id={id}
+        checked={checked}
+        onCheckedChange={(v) => onCheck(v === true)}
+      />
+      <span>{label}</span>
+    </label>
+  );
+  return (
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button variant="outline" size="sm" className="h-9 gap-1.5">
+          <Settings2 className="h-4 w-4" />
+          <span className="hidden sm:inline">Standardtermine</span>
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent align="end" className="w-72 p-2">
+        <div className="px-2 pb-1 pt-1 text-xs font-medium text-muted-foreground">
+          Integrierte Standardtermine
+        </div>
+        <Row
+          id="preset-filing"
+          label="Steuererklärungsfristen"
+          checked={settings.showFilingDeadlines}
+          onCheck={(v) => set("showFilingDeadlines", v)}
+        />
+        <Row
+          id="preset-estkst"
+          label="ESt-/KSt-Vorauszahlungen"
+          checked={settings.showEStKStVZ}
+          onCheck={(v) => set("showEStKStVZ", v)}
+        />
+        <Row
+          id="preset-gewst"
+          label="Gewerbesteuer-Vorauszahlungen"
+          checked={settings.showGewStVZ}
+          onCheck={(v) => set("showGewStVZ", v)}
+        />
+        <Row
+          id="preset-monthly"
+          label="USt-VA + LSt-Anm. (monatlich)"
+          checked={settings.showMonthlyUStLSt}
+          onCheck={(v) => set("showMonthlyUStLSt", v)}
+        />
+        <Row
+          id="preset-holidays"
+          label="Gesetzliche Feiertage"
+          checked={settings.showHolidays}
+          onCheck={(v) => set("showHolidays", v)}
+        />
+        <div className="mt-2 border-t border-border px-2 pt-2">
+          <div className="mb-1 text-xs font-medium text-muted-foreground">
+            Bundesland
+          </div>
+          <select
+            className="h-8 w-full rounded-md border border-input bg-background px-2 text-sm"
+            value={settings.bundesland}
+            onChange={(e) =>
+              set("bundesland", e.target.value as PresetSettings["bundesland"])
+            }
+          >
+            {BUNDESLAND_OPTIONS.map((o) => (
+              <option key={o.value} value={o.value}>
+                {o.label}
+              </option>
+            ))}
+          </select>
+        </div>
+        <p className="mt-2 px-2 pb-1 text-[11px] leading-tight text-muted-foreground">
+          Referenztermine ohne Gewähr. Individuelle Bescheide, Dauerfristverlängerungen und Feiertagsregelungen können abweichen.
+        </p>
+      </PopoverContent>
+    </Popover>
+  );
+}

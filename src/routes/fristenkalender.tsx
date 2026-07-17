@@ -313,10 +313,11 @@ function FristenkalenderPage() {
 
   const duplicate = useCallback((e: CalendarEvent) => {
     const now = new Date().toISOString();
+    const isPreset = isPresetEvent(e);
     upsertEvent({
       ...e,
       id: newId(),
-      title: `${e.title} (Kopie)`,
+      title: isPreset ? e.title : `${e.title} (Kopie)`,
       completed: false,
       source: "user",
       informational: false,
@@ -325,7 +326,7 @@ function FristenkalenderPage() {
       updatedAt: now,
     });
     setDetailsEvent(null);
-    setToast("Als eigener Termin übernommen");
+    setToast(isPreset ? "Als eigener Termin übernommen" : "Termin dupliziert");
   }, []);
 
   // Swipe for month/week

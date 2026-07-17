@@ -159,10 +159,39 @@ function ChatPage() {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const startingRef = useRef(false);
   const timersRef = useRef<number[]>([]);
+  const [attachments, setAttachments] = useState<ChatAttachment[]>([]);
+  const [attachError, setAttachError] = useState<string | null>(null);
+  const [dragOver, setDragOver] = useState(false);
+  const attachmentsRef = useRef<ChatAttachment[]>([]);
+  useEffect(() => {
+    attachmentsRef.current = attachments;
+  }, [attachments]);
 
   function clearTimers() {
     for (const id of timersRef.current) window.clearTimeout(id);
     timersRef.current = [];
+  }
+
+  function addFiles(files: File[]) {
+    if (!files.length) return;
+    const res = validateAndBuild(attachmentsRef.current, files);
+    setAttachments(res.attachments);
+    setAttachError(res.ok ? null : res.error);
+  }
+
+  function removeAttachment(id: string) {
+    setAttachments((prev) => {
+      const found = prev.find((a) => a.id === id);
+      revokeAttachment(found);
+      return prev.filter((a) => a.id !== id);
+    });
+    setAttachError(null);
+  }
+
+  function clearAttachments() {
+    revokeAll(attachmentsRef.current);
+    setAttachments([]);
+    setAttachError(null);
   }
 
   // hydrate once
@@ -180,8 +209,12 @@ function ChatPage() {
         console.info("[steuerstoff] KB-Regression verfügbar: window.__runKbRegression()");
       });
     }
-    return () => clearTimers();
+    return () => {
+      clearTimers();
+      revokeAll(attachmentsRef.current);
+    };
   }, []);
+
 
   function prefersReducedMotion() {
     return (

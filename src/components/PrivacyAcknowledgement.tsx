@@ -29,11 +29,7 @@ export function hasCurrentPrivacyAcknowledgement(): boolean {
   return !!a && a.version === CURRENT_PRIVACY_VERSION;
 }
 
-export function PrivacyAcknowledgementGate({
-  onAccepted,
-}: {
-  onAccepted: () => void;
-}) {
+export function PrivacyAcknowledgementGate({ onAccepted }: { onAccepted: () => void }) {
   const [mounted, setMounted] = useState(false);
   const headingRef = useRef<HTMLHeadingElement | null>(null);
 
@@ -99,15 +95,19 @@ export function PrivacyAcknowledgementGate({
 
         <div className="space-y-3 text-sm leading-relaxed text-foreground/80 sm:text-base">
           <p>
-            Bevor du steuerstoff nutzt, erhältst du unsere Informationen zum
-            Umgang mit personenbezogenen Daten. Bitte lies die
-            Datenschutzerklärung sorgfältig durch.
+            Bevor du steuerstoff nutzt, erhältst du unsere Informationen zum Umgang mit
+            personenbezogenen Daten. Bitte lies die Datenschutzerklärung sorgfältig durch.
           </p>
           <p className="text-xs leading-relaxed text-muted-foreground sm:text-sm">
-            Mit deiner Bestätigung erklärst du nicht deine Zustimmung zu
-            optionalen Analyse- oder Marketingdiensten. Du bestätigst
-            lediglich, dass dir die Datenschutzhinweise zugänglich gemacht
-            wurden.
+            Mit deiner Bestätigung erklärst du nicht deine Zustimmung zu optionalen Analyse- oder
+            Marketingdiensten. Du bestätigst lediglich, dass dir die Datenschutzhinweise zugänglich
+            gemacht wurden.
+          </p>
+          <p className="text-xs leading-relaxed text-muted-foreground sm:text-sm">
+            Für die Vorlesefunktion nutzt steuerstoff die vom Browser und Betriebssystem
+            bereitgestellte Sprachausgabe. Die verfügbaren Stimmen und die technische Verarbeitung
+            können vom verwendeten Gerät, Betriebssystem und Browser abhängen. steuerstoff bindet
+            für diese Funktion derzeit keinen eigenen externen Sprachsyntheseanbieter ein.
           </p>
         </div>
 

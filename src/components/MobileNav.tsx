@@ -8,7 +8,6 @@ import {
   ArrowRightLeft,
   CalendarDays,
   FilePlus,
-  GraduationCap,
   Home,
   MessageSquare,
 } from "lucide-react";
@@ -226,11 +225,7 @@ export function MobileBottomNav() {
               location.pathname.startsWith(to));
 
           const onboardingTarget =
-            to === "/lernen"
-              ? "learn"
-              : to === "/skr-konverter"
-                ? "skr"
-                : undefined;
+            to === "/skr-konverter" ? "skr" : undefined;
 
           return (
             <li

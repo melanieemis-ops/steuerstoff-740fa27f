@@ -505,6 +505,13 @@ function FristenkalenderPage() {
               >
                 Heute
               </Button>
+              <PresetSettingsPopover
+                settings={presetSettings}
+                onChange={(s) => {
+                  savePresetSettings(s);
+                  setPresetSettings(s);
+                }}
+              />
             </div>
           </div>
 

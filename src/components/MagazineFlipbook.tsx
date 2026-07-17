@@ -104,7 +104,7 @@ function FullArticle({ article }: { article: MagazineArticle }) {
     >
       <header>
         <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8a6b3a]">
-          steuerstoff Magazin · Ausgabe 01
+          steuerstoff Magazin · {article.issueLabel.replace(/^Ausgabe\s+/, "Ausgabe ")}
         </p>
         <h1
           className="mt-3 font-semibold leading-tight tracking-tight"
@@ -112,14 +112,15 @@ function FullArticle({ article }: { article: MagazineArticle }) {
         >
           {article.title}
         </h1>
-        <p
-          className="mt-5 font-medium leading-[1.65] text-[#3a2f20]"
-          style={{
-            fontSize: "clamp(1.075rem, 1rem + 0.45vw, 1.235rem)",
-          }}
-        >
-          {article.lead}
-        </p>
+        {article.lead.split(/\n\n+/).map((para, i) => (
+          <p
+            key={i}
+            className="mt-5 font-medium leading-[1.65] text-[#3a2f20]"
+            style={{ fontSize: "clamp(1.075rem, 1rem + 0.45vw, 1.235rem)" }}
+          >
+            {para}
+          </p>
+        ))}
       </header>
 
       <div
@@ -140,7 +141,51 @@ function FullArticle({ article }: { article: MagazineArticle }) {
               </h2>
             );
           }
+          if (block.type === "subheading") {
+            return (
+              <h3
+                key={i}
+                className="pt-1 font-semibold tracking-tight text-[#1c160e]"
+                style={{ fontSize: "clamp(1.075rem, 1rem + 0.45vw, 1.25rem)" }}
+              >
+                {block.text}
+              </h3>
+            );
+          }
+          if (block.type === "list") {
+            return (
+              <ul
+                key={i}
+                className="list-disc space-y-1.5 pl-6 marker:text-[#8a6b3a]"
+              >
+                {block.items.map((it, j) => (
+                  <li key={j}>{it}</li>
+                ))}
+              </ul>
+            );
+          }
+          if (block.type === "summary") {
+            return (
+              <aside
+                key={i}
+                className="rounded-xl border border-[#d9c9ac] bg-[#efe4cf]/70 px-5 py-4"
+                aria-label={block.title}
+              >
+                <div className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#8a6b3a]">
+                  {block.title}
+                </div>
+                <ul className="mt-2 list-disc space-y-1.5 pl-5 marker:text-[#8a6b3a]">
+                  {block.items.map((it, j) => (
+                    <li key={j}>{it}</li>
+                  ))}
+                </ul>
+              </aside>
+            );
+          }
           if (block.type === "notice") {
+            const label = block.variant
+              ? NOTICE_LABEL[block.variant]
+              : "Beachten Sie";
             return (
               <aside
                 key={i}
@@ -148,7 +193,7 @@ function FullArticle({ article }: { article: MagazineArticle }) {
                 className="rounded-lg border-l-4 border-[#b98a3a] bg-[#efe4cf] px-4 py-3 text-[#2b2117]"
               >
                 <span className="mr-2 font-semibold uppercase tracking-wider text-[#8a6b3a]">
-                  Beachten Sie
+                  {label}
                 </span>
                 <span>{block.text}</span>
               </aside>

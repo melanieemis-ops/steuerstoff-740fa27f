@@ -573,7 +573,6 @@ function ChatPage() {
                   </div>
                 </div>
 
-<<<<<<< HEAD
                 <div>
                   <p className="mb-2 text-[11px] uppercase tracking-wide text-muted-foreground">
                     Schnellzugriff
@@ -776,33 +775,6 @@ function ChatPage() {
                     : voice.isTranscribing
                       ? "Sprache wird in Text umgewandelt …"
                       : "Stell eine steuerliche Frage …"
-=======
-      <form
-        onSubmit={handleSubmit}
-        className="fixed inset-x-0 bottom-0 z-30 border-t border-white/10 bg-[#07142f]/95 backdrop-blur pb-[calc(env(safe-area-inset-bottom)+64px)] md:pb-3"
-        data-no-swipe="true"
-      >
-        <div className="mx-auto w-full max-w-3xl px-3 pt-3">
-          <p className="sr-only" aria-live="polite">
-            {speech.statusMessage}
-          </p>
-          <div className="flex items-end gap-2 rounded-3xl border border-border bg-card px-3 py-2 shadow-sm focus-within:border-foreground/30">
-            {voice.isSupported && (
-              <button
-                type="button"
-                onClick={() => {
-                  if (voice.isTranscribing) return;
-                  if (voice.isRecording) voice.stopRecording();
-                  else void voice.startRecording();
-                }}
-                disabled={voice.isTranscribing}
-                aria-label={
-                  voice.isTranscribing
-                    ? "Sprache wird transkribiert"
-                    : voice.isRecording
-                    ? "Sprachaufnahme beenden"
-                    : "Frage diktieren"
->>>>>>> 0808a76 (m)
                 }
                 className="flex-1 resize-none bg-transparent px-2 py-2 text-[15px] leading-relaxed text-foreground outline-none placeholder:text-muted-foreground"
                 style={{ maxHeight: 180 }}

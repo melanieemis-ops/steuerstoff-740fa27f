@@ -313,10 +313,11 @@ function FristenkalenderPage() {
 
   const duplicate = useCallback((e: CalendarEvent) => {
     const now = new Date().toISOString();
+    const isPreset = isPresetEvent(e);
     upsertEvent({
       ...e,
       id: newId(),
-      title: `${e.title} (Kopie)`,
+      title: isPreset ? e.title : `${e.title} (Kopie)`,
       completed: false,
       source: "user",
       informational: false,
@@ -325,7 +326,7 @@ function FristenkalenderPage() {
       updatedAt: now,
     });
     setDetailsEvent(null);
-    setToast("Als eigener Termin übernommen");
+    setToast(isPreset ? "Als eigener Termin übernommen" : "Termin dupliziert");
   }, []);
 
   // Swipe for month/week
@@ -544,6 +545,10 @@ function FristenkalenderPage() {
               </>
             )}
           </nav>
+
+          <p className="mt-2 text-[11px] leading-snug text-muted-foreground">
+            Gesetzliche Standardtermine. Individuelle Bescheide, Dauerfristverlängerungen und Sonderfälle können abweichen.
+          </p>
         </section>
 
         {/* Main calendar container with neon border */}
@@ -783,7 +788,7 @@ function MiniMonth({
   );
   const openCount = monthCount(events, year, month);
   const overdueInMonth = monthOccurrences.filter(
-    (o) => !o.event.completed && o.date < today(),
+    (o) => !o.event.completed && !o.event.informational && o.date < today(),
   ).length;
 
   const byDay = useMemo(() => {
@@ -793,7 +798,7 @@ function MiniMonth({
       const prev = map.get(key) ?? { hasTax: false, hasOther: false, overdue: false };
       if (o.event.category === "tax") prev.hasTax = true;
       else prev.hasOther = true;
-      if (!o.event.completed && o.date < today()) prev.overdue = true;
+      if (!o.event.completed && !o.event.informational && o.date < today()) prev.overdue = true;
       map.set(key, prev);
     }
     return map;
@@ -1160,7 +1165,8 @@ function AgendaView({
     if (hideCompleted && o.event.completed) return false;
     if (filter === "all") return true;
     if (filter === "done") return o.event.completed;
-    if (filter === "overdue") return !o.event.completed && o.date < today();
+    if (filter === "overdue")
+      return !o.event.completed && !o.event.informational && o.date < today();
     return o.event.category === filter;
   });
 
@@ -1170,14 +1176,17 @@ function AgendaView({
     "Morgen": [],
     "Diese Woche": [],
     "Später": [],
+    "Vergangene Standardtermine": [],
     "Erledigt": [],
   };
   const t = today();
   const weekEnd = endOfWeek(t, DE_LOCALE);
   for (const o of filtered) {
     if (o.event.completed) groups["Erledigt"].push(o);
-    else if (o.date < t) groups["Überfällig"].push(o);
-    else if (isSameDay(o.date, t)) groups["Heute"].push(o);
+    else if (o.date < t) {
+      if (o.event.informational) groups["Vergangene Standardtermine"].push(o);
+      else groups["Überfällig"].push(o);
+    } else if (isSameDay(o.date, t)) groups["Heute"].push(o);
     else if (isSameDay(o.date, addDays(t, 1))) groups["Morgen"].push(o);
     else if (o.date <= weekEnd) groups["Diese Woche"].push(o);
     else groups["Später"].push(o);

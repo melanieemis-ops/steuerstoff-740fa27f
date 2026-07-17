@@ -87,6 +87,12 @@ function isoFromDate(d: Date): string {
   return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 }
 
+/** Local-midnight parser for `YYYY-MM-DD` — avoids UTC-vs-local drift. */
+function parseIsoLocal(s: string): Date {
+  const [y, m, d] = s.split("-").map(Number);
+  return new Date(y, (m ?? 1) - 1, d ?? 1);
+}
+
 /** Meeus/Jones/Butcher — Easter Sunday (Gregorian). */
 function easterSunday(year: number): Date {
   const a = year % 19;
@@ -255,7 +261,7 @@ function buildForYear(
         makePreset({
           presetKey: `holiday:${s.bundesland}:${h.date}`,
           title: h.title,
-          date: new Date(h.date),
+          date: parseIsoLocal(h.date),
           category: "holiday",
           note: `Gesetzlicher Feiertag (${s.bundesland === "BY" ? "Bayern" : "bundesweit"}).`,
         }),
@@ -369,7 +375,7 @@ export function buildStandardEvents(s: PresetSettings): CalendarEvent[] {
       // shift filing deadlines too, using holidays for the year of the deadline
       const y = Number(f.date.slice(0, 4));
       const hSet = holidaySet(y, s.bundesland);
-      const raw = new Date(f.date);
+      const raw = parseIsoLocal(f.date);
       const { date, shifted } = shiftToNextBusinessDay(raw, hSet);
       const shownDate = shifted ? date : raw;
       events.push(

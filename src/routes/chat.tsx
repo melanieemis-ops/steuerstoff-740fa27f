@@ -39,11 +39,11 @@ import {
 import {
   revokeAll,
   revokeAttachment,
-  toPersisted,
   validateAndBuild,
   type ChatAttachment,
   type PersistedAttachment,
 } from "@/lib/chatAttachments";
+
 
 
 function withFallbackMarker(a: ChatAnswer): ChatAnswer {

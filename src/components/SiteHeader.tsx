@@ -8,6 +8,7 @@ import {
 import {
   ArrowRightLeft,
   BookOpenText,
+  CalendarDays,
   Car,
   Database,
   FilePlus2,
@@ -54,6 +55,11 @@ const baseNav: NavItem[] = [
     to: "/fallverlauf",
     label: "Fallverlauf",
     Icon: History,
+  },
+  {
+    to: "/fristenkalender",
+    label: "Fristenkalender",
+    Icon: CalendarDays,
   },
 {
   to: "/wissensdatenbank",

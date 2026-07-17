@@ -19,6 +19,7 @@ import { Route as LerngebieteRouteImport } from './routes/lerngebiete'
 import { Route as LernenRouteImport } from './routes/lernen'
 import { Route as KfzWertabgabeRouteImport } from './routes/kfz-wertabgabe'
 import { Route as GesetzImportierenRouteImport } from './routes/gesetz-importieren'
+import { Route as FristenkalenderRouteImport } from './routes/fristenkalender'
 import { Route as FallverlaufRouteImport } from './routes/fallverlauf'
 import { Route as ErfolgeRouteImport } from './routes/erfolge'
 import { Route as EinstellungenRouteImport } from './routes/einstellungen'
@@ -81,6 +82,11 @@ const GesetzImportierenRoute = GesetzImportierenRouteImport.update({
   path: '/gesetz-importieren',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FristenkalenderRoute = FristenkalenderRouteImport.update({
+  id: '/fristenkalender',
+  path: '/fristenkalender',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FallverlaufRoute = FallverlaufRouteImport.update({
   id: '/fallverlauf',
   path: '/fallverlauf',
@@ -140,6 +146,7 @@ export interface FileRoutesByFullPath {
   '/einstellungen': typeof EinstellungenRoute
   '/erfolge': typeof ErfolgeRoute
   '/fallverlauf': typeof FallverlaufRoute
+  '/fristenkalender': typeof FristenkalenderRoute
   '/gesetz-importieren': typeof GesetzImportierenRoute
   '/kfz-wertabgabe': typeof KfzWertabgabeRoute
   '/lernen': typeof LernenRoute
@@ -162,6 +169,7 @@ export interface FileRoutesByTo {
   '/einstellungen': typeof EinstellungenRoute
   '/erfolge': typeof ErfolgeRoute
   '/fallverlauf': typeof FallverlaufRoute
+  '/fristenkalender': typeof FristenkalenderRoute
   '/gesetz-importieren': typeof GesetzImportierenRoute
   '/kfz-wertabgabe': typeof KfzWertabgabeRoute
   '/lernen': typeof LernenRoute
@@ -185,6 +193,7 @@ export interface FileRoutesById {
   '/einstellungen': typeof EinstellungenRoute
   '/erfolge': typeof ErfolgeRoute
   '/fallverlauf': typeof FallverlaufRoute
+  '/fristenkalender': typeof FristenkalenderRoute
   '/gesetz-importieren': typeof GesetzImportierenRoute
   '/kfz-wertabgabe': typeof KfzWertabgabeRoute
   '/lernen': typeof LernenRoute
@@ -209,6 +218,7 @@ export interface FileRouteTypes {
     | '/einstellungen'
     | '/erfolge'
     | '/fallverlauf'
+    | '/fristenkalender'
     | '/gesetz-importieren'
     | '/kfz-wertabgabe'
     | '/lernen'
@@ -231,6 +241,7 @@ export interface FileRouteTypes {
     | '/einstellungen'
     | '/erfolge'
     | '/fallverlauf'
+    | '/fristenkalender'
     | '/gesetz-importieren'
     | '/kfz-wertabgabe'
     | '/lernen'
@@ -253,6 +264,7 @@ export interface FileRouteTypes {
     | '/einstellungen'
     | '/erfolge'
     | '/fallverlauf'
+    | '/fristenkalender'
     | '/gesetz-importieren'
     | '/kfz-wertabgabe'
     | '/lernen'
@@ -276,6 +288,7 @@ export interface RootRouteChildren {
   EinstellungenRoute: typeof EinstellungenRoute
   ErfolgeRoute: typeof ErfolgeRoute
   FallverlaufRoute: typeof FallverlaufRoute
+  FristenkalenderRoute: typeof FristenkalenderRoute
   GesetzImportierenRoute: typeof GesetzImportierenRoute
   KfzWertabgabeRoute: typeof KfzWertabgabeRoute
   LernenRoute: typeof LernenRoute
@@ -363,6 +376,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GesetzImportierenRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/fristenkalender': {
+      id: '/fristenkalender'
+      path: '/fristenkalender'
+      fullPath: '/fristenkalender'
+      preLoaderRoute: typeof FristenkalenderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/fallverlauf': {
       id: '/fallverlauf'
       path: '/fallverlauf'
@@ -444,6 +464,7 @@ const rootRouteChildren: RootRouteChildren = {
   EinstellungenRoute: EinstellungenRoute,
   ErfolgeRoute: ErfolgeRoute,
   FallverlaufRoute: FallverlaufRoute,
+  FristenkalenderRoute: FristenkalenderRoute,
   GesetzImportierenRoute: GesetzImportierenRoute,
   KfzWertabgabeRoute: KfzWertabgabeRoute,
   LernenRoute: LernenRoute,

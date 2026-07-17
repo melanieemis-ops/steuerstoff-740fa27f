@@ -6,6 +6,7 @@ import {
 import { useRef, type ReactNode } from "react";
 import {
   ArrowRightLeft,
+  CalendarDays,
   FilePlus,
   GraduationCap,
   Home,

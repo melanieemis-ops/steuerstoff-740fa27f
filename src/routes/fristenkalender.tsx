@@ -103,6 +103,21 @@ import {
   subscribeDayNotes,
 } from "@/lib/calendar-notes-storage";
 import { downloadIcs } from "@/lib/create-ics";
+import {
+  BUNDESLAND_OPTIONS,
+  buildStandardEvents,
+  isPresetEvent,
+  loadPresetSettings,
+  savePresetSettings,
+  subscribePresetSettings,
+  type PresetSettings,
+} from "@/lib/calendar-standard-events";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { Checkbox } from "@/components/ui/checkbox";
 
 export const Route = createFileRoute("/fristenkalender")({
   component: FristenkalenderPage,

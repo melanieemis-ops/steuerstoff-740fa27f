@@ -72,7 +72,13 @@ export const Route = createFileRoute("/chat")({
 });
 
 type Msg =
-  | { id: string; role: "user"; text: string; t: number }
+  | {
+      id: string;
+      role: "user";
+      text: string;
+      t: number;
+      attachments?: PersistedAttachment[];
+    }
   | { id: string; role: "assistant"; answer: ChatAnswer; t: number }
   | { id: string; role: "error"; text: string; t: number; retryOf: string };
 
@@ -110,11 +116,27 @@ function loadMessages(): Msg[] {
 function saveMessages(msgs: Msg[]) {
   if (typeof window === "undefined") return;
   try {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(msgs));
+    // Persistieren ohne File-Referenzen / ObjectURLs.
+    const safe = msgs.map((m) =>
+      m.role === "user" && m.attachments
+        ? {
+            ...m,
+            attachments: m.attachments.map((a) => ({
+              id: a.id,
+              name: a.name,
+              size: a.size,
+              mime: a.mime,
+              kind: a.kind,
+            })),
+          }
+        : m,
+    );
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(safe));
   } catch {
     // ignore quota / privacy mode
   }
 }
+
 
 function uid() {
   return Math.random().toString(36).slice(2, 10);

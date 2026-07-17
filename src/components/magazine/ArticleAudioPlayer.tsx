@@ -1,10 +1,11 @@
 /**
  * ArticleAudioPlayer.tsx – Playlist-Player für segmentierte Magazin-Audios (v3)
  *
- * Lädt beim ersten Play ein Manifest von /api/tts?manifest=1 und spielt die
- * einzelnen kleinen MP3-Segmente nacheinander ab. Segment 0 startet, sobald
- * es bereit ist; Segment N+1 wird währenddessen vorgeladen. Global sind
- * Play/Pause, Speed, Mute, ±15 s, Fortschritt und Position.
+ * Strategie:
+ *  - Manifest wird beim Mounten still im Hintergrund vorgeladen (reines JSON,
+ *    kein OpenAI-Aufruf), damit der erste play()-Aufruf im synchronen
+ *    Klickpfad erfolgt und iOS keine NotAllowedError liefert.
+ *  - Segmente sind kleine MP3-Dateien; Segment N+1 wird während N geladen.
  */
 
 import {
@@ -13,6 +14,7 @@ import {
   Play,
   RotateCcw,
   RotateCw,
+  SkipBack,
   Volume2,
   VolumeX,
 } from "lucide-react";
@@ -58,12 +60,14 @@ function positionKey(articleId: string) {
 export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
   const sourceId = `magazine-article:${articleId}`;
   const [manifest, setManifest] = useState<Manifest | null>(null);
-  const [durations, setDurations] = useState<number[]>([]); // realer Wert je Segment
+  const manifestPromiseRef = useRef<Promise<Manifest | null> | null>(null);
+  const [durations, setDurations] = useState<number[]>([]);
   const [segmentIndex, setSegmentIndex] = useState(0);
   const [segmentTime, setSegmentTime] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [status, setStatus] = useState<"idle" | "loading" | "ready" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [pendingClick, setPendingClick] = useState(false);
   const [speed, setSpeed] = useState<Speed>(1);
   const [muted, setMuted] = useState(false);
   const [browserFallbackActive, setBrowserFallbackActive] = useState(false);
@@ -81,7 +85,33 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
     [articleId],
   );
 
-  // Geschätzte / reale Segmentdauern
+  const loadManifest = useCallback((): Promise<Manifest | null> => {
+    if (manifestPromiseRef.current) return manifestPromiseRef.current;
+    const p = (async () => {
+      try {
+        const res = await fetch(manifestUrl, { cache: "no-store" });
+        if (!res.ok) throw new Error(`Manifest ${res.status}`);
+        const data = (await res.json()) as Manifest;
+        if (!data.segments || data.segments.length === 0) throw new Error("Leeres Manifest");
+        setManifest(data);
+        setDurations(new Array(data.segmentCount).fill(NaN));
+        return data;
+      } catch (e) {
+        console.error("[magazine-audio] manifest error", e);
+        manifestPromiseRef.current = null; // erneut versuchbar
+        return null;
+      }
+    })();
+    manifestPromiseRef.current = p;
+    return p;
+  }, [manifestUrl]);
+
+  // Manifest still im Hintergrund vorladen (reines JSON, kein OpenAI-Aufruf),
+  // damit der erste play() im synchronen Klickpfad erfolgen kann.
+  useEffect(() => {
+    void loadManifest();
+  }, [loadManifest]);
+
   const segmentDurations = useMemo(() => {
     if (!manifest) return [] as number[];
     return manifest.segments.map((s, i) => durations[i] ?? s.estimatedSeconds);
@@ -98,7 +128,9 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
     return t + segmentTime;
   }, [segmentDurations, segmentIndex, segmentTime]);
 
-  const allDurationsKnown = manifest ? durations.length === manifest.segmentCount && durations.every((d) => Number.isFinite(d)) : false;
+  const allDurationsKnown = manifest
+    ? durations.length === manifest.segmentCount && durations.every((d) => Number.isFinite(d))
+    : false;
 
   const disposeAudio = useCallback((ref: React.MutableRefObject<HTMLAudioElement | null>) => {
     const el = ref.current;
@@ -108,6 +140,9 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
       el.onerror = null;
       el.ontimeupdate = null;
       el.onloadedmetadata = null;
+      el.oncanplay = null;
+      el.onplay = null;
+      el.onpause = null;
       el.removeAttribute("src");
       el.load();
     }
@@ -157,29 +192,15 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
     }
   }, [articleId]);
 
-  const loadManifest = useCallback(async (): Promise<Manifest | null> => {
-    try {
-      const res = await fetch(manifestUrl, { cache: "no-store" });
-      if (!res.ok) throw new Error(`Manifest ${res.status}`);
-      const data = (await res.json()) as Manifest;
-      if (!data.segments || data.segments.length === 0) throw new Error("Leeres Manifest");
-      setManifest(data);
-      setDurations(new Array(data.segmentCount).fill(NaN));
-      return data;
-    } catch (e) {
-      console.error("[magazine-audio] manifest error", e);
-      setStatus("error");
-      setErrorMsg("Audio-Manifest konnte nicht geladen werden.");
-      return null;
-    }
-  }, [manifestUrl]);
-
+  // Erzeugt ein neues Audio-Element für ein Segment. Metadaten-Handler wird
+  // hier gesetzt; alle Playback-Handler (timeupdate/ended/error/play/pause)
+  // werden separat via attachPlaybackHandlers gebunden, damit Retry sauber
+  // funktioniert.
   const createSegmentAudio = useCallback(
     (url: string, index: number, cacheBust = false): HTMLAudioElement => {
       const el = new Audio();
       el.preload = "auto";
       el.setAttribute("playsinline", "");
-      el.crossOrigin = "anonymous";
       el.playbackRate = speed;
       el.muted = muted;
       el.src = cacheBust ? `${url}${url.includes("?") ? "&" : "?"}cb=${Date.now()}` : url;
@@ -201,152 +222,127 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
     (nextIndex: number, m: Manifest) => {
       disposeAudio(preloadAudioRef);
       if (nextIndex >= m.segmentCount) return;
-      const el = createSegmentAudio(m.segments[nextIndex].url, nextIndex);
-      preloadAudioRef.current = el;
+      preloadAudioRef.current = createSegmentAudio(m.segments[nextIndex].url, nextIndex);
     },
     [createSegmentAudio, disposeAudio],
   );
 
+  // Vorwärtsdeklaration für gegenseitige Referenz zwischen
+  // attachPlaybackHandlers und playSegment (Retry / Auto-Advance).
+  const playSegmentRef = useRef<
+    ((index: number, m: Manifest, opts: { autoplay: boolean; startAt?: number }) => Promise<void>) | null
+  >(null);
+
+  const attachPlaybackHandlers = useCallback(
+    (el: HTMLAudioElement, index: number, m: Manifest, autoplay: boolean) => {
+      el.ontimeupdate = () => {
+        setSegmentTime(el.currentTime);
+        if (Math.floor(el.currentTime) % 3 === 0) {
+          let t = 0;
+          for (let i = 0; i < index; i++) t += segmentDurations[i] ?? 0;
+          savePosition(t + el.currentTime);
+        }
+      };
+      el.onended = () => {
+        void playSegmentRef.current?.(index + 1, m, { autoplay: true });
+      };
+      el.onplay = () => setIsPlaying(true);
+      el.onpause = () => setIsPlaying(false);
+      el.onerror = () => {
+        if (!retriedRef.current.has(index)) {
+          retriedRef.current.add(index);
+          console.warn("[magazine-audio] segment error, retrying", index);
+          void playSegmentRef.current?.(index, m, { autoplay, startAt: 0 });
+          return;
+        }
+        setStatus("error");
+        setErrorMsg(
+          `Audioabschnitt ${index + 1} konnte nicht geladen werden. Sie können es erneut versuchen oder die Browserstimme nutzen.`,
+        );
+        setIsPlaying(false);
+      };
+    },
+    [savePosition, segmentDurations],
+  );
+
   const playSegment = useCallback(
-    async (index: number, m: Manifest, opts: { autoplay: boolean; startAt?: number }) => {
+    async (index: number, m: Manifest, opts: { autoplay: boolean; startAt?: number }): Promise<void> => {
       if (index >= m.segmentCount) {
-        // Ende
         setIsPlaying(false);
         setSegmentIndex(Math.max(0, m.segmentCount - 1));
         clearPosition();
         return;
       }
 
-      // Aktuelles Segment entsorgen, Preload ggf. übernehmen
+      // Wenn Retry, mit Cache-Buster; sonst ggf. Preload übernehmen.
+      const useCacheBust = retriedRef.current.has(index);
       disposeAudio(currentAudioRef);
-      let el: HTMLAudioElement | null = null;
+      let el: HTMLAudioElement;
       const preloaded = preloadAudioRef.current;
-      if (preloaded && preloaded.src.includes(m.segments[index].url)) {
+      if (!useCacheBust && preloaded && preloaded.src.includes(m.segments[index].url)) {
         el = preloaded;
         preloadAudioRef.current = null;
       } else {
         disposeAudio(preloadAudioRef);
-        el = createSegmentAudio(m.segments[index].url, index);
+        el = createSegmentAudio(m.segments[index].url, index, useCacheBust);
       }
       currentAudioRef.current = el;
-
       el.playbackRate = speed;
       el.muted = muted;
 
-      el.ontimeupdate = () => {
-        setSegmentTime(el!.currentTime);
-        if (Math.floor(el!.currentTime) % 3 === 0) {
-          let t = 0;
-          for (let i = 0; i < index; i++) t += segmentDurations[i] ?? 0;
-          savePosition(t + el!.currentTime);
-        }
-      };
-      el.onended = () => {
-        void playSegment(index + 1, m, { autoplay: true });
-      };
-      el.onerror = () => {
-        if (!retriedRef.current.has(index)) {
-          retriedRef.current.add(index);
-          console.warn("[magazine-audio] segment error, retrying", index);
-          disposeAudio(currentAudioRef);
-          const retryEl = createSegmentAudio(m.segments[index].url, index, true);
-          currentAudioRef.current = retryEl;
-          retryEl.ontimeupdate = el!.ontimeupdate;
-          retryEl.onended = el!.onended;
-          retryEl.onerror = () => {
-            setStatus("error");
-            setErrorMsg(
-              `Audioabschnitt ${index + 1} konnte nicht geladen werden. Sie können die Browserstimme als Ersatz nutzen.`,
-            );
-            setIsPlaying(false);
-          };
-          if (opts.autoplay) void retryEl.play().catch(() => undefined);
-          return;
-        }
-        setStatus("error");
-        setErrorMsg(
-          `Audioabschnitt ${index + 1} konnte nicht geladen werden. Sie können die Browserstimme als Ersatz nutzen.`,
-        );
-        setIsPlaying(false);
-      };
-      el.onplay = () => setIsPlaying(true);
-      el.onpause = () => setIsPlaying(false);
+      attachPlaybackHandlers(el, index, m, opts.autoplay);
 
       setSegmentIndex(index);
       setSegmentTime(opts.startAt ?? 0);
 
-      // Nächstes Segment vorbereiten
       preloadNext(index + 1, m);
 
-      const startPlayback = async () => {
+      if (opts.startAt && opts.startAt > 0) {
+        const applyStart = () => {
+          try {
+            el.currentTime = opts.startAt!;
+          } catch {
+            /* ignore */
+          }
+        };
+        if (el.readyState >= 1) applyStart();
+        else el.addEventListener("loadedmetadata", applyStart, { once: true });
+      }
+
+      if (opts.autoplay) {
+        // play() darf schon während des Ladens aufgerufen werden; iOS
+        // startet dann sobald genug Daten vorhanden sind.
         try {
-          if (opts.startAt && opts.startAt > 0) {
-            el!.currentTime = opts.startAt;
-          }
-          if (opts.autoplay) {
-            await el!.play();
-          }
+          await el.play();
           setStatus("ready");
+          setErrorMsg(null);
         } catch (e) {
           console.error("[magazine-audio] play error", e);
           setStatus("error");
-          setErrorMsg("Wiedergabe konnte nicht gestartet werden.");
+          setErrorMsg("Wiedergabe konnte nicht gestartet werden. Bitte erneut tippen.");
         }
-      };
-
-      if (el.readyState >= 2) {
-        await startPlayback();
       } else {
-        el.oncanplay = () => {
-          el!.oncanplay = null;
-          void startPlayback();
-        };
+        setStatus("ready");
       }
     },
     [
+      attachPlaybackHandlers,
       clearPosition,
       createSegmentAudio,
       disposeAudio,
       muted,
       preloadNext,
-      savePosition,
-      segmentDurations,
       speed,
     ],
   );
 
-  const handlePlayPause = useCallback(async () => {
-    // Bereits laufend: pausieren
-    if (isPlaying) {
-      currentAudioRef.current?.pause();
-      return;
-    }
-    requestStopAllAudio(sourceId);
-    stopBrowserSpeech();
+  useEffect(() => {
+    playSegmentRef.current = playSegment;
+  }, [playSegment]);
 
-    let m = manifest;
-    if (!m) {
-      setStatus("loading");
-      m = await loadManifest();
-      if (!m) return;
-    }
-
-    // Bestehendes Segment: einfach fortsetzen
-    if (currentAudioRef.current) {
-      try {
-        await currentAudioRef.current.play();
-        setStatus("ready");
-      } catch {
-        setStatus("error");
-        setErrorMsg("Wiedergabe konnte nicht gestartet werden.");
-      }
-      return;
-    }
-
-    // Position wiederherstellen
-    let startIndex = 0;
-    let startAt = 0;
-    if (!restoredRef.current) {
+  const resolveStartPosition = useCallback(
+    (m: Manifest): { index: number; startAt: number } => {
+      if (restoredRef.current) return { index: 0, startAt: 0 };
       restoredRef.current = true;
       try {
         const saved = Number(localStorage.getItem(positionKey(articleId)));
@@ -354,22 +350,74 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
           let acc = 0;
           for (let i = 0; i < m.segments.length; i++) {
             const dur = m.segments[i].estimatedSeconds;
-            if (saved < acc + dur) {
-              startIndex = i;
-              startAt = Math.max(0, saved - acc);
-              break;
-            }
+            if (saved < acc + dur) return { index: i, startAt: Math.max(0, saved - acc) };
             acc += dur;
           }
         }
       } catch {
         /* ignore */
       }
+      return { index: 0, startAt: 0 };
+    },
+    [articleId],
+  );
+
+  const handlePlayPause = useCallback(() => {
+    // Pause zuerst prüfen – synchron möglich.
+    if (isPlaying) {
+      currentAudioRef.current?.pause();
+      return;
+    }
+    requestStopAllAudio(sourceId);
+    stopBrowserSpeech();
+    setErrorMsg(null);
+
+    // Bereits ein Segment vorbereitet: einfach fortsetzen, synchron.
+    if (currentAudioRef.current) {
+      currentAudioRef.current
+        .play()
+        .then(() => {
+          setStatus("ready");
+        })
+        .catch(() => {
+          setStatus("error");
+          setErrorMsg("Wiedergabe konnte nicht gestartet werden. Bitte erneut tippen.");
+        });
+      return;
     }
 
+    // Manifest muss vorhanden sein. Da es beim Mount geladen wird, ist es in
+    // der Regel schon da → play() erfolgt im synchronen Klickpfad.
+    if (manifest) {
+      const { index, startAt } = resolveStartPosition(manifest);
+      setStatus("loading");
+      void playSegment(index, manifest, { autoplay: true, startAt });
+      return;
+    }
+
+    // Sehr schneller Klick vor Manifest: kurz Bereitschaft anzeigen und den
+    // Nutzer verständlich um einen zweiten Tipp bitten – keine irreführende
+    // Fehlermeldung.
+    setPendingClick(true);
     setStatus("loading");
-    await playSegment(startIndex, m, { autoplay: true, startAt });
-  }, [articleId, isPlaying, loadManifest, manifest, playSegment, sourceId, stopBrowserSpeech]);
+    void loadManifest().then((m) => {
+      setPendingClick(false);
+      if (!m) {
+        setStatus("error");
+        setErrorMsg("Audio-Manifest konnte nicht geladen werden.");
+      } else {
+        setStatus("idle");
+      }
+    });
+  }, [
+    isPlaying,
+    loadManifest,
+    manifest,
+    playSegment,
+    resolveStartPosition,
+    sourceId,
+    stopBrowserSpeech,
+  ]);
 
   const seekTo = useCallback(
     (globalSec: number) => {
@@ -399,6 +447,24 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
     },
     [globalTime, seekTo, totalDuration],
   );
+
+  const restart = useCallback(() => {
+    if (!manifest) return;
+    clearPosition();
+    retriedRef.current.clear();
+    void playSegment(0, manifest, { autoplay: isPlaying, startAt: 0 });
+  }, [clearPosition, isPlaying, manifest, playSegment]);
+
+  const retryAfterError = useCallback(() => {
+    if (!manifest) {
+      void loadManifest();
+      return;
+    }
+    retriedRef.current.clear();
+    setErrorMsg(null);
+    setStatus("loading");
+    void playSegment(segmentIndex, manifest, { autoplay: true, startAt: segmentTime });
+  }, [loadManifest, manifest, playSegment, segmentIndex, segmentTime]);
 
   const changeSpeed = useCallback((next: Speed) => {
     setSpeed(next);
@@ -444,7 +510,12 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
 
   const isLoading = status === "loading";
   const showPlayer = status !== "error" || isPlaying;
-  const totalLabel = allDurationsKnown ? formatTime(totalDuration) : `ca. ${formatTime(totalDuration)}`;
+  const hasManifest = !!manifest;
+  const totalLabel = !hasManifest
+    ? "–:––"
+    : allDurationsKnown
+    ? formatTime(totalDuration)
+    : `ca. ${formatTime(totalDuration)}`;
 
   return (
     <section
@@ -463,13 +534,22 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
           </div>
         </div>
         {status === "error" ? (
-          <button
-            type="button"
-            onClick={startBrowserFallback}
-            className="rounded-full border border-[#22d3ee]/40 bg-white/5 px-3 py-1.5 text-[12px] font-medium text-[#f5efe1] transition hover:bg-white/10"
-          >
-            Browserstimme verwenden
-          </button>
+          <div className="flex gap-2">
+            <button
+              type="button"
+              onClick={retryAfterError}
+              className="rounded-full border border-[#22d3ee]/40 bg-white/5 px-3 py-1.5 text-[12px] font-medium text-[#f5efe1] transition hover:bg-white/10"
+            >
+              Erneut versuchen
+            </button>
+            <button
+              type="button"
+              onClick={startBrowserFallback}
+              className="rounded-full border border-[#22d3ee]/40 bg-white/5 px-3 py-1.5 text-[12px] font-medium text-[#f5efe1] transition hover:bg-white/10"
+            >
+              Browserstimme verwenden
+            </button>
+          </div>
         ) : null}
       </div>
 
@@ -481,7 +561,9 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
 
       {isLoading ? (
         <p className="mt-2 text-[12px] text-[#c8d3ea]" aria-live="polite">
-          Audioabschnitt wird vorbereitet …
+          {pendingClick
+            ? "Audio wird vorbereitet … Bitte gleich noch einmal tippen."
+            : "Audioabschnitt wird vorbereitet …"}
         </p>
       ) : null}
 
@@ -503,6 +585,14 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
               )}
             </button>
 
+            <button
+              type="button"
+              onClick={restart}
+              aria-label="Von vorn beginnen"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/5 text-[#f5efe1] transition hover:bg-white/10"
+            >
+              <SkipBack className="h-4 w-4" aria-hidden="true" />
+            </button>
             <button
               type="button"
               onClick={() => seekBy(-15)}
@@ -544,7 +634,8 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
               value={Math.min(globalTime, totalDuration || 0)}
               onChange={(e) => seekTo(Number(e.currentTarget.value))}
               aria-label="Wiedergabeposition"
-              className="h-1.5 flex-1 appearance-none rounded-full bg-white/10 accent-[#22d3ee]"
+              disabled={!hasManifest}
+              className="h-1.5 flex-1 appearance-none rounded-full bg-white/10 accent-[#22d3ee] disabled:opacity-50"
             />
             <span className="w-14">{totalLabel}</span>
           </div>

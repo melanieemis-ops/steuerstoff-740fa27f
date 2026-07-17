@@ -1726,35 +1726,57 @@ function EventDetailsDialog({
         </div>
 
         <DialogFooter className="mt-4 flex-col gap-2 sm:flex-row sm:flex-wrap sm:justify-end">
-          <Button variant="outline" size="sm" onClick={onToggleComplete}>
-            <CheckCircle2 className="mr-1.5 h-4 w-4" />
-            {event.completed ? "Wieder öffnen" : "Erledigt"}
-          </Button>
-          <Button variant="outline" size="sm" onClick={onEdit}>
-            <Pencil className="mr-1.5 h-4 w-4" />
-            Bearbeiten
-          </Button>
-          <Button variant="outline" size="sm" onClick={onDuplicate}>
-            <Copy className="mr-1.5 h-4 w-4" />
-            Duplizieren
-          </Button>
-          <Button variant="outline" size="sm" onClick={() => downloadIcs(event)}>
-            <Download className="mr-1.5 h-4 w-4" />
-            In Gerätekalender
-          </Button>
-          <Button
-            variant="ghost"
-            size="sm"
-            className="text-destructive hover:text-destructive"
-            onClick={onDelete}
-          >
-            <Trash2 className="mr-1.5 h-4 w-4" />
-            Löschen
-          </Button>
-          <Button variant="ghost" size="sm" onClick={onClose}>
-            <X className="mr-1.5 h-4 w-4" />
-            Schließen
-          </Button>
+          {isPresetEvent(event) ? (
+            <>
+              <div className="mr-auto text-xs text-muted-foreground">
+                Integrierter Standardtermin (steuerstoff). Nur zur Information.
+              </div>
+              <Button variant="outline" size="sm" onClick={onDuplicate}>
+                <Copy className="mr-1.5 h-4 w-4" />
+                Als eigenen Termin übernehmen
+              </Button>
+              <Button variant="outline" size="sm" onClick={() => downloadIcs(event)}>
+                <Download className="mr-1.5 h-4 w-4" />
+                In Gerätekalender
+              </Button>
+              <Button variant="ghost" size="sm" onClick={onClose}>
+                <X className="mr-1.5 h-4 w-4" />
+                Schließen
+              </Button>
+            </>
+          ) : (
+            <>
+              <Button variant="outline" size="sm" onClick={onToggleComplete}>
+                <CheckCircle2 className="mr-1.5 h-4 w-4" />
+                {event.completed ? "Wieder öffnen" : "Erledigt"}
+              </Button>
+              <Button variant="outline" size="sm" onClick={onEdit}>
+                <Pencil className="mr-1.5 h-4 w-4" />
+                Bearbeiten
+              </Button>
+              <Button variant="outline" size="sm" onClick={onDuplicate}>
+                <Copy className="mr-1.5 h-4 w-4" />
+                Duplizieren
+              </Button>
+              <Button variant="outline" size="sm" onClick={() => downloadIcs(event)}>
+                <Download className="mr-1.5 h-4 w-4" />
+                In Gerätekalender
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-destructive hover:text-destructive"
+                onClick={onDelete}
+              >
+                <Trash2 className="mr-1.5 h-4 w-4" />
+                Löschen
+              </Button>
+              <Button variant="ghost" size="sm" onClick={onClose}>
+                <X className="mr-1.5 h-4 w-4" />
+                Schließen
+              </Button>
+            </>
+          )}
         </DialogFooter>
       </DialogContent>
     </Dialog>

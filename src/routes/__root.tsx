@@ -12,8 +12,10 @@ import {
 } from "@tanstack/react-router";
 import {
   useEffect,
+  useState,
   type ReactNode,
 } from "react";
+
 
 import appCss from "../styles.css?url";
 
@@ -30,6 +32,11 @@ import {
   watchSystemTheme,
 } from "@/lib/theme";
 import { startScrollLockWatchdog } from "@/lib/scroll-lock-watchdog";
+import {
+  PrivacyAcknowledgementGate,
+  hasCurrentPrivacyAcknowledgement,
+} from "@/components/PrivacyAcknowledgement";
+
 
 function NotFoundComponent() {
   return (
@@ -305,6 +312,15 @@ function RootComponent() {
   const { queryClient } =
     Route.useRouteContext();
 
+  const [privacyAccepted, setPrivacyAccepted] =
+    useState<boolean>(true);
+
+  useEffect(() => {
+    setPrivacyAccepted(hasCurrentPrivacyAcknowledgement());
+  }, []);
+
+
+
   useEffect(() => {
     const stopWatchdog = startScrollLockWatchdog();
 
@@ -366,6 +382,12 @@ function RootComponent() {
           <PwaStatus />
         </GlobalSwipeArea>
       </div>
+      {!privacyAccepted && (
+        <PrivacyAcknowledgementGate
+          onAccepted={() => setPrivacyAccepted(true)}
+        />
+      )}
     </QueryClientProvider>
+
   );
 }

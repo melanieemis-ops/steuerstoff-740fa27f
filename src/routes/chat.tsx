@@ -3,6 +3,8 @@ import {
   useEffect,
   useRef,
   useState,
+  type ClipboardEvent,
+  type DragEvent,
   type FormEvent,
   type KeyboardEvent,
   type ReactNode,
@@ -28,6 +30,19 @@ import { useVoiceInput } from "@/hooks/useVoiceInput";
 import { SpeechProvider, useSpeechContext } from "@/hooks/useSpeechSynthesis";
 import { ChatMessageAudioButton } from "@/components/chat/ChatMessageAudioButton";
 import { SpeechMiniPlayer } from "@/components/chat/SpeechMiniPlayer";
+import {
+  AttachmentPlusButton,
+  AttachmentChips,
+} from "@/components/chat/AttachmentControls";
+import {
+  revokeAll,
+  revokeAttachment,
+  toPersisted,
+  validateAndBuild,
+  type ChatAttachment,
+  type PersistedAttachment,
+} from "@/lib/chatAttachments";
+
 
 function withFallbackMarker(a: ChatAnswer): ChatAnswer {
   return {

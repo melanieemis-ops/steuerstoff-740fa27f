@@ -1,10 +1,13 @@
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import {
   useEffect,
+  useLayoutEffect,
   useRef,
   useState,
   type TouchEvent,
 } from "react";
+import { createPortal } from "react-dom";
+
 
 const magazinePages = [
   {
@@ -28,21 +31,39 @@ export function MagazineFlipbook() {
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   const touchStartX = useRef<number | null>(null);
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (!isFullscreen) {
-      return;
-    }
+    if (!isFullscreen) return;
 
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setIsFullscreen(false);
-      }
+      if (event.key === "Escape") setIsFullscreen(false);
     };
-
     window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
+
+    // Lock background scroll while overlay is open, restore on close.
+    const body = document.body;
+    const html = document.documentElement;
+    const prevBody = body.style.overflow;
+    const prevHtml = html.style.overflow;
+    body.style.overflow = "hidden";
+    html.style.overflow = "hidden";
+
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      body.style.overflow = prevBody;
+      html.style.overflow = prevHtml;
+    };
   }, [isFullscreen]);
+
+  useLayoutEffect(() => {
+    if (!isFullscreen) return;
+    // Always start at top, page 1.
+    scrollContainerRef.current?.scrollTo({ top: 0 });
+    closeButtonRef.current?.focus();
+  }, [isFullscreen]);
+
 
   const turnToPage = (nextIndex: number) => {
     if (
@@ -116,7 +137,7 @@ export function MagazineFlipbook() {
       : "rotateY(180deg)"
     : "rotateY(0deg)";
 
-  const currentPage = magazinePages[pageIndex];
+  
 
   return (
     <div className="mx-auto w-full max-w-[420px]">
@@ -228,31 +249,77 @@ export function MagazineFlipbook() {
         </span>
       </p>
 
-      {isFullscreen ? (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-3 sm:p-6"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Magazinseite im Vollbild"
-        >
-          <div className="relative w-full max-w-5xl">
-            <button
-              type="button"
-              onClick={() => setIsFullscreen(false)}
-              className="absolute right-2 top-2 z-10 rounded-full border border-border/70 bg-background/90 p-2 text-foreground shadow-lg backdrop-blur"
-              aria-label="Vollbild schließen"
+      {isFullscreen && typeof document !== "undefined"
+        ? createPortal(
+            <div
+              className="fixed inset-0 z-[100] bg-neutral-900/95"
+              role="dialog"
+              aria-modal="true"
+              aria-label="steuerstoff Magazin – Vollbild-Leseansicht"
             >
-              <X className="h-5 w-5" />
-            </button>
+              <div
+                ref={scrollContainerRef}
+                className="h-full w-full overflow-y-auto overflow-x-hidden overscroll-contain"
+                style={{
+                  WebkitOverflowScrolling: "touch",
+                  overscrollBehaviorY: "contain",
+                }}
+              >
+                {/* Sticky Reader-Leiste */}
+                <div
+                  className="sticky top-0 z-10 border-b border-white/10 bg-neutral-900/80 backdrop-blur"
+                  style={{ paddingTop: "env(safe-area-inset-top)" }}
+                >
+                  <div className="mx-auto flex w-full max-w-[1100px] items-center justify-between gap-3 px-4 py-3 sm:px-6">
+                    <div className="flex items-baseline gap-2 text-white">
+                      <span className="text-sm font-semibold tracking-tight">
+                        steuerstoff Magazin
+                      </span>
+                      <span className="text-xs text-white/60">
+                        {magazinePages.length} Seiten
+                      </span>
+                    </div>
+                    <button
+                      ref={closeButtonRef}
+                      type="button"
+                      onClick={() => setIsFullscreen(false)}
+                      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white shadow-lg backdrop-blur transition hover:bg-white/20"
+                      aria-label="Vollbild schließen"
+                    >
+                      <X className="h-5 w-5" aria-hidden="true" />
+                    </button>
+                  </div>
+                </div>
 
-            <img
-              src={currentPage.src}
-              alt={currentPage.alt}
-              className="max-h-[90vh] w-full rounded-[1.25rem] object-contain shadow-2xl"
-            />
-          </div>
-        </div>
-      ) : null}
+                {/* Seiten untereinander */}
+                <div
+                  className="mx-auto flex w-full max-w-[1100px] flex-col gap-6 px-3 py-6 sm:px-6 sm:py-10"
+                  style={{
+                    paddingBottom:
+                      "calc(env(safe-area-inset-bottom) + 2.5rem)",
+                  }}
+                >
+                  {magazinePages.map((page, i) => (
+                    <figure
+                      key={page.src}
+                      className="overflow-hidden rounded-xl bg-[#f6f0e7] shadow-[0_20px_60px_-24px_rgba(0,0,0,0.6)] ring-1 ring-white/10"
+                    >
+                      <img
+                        src={page.src}
+                        alt={page.alt}
+                        loading={i === 0 ? "eager" : "lazy"}
+                        className="block h-auto w-full select-none"
+                        draggable={false}
+                      />
+                    </figure>
+                  ))}
+                </div>
+              </div>
+            </div>,
+            document.body,
+          )
+        : null}
+
     </div>
   );
 }

@@ -1127,10 +1127,51 @@ function MessageBubble({
   onRetry: () => void;
 }) {
   if (msg.role === "user") {
+    const atts = msg.attachments ?? [];
     return (
       <div data-msg className="flex justify-end">
         <div className="max-w-[85%] rounded-2xl rounded-tr-sm bg-primary px-4 py-3 text-primary-foreground">
-          <p className="whitespace-pre-wrap break-words text-[15px] leading-relaxed">{msg.text}</p>
+          {atts.length > 0 && (
+            <div className="mb-2 flex flex-wrap gap-2">
+              {atts.map((a) => {
+                const previewUrl = (a as PersistedAttachment & { previewUrl?: string })
+                  .previewUrl;
+                return (
+                  <div
+                    key={a.id}
+                    className="flex max-w-[220px] items-center gap-2 rounded-xl bg-primary-foreground/10 py-1 pl-1 pr-2"
+                  >
+                    {a.kind === "image" && previewUrl ? (
+                      <img
+                        src={previewUrl}
+                        alt={a.name}
+                        className="h-10 w-10 shrink-0 rounded-lg object-cover"
+                      />
+                    ) : (
+                      <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary-foreground/20">
+                        <Paperclip className="h-4 w-4" />
+                      </span>
+                    )}
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate text-[12px] font-medium">{a.name}</p>
+                      <p className="text-[10px] opacity-80">
+                        {a.size < 1024
+                          ? `${a.size} B`
+                          : a.size < 1024 * 1024
+                            ? `${Math.round(a.size / 1024)} KB`
+                            : `${(a.size / (1024 * 1024)).toFixed(1)} MB`}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+          {msg.text && (
+            <p className="whitespace-pre-wrap break-words text-[15px] leading-relaxed">
+              {msg.text}
+            </p>
+          )}
           <button
             type="button"
             onClick={(event) => {
@@ -1152,6 +1193,7 @@ function MessageBubble({
       </div>
     );
   }
+
   if (msg.role === "error") {
     return (
       <div data-msg className="flex justify-start">

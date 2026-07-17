@@ -17,7 +17,12 @@ type Props = {
 };
 
 function useIsMobileSheet() {
-  const [isMobile, setIsMobile] = useState(false);
+  // Synchronous init to avoid a desktop-popover flash on mobile that would
+  // render inside the narrow composer parent and cause vertical letter-wrap.
+  const [isMobile, setIsMobile] = useState<boolean>(() => {
+    if (typeof window === "undefined") return false;
+    return window.matchMedia("(max-width: 640px)").matches;
+  });
   useEffect(() => {
     if (typeof window === "undefined") return;
     const mql = window.matchMedia("(max-width: 640px)");

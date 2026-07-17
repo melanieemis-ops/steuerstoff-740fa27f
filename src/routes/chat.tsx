@@ -1,5 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useRef, useState, type FormEvent, type KeyboardEvent, type ReactNode } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type FormEvent,
+  type KeyboardEvent,
+  type ReactNode,
+} from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 
 import {
@@ -18,8 +25,9 @@ import {
 } from "lucide-react";
 import { generateAnswer, REVIEW_HINT, type ChatAnswer } from "@/lib/chatHeuristics";
 import { useVoiceInput } from "@/hooks/useVoiceInput";
-
-
+import { SpeechProvider, useSpeechContext } from "@/hooks/useSpeechSynthesis";
+import { MessageSpeechControls } from "@/components/chat/MessageSpeechControls";
+import { SpeechMiniPlayer } from "@/components/chat/SpeechMiniPlayer";
 
 function withFallbackMarker(a: ChatAnswer): ChatAnswer {
   return {
@@ -128,8 +136,9 @@ function ChatPage() {
     // Dev-Modus: KB-Regression per Konsole ausführbar machen.
     if (import.meta.env.DEV && typeof window !== "undefined") {
       void import("@/lib/regressionRunner").then((m) => {
-        (window as unknown as { __runKbRegression?: (opts?: { verbose?: boolean }) => unknown }).__runKbRegression =
-          (opts = { verbose: true }) => m.runKbRegression(opts);
+        (
+          window as unknown as { __runKbRegression?: (opts?: { verbose?: boolean }) => unknown }
+        ).__runKbRegression = (opts = { verbose: true }) => m.runKbRegression(opts);
         // eslint-disable-next-line no-console
         console.info("[steuerstoff] KB-Regression verfügbar: window.__runKbRegression()");
       });
@@ -139,8 +148,7 @@ function ChatPage() {
 
   function prefersReducedMotion() {
     return (
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches
     );
   }
 
@@ -200,7 +208,6 @@ function ChatPage() {
     timersRef.current.push(t);
   }
 
-
   // persist
   useEffect(() => {
     if (messages.length) saveMessages(messages);
@@ -227,8 +234,6 @@ function ChatPage() {
     ta.style.height = Math.min(ta.scrollHeight, 180) + "px";
   }, [input]);
 
-
-
   async function ask(text: string, retryOf?: string) {
     const trimmed = text.trim();
     if (!trimmed || busy) return;
@@ -243,11 +248,13 @@ function ChatPage() {
 
     // Kompakter Verlauf: nur die letzten 8 user/assistant-Turns.
     const priorMsgs = messages.filter((m) => m.role === "user" || m.role === "assistant");
-    const history = priorMsgs.slice(-8).map((m) =>
-      m.role === "user"
-        ? { role: "user" as const, content: m.text }
-        : { role: "assistant" as const, content: m.answer.summary },
-    );
+    const history = priorMsgs
+      .slice(-8)
+      .map((m) =>
+        m.role === "user"
+          ? { role: "user" as const, content: m.text }
+          : { role: "assistant" as const, content: m.answer.summary },
+      );
 
     let assistantInserted = false;
     let accumulated = "";
@@ -264,7 +271,10 @@ function ChatPage() {
       const reader = resp.body.getReader();
       const decoder = new TextDecoder();
       let buf = "";
-      let meta: { sources?: Array<{ id: string; title: string; reference: string | null; excerpt: string }>; model?: string } = {};
+      let meta: {
+        sources?: Array<{ id: string; title: string; reference: string | null; excerpt: string }>;
+        model?: string;
+      } = {};
       // eslint-disable-next-line no-constant-condition
       while (true) {
         const { value, done } = await reader.read();
@@ -286,7 +296,11 @@ function ChatPage() {
               {
                 id: assistantId,
                 role: "assistant",
-                answer: { summary: summarySoFar, confidence: "medium", needsHumanReview: false } as ChatAnswer,
+                answer: {
+                  summary: summarySoFar,
+                  confidence: "medium",
+                  needsHumanReview: false,
+                } as ChatAnswer,
                 t: Date.now(),
               },
             ]);
@@ -302,10 +316,16 @@ function ChatPage() {
         }
         if (metaIdx !== -1 && buf.length >= metaIdx + "<<STEUERSTOFF_META>>".length) {
           const metaJson = buf.slice(metaIdx + "<<STEUERSTOFF_META>>".length);
-          try { meta = JSON.parse(metaJson); } catch { /* wait for more */ }
+          try {
+            meta = JSON.parse(metaJson);
+          } catch {
+            /* wait for more */
+          }
         }
         if (errIdx !== -1) {
-          throw new Error(buf.slice(errIdx + "<<STEUERSTOFF_ERROR>>".length).trim() || "Streamfehler");
+          throw new Error(
+            buf.slice(errIdx + "<<STEUERSTOFF_ERROR>>".length).trim() || "Streamfehler",
+          );
         }
       }
 
@@ -345,7 +365,10 @@ function ChatPage() {
         );
       }
     } catch (err) {
-      console.warn("[steuerstoff-chat] AI unavailable, using local fallback:", (err as Error).message);
+      console.warn(
+        "[steuerstoff-chat] AI unavailable, using local fallback:",
+        (err as Error).message,
+      );
       // Falls ein leerer Assistenten-Bubble bereits gerendert wurde, wieder entfernen.
       if (assistantInserted) {
         setMessages((prev) => prev.filter((m) => m.id !== assistantId));
@@ -373,7 +396,6 @@ function ChatPage() {
       }
     }
   }
-
 
   function activateChatImmediately() {
     clearTimers();
@@ -414,9 +436,12 @@ function ChatPage() {
     // Enter sendet, Shift+Enter erzeugt Zeilenumbruch. Auf Touch-Geräten
     // bleibt Enter = Zeilenumbruch, damit die Bildschirmtastatur nicht
     // ungewollt sendet.
-    if (e.key === "Enter" && !e.shiftKey && !(e.nativeEvent as { isComposing?: boolean }).isComposing) {
-      const isFine =
-        typeof window !== "undefined" && window.matchMedia("(pointer: fine)").matches;
+    if (
+      e.key === "Enter" &&
+      !e.shiftKey &&
+      !(e.nativeEvent as { isComposing?: boolean }).isComposing
+    ) {
+      const isFine = typeof window !== "undefined" && window.matchMedia("(pointer: fine)").matches;
       if (isFine) {
         e.preventDefault();
         submitMessage(input);
@@ -475,334 +500,346 @@ function ChatPage() {
   const canSend = input.trim().length > 0 && !busy;
 
   return (
-    <div className="chat-page chat-bg-deep min-h-screen flex flex-col" data-page="chat">
-      <SiteHeader />
+    <SpeechProvider>
+      <div className="chat-page chat-bg-deep min-h-screen flex flex-col" data-page="chat">
+        <SiteHeader />
 
-      <div className="border-b border-white/10 bg-transparent">
-        <div className="mx-auto flex w-full max-w-3xl items-center justify-between gap-3 px-4 py-3">
-          <div className="min-w-0">
-            <h1 className="text-base font-semibold tracking-tight text-white">
-              steuerstoff Chat
-            </h1>
-            <p className="text-[11px] text-white/60">
-              Steuerlicher KI-Arbeitsassistent
-            </p>
-          </div>
-          <div className="flex shrink-0 items-center gap-2">
-            {(hasMessages || phase !== "welcome") && (
-              <button
-                type="button"
-                onClick={newChat}
-                className="inline-flex items-center gap-1.5 rounded-md border border-white/15 bg-white/5 px-2.5 py-1.5 text-xs text-white transition-colors hover:bg-white/10"
-                aria-label="Neuer Chat"
-              >
-                <Plus className="h-3.5 w-3.5" />
-                Neuer Chat
-              </button>
-            )}
+        <div className="border-b border-white/10 bg-transparent">
+          <div className="mx-auto flex w-full max-w-3xl items-center justify-between gap-3 px-4 py-3">
+            <div className="min-w-0">
+              <h1 className="text-base font-semibold tracking-tight text-white">
+                steuerstoff Chat
+              </h1>
+              <p className="text-[11px] text-white/60">Steuerlicher KI-Arbeitsassistent</p>
+            </div>
+            <div className="flex shrink-0 items-center gap-2">
+              {(hasMessages || phase !== "welcome") && (
+                <button
+                  type="button"
+                  onClick={newChat}
+                  className="inline-flex items-center gap-1.5 rounded-md border border-white/15 bg-white/5 px-2.5 py-1.5 text-xs text-white transition-colors hover:bg-white/10"
+                  aria-label="Neuer Chat"
+                >
+                  <Plus className="h-3.5 w-3.5" />
+                  Neuer Chat
+                </button>
+              )}
+            </div>
           </div>
         </div>
-      </div>
 
-      <div
-        ref={scrollRef}
-        className="flex-1 overflow-y-auto"
-        style={{ overscrollBehavior: "contain" }}
-      >
-        <div className="mx-auto w-full max-w-3xl px-4 py-6 pb-[160px] md:pb-[180px]">
-          {phase === "welcome" ? (
-            <div
-              className={`space-y-6 transition-all duration-300 ease-out ${
-                welcomeLeaving ? "pointer-events-none translate-y-2 opacity-0" : "opacity-100"
-              }`}
-              aria-hidden={welcomeLeaving}
-            >
+        <div
+          ref={scrollRef}
+          className="flex-1 overflow-y-auto"
+          style={{ overscrollBehavior: "contain" }}
+        >
+          <div className="mx-auto w-full max-w-3xl px-4 py-6 pb-[160px] md:pb-[180px]">
+            {phase === "welcome" ? (
               <div
-                role="button"
-                tabIndex={0}
-                aria-label="Chat starten"
-                onClick={startWelcomeFlow}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    startWelcomeFlow();
-                  }
-                }}
-                className="w-full cursor-pointer rounded-2xl border border-border bg-card p-5 text-left shadow-sm transition-transform hover:border-foreground/25 active:scale-[0.99]"
+                className={`space-y-6 transition-all duration-300 ease-out ${
+                  welcomeLeaving ? "pointer-events-none translate-y-2 opacity-0" : "opacity-100"
+                }`}
+                aria-hidden={welcomeLeaving}
               >
-                <div className="flex items-start gap-3">
-                  <span
-                    className="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full"
-                    style={{ background: "var(--gradient-accent)" }}
-                  >
-                    <Sparkles className="h-3.5 w-3.5 text-background" />
-                  </span>
-                  <div>
-                    <p className="text-sm text-foreground">
-                      Hallo, ich bin der steuerstoff Chat. Stell mir eine steuerliche Frage
-                      oder beschreibe einen Kanzlei-Sachverhalt.
-                    </p>
-                    <p className="mt-2 text-[11px] text-muted-foreground">
-                      Tippe hier, um zu starten.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <p className="mb-2 text-[11px] uppercase tracking-wide text-muted-foreground">
-                  Schnellzugriff
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {SUGGEST.map((s) => (
-                    <button
-                      key={s}
-                      type="button"
-                      onClick={() => {
-                        if (s.endsWith("?")) {
-                          submitMessage(s);
-                        } else {
-                          setInput(s + ": ");
-                          activateChatImmediately();
-                          setTimeout(() => textareaRef.current?.focus(), 0);
-                        }
-                      }}
-                      className="rounded-full border border-border bg-background px-3 py-1.5 text-xs text-foreground transition-colors hover:bg-accent"
+                <div
+                  role="button"
+                  tabIndex={0}
+                  aria-label="Chat starten"
+                  onClick={startWelcomeFlow}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      startWelcomeFlow();
+                    }
+                  }}
+                  className="w-full cursor-pointer rounded-2xl border border-border bg-card p-5 text-left shadow-sm transition-transform hover:border-foreground/25 active:scale-[0.99]"
+                >
+                  <div className="flex items-start gap-3">
+                    <span
+                      className="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full"
+                      style={{ background: "var(--gradient-accent)" }}
                     >
-                      {s}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <p className="mb-2 text-[11px] uppercase tracking-wide text-muted-foreground">
-                  Beispiel-Fragen
-                </p>
-                <div className="grid gap-2">
-                  {EXAMPLES.map((q) => (
-                    <button
-                      key={q}
-                      type="button"
-                      onClick={() => submitMessage(q)}
-                      className="group flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 text-left text-sm text-foreground transition-colors hover:bg-accent"
-                    >
-                      <span className="min-w-0 truncate">{q}</span>
-                      <ArrowRight className="h-3.5 w-3.5 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ) : (
-            <div className="space-y-4">
-              {showGreetingBubble && (
-                <div data-msg className="flex justify-start animate-in fade-in duration-300">
-                  <div className="w-full max-w-[94%] rounded-2xl rounded-tl-md border border-border bg-card p-4 shadow-sm">
-                    <div className="flex items-start gap-3">
-                      <span
-                        className="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full"
-                        style={{ background: "var(--gradient-accent)" }}
-                      >
-                        <Sparkles className="h-3.5 w-3.5 text-background" />
-                      </span>
-                      <div className="min-w-0 flex-1">
-                        {dots ? (
-                          <span
-                            role="status"
-                            aria-label="steuerstoff schreibt"
-                            className="inline-flex items-center gap-1 py-1"
-                          >
-                            {prefersReducedMotion() ? (
-                              <span className="text-sm text-muted-foreground">
-                                steuerstoff schreibt …
-                              </span>
-                            ) : (
-                              <>
-                                <span className="typing-dot" style={{ animationDelay: "0ms" }} />
-                                <span className="typing-dot" style={{ animationDelay: "160ms" }} />
-                                <span className="typing-dot" style={{ animationDelay: "320ms" }} />
-                              </>
-                            )}
-                          </span>
-                        ) : (
-                          <>
-                            <p
-                              aria-hidden={phase !== "active"}
-                              className="whitespace-pre-wrap break-words text-[15px] leading-relaxed text-foreground"
-                            >
-                              {typed}
-                              {phase === "starting" && typed.length < GREETING_TEXT.length && (
-                                <span className="typing-caret" aria-hidden>|</span>
-                              )}
-                            </p>
-                            {phase === "active" && (
-                              <p className="sr-only" aria-live="polite">
-                                {GREETING_TEXT}
-                              </p>
-                            )}
-                          </>
-                        )}
-                      </div>
+                      <Sparkles className="h-3.5 w-3.5 text-background" />
+                    </span>
+                    <div>
+                      <p className="text-sm text-foreground">
+                        Hallo, ich bin der steuerstoff Chat. Stell mir eine steuerliche Frage oder
+                        beschreibe einen Kanzlei-Sachverhalt.
+                      </p>
+                      <p className="mt-2 text-[11px] text-muted-foreground">
+                        Tippe hier, um zu starten.
+                      </p>
                     </div>
                   </div>
                 </div>
-              )}
-              {messages.map((m) => (
-                <MessageBubble
-                  key={m.id}
-                  msg={m}
-                  copied={copiedId === m.id}
-                  onCopy={() => {
-                    if (m.role === "assistant") copyAnswer(m.id, m.answer);
-                    else if (m.role === "user") copyUserPrompt(m.id, m.text);
-                  }}
-                  onRetry={() => {
-                    if (m.role === "error") ask(messageTextById(messages, m.retryOf) ?? "", m.id);
-                  }}
-                />
-              ))}
-              {busy && (
-                <div
-                  data-msg
-                  className="flex items-center gap-2 rounded-2xl border border-border bg-card/60 px-4 py-3 text-xs text-muted-foreground"
-                  aria-live="polite"
-                >
-                  <span className="inline-block h-3 w-3 animate-spin rounded-full border-2 border-muted-foreground/40 border-t-foreground" />
-                  steuerstoff denkt nach …
-                </div>
-              )}
-              {!busy && messages.some((m) => m.role === "assistant") && (
-                <div className="pt-1">
-                  <button
-                    type="button"
-                    onClick={regenerate}
-                    className="inline-flex items-center gap-1.5 rounded-md border border-border bg-background px-2.5 py-1.5 text-xs text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
-                  >
-                    <RefreshCw className="h-3 w-3" />
-                    Antwort erneut erstellen
-                  </button>
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-      </div>
 
-      <form
-        onSubmit={handleSubmit}
-        className="fixed inset-x-0 bottom-0 z-30 border-t border-white/10 bg-[⇨07142f]/95 backdrop-blur pb-[calc(env(safe-area-inset-bottom)+64px)] md:pb-3"
-        data-no-swipe="true"
-      >
-        <div className="mx-auto w-full max-w-3xl px-3 pt-3">
-          <div className="flex items-end gap-2 rounded-3xl border border-border bg-card px-3 py-2 shadow-sm focus-within:border-foreground/30">
-            {voice.isSupported && (
-              <button
-                type="button"
-                onClick={() => {
-                  if (voice.isTranscribing) return;
-                  if (voice.isRecording) voice.stopRecording();
-                  else void voice.startRecording();
-                }}
-                disabled={voice.isTranscribing}
-                aria-label={
-                  voice.isTranscribing
-                    ? "Sprache wird transkribiert"
-                    : voice.isRecording
-                    ? "Sprachaufnahme beenden"
-                    : "Frage diktieren"
+                <div>
+                  <p className="mb-2 text-[11px] uppercase tracking-wide text-muted-foreground">
+                    Schnellzugriff
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {SUGGEST.map((s) => (
+                      <button
+                        key={s}
+                        type="button"
+                        onClick={() => {
+                          if (s.endsWith("?")) {
+                            submitMessage(s);
+                          } else {
+                            setInput(s + ": ");
+                            activateChatImmediately();
+                            setTimeout(() => textareaRef.current?.focus(), 0);
+                          }
+                        }}
+                        className="rounded-full border border-border bg-background px-3 py-1.5 text-xs text-foreground transition-colors hover:bg-accent"
+                      >
+                        {s}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <p className="mb-2 text-[11px] uppercase tracking-wide text-muted-foreground">
+                    Beispiel-Fragen
+                  </p>
+                  <div className="grid gap-2">
+                    {EXAMPLES.map((q) => (
+                      <button
+                        key={q}
+                        type="button"
+                        onClick={() => submitMessage(q)}
+                        className="group flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 text-left text-sm text-foreground transition-colors hover:bg-accent"
+                      >
+                        <span className="min-w-0 truncate">{q}</span>
+                        <ArrowRight className="h-3.5 w-3.5 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="space-y-4">
+                {showGreetingBubble && (
+                  <div data-msg className="flex justify-start animate-in fade-in duration-300">
+                    <div className="w-full max-w-[94%] rounded-2xl rounded-tl-md border border-border bg-card p-4 shadow-sm">
+                      <div className="flex items-start gap-3">
+                        <span
+                          className="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full"
+                          style={{ background: "var(--gradient-accent)" }}
+                        >
+                          <Sparkles className="h-3.5 w-3.5 text-background" />
+                        </span>
+                        <div className="min-w-0 flex-1">
+                          {dots ? (
+                            <span
+                              role="status"
+                              aria-label="steuerstoff schreibt"
+                              className="inline-flex items-center gap-1 py-1"
+                            >
+                              {prefersReducedMotion() ? (
+                                <span className="text-sm text-muted-foreground">
+                                  steuerstoff schreibt …
+                                </span>
+                              ) : (
+                                <>
+                                  <span className="typing-dot" style={{ animationDelay: "0ms" }} />
+                                  <span
+                                    className="typing-dot"
+                                    style={{ animationDelay: "160ms" }}
+                                  />
+                                  <span
+                                    className="typing-dot"
+                                    style={{ animationDelay: "320ms" }}
+                                  />
+                                </>
+                              )}
+                            </span>
+                          ) : (
+                            <>
+                              <p
+                                aria-hidden={phase !== "active"}
+                                className="whitespace-pre-wrap break-words text-[15px] leading-relaxed text-foreground"
+                              >
+                                {typed}
+                                {phase === "starting" && typed.length < GREETING_TEXT.length && (
+                                  <span className="typing-caret" aria-hidden>
+                                    |
+                                  </span>
+                                )}
+                              </p>
+                              {phase === "active" && (
+                                <p className="sr-only" aria-live="polite">
+                                  {GREETING_TEXT}
+                                </p>
+                              )}
+                            </>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+                {messages.map((m, idx) => (
+                  <MessageBubble
+                    key={m.id}
+                    msg={m}
+                    copied={copiedId === m.id}
+                    isStreaming={busy && idx === messages.length - 1 && m.role === "assistant"}
+                    onCopy={() => {
+                      if (m.role === "assistant") copyAnswer(m.id, m.answer);
+                      else if (m.role === "user") copyUserPrompt(m.id, m.text);
+                    }}
+                    onRetry={() => {
+                      if (m.role === "error") ask(messageTextById(messages, m.retryOf) ?? "", m.id);
+                    }}
+                  />
+                ))}
+                {busy && (
+                  <div
+                    data-msg
+                    className="flex items-center gap-2 rounded-2xl border border-border bg-card/60 px-4 py-3 text-xs text-muted-foreground"
+                    aria-live="polite"
+                  >
+                    <span className="inline-block h-3 w-3 animate-spin rounded-full border-2 border-muted-foreground/40 border-t-foreground" />
+                    steuerstoff denkt nach …
+                  </div>
+                )}
+                {!busy && messages.some((m) => m.role === "assistant") && (
+                  <div className="pt-1">
+                    <button
+                      type="button"
+                      onClick={regenerate}
+                      className="inline-flex items-center gap-1.5 rounded-md border border-border bg-background px-2.5 py-1.5 text-xs text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+                    >
+                      <RefreshCw className="h-3 w-3" />
+                      Antwort erneut erstellen
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+
+        <form
+          onSubmit={handleSubmit}
+          className="fixed inset-x-0 bottom-0 z-30 border-t border-white/10 bg-[⇨07142f]/95 backdrop-blur pb-[calc(env(safe-area-inset-bottom)+64px)] md:pb-3"
+          data-no-swipe="true"
+        >
+          <div className="mx-auto w-full max-w-3xl px-3 pt-3">
+            <div className="flex items-end gap-2 rounded-3xl border border-border bg-card px-3 py-2 shadow-sm focus-within:border-foreground/30">
+              {voice.isSupported && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (voice.isTranscribing) return;
+                    if (voice.isRecording) voice.stopRecording();
+                    else void voice.startRecording();
+                  }}
+                  disabled={voice.isTranscribing}
+                  aria-label={
+                    voice.isTranscribing
+                      ? "Sprache wird transkribiert"
+                      : voice.isRecording
+                        ? "Sprachaufnahme beenden"
+                        : "Frage diktieren"
+                  }
+                  aria-pressed={voice.isRecording}
+                  className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-colors ${
+                    voice.isTranscribing
+                      ? "bg-muted text-muted-foreground"
+                      : voice.isRecording
+                        ? "bg-red-500 text-white animate-pulse hover:bg-red-600"
+                        : "bg-muted text-foreground hover:bg-muted/70"
+                  }`}
+                >
+                  {voice.isTranscribing ? (
+                    <LoaderCircle className="h-4 w-4 animate-spin" />
+                  ) : voice.isRecording ? (
+                    <Square className="h-4 w-4" fill="currentColor" />
+                  ) : (
+                    <Mic className="h-4 w-4" />
+                  )}
+                </button>
+              )}
+              <textarea
+                ref={textareaRef}
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={handleKeyDown}
+                rows={1}
+                placeholder={
+                  voice.isRecording
+                    ? "Ich höre zu …"
+                    : voice.isTranscribing
+                      ? "Sprache wird in Text umgewandelt …"
+                      : "Stell eine steuerliche Frage …"
                 }
-                aria-pressed={voice.isRecording}
+                className="flex-1 resize-none bg-transparent px-2 py-2 text-[15px] leading-relaxed text-foreground outline-none placeholder:text-muted-foreground"
+                style={{ maxHeight: 180 }}
+                aria-label="Nachricht eingeben"
+              />
+              <button
+                type="submit"
+                disabled={!canSend}
+                aria-label="Nachricht senden"
                 className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-colors ${
-                  voice.isTranscribing
-                    ? "bg-muted text-muted-foreground"
-                    : voice.isRecording
-                    ? "bg-red-500 text-white animate-pulse hover:bg-red-600"
-                    : "bg-muted text-foreground hover:bg-muted/70"
+                  canSend
+                    ? "bg-foreground text-background hover:opacity-90"
+                    : "bg-muted text-muted-foreground"
                 }`}
               >
-                {voice.isTranscribing ? (
-                  <LoaderCircle className="h-4 w-4 animate-spin" />
-                ) : voice.isRecording ? (
-                  <Square className="h-4 w-4" fill="currentColor" />
-                ) : (
-                  <Mic className="h-4 w-4" />
-                )}
+                <ArrowUp className="h-4 w-4" />
               </button>
+            </div>
+            {(voice.isRecording || voice.isTranscribing || voice.error) && (
+              <div className="px-2 pt-1.5" aria-live="polite">
+                {voice.isRecording && (
+                  <p className="text-[11px] text-muted-foreground">
+                    Aufnahme läuft · {voice.elapsedSeconds}s von 60s · Mikrofon erneut antippen zum
+                    Beenden
+                  </p>
+                )}
+                {voice.isTranscribing && (
+                  <p className="text-[11px] text-muted-foreground">
+                    Sprache wird in Text umgewandelt …
+                  </p>
+                )}
+                {voice.error && !voice.isRecording && !voice.isTranscribing && (
+                  <p role="alert" className="text-[11px] text-red-500">
+                    {voice.error}{" "}
+                    <button
+                      type="button"
+                      onClick={voice.clearError}
+                      className="underline hover:no-underline"
+                    >
+                      Ausblenden
+                    </button>
+                  </p>
+                )}
+              </div>
             )}
-            <textarea
-              ref={textareaRef}
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={handleKeyDown}
-              rows={1}
-              placeholder={
-                voice.isRecording
-                  ? "Ich höre zu …"
-                  : voice.isTranscribing
-                  ? "Sprache wird in Text umgewandelt …"
-                  : "Stell eine steuerliche Frage …"
-              }
-              className="flex-1 resize-none bg-transparent px-2 py-2 text-[15px] leading-relaxed text-foreground outline-none placeholder:text-muted-foreground"
-              style={{ maxHeight: 180 }}
-              aria-label="Nachricht eingeben"
-            />
-            <button
-              type="submit"
-              disabled={!canSend}
-              aria-label="Nachricht senden"
-              className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-colors ${
-                canSend
-                  ? "bg-foreground text-background hover:opacity-90"
-                  : "bg-muted text-muted-foreground"
-              }`}
-            >
-              <ArrowUp className="h-4 w-4" />
-            </button>
-          </div>
-          {(voice.isRecording || voice.isTranscribing || voice.error) && (
-            <div className="px-2 pt-1.5" aria-live="polite">
-              {voice.isRecording && (
-                <p className="text-[11px] text-muted-foreground">
-                  Aufnahme läuft · {voice.elapsedSeconds}s von 60s · Mikrofon erneut antippen zum Beenden
-                </p>
-              )}
-              {voice.isTranscribing && (
-                <p className="text-[11px] text-muted-foreground">Sprache wird in Text umgewandelt …</p>
-              )}
-              {voice.error && !voice.isRecording && !voice.isTranscribing && (
-                <p role="alert" className="text-[11px] text-red-500">
-                  {voice.error}{" "}
-                  <button
-                    type="button"
-                    onClick={voice.clearError}
-                    className="underline hover:no-underline"
-                  >
-                    Ausblenden
-                  </button>
-                </p>
+            <div className="flex items-center justify-between px-2 pb-2 pt-1.5">
+              <p className="text-[10px] text-muted-foreground">
+                Arbeitshilfe, keine verbindliche Beratung.
+              </p>
+              {hasMessages && (
+                <button
+                  type="button"
+                  onClick={newChat}
+                  className="inline-flex items-center gap-1 text-[10px] text-muted-foreground hover:text-foreground"
+                >
+                  <Trash2 className="h-3 w-3" />
+                  Verlauf löschen
+                </button>
               )}
             </div>
-          )}
-          <div className="flex items-center justify-between px-2 pb-2 pt-1.5">
-            <p className="text-[10px] text-muted-foreground">
-              Arbeitshilfe, keine verbindliche Beratung.
-            </p>
-            {hasMessages && (
-              <button
-                type="button"
-                onClick={newChat}
-                className="inline-flex items-center gap-1 text-[10px] text-muted-foreground hover:text-foreground"
-              >
-                <Trash2 className="h-3 w-3" />
-                Verlauf löschen
-              </button>
-            )}
           </div>
-
-        </div>
-      </form>
-    </div>
+        </form>
+      </div>
+      <SpeechMiniPlayer />
+    </SpeechProvider>
   );
 }
 
@@ -872,11 +909,13 @@ async function copyTextToClipboard(text: string): Promise<boolean> {
 function MessageBubble({
   msg,
   copied,
+  isStreaming,
   onCopy,
   onRetry,
 }: {
   msg: Msg;
   copied: boolean;
+  isStreaming?: boolean;
   onCopy: () => void;
   onRetry: () => void;
 }) {
@@ -895,7 +934,11 @@ function MessageBubble({
             className="mt-2 inline-flex items-center gap-1 rounded-xl px-2 py-1 text-[11px] text-primary-foreground/70 hover:bg-primary-foreground/10 hover:text-primary-foreground touch-manipulation"
             aria-label="Frage kopieren"
           >
-            {copied ? <Check className="h-3 w-3" aria-hidden="true" /> : <Copy className="h-3 w-3" aria-hidden="true" />}
+            {copied ? (
+              <Check className="h-3 w-3" aria-hidden="true" />
+            ) : (
+              <Copy className="h-3 w-3" aria-hidden="true" />
+            )}
             <span>{copied ? "Kopiert" : "Kopieren"}</span>
           </button>
         </div>
@@ -930,7 +973,7 @@ function MessageBubble({
 
   return (
     <div data-msg className="flex justify-start">
-      <AssistantCard msg={msg} copied={copied} onCopy={onCopy} />
+      <AssistantCard msg={msg} copied={copied} isStreaming={isStreaming} onCopy={onCopy} />
     </div>
   );
 }
@@ -952,10 +995,12 @@ const COLLAPSIBLE_TITLES = new Set([
 function AssistantCard({
   msg,
   copied,
+  isStreaming,
   onCopy,
 }: {
   msg: Extract<Msg, { role: "assistant" }>;
   copied: boolean;
+  isStreaming?: boolean;
   onCopy: () => void;
 }) {
   const a = msg.answer;
@@ -986,11 +1031,37 @@ function AssistantCard({
 
   // Reasoning weglassen, wenn eine Subsumtion vorhanden ist (Doppelung vermeiden).
   const showReasoning =
-    !!a.reasoning &&
-    !sections.some((s) => /subsumtion|begründung/i.test(s.title));
+    !!a.reasoning && !sections.some((s) => /subsumtion|begründung/i.test(s.title));
+
+  // Sprachausgabe: aktiver Zustand
+  const { isSupported, activeId, state } = useSpeechContext();
+  const isActive = isSupported && activeId === msg.id;
+  const isPlaying = isActive && state === "playing";
+  const reducedMotion =
+    typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Text für die Sprachausgabe: bevorzugt summary, ggf. mit Ergebnis und Sections
+  const speechText = [
+    ergebnis ? `Ergebnis: ${ergebnis.body}` : a.summary,
+    ...primary.map((s) => `${s.title}: ${s.body}`),
+    a.reasoning && showReasoning ? `Kurzbegründung: ${a.reasoning}` : "",
+    ...collapsible.map((s) => `${s.title}: ${s.body}`),
+    a.clarify ?? "",
+    ...(a.risks ?? []).map((r) => r),
+    a.nextStep ? `Nächster Schritt: ${a.nextStep}` : "",
+  ]
+    .filter(Boolean)
+    .join("\n\n");
 
   return (
-    <div className="w-full max-w-[94%] space-y-3 rounded-2xl rounded-tl-md border border-border bg-card p-4 shadow-sm">
+    <div
+      className={[
+        "w-full max-w-[94%] space-y-3 rounded-2xl rounded-tl-md border bg-card p-4 shadow-sm transition-all duration-300",
+        isActive
+          ? "border-cyan-400/60 dark:border-cyan-500/50 shadow-[0_0_0_1px_theme(colors.cyan.400/30),0_4px_24px_-4px_theme(colors.cyan.400/20)] dark:shadow-[0_0_0_1px_theme(colors.cyan.500/25),0_4px_24px_-4px_theme(colors.cyan.500/15)]"
+          : "border-border",
+      ].join(" ")}
+    >
       {/* Ergebnis prominent oben */}
       <div className="rounded-xl bg-foreground/[0.04] p-3">
         <p className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
@@ -1005,9 +1076,7 @@ function AssistantCard({
         <SectionBlock key={"p" + i} title={s.title} body={s.body} />
       ))}
 
-      {showReasoning && (
-        <SectionBlock title="Kurzbegründung" body={a.reasoning!} muted />
-      )}
+      {showReasoning && <SectionBlock title="Kurzbegründung" body={a.reasoning!} muted />}
 
       {numbered.length > 0 && (
         <Accordion title={`Prüfungsschema (${numbered.length} Schritte)`}>
@@ -1090,7 +1159,10 @@ function AssistantCard({
         <Accordion title={`Verwendete Wissensquellen (${a.sources.length})`}>
           <ul className="space-y-2 text-sm text-foreground">
             {a.sources.map((s, i) => (
-              <li key={s.id ?? i} className="rounded-md border border-border/60 bg-background/40 p-2">
+              <li
+                key={s.id ?? i}
+                className="rounded-md border border-border/60 bg-background/40 p-2"
+              >
                 <p className="break-words font-medium">{s.title}</p>
                 {s.reference && (
                   <p className="mt-0.5 text-xs text-muted-foreground">{s.reference}</p>
@@ -1125,7 +1197,7 @@ function AssistantCard({
         {REVIEW_HINT}
       </p>
 
-      <div className="flex items-center gap-1 pt-1">
+      <div className="flex flex-wrap items-center gap-1 pt-1">
         <button
           type="button"
           onClick={onCopy}
@@ -1135,6 +1207,20 @@ function AssistantCard({
           {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
           {copied ? "Kopiert" : "Kopieren"}
         </button>
+
+        {/* Animiertes Audio-Symbol während des Vorlesens */}
+        {isActive && (
+          <span
+            aria-hidden="true"
+            className={[
+              "inline-flex h-4 w-4 items-center justify-center rounded-full ml-1",
+              isPlaying && !reducedMotion ? "animate-pulse" : "",
+            ].join(" ")}
+            style={{ background: "var(--gradient-accent)" }}
+          />
+        )}
+
+        <MessageSpeechControls messageId={msg.id} rawText={speechText} isStreaming={isStreaming} />
       </div>
     </div>
   );

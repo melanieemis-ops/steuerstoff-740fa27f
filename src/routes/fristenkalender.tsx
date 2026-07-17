@@ -794,13 +794,15 @@ function MiniMonth({
 function MonthView({
   cursor,
   events,
+  noteDates,
   onOpenDay,
   onOpenEvent,
   onLongPressDay,
 }: {
   cursor: Date;
   events: CalendarEvent[];
-  onOpenDay: (d: Date) => void;
+  noteDates: Set<string>;
+  onOpenDay: (d: Date, el?: HTMLElement | null) => void;
   onOpenEvent: (e: CalendarEvent) => void;
   onLongPressDay: (d: Date) => void;
 }) {
@@ -871,17 +873,27 @@ function MonthView({
             >
               <button
                 type="button"
-                onClick={() => onOpenDay(d)}
+                onClick={(ev) => onOpenDay(d, ev.currentTarget)}
+                aria-label={`Tagesnotiz für ${fmtDE(d)} öffnen`}
                 className="mb-0.5 flex w-full items-center justify-between text-[11px] sm:text-xs"
               >
                 <span className={isCur ? "font-semibold" : ""}>{d.getDate()}</span>
-                {list.length > 0 && (
-                  <span className="flex gap-0.5">
-                    {list.slice(0, 3).map((o, i) => (
-                      <CategoryDot key={i} category={o.event.category} />
-                    ))}
-                  </span>
-                )}
+                <span className="flex items-center gap-0.5">
+                  {noteDates.has(key) && (
+                    <StickyNote
+                      className="h-2.5 w-2.5"
+                      style={{ color: "var(--magenta, oklch(0.7 0.18 340))" }}
+                      aria-label="Tagesnotiz vorhanden"
+                    />
+                  )}
+                  {list.length > 0 && (
+                    <span className="flex gap-0.5">
+                      {list.slice(0, 3).map((o, i) => (
+                        <CategoryDot key={i} category={o.event.category} />
+                      ))}
+                    </span>
+                  )}
+                </span>
               </button>
               <div className="flex flex-col gap-0.5">
                 {list.slice(0, maxShow).map((o, i) => (

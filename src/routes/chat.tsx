@@ -663,7 +663,8 @@ function ChatPage() {
   }
 
   const hasMessages = messages.length > 0;
-  const canSend = input.trim().length > 0 && !busy;
+  const canSend = (input.trim().length > 0 || attachments.length > 0) && !busy;
+
 
   return (
     <SpeechProvider>

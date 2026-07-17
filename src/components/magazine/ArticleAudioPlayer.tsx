@@ -115,14 +115,24 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
   }, [sourceId, stopBrowserSpeech]);
 
   const ensureLoaded = useCallback(() => {
-    if (audioRef.current) return audioRef.current;
+    const existing = audioRef.current;
+    if (existing && existing.src === new URL(audioSrc, window.location.href).href) {
+      return existing;
+    }
+    // iOS/Safari: bei Versionswechsel altes Element sauber entsorgen,
+    // damit kein alter Blob/Cache wiederverwendet wird.
+    if (existing) {
+      existing.pause();
+      existing.removeAttribute("src");
+      existing.load();
+    }
     const el = new Audio();
-    el.preload = "none";
+    el.preload = "metadata";
     el.src = audioSrc;
     el.playbackRate = speed;
     el.muted = muted;
     el.addEventListener("loadedmetadata", () => {
-      setDuration(el.duration || 0);
+      setDuration(Number.isFinite(el.duration) ? el.duration : 0);
       if (!restoredRef.current) {
         restoredRef.current = true;
         try {
@@ -138,7 +148,6 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
     });
     el.addEventListener("timeupdate", () => {
       setCurrent(el.currentTime);
-      // Position sparsam persistieren
       if (Math.floor(el.currentTime) % 3 === 0) {
         try {
           localStorage.setItem(positionKey(articleId), String(el.currentTime));
@@ -159,7 +168,9 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
     });
     el.addEventListener("error", () => {
       setStatus("error");
-      setErrorMsg("Audio konnte nicht geladen werden.");
+      setErrorMsg(
+        "Die KI-Audiofassung konnte nicht geladen werden. Sie können die Browserstimme als Ersatz nutzen.",
+      );
       setIsPlaying(false);
     });
     audioRef.current = el;
@@ -282,7 +293,13 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
 
       {status === "error" ? (
         <p className="mt-2 text-[12px] text-[#fca5a5]" role="alert">
-          {errorMsg ?? "Audio konnte nicht erzeugt werden."}
+          {errorMsg ?? "Die KI-Audiofassung konnte nicht geladen werden."}
+        </p>
+      ) : null}
+
+      {isLoading ? (
+        <p className="mt-2 text-[12px] text-[#c8d3ea]" aria-live="polite">
+          Audio wird einmalig vorbereitet … Das kann bei langen Beiträgen einen Moment dauern.
         </p>
       ) : null}
 

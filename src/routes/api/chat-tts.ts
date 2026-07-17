@@ -6,11 +6,14 @@
  * - Rate-Limit best-effort in-memory pro IP (bei Serverless nur je Instanz).
  * - Normalisierung serverseitig via speech-normalize.
  * - Modell-Fallback-Kette wie /api/tts.
+ * - Liefert einen validen WAV-Stream (PCM16, 24 kHz, mono), damit die
+ *   Wiedergabe auf iOS/Safari zuverlässig funktioniert.
  * - Cache-Control: private, no-store (dynamische Inhalte).
  */
 
 import { createFileRoute } from "@tanstack/react-router";
 import { normalizeForSpeech } from "@/lib/speech-normalize";
+import { mapWithConcurrency, pcmChunksToWav } from "@/lib/audioWav";
 
 const PRIMARY_MODEL = "gpt-4o-mini-tts-2025-12-15";
 const SECONDARY_MODEL = "gpt-4o-mini-tts";
@@ -23,6 +26,7 @@ const SPEECH_INSTRUCTIONS =
 
 const MAX_TEXT_LENGTH = 8000;
 const CHUNK_TARGET = 2500;
+const CHUNK_CONCURRENCY = 3;
 
 // ── Rate-Limit (best-effort; auf Serverless nur pro Instanz gültig) ──────────
 const RATE_WINDOW_MS = 10 * 60 * 1000;
@@ -38,7 +42,6 @@ function rateLimitCheck(ip: string): boolean {
   }
   arr.push(now);
   rateBuckets.set(ip, arr);
-  // Aufräumen
   if (rateBuckets.size > 500) {
     for (const [k, v] of rateBuckets) {
       if (!v.some((t) => now - t < RATE_WINDOW_MS)) rateBuckets.delete(k);
@@ -86,7 +89,7 @@ async function ttsChunk(opts: {
     model: opts.model,
     voice: opts.voice,
     input: opts.input,
-    response_format: "mp3",
+    response_format: "pcm",
   };
   if (opts.useInstructions) body.instructions = SPEECH_INSTRUCTIONS;
   return fetch("https://api.openai.com/v1/audio/speech", {
@@ -109,7 +112,6 @@ export const Route = createFileRoute("/api/chat-tts")({
           return new Response("Audio derzeit nicht verfügbar.", { status: 503 });
         }
 
-        // Same-origin best-effort: Origin muss zum Host passen, falls gesetzt.
         const origin = request.headers.get("origin");
         const host = request.headers.get("host");
         if (origin && host) {
@@ -123,7 +125,6 @@ export const Route = createFileRoute("/api/chat-tts")({
           }
         }
 
-        // Content-Type prüfen
         const ct = request.headers.get("content-type") ?? "";
         if (!ct.toLowerCase().includes("application/json")) {
           return new Response("Ungültiger Content-Type.", { status: 415 });
@@ -150,7 +151,6 @@ export const Route = createFileRoute("/api/chat-tts")({
           return new Response("Text zu lang.", { status: 413 });
         }
 
-        // Rate-Limit
         const ip = getIp(request);
         if (!rateLimitCheck(ip)) {
           return new Response("Zu viele Audio-Anfragen. Bitte kurz warten.", {
@@ -159,7 +159,6 @@ export const Route = createFileRoute("/api/chat-tts")({
           });
         }
 
-        // Metadaten/Sentinel und Markdown vor der Vertonung entfernen.
         let cleaned = trimmed;
         const metaIdx = cleaned.indexOf("<<STEUERSTOFF_META>>");
         if (metaIdx !== -1) cleaned = cleaned.slice(0, metaIdx);
@@ -245,38 +244,41 @@ export const Route = createFileRoute("/api/chat-tts")({
               headers: { "cache-control": "private, no-store" },
             });
           }
-          const parts: Uint8Array[] = [new Uint8Array(await first.arrayBuffer())];
-          for (let i = 1; i < chunks.length; i++) {
-            const r = await ttsChunk({
-              apiKey,
-              model: modelUsed,
-              voice: voiceUsed,
-              input: chunks[i],
-              useInstructions,
-              signal: controller.signal,
-            });
-            if (!r.ok) {
-              const t = await r.text().catch(() => "");
-              console.error("[steuerstoff-chat-tts] chunk", i, r.status, t.slice(0, 200));
-              return new Response("Audio konnte nicht erzeugt werden.", {
-                status: 502,
-                headers: { "cache-control": "private, no-store" },
+          const pcmParts: Uint8Array[] = new Array(chunks.length);
+          pcmParts[0] = new Uint8Array(await first.arrayBuffer());
+
+          if (chunks.length > 1) {
+            const rest = chunks.slice(1);
+            const results = await mapWithConcurrency(rest, CHUNK_CONCURRENCY, async (input) => {
+              const r = await ttsChunk({
+                apiKey,
+                model: modelUsed,
+                voice: voiceUsed,
+                input,
+                useInstructions,
+                signal: controller.signal,
               });
+              if (!r.ok) {
+                const t = await r.text().catch(() => "");
+                throw new Error(`chunk ${r.status}: ${t.slice(0, 200)}`);
+              }
+              return new Uint8Array(await r.arrayBuffer());
+            });
+            for (let i = 0; i < results.length; i++) {
+              pcmParts[i + 1] = results[i];
             }
-            parts.push(new Uint8Array(await r.arrayBuffer()));
           }
-          const total = parts.reduce((n, p) => n + p.byteLength, 0);
-          const merged = new Uint8Array(total);
-          let offset = 0;
-          for (const p of parts) {
-            merged.set(p, offset);
-            offset += p.byteLength;
-          }
-          return new Response(merged, {
+
+          const wav = pcmChunksToWav(pcmParts);
+          const body: ArrayBuffer = wav.buffer.slice(
+            wav.byteOffset,
+            wav.byteOffset + wav.byteLength,
+          ) as ArrayBuffer;
+          return new Response(body, {
             status: 200,
             headers: {
-              "content-type": "audio/mpeg",
-              "content-length": String(total),
+              "content-type": "audio/wav",
+              "content-length": String(wav.byteLength),
               "cache-control": "private, no-store",
             },
           });

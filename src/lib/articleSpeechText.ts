@@ -13,7 +13,7 @@ import { normalizeForSpeech } from "./speech-normalize";
 export const AUDIO_ALLOWED_ARTICLE_IDS: readonly string[] = ["jstg-2026-einkommensteuer"];
 
 /** Aktuelle Inhaltsversion – bei inhaltlichen Änderungen erhöhen. */
-export const AUDIO_CONTENT_VERSION = "1";
+export const AUDIO_CONTENT_VERSION = "2";
 
 export function isAudioAllowed(articleId: string): boolean {
   return AUDIO_ALLOWED_ARTICLE_IDS.includes(articleId);

@@ -1,25 +1,23 @@
 /**
- * /api/tts
+ * /api/tts – Segmentierte Magazin-Audioarchitektur (v3)
  *
- * Serverseitige, sichere TTS-Ausgabe für whitelisted Magazin-Artikel.
- * - GET-Parameter: articleId (whitelist), v (Inhaltsversion)
- * - Der Sprechtext wird ausschließlich aus den bekannten Artikeldaten aufgebaut.
- * - Modell-Wahl mit Fallback: gpt-4o-mini-tts-2025-12-15 → gpt-4o-mini-tts → tts-1-hd
- * - OpenAI liefert PCM16 (mono, 24 kHz, LE); Server verpackt alle Chunks in
- *   einen einzigen, validen WAV-Stream, damit Safari/iOS die Dauer korrekt
- *   erkennt (MP3-Konkatenation war dort nicht seekbar).
- * - Antwort: audio/wav
- * - Cache: public, immutable pro (articleId, v)
+ * Zwei GET-Modi:
+ *  - Manifest: ?articleId=...&v=3&manifest=1 → JSON mit Segment-URLs
+ *  - Segment : ?articleId=...&v=3&segment=N  → einzelne, gültige MP3
+ *
+ * Grund: iOS/Safari brach bei einer 49 MB großen Gesamt-WAV mit ~70 s TTFB
+ * ab. Kleine, sofort abspielbare MP3-Segmente lösen das Problem, ohne dass
+ * Segmente byteweise konkateniert werden.
  */
 
 import { createFileRoute } from "@tanstack/react-router";
 import {
   AUDIO_CONTENT_VERSION,
   buildArticleSpeechText,
-  chunkSpeechText,
+  estimateSpeechSeconds,
   isAudioAllowed,
+  segmentSpeechText,
 } from "@/lib/articleSpeechText";
-import { mapWithConcurrency, pcmChunksToWav } from "@/lib/audioWav";
 
 const PRIMARY_MODEL = "gpt-4o-mini-tts-2025-12-15";
 const SECONDARY_MODEL = "gpt-4o-mini-tts";
@@ -28,12 +26,10 @@ const FALLBACK_MODEL = "tts-1-hd";
 const PRIMARY_VOICE = "marin";
 const FALLBACK_VOICE = "nova";
 
-const CHUNK_CONCURRENCY = 3;
-
 const SPEECH_INSTRUCTIONS =
   "Sprich natürliches Hochdeutsch, warm, kompetent, souverän, ruhig und klar – wie die professionelle Sprecherin eines modernen steuerrechtlichen Fachmagazins. Nicht werblich, nicht übertrieben, sachlich präzise. Rechtsnormen wie Paragrafen, Absätze, Sätze, Nummern und Gesetzesnamen deutlich, langsam und klar artikulieren.";
 
-async function ttsChunk(opts: {
+async function ttsCall(opts: {
   apiKey: string;
   model: string;
   voice: string;
@@ -45,7 +41,7 @@ async function ttsChunk(opts: {
     model: opts.model,
     voice: opts.voice,
     input: opts.input,
-    response_format: "pcm",
+    response_format: "mp3",
   };
   if (opts.useInstructions) body.instructions = SPEECH_INSTRUCTIONS;
   return fetch("https://api.openai.com/v1/audio/speech", {
@@ -59,161 +55,171 @@ async function ttsChunk(opts: {
   });
 }
 
-function friendlyError(status: number): string {
-  if (status === 429) return "Audio derzeit ausgelastet. Bitte in einem Moment erneut versuchen.";
-  return "Audio konnte nicht erzeugt werden.";
+function jsonError(status: number, message: string) {
+  return new Response(JSON.stringify({ error: message }), {
+    status,
+    headers: { "content-type": "application/json; charset=utf-8" },
+  });
+}
+
+async function generateSegment(
+  apiKey: string,
+  input: string,
+  signal: AbortSignal,
+): Promise<{ ok: true; bytes: Uint8Array; model: string; voice: string } | { ok: false; status: number; message: string }> {
+  // Fallback-Kette identisch zur bisherigen Logik.
+  let r = await ttsCall({
+    apiKey,
+    model: PRIMARY_MODEL,
+    voice: PRIMARY_VOICE,
+    input,
+    useInstructions: true,
+    signal,
+  });
+  if (r.ok) {
+    return { ok: true, bytes: new Uint8Array(await r.arrayBuffer()), model: PRIMARY_MODEL, voice: PRIMARY_VOICE };
+  }
+  const err1 = await r.text().catch(() => "");
+  if (r.status === 404 || /model_not_found|deprecated|does not exist/i.test(err1)) {
+    r = await ttsCall({
+      apiKey,
+      model: SECONDARY_MODEL,
+      voice: PRIMARY_VOICE,
+      input,
+      useInstructions: true,
+      signal,
+    });
+    if (r.ok) {
+      return { ok: true, bytes: new Uint8Array(await r.arrayBuffer()), model: SECONDARY_MODEL, voice: PRIMARY_VOICE };
+    }
+    const err2 = await r.text().catch(() => "");
+    const voiceInvalid = /voice/i.test(err2) && /invalid|unknown|not/i.test(err2);
+    if (voiceInvalid) {
+      r = await ttsCall({
+        apiKey,
+        model: SECONDARY_MODEL,
+        voice: FALLBACK_VOICE,
+        input,
+        useInstructions: true,
+        signal,
+      });
+      if (r.ok) {
+        return { ok: true, bytes: new Uint8Array(await r.arrayBuffer()), model: SECONDARY_MODEL, voice: FALLBACK_VOICE };
+      }
+    }
+    if (r.status === 404 || /model_not_found|deprecated/i.test(err2)) {
+      r = await ttsCall({
+        apiKey,
+        model: FALLBACK_MODEL,
+        voice: FALLBACK_VOICE,
+        input,
+        useInstructions: false,
+        signal,
+      });
+      if (r.ok) {
+        return { ok: true, bytes: new Uint8Array(await r.arrayBuffer()), model: FALLBACK_MODEL, voice: FALLBACK_VOICE };
+      }
+    }
+  }
+  const bodyTxt = await r.text().catch(() => "");
+  console.error("[steuerstoff-tts] upstream error", r.status, bodyTxt.slice(0, 300));
+  const message = r.status === 429
+    ? "Audio derzeit ausgelastet. Bitte in einem Moment erneut versuchen."
+    : "Audioabschnitt konnte nicht erzeugt werden.";
+  return { ok: false, status: 502, message };
 }
 
 export const Route = createFileRoute("/api/tts")({
   server: {
     handlers: {
       GET: async ({ request }) => {
-        const apiKey = process.env.OPENAI_API_KEY;
-        if (!apiKey) {
-          return new Response("Audio derzeit nicht verfügbar.", { status: 503 });
-        }
-
         const url = new URL(request.url);
         const articleId = (url.searchParams.get("articleId") ?? "").trim();
         const v = (url.searchParams.get("v") ?? "").trim();
+        const manifestFlag = url.searchParams.get("manifest") === "1";
+        const segmentParam = url.searchParams.get("segment");
 
         if (!articleId || !isAudioAllowed(articleId)) {
-          return new Response("Unbekannter Artikel.", { status: 404 });
+          return jsonError(404, "Unbekannter Artikel.");
         }
         if (v !== AUDIO_CONTENT_VERSION) {
-          return new Response("Ungültige Version.", { status: 400 });
+          return jsonError(400, "Ungültige Audio-Version.");
         }
 
         const speechText = buildArticleSpeechText(articleId);
         if (!speechText) {
-          return new Response("Kein Sprechtext verfügbar.", { status: 404 });
+          return jsonError(404, "Kein Sprechtext verfügbar.");
         }
 
-        const chunks = chunkSpeechText(speechText, 2500);
-        const controller = new AbortController();
-        request.signal?.addEventListener("abort", () => controller.abort());
+        const segments = segmentSpeechText(speechText);
 
-        // Erst mit dem ersten Chunk die Modellkette festlegen, danach die
-        // restlichen Chunks parallel mit derselben Konfiguration abrufen.
-        let modelUsed = PRIMARY_MODEL;
-        let voiceUsed = PRIMARY_VOICE;
-        let useInstructions = true;
-
-        const tryChain = async (input: string): Promise<Response> => {
-          let r = await ttsChunk({
-            apiKey,
-            model: PRIMARY_MODEL,
-            voice: PRIMARY_VOICE,
-            input,
-            useInstructions: true,
-            signal: controller.signal,
+        // Manifest-Modus – kein OpenAI-Aufruf.
+        if (manifestFlag) {
+          const base = `/api/tts?articleId=${encodeURIComponent(articleId)}&v=${encodeURIComponent(v)}`;
+          const manifest = {
+            version: v,
+            articleId,
+            segmentCount: segments.length,
+            estimatedDurationSeconds: estimateSpeechSeconds(speechText),
+            segments: segments.map((s, i) => ({
+              index: i,
+              url: `${base}&segment=${i}`,
+              chars: s.length,
+              estimatedSeconds: estimateSpeechSeconds(s),
+            })),
+          };
+          return new Response(JSON.stringify(manifest), {
+            status: 200,
+            headers: {
+              "content-type": "application/json; charset=utf-8",
+              "cache-control": "public, max-age=3600",
+              "x-steuerstoff-audio-version": v,
+            },
           });
-          if (r.ok) return r;
-          const errTxt1 = await r.text().catch(() => "");
-          if (r.status === 404 || /model_not_found|deprecated|does not exist/i.test(errTxt1)) {
-            r = await ttsChunk({
-              apiKey,
-              model: SECONDARY_MODEL,
-              voice: PRIMARY_VOICE,
-              input,
-              useInstructions: true,
-              signal: controller.signal,
-            });
-            if (r.ok) {
-              modelUsed = SECONDARY_MODEL;
-              return r;
-            }
-            const errTxt2 = await r.text().catch(() => "");
-            const voiceInvalid = /voice/i.test(errTxt2) && /invalid|unknown|not/i.test(errTxt2);
-            if (voiceInvalid) {
-              r = await ttsChunk({
-                apiKey,
-                model: SECONDARY_MODEL,
-                voice: FALLBACK_VOICE,
-                input,
-                useInstructions: true,
-                signal: controller.signal,
-              });
-              if (r.ok) {
-                modelUsed = SECONDARY_MODEL;
-                voiceUsed = FALLBACK_VOICE;
-                return r;
-              }
-            }
-            if (r.status === 404 || /model_not_found|deprecated/i.test(errTxt2)) {
-              r = await ttsChunk({
-                apiKey,
-                model: FALLBACK_MODEL,
-                voice: FALLBACK_VOICE,
-                input,
-                useInstructions: false,
-                signal: controller.signal,
-              });
-              if (r.ok) {
-                modelUsed = FALLBACK_MODEL;
-                voiceUsed = FALLBACK_VOICE;
-                useInstructions = false;
-                return r;
-              }
-            }
-          }
-          return r;
-        };
-
-        const firstResp = await tryChain(chunks[0]);
-        if (!firstResp.ok) {
-          const status = firstResp.status;
-          const bodyTxt = await firstResp.text().catch(() => "");
-          console.error("[steuerstoff-tts] upstream error", status, bodyTxt.slice(0, 300));
-          return new Response(friendlyError(status), { status: 502 });
         }
 
-        const pcmParts: Uint8Array[] = new Array(chunks.length);
-        pcmParts[0] = new Uint8Array(await firstResp.arrayBuffer());
+        // Segment-Modus
+        if (segmentParam !== null) {
+          const idx = Number.parseInt(segmentParam, 10);
+          if (!Number.isInteger(idx) || idx < 0 || idx >= segments.length) {
+            return jsonError(400, "Ungültiger Segment-Index.");
+          }
+          const apiKey = process.env.OPENAI_API_KEY;
+          if (!apiKey) {
+            return jsonError(503, "Audio derzeit nicht verfügbar.");
+          }
+          const controller = new AbortController();
+          request.signal?.addEventListener("abort", () => controller.abort());
 
-        if (chunks.length > 1) {
-          try {
-            const rest = chunks.slice(1);
-            const results = await mapWithConcurrency(rest, CHUNK_CONCURRENCY, async (input) => {
-              const r = await ttsChunk({
-                apiKey,
-                model: modelUsed,
-                voice: voiceUsed,
-                input,
-                useInstructions,
-                signal: controller.signal,
-              });
-              if (!r.ok) {
-                const t = await r.text().catch(() => "");
-                throw new Error(`chunk ${r.status}: ${t.slice(0, 200)}`);
-              }
-              return new Uint8Array(await r.arrayBuffer());
-            });
-            for (let i = 0; i < results.length; i++) {
-              pcmParts[i + 1] = results[i];
-            }
-          } catch (e) {
+          const result = await generateSegment(apiKey, segments[idx], controller.signal);
+          if (!result.ok) {
             if (request.signal?.aborted) return new Response(null, { status: 499 });
-            console.error("[steuerstoff-tts] chunk error", e);
-            return new Response(friendlyError(502), { status: 502 });
+            return jsonError(result.status, result.message);
           }
+          const bytes = result.bytes;
+          const body: ArrayBuffer = bytes.buffer.slice(
+            bytes.byteOffset,
+            bytes.byteOffset + bytes.byteLength,
+          ) as ArrayBuffer;
+          return new Response(body, {
+            status: 200,
+            headers: {
+              "content-type": "audio/mpeg",
+              "content-length": String(bytes.byteLength),
+              "cache-control": "public, max-age=31536000, immutable",
+              "x-steuerstoff-tts-model": result.model,
+              "x-steuerstoff-tts-voice": result.voice,
+              "x-steuerstoff-tts-segment": String(idx),
+              "x-steuerstoff-tts-segment-count": String(segments.length),
+              "x-steuerstoff-audio-version": v,
+            },
+          });
         }
 
-        const wav = pcmChunksToWav(pcmParts);
-        const body: ArrayBuffer = wav.buffer.slice(
-          wav.byteOffset,
-          wav.byteOffset + wav.byteLength,
-        ) as ArrayBuffer;
-        return new Response(body, {
-          status: 200,
-          headers: {
-            "content-type": "audio/wav",
-            "content-length": String(wav.byteLength),
-            "cache-control": "public, max-age=31536000, immutable",
-            "x-steuerstoff-tts-model": modelUsed,
-            "x-steuerstoff-tts-voice": voiceUsed,
-          },
-        });
+        return jsonError(
+          400,
+          "Bitte manifest=1 oder segment=N angeben. Die Gesamtdatei wird nicht mehr erzeugt.",
+        );
       },
     },
   },

@@ -13,7 +13,69 @@ import { normalizeForSpeech } from "./speech-normalize";
 export const AUDIO_ALLOWED_ARTICLE_IDS: readonly string[] = ["jstg-2026-einkommensteuer"];
 
 /** Aktuelle Inhaltsversion – bei inhaltlichen Änderungen erhöhen. */
-export const AUDIO_CONTENT_VERSION = "2";
+export const AUDIO_CONTENT_VERSION = "3";
+
+/** Zielsegmentgröße in Zeichen für die Playlist-Segmente (satzsauber). */
+export const AUDIO_SEGMENT_TARGET_CHARS = 1100;
+export const AUDIO_SEGMENT_MAX_CHARS = 1200;
+
+/** Grobe Schätzung Sprechdauer: ~15 Zeichen pro Sekunde in ruhigem Fach-Deutsch. */
+export function estimateSpeechSeconds(text: string): number {
+  return Math.max(1, Math.round(text.length / 15));
+}
+
+/**
+ * Deterministische satzsaubere Segmentierung des vollständigen Sprechtexts.
+ * Bei identischem Text stabil, kein Segment > AUDIO_SEGMENT_MAX_CHARS.
+ */
+export function segmentSpeechText(text: string): string[] {
+  const paragraphs = text.split(/\n{2,}/).map((p) => p.trim()).filter(Boolean);
+  const sentences: string[] = [];
+  for (const para of paragraphs) {
+    const parts = para.match(/[^.!?]+[.!?]+(?:["»)\]]+)?|\S[^.!?]*$/g) ?? [para];
+    for (const p of parts) {
+      const s = p.trim();
+      if (!s) continue;
+      if (s.length <= AUDIO_SEGMENT_MAX_CHARS) {
+        sentences.push(s);
+      } else {
+        // Notfall-Split an Kommas/Semikolons
+        const sub = s.split(/(?<=[,;:])\s+/);
+        let buf = "";
+        for (const part of sub) {
+          if ((buf + " " + part).trim().length > AUDIO_SEGMENT_MAX_CHARS && buf) {
+            sentences.push(buf.trim());
+            buf = part;
+          } else {
+            buf = buf ? buf + " " + part : part;
+          }
+        }
+        if (buf.trim()) sentences.push(buf.trim());
+      }
+    }
+  }
+
+  const segments: string[] = [];
+  let current = "";
+  for (const s of sentences) {
+    if (!current) {
+      current = s;
+      continue;
+    }
+    const merged = current + " " + s;
+    if (merged.length <= AUDIO_SEGMENT_TARGET_CHARS) {
+      current = merged;
+    } else if (current.length < 400 && merged.length <= AUDIO_SEGMENT_MAX_CHARS) {
+      // Zu kurzes Segment weiter füllen, wenn wir unter Max bleiben
+      current = merged;
+    } else {
+      segments.push(current);
+      current = s;
+    }
+  }
+  if (current.trim()) segments.push(current.trim());
+  return segments;
+}
 
 export function isAudioAllowed(articleId: string): boolean {
   return AUDIO_ALLOWED_ARTICLE_IDS.includes(articleId);

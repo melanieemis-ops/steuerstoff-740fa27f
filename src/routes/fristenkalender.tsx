@@ -1708,3 +1708,131 @@ function EventDetailsDialog({
 
 // silence unused import for icons used only conditionally
 void CalendarDays;
+
+// ============================================================
+// Day-Note Panel (Tagesnotiz)
+// ============================================================
+
+function DayNotePanel({
+  date,
+  onClose,
+  onOpenWeek,
+  onAddEvent,
+  onNotify,
+}: {
+  date: Date;
+  onClose: () => void;
+  onOpenWeek: (d: Date) => void;
+  onAddEvent: (d: Date) => void;
+  onNotify: (msg: string) => void;
+}) {
+  const iso = toISODate(date);
+  const existing = getDayNoteByDate(iso);
+  const [content, setContent] = useState<string>(existing?.content ?? "");
+  const [saving, setSaving] = useState<boolean>(false);
+  const initialRef = useRef<string>(existing?.content ?? "");
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+
+  useEffect(() => {
+    const t = window.setTimeout(() => textareaRef.current?.focus(), 60);
+    return () => window.clearTimeout(t);
+  }, []);
+
+  const dirty = content !== initialRef.current;
+
+  const save = () => {
+    setSaving(true);
+    try {
+      const trimmed = content.trim();
+      if (trimmed.length === 0) {
+        if (existing) deleteDayNote(existing.id);
+        onNotify("Tagesnotiz gelöscht");
+      } else {
+        saveDayNote({ date: iso, content: trimmed });
+        onNotify("Tagesnotiz gespeichert");
+      }
+      initialRef.current = trimmed;
+      onClose();
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const remove = () => {
+    if (existing) {
+      deleteDayNote(existing.id);
+      onNotify("Tagesnotiz gelöscht");
+    }
+    onClose();
+  };
+
+  return (
+    <Dialog open onOpenChange={(o) => { if (!o) onClose(); }}>
+      <DialogContent className="max-w-lg">
+        <DialogHeader>
+          <DialogTitle className="flex items-center gap-2">
+            <StickyNote className="h-4 w-4" aria-hidden="true" />
+            Tagesnotiz · {fmtDE(date, "EEEE, dd.MM.yyyy")}
+          </DialogTitle>
+        </DialogHeader>
+
+        <div className="flex flex-col gap-3">
+          <Textarea
+            ref={textareaRef}
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            placeholder="Was ist an diesem Tag wichtig? (nur Text, wird lokal gespeichert)"
+            className="min-h-[160px] w-full min-w-0 max-w-full"
+          />
+          <div className="flex flex-wrap gap-2">
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              onClick={() => onOpenWeek(date)}
+            >
+              <CalendarDays className="mr-1.5 h-4 w-4" />
+              Woche öffnen
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              onClick={() => onAddEvent(date)}
+            >
+              <Plus className="mr-1.5 h-4 w-4" />
+              Termin anlegen
+            </Button>
+          </div>
+        </div>
+
+        <DialogFooter className="flex flex-wrap gap-2">
+          {existing && (
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
+              onClick={remove}
+              className="text-destructive hover:text-destructive"
+            >
+              <Trash2 className="mr-1.5 h-4 w-4" />
+              Notiz löschen
+            </Button>
+          )}
+          <Button variant="ghost" size="sm" onClick={onClose}>
+            <X className="mr-1.5 h-4 w-4" />
+            Schließen
+          </Button>
+          <Button
+            type="button"
+            size="sm"
+            disabled={!dirty || saving}
+            onClick={save}
+          >
+            Speichern
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  );
+}

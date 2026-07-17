@@ -3,31 +3,43 @@ import {
   useEffect,
   useRef,
   useState,
+  type ChangeEvent,
   type FormEvent,
   type KeyboardEvent,
   type ReactNode,
 } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
-
-import {
-  ArrowUp,
-  Copy,
-  Check,
-  Plus,
-  RefreshCw,
-  Trash2,
-  AlertCircle,
-  ArrowRight,
-  Sparkles,
-  Mic,
-  Square,
-  LoaderCircle,
-} from "lucide-react";
-import { generateAnswer, REVIEW_HINT, type ChatAnswer } from "@/lib/chatHeuristics";
-import { useVoiceInput } from "@/hooks/useVoiceInput";
-import { SpeechProvider, useSpeechContext } from "@/hooks/useSpeechSynthesis";
+import { AttachmentPreviewList } from "@/components/chat/AttachmentPreviewList";
+import { ChatAttachmentButton } from "@/components/chat/ChatAttachmentButton";
+import { ChatMessageAttachments } from "@/components/chat/ChatMessageAttachments";
+import { FileDropZone } from "@/components/chat/FileDropZone";
 import { MessageSpeechControls } from "@/components/chat/MessageSpeechControls";
 import { SpeechMiniPlayer } from "@/components/chat/SpeechMiniPlayer";
+import { UploadSafetyNotice } from "@/components/chat/UploadSafetyNotice";
+import { useChatAttachments } from "@/hooks/useChatAttachments";
+import { SpeechProvider, useSpeechContext } from "@/hooks/useSpeechSynthesis";
+import { useVoiceInput } from "@/hooks/useVoiceInput";
+import {
+  ALL_ATTACHMENT_ACCEPT,
+  UPLOAD_WARNING_STORAGE_KEY,
+  type AttachmentPickerAction,
+  type ChatMessageAttachment,
+} from "@/lib/attachment-types";
+import { generateAnswer, REVIEW_HINT, type ChatAnswer } from "@/lib/chatHeuristics";
+import {
+  AlertCircle,
+  ArrowRight,
+  ArrowUp,
+  Check,
+  Copy,
+  LoaderCircle,
+  Mic,
+  Plus,
+  RefreshCw,
+  Sparkles,
+  Square,
+  Trash2,
+} from "lucide-react";
 
 function withFallbackMarker(a: ChatAnswer): ChatAnswer {
   return {
@@ -57,7 +69,7 @@ export const Route = createFileRoute("/chat")({
 });
 
 type Msg =
-  | { id: string; role: "user"; text: string; t: number }
+  | { id: string; role: "user"; text: string; attachments?: ChatMessageAttachment[]; t: number }
   | { id: string; role: "assistant"; answer: ChatAnswer; t: number }
   | { id: string; role: "error"; text: string; t: number; retryOf: string };
 
@@ -108,6 +120,32 @@ function uid() {
 type Phase = "welcome" | "starting" | "active";
 const GREETING_TEXT = "Wie kann ich dir helfen?";
 
+function hasAcceptedUploadNotice() {
+  if (typeof window === "undefined") return false;
+  try {
+    return window.localStorage.getItem(UPLOAD_WARNING_STORAGE_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
+function storeAcceptedUploadNotice() {
+  if (typeof window === "undefined") return;
+  try {
+    window.localStorage.setItem(UPLOAD_WARNING_STORAGE_KEY, "1");
+  } catch {
+    // ignore storage failures
+  }
+}
+
+function formatUserHistoryContent(msg: Extract<Msg, { role: "user" }>) {
+  const parts = [msg.text.trim()];
+  if (msg.attachments?.length) {
+    parts.push(`Anhänge: ${msg.attachments.map((attachment) => attachment.name).join(", ")}`);
+  }
+  return parts.filter(Boolean).join("\n\n");
+}
+
 function ChatPage() {
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
@@ -118,28 +156,34 @@ function ChatPage() {
   const [showGreetingBubble, setShowGreetingBubble] = useState(false);
   const [dots, setDots] = useState(false);
   const [typed, setTyped] = useState("");
+  const [showUploadSafetyNotice, setShowUploadSafetyNotice] = useState(false);
+  const [pendingPickerAction, setPendingPickerAction] = useState<AttachmentPickerAction | null>(
+    null,
+  );
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const attachmentButtonRef = useRef<HTMLButtonElement | null>(null);
+  const cameraInputRef = useRef<HTMLInputElement | null>(null);
+  const imageInputRef = useRef<HTMLInputElement | null>(null);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
   const startingRef = useRef(false);
   const timersRef = useRef<number[]>([]);
+  const chatAttachments = useChatAttachments();
 
   function clearTimers() {
     for (const id of timersRef.current) window.clearTimeout(id);
     timersRef.current = [];
   }
 
-  // hydrate once
   useEffect(() => {
-    const m = loadMessages();
-    setMessages(m);
-    if (m.length > 0) setPhase("active");
-    // Dev-Modus: KB-Regression per Konsole ausführbar machen.
+    const persistedMessages = loadMessages();
+    setMessages(persistedMessages);
+    if (persistedMessages.length > 0) setPhase("active");
     if (import.meta.env.DEV && typeof window !== "undefined") {
-      void import("@/lib/regressionRunner").then((m) => {
+      void import("@/lib/regressionRunner").then((module) => {
         (
           window as unknown as { __runKbRegression?: (opts?: { verbose?: boolean }) => unknown }
-        ).__runKbRegression = (opts = { verbose: true }) => m.runKbRegression(opts);
-        // eslint-disable-next-line no-console
+        ).__runKbRegression = (opts = { verbose: true }) => module.runKbRegression(opts);
         console.info("[steuerstoff] KB-Regression verfügbar: window.__runKbRegression()");
       });
     }
@@ -170,12 +214,12 @@ function ChatPage() {
       setDots(true);
       const t2 = window.setTimeout(() => {
         setDots(false);
-        const text = GREETING_TEXT;
+        const textValue = GREETING_TEXT;
         let i = 0;
         const step = () => {
-          i++;
-          setTyped(text.slice(0, i));
-          if (i < text.length) {
+          i += 1;
+          setTyped(textValue.slice(0, i));
+          if (i < textValue.length) {
             const tn = window.setTimeout(step, 42);
             timersRef.current.push(tn);
           } else {
@@ -194,7 +238,7 @@ function ChatPage() {
     timersRef.current.push(t1);
   }
 
-  function skipWelcomeAndAsk(text: string) {
+  function skipWelcomeAndAsk(textValue: string) {
     clearTimers();
     startingRef.current = true;
     setWelcomeLeaving(true);
@@ -203,17 +247,15 @@ function ChatPage() {
     setTyped("");
     const t = window.setTimeout(() => {
       setPhase("active");
-      void ask(text);
+      void ask(textValue);
     }, 240);
     timersRef.current.push(t);
   }
 
-  // persist
   useEffect(() => {
     if (messages.length) saveMessages(messages);
   }, [messages]);
 
-  // auto-scroll: sanft zum Beginn der neuesten Antwort, nicht ans absolute Ende.
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
@@ -224,9 +266,8 @@ function ChatPage() {
     } else {
       el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
     }
-  }, [messages.length, busy]);
+  }, [messages.length, busy, chatAttachments.attachments.length]);
 
-  // autosize textarea
   useEffect(() => {
     const ta = textareaRef.current;
     if (!ta) return;
@@ -234,26 +275,35 @@ function ChatPage() {
     ta.style.height = Math.min(ta.scrollHeight, 180) + "px";
   }, [input]);
 
-  async function ask(text: string, retryOf?: string) {
-    const trimmed = text.trim();
-    if (!trimmed || busy) return;
-    const userMsg: Msg = { id: uid(), role: "user", text: trimmed, t: Date.now() };
+  async function ask(
+    textValue: string,
+    attachmentsToSend: ChatMessageAttachment[] = [],
+    retryOf?: string,
+  ) {
+    const trimmed = textValue.trim();
+    if ((!trimmed && attachmentsToSend.length === 0) || busy) return;
+    const userMsg: Msg = {
+      id: uid(),
+      role: "user",
+      text: trimmed,
+      attachments: attachmentsToSend.length ? attachmentsToSend : undefined,
+      t: Date.now(),
+    };
     const assistantId = uid();
     setMessages((prev) => {
-      const base = retryOf ? prev.filter((m) => m.id !== retryOf) : prev;
+      const base = retryOf ? prev.filter((msg) => msg.id !== retryOf) : prev;
       return [...base, userMsg];
     });
     setInput("");
     setBusy(true);
 
-    // Kompakter Verlauf: nur die letzten 8 user/assistant-Turns.
-    const priorMsgs = messages.filter((m) => m.role === "user" || m.role === "assistant");
+    const priorMsgs = messages.filter((msg) => msg.role === "user" || msg.role === "assistant");
     const history = priorMsgs
       .slice(-8)
-      .map((m) =>
-        m.role === "user"
-          ? { role: "user" as const, content: m.text }
-          : { role: "assistant" as const, content: m.answer.summary },
+      .map((msg) =>
+        msg.role === "user"
+          ? { role: "user" as const, content: formatUserHistoryContent(msg) }
+          : { role: "assistant" as const, content: msg.answer.summary },
       );
 
     let assistantInserted = false;
@@ -263,10 +313,22 @@ function ChatPage() {
       const resp = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: trimmed, history }),
+        body: JSON.stringify({
+          message: trimmed,
+          history,
+          attachments: attachmentsToSend.map((attachment) => ({
+            id: attachment.id,
+            name: attachment.name,
+            mimeType: attachment.mimeType,
+            size: attachment.size,
+            kind: attachment.kind,
+            uploadedFileId: attachment.uploadedFileId,
+          })),
+        }),
       });
       if (!resp.ok || !resp.body) {
-        throw new Error(`HTTP ${resp.status}`);
+        const messageText = await resp.text().catch(() => "");
+        throw new Error(messageText || `HTTP ${resp.status}`);
       }
       const reader = resp.body.getReader();
       const decoder = new TextDecoder();
@@ -274,13 +336,13 @@ function ChatPage() {
       let meta: {
         sources?: Array<{ id: string; title: string; reference: string | null; excerpt: string }>;
         model?: string;
+        attachmentFailures?: string[];
       } = {};
-      // eslint-disable-next-line no-constant-condition
+
       while (true) {
         const { value, done } = await reader.read();
         if (done) break;
         buf += decoder.decode(value, { stream: true });
-        // Meta-Sentinel erst nach vollständigem Chunk suchen.
         const metaIdx = buf.indexOf("<<STEUERSTOFF_META>>");
         const errIdx = buf.indexOf("<<STEUERSTOFF_ERROR>>");
         let visible = buf;
@@ -306,10 +368,10 @@ function ChatPage() {
             ]);
           } else if (assistantInserted) {
             setMessages((prev) =>
-              prev.map((m) =>
-                m.id === assistantId && m.role === "assistant"
-                  ? { ...m, answer: { ...m.answer, summary: summarySoFar } }
-                  : m,
+              prev.map((msg) =>
+                msg.id === assistantId && msg.role === "assistant"
+                  ? { ...msg, answer: { ...msg.answer, summary: summarySoFar } }
+                  : msg,
               ),
             );
           }
@@ -319,7 +381,7 @@ function ChatPage() {
           try {
             meta = JSON.parse(metaJson);
           } catch {
-            /* wait for more */
+            // wait for more
           }
         }
         if (errIdx !== -1) {
@@ -349,41 +411,53 @@ function ChatPage() {
         ]);
       } else {
         setMessages((prev) =>
-          prev.map((m) =>
-            m.id === assistantId && m.role === "assistant"
+          prev.map((msg) =>
+            msg.id === assistantId && msg.role === "assistant"
               ? {
-                  ...m,
+                  ...msg,
                   answer: {
-                    ...m.answer,
+                    ...msg.answer,
                     summary: finalSummary,
-                    sources: sources.length ? sources : m.answer.sources,
-                    needsHumanReview: sources.length === 0 ? true : m.answer.needsHumanReview,
+                    sources: sources.length ? sources : msg.answer.sources,
+                    needsHumanReview: sources.length === 0 ? true : msg.answer.needsHumanReview,
                   },
                 }
-              : m,
+              : msg,
           ),
         );
       }
-    } catch (err) {
+    } catch (error) {
       console.warn(
         "[steuerstoff-chat] AI unavailable, using local fallback:",
-        (err as Error).message,
+        (error as Error).message,
       );
-      // Falls ein leerer Assistenten-Bubble bereits gerendert wurde, wieder entfernen.
       if (assistantInserted) {
-        setMessages((prev) => prev.filter((m) => m.id !== assistantId));
+        setMessages((prev) => prev.filter((msg) => msg.id !== assistantId));
       }
-      try {
-        const fallback = withFallbackMarker(generateAnswer(trimmed));
-        const aiMsg: Msg = { id: uid(), role: "assistant", answer: fallback, t: Date.now() };
-        setMessages((prev) => [...prev, aiMsg]);
-      } catch {
+      if (trimmed && attachmentsToSend.length === 0) {
+        try {
+          const fallback = withFallbackMarker(generateAnswer(trimmed));
+          const aiMsg: Msg = { id: uid(), role: "assistant", answer: fallback, t: Date.now() };
+          setMessages((prev) => [...prev, aiMsg]);
+        } catch {
+          const errMsg: Msg = {
+            id: uid(),
+            role: "error",
+            text:
+              (error as Error).message ||
+              "Antwort konnte nicht erstellt werden. Bitte erneut versuchen.",
+            t: Date.now(),
+            retryOf: userMsg.id,
+          };
+          setMessages((prev) => [...prev, errMsg]);
+        }
+      } else {
         const errMsg: Msg = {
           id: uid(),
           role: "error",
           text:
-            (err as Error).message ||
-            "Antwort konnte nicht erstellt werden. Bitte erneut versuchen.",
+            (error as Error).message ||
+            "Backend unterstützt Anhänge derzeit noch nicht zuverlässig. Bitte erneut versuchen.",
           t: Date.now(),
           retryOf: userMsg.id,
         };
@@ -408,54 +482,88 @@ function ChatPage() {
   }
 
   const voice = useVoiceInput({
-    onTranscript: (text) => {
+    onTranscript: (textValue) => {
       setInput((prev) => {
-        const t = text.trim();
-        if (!t) return prev;
+        const trimmedTranscript = textValue.trim();
+        if (!trimmedTranscript) return prev;
         const base = prev.trimEnd();
-        return base ? `${base} ${t}` : t;
+        return base ? `${base} ${trimmedTranscript}` : trimmedTranscript;
       });
       if (phase !== "active") activateChatImmediately();
       setTimeout(() => textareaRef.current?.focus(), 0);
     },
   });
 
-  function submitMessage(text: string) {
-    const trimmed = text.trim();
-    if (!trimmed || busy) return;
-    if (phase !== "active") activateChatImmediately();
-    void ask(trimmed);
+  function openPicker(action: AttachmentPickerAction) {
+    const inputRef =
+      action === "camera" ? cameraInputRef : action === "image" ? imageInputRef : fileInputRef;
+    if (!inputRef.current) return;
+    inputRef.current.value = "";
+    inputRef.current.click();
   }
 
-  function handleSubmit(e: FormEvent) {
-    e.preventDefault();
+  function handleAttachmentAction(action: AttachmentPickerAction) {
+    if (!hasAcceptedUploadNotice()) {
+      setPendingPickerAction(action);
+      setShowUploadSafetyNotice(true);
+      return;
+    }
+    openPicker(action);
+  }
+
+  async function handleAttachmentInputChange(event: ChangeEvent<HTMLInputElement>) {
+    const fileList = event.target.files;
+    if (fileList) {
+      if (phase !== "active") activateChatImmediately();
+      await chatAttachments.addFiles(fileList);
+    }
+    event.target.value = "";
+  }
+
+  function acceptUploadNotice() {
+    storeAcceptedUploadNotice();
+    setShowUploadSafetyNotice(false);
+    const nextAction = pendingPickerAction;
+    setPendingPickerAction(null);
+    if (nextAction) openPicker(nextAction);
+  }
+
+  function submitMessage(
+    textValue: string,
+    attachmentsToSend: ChatMessageAttachment[] = chatAttachments.readyAttachments,
+  ) {
+    const trimmed = textValue.trim();
+    if ((!trimmed && attachmentsToSend.length === 0) || busy) return;
+    if (phase !== "active") activateChatImmediately();
+    chatAttachments.clearAttachments();
+    void ask(trimmed, attachmentsToSend);
+  }
+
+  function handleSubmit(event: FormEvent) {
+    event.preventDefault();
     submitMessage(input);
   }
 
-  function handleKeyDown(e: KeyboardEvent<HTMLTextAreaElement>) {
-    // Enter sendet, Shift+Enter erzeugt Zeilenumbruch. Auf Touch-Geräten
-    // bleibt Enter = Zeilenumbruch, damit die Bildschirmtastatur nicht
-    // ungewollt sendet.
+  function handleKeyDown(event: KeyboardEvent<HTMLTextAreaElement>) {
     if (
-      e.key === "Enter" &&
-      !e.shiftKey &&
-      !(e.nativeEvent as { isComposing?: boolean }).isComposing
+      event.key === "Enter" &&
+      !event.shiftKey &&
+      !(event.nativeEvent as { isComposing?: boolean }).isComposing
     ) {
       const isFine = typeof window !== "undefined" && window.matchMedia("(pointer: fine)").matches;
       if (isFine) {
-        e.preventDefault();
+        event.preventDefault();
         submitMessage(input);
       }
     }
   }
 
   function regenerate() {
-    for (let i = messages.length - 1; i >= 0; i--) {
-      const m = messages[i];
-      if (m.role === "user") {
-        // Remove this user msg and everything after; ask() re-appends it.
+    for (let i = messages.length - 1; i >= 0; i -= 1) {
+      const msg = messages[i];
+      if (msg.role === "user") {
         setMessages((prev) => prev.slice(0, i));
-        void ask(m.text);
+        void ask(msg.text, msg.attachments ?? []);
         return;
       }
     }
@@ -470,39 +578,65 @@ function ChatPage() {
     setDots(false);
     setTyped("");
     setInput("");
+    setShowUploadSafetyNotice(false);
+    setPendingPickerAction(null);
+    chatAttachments.clearAttachments();
     startingRef.current = false;
     if (typeof window !== "undefined") window.localStorage.removeItem(STORAGE_KEY);
   }
 
   function markCopied(id: string) {
     setCopiedId(id);
-    setTimeout(() => setCopiedId((c) => (c === id ? null : c)), 1500);
+    setTimeout(() => setCopiedId((current) => (current === id ? null : current)), 1500);
   }
 
-  function copyAnswer(id: string, a: ChatAnswer) {
-    const parts: string[] = [a.summary];
-    if (a.reasoning) parts.push("\nBegründung: " + a.reasoning);
-    if (a.risks?.length) parts.push("\nRisiken:\n- " + a.risks.join("\n- "));
-    if (a.followUps?.length) parts.push("\nRückfragen:\n- " + a.followUps.join("\n- "));
-    if (a.nextStep) parts.push("\nNächster Schritt: " + a.nextStep);
+  function copyAnswer(id: string, answer: ChatAnswer) {
+    const parts: string[] = [answer.summary];
+    if (answer.reasoning) parts.push("\nBegründung: " + answer.reasoning);
+    if (answer.risks?.length) parts.push("\nRisiken:\n- " + answer.risks.join("\n- "));
+    if (answer.followUps?.length) parts.push("\nRückfragen:\n- " + answer.followUps.join("\n- "));
+    if (answer.nextStep) parts.push("\nNächster Schritt: " + answer.nextStep);
     copyTextToClipboard(parts.join("\n")).then((ok) => {
       if (ok) markCopied(id);
     });
   }
 
-  function copyUserPrompt(id: string, text: string) {
-    copyTextToClipboard(text).then((ok) => {
+  function copyUserPrompt(
+    id: string,
+    textValue: string,
+    attachmentsToSend?: ChatMessageAttachment[],
+  ) {
+    const payload = [textValue.trim()];
+    if (attachmentsToSend?.length) {
+      payload.push(`Anhänge: ${attachmentsToSend.map((attachment) => attachment.name).join(", ")}`);
+    }
+    copyTextToClipboard(payload.filter(Boolean).join("\n\n")).then((ok) => {
       if (ok) markCopied(id);
     });
   }
 
   const hasMessages = messages.length > 0;
-  const canSend = input.trim().length > 0 && !busy;
+  const hasText = input.trim().length > 0;
+  const allAttachmentsReady =
+    chatAttachments.attachments.length > 0 &&
+    chatAttachments.readyAttachments.length === chatAttachments.attachments.length &&
+    !chatAttachments.hasPendingUploads &&
+    !chatAttachments.hasUploadErrors;
+  const canSend =
+    !busy && ((chatAttachments.attachments.length === 0 && hasText) || allAttachmentsReady);
 
   return (
     <SpeechProvider>
-      <div className="chat-page chat-bg-deep min-h-screen flex flex-col" data-page="chat">
+      <div
+        className="chat-page chat-bg-deep relative flex min-h-screen flex-col"
+        data-page="chat"
+        onDragEnter={chatAttachments.onDragEnter}
+        onDragOver={chatAttachments.onDragOver}
+        onDragLeave={chatAttachments.onDragLeave}
+        onDrop={chatAttachments.onDrop}
+      >
         <SiteHeader />
+        <FileDropZone active={chatAttachments.dragActive} />
 
         <div className="border-b border-white/10 bg-transparent">
           <div className="mx-auto flex w-full max-w-3xl items-center justify-between gap-3 px-4 py-3">
@@ -533,7 +667,7 @@ function ChatPage() {
           className="flex-1 overflow-y-auto"
           style={{ overscrollBehavior: "contain" }}
         >
-          <div className="mx-auto w-full max-w-3xl px-4 py-6 pb-[160px] md:pb-[180px]">
+          <div className="mx-auto w-full max-w-3xl px-4 py-6 pb-[220px] md:pb-[230px]">
             {phase === "welcome" ? (
               <div
                 className={`space-y-6 transition-all duration-300 ease-out ${
@@ -546,9 +680,9 @@ function ChatPage() {
                   tabIndex={0}
                   aria-label="Chat starten"
                   onClick={startWelcomeFlow}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault();
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault();
                       startWelcomeFlow();
                     }
                   }}
@@ -578,22 +712,22 @@ function ChatPage() {
                     Schnellzugriff
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {SUGGEST.map((s) => (
+                    {SUGGEST.map((suggestion) => (
                       <button
-                        key={s}
+                        key={suggestion}
                         type="button"
                         onClick={() => {
-                          if (s.endsWith("?")) {
-                            submitMessage(s);
+                          if (suggestion.endsWith("?")) {
+                            submitMessage(suggestion);
                           } else {
-                            setInput(s + ": ");
+                            setInput(suggestion + ": ");
                             activateChatImmediately();
                             setTimeout(() => textareaRef.current?.focus(), 0);
                           }
                         }}
                         className="rounded-full border border-border bg-background px-3 py-1.5 text-xs text-foreground transition-colors hover:bg-accent"
                       >
-                        {s}
+                        {suggestion}
                       </button>
                     ))}
                   </div>
@@ -604,14 +738,14 @@ function ChatPage() {
                     Beispiel-Fragen
                   </p>
                   <div className="grid gap-2">
-                    {EXAMPLES.map((q) => (
+                    {EXAMPLES.map((question) => (
                       <button
-                        key={q}
+                        key={question}
                         type="button"
-                        onClick={() => submitMessage(q)}
+                        onClick={() => submitMessage(question)}
                         className="group flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 text-left text-sm text-foreground transition-colors hover:bg-accent"
                       >
-                        <span className="min-w-0 truncate">{q}</span>
+                        <span className="min-w-0 truncate">{question}</span>
                         <ArrowRight className="h-3.5 w-3.5 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
                       </button>
                     ))}
@@ -621,7 +755,7 @@ function ChatPage() {
             ) : (
               <div className="space-y-4">
                 {showGreetingBubble && (
-                  <div data-msg className="flex justify-start animate-in fade-in duration-300">
+                  <div data-msg className="flex animate-in justify-start fade-in duration-300">
                     <div className="w-full max-w-[94%] rounded-2xl rounded-tl-md border border-border bg-card p-4 shadow-sm">
                       <div className="flex items-start gap-3">
                         <span
@@ -680,18 +814,21 @@ function ChatPage() {
                     </div>
                   </div>
                 )}
-                {messages.map((m, idx) => (
+                {messages.map((msg, index) => (
                   <MessageBubble
-                    key={m.id}
-                    msg={m}
-                    copied={copiedId === m.id}
-                    isStreaming={busy && idx === messages.length - 1 && m.role === "assistant"}
+                    key={msg.id}
+                    msg={msg}
+                    copied={copiedId === msg.id}
+                    isStreaming={busy && index === messages.length - 1 && msg.role === "assistant"}
                     onCopy={() => {
-                      if (m.role === "assistant") copyAnswer(m.id, m.answer);
-                      else if (m.role === "user") copyUserPrompt(m.id, m.text);
+                      if (msg.role === "assistant") copyAnswer(msg.id, msg.answer);
+                      else if (msg.role === "user")
+                        copyUserPrompt(msg.id, msg.text, msg.attachments);
                     }}
                     onRetry={() => {
-                      if (m.role === "error") ask(messageTextById(messages, m.retryOf) ?? "", m.id);
+                      if (msg.role !== "error") return;
+                      const retryMsg = userMessageById(messages, msg.retryOf);
+                      if (retryMsg) void ask(retryMsg.text, retryMsg.attachments ?? [], msg.id);
                     }}
                   />
                 ))}
@@ -705,7 +842,7 @@ function ChatPage() {
                     steuerstoff denkt nach …
                   </div>
                 )}
-                {!busy && messages.some((m) => m.role === "assistant") && (
+                {!busy && messages.some((msg) => msg.role === "assistant") && (
                   <div className="pt-1">
                     <button
                       type="button"
@@ -728,7 +865,26 @@ function ChatPage() {
           data-no-swipe="true"
         >
           <div className="mx-auto w-full max-w-3xl px-3 pt-3">
+            <p className="sr-only" aria-live="polite">
+              {chatAttachments.notice ?? ""}
+            </p>
+            <AttachmentPreviewList
+              attachments={chatAttachments.attachments}
+              onRemove={chatAttachments.removeAttachment}
+              onRetry={(id) => void chatAttachments.retryAttachment(id)}
+              onClear={chatAttachments.clearAttachments}
+            />
+            {chatAttachments.notice && (
+              <div className="mb-2 rounded-2xl border border-amber-500/30 bg-amber-500/10 px-3 py-2 text-xs text-amber-100">
+                {chatAttachments.notice}
+              </div>
+            )}
             <div className="flex items-end gap-2 rounded-3xl border border-border bg-card px-3 py-2 shadow-sm focus-within:border-foreground/30">
+              <ChatAttachmentButton
+                buttonRef={attachmentButtonRef}
+                disabled={busy}
+                onAction={handleAttachmentAction}
+              />
               {voice.isSupported && (
                 <button
                   type="button"
@@ -746,11 +902,11 @@ function ChatPage() {
                         : "Frage diktieren"
                   }
                   aria-pressed={voice.isRecording}
-                  className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-colors ${
+                  className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition-colors ${
                     voice.isTranscribing
                       ? "bg-muted text-muted-foreground"
                       : voice.isRecording
-                        ? "bg-red-500 text-white animate-pulse hover:bg-red-600"
+                        ? "animate-pulse bg-red-500 text-white hover:bg-red-600"
                         : "bg-muted text-foreground hover:bg-muted/70"
                   }`}
                 >
@@ -766,17 +922,18 @@ function ChatPage() {
               <textarea
                 ref={textareaRef}
                 value={input}
-                onChange={(e) => setInput(e.target.value)}
+                onChange={(event) => setInput(event.target.value)}
                 onKeyDown={handleKeyDown}
+                onPaste={(event) => void chatAttachments.handlePaste(event)}
                 rows={1}
                 placeholder={
                   voice.isRecording
-                    ? "Ich höre zu …"
+                    ? "Sprich jetzt …"
                     : voice.isTranscribing
                       ? "Sprache wird in Text umgewandelt …"
                       : "Stell eine steuerliche Frage …"
                 }
-                className="flex-1 resize-none bg-transparent px-2 py-2 text-[15px] leading-relaxed text-foreground outline-none placeholder:text-muted-foreground"
+                className="min-h-[44px] flex-1 resize-none border-0 bg-transparent px-1.5 py-2 text-[15px] leading-relaxed text-foreground outline-none placeholder:text-muted-foreground/80"
                 style={{ maxHeight: 180 }}
                 aria-label="Nachricht eingeben"
               />
@@ -784,7 +941,7 @@ function ChatPage() {
                 type="submit"
                 disabled={!canSend}
                 aria-label="Nachricht senden"
-                className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-colors ${
+                className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition-colors ${
                   canSend
                     ? "bg-foreground text-background hover:opacity-90"
                     : "bg-muted text-muted-foreground"
@@ -822,7 +979,8 @@ function ChatPage() {
             )}
             <div className="flex items-center justify-between px-2 pb-2 pt-1.5">
               <p className="text-[10px] text-muted-foreground">
-                Arbeitshilfe, keine verbindliche Beratung.
+                Arbeitshilfe, keine verbindliche Beratung. Max. 5 Dateien, 15 MB je Datei, 40 MB
+                gesamt.
               </p>
               {hasMessages && (
                 <button
@@ -837,15 +995,49 @@ function ChatPage() {
             </div>
           </div>
         </form>
+
+        <input
+          ref={cameraInputRef}
+          type="file"
+          accept="image/*"
+          capture="environment"
+          className="hidden"
+          onChange={(event) => void handleAttachmentInputChange(event)}
+        />
+        <input
+          ref={imageInputRef}
+          type="file"
+          accept="image/*"
+          multiple
+          className="hidden"
+          onChange={(event) => void handleAttachmentInputChange(event)}
+        />
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept={ALL_ATTACHMENT_ACCEPT}
+          multiple
+          className="hidden"
+          onChange={(event) => void handleAttachmentInputChange(event)}
+        />
+
+        <UploadSafetyNotice
+          open={showUploadSafetyNotice}
+          onAccept={acceptUploadNotice}
+          onOpenChange={(open) => {
+            setShowUploadSafetyNotice(open);
+            if (!open) setPendingPickerAction(null);
+          }}
+        />
       </div>
       <SpeechMiniPlayer />
     </SpeechProvider>
   );
 }
 
-function messageTextById(msgs: Msg[], id: string): string | null {
-  const m = msgs.find((x) => x.id === id);
-  if (m && m.role === "user") return m.text;
+function userMessageById(msgs: Msg[], id: string): Extract<Msg, { role: "user" }> | null {
+  const msg = msgs.find((entry) => entry.id === id);
+  if (msg && msg.role === "user") return msg;
   return null;
 }
 async function copyTextToClipboard(text: string): Promise<boolean> {
@@ -922,8 +1114,21 @@ function MessageBubble({
   if (msg.role === "user") {
     return (
       <div data-msg className="flex justify-end">
-        <div className="max-w-[85%] rounded-2xl rounded-tr-sm bg-primary px-4 py-3 text-primary-foreground">
-          <p className="whitespace-pre-wrap break-words text-[15px] leading-relaxed">{msg.text}</p>
+        <div className="max-w-[92%] overflow-hidden rounded-2xl rounded-tr-sm bg-primary px-4 py-3 text-primary-foreground">
+          {msg.attachments?.length ? (
+            <ChatMessageAttachments attachments={msg.attachments} />
+          ) : null}
+          {msg.text ? (
+            <p className="whitespace-pre-wrap break-words text-[15px] leading-relaxed">
+              {msg.text}
+            </p>
+          ) : (
+            <p className="text-[13px] text-primary-foreground/80">
+              {msg.attachments?.length
+                ? `Anhänge gesendet (${msg.attachments.length})`
+                : "Nachricht gesendet"}
+            </p>
+          )}
           <button
             type="button"
             onClick={(event) => {
@@ -954,7 +1159,7 @@ function MessageBubble({
             <div className="min-w-0 flex-1">
               <p className="text-sm font-medium text-foreground">Das hat gerade nicht geklappt.</p>
               <p className="mt-1 text-xs text-muted-foreground">
-                Bitte erneut versuchen oder die Frage etwas konkreter formulieren.
+                {msg.text || "Bitte erneut versuchen oder die Frage etwas konkreter formulieren."}
               </p>
               <button
                 type="button"

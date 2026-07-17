@@ -28,8 +28,10 @@ import { Route as ChatRouteImport } from './routes/chat'
 import { Route as AkademieRouteImport } from './routes/akademie'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as FallCaseIdRouteImport } from './routes/fall.$caseId'
+import { Route as ApiUploadRouteImport } from './routes/api/upload'
 import { Route as ApiTranscribeRouteImport } from './routes/api/transcribe'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
+import { Route as ApiUploadUploadIdRouteImport } from './routes/api/upload.$uploadId'
 
 const WissensdatenbankRoute = WissensdatenbankRouteImport.update({
   id: '/wissensdatenbank',
@@ -127,6 +129,11 @@ const FallCaseIdRoute = FallCaseIdRouteImport.update({
   path: '/fall/$caseId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiUploadRoute = ApiUploadRouteImport.update({
+  id: '/api/upload',
+  path: '/api/upload',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiTranscribeRoute = ApiTranscribeRouteImport.update({
   id: '/api/transcribe',
   path: '/api/transcribe',
@@ -136,6 +143,11 @@ const ApiChatRoute = ApiChatRouteImport.update({
   id: '/api/chat',
   path: '/api/chat',
   getParentRoute: () => rootRouteImport,
+} as any)
+const ApiUploadUploadIdRoute = ApiUploadUploadIdRouteImport.update({
+  id: '/$uploadId',
+  path: '/$uploadId',
+  getParentRoute: () => ApiUploadRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -159,7 +171,9 @@ export interface FileRoutesByFullPath {
   '/wissensdatenbank': typeof WissensdatenbankRoute
   '/api/chat': typeof ApiChatRoute
   '/api/transcribe': typeof ApiTranscribeRoute
+  '/api/upload': typeof ApiUploadRouteWithChildren
   '/fall/$caseId': typeof FallCaseIdRoute
+  '/api/upload/$uploadId': typeof ApiUploadUploadIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -182,7 +196,9 @@ export interface FileRoutesByTo {
   '/wissensdatenbank': typeof WissensdatenbankRoute
   '/api/chat': typeof ApiChatRoute
   '/api/transcribe': typeof ApiTranscribeRoute
+  '/api/upload': typeof ApiUploadRouteWithChildren
   '/fall/$caseId': typeof FallCaseIdRoute
+  '/api/upload/$uploadId': typeof ApiUploadUploadIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -206,7 +222,9 @@ export interface FileRoutesById {
   '/wissensdatenbank': typeof WissensdatenbankRoute
   '/api/chat': typeof ApiChatRoute
   '/api/transcribe': typeof ApiTranscribeRoute
+  '/api/upload': typeof ApiUploadRouteWithChildren
   '/fall/$caseId': typeof FallCaseIdRoute
+  '/api/upload/$uploadId': typeof ApiUploadUploadIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -231,7 +249,9 @@ export interface FileRouteTypes {
     | '/wissensdatenbank'
     | '/api/chat'
     | '/api/transcribe'
+    | '/api/upload'
     | '/fall/$caseId'
+    | '/api/upload/$uploadId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -254,7 +274,9 @@ export interface FileRouteTypes {
     | '/wissensdatenbank'
     | '/api/chat'
     | '/api/transcribe'
+    | '/api/upload'
     | '/fall/$caseId'
+    | '/api/upload/$uploadId'
   id:
     | '__root__'
     | '/'
@@ -277,7 +299,9 @@ export interface FileRouteTypes {
     | '/wissensdatenbank'
     | '/api/chat'
     | '/api/transcribe'
+    | '/api/upload'
     | '/fall/$caseId'
+    | '/api/upload/$uploadId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -301,6 +325,7 @@ export interface RootRouteChildren {
   WissensdatenbankRoute: typeof WissensdatenbankRoute
   ApiChatRoute: typeof ApiChatRoute
   ApiTranscribeRoute: typeof ApiTranscribeRoute
+  ApiUploadRoute: typeof ApiUploadRouteWithChildren
   FallCaseIdRoute: typeof FallCaseIdRoute
 }
 
@@ -439,6 +464,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FallCaseIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/upload': {
+      id: '/api/upload'
+      path: '/api/upload'
+      fullPath: '/api/upload'
+      preLoaderRoute: typeof ApiUploadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/transcribe': {
       id: '/api/transcribe'
       path: '/api/transcribe'
@@ -453,8 +485,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiChatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/upload/$uploadId': {
+      id: '/api/upload/$uploadId'
+      path: '/$uploadId'
+      fullPath: '/api/upload/$uploadId'
+      preLoaderRoute: typeof ApiUploadUploadIdRouteImport
+      parentRoute: typeof ApiUploadRoute
+    }
   }
 }
+
+interface ApiUploadRouteChildren {
+  ApiUploadUploadIdRoute: typeof ApiUploadUploadIdRoute
+}
+
+const ApiUploadRouteChildren: ApiUploadRouteChildren = {
+  ApiUploadUploadIdRoute: ApiUploadUploadIdRoute,
+}
+
+const ApiUploadRouteWithChildren = ApiUploadRoute._addFileChildren(
+  ApiUploadRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -477,6 +528,7 @@ const rootRouteChildren: RootRouteChildren = {
   WissensdatenbankRoute: WissensdatenbankRoute,
   ApiChatRoute: ApiChatRoute,
   ApiTranscribeRoute: ApiTranscribeRoute,
+  ApiUploadRoute: ApiUploadRouteWithChildren,
   FallCaseIdRoute: FallCaseIdRoute,
 }
 export const routeTree = rootRouteImport

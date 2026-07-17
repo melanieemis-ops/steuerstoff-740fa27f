@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { FileText } from "lucide-react";
 
 const STORAGE_KEY = "steuerstoff-privacy-acknowledgement-v1";
-export const CURRENT_PRIVACY_VERSION = "2026-07-17";
+export const CURRENT_PRIVACY_VERSION = "2026-07-17-upload-v1";
 const PDF_URL = "/steuerstoff-datenschutzerklaerung.pdf";
 
 type PrivacyAcknowledgement = {
@@ -108,6 +108,12 @@ export function PrivacyAcknowledgementGate({ onAccepted }: { onAccepted: () => v
             bereitgestellte Sprachausgabe. Die verfügbaren Stimmen und die technische Verarbeitung
             können vom verwendeten Gerät, Betriebssystem und Browser abhängen. steuerstoff bindet
             für diese Funktion derzeit keinen eigenen externen Sprachsyntheseanbieter ein.
+          </p>
+          <p className="text-xs leading-relaxed text-muted-foreground sm:text-sm">
+            Die Datenschutzerklärung enthält außerdem einen neuen Abschnitt zum Datei- und
+            Foto-Upload im Chat. Dieser beschreibt die Test-only-Nutzung anonymisierter
+            Beispieldateien, die temporäre Zwischenspeicherung sowie die Weitergabe von Anhängen an
+            den eingesetzten KI-Anbieter beim Absenden einer Nachricht.
           </p>
         </div>
 

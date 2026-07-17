@@ -143,7 +143,7 @@ export function upcomingNext(
   const from = today();
   const to = addYears(from, 2);
   return occurrencesInRange(events, from, to)
-    .filter((o) => !o.event.completed)
+    .filter((o) => !o.event.completed && !o.event.informational)
     .slice(0, count);
 }
 
@@ -152,7 +152,9 @@ export function overdueOccurrences(
 ): { date: Date; event: CalendarEvent }[] {
   const from = addYears(today(), -2);
   const to = addDays(today(), -1);
-  return occurrencesInRange(events, from, to).filter((o) => !o.event.completed);
+  return occurrencesInRange(events, from, to).filter(
+    (o) => !o.event.completed && !o.event.informational,
+  );
 }
 
 export function todaysOccurrences(events: CalendarEvent[]) {

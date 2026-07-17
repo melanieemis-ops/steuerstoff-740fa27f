@@ -200,7 +200,11 @@ export const Route = createFileRoute("/api/tts")({
         }
 
         const wav = pcmChunksToWav(pcmParts);
-        return new Response(wav, {
+        const body: ArrayBuffer = wav.buffer.slice(
+          wav.byteOffset,
+          wav.byteOffset + wav.byteLength,
+        ) as ArrayBuffer;
+        return new Response(body, {
           status: 200,
           headers: {
             "content-type": "audio/wav",

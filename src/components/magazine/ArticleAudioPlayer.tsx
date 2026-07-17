@@ -178,7 +178,7 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
     (url: string, index: number, cacheBust = false): HTMLAudioElement => {
       const el = new Audio();
       el.preload = "auto";
-      el.playsInline = true;
+      el.setAttribute("playsinline", "");
       el.crossOrigin = "anonymous";
       el.playbackRate = speed;
       el.muted = muted;

@@ -4,7 +4,10 @@ export type CalendarCategory =
   | "learning"
   | "client"
   | "office"
-  | "personal";
+  | "personal"
+  | "holiday";
+
+export type CalendarSource = "user" | "steuerstoff";
 
 export type RecurrenceType =
   | "none"

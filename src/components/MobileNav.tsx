@@ -6,8 +6,8 @@ import {
 import { useRef, type ReactNode } from "react";
 import {
   ArrowRightLeft,
+  CalendarDays,
   FilePlus,
-  GraduationCap,
   Home,
   MessageSquare,
 } from "lucide-react";
@@ -34,6 +34,11 @@ export const SECTIONS = [
     to: "/neue-anfrage",
     label: "Anfrage",
     short: "Anfrage",
+  },
+  {
+    to: "/fristenkalender",
+    label: "Fristenkalender",
+    short: "Fristen",
   },
   {
     to: "/fallverlauf",
@@ -184,11 +189,6 @@ export function MobileBottomNav() {
       Icon: MessageSquare,
     },
     {
-      to: "/lernen",
-      label: "Lernen",
-      Icon: GraduationCap,
-    },
-    {
       to: "/",
       label: "Home",
       Icon: Home,
@@ -197,6 +197,11 @@ export function MobileBottomNav() {
       to: "/neue-anfrage",
       label: "Anfrage",
       Icon: FilePlus,
+    },
+    {
+      to: "/fristenkalender",
+      label: "Fristen",
+      Icon: CalendarDays,
     },
     {
       to: "/skr-konverter",
@@ -220,11 +225,7 @@ export function MobileBottomNav() {
               location.pathname.startsWith(to));
 
           const onboardingTarget =
-            to === "/lernen"
-              ? "learn"
-              : to === "/skr-konverter"
-                ? "skr"
-                : undefined;
+            to === "/skr-konverter" ? "skr" : undefined;
 
           return (
             <li

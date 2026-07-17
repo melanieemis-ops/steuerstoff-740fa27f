@@ -497,6 +497,45 @@ body,
   .typing-dot, .typing-caret { animation: none; opacity: 0.6; }
 }
 
+.speech-card-active {
+  border-color: color-mix(in oklab, var(--cyan) 55%, var(--magenta) 45%);
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--cyan) 35%, transparent),
+    0 10px 28px -20px color-mix(in oklab, var(--magenta) 70%, transparent);
+}
+
+.speech-active-control {
+  box-shadow:
+    inset 0 0 0 1px color-mix(in oklab, var(--magenta) 45%, transparent),
+    0 8px 18px -16px color-mix(in oklab, var(--cyan) 70%, transparent);
+}
+
+.speech-audio-indicator {
+  width: 9px;
+  height: 9px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, var(--cyan), var(--magenta));
+  box-shadow: 0 0 0 0 color-mix(in oklab, var(--cyan) 50%, transparent);
+  animation: speech-audio-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes speech-audio-pulse {
+  0%, 100% {
+    transform: scale(0.92);
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--magenta) 35%, transparent);
+  }
+  50% {
+    transform: scale(1.06);
+    box-shadow: 0 0 0 6px color-mix(in oklab, var(--cyan) 0%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .speech-audio-indicator {
+    animation: none;
+  }
+}
+
 /* --------------------------------------------------------------------------
    Mobile app shell: verhindert globales seitliches Verrutschen, ohne bewusst
    horizontal scrollbare Fachregister zu zerstören.

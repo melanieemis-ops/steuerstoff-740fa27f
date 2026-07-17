@@ -124,8 +124,7 @@ export const magazineArticles: MagazineArticle[] = [
         "Fahrzeugpapiere bis zum Eingang der Gelangensbestätigung einzubehalten.",
       ]},
       { type: "paragraph", text: "Solche zusätzlichen Sicherungsmaßnahmen können daher nicht allgemein zur Voraussetzung des Vertrauensschutzes gemacht werden." },
-      { type: "notice", variant: "praxistipp", text: "Der Verkäufer hatte in dem entschiedenen Fall umfangreiche Prüf- und Dokumentationsmaßnahmen vorgenommen. Unter anderem hatte er die USt-IdNr. qualifiziert bestätigen lassen, einen Handelsregisterauszug angefordert, die Identität des Abholers geprüft, eine Ausweiskopie erstellt, die Ausfuhr nach Rumänien vertraglich vereinbart und die Übersendung einer Gelangensbestätigung ausdrücklich festgehalten." },
-      { type: "paragraph", text: "Der Verkäufer hatte in dem entschiedenen Fall umfangreiche Prüf- und Dokumentationsmaßnahmen vorgenommen. Unter anderem hatte er:" },
+      { type: "notice", variant: "praxistipp", text: "Der Verkäufer hatte in dem entschiedenen Fall umfangreiche Prüf- und Dokumentationsmaßnahmen vorgenommen. Unter anderem hatte er:" },
       { type: "list", items: [
         "die Umsatzsteuer-Identifikationsnummer qualifiziert bestätigen lassen,",
         "einen Handelsregisterauszug angefordert,",

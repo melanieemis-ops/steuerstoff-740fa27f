@@ -24,7 +24,6 @@ import {
 } from "@/components/MobileNav";
 import { ScrollToBottom } from "@/components/ScrollToBottom";
 import { PwaStatus } from "@/components/PwaStatus";
-import { MobileWelcomeScreen } from "@/components/MobileWelcomeScreen";
 import {
   applyTheme,
   getThemeMode,
@@ -362,8 +361,6 @@ function RootComponent() {
           <MobileBottomNav />
           <PwaStatus />
         </GlobalSwipeArea>
-
-        <MobileWelcomeScreen />
       </div>
     </QueryClientProvider>
   );

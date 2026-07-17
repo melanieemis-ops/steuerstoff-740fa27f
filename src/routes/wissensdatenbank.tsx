@@ -802,7 +802,7 @@ function KnowledgeDetailPortal({
   return createPortal(
     <>
       <div
-        className="fixed inset-0 z-[1000] bg-foreground/40 backdrop-blur-sm"
+        className="fixed inset-0 z-[1000] bg-foreground/40"
         onClick={onClose}
         data-no-swipe="true"
       />

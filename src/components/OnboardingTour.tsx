@@ -11,6 +11,7 @@ import { createPortal } from "react-dom";
 import { ArrowRight, Check, X } from "lucide-react";
 
 const STORAGE_KEY = "steuerstoff.onboarding.v1";
+const ONBOARDING_TOUR_EMERGENCY_DISABLED = true;
 const START_DELAY_MS = 520;
 const TARGET_PADDING = 7;
 const CARD_MARGIN = 16;
@@ -229,6 +230,10 @@ function onboardingAlreadyHandled(): boolean {
 }
 
 export function OnboardingTour() {
+  if (ONBOARDING_TOUR_EMERGENCY_DISABLED) {
+    return null;
+  }
+
   const [open, setOpen] = useState(false);
   const [stepIndex, setStepIndex] = useState(0);
   const [targetRect, setTargetRect] =
@@ -347,14 +352,6 @@ export function OnboardingTour() {
       return;
     }
 
-    const previousHtmlOverflow =
-      document.documentElement.style.overflow;
-    const previousBodyOverflow =
-      document.body.style.overflow;
-
-    document.documentElement.style.overflow = "hidden";
-    document.body.style.overflow = "hidden";
-
     updateTarget();
 
     const handleViewportChange = () => {
@@ -390,10 +387,6 @@ export function OnboardingTour() {
     const retry = window.setInterval(updateTarget, 350);
 
     return () => {
-      document.documentElement.style.overflow =
-        previousHtmlOverflow;
-      document.body.style.overflow = previousBodyOverflow;
-
       window.removeEventListener(
         "resize",
         handleViewportChange,

@@ -1,11 +1,10 @@
 /**
- * ArticleAudioPlayer.tsx
+ * ArticleAudioPlayer.tsx – Playlist-Player für segmentierte Magazin-Audios (v3)
  *
- * Hochwertiger Audio-Player für den steuerstoff-Spezialbeitrag.
- * - Nutzt /api/tts mit whitelisted articleId + fester Inhaltsversion.
- * - Speichert Wiedergabeposition pro Artikel in localStorage.
- * - Bietet Browserstimme-Fallback, wenn OpenAI-TTS nicht liefert.
- * - Sorgt dafür, dass Browserstimme und Audio nie parallel laufen.
+ * Lädt beim ersten Play ein Manifest von /api/tts?manifest=1 und spielt die
+ * einzelnen kleinen MP3-Segmente nacheinander ab. Segment 0 startet, sobald
+ * es bereit ist; Segment N+1 wird währenddessen vorgeladen. Global sind
+ * Play/Pause, Speed, Mute, ±15 s, Fortschritt und Position.
  */
 
 import {
@@ -34,6 +33,14 @@ type Props = {
   browserSpeakContext: BrowserSpeakContext;
 };
 
+type Manifest = {
+  version: string;
+  articleId: string;
+  segmentCount: number;
+  estimatedDurationSeconds: number;
+  segments: { index: number; url: string; chars: number; estimatedSeconds: number }[];
+};
+
 const SPEED_OPTIONS = [0.8, 1, 1.25, 1.5, 2] as const;
 type Speed = (typeof SPEED_OPTIONS)[number];
 
@@ -50,29 +57,62 @@ function positionKey(articleId: string) {
 
 export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
   const sourceId = `magazine-article:${articleId}`;
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [manifest, setManifest] = useState<Manifest | null>(null);
+  const [durations, setDurations] = useState<number[]>([]); // realer Wert je Segment
+  const [segmentIndex, setSegmentIndex] = useState(0);
+  const [segmentTime, setSegmentTime] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [status, setStatus] = useState<"idle" | "loading" | "ready" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [current, setCurrent] = useState(0);
-  const [duration, setDuration] = useState(0);
   const [speed, setSpeed] = useState<Speed>(1);
   const [muted, setMuted] = useState(false);
   const [browserFallbackActive, setBrowserFallbackActive] = useState(false);
 
-  const audioSrc = useMemo(
+  const currentAudioRef = useRef<HTMLAudioElement | null>(null);
+  const preloadAudioRef = useRef<HTMLAudioElement | null>(null);
+  const retriedRef = useRef<Set<number>>(new Set());
+  const restoredRef = useRef(false);
+
+  const manifestUrl = useMemo(
     () =>
       `/api/tts?articleId=${encodeURIComponent(articleId)}&v=${encodeURIComponent(
         AUDIO_CONTENT_VERSION,
-      )}`,
+      )}&manifest=1`,
     [articleId],
   );
 
-  // Wiedergabeposition wiederherstellen
-  const restoredRef = useRef(false);
-  useEffect(() => {
-    restoredRef.current = false;
-  }, [articleId]);
+  // Geschätzte / reale Segmentdauern
+  const segmentDurations = useMemo(() => {
+    if (!manifest) return [] as number[];
+    return manifest.segments.map((s, i) => durations[i] ?? s.estimatedSeconds);
+  }, [manifest, durations]);
+
+  const totalDuration = useMemo(
+    () => segmentDurations.reduce((a, b) => a + b, 0),
+    [segmentDurations],
+  );
+
+  const globalTime = useMemo(() => {
+    let t = 0;
+    for (let i = 0; i < segmentIndex; i++) t += segmentDurations[i] ?? 0;
+    return t + segmentTime;
+  }, [segmentDurations, segmentIndex, segmentTime]);
+
+  const allDurationsKnown = manifest ? durations.length === manifest.segmentCount && durations.every((d) => Number.isFinite(d)) : false;
+
+  const disposeAudio = useCallback((ref: React.MutableRefObject<HTMLAudioElement | null>) => {
+    const el = ref.current;
+    if (el) {
+      el.pause();
+      el.onended = null;
+      el.onerror = null;
+      el.ontimeupdate = null;
+      el.onloadedmetadata = null;
+      el.removeAttribute("src");
+      el.load();
+    }
+    ref.current = null;
+  }, []);
 
   const stopBrowserSpeech = useCallback(() => {
     if (typeof window !== "undefined" && "speechSynthesis" in window) {
@@ -81,159 +121,305 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
     setBrowserFallbackActive(false);
   }, []);
 
-  const cleanupAudio = useCallback(() => {
-    const el = audioRef.current;
-    if (el) {
-      el.pause();
-      el.removeAttribute("src");
-      el.load();
-    }
-    setIsPlaying(false);
-  }, []);
-
-  // Beim Unmount alles freigeben
   useEffect(() => {
     return () => {
       stopBrowserSpeech();
-      const el = audioRef.current;
-      if (el) {
-        el.pause();
-      }
+      disposeAudio(currentAudioRef);
+      disposeAudio(preloadAudioRef);
     };
-  }, [stopBrowserSpeech]);
+  }, [disposeAudio, stopBrowserSpeech]);
 
-  // Wenn eine andere Audio-Ausgabe startet (z. B. Chat-Vorlesen), diese pausieren.
-  // Eigene Stop-Events (z. B. beim eigenen Play-Start) ignorieren, sonst
-  // würde der Player sich selbst sofort wieder pausieren.
   useEffect(() => {
     return onAudioStop((source) => {
       if (source === sourceId) return;
       stopBrowserSpeech();
-      const el = audioRef.current;
+      const el = currentAudioRef.current;
       if (el && !el.paused) el.pause();
     });
   }, [sourceId, stopBrowserSpeech]);
 
-  const ensureLoaded = useCallback(() => {
-    const existing = audioRef.current;
-    if (existing && existing.src === new URL(audioSrc, window.location.href).href) {
-      return existing;
-    }
-    // iOS/Safari: bei Versionswechsel altes Element sauber entsorgen,
-    // damit kein alter Blob/Cache wiederverwendet wird.
-    if (existing) {
-      existing.pause();
-      existing.removeAttribute("src");
-      existing.load();
-    }
-    const el = new Audio();
-    el.preload = "metadata";
-    el.src = audioSrc;
-    el.playbackRate = speed;
-    el.muted = muted;
-    el.addEventListener("loadedmetadata", () => {
-      setDuration(Number.isFinite(el.duration) ? el.duration : 0);
-      if (!restoredRef.current) {
-        restoredRef.current = true;
-        try {
-          const saved = Number(localStorage.getItem(positionKey(articleId)));
-          if (Number.isFinite(saved) && saved > 2 && el.duration && saved < el.duration - 2) {
-            el.currentTime = saved;
-          }
-        } catch {
-          /* ignore */
-        }
-      }
-      setStatus("ready");
-    });
-    el.addEventListener("timeupdate", () => {
-      setCurrent(el.currentTime);
-      if (Math.floor(el.currentTime) % 3 === 0) {
-        try {
-          localStorage.setItem(positionKey(articleId), String(el.currentTime));
-        } catch {
-          /* ignore */
-        }
-      }
-    });
-    el.addEventListener("play", () => setIsPlaying(true));
-    el.addEventListener("pause", () => setIsPlaying(false));
-    el.addEventListener("ended", () => {
-      setIsPlaying(false);
+  const savePosition = useCallback(
+    (globalSec: number) => {
       try {
-        localStorage.removeItem(positionKey(articleId));
+        localStorage.setItem(positionKey(articleId), String(globalSec));
       } catch {
         /* ignore */
       }
-    });
-    el.addEventListener("error", () => {
+    },
+    [articleId],
+  );
+
+  const clearPosition = useCallback(() => {
+    try {
+      localStorage.removeItem(positionKey(articleId));
+    } catch {
+      /* ignore */
+    }
+  }, [articleId]);
+
+  const loadManifest = useCallback(async (): Promise<Manifest | null> => {
+    try {
+      const res = await fetch(manifestUrl, { cache: "no-store" });
+      if (!res.ok) throw new Error(`Manifest ${res.status}`);
+      const data = (await res.json()) as Manifest;
+      if (!data.segments || data.segments.length === 0) throw new Error("Leeres Manifest");
+      setManifest(data);
+      setDurations(new Array(data.segmentCount).fill(NaN));
+      return data;
+    } catch (e) {
+      console.error("[magazine-audio] manifest error", e);
       setStatus("error");
-      setErrorMsg(
-        "Die KI-Audiofassung konnte nicht geladen werden. Sie können die Browserstimme als Ersatz nutzen.",
-      );
-      setIsPlaying(false);
-    });
-    audioRef.current = el;
-    return el;
-  }, [articleId, audioSrc, muted, speed]);
+      setErrorMsg("Audio-Manifest konnte nicht geladen werden.");
+      return null;
+    }
+  }, [manifestUrl]);
+
+  const createSegmentAudio = useCallback(
+    (url: string, index: number, cacheBust = false): HTMLAudioElement => {
+      const el = new Audio();
+      el.preload = "auto";
+      el.playsInline = true;
+      el.crossOrigin = "anonymous";
+      el.playbackRate = speed;
+      el.muted = muted;
+      el.src = cacheBust ? `${url}${url.includes("?") ? "&" : "?"}cb=${Date.now()}` : url;
+      el.onloadedmetadata = () => {
+        if (Number.isFinite(el.duration)) {
+          setDurations((prev) => {
+            const next = prev.slice();
+            next[index] = el.duration;
+            return next;
+          });
+        }
+      };
+      return el;
+    },
+    [muted, speed],
+  );
+
+  const preloadNext = useCallback(
+    (nextIndex: number, m: Manifest) => {
+      disposeAudio(preloadAudioRef);
+      if (nextIndex >= m.segmentCount) return;
+      const el = createSegmentAudio(m.segments[nextIndex].url, nextIndex);
+      preloadAudioRef.current = el;
+    },
+    [createSegmentAudio, disposeAudio],
+  );
+
+  const playSegment = useCallback(
+    async (index: number, m: Manifest, opts: { autoplay: boolean; startAt?: number }) => {
+      if (index >= m.segmentCount) {
+        // Ende
+        setIsPlaying(false);
+        setSegmentIndex(Math.max(0, m.segmentCount - 1));
+        clearPosition();
+        return;
+      }
+
+      // Aktuelles Segment entsorgen, Preload ggf. übernehmen
+      disposeAudio(currentAudioRef);
+      let el: HTMLAudioElement | null = null;
+      const preloaded = preloadAudioRef.current;
+      if (preloaded && preloaded.src.includes(m.segments[index].url)) {
+        el = preloaded;
+        preloadAudioRef.current = null;
+      } else {
+        disposeAudio(preloadAudioRef);
+        el = createSegmentAudio(m.segments[index].url, index);
+      }
+      currentAudioRef.current = el;
+
+      el.playbackRate = speed;
+      el.muted = muted;
+
+      el.ontimeupdate = () => {
+        setSegmentTime(el!.currentTime);
+        if (Math.floor(el!.currentTime) % 3 === 0) {
+          let t = 0;
+          for (let i = 0; i < index; i++) t += segmentDurations[i] ?? 0;
+          savePosition(t + el!.currentTime);
+        }
+      };
+      el.onended = () => {
+        void playSegment(index + 1, m, { autoplay: true });
+      };
+      el.onerror = () => {
+        if (!retriedRef.current.has(index)) {
+          retriedRef.current.add(index);
+          console.warn("[magazine-audio] segment error, retrying", index);
+          disposeAudio(currentAudioRef);
+          const retryEl = createSegmentAudio(m.segments[index].url, index, true);
+          currentAudioRef.current = retryEl;
+          retryEl.ontimeupdate = el!.ontimeupdate;
+          retryEl.onended = el!.onended;
+          retryEl.onerror = () => {
+            setStatus("error");
+            setErrorMsg(
+              `Audioabschnitt ${index + 1} konnte nicht geladen werden. Sie können die Browserstimme als Ersatz nutzen.`,
+            );
+            setIsPlaying(false);
+          };
+          if (opts.autoplay) void retryEl.play().catch(() => undefined);
+          return;
+        }
+        setStatus("error");
+        setErrorMsg(
+          `Audioabschnitt ${index + 1} konnte nicht geladen werden. Sie können die Browserstimme als Ersatz nutzen.`,
+        );
+        setIsPlaying(false);
+      };
+      el.onplay = () => setIsPlaying(true);
+      el.onpause = () => setIsPlaying(false);
+
+      setSegmentIndex(index);
+      setSegmentTime(opts.startAt ?? 0);
+
+      // Nächstes Segment vorbereiten
+      preloadNext(index + 1, m);
+
+      const startPlayback = async () => {
+        try {
+          if (opts.startAt && opts.startAt > 0) {
+            el!.currentTime = opts.startAt;
+          }
+          if (opts.autoplay) {
+            await el!.play();
+          }
+          setStatus("ready");
+        } catch (e) {
+          console.error("[magazine-audio] play error", e);
+          setStatus("error");
+          setErrorMsg("Wiedergabe konnte nicht gestartet werden.");
+        }
+      };
+
+      if (el.readyState >= 2) {
+        await startPlayback();
+      } else {
+        el.oncanplay = () => {
+          el!.oncanplay = null;
+          void startPlayback();
+        };
+      }
+    },
+    [
+      clearPosition,
+      createSegmentAudio,
+      disposeAudio,
+      muted,
+      preloadNext,
+      savePosition,
+      segmentDurations,
+      speed,
+    ],
+  );
 
   const handlePlayPause = useCallback(async () => {
-    const el = ensureLoaded();
+    // Bereits laufend: pausieren
     if (isPlaying) {
-      el.pause();
+      currentAudioRef.current?.pause();
       return;
     }
-    // Andere Audio-Ausgaben (Chat-Vorlesen, Browserstimme) beim Start stoppen.
     requestStopAllAudio(sourceId);
     stopBrowserSpeech();
-    try {
-      if (status === "idle") {
-        setStatus("loading");
-        el.load();
-      }
-      await el.play();
-    } catch {
-      setStatus("error");
-      setErrorMsg("Wiedergabe konnte nicht gestartet werden.");
+
+    let m = manifest;
+    if (!m) {
+      setStatus("loading");
+      m = await loadManifest();
+      if (!m) return;
     }
-  }, [ensureLoaded, isPlaying, sourceId, status, stopBrowserSpeech]);
+
+    // Bestehendes Segment: einfach fortsetzen
+    if (currentAudioRef.current) {
+      try {
+        await currentAudioRef.current.play();
+        setStatus("ready");
+      } catch {
+        setStatus("error");
+        setErrorMsg("Wiedergabe konnte nicht gestartet werden.");
+      }
+      return;
+    }
+
+    // Position wiederherstellen
+    let startIndex = 0;
+    let startAt = 0;
+    if (!restoredRef.current) {
+      restoredRef.current = true;
+      try {
+        const saved = Number(localStorage.getItem(positionKey(articleId)));
+        if (Number.isFinite(saved) && saved > 2) {
+          let acc = 0;
+          for (let i = 0; i < m.segments.length; i++) {
+            const dur = m.segments[i].estimatedSeconds;
+            if (saved < acc + dur) {
+              startIndex = i;
+              startAt = Math.max(0, saved - acc);
+              break;
+            }
+            acc += dur;
+          }
+        }
+      } catch {
+        /* ignore */
+      }
+    }
+
+    setStatus("loading");
+    await playSegment(startIndex, m, { autoplay: true, startAt });
+  }, [articleId, isPlaying, loadManifest, manifest, playSegment, sourceId, stopBrowserSpeech]);
+
+  const seekTo = useCallback(
+    (globalSec: number) => {
+      if (!manifest) return;
+      let acc = 0;
+      for (let i = 0; i < manifest.segments.length; i++) {
+        const dur = segmentDurations[i] ?? manifest.segments[i].estimatedSeconds;
+        if (globalSec < acc + dur || i === manifest.segments.length - 1) {
+          const localAt = Math.max(0, Math.min(dur, globalSec - acc));
+          if (i === segmentIndex && currentAudioRef.current) {
+            currentAudioRef.current.currentTime = localAt;
+            setSegmentTime(localAt);
+          } else {
+            void playSegment(i, manifest, { autoplay: isPlaying, startAt: localAt });
+          }
+          return;
+        }
+        acc += dur;
+      }
+    },
+    [isPlaying, manifest, playSegment, segmentDurations, segmentIndex],
+  );
 
   const seekBy = useCallback(
     (delta: number) => {
-      const el = audioRef.current;
-      if (!el || !Number.isFinite(el.duration)) return;
-      el.currentTime = Math.max(0, Math.min(el.duration, el.currentTime + delta));
+      seekTo(Math.max(0, Math.min(totalDuration, globalTime + delta)));
     },
-    [],
+    [globalTime, seekTo, totalDuration],
   );
-
-  const seekTo = useCallback((value: number) => {
-    const el = audioRef.current;
-    if (!el) return;
-    el.currentTime = value;
-    setCurrent(value);
-  }, []);
 
   const changeSpeed = useCallback((next: Speed) => {
     setSpeed(next);
-    const el = audioRef.current;
-    if (el) el.playbackRate = next;
+    if (currentAudioRef.current) currentAudioRef.current.playbackRate = next;
+    if (preloadAudioRef.current) preloadAudioRef.current.playbackRate = next;
   }, []);
 
   const toggleMute = useCallback(() => {
     setMuted((prev) => {
-      const el = audioRef.current;
       const next = !prev;
-      if (el) el.muted = next;
+      if (currentAudioRef.current) currentAudioRef.current.muted = next;
+      if (preloadAudioRef.current) preloadAudioRef.current.muted = next;
       return next;
     });
   }, []);
 
   const startBrowserFallback = useCallback(() => {
     if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-    // Andere Audio-Ausgaben (Chat, anderes Magazin-Audio) stoppen.
     requestStopAllAudio(sourceId);
-    cleanupAudio();
+    disposeAudio(currentAudioRef);
+    disposeAudio(preloadAudioRef);
     const synth = window.speechSynthesis;
     synth.cancel();
     const parts = [
@@ -254,22 +440,17 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
       }
       synth.speak(u);
     });
-  }, [browserSpeakContext, cleanupAudio, sourceId]);
-
-  const stopBrowserFallback = useCallback(() => {
-    stopBrowserSpeech();
-  }, [stopBrowserSpeech]);
+  }, [browserSpeakContext, disposeAudio, sourceId]);
 
   const isLoading = status === "loading";
   const showPlayer = status !== "error" || isPlaying;
+  const totalLabel = allDurationsKnown ? formatTime(totalDuration) : `ca. ${formatTime(totalDuration)}`;
 
   return (
     <section
       aria-label="Audiofassung des Fachbeitrags"
       className="mb-5 rounded-2xl border border-[#22d3ee]/25 bg-gradient-to-br from-[#0b1220] via-[#0f172a] to-[#111a2e] p-4 text-[#f5efe1] shadow-[0_10px_40px_-20px_rgba(34,211,238,0.5)]"
-      style={{
-        paddingBottom: "max(1rem, env(safe-area-inset-bottom))",
-      }}
+      style={{ paddingBottom: "max(1rem, env(safe-area-inset-bottom))" }}
     >
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div>
@@ -278,6 +459,7 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
           </div>
           <div className="mt-0.5 text-[12px] text-[#c8d3ea]">
             Fachbeitrag anhören – professionell vertont
+            {manifest ? ` · Abschnitt ${segmentIndex + 1}/${manifest.segmentCount}` : ""}
           </div>
         </div>
         {status === "error" ? (
@@ -299,7 +481,7 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
 
       {isLoading ? (
         <p className="mt-2 text-[12px] text-[#c8d3ea]" aria-live="polite">
-          Audio wird einmalig vorbereitet … Das kann bei langen Beiträgen einen Moment dauern.
+          Audioabschnitt wird vorbereitet …
         </p>
       ) : null}
 
@@ -323,19 +505,19 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
 
             <button
               type="button"
-              onClick={() => seekBy(-10)}
-              aria-label="10 Sekunden zurück"
+              onClick={() => seekBy(-15)}
+              aria-label="15 Sekunden zurück"
               className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/5 text-[#f5efe1] transition hover:bg-white/10"
             >
-              <RotateCcw className="h-4.5 w-4.5" aria-hidden="true" />
+              <RotateCcw className="h-4 w-4" aria-hidden="true" />
             </button>
             <button
               type="button"
-              onClick={() => seekBy(10)}
-              aria-label="10 Sekunden vor"
+              onClick={() => seekBy(15)}
+              aria-label="15 Sekunden vor"
               className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/5 text-[#f5efe1] transition hover:bg-white/10"
             >
-              <RotateCw className="h-4.5 w-4.5" aria-hidden="true" />
+              <RotateCw className="h-4 w-4" aria-hidden="true" />
             </button>
 
             <button
@@ -345,26 +527,26 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
               className="ml-auto inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/5 text-[#f5efe1] transition hover:bg-white/10"
             >
               {muted ? (
-                <VolumeX className="h-4.5 w-4.5" aria-hidden="true" />
+                <VolumeX className="h-4 w-4" aria-hidden="true" />
               ) : (
-                <Volume2 className="h-4.5 w-4.5" aria-hidden="true" />
+                <Volume2 className="h-4 w-4" aria-hidden="true" />
               )}
             </button>
           </div>
 
           <div className="flex items-center gap-2 text-[11px] tabular-nums text-[#c8d3ea]">
-            <span className="w-10 text-right">{formatTime(current)}</span>
+            <span className="w-10 text-right">{formatTime(globalTime)}</span>
             <input
               type="range"
               min={0}
-              max={Math.max(duration, 0.1)}
+              max={Math.max(totalDuration, 0.1)}
               step={0.1}
-              value={Math.min(current, duration || 0)}
+              value={Math.min(globalTime, totalDuration || 0)}
               onChange={(e) => seekTo(Number(e.currentTarget.value))}
               aria-label="Wiedergabeposition"
               className="h-1.5 flex-1 appearance-none rounded-full bg-white/10 accent-[#22d3ee]"
             />
-            <span className="w-10">{formatTime(duration)}</span>
+            <span className="w-14">{totalLabel}</span>
           </div>
 
           <div
@@ -392,7 +574,7 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
             })}
             <button
               type="button"
-              onClick={browserFallbackActive ? stopBrowserFallback : startBrowserFallback}
+              onClick={browserFallbackActive ? stopBrowserSpeech : startBrowserFallback}
               className="ml-auto rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-medium text-[#c8d3ea] transition hover:bg-white/10"
             >
               {browserFallbackActive ? "Browserstimme stoppen" : "Browserstimme"}

@@ -1745,7 +1745,7 @@ function DayNotePanel({
     try {
       const trimmed = content.trim();
       if (trimmed.length === 0) {
-        if (existing) deleteDayNote(existing.id);
+        if (existing) deleteDayNote(existing.date);
         onNotify("Tagesnotiz gelöscht");
       } else {
         saveDayNote({ date: iso, content: trimmed });
@@ -1760,7 +1760,7 @@ function DayNotePanel({
 
   const remove = () => {
     if (existing) {
-      deleteDayNote(existing.id);
+      deleteDayNote(existing.date);
       onNotify("Tagesnotiz gelöscht");
     }
     onClose();

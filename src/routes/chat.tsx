@@ -3,6 +3,8 @@ import {
   useEffect,
   useRef,
   useState,
+  type ClipboardEvent,
+  type DragEvent,
   type FormEvent,
   type KeyboardEvent,
   type ReactNode,
@@ -14,6 +16,7 @@ import {
   Copy,
   Check,
   Plus,
+  Paperclip,
   RefreshCw,
   Trash2,
   AlertCircle,
@@ -23,11 +26,25 @@ import {
   Square,
   LoaderCircle,
 } from "lucide-react";
+
 import { generateAnswer, REVIEW_HINT, type ChatAnswer } from "@/lib/chatHeuristics";
 import { useVoiceInput } from "@/hooks/useVoiceInput";
 import { SpeechProvider, useSpeechContext } from "@/hooks/useSpeechSynthesis";
 import { ChatMessageAudioButton } from "@/components/chat/ChatMessageAudioButton";
 import { SpeechMiniPlayer } from "@/components/chat/SpeechMiniPlayer";
+import {
+  AttachmentPlusButton,
+  AttachmentChips,
+} from "@/components/chat/AttachmentControls";
+import {
+  revokeAll,
+  revokeAttachment,
+  validateAndBuild,
+  type ChatAttachment,
+  type PersistedAttachment,
+} from "@/lib/chatAttachments";
+
+
 
 function withFallbackMarker(a: ChatAnswer): ChatAnswer {
   return {
@@ -57,7 +74,13 @@ export const Route = createFileRoute("/chat")({
 });
 
 type Msg =
-  | { id: string; role: "user"; text: string; t: number }
+  | {
+      id: string;
+      role: "user";
+      text: string;
+      t: number;
+      attachments?: PersistedAttachment[];
+    }
   | { id: string; role: "assistant"; answer: ChatAnswer; t: number }
   | { id: string; role: "error"; text: string; t: number; retryOf: string };
 
@@ -95,11 +118,27 @@ function loadMessages(): Msg[] {
 function saveMessages(msgs: Msg[]) {
   if (typeof window === "undefined") return;
   try {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(msgs));
+    // Persistieren ohne File-Referenzen / ObjectURLs.
+    const safe = msgs.map((m) =>
+      m.role === "user" && m.attachments
+        ? {
+            ...m,
+            attachments: m.attachments.map((a) => ({
+              id: a.id,
+              name: a.name,
+              size: a.size,
+              mime: a.mime,
+              kind: a.kind,
+            })),
+          }
+        : m,
+    );
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(safe));
   } catch {
     // ignore quota / privacy mode
   }
 }
+
 
 function uid() {
   return Math.random().toString(36).slice(2, 10);
@@ -122,10 +161,39 @@ function ChatPage() {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const startingRef = useRef(false);
   const timersRef = useRef<number[]>([]);
+  const [attachments, setAttachments] = useState<ChatAttachment[]>([]);
+  const [attachError, setAttachError] = useState<string | null>(null);
+  const [dragOver, setDragOver] = useState(false);
+  const attachmentsRef = useRef<ChatAttachment[]>([]);
+  useEffect(() => {
+    attachmentsRef.current = attachments;
+  }, [attachments]);
 
   function clearTimers() {
     for (const id of timersRef.current) window.clearTimeout(id);
     timersRef.current = [];
+  }
+
+  function addFiles(files: File[]) {
+    if (!files.length) return;
+    const res = validateAndBuild(attachmentsRef.current, files);
+    setAttachments(res.attachments);
+    setAttachError(res.ok ? null : res.error);
+  }
+
+  function removeAttachment(id: string) {
+    setAttachments((prev) => {
+      const found = prev.find((a) => a.id === id);
+      revokeAttachment(found);
+      return prev.filter((a) => a.id !== id);
+    });
+    setAttachError(null);
+  }
+
+  function clearAttachments() {
+    revokeAll(attachmentsRef.current);
+    setAttachments([]);
+    setAttachError(null);
   }
 
   // hydrate once
@@ -143,8 +211,12 @@ function ChatPage() {
         console.info("[steuerstoff] KB-Regression verfügbar: window.__runKbRegression()");
       });
     }
-    return () => clearTimers();
+    return () => {
+      clearTimers();
+      revokeAll(attachmentsRef.current);
+    };
   }, []);
+
 
   function prefersReducedMotion() {
     return (
@@ -234,40 +306,91 @@ function ChatPage() {
     ta.style.height = Math.min(ta.scrollHeight, 180) + "px";
   }, [input]);
 
-  async function ask(text: string, retryOf?: string) {
+  async function ask(text: string, retryOf?: string, atts?: ChatAttachment[]) {
     const trimmed = text.trim();
-    if (!trimmed || busy) return;
-    const userMsg: Msg = { id: uid(), role: "user", text: trimmed, t: Date.now() };
+    const usedAttachments = atts ?? [];
+    if (!trimmed && usedAttachments.length === 0) return;
+    if (busy) return;
+    const userMsg: Msg = {
+      id: uid(),
+      role: "user",
+      text: trimmed,
+      t: Date.now(),
+      ...(usedAttachments.length > 0
+        ? {
+            attachments: usedAttachments.map((a) => ({
+              id: a.id,
+              name: a.name,
+              size: a.size,
+              mime: a.mime,
+              kind: a.kind,
+              // previewUrl bewusst mitführen (nicht persistiert), damit die
+              // Blase nach dem Senden das Thumbnail zeigt.
+              previewUrl: a.previewUrl,
+            })) as unknown as PersistedAttachment[],
+          }
+        : {}),
+    };
     const assistantId = uid();
     setMessages((prev) => {
       const base = retryOf ? prev.filter((m) => m.id !== retryOf) : prev;
       return [...base, userMsg];
     });
     setInput("");
+    // Nach dem Übernehmen in die Nachricht die Auswahl leeren; ObjectURLs bleiben
+    // gültig, weil die Blase die gleichen previewUrls referenziert. Freigabe
+    // erfolgt beim Verlauf-Löschen bzw. beim Unmount.
+    if (usedAttachments.length > 0) {
+      setAttachments([]);
+      setAttachError(null);
+    }
     setBusy(true);
 
     // Kompakter Verlauf: nur die letzten 8 user/assistant-Turns.
     const priorMsgs = messages.filter((m) => m.role === "user" || m.role === "assistant");
     const history = priorMsgs
       .slice(-8)
-      .map((m) =>
-        m.role === "user"
-          ? { role: "user" as const, content: m.text }
-          : { role: "assistant" as const, content: m.answer.summary },
-      );
+      .map((m) => {
+        if (m.role === "user") {
+          const attNote =
+            m.attachments && m.attachments.length > 0
+              ? ` [frühere Anhänge: ${m.attachments.map((a) => a.name).join(", ")}]`
+              : "";
+          return { role: "user" as const, content: (m.text || "(nur Anhänge)") + attNote };
+        }
+        return { role: "assistant" as const, content: m.answer.summary };
+      });
 
     let assistantInserted = false;
     let accumulated = "";
 
     try {
-      const resp = await fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: trimmed, history }),
-      });
-      if (!resp.ok || !resp.body) {
-        throw new Error(`HTTP ${resp.status}`);
+      let resp: Response;
+      if (usedAttachments.length > 0) {
+        const fd = new FormData();
+        fd.set("message", trimmed);
+        fd.set("history", JSON.stringify(history));
+        for (const a of usedAttachments) fd.append("attachment", a.file, a.name);
+        resp = await fetch("/api/chat", { method: "POST", body: fd });
+      } else {
+        resp = await fetch("/api/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: trimmed, history }),
+        });
       }
+      if (!resp.ok || !resp.body) {
+        // Versuche, JSON-Fehlermeldung des Servers zu lesen.
+        let serverMsg = "";
+        try {
+          const j = await resp.clone().json();
+          if (j && typeof j.error === "string") serverMsg = j.error;
+        } catch {
+          /* ignore */
+        }
+        throw new Error(serverMsg || `HTTP ${resp.status}`);
+      }
+
       const reader = resp.body.getReader();
       const decoder = new TextDecoder();
       let buf = "";
@@ -373,11 +496,19 @@ function ChatPage() {
       if (assistantInserted) {
         setMessages((prev) => prev.filter((m) => m.id !== assistantId));
       }
-      try {
-        const fallback = withFallbackMarker(generateAnswer(trimmed));
-        const aiMsg: Msg = { id: uid(), role: "assistant", answer: fallback, t: Date.now() };
-        setMessages((prev) => [...prev, aiMsg]);
-      } catch {
+      const hasAttachments = usedAttachments.length > 0;
+      let fellBack = false;
+      if (!hasAttachments && trimmed) {
+        try {
+          const fallback = withFallbackMarker(generateAnswer(trimmed));
+          const aiMsg: Msg = { id: uid(), role: "assistant", answer: fallback, t: Date.now() };
+          setMessages((prev) => [...prev, aiMsg]);
+          fellBack = true;
+        } catch {
+          /* fällt unten in Fehlermeldung */
+        }
+      }
+      if (!fellBack) {
         const errMsg: Msg = {
           id: uid(),
           role: "error",
@@ -422,10 +553,12 @@ function ChatPage() {
 
   function submitMessage(text: string) {
     const trimmed = text.trim();
-    if (!trimmed || busy) return;
+    const currentAtts = attachmentsRef.current;
+    if ((!trimmed && currentAtts.length === 0) || busy) return;
     if (phase !== "active") activateChatImmediately();
-    void ask(trimmed);
+    void ask(trimmed, undefined, currentAtts);
   }
+
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -463,6 +596,7 @@ function ChatPage() {
 
   function newChat() {
     clearTimers();
+    clearAttachments();
     setMessages([]);
     setPhase("welcome");
     setWelcomeLeaving(false);
@@ -473,6 +607,40 @@ function ChatPage() {
     startingRef.current = false;
     if (typeof window !== "undefined") window.localStorage.removeItem(STORAGE_KEY);
   }
+
+  function handlePaste(e: ClipboardEvent<HTMLTextAreaElement>) {
+    const items = e.clipboardData?.items;
+    if (!items) return;
+    const files: File[] = [];
+    for (const it of Array.from(items)) {
+      if (it.kind === "file") {
+        const f = it.getAsFile();
+        if (f) files.push(f);
+      }
+    }
+    if (files.length > 0) {
+      e.preventDefault();
+      addFiles(files);
+    }
+  }
+
+  function handleDragOver(e: DragEvent<HTMLFormElement>) {
+    if (!e.dataTransfer?.types?.includes("Files")) return;
+    e.preventDefault();
+    setDragOver(true);
+  }
+  function handleDragLeave(e: DragEvent<HTMLFormElement>) {
+    if (e.currentTarget.contains(e.relatedTarget as Node)) return;
+    setDragOver(false);
+  }
+  function handleDrop(e: DragEvent<HTMLFormElement>) {
+    if (!e.dataTransfer?.files || e.dataTransfer.files.length === 0) return;
+    e.preventDefault();
+    setDragOver(false);
+    addFiles(Array.from(e.dataTransfer.files));
+    if (phase !== "active") activateChatImmediately();
+  }
+
 
   function markCopied(id: string) {
     setCopiedId(id);
@@ -497,7 +665,8 @@ function ChatPage() {
   }
 
   const hasMessages = messages.length > 0;
-  const canSend = input.trim().length > 0 && !busy;
+  const canSend = (input.trim().length > 0 || attachments.length > 0) && !busy;
+
 
   return (
     <SpeechProvider>
@@ -724,11 +893,47 @@ function ChatPage() {
 
         <form
           onSubmit={handleSubmit}
-          className="fixed inset-x-0 bottom-0 z-30 border-t border-white/10 bg-[⇨07142f]/95 backdrop-blur pb-[calc(env(safe-area-inset-bottom)+64px)] md:pb-3"
+          onDragOver={handleDragOver}
+          onDragLeave={handleDragLeave}
+          onDrop={handleDrop}
+          className={`fixed inset-x-0 bottom-0 z-30 border-t border-white/10 bg-[⇨07142f]/95 backdrop-blur pb-[calc(env(safe-area-inset-bottom)+64px)] md:pb-3 ${
+            dragOver ? "ring-2 ring-inset ring-cyan-400/60" : ""
+          }`}
           data-no-swipe="true"
         >
           <div className="mx-auto w-full max-w-3xl px-3 pt-3">
+            {(attachments.length > 0 || attachError || busy) && (
+              <div className="px-1 pb-2" aria-live="polite">
+                {attachments.length > 0 && (
+                  <AttachmentChips attachments={attachments} onRemove={removeAttachment} compact />
+                )}
+                {attachError && (
+                  <p role="alert" className="mt-1 text-[11px] text-red-500">
+                    {attachError}
+                  </p>
+                )}
+                {busy && attachments.length === 0 && null}
+                {busy && attachments.length > 0 && (
+                  <p className="mt-1 text-[11px] text-muted-foreground">
+                    Datei wird analysiert …
+                  </p>
+                )}
+              </div>
+            )}
+            {dragOver && (
+              <p className="pb-2 text-center text-[11px] text-cyan-300">
+                Zum Anhängen hier ablegen …
+              </p>
+            )}
             <div className="flex items-end gap-2 rounded-3xl border border-border bg-card px-3 py-2 shadow-sm focus-within:border-foreground/30">
+              <AttachmentPlusButton
+                attachments={attachments}
+                disabled={busy}
+                onFilesPicked={(files) => {
+                  addFiles(files);
+                  if (phase !== "active") activateChatImmediately();
+                }}
+              />
               {voice.isSupported && (
                 <button
                   type="button"
@@ -768,13 +973,16 @@ function ChatPage() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
+                onPaste={handlePaste}
                 rows={1}
                 placeholder={
                   voice.isRecording
                     ? "Ich höre zu …"
                     : voice.isTranscribing
                       ? "Sprache wird in Text umgewandelt …"
-                      : "Stell eine steuerliche Frage …"
+                      : attachments.length > 0
+                        ? "Optional: Frage zu den Anhängen …"
+                        : "Stell eine steuerliche Frage …"
                 }
                 className="flex-1 resize-none bg-transparent px-2 py-2 text-[15px] leading-relaxed text-foreground outline-none placeholder:text-muted-foreground"
                 style={{ maxHeight: 180 }}
@@ -783,16 +991,17 @@ function ChatPage() {
               <button
                 type="submit"
                 disabled={!canSend}
-                aria-label="Nachricht senden"
+                aria-label={busy ? "Sende Nachricht" : "Nachricht senden"}
                 className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-colors ${
                   canSend
                     ? "bg-foreground text-background hover:opacity-90"
                     : "bg-muted text-muted-foreground"
                 }`}
               >
-                <ArrowUp className="h-4 w-4" />
+                {busy ? <LoaderCircle className="h-4 w-4 animate-spin" /> : <ArrowUp className="h-4 w-4" />}
               </button>
             </div>
+
             {(voice.isRecording || voice.isTranscribing || voice.error) && (
               <div className="px-2 pt-1.5" aria-live="polite">
                 {voice.isRecording && (
@@ -920,10 +1129,51 @@ function MessageBubble({
   onRetry: () => void;
 }) {
   if (msg.role === "user") {
+    const atts = msg.attachments ?? [];
     return (
       <div data-msg className="flex justify-end">
         <div className="max-w-[85%] rounded-2xl rounded-tr-sm bg-primary px-4 py-3 text-primary-foreground">
-          <p className="whitespace-pre-wrap break-words text-[15px] leading-relaxed">{msg.text}</p>
+          {atts.length > 0 && (
+            <div className="mb-2 flex flex-wrap gap-2">
+              {atts.map((a) => {
+                const previewUrl = (a as PersistedAttachment & { previewUrl?: string })
+                  .previewUrl;
+                return (
+                  <div
+                    key={a.id}
+                    className="flex max-w-[220px] items-center gap-2 rounded-xl bg-primary-foreground/10 py-1 pl-1 pr-2"
+                  >
+                    {a.kind === "image" && previewUrl ? (
+                      <img
+                        src={previewUrl}
+                        alt={a.name}
+                        className="h-10 w-10 shrink-0 rounded-lg object-cover"
+                      />
+                    ) : (
+                      <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary-foreground/20">
+                        <Paperclip className="h-4 w-4" />
+                      </span>
+                    )}
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate text-[12px] font-medium">{a.name}</p>
+                      <p className="text-[10px] opacity-80">
+                        {a.size < 1024
+                          ? `${a.size} B`
+                          : a.size < 1024 * 1024
+                            ? `${Math.round(a.size / 1024)} KB`
+                            : `${(a.size / (1024 * 1024)).toFixed(1)} MB`}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+          {msg.text && (
+            <p className="whitespace-pre-wrap break-words text-[15px] leading-relaxed">
+              {msg.text}
+            </p>
+          )}
           <button
             type="button"
             onClick={(event) => {
@@ -945,6 +1195,7 @@ function MessageBubble({
       </div>
     );
   }
+
   if (msg.role === "error") {
     return (
       <div data-msg className="flex justify-start">

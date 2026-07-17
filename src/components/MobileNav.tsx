@@ -37,6 +37,11 @@ export const SECTIONS = [
     short: "Anfrage",
   },
   {
+    to: "/fristenkalender",
+    label: "Fristenkalender",
+    short: "Fristen",
+  },
+  {
     to: "/fallverlauf",
     label: "Verlauf",
     short: "Verlauf",
@@ -185,11 +190,6 @@ export function MobileBottomNav() {
       Icon: MessageSquare,
     },
     {
-      to: "/lernen",
-      label: "Lernen",
-      Icon: GraduationCap,
-    },
-    {
       to: "/",
       label: "Home",
       Icon: Home,
@@ -198,6 +198,11 @@ export function MobileBottomNav() {
       to: "/neue-anfrage",
       label: "Anfrage",
       Icon: FilePlus,
+    },
+    {
+      to: "/fristenkalender",
+      label: "Fristen",
+      Icon: CalendarDays,
     },
     {
       to: "/skr-konverter",

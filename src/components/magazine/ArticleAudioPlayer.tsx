@@ -49,6 +49,7 @@ function positionKey(articleId: string) {
 }
 
 export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
+  const sourceId = `magazine-article:${articleId}`;
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [status, setStatus] = useState<"idle" | "loading" | "ready" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);

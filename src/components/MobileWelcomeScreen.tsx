@@ -313,8 +313,29 @@ export function MobileWelcomeScreen() {
       return;
     }
 
+    /*
+     * Tap-Fallback: Wer nicht wischt, sondern
+     * einfach irgendwo auf den Welcome-Screen
+     * tippt, öffnet die App ebenfalls. Verhindert,
+     * dass das Overlay die gesamte App blockiert,
+     * wenn die Wisch-Geste nicht erkannt wird.
+     */
+    const totalMovement = Math.hypot(
+      event.clientX - startXRef.current,
+      event.clientY - startYRef.current,
+    );
+    if (
+      directionRef.current === "unknown" &&
+      totalMovement < DIRECTION_LOCK_DISTANCE &&
+      elapsed < 500
+    ) {
+      finishOpen();
+      return;
+    }
+
     resetDrag();
   }
+
 
   function onPointerCancel() {
     /*

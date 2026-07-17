@@ -783,7 +783,7 @@ function MiniMonth({
   );
   const openCount = monthCount(events, year, month);
   const overdueInMonth = monthOccurrences.filter(
-    (o) => !o.event.completed && o.date < today(),
+    (o) => !o.event.completed && !o.event.informational && o.date < today(),
   ).length;
 
   const byDay = useMemo(() => {
@@ -793,7 +793,7 @@ function MiniMonth({
       const prev = map.get(key) ?? { hasTax: false, hasOther: false, overdue: false };
       if (o.event.category === "tax") prev.hasTax = true;
       else prev.hasOther = true;
-      if (!o.event.completed && o.date < today()) prev.overdue = true;
+      if (!o.event.completed && !o.event.informational && o.date < today()) prev.overdue = true;
       map.set(key, prev);
     }
     return map;

@@ -592,6 +592,35 @@ function FristenkalenderPage() {
           onDuplicate={() => duplicate(detailsEvent)}
         />
       )}
+
+      {dayPanelDate && (
+        <DayNotePanel
+          date={dayPanelDate}
+          onClose={() => setDayPanelDate(null)}
+          onOpenWeek={(d) => {
+            setCursor(d);
+            setView("week");
+            setDayPanelDate(null);
+          }}
+          onAddEvent={(d) => {
+            setDayPanelDate(null);
+            openNew(d);
+          }}
+          onNotify={(msg) => setToast(msg)}
+        />
+      )}
+
+      {toast && (
+        <div
+          role="status"
+          aria-live="polite"
+          className="pointer-events-none fixed inset-x-0 bottom-24 z-[80] flex justify-center px-4 md:bottom-10"
+        >
+          <div className="pointer-events-auto rounded-full border border-border bg-card px-4 py-2 text-sm text-foreground shadow-lg">
+            {toast}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

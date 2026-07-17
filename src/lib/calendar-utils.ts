@@ -177,7 +177,7 @@ export function monthCount(
 ): number {
   const first = startOfMonth(new Date(year, month, 1));
   return occurrencesInRange(events, first, endOfMonth(first)).filter(
-    (o) => !o.event.completed,
+    (o) => !o.event.completed && !o.event.informational,
   ).length;
 }
 

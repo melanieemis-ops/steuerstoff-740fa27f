@@ -83,6 +83,11 @@ export const CATEGORY_META: Record<
     color: "oklch(0.6 0.08 155)",
     dot: "oklch(0.6 0.08 155)",
   },
+  holiday: {
+    label: "Feiertag",
+    color: "oklch(0.72 0.06 210)",
+    dot: "oklch(0.72 0.06 210)",
+  },
 };
 
 export const OVERDUE_COLOR = "oklch(0.6 0.2 20)";

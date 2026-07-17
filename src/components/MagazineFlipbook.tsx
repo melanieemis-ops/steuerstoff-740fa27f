@@ -15,31 +15,30 @@ type MagazinePage =
   | { kind: "cover"; src: string; alt: string }
   | { kind: "article"; article: MagazineArticle };
 
-const article = magazineArticles[0];
-
 const magazinePages: MagazinePage[] = [
   {
     kind: "cover",
     src: "/cover.png",
     alt: "Cover des steuerstoff Magazins – Ausgabe 01/2026",
   },
-  { kind: "article", article },
+  ...magazineArticles.map<MagazinePage>((a) => ({ kind: "article", article: a })),
 ];
 
 type FlipDirection = "next" | "previous";
 
 function ArticleTeaser({ article }: { article: MagazineArticle }) {
+  const leadFirst = article.lead.split(/\n\n+/)[0] ?? article.lead;
   return (
     <div className="flex h-full w-full flex-col justify-between gap-3 px-5 py-6 text-[#2b2117]">
       <div className="min-w-0">
         <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#8a6b3a]">
-          Ausgabe 01 · Einkommensteuer
+          {article.issueLabel}
         </p>
         <h3 className="mt-2 text-[17px] font-semibold leading-snug tracking-tight">
           {article.title}
         </h3>
         <p className="mt-3 line-clamp-6 text-[12.5px] leading-relaxed text-[#4a3d2c]">
-          {article.lead}
+          {leadFirst}
         </p>
       </div>
 
@@ -65,6 +64,12 @@ function ArticleTeaser({ article }: { article: MagazineArticle }) {
     </div>
   );
 }
+
+const NOTICE_LABEL: Record<"wichtig" | "merke" | "praxistipp", string> = {
+  wichtig: "Wichtig",
+  merke: "Merke",
+  praxistipp: "Praxistipp",
+};
 
 function renderPageContent(page: MagazinePage): ReactNode {
   if (page.kind === "cover") {

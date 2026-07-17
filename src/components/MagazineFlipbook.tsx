@@ -444,7 +444,17 @@ export function MagazineFlipbook() {
                     />
                   </figure>
 
-                  <FullArticle article={article} />
+                  {magazineArticles.map((a, idx) => (
+                    <div key={a.id}>
+                      {idx > 0 ? (
+                        <div
+                          className="mx-auto my-4 h-px w-24 bg-white/20"
+                          aria-hidden="true"
+                        />
+                      ) : null}
+                      <FullArticle article={a} />
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>,

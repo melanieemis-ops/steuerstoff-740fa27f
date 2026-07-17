@@ -167,12 +167,14 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
   }, [articleId, audioSrc, muted, speed]);
 
   const handlePlayPause = useCallback(async () => {
-    stopBrowserSpeech();
     const el = ensureLoaded();
     if (isPlaying) {
       el.pause();
       return;
     }
+    // Andere Audio-Ausgaben (Chat-Vorlesen, Browserstimme) beim Start stoppen.
+    requestStopAllAudio(sourceId);
+    stopBrowserSpeech();
     try {
       if (status === "idle") {
         setStatus("loading");
@@ -183,7 +185,7 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
       setStatus("error");
       setErrorMsg("Wiedergabe konnte nicht gestartet werden.");
     }
-  }, [ensureLoaded, isPlaying, status, stopBrowserSpeech]);
+  }, [ensureLoaded, isPlaying, sourceId, status, stopBrowserSpeech]);
 
   const seekBy = useCallback(
     (delta: number) => {

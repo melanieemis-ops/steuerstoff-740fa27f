@@ -214,20 +214,6 @@ const TEMPLATES: Template[] = [
 // ============================================================
 
 function FristenkalenderPage() {
-  const [events, setEvents] = useState<CalendarEvent[]>(() => loadEvents());
-  const [view, setView] = useState<CalendarView>("month");
-  const [cursor, setCursor] = useState<Date>(() => today());
-  const [editing, setEditing] = useState<CalendarEvent | "new" | null>(null);
-  const [detailsEvent, setDetailsEvent] = useState<CalendarEvent | null>(null);
-  const [prefillDate, setPrefillDate] = useState<Date | null>(null);
-  const [agendaFilter, setAgendaFilter] = useState<string>("all");
-  const [hideCompleted, setHideCompleted] = useState<boolean>(false);
-  const [dayPanelDate, setDayPanelDate] = useState<Date | null>(null);
-  const [noteDates, setNoteDates] = useState<Set<string>>(() => getDayNoteDateSet());
-  const [toast, setToast] = useState<string | null>(null);
-  const dayAnchorRef = useRef<HTMLElement | null>(null);
-
-function FristenkalenderPage() {
   const [userEvents, setUserEvents] = useState<CalendarEvent[]>(() => loadEvents());
   const [presetSettings, setPresetSettings] = useState<PresetSettings>(() =>
     loadPresetSettings(),

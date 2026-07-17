@@ -142,42 +142,399 @@ function pageAltText(page: MagazinePage): string {
   return page.kind === "cover" ? page.alt : page.article.title;
 }
 
+function normalizeForSpeech(text: string): string {
+  return text
+    .replace(/§§/g, "Paragrafen")
+    .replace(/§/g, "Paragraf")
+    .replace(/(\d+)([a-z])\b/g, "$1 $2")
+    .replace(/\bAbs\./g, "Absatz")
+    .replace(/\bNr\./g, "Nummer")
+    .replace(/\bBuchst\./g, "Buchstabe")
+    .replace(/\bEStG\b/g, "Einkommensteuergesetz")
+    .replace(/\bUStG\b/g, "Umsatzsteuergesetz")
+    .replace(/\bAO\b/g, "Abgabenordnung")
+    .replace(/\bKStG\b/g, "Körperschaftsteuergesetz")
+    .replace(/\bGewStG\b/g, "Gewerbesteuergesetz")
+    .replace(/\bBGB\b/g, "Bürgerliches Gesetzbuch")
+    .replace(/\bBFH\b/g, "Bundesfinanzhof")
+    .replace(/\bBMF\b/g, "Bundesministerium der Finanzen")
+    .replace(/\bEuGH\b/g, "Europäischer Gerichtshof")
+    .replace(/\bEWR\b/g, "Europäischer Wirtschaftsraum")
+    .replace(/\bEU\b/g, "Europäische Union");
+}
+
+function blockToPlainText(block: ArticleBlockLike): string {
+  switch (block.type) {
+    case "paragraph":
+    case "heading":
+    case "subheading":
+      return block.text;
+    case "notice":
+      return block.text;
+    case "legalStatus":
+      return `${block.label}. ${block.text}`;
+    case "list":
+      return block.items.join(". ");
+    case "summary":
+      return `${block.title}. ${block.items.join(". ")}`;
+    case "keyNumbers":
+      return `${block.title}. ${block.items.map((n) => `${n.big}: ${n.label}`).join(". ")}`;
+    case "change":
+      return [
+        `Änderung ${block.number}: ${block.title}. ${block.lawRef}.`,
+        ...block.paragraphs,
+        ...(block.list ?? []),
+        block.practice ? `Praxis: ${block.practice}` : "",
+        block.effective ? `Geplant: ${block.effective}` : "",
+      ]
+        .filter(Boolean)
+        .join(" ");
+    case "editorial":
+      return `${block.title}. ${block.paragraphs.join(" ")}`;
+    case "checklist":
+      return `${block.title}. ${block.items.join(". ")}`;
+    case "sourceLink":
+      return `${block.title}. ${block.text}`;
+    default:
+      return "";
+  }
+}
+
+// Local alias to make blockToPlainText typing simple
+type ArticleBlockLike = MagazineArticle["blocks"][number];
+
+function ArticleToolbar({ article }: { article: MagazineArticle }) {
+  const bookmarkKey = `steuerstoff-magazin-bookmark-${article.id}`;
+  const [bookmarked, setBookmarked] = useState(false);
+  const [isSpeaking, setIsSpeaking] = useState(false);
+
+  useEffect(() => {
+    try {
+      setBookmarked(localStorage.getItem(bookmarkKey) === "1");
+    } catch {
+      /* ignore */
+    }
+  }, [bookmarkKey]);
+
+  useEffect(() => {
+    return () => {
+      if (typeof window !== "undefined" && "speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+      }
+    };
+  }, []);
+
+  const toggleBookmark = () => {
+    try {
+      const next = !bookmarked;
+      setBookmarked(next);
+      if (next) localStorage.setItem(bookmarkKey, "1");
+      else localStorage.removeItem(bookmarkKey);
+    } catch {
+      /* ignore */
+    }
+  };
+
+  const share = async () => {
+    const shareData = {
+      title: article.title,
+      text: article.subtitle ?? article.lead.slice(0, 140),
+      url: typeof window !== "undefined" ? window.location.href : "",
+    };
+    try {
+      if (typeof navigator !== "undefined" && "share" in navigator) {
+        await (navigator as Navigator & { share: (d: ShareData) => Promise<void> }).share(shareData);
+        return;
+      }
+    } catch {
+      /* fallback */
+    }
+    try {
+      await navigator.clipboard.writeText(`${shareData.title} – ${shareData.url}`);
+    } catch {
+      /* ignore */
+    }
+  };
+
+  const speak = () => {
+    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
+    const synth = window.speechSynthesis;
+    if (isSpeaking) {
+      synth.cancel();
+      setIsSpeaking(false);
+      return;
+    }
+    const parts: string[] = [
+      article.title,
+      article.subtitle ?? "",
+      article.lead,
+      ...article.blocks.map(blockToPlainText),
+    ];
+    const full = normalizeForSpeech(parts.filter(Boolean).join(". "));
+    // Chunk to avoid engine limits
+    const chunks = full.match(/[^.!?]+[.!?]+|\S[^.!?]*$/g) ?? [full];
+    synth.cancel();
+    chunks.forEach((c, idx) => {
+      const u = new SpeechSynthesisUtterance(c.trim());
+      u.lang = "de-DE";
+      u.rate = 1;
+      if (idx === chunks.length - 1) {
+        u.onend = () => setIsSpeaking(false);
+      }
+      synth.speak(u);
+    });
+    setIsSpeaking(true);
+  };
+
+  return (
+    <div className="mb-4 flex flex-wrap items-center gap-2">
+      <button
+        type="button"
+        onClick={toggleBookmark}
+        aria-pressed={bookmarked}
+        className="inline-flex items-center gap-1.5 rounded-full border border-[#22d3ee]/30 bg-[#0b1220]/5 px-3 py-1.5 text-[12px] font-medium text-[#0b1220] transition hover:bg-[#0b1220]/10"
+      >
+        {bookmarked ? "★ Gemerkt" : "☆ Merken"}
+      </button>
+      <button
+        type="button"
+        onClick={speak}
+        aria-pressed={isSpeaking}
+        className="inline-flex items-center gap-1.5 rounded-full border border-[#22d3ee]/30 bg-[#0b1220]/5 px-3 py-1.5 text-[12px] font-medium text-[#0b1220] transition hover:bg-[#0b1220]/10"
+      >
+        {isSpeaking ? "⏹ Stoppen" : "▶ Vorlesen"}
+      </button>
+      <button
+        type="button"
+        onClick={share}
+        className="inline-flex items-center gap-1.5 rounded-full border border-[#22d3ee]/30 bg-[#0b1220]/5 px-3 py-1.5 text-[12px] font-medium text-[#0b1220] transition hover:bg-[#0b1220]/10"
+      >
+        Teilen
+      </button>
+    </div>
+  );
+}
+
+function ChecklistBlock({
+  storageKey,
+  items,
+  title,
+}: {
+  storageKey: string;
+  items: string[];
+  title: string;
+}) {
+  const [checked, setChecked] = useState<boolean[]>(() => items.map(() => false));
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(storageKey);
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed) && parsed.length === items.length) {
+          setChecked(parsed.map(Boolean));
+        }
+      }
+    } catch {
+      /* ignore */
+    }
+  }, [storageKey, items.length]);
+
+  const toggle = (i: number) => {
+    setChecked((prev) => {
+      const next = prev.map((v, idx) => (idx === i ? !v : v));
+      try {
+        localStorage.setItem(storageKey, JSON.stringify(next));
+      } catch {
+        /* ignore */
+      }
+      return next;
+    });
+  };
+
+  const done = checked.filter(Boolean).length;
+
+  return (
+    <aside
+      className="rounded-xl border border-[#0b1220]/15 bg-[#0b1220] px-4 py-5 text-[#f5efe1] sm:px-6"
+      aria-label={title}
+    >
+      <div className="flex items-baseline justify-between gap-3">
+        <h3 className="text-[15px] font-semibold tracking-tight text-[#f5efe1] sm:text-[17px]">
+          {title}
+        </h3>
+        <span className="text-[11px] font-medium uppercase tracking-wider text-[#22d3ee]">
+          {done}/{items.length}
+        </span>
+      </div>
+      <ul className="mt-3 space-y-2">
+        {items.map((it, i) => {
+          const id = `${storageKey}-${i}`;
+          return (
+            <li key={i}>
+              <label
+                htmlFor={id}
+                className="flex cursor-pointer items-start gap-3 rounded-lg border border-white/10 bg-white/5 p-3 transition hover:bg-white/10"
+              >
+                <input
+                  id={id}
+                  type="checkbox"
+                  checked={checked[i] ?? false}
+                  onChange={() => toggle(i)}
+                  className="mt-0.5 h-5 w-5 flex-none accent-[#22d3ee]"
+                />
+                <span
+                  className={`text-[14px] leading-snug ${
+                    checked[i] ? "text-[#c8d3ea] line-through" : "text-[#f5efe1]"
+                  }`}
+                >
+                  {it}
+                </span>
+              </label>
+            </li>
+          );
+        })}
+      </ul>
+    </aside>
+  );
+}
+
 function FullArticle({ article }: { article: MagazineArticle }) {
+  const isSpecial = article.format === "special";
+  const containerClass = isSpecial
+    ? "mx-auto w-full max-w-[780px] overflow-hidden rounded-2xl bg-[#faf5ea] text-[#1c160e] shadow-[0_20px_60px_-24px_rgba(0,0,0,0.6)] ring-1 ring-white/10"
+    : "mx-auto w-full max-w-[760px] rounded-xl bg-[#f6f0e7] px-5 py-8 text-[#241c12] shadow-[0_20px_60px_-24px_rgba(0,0,0,0.6)] ring-1 ring-white/10 sm:px-10 sm:py-12";
+
   return (
     <article
-      className="mx-auto w-full max-w-[760px] rounded-xl bg-[#f6f0e7] px-5 py-8 text-[#241c12] shadow-[0_20px_60px_-24px_rgba(0,0,0,0.6)] ring-1 ring-white/10 sm:px-10 sm:py-12"
+      className={containerClass}
       style={{
-        paddingLeft: "max(1.125rem, env(safe-area-inset-left))",
-        paddingRight: "max(1.125rem, env(safe-area-inset-right))",
+        paddingLeft: isSpecial ? undefined : "max(1.125rem, env(safe-area-inset-left))",
+        paddingRight: isSpecial ? undefined : "max(1.125rem, env(safe-area-inset-right))",
       }}
     >
-      <header>
-        <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8a6b3a]">
-          steuerstoff Magazin · {article.issueLabel.replace(/^Ausgabe\s+/, "Ausgabe ")}
-        </p>
-        <h1
-          className="mt-3 font-semibold leading-tight tracking-tight"
-          style={{ fontSize: "clamp(1.5rem, 1.15rem + 1.8vw, 2.25rem)" }}
+      {isSpecial ? (
+        <div
+          className="relative bg-gradient-to-br from-[#0b1220] via-[#0f172a] to-[#111a2e] px-5 py-8 text-[#f5efe1] sm:px-10 sm:py-12"
+          style={{
+            paddingLeft: "max(1.25rem, env(safe-area-inset-left))",
+            paddingRight: "max(1.25rem, env(safe-area-inset-right))",
+          }}
         >
-          {article.title}
-        </h1>
-        {article.lead.split(/\n\n+/).map((para, i) => (
-          <p
-            key={i}
-            className="mt-5 font-medium leading-[1.65] text-[#3a2f20]"
-            style={{ fontSize: "clamp(1.075rem, 1rem + 0.45vw, 1.235rem)" }}
+          <div
+            aria-hidden="true"
+            className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#22d3ee] to-transparent"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#ec4899] to-transparent"
+          />
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="rounded-sm bg-gradient-to-r from-[#22d3ee] to-[#ec4899] px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.24em] text-[#0b1220]">
+              {article.specialtyLabel ?? "steuerstoff SPEZIAL"}
+            </span>
+            {article.statusLabel ? (
+              <span className="rounded-sm border border-[#22d3ee]/40 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#22d3ee]">
+                {article.statusLabel}
+              </span>
+            ) : null}
+            {article.category ? (
+              <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-[#c8d3ea]">
+                · {article.category}
+              </span>
+            ) : null}
+          </div>
+          <h1
+            className="mt-4 font-semibold leading-[1.1] tracking-tight text-[#f5efe1]"
+            style={{ fontSize: "clamp(1.75rem, 1.15rem + 2.4vw, 2.75rem)" }}
           >
-            {para}
+            {article.title}
+          </h1>
+          {article.subtitle ? (
+            <p
+              className="mt-3 max-w-[62ch] leading-snug text-[#c8d3ea]"
+              style={{ fontSize: "clamp(1rem, 0.95rem + 0.4vw, 1.2rem)" }}
+            >
+              {article.subtitle}
+            </p>
+          ) : null}
+          <dl className="mt-6 grid grid-cols-2 gap-x-4 gap-y-2 text-[12px] text-[#c8d3ea] sm:grid-cols-4">
+            {article.author ? (
+              <div>
+                <dt className="text-[10px] uppercase tracking-wider text-[#22d3ee]">Autorin</dt>
+                <dd className="mt-0.5 font-medium text-[#f5efe1]">{article.author}</dd>
+              </div>
+            ) : null}
+            {article.readingTime ? (
+              <div>
+                <dt className="text-[10px] uppercase tracking-wider text-[#22d3ee]">Lesezeit</dt>
+                <dd className="mt-0.5 font-medium text-[#f5efe1]">ca. {article.readingTime} Min.</dd>
+              </div>
+            ) : null}
+            {article.legalStatusDate ? (
+              <div>
+                <dt className="text-[10px] uppercase tracking-wider text-[#22d3ee]">Rechtsstand</dt>
+                <dd className="mt-0.5 font-medium text-[#f5efe1]">
+                  {formatGermanDate(article.legalStatusDate)}
+                </dd>
+              </div>
+            ) : null}
+            {article.publishedAt ? (
+              <div>
+                <dt className="text-[10px] uppercase tracking-wider text-[#22d3ee]">Veröffentlicht</dt>
+                <dd className="mt-0.5 font-medium text-[#f5efe1]">
+                  {formatGermanDate(article.publishedAt)}
+                </dd>
+              </div>
+            ) : null}
+          </dl>
+        </div>
+      ) : (
+        <header>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8a6b3a]">
+            steuerstoff Magazin · {article.issueLabel.replace(/^Ausgabe\s+/, "Ausgabe ")}
           </p>
-        ))}
-      </header>
+          <h1
+            className="mt-3 font-semibold leading-tight tracking-tight"
+            style={{ fontSize: "clamp(1.5rem, 1.15rem + 1.8vw, 2.25rem)" }}
+          >
+            {article.title}
+          </h1>
+          {article.lead.split(/\n\n+/).map((para, i) => (
+            <p
+              key={i}
+              className="mt-5 font-medium leading-[1.65] text-[#3a2f20]"
+              style={{ fontSize: "clamp(1.075rem, 1rem + 0.45vw, 1.235rem)" }}
+            >
+              {para}
+            </p>
+          ))}
+        </header>
+      )}
 
       <div
-        className="mt-8 space-y-5 leading-[1.7] text-[#241c12]"
+        className={`space-y-5 leading-[1.7] text-[#241c12] ${
+          isSpecial ? "px-5 pb-10 pt-6 sm:px-10" : "mt-8"
+        }`}
         style={{
           fontSize: "clamp(1.0625rem, 0.98rem + 0.35vw, 1.2rem)",
+          ...(isSpecial
+            ? {
+                paddingLeft: "max(1.25rem, env(safe-area-inset-left))",
+                paddingRight: "max(1.25rem, env(safe-area-inset-right))",
+              }
+            : {}),
         }}
       >
+        {isSpecial ? <ArticleToolbar article={article} /> : null}
+        {isSpecial ? (
+          <p
+            className="font-medium leading-[1.65] text-[#3a2f20]"
+            style={{ fontSize: "clamp(1.075rem, 1rem + 0.45vw, 1.235rem)" }}
+          >
+            {article.lead}
+          </p>
+        ) : null}
         {article.blocks.map((block, i) => {
           if (block.type === "heading") {
             return (
@@ -248,12 +605,185 @@ function FullArticle({ article }: { article: MagazineArticle }) {
               </aside>
             );
           }
-          return <p key={i}>{block.text}</p>;
+          if (block.type === "legalStatus") {
+            return (
+              <aside
+                key={i}
+                role="note"
+                className="rounded-lg border-l-4 border-amber-500 bg-amber-50 px-4 py-3 text-[#2b2117]"
+              >
+                <div className="text-[11px] font-semibold uppercase tracking-wider text-amber-700">
+                  {block.label}
+                </div>
+                <p className="mt-1 text-[14.5px] leading-relaxed">{block.text}</p>
+              </aside>
+            );
+          }
+          if (block.type === "keyNumbers") {
+            return (
+              <section
+                key={i}
+                aria-label={block.title}
+                className="rounded-xl border border-[#0b1220]/10 bg-white/70 p-4 sm:p-5"
+              >
+                <h3 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#0b1220]/70">
+                  {block.title}
+                </h3>
+                <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                  {block.items.map((n, j) => (
+                    <div
+                      key={j}
+                      className="min-w-0 rounded-lg border border-[#0b1220]/10 bg-gradient-to-br from-[#0b1220] to-[#111a2e] p-4 text-[#f5efe1]"
+                    >
+                      <div
+                        className="break-words font-semibold leading-tight tracking-tight text-[#22d3ee]"
+                        style={{ fontSize: "clamp(1.05rem, 0.95rem + 0.9vw, 1.6rem)" }}
+                      >
+                        {n.big}
+                      </div>
+                      <div className="mt-1 text-[12.5px] leading-snug text-[#c8d3ea]">
+                        {n.label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            );
+          }
+          if (block.type === "change") {
+            return (
+              <section
+                key={i}
+                aria-label={`${block.number}. ${block.title}`}
+                className="rounded-xl border border-[#0b1220]/10 bg-white/60 p-4 sm:p-5"
+              >
+                <div className="flex items-baseline gap-3">
+                  <span
+                    className="flex-none rounded-md bg-[#0b1220] px-2 py-0.5 text-[12px] font-bold text-[#22d3ee]"
+                    aria-hidden="true"
+                  >
+                    {String(block.number).padStart(2, "0")}
+                  </span>
+                  <h3
+                    className="font-semibold tracking-tight text-[#1c160e]"
+                    style={{ fontSize: "clamp(1.1rem, 1rem + 0.55vw, 1.3rem)" }}
+                  >
+                    {block.title}
+                  </h3>
+                </div>
+                <div className="mt-2">
+                  <span className="inline-block max-w-full break-words rounded-full border border-[#0b1220]/15 bg-[#0b1220]/5 px-2.5 py-0.5 text-[11.5px] font-medium text-[#0b1220]">
+                    {block.lawRef}
+                  </span>
+                </div>
+                <div className="mt-3 space-y-3">
+                  {block.paragraphs.map((p, k) => (
+                    <p key={k}>{p}</p>
+                  ))}
+                  {block.list ? (
+                    <ul className="list-disc space-y-1.5 pl-6 marker:text-[#8a6b3a]">
+                      {block.list.map((it, k) => (
+                        <li key={k}>{it}</li>
+                      ))}
+                    </ul>
+                  ) : null}
+                </div>
+                {block.practice ? (
+                  <aside
+                    role="note"
+                    className="mt-4 rounded-lg border-l-4 border-[#22d3ee] bg-[#eaf7fb] px-4 py-3 text-[#0b1220]"
+                  >
+                    <span className="mr-2 font-semibold uppercase tracking-wider text-[#0e7490]">
+                      Praxis
+                    </span>
+                    <span className="text-[15px]">{block.practice}</span>
+                  </aside>
+                ) : null}
+                {block.effective ? (
+                  <div className="mt-3 text-[12.5px] font-medium uppercase tracking-wider text-[#0b1220]/70">
+                    Geplanter Anwendungszeitpunkt:{" "}
+                    <span className="text-[#0b1220]">{block.effective}</span>
+                  </div>
+                ) : null}
+              </section>
+            );
+          }
+          if (block.type === "editorial") {
+            return (
+              <section
+                key={i}
+                aria-label={block.title}
+                className="rounded-xl border border-[#ec4899]/25 bg-gradient-to-br from-[#0b1220] to-[#1e0b1a] px-5 py-6 text-[#f5efe1] sm:px-7 sm:py-7"
+              >
+                <div className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#ec4899]">
+                  Redaktion
+                </div>
+                <h3
+                  className="mt-1 font-semibold tracking-tight text-[#f5efe1]"
+                  style={{ fontSize: "clamp(1.2rem, 1.05rem + 0.7vw, 1.5rem)" }}
+                >
+                  {block.title}
+                </h3>
+                <div className="mt-3 space-y-3 text-[15px] leading-[1.65] text-[#e6ecf7]">
+                  {block.paragraphs.map((p, k) => (
+                    <p key={k}>{p}</p>
+                  ))}
+                </div>
+              </section>
+            );
+          }
+          if (block.type === "checklist") {
+            return (
+              <ChecklistBlock
+                key={i}
+                storageKey={block.storageKey}
+                items={block.items}
+                title={block.title}
+              />
+            );
+          }
+          if (block.type === "sourceLink") {
+            return (
+              <section
+                key={i}
+                aria-label={block.title}
+                className="rounded-xl border border-[#0b1220]/15 bg-white/70 p-5"
+              >
+                <div className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#0b1220]/70">
+                  {block.title}
+                </div>
+                <p className="mt-2 text-[14.5px] leading-relaxed text-[#1c160e]">
+                  {block.text}
+                </p>
+                <a
+                  href={block.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex max-w-full items-center gap-2 break-words rounded-full bg-[#0b1220] px-4 py-2 text-[13px] font-semibold text-[#22d3ee] transition hover:bg-[#111a2e]"
+                >
+                  {block.buttonLabel} ↗
+                </a>
+                {block.note ? (
+                  <p className="mt-3 text-[12px] leading-snug text-[#0b1220]/70">
+                    {block.note}
+                  </p>
+                ) : null}
+              </section>
+            );
+          }
+          return <p key={i}>{(block as { text?: string }).text ?? ""}</p>;
         })}
       </div>
     </article>
   );
 }
+
+function formatGermanDate(iso: string): string {
+  const [y, m, d] = iso.split("-");
+  if (!y || !m || !d) return iso;
+  return `${d}.${m}.${y}`;
+}
+
 
 export function MagazineFlipbook() {
   const [pageIndex, setPageIndex] = useState(0);

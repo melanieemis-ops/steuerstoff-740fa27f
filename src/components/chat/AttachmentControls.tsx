@@ -108,9 +108,9 @@ export function AttachmentPlusButton({
   }
 
   const items = [
+    { icon: <ImageIcon className="h-5 w-5" />, label: "Fotomediathek", ref: photoRef },
     { icon: <Camera className="h-5 w-5" />, label: "Foto aufnehmen", ref: cameraRef },
-    { icon: <ImageIcon className="h-5 w-5" />, label: "Foto auswählen", ref: photoRef },
-    { icon: <FileUp className="h-5 w-5" />, label: "Datei auswählen", ref: fileRef },
+    { icon: <FileUp className="h-5 w-5" />, label: "Dateien auswählen", ref: fileRef },
   ] as const;
 
   return (

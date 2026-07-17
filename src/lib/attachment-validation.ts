@@ -77,6 +77,9 @@ export function getAttachmentRule(name: string, mimeType: string) {
     const extensionMatch = rule.extensions.includes(extension);
     const mimeMatch = normalizedMimeType ? rule.mimeTypes.includes(normalizedMimeType) : false;
 
+    // Manche mobile Browser liefern für Office-Dateien oder Kamera-Exporte nur
+    // application/octet-stream zurück. In diesem Fall erlauben wir ausschließlich
+    // unsere enge Whitelist per Dateiendung und prüfen zusätzlich Größe und Limits.
     if (!normalizedMimeType || normalizedMimeType === "application/octet-stream") {
       return extensionMatch;
     }
@@ -104,6 +107,76 @@ export function validateAttachmentFile(
   const mimeType =
     normalizeMimeType(file.type) || fallbackMimeType(rule.kind, getExtension(safeName));
   return { ok: true, name: safeName, mimeType, kind: rule.kind };
+}
+
+function startsWithBytes(bytes: Uint8Array, signature: number[]) {
+  return signature.every((value, index) => bytes[index] === value);
+}
+
+function isProbablyText(bytes: Uint8Array) {
+  const sample = bytes.slice(0, Math.min(bytes.length, 2048));
+  if (sample.length === 0) return false;
+  let printable = 0;
+  for (const byte of sample) {
+    if (byte === 0) return false;
+    if (byte === 9 || byte === 10 || byte === 13 || (byte >= 32 && byte <= 126) || byte >= 128) {
+      printable += 1;
+    }
+  }
+  return printable / sample.length > 0.9;
+}
+
+function matchesExpectedContent(extension: string, kind: AttachmentKind, bytes: Uint8Array) {
+  if (kind === "image") {
+    if (extension === "png") return startsWithBytes(bytes, [0x89, 0x50, 0x4e, 0x47]);
+    if (extension === "webp") {
+      return (
+        startsWithBytes(bytes, [0x52, 0x49, 0x46, 0x46]) &&
+        bytes[8] === 0x57 &&
+        bytes[9] === 0x45 &&
+        bytes[10] === 0x42 &&
+        bytes[11] === 0x50
+      );
+    }
+    return startsWithBytes(bytes, [0xff, 0xd8, 0xff]);
+  }
+
+  if (kind === "pdf") {
+    return startsWithBytes(bytes, [0x25, 0x50, 0x44, 0x46]);
+  }
+
+  if (kind === "document" || kind === "spreadsheet") {
+    if (extension === "docx" || extension === "xlsx") {
+      return startsWithBytes(bytes, [0x50, 0x4b, 0x03, 0x04]);
+    }
+    if (extension === "doc" || extension === "xls") {
+      return startsWithBytes(bytes, [0xd0, 0xcf, 0x11, 0xe0, 0xa1, 0xb1, 0x1a, 0xe1]);
+    }
+  }
+
+  if (kind === "text") {
+    return isProbablyText(bytes);
+  }
+
+  return false;
+}
+
+export function validateAttachmentBytes(
+  file: Pick<File, "name" | "size" | "type">,
+  bytes: Uint8Array,
+): AttachmentValidationResult {
+  const validation = validateAttachmentFile(file);
+  if (!validation.ok) return validation;
+
+  const extension = getExtension(validation.name);
+  if (!matchesExpectedContent(extension, validation.kind, bytes)) {
+    return {
+      ok: false,
+      error: "Dateiinhalt passt nicht zum erwarteten Dateiformat.",
+    };
+  }
+
+  return validation;
 }
 
 function fallbackMimeType(kind: AttachmentKind, extension: string) {

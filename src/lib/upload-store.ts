@@ -15,6 +15,8 @@ declare global {
   var __steuerstoffUploadStore: Map<string, StoredUploadRecord> | undefined;
 }
 
+// Test-only temporary storage: uploads live only in the current server process,
+// are lost on restart, and expire automatically after the configured TTL.
 const store = globalThis.__steuerstoffUploadStore ?? new Map<string, StoredUploadRecord>();
 globalThis.__steuerstoffUploadStore = store;
 

@@ -214,12 +214,12 @@ function ChatPage() {
       setDots(true);
       const t2 = window.setTimeout(() => {
         setDots(false);
-        const textValue = GREETING_TEXT;
+        const greetingText = GREETING_TEXT;
         let i = 0;
         const step = () => {
           i += 1;
-          setTyped(textValue.slice(0, i));
-          if (i < textValue.length) {
+          setTyped(greetingText.slice(0, i));
+          if (i < greetingText.length) {
             const tn = window.setTimeout(step, 42);
             timersRef.current.push(tn);
           } else {
@@ -238,7 +238,7 @@ function ChatPage() {
     timersRef.current.push(t1);
   }
 
-  function skipWelcomeAndAsk(textValue: string) {
+  function skipWelcomeAndAsk(question: string) {
     clearTimers();
     startingRef.current = true;
     setWelcomeLeaving(true);
@@ -247,7 +247,7 @@ function ChatPage() {
     setTyped("");
     const t = window.setTimeout(() => {
       setPhase("active");
-      void ask(textValue);
+      void ask(question);
     }, 240);
     timersRef.current.push(t);
   }

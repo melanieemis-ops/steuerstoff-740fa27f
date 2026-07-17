@@ -159,7 +159,12 @@ async function prepareAttachmentInputs(client: OpenAI, attachments: IncomingAtta
           detail: "low",
         });
       }
-    } catch {
+    } catch (error) {
+      console.error(
+        "[steuerstoff-chat] attachment handoff failed",
+        attachment.name,
+        error instanceof Error ? error.message : "unknown",
+      );
       failedAttachmentNames.push(
         `${attachment.name} (konnte nicht an das KI-Backend übergeben werden)`,
       );
@@ -185,7 +190,7 @@ export const Route = createFileRoute("/api/chat")({
         } | null;
 
         const message = typeof body?.message === "string" ? body.message.trim() : "";
-        if (message.length > 4000) {
+        if (message && message.length > 4000) {
           return new Response("Ungültige Nachricht.", { status: 400 });
         }
 

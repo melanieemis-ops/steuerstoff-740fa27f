@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { validateAttachmentFile } from "@/lib/attachment-validation";
+import { validateAttachmentBytes } from "@/lib/attachment-validation";
 import { saveUpload } from "@/lib/upload-store";
 
 function json(status: number, body: Record<string, unknown>) {
@@ -33,12 +33,11 @@ export const Route = createFileRoute("/api/upload")({
           return json(400, { error: "Keine Datei erhalten." });
         }
 
-        const validation = validateAttachmentFile(file);
+        const bytes = new Uint8Array(await file.arrayBuffer());
+        const validation = validateAttachmentBytes(file, bytes);
         if (!validation.ok) {
           return json(validation.error.includes("15 MB") ? 413 : 415, { error: validation.error });
         }
-
-        const bytes = new Uint8Array(await file.arrayBuffer());
         const record = saveUpload({
           name: validation.name,
           mimeType: validation.mimeType,

@@ -261,7 +261,7 @@ function buildForYear(
         makePreset({
           presetKey: `holiday:${s.bundesland}:${h.date}`,
           title: h.title,
-          date: new Date(h.date),
+          date: parseIsoLocal(h.date),
           category: "holiday",
           note: `Gesetzlicher Feiertag (${s.bundesland === "BY" ? "Bayern" : "bundesweit"}).`,
         }),
@@ -375,7 +375,7 @@ export function buildStandardEvents(s: PresetSettings): CalendarEvent[] {
       // shift filing deadlines too, using holidays for the year of the deadline
       const y = Number(f.date.slice(0, 4));
       const hSet = holidaySet(y, s.bundesland);
-      const raw = new Date(f.date);
+      const raw = parseIsoLocal(f.date);
       const { date, shifted } = shiftToNextBusinessDay(raw, hSet);
       const shownDate = shifted ? date : raw;
       events.push(

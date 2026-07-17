@@ -39,18 +39,30 @@ export function segmentSpeechText(text: string): string[] {
       if (s.length <= AUDIO_SEGMENT_MAX_CHARS) {
         sentences.push(s);
       } else {
-        // Notfall-Split an Kommas/Semikolons
+        // Notfall-Split zuerst an Kommas/Semikolons/Doppelpunkten
         const sub = s.split(/(?<=[,;:])\s+/);
+        const pushWithWordSplit = (piece: string) => {
+          let rest = piece.trim();
+          while (rest.length > AUDIO_SEGMENT_MAX_CHARS) {
+            // Wortsauber am letzten Leerzeichen vor der Grenze schneiden;
+            // notfalls (extrem langes „Wort") hart am Limit.
+            let cut = rest.lastIndexOf(" ", AUDIO_SEGMENT_MAX_CHARS);
+            if (cut < 200) cut = AUDIO_SEGMENT_MAX_CHARS;
+            sentences.push(rest.slice(0, cut).trim());
+            rest = rest.slice(cut).trim();
+          }
+          if (rest) sentences.push(rest);
+        };
         let buf = "";
         for (const part of sub) {
           if ((buf + " " + part).trim().length > AUDIO_SEGMENT_MAX_CHARS && buf) {
-            sentences.push(buf.trim());
+            pushWithWordSplit(buf);
             buf = part;
           } else {
             buf = buf ? buf + " " + part : part;
           }
         }
-        if (buf.trim()) sentences.push(buf.trim());
+        if (buf.trim()) pushWithWordSplit(buf);
       }
     }
   }

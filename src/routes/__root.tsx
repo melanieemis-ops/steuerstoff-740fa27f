@@ -32,6 +32,11 @@ import {
   watchSystemTheme,
 } from "@/lib/theme";
 import { startScrollLockWatchdog } from "@/lib/scroll-lock-watchdog";
+import {
+  PrivacyAcknowledgementGate,
+  hasCurrentPrivacyAcknowledgement,
+} from "@/components/PrivacyAcknowledgement";
+
 
 function NotFoundComponent() {
   return (

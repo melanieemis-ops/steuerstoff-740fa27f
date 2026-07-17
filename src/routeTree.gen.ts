@@ -30,6 +30,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as FallCaseIdRouteImport } from './routes/fall.$caseId'
 import { Route as ApiTtsRouteImport } from './routes/api/tts'
 import { Route as ApiTranscribeRouteImport } from './routes/api/transcribe'
+import { Route as ApiChatTtsRouteImport } from './routes/api/chat-tts'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 
 const WissensdatenbankRoute = WissensdatenbankRouteImport.update({
@@ -138,6 +139,11 @@ const ApiTranscribeRoute = ApiTranscribeRouteImport.update({
   path: '/api/transcribe',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiChatTtsRoute = ApiChatTtsRouteImport.update({
+  id: '/api/chat-tts',
+  path: '/api/chat-tts',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiChatRoute = ApiChatRouteImport.update({
   id: '/api/chat',
   path: '/api/chat',
@@ -164,6 +170,7 @@ export interface FileRoutesByFullPath {
   '/skr-konverter': typeof SkrKonverterRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
   '/api/chat': typeof ApiChatRoute
+  '/api/chat-tts': typeof ApiChatTtsRoute
   '/api/transcribe': typeof ApiTranscribeRoute
   '/api/tts': typeof ApiTtsRoute
   '/fall/$caseId': typeof FallCaseIdRoute
@@ -188,6 +195,7 @@ export interface FileRoutesByTo {
   '/skr-konverter': typeof SkrKonverterRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
   '/api/chat': typeof ApiChatRoute
+  '/api/chat-tts': typeof ApiChatTtsRoute
   '/api/transcribe': typeof ApiTranscribeRoute
   '/api/tts': typeof ApiTtsRoute
   '/fall/$caseId': typeof FallCaseIdRoute
@@ -213,6 +221,7 @@ export interface FileRoutesById {
   '/skr-konverter': typeof SkrKonverterRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
   '/api/chat': typeof ApiChatRoute
+  '/api/chat-tts': typeof ApiChatTtsRoute
   '/api/transcribe': typeof ApiTranscribeRoute
   '/api/tts': typeof ApiTtsRoute
   '/fall/$caseId': typeof FallCaseIdRoute
@@ -239,6 +248,7 @@ export interface FileRouteTypes {
     | '/skr-konverter'
     | '/wissensdatenbank'
     | '/api/chat'
+    | '/api/chat-tts'
     | '/api/transcribe'
     | '/api/tts'
     | '/fall/$caseId'
@@ -263,6 +273,7 @@ export interface FileRouteTypes {
     | '/skr-konverter'
     | '/wissensdatenbank'
     | '/api/chat'
+    | '/api/chat-tts'
     | '/api/transcribe'
     | '/api/tts'
     | '/fall/$caseId'
@@ -287,6 +298,7 @@ export interface FileRouteTypes {
     | '/skr-konverter'
     | '/wissensdatenbank'
     | '/api/chat'
+    | '/api/chat-tts'
     | '/api/transcribe'
     | '/api/tts'
     | '/fall/$caseId'
@@ -312,6 +324,7 @@ export interface RootRouteChildren {
   SkrKonverterRoute: typeof SkrKonverterRoute
   WissensdatenbankRoute: typeof WissensdatenbankRoute
   ApiChatRoute: typeof ApiChatRoute
+  ApiChatTtsRoute: typeof ApiChatTtsRoute
   ApiTranscribeRoute: typeof ApiTranscribeRoute
   ApiTtsRoute: typeof ApiTtsRoute
   FallCaseIdRoute: typeof FallCaseIdRoute
@@ -466,6 +479,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiTranscribeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/chat-tts': {
+      id: '/api/chat-tts'
+      path: '/api/chat-tts'
+      fullPath: '/api/chat-tts'
+      preLoaderRoute: typeof ApiChatTtsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/chat': {
       id: '/api/chat'
       path: '/api/chat'
@@ -496,6 +516,7 @@ const rootRouteChildren: RootRouteChildren = {
   SkrKonverterRoute: SkrKonverterRoute,
   WissensdatenbankRoute: WissensdatenbankRoute,
   ApiChatRoute: ApiChatRoute,
+  ApiChatTtsRoute: ApiChatTtsRoute,
   ApiTranscribeRoute: ApiTranscribeRoute,
   ApiTtsRoute: ApiTtsRoute,
   FallCaseIdRoute: FallCaseIdRoute,
@@ -503,13 +524,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

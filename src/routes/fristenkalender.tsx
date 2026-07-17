@@ -1065,6 +1065,8 @@ function AgendaView({
   hideCompleted,
   setHideCompleted,
   onOpenEvent,
+  noteDates: _noteDates,
+  onOpenDay: _onOpenDay,
 }: {
   events: CalendarEvent[];
   filter: string;
@@ -1072,6 +1074,8 @@ function AgendaView({
   hideCompleted: boolean;
   setHideCompleted: (b: boolean) => void;
   onOpenEvent: (e: CalendarEvent) => void;
+  noteDates: Set<string>;
+  onOpenDay: (d: Date) => void;
 }) {
   const from = addYears(today(), -1);
   const to = addYears(today(), 2);

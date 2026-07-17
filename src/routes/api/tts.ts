@@ -137,6 +137,7 @@ export const Route = createFileRoute("/api/tts")({
         const articleId = (url.searchParams.get("articleId") ?? "").trim();
         const v = (url.searchParams.get("v") ?? "").trim();
         const manifestFlag = url.searchParams.get("manifest") === "1";
+        const hlsFlag = url.searchParams.get("hls") === "1";
         const segmentParam = url.searchParams.get("segment");
 
         if (!articleId || !isAudioAllowed(articleId)) {
@@ -172,6 +173,45 @@ export const Route = createFileRoute("/api/tts")({
             status: 200,
             headers: {
               "content-type": "application/json; charset=utf-8",
+              "cache-control": "public, max-age=3600",
+              "x-steuerstoff-audio-version": v,
+            },
+          });
+        }
+
+        // HLS-Modus – VOD-Media-Playlist, kein OpenAI-Aufruf.
+        // EXTINF-Dauern beruhen auf der deterministischen Schätzung
+        // (estimateSpeechSeconds). Native HLS-Player (Safari/iOS) lädt die
+        // Segmente selbstständig nach; tatsächliche Dauern werden vom
+        // Decoder pro Segment ermittelt, die Schätzung dient nur zur
+        // initialen Playlist-Struktur (TARGETDURATION/EXTINF).
+        if (hlsFlag) {
+          const base = `/api/tts?articleId=${encodeURIComponent(articleId)}&v=${encodeURIComponent(v)}`;
+          const segDurations = segments.map((s) => {
+            const d = estimateSpeechSeconds(s);
+            return Number.isFinite(d) && d > 0 ? d : 1;
+          });
+          const targetDuration = Math.max(1, Math.ceil(Math.max(...segDurations)));
+          const lines: string[] = [
+            "#EXTM3U",
+            "#EXT-X-VERSION:3",
+            "#EXT-X-PLAYLIST-TYPE:VOD",
+            "#EXT-X-MEDIA-SEQUENCE:0",
+            `#EXT-X-TARGETDURATION:${targetDuration}`,
+          ];
+          for (let i = 0; i < segments.length; i++) {
+            // Jedes Segment ist eine unabhängig erzeugte MP3-Datei →
+            // Discontinuity zwischen den Segmenten, damit der Decoder
+            // sauber neu initialisiert.
+            if (i > 0) lines.push("#EXT-X-DISCONTINUITY");
+            lines.push(`#EXTINF:${segDurations[i].toFixed(1)},`);
+            lines.push(`${base}&segment=${i}`);
+          }
+          lines.push("#EXT-X-ENDLIST");
+          return new Response(lines.join("\n") + "\n", {
+            status: 200,
+            headers: {
+              "content-type": "application/vnd.apple.mpegurl; charset=utf-8",
               "cache-control": "public, max-age=3600",
               "x-steuerstoff-audio-version": v,
             },
@@ -218,7 +258,7 @@ export const Route = createFileRoute("/api/tts")({
 
         return jsonError(
           400,
-          "Bitte manifest=1 oder segment=N angeben. Die Gesamtdatei wird nicht mehr erzeugt.",
+          "Bitte manifest=1, hls=1 oder segment=N angeben. Die Gesamtdatei wird nicht mehr erzeugt.",
         );
       },
     },

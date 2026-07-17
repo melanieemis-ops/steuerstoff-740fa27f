@@ -27,6 +27,7 @@ import { generateAnswer, REVIEW_HINT, type ChatAnswer } from "@/lib/chatHeuristi
 import { useVoiceInput } from "@/hooks/useVoiceInput";
 import { SpeechProvider, useSpeechContext } from "@/hooks/useSpeechSynthesis";
 import { MessageSpeechControls } from "@/components/chat/MessageSpeechControls";
+import { ChatMessageAudioButton } from "@/components/chat/ChatMessageAudioButton";
 import { SpeechMiniPlayer } from "@/components/chat/SpeechMiniPlayer";
 
 function withFallbackMarker(a: ChatAnswer): ChatAnswer {

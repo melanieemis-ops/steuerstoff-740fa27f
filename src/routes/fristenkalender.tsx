@@ -939,11 +939,15 @@ function MonthView({
 function WeekView({
   cursor,
   events,
+  noteDates,
   onOpenEvent,
+  onOpenDay,
 }: {
   cursor: Date;
   events: CalendarEvent[];
+  noteDates: Set<string>;
   onOpenEvent: (e: CalendarEvent) => void;
+  onOpenDay: (d: Date, el?: HTMLElement | null) => void;
 }) {
   const days = weekDays(cursor);
   const from = startOfWeek(cursor, DE_LOCALE);
@@ -963,8 +967,10 @@ function WeekView({
   return (
     <div className="flex flex-col gap-2">
       {days.map((d, i) => {
-        const list = byDay.get(toISODate(d)) ?? [];
+        const key = toISODate(d);
+        const list = byDay.get(key) ?? [];
         const isCur = isToday(d);
+        const hasNote = noteDates.has(key);
         return (
           <div
             key={i}
@@ -973,17 +979,29 @@ function WeekView({
               isCur ? "neon-active border-transparent" : "border-border bg-background",
             ].join(" ")}
           >
-            <div className="mb-2 flex items-baseline justify-between">
-              <div>
+            <button
+              type="button"
+              onClick={(ev) => onOpenDay(d, ev.currentTarget)}
+              aria-label={`Tagesnotiz für ${fmtDE(d)} öffnen`}
+              className="mb-2 flex w-full items-baseline justify-between text-left"
+            >
+              <div className="min-w-0">
                 <p className="text-xs uppercase tracking-wide text-muted-foreground">
                   {WEEKDAY_LONG[i]}
                 </p>
                 <p className="font-serif text-lg">{fmtDE(d, "dd.MM.")}</p>
               </div>
-              <span className="text-xs text-muted-foreground">
+              <span className="flex shrink-0 items-center gap-2 text-xs text-muted-foreground">
+                {hasNote && (
+                  <StickyNote
+                    className="h-3.5 w-3.5"
+                    style={{ color: "var(--magenta, oklch(0.7 0.18 340))" }}
+                    aria-label="Tagesnotiz vorhanden"
+                  />
+                )}
                 {list.length} Termin{list.length === 1 ? "" : "e"}
               </span>
-            </div>
+            </button>
             {list.length === 0 ? (
               <p className="text-xs text-muted-foreground">Keine Termine.</p>
             ) : (

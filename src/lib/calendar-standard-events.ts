@@ -87,6 +87,12 @@ function isoFromDate(d: Date): string {
   return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 }
 
+/** Local-midnight parser for `YYYY-MM-DD` — avoids UTC-vs-local drift. */
+function parseIsoLocal(s: string): Date {
+  const [y, m, d] = s.split("-").map(Number);
+  return new Date(y, (m ?? 1) - 1, d ?? 1);
+}
+
 /** Meeus/Jones/Butcher — Easter Sunday (Gregorian). */
 function easterSunday(year: number): Date {
   const a = year % 19;

@@ -891,11 +891,47 @@ function ChatPage() {
 
         <form
           onSubmit={handleSubmit}
-          className="fixed inset-x-0 bottom-0 z-30 border-t border-white/10 bg-[⇨07142f]/95 backdrop-blur pb-[calc(env(safe-area-inset-bottom)+64px)] md:pb-3"
+          onDragOver={handleDragOver}
+          onDragLeave={handleDragLeave}
+          onDrop={handleDrop}
+          className={`fixed inset-x-0 bottom-0 z-30 border-t border-white/10 bg-[⇨07142f]/95 backdrop-blur pb-[calc(env(safe-area-inset-bottom)+64px)] md:pb-3 ${
+            dragOver ? "ring-2 ring-inset ring-cyan-400/60" : ""
+          }`}
           data-no-swipe="true"
         >
           <div className="mx-auto w-full max-w-3xl px-3 pt-3">
+            {(attachments.length > 0 || attachError || busy) && (
+              <div className="px-1 pb-2" aria-live="polite">
+                {attachments.length > 0 && (
+                  <AttachmentChips attachments={attachments} onRemove={removeAttachment} compact />
+                )}
+                {attachError && (
+                  <p role="alert" className="mt-1 text-[11px] text-red-500">
+                    {attachError}
+                  </p>
+                )}
+                {busy && attachments.length === 0 && null}
+                {busy && attachments.length > 0 && (
+                  <p className="mt-1 text-[11px] text-muted-foreground">
+                    Datei wird analysiert …
+                  </p>
+                )}
+              </div>
+            )}
+            {dragOver && (
+              <p className="pb-2 text-center text-[11px] text-cyan-300">
+                Zum Anhängen hier ablegen …
+              </p>
+            )}
             <div className="flex items-end gap-2 rounded-3xl border border-border bg-card px-3 py-2 shadow-sm focus-within:border-foreground/30">
+              <AttachmentPlusButton
+                attachments={attachments}
+                disabled={busy}
+                onFilesPicked={(files) => {
+                  addFiles(files);
+                  if (phase !== "active") activateChatImmediately();
+                }}
+              />
               {voice.isSupported && (
                 <button
                   type="button"
@@ -935,13 +971,16 @@ function ChatPage() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
+                onPaste={handlePaste}
                 rows={1}
                 placeholder={
                   voice.isRecording
                     ? "Ich höre zu …"
                     : voice.isTranscribing
                       ? "Sprache wird in Text umgewandelt …"
-                      : "Stell eine steuerliche Frage …"
+                      : attachments.length > 0
+                        ? "Optional: Frage zu den Anhängen …"
+                        : "Stell eine steuerliche Frage …"
                 }
                 className="flex-1 resize-none bg-transparent px-2 py-2 text-[15px] leading-relaxed text-foreground outline-none placeholder:text-muted-foreground"
                 style={{ maxHeight: 180 }}
@@ -950,16 +989,17 @@ function ChatPage() {
               <button
                 type="submit"
                 disabled={!canSend}
-                aria-label="Nachricht senden"
+                aria-label={busy ? "Sende Nachricht" : "Nachricht senden"}
                 className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-colors ${
                   canSend
                     ? "bg-foreground text-background hover:opacity-90"
                     : "bg-muted text-muted-foreground"
                 }`}
               >
-                <ArrowUp className="h-4 w-4" />
+                {busy ? <LoaderCircle className="h-4 w-4 animate-spin" /> : <ArrowUp className="h-4 w-4" />}
               </button>
             </div>
+
             {(voice.isRecording || voice.isTranscribing || voice.error) && (
               <div className="px-2 pt-1.5" aria-live="polite">
                 {voice.isRecording && (

@@ -28,6 +28,7 @@ import { Route as ChatRouteImport } from './routes/chat'
 import { Route as AkademieRouteImport } from './routes/akademie'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as FallCaseIdRouteImport } from './routes/fall.$caseId'
+import { Route as ApiTtsRouteImport } from './routes/api/tts'
 import { Route as ApiTranscribeRouteImport } from './routes/api/transcribe'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 
@@ -127,6 +128,11 @@ const FallCaseIdRoute = FallCaseIdRouteImport.update({
   path: '/fall/$caseId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiTtsRoute = ApiTtsRouteImport.update({
+  id: '/api/tts',
+  path: '/api/tts',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiTranscribeRoute = ApiTranscribeRouteImport.update({
   id: '/api/transcribe',
   path: '/api/transcribe',
@@ -159,6 +165,7 @@ export interface FileRoutesByFullPath {
   '/wissensdatenbank': typeof WissensdatenbankRoute
   '/api/chat': typeof ApiChatRoute
   '/api/transcribe': typeof ApiTranscribeRoute
+  '/api/tts': typeof ApiTtsRoute
   '/fall/$caseId': typeof FallCaseIdRoute
 }
 export interface FileRoutesByTo {
@@ -182,6 +189,7 @@ export interface FileRoutesByTo {
   '/wissensdatenbank': typeof WissensdatenbankRoute
   '/api/chat': typeof ApiChatRoute
   '/api/transcribe': typeof ApiTranscribeRoute
+  '/api/tts': typeof ApiTtsRoute
   '/fall/$caseId': typeof FallCaseIdRoute
 }
 export interface FileRoutesById {
@@ -206,6 +214,7 @@ export interface FileRoutesById {
   '/wissensdatenbank': typeof WissensdatenbankRoute
   '/api/chat': typeof ApiChatRoute
   '/api/transcribe': typeof ApiTranscribeRoute
+  '/api/tts': typeof ApiTtsRoute
   '/fall/$caseId': typeof FallCaseIdRoute
 }
 export interface FileRouteTypes {
@@ -231,6 +240,7 @@ export interface FileRouteTypes {
     | '/wissensdatenbank'
     | '/api/chat'
     | '/api/transcribe'
+    | '/api/tts'
     | '/fall/$caseId'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -254,6 +264,7 @@ export interface FileRouteTypes {
     | '/wissensdatenbank'
     | '/api/chat'
     | '/api/transcribe'
+    | '/api/tts'
     | '/fall/$caseId'
   id:
     | '__root__'
@@ -277,6 +288,7 @@ export interface FileRouteTypes {
     | '/wissensdatenbank'
     | '/api/chat'
     | '/api/transcribe'
+    | '/api/tts'
     | '/fall/$caseId'
   fileRoutesById: FileRoutesById
 }
@@ -301,6 +313,7 @@ export interface RootRouteChildren {
   WissensdatenbankRoute: typeof WissensdatenbankRoute
   ApiChatRoute: typeof ApiChatRoute
   ApiTranscribeRoute: typeof ApiTranscribeRoute
+  ApiTtsRoute: typeof ApiTtsRoute
   FallCaseIdRoute: typeof FallCaseIdRoute
 }
 
@@ -439,6 +452,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FallCaseIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/tts': {
+      id: '/api/tts'
+      path: '/api/tts'
+      fullPath: '/api/tts'
+      preLoaderRoute: typeof ApiTtsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/transcribe': {
       id: '/api/transcribe'
       path: '/api/transcribe'
@@ -477,18 +497,9 @@ const rootRouteChildren: RootRouteChildren = {
   WissensdatenbankRoute: WissensdatenbankRoute,
   ApiChatRoute: ApiChatRoute,
   ApiTranscribeRoute: ApiTranscribeRoute,
+  ApiTtsRoute: ApiTtsRoute,
   FallCaseIdRoute: FallCaseIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

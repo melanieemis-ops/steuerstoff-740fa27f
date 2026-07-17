@@ -66,13 +66,21 @@ export function AttachmentPlusButton({
     return () => document.removeEventListener("mousedown", onDocClick);
   }, [open, isMobile]);
 
-  // Mobile: lock body scroll while sheet open
+  // Mobile: close on outside pointer / Escape (no body scroll lock, no backdrop)
   useEffect(() => {
-    if (!open || !isMobile || typeof document === "undefined") return;
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    if (!open || !isMobile) return;
+    function onDown(e: MouseEvent | TouchEvent) {
+      const target = e.target as Node | null;
+      const menuEl = document.getElementById("attachment-floating-menu");
+      if (menuEl && target && menuEl.contains(target)) return;
+      if (buttonRef.current && target && buttonRef.current.contains(target)) return;
+      setOpen(false);
+    }
+    document.addEventListener("mousedown", onDown);
+    document.addEventListener("touchstart", onDown, { passive: true });
     return () => {
-      document.body.style.overflow = prev;
+      document.removeEventListener("mousedown", onDown);
+      document.removeEventListener("touchstart", onDown);
     };
   }, [open, isMobile]);
 

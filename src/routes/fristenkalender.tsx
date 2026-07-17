@@ -36,6 +36,7 @@ import {
   Clock,
   X,
   StickyNote,
+  Settings2,
 } from "lucide-react";
 
 import { SiteHeader } from "@/components/SiteHeader";
@@ -103,6 +104,21 @@ import {
   subscribeDayNotes,
 } from "@/lib/calendar-notes-storage";
 import { downloadIcs } from "@/lib/create-ics";
+import {
+  BUNDESLAND_OPTIONS,
+  buildStandardEvents,
+  isPresetEvent,
+  loadPresetSettings,
+  savePresetSettings,
+  subscribePresetSettings,
+  type PresetSettings,
+} from "@/lib/calendar-standard-events";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { Checkbox } from "@/components/ui/checkbox";
 
 export const Route = createFileRoute("/fristenkalender")({
   component: FristenkalenderPage,
@@ -199,7 +215,10 @@ const TEMPLATES: Template[] = [
 // ============================================================
 
 function FristenkalenderPage() {
-  const [events, setEvents] = useState<CalendarEvent[]>(() => loadEvents());
+  const [userEvents, setUserEvents] = useState<CalendarEvent[]>(() => loadEvents());
+  const [presetSettings, setPresetSettings] = useState<PresetSettings>(() =>
+    loadPresetSettings(),
+  );
   const [view, setView] = useState<CalendarView>("month");
   const [cursor, setCursor] = useState<Date>(() => today());
   const [editing, setEditing] = useState<CalendarEvent | "new" | null>(null);
@@ -213,12 +232,17 @@ function FristenkalenderPage() {
   const dayAnchorRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
-    const unsub = subscribe(() => setEvents(loadEvents()));
+    const unsub = subscribe(() => setUserEvents(loadEvents()));
     return unsub;
   }, []);
 
   useEffect(() => {
     const unsub = subscribeDayNotes(() => setNoteDates(getDayNoteDateSet()));
+    return unsub;
+  }, []);
+
+  useEffect(() => {
+    const unsub = subscribePresetSettings(() => setPresetSettings(loadPresetSettings()));
     return unsub;
   }, []);
 
@@ -232,6 +256,15 @@ function FristenkalenderPage() {
     return () => window.clearTimeout(id);
   }, [toast]);
 
+  const presetEvents = useMemo(
+    () => buildStandardEvents(presetSettings),
+    [presetSettings],
+  );
+  const events = useMemo<CalendarEvent[]>(
+    () => [...userEvents, ...presetEvents],
+    [userEvents, presetEvents],
+  );
+
   const overdue = useMemo(() => overdueOccurrences(events), [events]);
   const todays = useMemo(() => todaysOccurrences(events), [events]);
   const thisWeek = useMemo(() => thisWeekCount(events), [events]);
@@ -243,6 +276,7 @@ function FristenkalenderPage() {
   }, []);
 
   const openEdit = useCallback((e: CalendarEvent) => {
+    if (isPresetEvent(e)) return;
     setEditing(e);
     setDetailsEvent(null);
   }, []);
@@ -270,6 +304,7 @@ function FristenkalenderPage() {
 
   const toggleComplete = useCallback(
     (e: CalendarEvent) => {
+      if (isPresetEvent(e)) return;
       const now = new Date().toISOString();
       upsertEvent({ ...e, completed: !e.completed, updatedAt: now });
     },
@@ -283,10 +318,14 @@ function FristenkalenderPage() {
       id: newId(),
       title: `${e.title} (Kopie)`,
       completed: false,
+      source: "user",
+      informational: false,
+      presetKey: undefined,
       createdAt: now,
       updatedAt: now,
     });
     setDetailsEvent(null);
+    setToast("Als eigener Termin übernommen");
   }, []);
 
   // Swipe for month/week
@@ -467,6 +506,13 @@ function FristenkalenderPage() {
               >
                 Heute
               </Button>
+              <PresetSettingsPopover
+                settings={presetSettings}
+                onChange={(s) => {
+                  savePresetSettings(s);
+                  setPresetSettings(s);
+                }}
+              />
             </div>
           </div>
 
@@ -1681,35 +1727,57 @@ function EventDetailsDialog({
         </div>
 
         <DialogFooter className="mt-4 flex-col gap-2 sm:flex-row sm:flex-wrap sm:justify-end">
-          <Button variant="outline" size="sm" onClick={onToggleComplete}>
-            <CheckCircle2 className="mr-1.5 h-4 w-4" />
-            {event.completed ? "Wieder öffnen" : "Erledigt"}
-          </Button>
-          <Button variant="outline" size="sm" onClick={onEdit}>
-            <Pencil className="mr-1.5 h-4 w-4" />
-            Bearbeiten
-          </Button>
-          <Button variant="outline" size="sm" onClick={onDuplicate}>
-            <Copy className="mr-1.5 h-4 w-4" />
-            Duplizieren
-          </Button>
-          <Button variant="outline" size="sm" onClick={() => downloadIcs(event)}>
-            <Download className="mr-1.5 h-4 w-4" />
-            In Gerätekalender
-          </Button>
-          <Button
-            variant="ghost"
-            size="sm"
-            className="text-destructive hover:text-destructive"
-            onClick={onDelete}
-          >
-            <Trash2 className="mr-1.5 h-4 w-4" />
-            Löschen
-          </Button>
-          <Button variant="ghost" size="sm" onClick={onClose}>
-            <X className="mr-1.5 h-4 w-4" />
-            Schließen
-          </Button>
+          {isPresetEvent(event) ? (
+            <>
+              <div className="mr-auto text-xs text-muted-foreground">
+                Integrierter Standardtermin (steuerstoff). Nur zur Information.
+              </div>
+              <Button variant="outline" size="sm" onClick={onDuplicate}>
+                <Copy className="mr-1.5 h-4 w-4" />
+                Als eigenen Termin übernehmen
+              </Button>
+              <Button variant="outline" size="sm" onClick={() => downloadIcs(event)}>
+                <Download className="mr-1.5 h-4 w-4" />
+                In Gerätekalender
+              </Button>
+              <Button variant="ghost" size="sm" onClick={onClose}>
+                <X className="mr-1.5 h-4 w-4" />
+                Schließen
+              </Button>
+            </>
+          ) : (
+            <>
+              <Button variant="outline" size="sm" onClick={onToggleComplete}>
+                <CheckCircle2 className="mr-1.5 h-4 w-4" />
+                {event.completed ? "Wieder öffnen" : "Erledigt"}
+              </Button>
+              <Button variant="outline" size="sm" onClick={onEdit}>
+                <Pencil className="mr-1.5 h-4 w-4" />
+                Bearbeiten
+              </Button>
+              <Button variant="outline" size="sm" onClick={onDuplicate}>
+                <Copy className="mr-1.5 h-4 w-4" />
+                Duplizieren
+              </Button>
+              <Button variant="outline" size="sm" onClick={() => downloadIcs(event)}>
+                <Download className="mr-1.5 h-4 w-4" />
+                In Gerätekalender
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-destructive hover:text-destructive"
+                onClick={onDelete}
+              >
+                <Trash2 className="mr-1.5 h-4 w-4" />
+                Löschen
+              </Button>
+              <Button variant="ghost" size="sm" onClick={onClose}>
+                <X className="mr-1.5 h-4 w-4" />
+                Schließen
+              </Button>
+            </>
+          )}
         </DialogFooter>
       </DialogContent>
     </Dialog>
@@ -1844,5 +1912,105 @@ function DayNotePanel({
         </DialogFooter>
       </DialogContent>
     </Dialog>
+  );
+}
+
+function PresetSettingsPopover({
+  settings,
+  onChange,
+}: {
+  settings: PresetSettings;
+  onChange: (s: PresetSettings) => void;
+}) {
+  const set = <K extends keyof PresetSettings>(k: K, v: PresetSettings[K]) =>
+    onChange({ ...settings, [k]: v });
+  const Row = ({
+    id,
+    label,
+    checked,
+    onCheck,
+  }: {
+    id: string;
+    label: string;
+    checked: boolean;
+    onCheck: (v: boolean) => void;
+  }) => (
+    <label
+      htmlFor={id}
+      className="flex cursor-pointer items-center gap-2 rounded-md px-2 py-1.5 text-sm hover:bg-muted/60"
+    >
+      <Checkbox
+        id={id}
+        checked={checked}
+        onCheckedChange={(v) => onCheck(v === true)}
+      />
+      <span>{label}</span>
+    </label>
+  );
+  return (
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button variant="outline" size="sm" className="h-9 gap-1.5">
+          <Settings2 className="h-4 w-4" />
+          <span className="hidden sm:inline">Standardtermine</span>
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent align="end" className="w-72 p-2">
+        <div className="px-2 pb-1 pt-1 text-xs font-medium text-muted-foreground">
+          Integrierte Standardtermine
+        </div>
+        <Row
+          id="preset-filing"
+          label="Steuererklärungsfristen"
+          checked={settings.showFilingDeadlines}
+          onCheck={(v) => set("showFilingDeadlines", v)}
+        />
+        <Row
+          id="preset-estkst"
+          label="ESt-/KSt-Vorauszahlungen"
+          checked={settings.showEStKStVZ}
+          onCheck={(v) => set("showEStKStVZ", v)}
+        />
+        <Row
+          id="preset-gewst"
+          label="Gewerbesteuer-Vorauszahlungen"
+          checked={settings.showGewStVZ}
+          onCheck={(v) => set("showGewStVZ", v)}
+        />
+        <Row
+          id="preset-monthly"
+          label="USt-VA + LSt-Anm. (monatlich)"
+          checked={settings.showMonthlyUStLSt}
+          onCheck={(v) => set("showMonthlyUStLSt", v)}
+        />
+        <Row
+          id="preset-holidays"
+          label="Gesetzliche Feiertage"
+          checked={settings.showHolidays}
+          onCheck={(v) => set("showHolidays", v)}
+        />
+        <div className="mt-2 border-t border-border px-2 pt-2">
+          <div className="mb-1 text-xs font-medium text-muted-foreground">
+            Bundesland
+          </div>
+          <select
+            className="h-8 w-full rounded-md border border-input bg-background px-2 text-sm"
+            value={settings.bundesland}
+            onChange={(e) =>
+              set("bundesland", e.target.value as PresetSettings["bundesland"])
+            }
+          >
+            {BUNDESLAND_OPTIONS.map((o) => (
+              <option key={o.value} value={o.value}>
+                {o.label}
+              </option>
+            ))}
+          </select>
+        </div>
+        <p className="mt-2 px-2 pb-1 text-[11px] leading-tight text-muted-foreground">
+          Referenztermine ohne Gewähr. Individuelle Bescheide, Dauerfristverlängerungen und Feiertagsregelungen können abweichen.
+        </p>
+      </PopoverContent>
+    </Popover>
   );
 }

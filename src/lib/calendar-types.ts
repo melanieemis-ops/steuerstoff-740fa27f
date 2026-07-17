@@ -4,7 +4,10 @@ export type CalendarCategory =
   | "learning"
   | "client"
   | "office"
-  | "personal";
+  | "personal"
+  | "holiday";
+
+export type CalendarSource = "user" | "steuerstoff";
 
 export type RecurrenceType =
   | "none"
@@ -36,6 +39,12 @@ export type CalendarEvent = {
   completed: boolean;
   createdAt: string;
   updatedAt: string;
+  /** Origin of the event. Missing = user (backward-compat). */
+  source?: CalendarSource;
+  /** Reference/info-only entry — not counted as overdue, no completion required. */
+  informational?: boolean;
+  /** Stable key for deduping integrated presets. */
+  presetKey?: string;
 };
 
 export type CalendarView = "year" | "month" | "week" | "agenda";
@@ -73,6 +82,11 @@ export const CATEGORY_META: Record<
     label: "Persönlich",
     color: "oklch(0.6 0.08 155)",
     dot: "oklch(0.6 0.08 155)",
+  },
+  holiday: {
+    label: "Feiertag",
+    color: "oklch(0.72 0.06 210)",
+    dot: "oklch(0.72 0.06 210)",
   },
 };
 

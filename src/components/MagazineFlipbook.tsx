@@ -205,7 +205,7 @@ function blockToPlainText(block: ArticleBlockLike): string {
 // Local alias to make blockToPlainText typing simple
 type ArticleBlockLike = MagazineArticle["blocks"][number];
 
-function ArticleToolbar({ article }: { article: MagazineArticle }) {
+function ArticleToolbar({ article, hideSpeak = false }: { article: MagazineArticle; hideSpeak?: boolean }) {
   const bookmarkKey = `steuerstoff-magazin-bookmark-${article.id}`;
   const [bookmarked, setBookmarked] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);

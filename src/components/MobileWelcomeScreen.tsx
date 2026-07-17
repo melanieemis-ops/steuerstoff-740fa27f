@@ -91,28 +91,6 @@ export function MobileWelcomeScreen() {
   }, []);
 
   useEffect(() => {
-    if (!visible) {
-      return;
-    }
-
-    const previousHtmlOverflow =
-      document.documentElement.style.overflow;
-    const previousBodyOverflow =
-      document.body.style.overflow;
-
-    document.documentElement.style.overflow =
-      "hidden";
-    document.body.style.overflow = "hidden";
-
-    return () => {
-      document.documentElement.style.overflow =
-        previousHtmlOverflow;
-      document.body.style.overflow =
-        previousBodyOverflow;
-    };
-  }, [visible]);
-
-  useEffect(() => {
     return () => {
       if (frameRef.current !== null) {
         cancelAnimationFrame(frameRef.current);
@@ -393,7 +371,7 @@ export function MobileWelcomeScreen() {
             : leaving
               ? `transform ${EXIT_DURATION}ms cubic-bezier(0.22, 1, 0.36, 1), opacity 360ms ease`
               : "transform 260ms cubic-bezier(0.22, 1, 0.36, 1), opacity 220ms ease",
-        touchAction: "none",
+        touchAction: "pan-y",
       }}
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}

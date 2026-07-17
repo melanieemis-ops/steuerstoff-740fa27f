@@ -25,7 +25,6 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-import { OnboardingTour } from "@/components/OnboardingTour";
 import { useIsAdmin } from "@/hooks/useIsAdmin";
 
 type NavItem = {
@@ -392,10 +391,6 @@ export function SiteHeader() {
         </div>
       )}
       </header>
-
-      {location.pathname === "/" && (
-        <OnboardingTour />
-      )}
     </>
   );
 }

@@ -594,6 +594,7 @@ function ChatPage() {
 
   function newChat() {
     clearTimers();
+    clearAttachments();
     setMessages([]);
     setPhase("welcome");
     setWelcomeLeaving(false);
@@ -604,6 +605,40 @@ function ChatPage() {
     startingRef.current = false;
     if (typeof window !== "undefined") window.localStorage.removeItem(STORAGE_KEY);
   }
+
+  function handlePaste(e: ClipboardEvent<HTMLTextAreaElement>) {
+    const items = e.clipboardData?.items;
+    if (!items) return;
+    const files: File[] = [];
+    for (const it of Array.from(items)) {
+      if (it.kind === "file") {
+        const f = it.getAsFile();
+        if (f) files.push(f);
+      }
+    }
+    if (files.length > 0) {
+      e.preventDefault();
+      addFiles(files);
+    }
+  }
+
+  function handleDragOver(e: DragEvent<HTMLFormElement>) {
+    if (!e.dataTransfer?.types?.includes("Files")) return;
+    e.preventDefault();
+    setDragOver(true);
+  }
+  function handleDragLeave(e: DragEvent<HTMLFormElement>) {
+    if (e.currentTarget.contains(e.relatedTarget as Node)) return;
+    setDragOver(false);
+  }
+  function handleDrop(e: DragEvent<HTMLFormElement>) {
+    if (!e.dataTransfer?.files || e.dataTransfer.files.length === 0) return;
+    e.preventDefault();
+    setDragOver(false);
+    addFiles(Array.from(e.dataTransfer.files));
+    if (phase !== "active") activateChatImmediately();
+  }
+
 
   function markCopied(id: string) {
     setCopiedId(id);

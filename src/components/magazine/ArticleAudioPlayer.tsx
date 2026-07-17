@@ -293,7 +293,13 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
 
       {status === "error" ? (
         <p className="mt-2 text-[12px] text-[#fca5a5]" role="alert">
-          {errorMsg ?? "Audio konnte nicht erzeugt werden."}
+          {errorMsg ?? "Die KI-Audiofassung konnte nicht geladen werden."}
+        </p>
+      ) : null}
+
+      {isLoading ? (
+        <p className="mt-2 text-[12px] text-[#c8d3ea]" aria-live="polite">
+          Audio wird einmalig vorbereitet … Das kann bei langen Beiträgen einen Moment dauern.
         </p>
       ) : null}
 

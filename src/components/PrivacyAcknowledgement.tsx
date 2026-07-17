@@ -137,12 +137,14 @@ export function PrivacyAcknowledgementGate({ onAccepted }: { onAccepted: () => v
       className="fixed inset-0 flex items-center justify-center bg-black/60 px-4 py-6 backdrop-blur-md"
     >
       <div
+        ref={dialogRef}
         className="relative flex max-h-[calc(100dvh-2rem)] w-full max-w-md flex-col gap-6 overflow-y-auto rounded-3xl border border-border/60 bg-[#faf7f2] p-6 text-foreground shadow-2xl dark:bg-[#0b1120] sm:p-8"
         style={{
           paddingBottom: "calc(1.5rem + env(safe-area-inset-bottom))",
           paddingTop: "calc(1.5rem + env(safe-area-inset-top))",
         }}
       >
+
         <div className="flex flex-col gap-3">
           <span className="inline-flex w-fit items-center gap-2 rounded-full border border-border/60 bg-background/60 px-3 py-1 text-xs font-medium tracking-wide text-muted-foreground">
             <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--accent-magenta,theme(colors.pink.500))]" />

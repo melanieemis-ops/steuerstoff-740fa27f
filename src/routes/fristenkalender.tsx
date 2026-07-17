@@ -1546,11 +1546,21 @@ function EventDialog({
               </Button>
             )}
             <div className="flex flex-1 flex-col gap-2 sm:flex-row sm:justify-end">
+              {initial && (
+                <Button
+                  type="button"
+                  variant="secondary"
+                  onClick={() => downloadIcs(initial)}
+                >
+                  In Apple-/Gerätekalender speichern
+                </Button>
+              )}
               <Button type="button" variant="outline" onClick={onCancel}>
                 Abbrechen
               </Button>
               <Button type="submit">Speichern</Button>
             </div>
+
           </DialogFooter>
         </form>
       </DialogContent>

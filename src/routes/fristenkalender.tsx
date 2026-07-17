@@ -545,6 +545,10 @@ function FristenkalenderPage() {
               </>
             )}
           </nav>
+
+          <p className="mt-2 text-[11px] leading-snug text-muted-foreground">
+            Gesetzliche Standardtermine. Individuelle Bescheide, Dauerfristverlängerungen und Sonderfälle können abweichen.
+          </p>
         </section>
 
         {/* Main calendar container with neon border */}

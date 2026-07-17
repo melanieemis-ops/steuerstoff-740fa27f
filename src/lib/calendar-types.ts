@@ -39,6 +39,12 @@ export type CalendarEvent = {
   completed: boolean;
   createdAt: string;
   updatedAt: string;
+  /** Origin of the event. Missing = user (backward-compat). */
+  source?: CalendarSource;
+  /** Reference/info-only entry — not counted as overdue, no completion required. */
+  informational?: boolean;
+  /** Stable key for deduping integrated presets. */
+  presetKey?: string;
 };
 
 export type CalendarView = "year" | "month" | "week" | "agenda";

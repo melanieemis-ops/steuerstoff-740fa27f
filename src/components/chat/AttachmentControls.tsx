@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type ChangeEvent } from "react";
+import { createPortal } from "react-dom";
 import { Plus, Camera, ImageIcon, FileUp, X, FileText } from "lucide-react";
 import {
   IMAGE_ACCEPT,
@@ -15,50 +16,94 @@ type Props = {
   onRemove: (id: string) => void;
 };
 
+function useIsMobileSheet() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mql = window.matchMedia("(max-width: 640px)");
+    const update = () => setIsMobile(mql.matches);
+    update();
+    mql.addEventListener("change", update);
+    return () => mql.removeEventListener("change", update);
+  }, []);
+  return isMobile;
+}
+
 export function AttachmentPlusButton({
   attachments,
   disabled,
   onFilesPicked,
 }: Pick<Props, "attachments" | "disabled" | "onFilesPicked">) {
   const [open, setOpen] = useState(false);
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
   const rootRef = useRef<HTMLDivElement | null>(null);
   const cameraRef = useRef<HTMLInputElement | null>(null);
   const photoRef = useRef<HTMLInputElement | null>(null);
   const fileRef = useRef<HTMLInputElement | null>(null);
+  const isMobile = useIsMobileSheet();
 
   useEffect(() => {
     if (!open) return;
-    function onDocClick(e: MouseEvent) {
-      if (!rootRef.current?.contains(e.target as Node)) setOpen(false);
-    }
     function onKey(e: KeyboardEvent) {
       if (e.key === "Escape") setOpen(false);
     }
-    document.addEventListener("mousedown", onDocClick);
     document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [open]);
+
+  // Desktop: outside-click for popover
+  useEffect(() => {
+    if (!open || isMobile) return;
+    function onDocClick(e: MouseEvent) {
+      if (!rootRef.current?.contains(e.target as Node)) setOpen(false);
+    }
+    document.addEventListener("mousedown", onDocClick);
+    return () => document.removeEventListener("mousedown", onDocClick);
+  }, [open, isMobile]);
+
+  // Mobile: lock body scroll while sheet open
+  useEffect(() => {
+    if (!open || !isMobile || typeof document === "undefined") return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
     return () => {
-      document.removeEventListener("mousedown", onDocClick);
-      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
     };
+  }, [open, isMobile]);
+
+  // Return focus on close
+  const prevOpen = useRef(false);
+  useEffect(() => {
+    if (prevOpen.current && !open) {
+      buttonRef.current?.focus();
+    }
+    prevOpen.current = open;
   }, [open]);
 
   const reachedLimit = attachments.length >= MAX_ATTACHMENTS;
 
   function pick(ref: React.RefObject<HTMLInputElement | null>) {
     setOpen(false);
-    ref.current?.click();
+    // Delay slightly so sheet unmounts before system picker
+    setTimeout(() => ref.current?.click(), 0);
   }
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     const files = e.target.files ? Array.from(e.target.files) : [];
     if (files.length) onFilesPicked(files);
-    // Reset, damit dieselbe Datei erneut ausgewählt werden kann.
     e.target.value = "";
   }
+
+  const items = [
+    { icon: <Camera className="h-5 w-5" />, label: "Foto aufnehmen", ref: cameraRef },
+    { icon: <ImageIcon className="h-5 w-5" />, label: "Foto auswählen", ref: photoRef },
+    { icon: <FileUp className="h-5 w-5" />, label: "Datei auswählen", ref: fileRef },
+  ] as const;
 
   return (
     <div ref={rootRef} className="relative">
       <button
+        ref={buttonRef}
         type="button"
         onClick={() => setOpen((v) => !v)}
         disabled={disabled || reachedLimit}
@@ -76,29 +121,80 @@ export function AttachmentPlusButton({
         <Plus className="h-5 w-5" />
       </button>
 
-      {open && (
+      {open && !isMobile && (
         <div
           role="menu"
           aria-label="Anhang-Optionen"
-          className="absolute bottom-14 left-0 z-50 w-56 overflow-hidden rounded-2xl border border-border bg-card p-1 shadow-lg"
+          className="absolute bottom-14 left-0 z-50 w-64 min-w-[240px] overflow-hidden rounded-2xl border border-border bg-card p-1 shadow-lg"
         >
-          <MenuItem
-            icon={<Camera className="h-4 w-4" />}
-            label="Foto aufnehmen"
-            onClick={() => pick(cameraRef)}
-          />
-          <MenuItem
-            icon={<ImageIcon className="h-4 w-4" />}
-            label="Foto auswählen"
-            onClick={() => pick(photoRef)}
-          />
-          <MenuItem
-            icon={<FileUp className="h-4 w-4" />}
-            label="Datei auswählen"
-            onClick={() => pick(fileRef)}
-          />
+          {items.map((it) => (
+            <MenuItem
+              key={it.label}
+              icon={it.icon}
+              label={it.label}
+              onClick={() => pick(it.ref)}
+            />
+          ))}
         </div>
       )}
+
+      {open && isMobile && typeof document !== "undefined" &&
+        createPortal(
+          <div
+            className="fixed inset-0 z-[100] flex flex-col justify-end"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Anhang hinzufügen"
+          >
+            <button
+              type="button"
+              aria-label="Schließen"
+              onClick={() => setOpen(false)}
+              className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            />
+            <div
+              className="relative mx-3 mb-3 rounded-3xl border border-border bg-card shadow-2xl"
+              style={{ paddingBottom: "max(16px, env(safe-area-inset-bottom))" }}
+            >
+              <div className="flex justify-center pt-2">
+                <div className="h-1 w-10 rounded-full bg-muted-foreground/30" aria-hidden="true" />
+              </div>
+              <div className="flex items-center justify-between px-5 pt-3 pb-2">
+                <h2 className="text-base font-semibold text-foreground">Anhang hinzufügen</h2>
+                <button
+                  type="button"
+                  onClick={() => setOpen(false)}
+                  aria-label="Schließen"
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-full text-muted-foreground hover:bg-muted hover:text-foreground"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              </div>
+              <div className="flex flex-col gap-1 px-3 pb-2">
+                {items.map((it) => (
+                  <button
+                    key={it.label}
+                    type="button"
+                    role="menuitem"
+                    onClick={() => pick(it.ref)}
+                    className="flex w-full items-center gap-3 rounded-2xl px-4 py-3.5 text-left text-[15px] font-medium text-foreground transition-colors hover:bg-accent min-h-[52px]"
+                  >
+                    <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-muted text-foreground">
+                      {it.icon}
+                    </span>
+                    <span
+                      className="flex-1 whitespace-nowrap break-normal"
+                      style={{ overflowWrap: "normal", writingMode: "horizontal-tb" }}
+                    >
+                      {it.label}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>,
+          document.body,
+        )}
 
       <input
         ref={cameraRef}

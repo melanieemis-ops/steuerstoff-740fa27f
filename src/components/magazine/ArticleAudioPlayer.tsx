@@ -103,13 +103,16 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
   }, [stopBrowserSpeech]);
 
   // Wenn eine andere Audio-Ausgabe startet (z. B. Chat-Vorlesen), diese pausieren.
+  // Eigene Stop-Events (z. B. beim eigenen Play-Start) ignorieren, sonst
+  // würde der Player sich selbst sofort wieder pausieren.
   useEffect(() => {
-    return onAudioStop(() => {
+    return onAudioStop((source) => {
+      if (source === sourceId) return;
       stopBrowserSpeech();
       const el = audioRef.current;
       if (el && !el.paused) el.pause();
     });
-  }, [stopBrowserSpeech]);
+  }, [sourceId, stopBrowserSpeech]);
 
   const ensureLoaded = useCallback(() => {
     if (audioRef.current) return audioRef.current;

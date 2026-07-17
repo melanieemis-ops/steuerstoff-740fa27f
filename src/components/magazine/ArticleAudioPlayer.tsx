@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AUDIO_CONTENT_VERSION } from "@/lib/articleSpeechText";
+import { onAudioStop } from "@/lib/chatTtsClient";
 import { normalizeForSpeech } from "@/lib/speech-normalize";
 
 type BrowserSpeakContext = {

@@ -4,8 +4,8 @@
  */
 
 /**
- * Teilt einen langen Text in sinnvolle Segmente von ca. 500–900 Zeichen auf.
- * Trennung erfolgt bevorzugt an Absätzen, dann an Satzgrenzen.
+ * Teilt einen langen Text in sinnvolle Segmente von maximal `maxLen` Zeichen auf
+ * (Standard: 800). Trennung erfolgt bevorzugt an Absätzen, dann an Satzgrenzen.
  */
 export function segmentTextForSpeech(text: string, maxLen = 800): string[] {
   const paragraphs = text.split(/\n{2,}/);
@@ -71,13 +71,16 @@ export function prepareTextForSpeech(content: string): string {
   // 2. HTML-Tags entfernen
   text = text.replace(/<[^>]+>/g, " ");
 
-  // 3. HTML-Entitäten
-  text = text.replace(/&amp;/g, "&");
-  text = text.replace(/&lt;/g, "<");
-  text = text.replace(/&gt;/g, ">");
-  text = text.replace(/&quot;/g, '"');
-  text = text.replace(/&#39;/g, "'");
-  text = text.replace(/&nbsp;/g, " ");
+  // 3. HTML-Entitäten in einem einzigen Durchlauf ersetzen (vermeidet Doppel-Dekodierung)
+  const htmlEntityMap: Record<string, string> = {
+    "&amp;": "&",
+    "&lt;": "",
+    "&gt;": "",
+    "&quot;": '"',
+    "&#39;": "'",
+    "&nbsp;": " ",
+  };
+  text = text.replace(/&(?:amp|lt|gt|quot|#39|nbsp);/g, (match) => htmlEntityMap[match] ?? "");
 
   // 4. Markdown-Links → „Weiterführender Link."
   text = text.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");

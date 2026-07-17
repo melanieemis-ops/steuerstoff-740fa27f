@@ -230,6 +230,10 @@ function onboardingAlreadyHandled(): boolean {
 }
 
 export function OnboardingTour() {
+  if (ONBOARDING_TOUR_EMERGENCY_DISABLED) {
+    return null;
+  }
+
   const [open, setOpen] = useState(false);
   const [stepIndex, setStepIndex] = useState(0);
   const [targetRect, setTargetRect] =

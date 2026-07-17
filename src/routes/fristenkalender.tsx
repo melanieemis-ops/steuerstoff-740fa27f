@@ -35,6 +35,7 @@ import {
   CheckCircle2,
   Clock,
   X,
+  StickyNote,
 } from "lucide-react";
 
 import { SiteHeader } from "@/components/SiteHeader";
@@ -94,6 +95,13 @@ import {
   subscribe,
   upsertEvent,
 } from "@/lib/calendar-storage";
+import {
+  getDayNoteByDate,
+  getDayNoteDateSet,
+  saveDayNote,
+  deleteDayNote,
+  subscribeDayNotes,
+} from "@/lib/calendar-notes-storage";
 import { downloadIcs } from "@/lib/create-ics";
 
 export const Route = createFileRoute("/fristenkalender")({

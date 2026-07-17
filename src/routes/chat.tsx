@@ -16,6 +16,7 @@ import {
   Copy,
   Check,
   Plus,
+  Paperclip,
   RefreshCw,
   Trash2,
   AlertCircle,
@@ -25,6 +26,7 @@ import {
   Square,
   LoaderCircle,
 } from "lucide-react";
+
 import { generateAnswer, REVIEW_HINT, type ChatAnswer } from "@/lib/chatHeuristics";
 import { useVoiceInput } from "@/hooks/useVoiceInput";
 import { SpeechProvider, useSpeechContext } from "@/hooks/useSpeechSynthesis";

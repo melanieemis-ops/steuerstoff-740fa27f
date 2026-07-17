@@ -312,6 +312,15 @@ function RootComponent() {
   const { queryClient } =
     Route.useRouteContext();
 
+  const [privacyAccepted, setPrivacyAccepted] =
+    useState<boolean>(true);
+
+  useEffect(() => {
+    setPrivacyAccepted(hasCurrentPrivacyAcknowledgement());
+  }, []);
+
+
+
   useEffect(() => {
     const stopWatchdog = startScrollLockWatchdog();
 

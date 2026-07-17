@@ -28,16 +28,49 @@ type FlipDirection = "next" | "previous";
 
 function ArticleTeaser({ article }: { article: MagazineArticle }) {
   const leadFirst = article.lead.split(/\n\n+/)[0] ?? article.lead;
+  const isSpecial = article.format === "special";
   return (
-    <div className="flex h-full w-full flex-col justify-between gap-3 px-5 py-6 text-[#2b2117]">
+    <div
+      className={`flex h-full w-full flex-col justify-between gap-3 px-5 py-6 ${
+        isSpecial
+          ? "bg-gradient-to-b from-[#0b1220] via-[#0b1220] to-[#111a2e] text-[#f5efe1]"
+          : "text-[#2b2117]"
+      }`}
+    >
       <div className="min-w-0">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#8a6b3a]">
-          {article.issueLabel}
-        </p>
-        <h3 className="mt-2 text-[17px] font-semibold leading-snug tracking-tight">
+        {isSpecial ? (
+          <div className="flex flex-wrap items-center gap-1.5">
+            <span className="rounded-sm bg-gradient-to-r from-[#22d3ee] to-[#ec4899] px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.22em] text-[#0b1220]">
+              {article.specialtyLabel ?? "steuerstoff SPEZIAL"}
+            </span>
+            {article.statusLabel ? (
+              <span className="rounded-sm border border-[#22d3ee]/40 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-[0.18em] text-[#22d3ee]">
+                {article.statusLabel}
+              </span>
+            ) : null}
+          </div>
+        ) : (
+          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#8a6b3a]">
+            {article.issueLabel}
+          </p>
+        )}
+        <h3
+          className={`mt-2 text-[17px] font-semibold leading-snug tracking-tight ${
+            isSpecial ? "text-[#f5efe1]" : ""
+          }`}
+        >
           {article.title}
         </h3>
-        <p className="mt-3 line-clamp-6 text-[12.5px] leading-relaxed text-[#4a3d2c]">
+        {isSpecial && article.subtitle ? (
+          <p className="mt-1 text-[11.5px] leading-snug text-[#c8d3ea]">
+            {article.subtitle}
+          </p>
+        ) : null}
+        <p
+          className={`mt-3 line-clamp-5 text-[12.5px] leading-relaxed ${
+            isSpecial ? "text-[#c8d3ea]" : "text-[#4a3d2c]"
+          }`}
+        >
           {leadFirst}
         </p>
       </div>
@@ -46,19 +79,35 @@ function ArticleTeaser({ article }: { article: MagazineArticle }) {
         {article.highlights.map((h) => (
           <div
             key={h.label}
-            className="min-w-0 rounded-lg border border-[#d9c9ac] bg-white/60 px-2.5 py-2"
+            className={`min-w-0 rounded-lg px-2.5 py-2 ${
+              isSpecial
+                ? "border border-[#22d3ee]/25 bg-white/5"
+                : "border border-[#d9c9ac] bg-white/60"
+            }`}
           >
-            <div className="truncate text-[9px] font-semibold uppercase tracking-wider text-[#8a6b3a]">
+            <div
+              className={`truncate text-[9px] font-semibold uppercase tracking-wider ${
+                isSpecial ? "text-[#22d3ee]" : "text-[#8a6b3a]"
+              }`}
+            >
               {h.label}
             </div>
-            <div className="mt-0.5 truncate text-[13px] font-semibold text-[#2b2117]">
+            <div
+              className={`mt-0.5 truncate text-[13px] font-semibold ${
+                isSpecial ? "text-[#f5efe1]" : "text-[#2b2117]"
+              }`}
+            >
               {h.value}
             </div>
           </div>
         ))}
       </div>
 
-      <p className="text-center text-[10.5px] font-medium uppercase tracking-[0.18em] text-[#8a6b3a]">
+      <p
+        className={`text-center text-[10.5px] font-medium uppercase tracking-[0.18em] ${
+          isSpecial ? "text-[#22d3ee]" : "text-[#8a6b3a]"
+        }`}
+      >
         Im Vollbild vollständig lesen
       </p>
     </div>

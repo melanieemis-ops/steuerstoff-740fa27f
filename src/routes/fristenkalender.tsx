@@ -303,6 +303,7 @@ function FristenkalenderPage() {
 
   const toggleComplete = useCallback(
     (e: CalendarEvent) => {
+      if (isPresetEvent(e)) return;
       const now = new Date().toISOString();
       upsertEvent({ ...e, completed: !e.completed, updatedAt: now });
     },
@@ -316,10 +317,14 @@ function FristenkalenderPage() {
       id: newId(),
       title: `${e.title} (Kopie)`,
       completed: false,
+      source: "user",
+      informational: false,
+      presetKey: undefined,
       createdAt: now,
       updatedAt: now,
     });
     setDetailsEvent(null);
+    setToast("Als eigener Termin übernommen");
   }, []);
 
   // Swipe for month/week

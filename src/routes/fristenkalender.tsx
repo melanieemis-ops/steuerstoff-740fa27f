@@ -36,6 +36,7 @@ import {
   Clock,
   X,
   StickyNote,
+  Settings2,
 } from "lucide-react";
 
 import { SiteHeader } from "@/components/SiteHeader";

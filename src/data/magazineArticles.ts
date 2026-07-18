@@ -345,6 +345,127 @@ export const magazineArticles: MagazineArticle[] = [
     ],
   },
   {
+    id: "haeusliches-arbeitszimmer-aufzeichnung-bfh-2026",
+    slug: "haeusliches-arbeitszimmer-aufzeichnung-bfh-2026",
+    category: "Einkommensteuer",
+    issueLabel: "Rechtsprechung · Einkommensteuer",
+    title: "Häusliches Arbeitszimmer: Belege sammeln reicht nicht",
+    subtitle:
+      "Selbstständige müssen die Kosten einzeln, getrennt und zeitnah dokumentieren",
+    status: "bfh-urteil",
+    statusLabel: "BFH-Urteil",
+    legalStatusDate: "2026-03-24",
+    publishedAt: "2026-07-18",
+    author: "Melanie Misakian",
+    readingTime: 4,
+    tags: [
+      "Häusliches Arbeitszimmer",
+      "§ 4 Abs. 7 EStG",
+      "Betriebsausgaben",
+      "EÜR",
+      "BFH VIII R 6/24",
+      "Selbstständige",
+    ],
+    lead:
+      "Wer die tatsächlichen Kosten eines häuslichen Arbeitszimmers als Betriebsausgaben abziehen möchte, darf die Belege nicht einfach bis zur Steuererklärung sammeln. Der BFH verlangt von Selbstständigen eine laufende, gesonderte Dokumentation. Fehlt sie, kann der Betriebsausgabenabzug vollständig verloren gehen.",
+    highlights: [
+      { label: "Aufzeichnung", value: "einzeln & getrennt" },
+      { label: "Zeitpunkt", value: "laufend statt rückwirkend" },
+      { label: "Belegsammlung", value: "nicht ausreichend" },
+      { label: "Rechtsfolge", value: "Abzug kann entfallen" },
+    ],
+    blocks: [
+      {
+        type: "summary",
+        title: "Auf einen Blick",
+        items: [
+          "Die Kosten des häuslichen Arbeitszimmers müssen einzeln erfasst werden.",
+          "Die Aufzeichnungen müssen getrennt von den übrigen Betriebsausgaben erfolgen.",
+          "Die Erfassung muss zeitnah und nicht erst bei Erstellung der Steuererklärung vorgenommen werden.",
+          "Eine bloße Sammlung von Rechnungen und Zahlungsbelegen genügt nicht.",
+        ],
+      },
+      { type: "heading", text: "Worum ging es?" },
+      {
+        type: "paragraph",
+        text: "Ein Freiberufler nutzte in seinem Eigenheim ein Arbeitszimmer im Dachgeschoss und zusätzlich eine Bibliothek im Erdgeschoss. In seiner Einkommensteuererklärung machte er unter anderem Abschreibungen und weitere Kosten für das häusliche Arbeitszimmer als Betriebsausgaben geltend.",
+      },
+      {
+        type: "paragraph",
+        text: "Das Finanzamt kürzte die Aufwendungen. Im anschließenden Verfahren stellte sich nicht nur die Frage nach der Höhe der Kosten, sondern bereits danach, ob sie wegen einer fehlerhaften Aufzeichnung überhaupt berücksichtigt werden durften.",
+      },
+      { type: "heading", text: "Was verlangt der BFH?" },
+      {
+        type: "paragraph",
+        text: "Der Bundesfinanzhof bestätigte: Aufwendungen für ein häusliches Arbeitszimmer und dessen Ausstattung fallen bei Selbstständigen unter die besondere Aufzeichnungspflicht des § 4 Abs. 7 EStG.",
+      },
+      {
+        type: "paragraph",
+        text: "Damit der Betriebsausgabenabzug erhalten bleibt, müssen sämtliche Aufwendungen:",
+      },
+      {
+        type: "list",
+        items: [
+          "einzeln,",
+          "getrennt von den sonstigen Betriebsausgaben und",
+          "zeitnah",
+          "in einer besonderen Spalte der Ausgabenaufzeichnungen oder gebündelt in einem gesonderten schriftlichen oder digitalen Dokument",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "aufgezeichnet werden.",
+      },
+      {
+        type: "notice",
+        variant: "wichtig",
+        text: "Eine bloße Belegsammlung reicht nicht. Die Belege müssen laufend in einer gesonderten Aufzeichnung erfasst und dem Arbeitszimmer nachvollziehbar zugeordnet werden.",
+      },
+      { type: "heading", text: "Warum die spätere Kostenaufstellung nicht genügte" },
+      {
+        type: "paragraph",
+        text: "Der Steuerpflichtige hatte die Belege zunächst nur gesammelt. Erst bei der Erstellung seiner Steuererklärung fertigte er eine Übersicht über die Gebäudekosten an. Nach Auffassung des BFH war das nicht zeitnah genug.",
+      },
+      {
+        type: "paragraph",
+        text: "Auch die Eintragung der Arbeitszimmerkosten in der Anlage EÜR konnte den Mangel nicht heilen. Dort wurden die Aufwendungen – abgesehen von den Abschreibungsbeträgen – lediglich als Gesamtsumme angegeben. Eine solche Summenangabe ersetzt keine Einzelaufzeichnung.",
+      },
+      { type: "heading", text: "Was bedeutet das für die Praxis?" },
+      {
+        type: "notice",
+        variant: "praxistipp",
+        text: "Am sichersten ist eine eigene Buchungsspalte, ein separates Aufwandskonto oder eine fortlaufend gepflegte digitale Liste. Erfasst werden sollten mindestens Datum, Zahlungsempfänger, Art der Ausgabe, Betrag und die nachvollziehbare Zuordnung zum Arbeitszimmer.",
+      },
+      {
+        type: "paragraph",
+        text: "Bei anteiligen Gebäudekosten sollte außerdem dokumentiert werden, wie der auf das Arbeitszimmer entfallende Anteil ermittelt wurde. So lässt sich die Berechnung später leichter prüfen und erklären.",
+      },
+      { type: "heading", text: "Die Rechtsfolge" },
+      {
+        type: "paragraph",
+        text: "Wer die besondere Aufzeichnungspflicht nicht erfüllt, riskiert den vollständigen Ausschluss des Betriebsausgabenabzugs für die tatsächlichen Arbeitszimmerkosten. Es genügt daher nicht, dass die Ausgaben wirtschaftlich entstanden und durch Belege nachweisbar sind.",
+      },
+      {
+        type: "notice",
+        variant: "merke",
+        text: "Nachweis und Aufzeichnung sind nicht dasselbe: Ein vorhandener Beleg beweist die Ausgabe, ersetzt aber nicht die gesetzlich verlangte gesonderte und zeitnahe Erfassung.",
+      },
+      { type: "heading", text: "Fazit" },
+      {
+        type: "paragraph",
+        text: "Das Urteil macht aus einer vermeintlichen Formalie eine entscheidende Abzugsvoraussetzung. Selbstständige, die tatsächliche Kosten für ein häusliches Arbeitszimmer geltend machen, sollten die Aufwendungen deshalb von Beginn an separat und laufend dokumentieren – nicht erst beim Jahresabschluss oder bei der Steuererklärung.",
+      },
+      {
+        type: "sourceLink",
+        title: "Amtliche Quelle",
+        text: "Bundesfinanzhof, Urteil vom 24. März 2026 – VIII R 6/24, veröffentlicht am 15. Mai 2026.",
+        buttonLabel: "BFH-Entscheidung öffnen",
+        url: "https://www.bundesfinanzhof.de/de/entscheidung/entscheidungen-online/detail/STRE202610098/",
+        note: "steuerstoff fasst die Entscheidung redaktionell und verständlich zusammen; maßgeblich bleibt der vollständige amtliche Entscheidungstext.",
+      },
+    ],
+  },
+  {
     id: "est-reform-2027",
     category: "Einkommensteuer",
     issueLabel: "Ausgabe 01 · Einkommensteuer",

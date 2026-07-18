@@ -1082,7 +1082,7 @@ export function MagazineFlipbook() {
                         steuerstoff Magazin
                       </span>
                       <span className="text-xs text-white/60">
-                        Ausgabe 01
+                        {currentIssueLabel}
                       </span>
                     </div>
                     <button
@@ -1114,17 +1114,49 @@ export function MagazineFlipbook() {
                     />
                   </figure>
 
-                  {magazineArticles.map((a, idx) => (
-                    <div key={a.id}>
-                      {idx > 0 ? (
-                        <div
-                          className="mx-auto my-4 h-px w-24 bg-white/20"
-                          aria-hidden="true"
-                        />
-                      ) : null}
-                      <FullArticle article={a} />
-                    </div>
-                  ))}
+                  {magazineIssues.map((issue, issueIdx) => {
+                    const issueArticles = issue.articleIds
+                      .map((id) => magazineArticles.find((a) => a.id === id))
+                      .filter((a): a is MagazineArticle => Boolean(a));
+                    return (
+                      <section
+                        key={issue.id}
+                        id={`issue-${issue.id}`}
+                        aria-label={issue.label}
+                        className="flex flex-col gap-6"
+                      >
+                        {issueIdx > 0 ? (
+                          <div className="mx-auto my-2 flex w-full max-w-[520px] items-center gap-3">
+                            <div className="h-px flex-1 bg-white/15" aria-hidden="true" />
+                            <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/80">
+                              {issue.label}
+                            </span>
+                            <div className="h-px flex-1 bg-white/15" aria-hidden="true" />
+                          </div>
+                        ) : null}
+                        <figure className="overflow-hidden rounded-xl bg-[#f6f0e7] shadow-[0_20px_60px_-24px_rgba(0,0,0,0.6)] ring-1 ring-white/10">
+                          <img
+                            src={issue.cover.src}
+                            alt={issue.cover.alt}
+                            loading={issueIdx === 0 ? "eager" : "lazy"}
+                            className="block h-auto w-full select-none"
+                            draggable={false}
+                          />
+                        </figure>
+                        {issueArticles.map((a, idx) => (
+                          <div key={a.id}>
+                            {idx > 0 ? (
+                              <div
+                                className="mx-auto my-4 h-px w-24 bg-white/20"
+                                aria-hidden="true"
+                              />
+                            ) : null}
+                            <FullArticle article={a} />
+                          </div>
+                        ))}
+                      </section>
+                    );
+                  })}
                 </div>
               </div>
             </div>,

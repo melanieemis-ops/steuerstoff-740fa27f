@@ -326,10 +326,17 @@ export function SiteHeader() {
         <div
           ref={panelRef}
           data-no-swipe="true"
-          className="border-t border-border bg-background shadow-lg md:hidden"
+          className="fixed inset-x-0 top-14 bottom-0 z-40 flex flex-col border-t border-border bg-background shadow-lg md:hidden"
+          style={{ height: "calc(100dvh - 3.5rem)" }}
         >
           <nav
-            className="mx-auto flex max-h-[calc(100dvh-3.5rem)] w-full max-w-6xl flex-col gap-1 overflow-y-auto px-4 py-3 pb-[calc(env(safe-area-inset-bottom)+1rem)]"
+            className="mx-auto flex w-full max-w-6xl min-h-0 flex-1 flex-col gap-1 overflow-y-auto overflow-x-hidden overscroll-contain px-4 py-3"
+            style={{
+              WebkitOverflowScrolling: "touch",
+              touchAction: "pan-y",
+              paddingBottom:
+                "calc(env(safe-area-inset-bottom) + 6rem)",
+            }}
             aria-label="Hauptmenü"
           >
             {navigation.map(
@@ -347,7 +354,7 @@ export function SiteHeader() {
                     to={to}
                     onClick={() => setOpen(false)}
                     className={[
-                      "flex items-center gap-3 rounded-2xl px-3 py-3 text-sm font-medium transition-colors",
+                      "flex shrink-0 items-center gap-3 rounded-2xl px-3 py-3 text-sm font-medium transition-colors",
                       active
                         ? "bg-foreground text-background"
                         : "text-foreground hover:bg-accent",

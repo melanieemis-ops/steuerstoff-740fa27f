@@ -711,4 +711,3 @@ export const magazineArticles: MagazineArticle[] = [
     ],
   },
 ];
-];

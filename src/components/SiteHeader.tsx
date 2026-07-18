@@ -335,7 +335,9 @@ export function SiteHeader() {
               WebkitOverflowScrolling: "touch",
               touchAction: "pan-y",
               paddingBottom:
-                "calc(env(safe-area-inset-bottom) + 6rem)",
+                "calc(env(safe-area-inset-bottom) + 160px)",
+              scrollPaddingBottom:
+                "calc(env(safe-area-inset-bottom) + 160px)",
             }}
             aria-label="Hauptmenü"
           >

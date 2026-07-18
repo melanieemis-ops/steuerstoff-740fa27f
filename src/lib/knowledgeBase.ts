@@ -96,14 +96,43 @@ export function resolveScenarioType(e: KBEntry): ScenarioType | null {
 
 
 /** Trigger-Wert in RegExp konvertieren (Pipe-Strings/Arrays zulassen). */
+// Regex-Metazeichen, an denen wir erkennen, dass eine Alternative bereits
+// ein bewusst geschriebenes Regex-Fragment ist (dann NICHT mit Wortgrenzen
+// umschließen).
+const REGEX_META = /[\\()[\]{}?*+^$.]/;
+
+/**
+ * Baut aus KB-`keywords` (Regex, String oder Mischliste) einen einzigen Matcher.
+ *
+ * Kritischer Punkt: reine Wort-Alternativen wie `"eu"` oder `"estg"` werden mit
+ * Wortgrenzen (via Lookaround auf Unicode-Buchstaben/Ziffern) umschlossen, damit
+ * `eu` NICHT innerhalb von `Steuer` matcht. Ohne diese Absicherung matchen kurze
+ * Tokens quer durch die KB und führen zu fachfremden Treffern (z. B. § 1a EStG
+ * bei „Wie viel Steuer fällt auf Cola“).
+ */
 export function kbKeywordsToRegExp(k: KBEntry["keywords"]): RegExp {
   if (!k) return /$^/;
   if (k instanceof RegExp) return k;
-  if (Array.isArray(k)) {
-    const parts = k.map((p) => (p instanceof RegExp ? p.source : String(p)));
-    return new RegExp(parts.join("|"), "i");
+  const raw = Array.isArray(k)
+    ? k.map((p) => (p instanceof RegExp ? p.source : String(p)))
+    : [String(k)];
+  const parts: string[] = [];
+  for (const item of raw) {
+    for (const altRaw of item.split("|")) {
+      const alt = altRaw.trim();
+      if (!alt) continue;
+      if (REGEX_META.test(alt)) {
+        // bereits Regex-Fragment → wie bisher übernehmen
+        parts.push(alt);
+        continue;
+      }
+      // reine Wort-/Phrasen-Alternative → escapen und mit Unicode-Wortgrenzen umgeben
+      const escaped = alt.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      parts.push(`(?:^|[^\\p{L}\\p{N}])${escaped}(?=$|[^\\p{L}\\p{N}])`);
+    }
   }
-  return new RegExp(k, "i");
+  if (parts.length === 0) return /$^/;
+  return new RegExp(parts.join("|"), "iu");
 }
 
 export const KNOWLEDGE_BASE: KBEntry[] = [

@@ -578,9 +578,10 @@ function FullArticle({ article }: { article: MagazineArticle }) {
               article.curatedSpeechText && article.curatedSpeechText.trim()
                 ? {
                     title: article.title,
-                    subtitle: undefined,
+                    subtitle: article.subtitle,
                     lead: "",
-                    bodyText: article.curatedSpeechText.trim(),
+                    bodyText: "",
+                    speechOverride: finalizeCuratedSpeechText(article.curatedSpeechText),
                   }
                 : {
                     title: article.title,

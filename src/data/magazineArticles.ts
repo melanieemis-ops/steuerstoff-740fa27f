@@ -44,6 +44,8 @@ export interface MagazineArticle {
   slug?: string;
   category: string;
   issueLabel: string;
+  /** Ausgabe-ID (z.B. "01", "02"), zur Zuordnung im Flipbook. */
+  issue?: string;
   title: string;
   subtitle?: string;
   lead: string;

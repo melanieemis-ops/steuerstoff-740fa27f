@@ -133,6 +133,7 @@ export function PrivacyAcknowledgementGate({ onAccepted }: { onAccepted: () => v
       role="dialog"
       aria-modal="true"
       aria-labelledby="steuerstoff-privacy-title"
+      data-scroll-lock-owner="privacy-gate"
       style={{ zIndex: 2147483000 }}
       className="fixed inset-0 flex items-center justify-center bg-black/60 px-4 py-6 backdrop-blur-md"
     >

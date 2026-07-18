@@ -606,7 +606,7 @@ export const magazineArticles: MagazineArticle[] = [
     category: "Einkommensteuer",
     issueLabel: "Ausgabe 02 · Einkommensteuer",
     issue: "02",
-    title: "Übertragung eines Mitunternehmeranteils: Fehlbuchung reicht für „Entgeltlichkeit" nicht",
+    title: "Übertragung eines Mitunternehmeranteils: Fehlbuchung reicht für „Entgeltlichkeit“ nicht",
     subtitle:
       "Eine Buchung auf dem Kapitalkonto begründet für sich allein keine Verbindlichkeit",
     status: "bfh-urteil",

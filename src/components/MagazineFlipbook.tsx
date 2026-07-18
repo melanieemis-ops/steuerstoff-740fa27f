@@ -878,9 +878,22 @@ export function MagazineFlipbook() {
 
   useLayoutEffect(() => {
     if (!isFullscreen) return;
-    scrollContainerRef.current?.scrollTo({ top: 0 });
+    const container = scrollContainerRef.current;
+    if (container) {
+      const activeIssueId = magazinePages[pageIndex]?.issueId;
+      const target = activeIssueId
+        ? (container.querySelector(`#issue-${activeIssueId}`) as HTMLElement | null)
+        : null;
+      if (target) {
+        // relative Position innerhalb des Scroll-Containers
+        const top = target.offsetTop - 12;
+        container.scrollTo({ top: Math.max(0, top) });
+      } else {
+        container.scrollTo({ top: 0 });
+      }
+    }
     closeButtonRef.current?.focus();
-  }, [isFullscreen]);
+  }, [isFullscreen, pageIndex]);
 
   const turnToPage = (nextIndex: number) => {
     if (

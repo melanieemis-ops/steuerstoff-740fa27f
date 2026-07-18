@@ -243,9 +243,9 @@ function MenuItem({
       type="button"
       role="menuitem"
       onClick={onClick}
-      className="flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left text-sm text-foreground transition-colors hover:bg-accent min-h-[44px]"
+      className="flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left text-sm text-foreground transition-colors hover:bg-accent min-h-[44px] dark:text-white"
     >
-      <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-muted text-foreground">
+      <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-muted text-foreground dark:text-white">
         {icon}
       </span>
       <span className="flex-1">{label}</span>

@@ -371,8 +371,8 @@ export const Route = createFileRoute("/api/chat")({
                 .join("\n")
             : "";
         const textPart = kbBlock
-          ? `Wissenskontext (nur diese Fundstellen sind belegt; nichts anderes zitieren):\n\n${kbBlock}\n\n---\n\nFrage:\n${effectiveMessage}${attachmentSummary}`
-          : `Wissenskontext: (keine passenden internen Fundstellen)\n\nFrage:\n${effectiveMessage}${attachmentSummary}\n\nHinweis: Es gibt keine belegte Grundlage im internen Wissen. Kennzeichne das offen und erfinde keine Quellen.`;
+          ? `Wissenskontext (nur diese Fundstellen sind belegt; nichts anderes wörtlich zitieren):\n\n${kbBlock}\n\n---\n\nFrage:\n${effectiveMessage}${attachmentSummary}`
+          : `Wissenskontext: (kein passender interner Baustein — antworte auf Basis des allgemein anerkannten deutschen Steuerrechts, nenne relevante Paragraphen inline, erfinde aber keine spezifischen Aktenzeichen/BMF-Schreiben)\n\nFrage:\n${effectiveMessage}${attachmentSummary}`;
 
         const userContent: UserContent =
           attachments.length === 0

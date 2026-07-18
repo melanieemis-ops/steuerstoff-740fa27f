@@ -16,7 +16,7 @@ export const AUDIO_ALLOWED_ARTICLE_IDS: readonly string[] = [
 ];
 
 /** Aktuelle Inhaltsversion – bei inhaltlichen Änderungen erhöhen. */
-export const AUDIO_CONTENT_VERSION = "3";
+export const AUDIO_CONTENT_VERSION = "4";
 
 /** Zielsegmentgröße in Zeichen für die Playlist-Segmente (satzsauber). */
 export const AUDIO_SEGMENT_TARGET_CHARS = 1100;
@@ -140,6 +140,13 @@ export function buildArticleSpeechText(articleId: string): string | null {
   if (!isAudioAllowed(articleId)) return null;
   const article = magazineArticles.find((a) => a.id === articleId);
   if (!article) return null;
+
+  // Kuratierter Sprechtext hat Vorrang: keine Quellenlisten, keine
+  // UI-Blöcke, kein „Auf einen Blick" – nur der redigierte Vortragstext.
+  if (article.curatedSpeechText && article.curatedSpeechText.trim()) {
+    const outro = "Sie haben eine KI-generierte Audiofassung von steuerstoff gehört.";
+    return normalizeForSpeech(article.curatedSpeechText.trim() + "\n\n" + outro);
+  }
 
   const parts: string[] = [];
   parts.push(article.title + ".");

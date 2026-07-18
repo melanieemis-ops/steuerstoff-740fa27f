@@ -171,12 +171,12 @@ export function AttachmentPlusButton({
                 type="button"
                 role="menuitem"
                 onClick={() => pick(it.ref)}
-                className={`flex w-full items-center gap-3 px-5 text-left text-[16px] font-medium text-foreground transition-colors hover:bg-black/5 dark:hover:bg-white/10 ${
+                className={`flex w-full items-center gap-3 px-5 text-left text-[16px] font-medium text-foreground transition-colors hover:bg-black/5 dark:text-white dark:hover:bg-white/10 ${
                   idx > 0 ? "border-t border-black/10 dark:border-white/10" : ""
                 }`}
                 style={{ minHeight: "56px" }}
               >
-                <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center text-foreground">
+                <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center text-foreground dark:text-white">
                   {it.icon}
                 </span>
                 <span
@@ -243,9 +243,9 @@ function MenuItem({
       type="button"
       role="menuitem"
       onClick={onClick}
-      className="flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left text-sm text-foreground transition-colors hover:bg-accent min-h-[44px]"
+      className="flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left text-sm text-foreground transition-colors hover:bg-accent min-h-[44px] dark:text-white"
     >
-      <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-muted text-foreground">
+      <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-muted text-foreground dark:text-white">
         {icon}
       </span>
       <span className="flex-1">{label}</span>

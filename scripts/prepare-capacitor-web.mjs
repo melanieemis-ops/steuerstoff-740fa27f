@@ -26,7 +26,7 @@ if (!manifestFile) {
 }
 
 const manifestContent = readFileSync(join(outputServerDir, manifestFile), "utf8");
-const rootScriptMatch = manifestContent.match(/__root__:[\\s\\S]*?src:\s*"([^"]+)"/);
+const rootScriptMatch = manifestContent.match(/__root__:[\s\S]*?src:\s*"([^"]+)"/);
 
 if (!rootScriptMatch) {
   fail("Konnte App-Entry-Script nicht aus dem TanStack-Manifest lesen.");

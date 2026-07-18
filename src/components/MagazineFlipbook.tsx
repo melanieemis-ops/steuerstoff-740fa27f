@@ -574,12 +574,21 @@ function FullArticle({ article }: { article: MagazineArticle }) {
         {isAudioAllowed(article.id) ? (
           <ArticleAudioPlayer
             articleId={article.id}
-            browserSpeakContext={{
-              title: article.title,
-              subtitle: article.subtitle,
-              lead: article.lead,
-              bodyText: article.blocks.map(blockToPlainText).filter(Boolean).join(". "),
-            }}
+            browserSpeakContext={
+              article.curatedSpeechText && article.curatedSpeechText.trim()
+                ? {
+                    title: article.title,
+                    subtitle: undefined,
+                    lead: "",
+                    bodyText: article.curatedSpeechText.trim(),
+                  }
+                : {
+                    title: article.title,
+                    subtitle: article.subtitle,
+                    lead: article.lead,
+                    bodyText: article.blocks.map(blockToPlainText).filter(Boolean).join(". "),
+                  }
+            }
           />
         ) : null}
         {isSpecial || isAudioAllowed(article.id) ? (

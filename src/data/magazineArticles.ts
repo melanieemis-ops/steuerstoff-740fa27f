@@ -696,5 +696,18 @@ export const magazineArticles: MagazineArticle[] = [
         ],
       },
     ],
+    curatedSpeechText: [
+      "Übertragung eines Mitunternehmeranteils: Fehlbuchung reicht für Entgeltlichkeit nicht.",
+      "",
+      "Eine Buchung auf einem Kapitalkonto begründet allein noch keine Verbindlichkeit. Deshalb wird die Übernahme eines negativen Kontos nicht automatisch zu einer entgeltlichen Anteilsübertragung.",
+      "",
+      "Warum ist die Abgrenzung wichtig? Bei einer unentgeltlichen Übertragung werden die Buchwerte nach Paragraf 6 Absatz 3 des Einkommensteuergesetzes fortgeführt. Bei einer entgeltlichen Übertragung kann dagegen ein steuerpflichtiger Veräußerungsgewinn entstehen.",
+      "",
+      "Im Streitfall übertrug ein Kommanditist seinen Anteil an einer Kommanditgesellschaft auf eine Familienstiftung. Auf sogenannten Darlehenskonten standen negative Salden von rund 535.000 Euro. Das Finanzamt sah darin eine übernommene Verbindlichkeit und ermittelte einen Veräußerungsgewinn von 440.000 Euro.",
+      "",
+      "Der Bundesfinanzhof stellte klar: Entscheidend ist nicht, wie ein Betrag gebucht oder ein Konto bezeichnet wurde. Entscheidend ist, ob die Gesellschaft den Betrag rechtlich vom Gesellschafter zurückfordern konnte. Eine Buchung auf einem Verrechnungs- oder Kapitalkonto hat für sich allein keine rechtsbegründende Wirkung.",
+      "",
+      "Das Finanzgericht muss nun prüfen, ob tatsächlich eine Rückzahlungspflicht bestand. Für die Praxis gilt: Nicht der Kontenname entscheidet, sondern eine rechtlich durchsetzbare Verbindlichkeit.",
+    ].join("\n"),
   },
 ];

@@ -155,8 +155,7 @@ export function buildArticleSpeechText(articleId: string): string | null {
   // Kuratierter Sprechtext hat Vorrang: keine Quellenlisten, keine
   // UI-Blöcke, kein „Auf einen Blick" – nur der redigierte Vortragstext.
   if (article.curatedSpeechText && article.curatedSpeechText.trim()) {
-    const outro = "Sie haben eine KI-generierte Audiofassung von steuerstoff gehört.";
-    return normalizeForSpeech(article.curatedSpeechText.trim() + "\n\n" + outro);
+    return finalizeCuratedSpeechText(article.curatedSpeechText);
   }
 
   const parts: string[] = [];

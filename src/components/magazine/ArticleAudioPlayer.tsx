@@ -31,6 +31,13 @@ type BrowserSpeakContext = {
   subtitle?: string;
   lead: string;
   bodyText: string;
+  /**
+   * Wenn gesetzt, wird ausschließlich dieser bereits normalisierte Text
+   * an die Browser-Sprachausgabe übergeben. Titel/Untertitel/Lead/Body
+   * werden dann für die Sprachausgabe ignoriert (bleiben aber für die
+   * Media-Session-Anzeige erhalten).
+   */
+  speechOverride?: string;
 };
 
 type Props = {
@@ -519,7 +526,9 @@ function HlsPlayer({
       browserSpeakContext.lead,
       browserSpeakContext.bodyText,
     ];
-    const full = normalizeForSpeech(parts.filter(Boolean).join(". "));
+    const full = browserSpeakContext.speechOverride
+      ? browserSpeakContext.speechOverride
+      : normalizeForSpeech(parts.filter(Boolean).join(". "));
     const chunks = full.match(/[^.!?]+[.!?]+|\S[^.!?]*$/g) ?? [full];
     setBrowserFallbackActive(true);
     chunks.forEach((c, idx) => {
@@ -1025,7 +1034,9 @@ function PlaylistPlayer({
       browserSpeakContext.lead,
       browserSpeakContext.bodyText,
     ];
-    const full = normalizeForSpeech(parts.filter(Boolean).join(". "));
+    const full = browserSpeakContext.speechOverride
+      ? browserSpeakContext.speechOverride
+      : normalizeForSpeech(parts.filter(Boolean).join(". "));
     const chunks = full.match(/[^.!?]+[.!?]+|\S[^.!?]*$/g) ?? [full];
     setBrowserFallbackActive(true);
     chunks.forEach((c, idx) => {

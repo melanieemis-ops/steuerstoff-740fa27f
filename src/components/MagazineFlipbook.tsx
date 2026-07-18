@@ -959,31 +959,45 @@ export function MagazineFlipbook() {
   return (
     <div className="mx-auto w-full max-w-[420px]">
       {magazineIssues.length > 1 ? (
-        <div
-          role="tablist"
-          aria-label="Magazin-Ausgaben"
-          className="mb-3 flex items-center justify-center gap-1.5 rounded-full border border-border/70 bg-card/60 p-1 shadow-sm"
-        >
-          {magazineIssues.map((issue) => {
-            const active = issue.id === currentIssueId;
-            return (
-              <button
-                key={issue.id}
-                type="button"
-                role="tab"
-                aria-selected={active}
-                onClick={() => turnToPage(issueCoverIndex(issue.id))}
-                disabled={isFlipping}
-                className={`flex-1 rounded-full px-3 py-1.5 text-[12px] font-medium transition ${
-                  active
-                    ? "bg-foreground text-background shadow-sm"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {issue.label}
-              </button>
-            );
-          })}
+        <div className="mb-3">
+          <p className="mb-1.5 text-center text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
+            Ausgabe wählen · <span className="text-foreground">Neu: Ausgabe 02</span>
+          </p>
+          <div
+            role="tablist"
+            aria-label="Magazin-Ausgaben"
+            className="flex items-center justify-center gap-1.5 rounded-full border border-border/70 bg-card/60 p-1 shadow-sm"
+          >
+            {magazineIssues.map((issue) => {
+              const active = issue.id === currentIssueId;
+              const isNew = issue.id === "02";
+              return (
+                <button
+                  key={issue.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={active}
+                  onClick={() => turnToPage(issueCoverIndex(issue.id))}
+                  disabled={isFlipping}
+                  className={`relative flex-1 rounded-full px-3 py-1.5 text-[12px] font-medium transition ${
+                    active
+                      ? "bg-foreground text-background shadow-sm"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {issue.label}
+                  {isNew && !active ? (
+                    <span
+                      aria-hidden="true"
+                      className="ml-1.5 inline-flex items-center rounded-full bg-rose-500/15 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-rose-500"
+                    >
+                      Neu
+                    </span>
+                  ) : null}
+                </button>
+              );
+            })}
+          </div>
         </div>
       ) : null}
       <div

@@ -141,6 +141,13 @@ export function buildArticleSpeechText(articleId: string): string | null {
   const article = magazineArticles.find((a) => a.id === articleId);
   if (!article) return null;
 
+  // Kuratierter Sprechtext hat Vorrang: keine Quellenlisten, keine
+  // UI-Blöcke, kein „Auf einen Blick" – nur der redigierte Vortragstext.
+  if (article.curatedSpeechText && article.curatedSpeechText.trim()) {
+    const outro = "Sie haben eine KI-generierte Audiofassung von steuerstoff gehört.";
+    return normalizeForSpeech(article.curatedSpeechText.trim() + "\n\n" + outro);
+  }
+
   const parts: string[] = [];
   parts.push(article.title + ".");
   if (article.subtitle) parts.push(article.subtitle + ".");

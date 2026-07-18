@@ -69,6 +69,7 @@ export const magazineArticles: MagazineArticle[] = [
     slug: "jstg-2026-einkommensteuer",
     category: "Gesetzgebung",
     issueLabel: "Spezial · Gesetzgebung",
+    issue: "01",
     title: "Jahressteuergesetz 2026: Diese Änderungen plant das BMF",
     subtitle:
       "Neue Regeln für Grundstückskaufpreise, Lohnsteuer, Quellensteuerentlastung und erste Tätigkeitsstätten",
@@ -351,6 +352,7 @@ export const magazineArticles: MagazineArticle[] = [
     slug: "haeusliches-arbeitszimmer-aufzeichnung-bfh-2026",
     category: "Einkommensteuer",
     issueLabel: "Rechtsprechung · Einkommensteuer",
+    issue: "01",
     title: "Häusliches Arbeitszimmer: Belege sammeln reicht nicht",
     subtitle:
       "Selbstständige müssen die Kosten einzeln, getrennt und zeitnah dokumentieren",
@@ -471,6 +473,7 @@ export const magazineArticles: MagazineArticle[] = [
     id: "est-reform-2027",
     category: "Einkommensteuer",
     issueLabel: "Ausgabe 01 · Einkommensteuer",
+    issue: "01",
     title: "Einkommensteuerreform 2027: Das sind die Pläne der Bundesregierung",
     lead: "Anfang Juli hat die Koalition ihre Reformpläne veröffentlicht – u. a. sollen Steuerpflichtige mit kleinen und mittleren Einkommen bei der Einkommensteuer entlastet werden. Die Reform soll zum 1.1.27 in Kraft treten und ab 2028 ihre volle Wirkung entfalten. Das Entlastungsvolumen soll ca. 10 Mrd. EUR pro Jahr betragen.",
     highlights: [
@@ -503,6 +506,7 @@ export const magazineArticles: MagazineArticle[] = [
     id: "ust-gelangensbestaetigung-bfh",
     category: "Umsatzsteuer",
     issueLabel: "Ausgabe 01 · Umsatzsteuer",
+    issue: "01",
     title: "Innergemeinschaftliche Lieferung: BFH lockert Anforderungen an die Gelangensbestätigung",
     lead: "Der Nachweis, dass eine Ware tatsächlich in einen anderen EU-Mitgliedstaat gelangt ist, gehört zu den zentralen Voraussetzungen für die Steuerfreiheit einer innergemeinschaftlichen Lieferung. In der Praxis spielt dabei vor allem die Gelangensbestätigung eine wichtige Rolle.\n\nDer Bundesfinanzhof hat nun jedoch klargestellt: Für den Vertrauensschutz muss die Gelangensbestätigung nicht zwingend vorliegen. Entscheidend ist vielmehr, ob der Unternehmer im Zeitpunkt der Lieferung sorgfältig gehandelt und die Angaben des Abnehmers gewissenhaft geprüft hat.",
     highlights: [

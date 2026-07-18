@@ -353,27 +353,51 @@ function pickKnowledgeRule(input: AnalysisInput): KnowledgeRule | null {
   const text = `${input.title}\n${input.description}\n${input.topic}`;
   for (const r of KNOWLEDGE_RULES) if (r.keywords.test(text)) return r;
   // Fallback: erweiterte interne Wissensbasis (aus Kanzlei-Arbeitspapieren).
+  // Kategorie → Kind. Unbekannte Kategorien landen in "wissen", NIEMALS
+  // stillschweigend in "npo" (das hat in der Vergangenheit zu falschen
+  // „NPO-FRAGE“-Tags bei völlig fachfremden Treffern geführt).
+  const kindMap: Record<string, KnowledgeRule["kind"]> = {
+    Umsatzsteuer: "ust",
+    "NPO / Gemeinnützigkeit": "npo",
+    Buchhaltung: "buchung",
+    Jahresabschluss: "buchung",
+    DATEV: "buchung",
+    SKR03: "buchung",
+    SKR42: "npo",
+    Rückfragen: "wissen",
+    Einkommensteuer: "wissen",
+    Körperschaftsteuer: "wissen",
+    Gewerbesteuer: "wissen",
+    Erbschaftsteuer: "wissen",
+    Abgabenordnung: "wissen",
+    Lohnsteuer: "wissen",
+    "Internationales Steuerrecht": "wissen",
+  };
+  // Plausibilisierung: wenn das im Formular gewählte Topic ein Rechtsgebiet
+  // vorgibt, dürfen wir keinen KB-Treffer aus einem anderen Rechtsgebiet
+  // annehmen. Sonst landen Themen wie "USt Cola" bei EStG-Bausteinen.
+  const topicToCategory: Record<string, string[]> = {
+    USt: ["Umsatzsteuer"],
+    NPO: ["NPO / Gemeinnützigkeit", "SKR42"],
+    SKR: ["SKR03", "SKR42", "DATEV", "Buchhaltung"],
+    Buchhaltung: ["Buchhaltung", "Jahresabschluss", "DATEV", "SKR03"],
+    Abgrenzung: ["Buchhaltung", "Jahresabschluss"],
+  };
+  const allowedCategories = topicToCategory[input.topic];
   for (const e of KNOWLEDGE_BASE) {
     const rx = kbKeywordsToRegExp(e.keywords);
-    if (rx.test(text)) {
-      const kindMap: Record<string, KnowledgeRule["kind"]> = {
-        "Umsatzsteuer": "ust",
-        "NPO / Gemeinnützigkeit": "npo",
-        "Buchhaltung": "buchung",
-        "Jahresabschluss": "buchung",
-        "DATEV": "buchung",
-        "SKR03": "buchung",
-        "SKR42": "npo",
-        "Rückfragen": "buchung",
-      };
-      return {
-        keywords: rx,
-        kind: kindMap[e.category] ?? "npo",
-        answer: e.short ?? e.title,
-        explanation: e.body,
-        references: e.references,
-      };
+    if (!rx.test(text)) continue;
+    if (allowedCategories && !allowedCategories.includes(e.category)) {
+      // Treffer aus fachfremdem Rechtsgebiet — ignorieren und weitersuchen.
+      continue;
     }
+    return {
+      keywords: rx,
+      kind: kindMap[e.category] ?? "wissen",
+      answer: e.short ?? e.title,
+      explanation: e.body,
+      references: e.references,
+    };
   }
   return null;
 }

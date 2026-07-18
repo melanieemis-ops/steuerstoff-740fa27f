@@ -39,7 +39,7 @@ const magazineIssues: MagazineIssue[] = [
   {
     id: "02",
     label: "Ausgabe 02",
-    cover: { src: "/magazin-seite-02.png", alt: "Cover des steuerstoff Magazins – Ausgabe 02/2026" },
+    cover: { src: "/magazin-cover-ausgabe-02-2026.webp", alt: "Cover des steuerstoff Magazins – Ausgabe 02/2026" },
     articleIds: ["mitunternehmeranteil-fehlbuchung-bfh-2026"],
   },
 ];

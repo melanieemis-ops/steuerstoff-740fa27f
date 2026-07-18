@@ -14,17 +14,58 @@ import { ArticleAudioPlayer } from "@/components/magazine/ArticleAudioPlayer";
 import { isAudioAllowed } from "@/lib/articleSpeechText";
 
 type MagazinePage =
-  | { kind: "cover"; src: string; alt: string }
-  | { kind: "article"; article: MagazineArticle };
+  | { kind: "cover"; issueId: string; issueLabel: string; src: string; alt: string }
+  | { kind: "article"; issueId: string; issueLabel: string; article: MagazineArticle };
 
-const magazinePages: MagazinePage[] = [
+type MagazineIssue = {
+  id: string;
+  label: string;
+  cover: { src: string; alt: string };
+  articleIds: string[];
+};
+
+const magazineIssues: MagazineIssue[] = [
   {
-    kind: "cover",
-    src: "/cover.png",
-    alt: "Cover des steuerstoff Magazins – Ausgabe 01/2026",
+    id: "01",
+    label: "Ausgabe 01",
+    cover: { src: "/cover.png", alt: "Cover des steuerstoff Magazins – Ausgabe 01/2026" },
+    articleIds: [
+      "jstg-2026-einkommensteuer",
+      "haeusliches-arbeitszimmer-aufzeichnung-bfh-2026",
+      "est-reform-2027",
+      "ust-gelangensbestaetigung-bfh",
+    ],
   },
-  ...magazineArticles.map<MagazinePage>((a) => ({ kind: "article", article: a })),
+  {
+    id: "02",
+    label: "Ausgabe 02",
+    cover: { src: "/magazin-seite-02.png", alt: "Cover des steuerstoff Magazins – Ausgabe 02/2026" },
+    articleIds: ["mitunternehmeranteil-fehlbuchung-bfh-2026"],
+  },
 ];
+
+const magazinePages: MagazinePage[] = magazineIssues.flatMap((issue) => {
+  const pages: MagazinePage[] = [
+    {
+      kind: "cover",
+      issueId: issue.id,
+      issueLabel: issue.label,
+      src: issue.cover.src,
+      alt: issue.cover.alt,
+    },
+  ];
+  for (const id of issue.articleIds) {
+    const article = magazineArticles.find((a) => a.id === id);
+    if (article) {
+      pages.push({ kind: "article", issueId: issue.id, issueLabel: issue.label, article });
+    }
+  }
+  return pages;
+});
+
+const issueCoverIndex = (issueId: string) =>
+  magazinePages.findIndex((p) => p.kind === "cover" && p.issueId === issueId);
+
 
 type FlipDirection = "next" | "previous";
 

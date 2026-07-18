@@ -987,6 +987,7 @@ export function MagazineFlipbook() {
               role="dialog"
               aria-modal="true"
               aria-label="steuerstoff Magazin – Vollbild-Leseansicht"
+              data-scroll-lock-owner="magazine-fullscreen"
             >
               <div
                 ref={scrollContainerRef}

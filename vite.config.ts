@@ -17,6 +17,10 @@ export default defineConfig({
         devOptions: { enabled: false },
         manifest: false,
         workbox: {
+          cacheId: "steuerstoff-2026-07-18-magazin-02",
+          cleanupOutdatedCaches: true,
+          clientsClaim: true,
+          skipWaiting: true,
           globPatterns: ["**/*.{js,css,html,svg,png,ico,webmanifest,woff2}"],
           navigateFallback: "/",
           navigateFallbackDenylist: [/^\/~oauth/, /^\/api\//],

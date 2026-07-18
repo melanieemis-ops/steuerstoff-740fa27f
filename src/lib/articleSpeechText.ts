@@ -10,7 +10,10 @@ import { magazineArticles, type MagazineArticle } from "@/data/magazineArticles"
 import { normalizeForSpeech } from "./speech-normalize";
 
 /** Whitelist erlaubter Artikel für TTS (nur diese IDs werden vertont). */
-export const AUDIO_ALLOWED_ARTICLE_IDS: readonly string[] = ["jstg-2026-einkommensteuer"];
+export const AUDIO_ALLOWED_ARTICLE_IDS: readonly string[] = [
+  "jstg-2026-einkommensteuer",
+  "mitunternehmeranteil-fehlbuchung-bfh-2026",
+];
 
 /** Aktuelle Inhaltsversion – bei inhaltlichen Änderungen erhöhen. */
 export const AUDIO_CONTENT_VERSION = "3";

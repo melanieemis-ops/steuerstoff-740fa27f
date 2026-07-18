@@ -11,7 +11,7 @@ import { createPortal } from "react-dom";
 
 import { magazineArticles, type MagazineArticle } from "@/data/magazineArticles";
 import { ArticleAudioPlayer } from "@/components/magazine/ArticleAudioPlayer";
-import { isAudioAllowed } from "@/lib/articleSpeechText";
+import { finalizeCuratedSpeechText, isAudioAllowed } from "@/lib/articleSpeechText";
 
 type MagazinePage =
   | { kind: "cover"; issueId: string; issueLabel: string; src: string; alt: string }

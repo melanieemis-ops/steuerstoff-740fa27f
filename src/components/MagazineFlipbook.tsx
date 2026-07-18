@@ -571,7 +571,7 @@ function FullArticle({ article }: { article: MagazineArticle }) {
             : {}),
         }}
       >
-        {isSpecial && isAudioAllowed(article.id) ? (
+        {isAudioAllowed(article.id) ? (
           <ArticleAudioPlayer
             articleId={article.id}
             browserSpeakContext={{
@@ -582,7 +582,9 @@ function FullArticle({ article }: { article: MagazineArticle }) {
             }}
           />
         ) : null}
-        {isSpecial ? <ArticleToolbar article={article} hideSpeak={isAudioAllowed(article.id)} /> : null}
+        {isSpecial || isAudioAllowed(article.id) ? (
+          <ArticleToolbar article={article} hideSpeak={isAudioAllowed(article.id)} />
+        ) : null}
         {isSpecial ? (
           <p
             className="font-medium leading-[1.65] text-[#3a2f20]"

@@ -929,8 +929,40 @@ export function MagazineFlipbook() {
       : "rotateY(180deg)"
     : "rotateY(0deg)";
 
+  const currentIssueId = magazinePages[pageIndex]?.issueId ?? magazineIssues[0].id;
+  const currentIssueLabel =
+    magazineIssues.find((i) => i.id === currentIssueId)?.label ?? magazineIssues[0].label;
+
   return (
     <div className="mx-auto w-full max-w-[420px]">
+      {magazineIssues.length > 1 ? (
+        <div
+          role="tablist"
+          aria-label="Magazin-Ausgaben"
+          className="mb-3 flex items-center justify-center gap-1.5 rounded-full border border-border/70 bg-card/60 p-1 shadow-sm"
+        >
+          {magazineIssues.map((issue) => {
+            const active = issue.id === currentIssueId;
+            return (
+              <button
+                key={issue.id}
+                type="button"
+                role="tab"
+                aria-selected={active}
+                onClick={() => turnToPage(issueCoverIndex(issue.id))}
+                disabled={isFlipping}
+                className={`flex-1 rounded-full px-3 py-1.5 text-[12px] font-medium transition ${
+                  active
+                    ? "bg-foreground text-background shadow-sm"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {issue.label}
+              </button>
+            );
+          })}
+        </div>
+      ) : null}
       <div
         className="relative touch-pan-y select-none"
         style={{ perspective: "1800px" }}

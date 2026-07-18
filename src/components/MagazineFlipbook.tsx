@@ -1104,15 +1104,8 @@ export function MagazineFlipbook() {
                       "calc(env(safe-area-inset-bottom) + 2.5rem)",
                   }}
                 >
-                  <figure className="overflow-hidden rounded-xl bg-[#f6f0e7] shadow-[0_20px_60px_-24px_rgba(0,0,0,0.6)] ring-1 ring-white/10">
-                    <img
-                      src="/cover.png"
-                      alt="Cover des steuerstoff Magazins – Ausgabe 01/2026"
-                      loading="eager"
-                      className="block h-auto w-full select-none"
-                      draggable={false}
-                    />
-                  </figure>
+                  {/* Cover-Figuren werden pro Ausgabe unten gerendert. */}
+
 
                   {magazineIssues.map((issue, issueIdx) => {
                     const issueArticles = issue.articleIds

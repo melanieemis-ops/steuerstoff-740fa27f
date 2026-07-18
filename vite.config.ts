@@ -21,7 +21,7 @@ export default defineConfig({
           cleanupOutdatedCaches: true,
           clientsClaim: true,
           skipWaiting: true,
-          globPatterns: ["**/*.{js,css,html,svg,png,ico,webmanifest,woff2}"],
+          globPatterns: ["**/*.{js,css,html,svg,png,webp,ico,webmanifest,woff2}"],
           navigateFallback: "/",
           navigateFallbackDenylist: [/^\/~oauth/, /^\/api\//],
           runtimeCaching: [

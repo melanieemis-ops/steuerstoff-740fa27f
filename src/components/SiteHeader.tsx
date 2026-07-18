@@ -396,6 +396,14 @@ export function SiteHeader() {
                 );
               },
             )}
+            <div
+              aria-hidden="true"
+              className="shrink-0"
+              style={{
+                height:
+                  "calc(env(safe-area-inset-bottom) + 160px)",
+              }}
+            />
           </nav>
         </div>
       )}

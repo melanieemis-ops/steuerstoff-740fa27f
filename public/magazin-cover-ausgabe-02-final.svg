@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1122 1402" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#05070f"/>
+      <stop offset="55%" stop-color="#0a1024"/>
+      <stop offset="100%" stop-color="#02030a"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a0f22"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+    <linearGradient id="violet" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#c084fc" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#c084fc" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softglow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1122" height="1402" fill="url(#bg)"/>
+
+  <!-- Subtle skyline silhouette -->
+  <g fill="#0d1330" opacity="0.85">
+    <rect x="0"    y="820" width="60"  height="180"/>
+    <rect x="60"   y="780" width="50"  height="220"/>
+    <rect x="110"  y="840" width="70"  height="160"/>
+    <rect x="180"  y="760" width="45"  height="240"/>
+    <rect x="225"  y="810" width="80"  height="190"/>
+    <rect x="305"  y="790" width="55"  height="210"/>
+    <rect x="360"  y="830" width="65"  height="170"/>
+    <rect x="425"  y="770" width="70"  height="230"/>
+    <rect x="495"  y="815" width="55"  height="185"/>
+    <rect x="550"  y="795" width="75"  height="205"/>
+    <rect x="625"  y="835" width="60"  height="165"/>
+    <rect x="685"  y="780" width="50"  height="220"/>
+    <rect x="735"  y="820" width="80"  height="180"/>
+    <rect x="815"  y="790" width="55"  height="210"/>
+    <rect x="870"  y="830" width="70"  height="170"/>
+    <rect x="940"  y="775" width="60"  height="225"/>
+    <rect x="1000" y="815" width="60"  height="185"/>
+    <rect x="1060" y="800" width="62"  height="200"/>
+  </g>
+  <!-- window lights -->
+  <g fill="#c084fc" opacity="0.35">
+    <circle cx="30" cy="880" r="2"/><circle cx="80" cy="920" r="2"/><circle cx="140" cy="900" r="2"/>
+    <circle cx="200" cy="850" r="2"/><circle cx="260" cy="880" r="2"/><circle cx="330" cy="860" r="2"/>
+    <circle cx="400" cy="900" r="2"/><circle cx="470" cy="830" r="2"/><circle cx="540" cy="880" r="2"/>
+    <circle cx="610" cy="900" r="2"/><circle cx="700" cy="850" r="2"/><circle cx="780" cy="890" r="2"/>
+    <circle cx="850" cy="870" r="2"/><circle cx="920" cy="900" r="2"/><circle cx="990" cy="850" r="2"/>
+    <circle cx="1070" cy="880" r="2"/>
+  </g>
+
+  <!-- Floor / desk plane -->
+  <polygon points="0,1000 1122,1000 1122,1402 0,1402" fill="url(#floor)"/>
+  <g stroke="#1a2450" stroke-width="1" opacity="0.6">
+    <line x1="0" y1="1050" x2="1122" y2="1050"/>
+    <line x1="0" y1="1120" x2="1122" y2="1120"/>
+    <line x1="0" y1="1210" x2="1122" y2="1210"/>
+    <line x1="0" y1="1310" x2="1122" y2="1310"/>
+  </g>
+  <!-- Perspective lines -->
+  <g stroke="#26306a" stroke-width="1" opacity="0.45">
+    <line x1="561" y1="1000" x2="-200" y2="1402"/>
+    <line x1="561" y1="1000" x2="1322" y2="1402"/>
+    <line x1="561" y1="1000" x2="200"  y2="1402"/>
+    <line x1="561" y1="1000" x2="922"  y2="1402"/>
+  </g>
+
+  <!-- Top bar -->
+  <text x="70" y="90" fill="#ffffff" font-size="60" font-weight="700" letter-spacing="1">steuerstoff</text>
+  <text x="70" y="150" fill="#c084fc" font-size="42" font-weight="300" letter-spacing="6">magazin</text>
+  <text x="70" y="180" fill="#8a93b8" font-size="18" letter-spacing="8">WISSEN. RECHT. PRAXIS.</text>
+  <text x="1052" y="90" fill="#c084fc" font-size="22" font-weight="600" letter-spacing="4" text-anchor="end">AUSGABE 02</text>
+  <line x1="70" y1="210" x2="1052" y2="210" stroke="#1e2648" stroke-width="1"/>
+
+  <!-- Giant 02 outline right -->
+  <text x="1060" y="640" fill="none" stroke="url(#violet)" stroke-width="3" font-size="520" font-weight="800" text-anchor="end" opacity="0.85">02</text>
+
+  <!-- Category -->
+  <g transform="translate(70,270)">
+    <rect x="0" y="0" width="14" height="14" fill="#c084fc"/>
+    <text x="26" y="13" fill="#c084fc" font-size="18" font-weight="700" letter-spacing="4">EINKOMMENSTEUER</text>
+  </g>
+
+  <!-- Title left -->
+  <g transform="translate(70,340)" font-weight="700">
+    <text y="0"   fill="#ffffff" font-size="52">Übertragung eines</text>
+    <text y="66"  fill="#ffffff" font-size="52">Mitunternehmeranteils:</text>
+    <text y="140" fill="#c084fc" font-size="52">Fehlbuchung reicht</text>
+    <text y="206" fill="#c084fc" font-size="52">für „Entgeltlichkeit“</text>
+    <text y="272" fill="#ffffff" font-size="52">nicht</text>
+  </g>
+
+  <!-- Description -->
+  <g transform="translate(70,700)" fill="#c8cee6" font-size="22" font-weight="300">
+    <text y="0">Die buchhalterische Erfassung eines</text>
+    <text y="32">Zahlungsvorgangs auf dem Kapitalkonto</text>
+    <text y="64">eines Mitunternehmers allein führt noch</text>
+    <text y="96">nicht zu einer Verbindlichkeit. Die Übernahme</text>
+    <text y="128">dieses Kontos stellt somit nicht automatisch</text>
+    <text y="160">einen entgeltlichen Vorgang dar.</text>
+    <text y="192">Das hat der BFH entschieden.</text>
+  </g>
+
+  <!-- Bottom violet callout -->
+  <g transform="translate(70,1260)">
+    <rect x="-4" y="-30" width="6" height="42" fill="#c084fc"/>
+    <text x="20" y="0" fill="#c084fc" font-size="26" font-weight="600">Warum das für § 6 Abs. 3 EStG wichtig ist.</text>
+  </g>
+
+  <!-- ============ RIGHT DATA PANEL ============ -->
+  <g transform="translate(700,300)">
+    <rect x="0" y="0" width="360" height="640" rx="14" fill="#0a0f22" stroke="#26306a" stroke-width="1.2" opacity="0.95"/>
+    <!-- corner ticks -->
+    <g stroke="#c084fc" stroke-width="2" fill="none">
+      <path d="M0,20 L0,0 L20,0"/>
+      <path d="M360,20 L360,0 L340,0"/>
+      <path d="M0,620 L0,640 L20,640"/>
+      <path d="M360,620 L360,640 L340,640"/>
+    </g>
+
+    <!-- glowing § symbol in a circle -->
+    <g transform="translate(180,120)">
+      <circle r="80" fill="url(#glow)"/>
+      <circle r="58" fill="none" stroke="#c084fc" stroke-width="2"/>
+      <circle r="70" fill="none" stroke="#a855f7" stroke-width="1" opacity="0.5"/>
+      <text y="30" text-anchor="middle" fill="#ffffff" font-size="90" font-weight="300" filter="url(#softglow)">§</text>
+    </g>
+    <text x="180" y="240" text-anchor="middle" fill="#c084fc" font-size="20" font-weight="600" letter-spacing="3">EStG § 6 Abs. 3</text>
+
+    <!-- chart panel -->
+    <g transform="translate(30,280)">
+      <rect x="0" y="0" width="300" height="150" rx="6" fill="#05081a" stroke="#1a2450"/>
+      <g stroke="#1a2450" stroke-width="1">
+        <line x1="0" y1="40" x2="300" y2="40"/>
+        <line x1="0" y1="80" x2="300" y2="80"/>
+        <line x1="0" y1="120" x2="300" y2="120"/>
+      </g>
+      <!-- bars -->
+      <g fill="url(#violet)" opacity="0.85">
+        <rect x="20"  y="100" width="24" height="30"/>
+        <rect x="60"  y="80"  width="24" height="50"/>
+        <rect x="100" y="90"  width="24" height="40"/>
+        <rect x="140" y="60"  width="24" height="70"/>
+        <rect x="180" y="70"  width="24" height="60"/>
+        <rect x="220" y="40"  width="24" height="90"/>
+        <rect x="260" y="20"  width="24" height="110"/>
+      </g>
+      <!-- upward arrow -->
+      <g stroke="#c084fc" stroke-width="2.5" fill="none">
+        <polyline points="20,120 80,95 140,75 220,50 285,25"/>
+        <polygon points="285,25 268,28 278,42" fill="#c084fc"/>
+      </g>
+    </g>
+
+    <!-- document card -->
+    <g transform="translate(60,460)">
+      <rect x="0" y="0" width="240" height="150" rx="8" fill="#0f1636" stroke="#2a3468"/>
+      <rect x="18" y="20" width="120" height="10" rx="2" fill="#c084fc"/>
+      <rect x="18" y="42" width="200" height="6" rx="2" fill="#3a4680"/>
+      <rect x="18" y="58" width="180" height="6" rx="2" fill="#3a4680"/>
+      <rect x="18" y="74" width="204" height="6" rx="2" fill="#3a4680"/>
+      <rect x="18" y="90" width="150" height="6" rx="2" fill="#3a4680"/>
+      <g stroke="#c084fc" stroke-width="1.5" fill="none">
+        <rect x="18" y="110" width="18" height="18" rx="3"/>
+        <path d="M22,119 l4,4 l8,-9"/>
+      </g>
+      <rect x="46" y="114" width="120" height="6" rx="2" fill="#c084fc" opacity="0.7"/>
+      <rect x="46" y="124" width="90"  height="6" rx="2" fill="#3a4680"/>
+    </g>
+
+    <!-- light dots -->
+    <g fill="#c084fc">
+      <circle cx="20" cy="60"  r="2"/>
+      <circle cx="340" cy="60" r="2"/>
+      <circle cx="20" cy="580" r="2"/>
+      <circle cx="340" cy="580" r="2"/>
+    </g>
+  </g>
+
+  <!-- outer frame ticks -->
+  <g stroke="#2a3468" stroke-width="1.2" fill="none">
+    <path d="M40,40 L40,20 L60,20"/>
+    <path d="M1082,40 L1082,20 L1062,20"/>
+    <path d="M40,1362 L40,1382 L60,1382"/>
+    <path d="M1082,1362 L1082,1382 L1062,1382"/>
+  </g>
+</svg>

@@ -896,7 +896,7 @@ function ChatPage() {
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
-          className={`fixed inset-x-0 bottom-0 z-30 border-t border-white/10 bg-[⇨07142f]/95 backdrop-blur pb-[calc(env(safe-area-inset-bottom)+64px)] md:pb-3 ${
+          className={`fixed inset-x-0 bottom-0 z-30 border-t border-white/10 bg-[#07142f]/95 backdrop-blur pb-[calc(env(safe-area-inset-bottom)+64px)] md:pb-3 ${
             dragOver ? "ring-2 ring-inset ring-cyan-400/60" : ""
           }`}
           data-no-swipe="true"

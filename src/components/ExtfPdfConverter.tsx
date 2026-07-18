@@ -62,7 +62,7 @@ const responsiveCss = `
     max-width: 1180px;
     margin: 0 auto;
     padding: clamp(16px, 4vw, 28px) clamp(12px, 4vw, 16px) 48px;
-    color: ⇨111827;
+    color: #111827;
     overflow-x: hidden;
   }
 
@@ -73,7 +73,7 @@ const responsiveCss = `
 
   .extf-kicker {
     margin: 0;
-    color: ⇨6b7280;
+    color: #6b7280;
     font-size: 14px;
     font-weight: 700;
   }
@@ -88,7 +88,7 @@ const responsiveCss = `
   .extf-lead {
     margin: 0;
     max-width: 760px;
-    color: ⇨4b5563;
+    color: #4b5563;
     font-size: 16px;
     line-height: 1.55;
     overflow-wrap: anywhere;
@@ -98,8 +98,8 @@ const responsiveCss = `
     width: 100%;
     max-width: 100%;
     min-width: 0;
-    background: ⇨ffffff;
-    border: 1px solid ⇨e5e7eb;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
     border-radius: 18px;
     padding: clamp(14px, 4vw, 18px);
     box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
@@ -136,7 +136,7 @@ const responsiveCss = `
     max-width: 100%;
     font-size: 13px;
     font-weight: 650;
-    color: ⇨374151;
+    color: #374151;
   }
 
   .extf-input,
@@ -145,18 +145,18 @@ const responsiveCss = `
     width: 100%;
     max-width: 100%;
     min-width: 0;
-    border: 1px solid ⇨d1d5db;
+    border: 1px solid #d1d5db;
     border-radius: 10px;
     padding: 9px 10px;
     font-size: 16px;
     line-height: 1.35;
-    background: ⇨fff;
-    color: ⇨111827;
+    background: #fff;
+    color: #111827;
   }
 
   .extf-input:disabled {
-    background: ⇨f9fafb;
-    color: ⇨4b5563;
+    background: #f9fafb;
+    color: #4b5563;
   }
 
   .extf-small-input {
@@ -172,7 +172,7 @@ const responsiveCss = `
     min-width: 0;
     font-size: 14px;
     font-weight: 650;
-    color: ⇨374151;
+    color: #374151;
     padding-top: 26px;
   }
 
@@ -193,15 +193,15 @@ const responsiveCss = `
     font-size: 14px;
     font-weight: 750;
     cursor: pointer;
-    background: ⇨111827;
-    color: ⇨fff;
+    background: #111827;
+    color: #fff;
     white-space: normal;
   }
 
   .extf-secondary-button {
-    background: ⇨f3f4f6;
-    color: ⇨111827;
-    border: 1px solid ⇨e5e7eb;
+    background: #f3f4f6;
+    color: #111827;
+    border: 1px solid #e5e7eb;
   }
 
   .extf-button:disabled,
@@ -212,25 +212,25 @@ const responsiveCss = `
 
   .extf-note {
     margin: 12px 0 0;
-    color: ⇨6b7280;
+    color: #6b7280;
     font-size: 14px;
     line-height: 1.5;
   }
 
   .extf-error {
     margin-top: 12px;
-    color: ⇨991b1b;
-    background: ⇨fef2f2;
-    border: 1px solid ⇨fecaca;
+    color: #991b1b;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
     border-radius: 12px;
     padding: 12px;
   }
 
   .extf-message {
     margin-top: 12px;
-    color: ⇨92400e;
-    background: ⇨fffbeb;
-    border: 1px solid ⇨fde68a;
+    color: #92400e;
+    background: #fffbeb;
+    border: 1px solid #fde68a;
     border-radius: 12px;
     padding: 12px;
   }
@@ -245,11 +245,11 @@ const responsiveCss = `
   }
 
   .extf-empty-state {
-    border: 1px dashed ⇨cbd5e1;
+    border: 1px dashed #cbd5e1;
     border-radius: 14px;
     padding: 24px;
-    color: ⇨64748b;
-    background: ⇨f8fafc;
+    color: #64748b;
+    background: #f8fafc;
   }
 
   .extf-table-wrap {
@@ -269,7 +269,7 @@ const responsiveCss = `
   @media (max-width: 720px) {
     html,
     body,
-    ⇨root {
+    :root {
       width: 100%;
       max-width: 100%;
       overflow-x: hidden;
@@ -673,7 +673,7 @@ export default function ExtfPdfConverter() {
             EXTF-CSV herunterladen
           </button>
 
-          {isLoading ? <span style={{ color: "⇨6b7280", fontWeight: 650 }}>PDFs werden gelesen …</span> : null}
+          {isLoading ? <span style={{ color: "#6b7280", fontWeight: 650 }}>PDFs werden gelesen …</span> : null}
         </div>
 
         <p className="extf-note">
@@ -695,7 +695,7 @@ export default function ExtfPdfConverter() {
       <section className="extf-card">
         <div className="extf-table-head">
           <h2 className="extf-section-title" style={{ margin: 0 }}>3. Buchungssätze prüfen</h2>
-          <span style={{ color: "⇨6b7280", fontSize: 14 }}>{validRows.length} gültige Zeile(n)</span>
+          <span style={{ color: "#6b7280", fontSize: 14 }}>{validRows.length} gültige Zeile(n)</span>
         </div>
 
         {rows.length === 0 ? (
@@ -706,7 +706,7 @@ export default function ExtfPdfConverter() {
           <div className="extf-table-wrap">
             <table className="extf-table">
               <thead>
-                <tr style={{ background: "⇨f9fafb" }}>
+                <tr style={{ background: "#f9fafb" }}>
                   <th style={thStyle}>Betrag</th>
                   <th style={thStyle}>S/H</th>
                   <th style={thStyle}>Konto</th>
@@ -739,7 +739,7 @@ export default function ExtfPdfConverter() {
                     <td style={tdStyle}><input className="extf-small-input" style={{ minWidth: 220 }} value={row.bookingText} onChange={(event) => updateRow(row.id, { bookingText: event.target.value })} /></td>
                     <td style={tdStyle}><input className="extf-small-input" style={{ minWidth: 90 }} value={row.kost1} onChange={(event) => updateRow(row.id, { kost1: event.target.value })} /></td>
                     <td style={tdStyle}><input className="extf-small-input" style={{ minWidth: 90 }} value={row.kost2} onChange={(event) => updateRow(row.id, { kost2: event.target.value })} /></td>
-                    <td style={{ ...tdStyle, color: "⇨6b7280", maxWidth: 180, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} title={row.documentFileName}>{row.documentFileName}</td>
+                    <td style={{ ...tdStyle, color: "#6b7280", maxWidth: 180, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} title={row.documentFileName}>{row.documentFileName}</td>
                     <td style={tdStyle}><button type="button" className="extf-secondary-button" onClick={() => removeRow(row.id)}>Löschen</button></td>
                   </tr>
                 ))}
@@ -754,14 +754,14 @@ export default function ExtfPdfConverter() {
 
 const thStyle: CSSProperties = {
   padding: "10px 8px",
-  borderBottom: "1px solid ⇨e5e7eb",
+  borderBottom: "1px solid #e5e7eb",
   textAlign: "left",
-  color: "⇨374151",
+  color: "#374151",
   fontWeight: 800,
 };
 
 const tdStyle: CSSProperties = {
   padding: "8px",
-  borderBottom: "1px solid ⇨f1f5f9",
+  borderBottom: "1px solid #f1f5f9",
   verticalAlign: "top",
 };

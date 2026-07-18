@@ -21,6 +21,54 @@ export const Route = createFileRoute("/neue-anfrage")({
 
 const TOPICS = [...CURATED_TOPICS];
 
+const META_MARKER = "<<STEUERSTOFF_META>>";
+
+/**
+ * Ruft denselben KI-Backend-Flow wie der Chat auf (POST /api/chat) und
+ * puffert den Text-Stream. Trennt danach eine kompakte Kurzantwort (1. Satz)
+ * von der Erläuterung ab und extrahiert erwähnte Paragraphen als
+ * References. Bei Netzwerk-/Serverfehlern wirft die Funktion — der Aufrufer
+ * fällt dann auf die lokale Analyse-Logik zurück.
+ */
+async function fetchAiAnswer(prompt: string): Promise<{
+  answer: string;
+  explanation: string;
+  references: string[];
+} | null> {
+  const resp = await fetch("/api/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message: prompt, history: [] }),
+  });
+  if (!resp.ok || !resp.body) {
+    throw new Error(`HTTP ${resp.status}`);
+  }
+  const reader = resp.body.getReader();
+  const decoder = new TextDecoder();
+  let buf = "";
+  for (;;) {
+    const { value, done } = await reader.read();
+    if (done) break;
+    buf += decoder.decode(value, { stream: true });
+  }
+  buf += decoder.decode();
+  const metaIdx = buf.indexOf(META_MARKER);
+  const text = (metaIdx >= 0 ? buf.slice(0, metaIdx) : buf).trim();
+  if (!text) return null;
+  // Erster Satz = Kurzantwort; Rest = Erläuterung.
+  const m = text.match(/^([^.!?]+[.!?])\s*([\s\S]*)$/);
+  const answer = (m ? m[1] : text).trim();
+  const explanation = (m ? m[2] : "").trim();
+  const refs = Array.from(
+    text.matchAll(/§\s*\d+[a-z]?(?:\s*Abs\.\s*\d+)?(?:\s*(?:Satz|S\.)\s*\d+)?(?:\s*Nr\.\s*\d+)?\s*[A-ZÄÖÜ][A-Za-zÄÖÜäöü]{1,10}/g),
+    (r) => r[0].replace(/\s+/g, " ").trim(),
+  );
+  const references = Array.from(new Set(refs)).slice(0, 6);
+  return { answer, explanation, references };
+}
+
+
+
 function NeueAnfrage() {
   const navigate = useNavigate();
   const [title, setTitle] = useState("");

@@ -16,7 +16,18 @@ export const AUDIO_ALLOWED_ARTICLE_IDS: readonly string[] = [
 ];
 
 /** Aktuelle Inhaltsversion – bei inhaltlichen Änderungen erhöhen. */
-export const AUDIO_CONTENT_VERSION = "4";
+export const AUDIO_CONTENT_VERSION = "5";
+
+/**
+ * Endgültiger Sprechtext für einen kuratierten Artikel-Sprechtext.
+ * Wird sowohl vom Server-TTS (via buildArticleSpeechText) als auch vom
+ * Browser-Sprach-Fallback im MagazineFlipbook verwendet, damit beide Pfade
+ * exakt dieselben Worte in exakt derselben Reihenfolge sprechen – ohne
+ * vorangestellten Titel/Lead und ohne angehängten Outro-Satz.
+ */
+export function finalizeCuratedSpeechText(curated: string): string {
+  return normalizeForSpeech(curated.trim());
+}
 
 /** Zielsegmentgröße in Zeichen für die Playlist-Segmente (satzsauber). */
 export const AUDIO_SEGMENT_TARGET_CHARS = 1100;

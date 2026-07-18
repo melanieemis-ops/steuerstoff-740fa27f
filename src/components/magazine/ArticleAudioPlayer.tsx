@@ -31,6 +31,13 @@ type BrowserSpeakContext = {
   subtitle?: string;
   lead: string;
   bodyText: string;
+  /**
+   * Wenn gesetzt, wird ausschließlich dieser bereits normalisierte Text
+   * an die Browser-Sprachausgabe übergeben. Titel/Untertitel/Lead/Body
+   * werden dann für die Sprachausgabe ignoriert (bleiben aber für die
+   * Media-Session-Anzeige erhalten).
+   */
+  speechOverride?: string;
 };
 
 type Props = {

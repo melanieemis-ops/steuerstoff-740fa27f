@@ -16,7 +16,7 @@ export const AUDIO_ALLOWED_ARTICLE_IDS: readonly string[] = [
 ];
 
 /** Aktuelle Inhaltsversion – bei inhaltlichen Änderungen erhöhen. */
-export const AUDIO_CONTENT_VERSION = "3";
+export const AUDIO_CONTENT_VERSION = "4";
 
 /** Zielsegmentgröße in Zeichen für die Playlist-Segmente (satzsauber). */
 export const AUDIO_SEGMENT_TARGET_CHARS = 1100;

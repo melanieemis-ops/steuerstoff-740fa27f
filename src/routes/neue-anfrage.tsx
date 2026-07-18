@@ -43,7 +43,7 @@ function NeueAnfrage() {
     setSelectedExampleId(example.id);
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
     if (!canSubmit) {
@@ -71,6 +71,24 @@ function NeueAnfrage() {
             references: example.references,
             curatedReviewedAt: example.lastReviewed,
           };
+        }
+      }
+
+      // Kein kuratiertes Beispiel? → Antwort über denselben KI-Backend-Flow
+      // wie im Chat holen. Bei Fehler fällt createCase() auf die lokale
+      // Analyse-Logik zurück.
+      if (!presetKnowledge) {
+        try {
+          const ai = await fetchAiAnswer(`[Themenbereich: ${topic}]\n${desc}`);
+          if (ai && ai.answer) {
+            presetKnowledge = {
+              answer: ai.answer,
+              explanation: ai.explanation,
+              references: ai.references,
+            };
+          }
+        } catch (aiErr) {
+          console.warn("[steuerstoff] KI-Antwort fehlgeschlagen, nutze lokale Analyse:", aiErr);
         }
       }
 

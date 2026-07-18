@@ -526,7 +526,9 @@ function HlsPlayer({
       browserSpeakContext.lead,
       browserSpeakContext.bodyText,
     ];
-    const full = normalizeForSpeech(parts.filter(Boolean).join(". "));
+    const full = browserSpeakContext.speechOverride
+      ? browserSpeakContext.speechOverride
+      : normalizeForSpeech(parts.filter(Boolean).join(". "));
     const chunks = full.match(/[^.!?]+[.!?]+|\S[^.!?]*$/g) ?? [full];
     setBrowserFallbackActive(true);
     chunks.forEach((c, idx) => {

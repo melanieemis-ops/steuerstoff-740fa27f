@@ -17,7 +17,7 @@ export default defineConfig({
         devOptions: { enabled: false },
         manifest: false,
         workbox: {
-          cacheId: "steuerstoff-2026-07-18-magazin-02-final-jpeg",
+          cacheId: "steuerstoff-2026-07-18-magazin-02-clean-svg",
           cleanupOutdatedCaches: true,
           clientsClaim: true,
           skipWaiting: true,

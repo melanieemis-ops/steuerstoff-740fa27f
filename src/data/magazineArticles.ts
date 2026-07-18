@@ -61,6 +61,13 @@ export interface MagazineArticle {
   author?: string;
   readingTime?: number;
   tags?: string[];
+  /**
+   * Optionaler kuratierter Sprechtext für die Vorlesefunktion.
+   * Wenn gesetzt, wird ausschließlich dieser Text (nach Normalisierung)
+   * für Server-TTS und Browser-Fallback verwendet – unabhängig von den
+   * sichtbaren Artikelblöcken. Keine Quellenlisten oder UI-Texte.
+   */
+  curatedSpeechText?: string;
 }
 
 export const magazineArticles: MagazineArticle[] = [

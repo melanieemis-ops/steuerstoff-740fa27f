@@ -14,17 +14,58 @@ import { ArticleAudioPlayer } from "@/components/magazine/ArticleAudioPlayer";
 import { isAudioAllowed } from "@/lib/articleSpeechText";
 
 type MagazinePage =
-  | { kind: "cover"; src: string; alt: string }
-  | { kind: "article"; article: MagazineArticle };
+  | { kind: "cover"; issueId: string; issueLabel: string; src: string; alt: string }
+  | { kind: "article"; issueId: string; issueLabel: string; article: MagazineArticle };
 
-const magazinePages: MagazinePage[] = [
+type MagazineIssue = {
+  id: string;
+  label: string;
+  cover: { src: string; alt: string };
+  articleIds: string[];
+};
+
+const magazineIssues: MagazineIssue[] = [
   {
-    kind: "cover",
-    src: "/cover.png",
-    alt: "Cover des steuerstoff Magazins – Ausgabe 01/2026",
+    id: "01",
+    label: "Ausgabe 01",
+    cover: { src: "/cover.png", alt: "Cover des steuerstoff Magazins – Ausgabe 01/2026" },
+    articleIds: [
+      "jstg-2026-einkommensteuer",
+      "haeusliches-arbeitszimmer-aufzeichnung-bfh-2026",
+      "est-reform-2027",
+      "ust-gelangensbestaetigung-bfh",
+    ],
   },
-  ...magazineArticles.map<MagazinePage>((a) => ({ kind: "article", article: a })),
+  {
+    id: "02",
+    label: "Ausgabe 02",
+    cover: { src: "/magazin-seite-02.png", alt: "Cover des steuerstoff Magazins – Ausgabe 02/2026" },
+    articleIds: ["mitunternehmeranteil-fehlbuchung-bfh-2026"],
+  },
 ];
+
+const magazinePages: MagazinePage[] = magazineIssues.flatMap((issue) => {
+  const pages: MagazinePage[] = [
+    {
+      kind: "cover",
+      issueId: issue.id,
+      issueLabel: issue.label,
+      src: issue.cover.src,
+      alt: issue.cover.alt,
+    },
+  ];
+  for (const id of issue.articleIds) {
+    const article = magazineArticles.find((a) => a.id === id);
+    if (article) {
+      pages.push({ kind: "article", issueId: issue.id, issueLabel: issue.label, article });
+    }
+  }
+  return pages;
+});
+
+const issueCoverIndex = (issueId: string) =>
+  magazinePages.findIndex((p) => p.kind === "cover" && p.issueId === issueId);
+
 
 type FlipDirection = "next" | "previous";
 
@@ -530,7 +571,7 @@ function FullArticle({ article }: { article: MagazineArticle }) {
             : {}),
         }}
       >
-        {isSpecial && isAudioAllowed(article.id) ? (
+        {isAudioAllowed(article.id) ? (
           <ArticleAudioPlayer
             articleId={article.id}
             browserSpeakContext={{
@@ -541,7 +582,9 @@ function FullArticle({ article }: { article: MagazineArticle }) {
             }}
           />
         ) : null}
-        {isSpecial ? <ArticleToolbar article={article} hideSpeak={isAudioAllowed(article.id)} /> : null}
+        {isSpecial || isAudioAllowed(article.id) ? (
+          <ArticleToolbar article={article} hideSpeak={isAudioAllowed(article.id)} />
+        ) : null}
         {isSpecial ? (
           <p
             className="font-medium leading-[1.65] text-[#3a2f20]"
@@ -835,9 +878,22 @@ export function MagazineFlipbook() {
 
   useLayoutEffect(() => {
     if (!isFullscreen) return;
-    scrollContainerRef.current?.scrollTo({ top: 0 });
+    const container = scrollContainerRef.current;
+    if (container) {
+      const activeIssueId = magazinePages[pageIndex]?.issueId;
+      const target = activeIssueId
+        ? (container.querySelector(`#issue-${activeIssueId}`) as HTMLElement | null)
+        : null;
+      if (target) {
+        // relative Position innerhalb des Scroll-Containers
+        const top = target.offsetTop - 12;
+        container.scrollTo({ top: Math.max(0, top) });
+      } else {
+        container.scrollTo({ top: 0 });
+      }
+    }
     closeButtonRef.current?.focus();
-  }, [isFullscreen]);
+  }, [isFullscreen, pageIndex]);
 
   const turnToPage = (nextIndex: number) => {
     if (
@@ -886,8 +942,40 @@ export function MagazineFlipbook() {
       : "rotateY(180deg)"
     : "rotateY(0deg)";
 
+  const currentIssueId = magazinePages[pageIndex]?.issueId ?? magazineIssues[0].id;
+  const currentIssueLabel =
+    magazineIssues.find((i) => i.id === currentIssueId)?.label ?? magazineIssues[0].label;
+
   return (
     <div className="mx-auto w-full max-w-[420px]">
+      {magazineIssues.length > 1 ? (
+        <div
+          role="tablist"
+          aria-label="Magazin-Ausgaben"
+          className="mb-3 flex items-center justify-center gap-1.5 rounded-full border border-border/70 bg-card/60 p-1 shadow-sm"
+        >
+          {magazineIssues.map((issue) => {
+            const active = issue.id === currentIssueId;
+            return (
+              <button
+                key={issue.id}
+                type="button"
+                role="tab"
+                aria-selected={active}
+                onClick={() => turnToPage(issueCoverIndex(issue.id))}
+                disabled={isFlipping}
+                className={`flex-1 rounded-full px-3 py-1.5 text-[12px] font-medium transition ${
+                  active
+                    ? "bg-foreground text-background shadow-sm"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {issue.label}
+              </button>
+            );
+          })}
+        </div>
+      ) : null}
       <div
         className="relative touch-pan-y select-none"
         style={{ perspective: "1800px" }}
@@ -1007,7 +1095,7 @@ export function MagazineFlipbook() {
                         steuerstoff Magazin
                       </span>
                       <span className="text-xs text-white/60">
-                        Ausgabe 01
+                        {currentIssueLabel}
                       </span>
                     </div>
                     <button
@@ -1029,27 +1117,52 @@ export function MagazineFlipbook() {
                       "calc(env(safe-area-inset-bottom) + 2.5rem)",
                   }}
                 >
-                  <figure className="overflow-hidden rounded-xl bg-[#f6f0e7] shadow-[0_20px_60px_-24px_rgba(0,0,0,0.6)] ring-1 ring-white/10">
-                    <img
-                      src="/cover.png"
-                      alt="Cover des steuerstoff Magazins – Ausgabe 01/2026"
-                      loading="eager"
-                      className="block h-auto w-full select-none"
-                      draggable={false}
-                    />
-                  </figure>
+                  {/* Cover-Figuren werden pro Ausgabe unten gerendert. */}
 
-                  {magazineArticles.map((a, idx) => (
-                    <div key={a.id}>
-                      {idx > 0 ? (
-                        <div
-                          className="mx-auto my-4 h-px w-24 bg-white/20"
-                          aria-hidden="true"
-                        />
-                      ) : null}
-                      <FullArticle article={a} />
-                    </div>
-                  ))}
+
+                  {magazineIssues.map((issue, issueIdx) => {
+                    const issueArticles = issue.articleIds
+                      .map((id) => magazineArticles.find((a) => a.id === id))
+                      .filter((a): a is MagazineArticle => Boolean(a));
+                    return (
+                      <section
+                        key={issue.id}
+                        id={`issue-${issue.id}`}
+                        aria-label={issue.label}
+                        className="flex flex-col gap-6"
+                      >
+                        {issueIdx > 0 ? (
+                          <div className="mx-auto my-2 flex w-full max-w-[520px] items-center gap-3">
+                            <div className="h-px flex-1 bg-white/15" aria-hidden="true" />
+                            <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/80">
+                              {issue.label}
+                            </span>
+                            <div className="h-px flex-1 bg-white/15" aria-hidden="true" />
+                          </div>
+                        ) : null}
+                        <figure className="overflow-hidden rounded-xl bg-[#f6f0e7] shadow-[0_20px_60px_-24px_rgba(0,0,0,0.6)] ring-1 ring-white/10">
+                          <img
+                            src={issue.cover.src}
+                            alt={issue.cover.alt}
+                            loading={issueIdx === 0 ? "eager" : "lazy"}
+                            className="block h-auto w-full select-none"
+                            draggable={false}
+                          />
+                        </figure>
+                        {issueArticles.map((a, idx) => (
+                          <div key={a.id}>
+                            {idx > 0 ? (
+                              <div
+                                className="mx-auto my-4 h-px w-24 bg-white/20"
+                                aria-hidden="true"
+                              />
+                            ) : null}
+                            <FullArticle article={a} />
+                          </div>
+                        ))}
+                      </section>
+                    );
+                  })}
                 </div>
               </div>
             </div>,

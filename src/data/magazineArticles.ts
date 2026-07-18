@@ -44,6 +44,8 @@ export interface MagazineArticle {
   slug?: string;
   category: string;
   issueLabel: string;
+  /** Ausgabe-ID (z.B. "01", "02"), zur Zuordnung im Flipbook. */
+  issue?: string;
   title: string;
   subtitle?: string;
   lead: string;
@@ -67,6 +69,7 @@ export const magazineArticles: MagazineArticle[] = [
     slug: "jstg-2026-einkommensteuer",
     category: "Gesetzgebung",
     issueLabel: "Spezial · Gesetzgebung",
+    issue: "01",
     title: "Jahressteuergesetz 2026: Diese Änderungen plant das BMF",
     subtitle:
       "Neue Regeln für Grundstückskaufpreise, Lohnsteuer, Quellensteuerentlastung und erste Tätigkeitsstätten",
@@ -349,6 +352,7 @@ export const magazineArticles: MagazineArticle[] = [
     slug: "haeusliches-arbeitszimmer-aufzeichnung-bfh-2026",
     category: "Einkommensteuer",
     issueLabel: "Rechtsprechung · Einkommensteuer",
+    issue: "01",
     title: "Häusliches Arbeitszimmer: Belege sammeln reicht nicht",
     subtitle:
       "Selbstständige müssen die Kosten einzeln, getrennt und zeitnah dokumentieren",
@@ -469,6 +473,7 @@ export const magazineArticles: MagazineArticle[] = [
     id: "est-reform-2027",
     category: "Einkommensteuer",
     issueLabel: "Ausgabe 01 · Einkommensteuer",
+    issue: "01",
     title: "Einkommensteuerreform 2027: Das sind die Pläne der Bundesregierung",
     lead: "Anfang Juli hat die Koalition ihre Reformpläne veröffentlicht – u. a. sollen Steuerpflichtige mit kleinen und mittleren Einkommen bei der Einkommensteuer entlastet werden. Die Reform soll zum 1.1.27 in Kraft treten und ab 2028 ihre volle Wirkung entfalten. Das Entlastungsvolumen soll ca. 10 Mrd. EUR pro Jahr betragen.",
     highlights: [
@@ -501,6 +506,7 @@ export const magazineArticles: MagazineArticle[] = [
     id: "ust-gelangensbestaetigung-bfh",
     category: "Umsatzsteuer",
     issueLabel: "Ausgabe 01 · Umsatzsteuer",
+    issue: "01",
     title: "Innergemeinschaftliche Lieferung: BFH lockert Anforderungen an die Gelangensbestätigung",
     lead: "Der Nachweis, dass eine Ware tatsächlich in einen anderen EU-Mitgliedstaat gelangt ist, gehört zu den zentralen Voraussetzungen für die Steuerfreiheit einer innergemeinschaftlichen Lieferung. In der Praxis spielt dabei vor allem die Gelangensbestätigung eine wichtige Rolle.\n\nDer Bundesfinanzhof hat nun jedoch klargestellt: Für den Vertrauensschutz muss die Gelangensbestätigung nicht zwingend vorliegen. Entscheidend ist vielmehr, ob der Unternehmer im Zeitpunkt der Lieferung sorgfältig gehandelt und die Angaben des Abnehmers gewissenhaft geprüft hat.",
     highlights: [
@@ -592,6 +598,96 @@ export const magazineArticles: MagazineArticle[] = [
       { type: "paragraph", text: "Die Gelangensbestätigung bleibt für innergemeinschaftliche Lieferungen ein besonders wichtiger Nachweis. Ihr Fehlen führt jedoch nicht zwangsläufig zum Verlust des Vertrauensschutzes." },
       { type: "paragraph", text: "Maßgeblich ist, ob der Unternehmer alle ihm zumutbaren Prüfungen vorgenommen, die Angaben des Abnehmers sorgfältig kontrolliert und den Vorgang nachvollziehbar dokumentiert hat." },
       { type: "paragraph", text: "Die BFH-Rechtsprechung stärkt damit die Position sorgfältig handelnder Unternehmer – sie ist jedoch kein Freibrief für eine lückenhafte Nachweisführung." },
+    ],
+  },
+  {
+    id: "mitunternehmeranteil-fehlbuchung-bfh-2026",
+    slug: "mitunternehmeranteil-fehlbuchung-bfh-2026",
+    category: "Einkommensteuer",
+    issueLabel: "Ausgabe 02 · Einkommensteuer",
+    issue: "02",
+    title: "Übertragung eines Mitunternehmeranteils: Fehlbuchung reicht für „Entgeltlichkeit“ nicht",
+    subtitle:
+      "Eine Buchung auf dem Kapitalkonto begründet für sich allein keine Verbindlichkeit",
+    status: "bfh-urteil",
+    statusLabel: "BFH-Urteil",
+    legalStatusDate: "2026-01-15",
+    publishedAt: "2026-07-18",
+    author: "steuerstoff Redaktion",
+    readingTime: 5,
+    tags: [
+      "Mitunternehmeranteil",
+      "§ 6 Abs. 3 EStG",
+      "Kapitalkonto",
+      "BFH IV R 25/23",
+      "Personengesellschaft",
+      "Einkommensteuer",
+    ],
+    lead:
+      "Eine Buchung auf dem Kapitalkonto begründet für sich allein keine Verbindlichkeit. Deshalb wird die Übernahme eines negativen Kontos nicht automatisch zur entgeltlichen Anteilsübertragung. Das hat der BFH klargestellt.",
+    highlights: [
+      { label: "Kernfrage", value: "entgeltlich oder unentgeltlich?" },
+      { label: "Buchwertfortführung", value: "§ 6 Abs. 3 EStG" },
+      { label: "BFH-Urteil", value: "IV R 25/23" },
+      { label: "Rechtsstand", value: "15.01.2026" },
+    ],
+    blocks: [
+      {
+        type: "summary",
+        title: "Auf einen Blick",
+        items: [
+          "Bei einer unentgeltlichen Übertragung sind die Buchwerte fortzuführen (§ 6 Abs. 3 EStG).",
+          "Bei einer entgeltlichen Übertragung kann ein steuerpflichtiger Veräußerungsgewinn entstehen.",
+          "Eine Buchung auf einem Verrechnungs- oder Kapitalkonto begründet für sich allein keine Verbindlichkeit.",
+          "Entscheidend ist, ob die Gesellschaft den Betrag vom Gesellschafter rechtlich zurückfordern konnte.",
+        ],
+      },
+      { type: "heading", text: "Warum die Abgrenzung wichtig ist" },
+      {
+        type: "paragraph",
+        text: "Ob ein Mitunternehmeranteil entgeltlich oder unentgeltlich übertragen wird, hat erhebliche steuerliche Folgen. Bei einer unentgeltlichen Übertragung werden die Buchwerte nach § 6 Abs. 3 EStG fortgeführt. Bei einer entgeltlichen Übertragung kann dagegen ein steuerpflichtiger Veräußerungsgewinn entstehen.",
+      },
+      {
+        type: "paragraph",
+        text: "Unentgeltlichkeit liegt grundsätzlich vor, wenn der Erwerber keine Gegenleistung erbringt und die Beteiligten den Anteil schenkweise übertragen wollen. Bei Übertragungen zwischen Angehörigen spricht eine widerlegbare Vermutung dafür. Auch die Übernahme eines negativen Kapitalkontos kann unentgeltlich sein, wenn die anteiligen stillen Reserven einschließlich des Geschäftswerts höher sind als das negative Kapitalkonto.",
+      },
+      { type: "heading", text: "Der Streitfall" },
+      {
+        type: "paragraph",
+        text: "Ein Kommanditist übertrug seinen Mitunternehmeranteil an einer KG auf eine nicht steuerbefreite Familienstiftung. Nach dem Willen aller Beteiligten sollte die Übertragung unentgeltlich erfolgen. Aufgrund früherer Entnahmen bestanden jedoch negative Salden auf sogenannten Darlehenskonten von rund 535.000 Euro, die die Stiftung zusammen mit dem Anteil übernahm.",
+      },
+      {
+        type: "paragraph",
+        text: "Das Finanzamt wertete die Konten als Fremdkapital und sah in der Übernahme eine Befreiung des Kommanditisten von einer Verbindlichkeit. Es behandelte den Vorgang daher wie eine Kaufpreiszahlung und ermittelte einen Veräußerungsgewinn von 440.000 Euro. Das FG Rheinland-Pfalz folgte zunächst dieser Auffassung.",
+      },
+      { type: "heading", text: "Die Entscheidung des BFH" },
+      {
+        type: "paragraph",
+        text: "Der BFH sah den Fall anders und verwies ihn an das Finanzgericht zurück (BFH vom 15.1.2026, IV R 25/23). Eine teilentgeltliche Übertragung kann zwar vorliegen, wenn der Erwerber eine Verbindlichkeit des Veräußerers übernimmt. Voraussetzung ist aber eine tatsächlich bestehende und rechtlich durchsetzbare Rückzahlungsverpflichtung.",
+      },
+      {
+        type: "paragraph",
+        text: "Entscheidend ist deshalb nicht, wie ein Betrag gebucht oder ein Konto bezeichnet wurde, sondern ob die Gesellschaft den Betrag vom Gesellschafter rechtlich zurückfordern konnte. Einer Buchung auf einem Verrechnungs- oder Kapitalkonto kommt für sich allein keine rechtsbegründende Wirkung zu. Haben alle Gesellschafter den Entnahmen zugestimmt und waren sie gesellschaftsvertraglich zulässig, können sie lediglich die Kapitalkonten mindern, ohne eine Darlehensschuld zu begründen.",
+      },
+      {
+        type: "notice",
+        variant: "merke",
+        text: "Nicht der Kontenname entscheidet, sondern ob tatsächlich eine rechtlich durchsetzbare Verbindlichkeit besteht.",
+      },
+      { type: "heading", text: "Praxisfolge" },
+      {
+        type: "paragraph",
+        text: "Das Finanzgericht muss nun klären, ob der Kommanditist tatsächlich zur Rückzahlung verpflichtet war. Für steuerlich anzuerkennende Darlehensforderungen einer Personengesellschaft gegen einen Gesellschafter sprechen insbesondere eine ausdrückliche Darlehensvereinbarung, eine betriebliche Veranlassung und ein durchsetzbarer Rückzahlungsanspruch.",
+      },
+      {
+        type: "summary",
+        title: "Rechtsgrundlagen und Quellen",
+        items: [
+          "§ 6 Abs. 3 EStG",
+          "BFH, Urteil vom 15.1.2026 – IV R 25/23",
+          "FG Rheinland-Pfalz, Urteil vom 28.9.2023 – 6 K 1796/21",
+        ],
+      },
     ],
   },
 ];

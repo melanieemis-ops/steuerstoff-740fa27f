@@ -14,13 +14,26 @@ import { ArticleAudioPlayer } from "@/components/magazine/ArticleAudioPlayer";
 import { finalizeCuratedSpeechText, isAudioAllowed } from "@/lib/articleSpeechText";
 
 type MagazinePage =
-  | { kind: "cover"; issueId: string; issueLabel: string; src: string; alt: string }
-  | { kind: "article"; issueId: string; issueLabel: string; article: MagazineArticle };
+  | {
+      kind: "cover";
+      issueId: string;
+      issueLabel: string;
+      src: string;
+      alt: string;
+      coverBackgroundColor: string;
+    }
+  | {
+      kind: "article";
+      issueId: string;
+      issueLabel: string;
+      article: MagazineArticle;
+    };
 
 type MagazineIssue = {
   id: string;
   label: string;
   cover: { src: string; alt: string };
+  coverBackgroundColor: string;
   articleIds: string[];
 };
 
@@ -28,7 +41,11 @@ const magazineIssues: MagazineIssue[] = [
   {
     id: "01",
     label: "Ausgabe 01",
-    cover: { src: "/cover.png", alt: "Cover des steuerstoff Magazins – Ausgabe 01/2026" },
+    cover: {
+      src: "/cover.png",
+      alt: "Cover des steuerstoff Magazins – Ausgabe 01/2026",
+    },
+    coverBackgroundColor: "#f6f0e7",
     articleIds: [
       "jstg-2026-einkommensteuer",
       "haeusliches-arbeitszimmer-aufzeichnung-bfh-2026",
@@ -39,7 +56,11 @@ const magazineIssues: MagazineIssue[] = [
   {
     id: "02",
     label: "Ausgabe 02",
-    cover: { src: "/magazin-cover-ausgabe-02-final.svg", alt: "Cover des steuerstoff Magazins – Ausgabe 02/2026" },
+    cover: {
+      src: "/magazin-cover-ausgabe-02-final.svg",
+      alt: "Cover des steuerstoff Magazins – Ausgabe 02/2026",
+    },
+    coverBackgroundColor: "#000000",
     articleIds: ["mitunternehmeranteil-fehlbuchung-bfh-2026"],
   },
 ];
@@ -52,6 +73,7 @@ const magazinePages: MagazinePage[] = magazineIssues.flatMap((issue) => {
       issueLabel: issue.label,
       src: issue.cover.src,
       alt: issue.cover.alt,
+      coverBackgroundColor: issue.coverBackgroundColor,
     },
   ];
   for (const id of issue.articleIds) {
@@ -183,6 +205,12 @@ function renderPageContent(page: MagazinePage): ReactNode {
 
 function pageAltText(page: MagazinePage): string {
   return page.kind === "cover" ? page.alt : page.article.title;
+}
+
+function pageBackgroundColor(page: MagazinePage): string {
+  return page.kind === "cover"
+    ? page.coverBackgroundColor
+    : "#f6f0e7";
 }
 
 function normalizeForSpeech(text: string): string {
@@ -1006,7 +1034,14 @@ export function MagazineFlipbook() {
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        <div className="relative aspect-[977/1610] overflow-hidden rounded-[1.4rem] border border-border/70 bg-[#f6f0e7] shadow-[0_24px_70px_-28px_rgba(15,23,42,0.48)]">
+        <div
+          className="relative aspect-[977/1610] overflow-hidden rounded-[1.4rem] border border-border/70 shadow-[0_24px_70px_-28px_rgba(15,23,42,0.48)]"
+          style={{
+            backgroundColor: pageBackgroundColor(
+              magazinePages[targetIndex],
+            ),
+          }}
+        >
           {/* Nächste Seite darunter */}
           {renderPageContent(magazinePages[targetIndex])}
 
@@ -1029,7 +1064,14 @@ export function MagazineFlipbook() {
               onTransitionEnd={handleFlipEnd}
               aria-label={pageAltText(magazinePages[pageIndex])}
             >
-              <div className="absolute inset-0 bg-[#f6f0e7]">
+              <div
+                className="absolute inset-0"
+                style={{
+                  backgroundColor: pageBackgroundColor(
+                    magazinePages[pageIndex],
+                  ),
+                }}
+              >
                 {renderPageContent(magazinePages[pageIndex])}
               </div>
             </div>
@@ -1126,7 +1168,7 @@ export function MagazineFlipbook() {
                       ref={closeButtonRef}
                       type="button"
                       onClick={() => setIsFullscreen(false)}
-                      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white shadow-lg backdrop-blur transition hover:bg-white/20"
+                      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white shadow-lg backdrop-blur transition hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
                       aria-label="Vollbild schließen"
                     >
                       <X className="h-5 w-5" aria-hidden="true" />
@@ -1164,7 +1206,12 @@ export function MagazineFlipbook() {
                             <div className="h-px flex-1 bg-white/15" aria-hidden="true" />
                           </div>
                         ) : null}
-                        <figure className="overflow-hidden rounded-xl bg-[#f6f0e7] shadow-[0_20px_60px_-24px_rgba(0,0,0,0.6)] ring-1 ring-white/10">
+                        <figure
+                          className="overflow-hidden rounded-xl shadow-[0_20px_60px_-24px_rgba(0,0,0,0.6)] ring-1 ring-white/10"
+                          style={{
+                            backgroundColor: issue.coverBackgroundColor,
+                          }}
+                        >
                           <img
                             src={issue.cover.src}
                             alt={issue.cover.alt}

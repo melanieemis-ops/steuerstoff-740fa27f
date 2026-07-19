@@ -1,12 +1,18 @@
 import UIKit
 import Capacitor
 
-@main
+@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        window = UIWindow(frame: UIScreen.main.bounds)
+
+        let bridgeVC = CAPBridgeViewController()
+        window?.rootViewController = bridgeVC
+        window?.makeKeyAndVisible()
+
         return true
     }
 

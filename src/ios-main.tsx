@@ -5,6 +5,8 @@ import { RouterProvider, createRouter } from "@tanstack/react-router";
 import { routeTreeApp } from "./routeTree.app";
 import "./styles.css";
 
+(window as Window & { __IOS_MAIN_STARTED?: boolean; __IOS_MAIN_RENDERED?: boolean }).__IOS_MAIN_STARTED = true;
+
 const fallbackElement = document.getElementById("ios-boot-fallback");
 
 function showStartupError(message: string) {
@@ -27,6 +29,7 @@ function hideFallbackWhenRendered(rootElement: HTMLElement) {
   const check = () => {
     attempts += 1;
     if (rootElement.childNodes.length > 0) {
+      (window as Window & { __IOS_MAIN_RENDERED?: boolean }).__IOS_MAIN_RENDERED = true;
       fallbackElement.hidden = true;
       return;
     }

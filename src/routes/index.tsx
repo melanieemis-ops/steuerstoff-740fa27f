@@ -280,7 +280,7 @@ function Home() {
 
           {/* Mobile: horizontaler Carousel */}
           <div
-            className="quickstart-carousel -mx-4 flex gap-3 overflow-x-auto px-4 pb-4 snap-x snap-mandatory sm:hidden"
+            className="quickstart-carousel -mx-4 flex gap-4 overflow-x-auto px-4 pb-4 snap-x snap-mandatory sm:hidden"
             onPointerDown={handlePointerDown}
             onPointerMove={handlePointerMove}
             onPointerUp={handlePointerEnd}
@@ -290,7 +290,7 @@ function Home() {
             {quickstart.map(({ icon: Icon, title, desc, cta, accent, to }) => (
               <article
                 key={title}
-                className="basis-[78%] snap-start shrink-0 flex flex-col rounded-2xl border border-border bg-card p-4 shadow-card-soft"
+                className="w-[82vw] max-w-[360px] shrink-0 snap-start flex flex-col rounded-2xl border border-border bg-card p-4 shadow-card-soft"
               >
                 <span
                   className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-primary-foreground"

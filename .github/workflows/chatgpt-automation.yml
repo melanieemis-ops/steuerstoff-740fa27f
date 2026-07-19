@@ -1,0 +1,27 @@
+name: ChatGPT Code Generation
+
+on:
+  workflow_dispatch:  # Manuell auslösen oder per Schedule
+  schedule:
+    - cron: '0 9 * * *'  # Täglich um 9 Uhr
+
+jobs:
+  generate-code:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Call ChatGPT API
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          # Hier dein Script, das ChatGPT aufruft
+          python scripts/generate_code.py
+      
+      - name: Commit and Push Changes
+        run: |
+          git config user.name "ChatGPT Bot"
+          git config user.email "bot@chatgpt.local"
+          git add .
+          git commit -m "Automated changes by ChatGPT" || true
+          git push

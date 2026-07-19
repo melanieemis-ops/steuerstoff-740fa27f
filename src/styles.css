@@ -563,6 +563,18 @@ body,
     touch-action: pan-x;
     -webkit-overflow-scrolling: touch;
   }
+
+  .quickstart-carousel {
+    overscroll-behavior-x: contain;
+    touch-action: pan-x;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .quickstart-carousel::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 /* --------------------------------------------------------------------------

@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { KnowledgeSheet } from "@/components/KnowledgeSheet";
 import { VALID_KNOWLEDGE_TOPICS, type TopicId, getTopic } from "@/lib/knowledgeTopics";
@@ -117,6 +117,39 @@ const quickstart = [
 function Home() {
   const [recent, setRecent] = useState<CaseRecord[]>([]);
   const [activeTopic, setActiveTopic] = useState<TopicId | null>(null);
+  const swipeStartX = useRef<number | null>(null);
+  const hasSwiped = useRef(false);
+
+  const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
+    swipeStartX.current = event.clientX;
+    hasSwiped.current = false;
+  };
+
+  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (swipeStartX.current === null) return;
+
+    const distance = Math.abs(event.clientX - swipeStartX.current);
+    if (distance > 8) {
+      hasSwiped.current = true;
+    }
+  };
+
+  const handlePointerEnd = () => {
+    swipeStartX.current = null;
+
+    // Erst nach dem moeglichen Klick zuruecksetzen.
+    window.setTimeout(() => {
+      hasSwiped.current = false;
+    }, 0);
+  };
+
+  const preventClickAfterSwipe = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (!hasSwiped.current) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+  };
+
   useEffect(() => {
     const update = () => setRecent(listCases().slice(0, 5));
     update();
@@ -246,11 +279,18 @@ function Home() {
           </div>
 
           {/* Mobile: horizontaler Carousel */}
-          <div className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 sm:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div
+            className="quickstart-carousel -mx-4 flex gap-3 overflow-x-auto px-4 pb-4 snap-x snap-mandatory sm:hidden"
+            onPointerDown={handlePointerDown}
+            onPointerMove={handlePointerMove}
+            onPointerUp={handlePointerEnd}
+            onPointerCancel={handlePointerEnd}
+            onClickCapture={preventClickAfterSwipe}
+          >
             {quickstart.map(({ icon: Icon, title, desc, cta, accent, to }) => (
-              <div
+              <article
                 key={title}
-                className="snap-start shrink-0 basis-[78%] flex flex-col rounded-2xl border border-border bg-card p-4 shadow-card-soft"
+                className="basis-[78%] snap-start shrink-0 flex flex-col rounded-2xl border border-border bg-card p-4 shadow-card-soft"
               >
                 <span
                   className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-primary-foreground"
@@ -266,7 +306,7 @@ function Home() {
                     <ArrowRight className="ml-1 h-3.5 w-3.5" />
                   </Link>
                 </Button>
-              </div>
+              </article>
             ))}
           </div>
           <div className="mt-2 flex justify-center gap-1 sm:hidden">

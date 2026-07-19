@@ -9,48 +9,93 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as WissensdatenbankRouteImport } from './routes/wissensdatenbank'
-import { Route as SkrKonverterRouteImport } from './routes/skr-konverter'
-import { Route as NpoPruefassistentRouteImport } from './routes/npo-pruefassistent'
-import { Route as NeueAnfrageRouteImport } from './routes/neue-anfrage'
-import { Route as MittelverwendungsrechnerRouteImport } from './routes/mittelverwendungsrechner'
-import { Route as MagazinRouteImport } from './routes/magazin'
-import { Route as LerngebieteRouteImport } from './routes/lerngebiete'
-import { Route as LernenRouteImport } from './routes/lernen'
-import { Route as KfzWertabgabeRouteImport } from './routes/kfz-wertabgabe'
-import { Route as GesetzImportierenRouteImport } from './routes/gesetz-importieren'
-import { Route as FristenkalenderRouteImport } from './routes/fristenkalender'
-import { Route as FallverlaufRouteImport } from './routes/fallverlauf'
-import { Route as ErfolgeRouteImport } from './routes/erfolge'
-import { Route as EinstellungenRouteImport } from './routes/einstellungen'
-import { Route as CsvKonverterRouteImport } from './routes/csv-konverter'
-import { Route as ChatRouteImport } from './routes/chat'
-import { Route as AkademieRouteImport } from './routes/akademie'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as FallCaseIdRouteImport } from './routes/fall.$caseId'
-import { Route as ApiTtsRouteImport } from './routes/api/tts'
-import { Route as ApiTranscribeRouteImport } from './routes/api/transcribe'
-import { Route as ApiChatTtsRouteImport } from './routes/api/chat-tts'
+import { Route as AkademieRouteImport } from './routes/akademie'
+import { Route as ChatRouteImport } from './routes/chat'
+import { Route as CsvKonverterRouteImport } from './routes/csv-konverter'
+import { Route as EinstellungenRouteImport } from './routes/einstellungen'
+import { Route as ErfolgeRouteImport } from './routes/erfolge'
+import { Route as FallverlaufRouteImport } from './routes/fallverlauf'
+import { Route as FristenkalenderRouteImport } from './routes/fristenkalender'
+import { Route as GesetzImportierenRouteImport } from './routes/gesetz-importieren'
+import { Route as KfzWertabgabeRouteImport } from './routes/kfz-wertabgabe'
+import { Route as LernenRouteImport } from './routes/lernen'
+import { Route as LerngebieteRouteImport } from './routes/lerngebiete'
+import { Route as MagazinRouteImport } from './routes/magazin'
+import { Route as MittelverwendungsrechnerRouteImport } from './routes/mittelverwendungsrechner'
+import { Route as NeueAnfrageRouteImport } from './routes/neue-anfrage'
+import { Route as NpoPruefassistentRouteImport } from './routes/npo-pruefassistent'
+import { Route as SkrKonverterRouteImport } from './routes/skr-konverter'
+import { Route as WissensdatenbankRouteImport } from './routes/wissensdatenbank'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
+import { Route as ApiChatTtsRouteImport } from './routes/api/chat-tts'
+import { Route as ApiTranscribeRouteImport } from './routes/api/transcribe'
+import { Route as ApiTtsRouteImport } from './routes/api/tts'
+import { Route as FallCaseIdRouteImport } from './routes/fall.$caseId'
 
-const WissensdatenbankRoute = WissensdatenbankRouteImport.update({
-  id: '/wissensdatenbank',
-  path: '/wissensdatenbank',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SkrKonverterRoute = SkrKonverterRouteImport.update({
-  id: '/skr-konverter',
-  path: '/skr-konverter',
+const AkademieRoute = AkademieRouteImport.update({
+  id: '/akademie',
+  path: '/akademie',
   getParentRoute: () => rootRouteImport,
 } as any)
-const NpoPruefassistentRoute = NpoPruefassistentRouteImport.update({
-  id: '/npo-pruefassistent',
-  path: '/npo-pruefassistent',
+const ChatRoute = ChatRouteImport.update({
+  id: '/chat',
+  path: '/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
-const NeueAnfrageRoute = NeueAnfrageRouteImport.update({
-  id: '/neue-anfrage',
-  path: '/neue-anfrage',
+const CsvKonverterRoute = CsvKonverterRouteImport.update({
+  id: '/csv-konverter',
+  path: '/csv-konverter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EinstellungenRoute = EinstellungenRouteImport.update({
+  id: '/einstellungen',
+  path: '/einstellungen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ErfolgeRoute = ErfolgeRouteImport.update({
+  id: '/erfolge',
+  path: '/erfolge',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FallverlaufRoute = FallverlaufRouteImport.update({
+  id: '/fallverlauf',
+  path: '/fallverlauf',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FristenkalenderRoute = FristenkalenderRouteImport.update({
+  id: '/fristenkalender',
+  path: '/fristenkalender',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GesetzImportierenRoute = GesetzImportierenRouteImport.update({
+  id: '/gesetz-importieren',
+  path: '/gesetz-importieren',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KfzWertabgabeRoute = KfzWertabgabeRouteImport.update({
+  id: '/kfz-wertabgabe',
+  path: '/kfz-wertabgabe',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LernenRoute = LernenRouteImport.update({
+  id: '/lernen',
+  path: '/lernen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LerngebieteRoute = LerngebieteRouteImport.update({
+  id: '/lerngebiete',
+  path: '/lerngebiete',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MagazinRoute = MagazinRouteImport.update({
+  id: '/magazin',
+  path: '/magazin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MittelverwendungsrechnerRoute =
@@ -59,84 +104,29 @@ const MittelverwendungsrechnerRoute =
     path: '/mittelverwendungsrechner',
     getParentRoute: () => rootRouteImport,
   } as any)
-const MagazinRoute = MagazinRouteImport.update({
-  id: '/magazin',
-  path: '/magazin',
+const NeueAnfrageRoute = NeueAnfrageRouteImport.update({
+  id: '/neue-anfrage',
+  path: '/neue-anfrage',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LerngebieteRoute = LerngebieteRouteImport.update({
-  id: '/lerngebiete',
-  path: '/lerngebiete',
+const NpoPruefassistentRoute = NpoPruefassistentRouteImport.update({
+  id: '/npo-pruefassistent',
+  path: '/npo-pruefassistent',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LernenRoute = LernenRouteImport.update({
-  id: '/lernen',
-  path: '/lernen',
+const SkrKonverterRoute = SkrKonverterRouteImport.update({
+  id: '/skr-konverter',
+  path: '/skr-konverter',
   getParentRoute: () => rootRouteImport,
 } as any)
-const KfzWertabgabeRoute = KfzWertabgabeRouteImport.update({
-  id: '/kfz-wertabgabe',
-  path: '/kfz-wertabgabe',
+const WissensdatenbankRoute = WissensdatenbankRouteImport.update({
+  id: '/wissensdatenbank',
+  path: '/wissensdatenbank',
   getParentRoute: () => rootRouteImport,
 } as any)
-const GesetzImportierenRoute = GesetzImportierenRouteImport.update({
-  id: '/gesetz-importieren',
-  path: '/gesetz-importieren',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FristenkalenderRoute = FristenkalenderRouteImport.update({
-  id: '/fristenkalender',
-  path: '/fristenkalender',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FallverlaufRoute = FallverlaufRouteImport.update({
-  id: '/fallverlauf',
-  path: '/fallverlauf',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ErfolgeRoute = ErfolgeRouteImport.update({
-  id: '/erfolge',
-  path: '/erfolge',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EinstellungenRoute = EinstellungenRouteImport.update({
-  id: '/einstellungen',
-  path: '/einstellungen',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CsvKonverterRoute = CsvKonverterRouteImport.update({
-  id: '/csv-konverter',
-  path: '/csv-konverter',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ChatRoute = ChatRouteImport.update({
-  id: '/chat',
-  path: '/chat',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AkademieRoute = AkademieRouteImport.update({
-  id: '/akademie',
-  path: '/akademie',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FallCaseIdRoute = FallCaseIdRouteImport.update({
-  id: '/fall/$caseId',
-  path: '/fall/$caseId',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiTtsRoute = ApiTtsRouteImport.update({
-  id: '/api/tts',
-  path: '/api/tts',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiTranscribeRoute = ApiTranscribeRouteImport.update({
-  id: '/api/transcribe',
-  path: '/api/transcribe',
+const ApiChatRoute = ApiChatRouteImport.update({
+  id: '/api/chat',
+  path: '/api/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiChatTtsRoute = ApiChatTtsRouteImport.update({
@@ -144,9 +134,19 @@ const ApiChatTtsRoute = ApiChatTtsRouteImport.update({
   path: '/api/chat-tts',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiChatRoute = ApiChatRouteImport.update({
-  id: '/api/chat',
-  path: '/api/chat',
+const ApiTranscribeRoute = ApiTranscribeRouteImport.update({
+  id: '/api/transcribe',
+  path: '/api/transcribe',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiTtsRoute = ApiTtsRouteImport.update({
+  id: '/api/tts',
+  path: '/api/tts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FallCaseIdRoute = FallCaseIdRouteImport.update({
+  id: '/fall/$caseId',
+  path: '/fall/$caseId',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -332,116 +332,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/wissensdatenbank': {
-      id: '/wissensdatenbank'
-      path: '/wissensdatenbank'
-      fullPath: '/wissensdatenbank'
-      preLoaderRoute: typeof WissensdatenbankRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/skr-konverter': {
-      id: '/skr-konverter'
-      path: '/skr-konverter'
-      fullPath: '/skr-konverter'
-      preLoaderRoute: typeof SkrKonverterRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/npo-pruefassistent': {
-      id: '/npo-pruefassistent'
-      path: '/npo-pruefassistent'
-      fullPath: '/npo-pruefassistent'
-      preLoaderRoute: typeof NpoPruefassistentRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/neue-anfrage': {
-      id: '/neue-anfrage'
-      path: '/neue-anfrage'
-      fullPath: '/neue-anfrage'
-      preLoaderRoute: typeof NeueAnfrageRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mittelverwendungsrechner': {
-      id: '/mittelverwendungsrechner'
-      path: '/mittelverwendungsrechner'
-      fullPath: '/mittelverwendungsrechner'
-      preLoaderRoute: typeof MittelverwendungsrechnerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/magazin': {
-      id: '/magazin'
-      path: '/magazin'
-      fullPath: '/magazin'
-      preLoaderRoute: typeof MagazinRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/lerngebiete': {
-      id: '/lerngebiete'
-      path: '/lerngebiete'
-      fullPath: '/lerngebiete'
-      preLoaderRoute: typeof LerngebieteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/lernen': {
-      id: '/lernen'
-      path: '/lernen'
-      fullPath: '/lernen'
-      preLoaderRoute: typeof LernenRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/kfz-wertabgabe': {
-      id: '/kfz-wertabgabe'
-      path: '/kfz-wertabgabe'
-      fullPath: '/kfz-wertabgabe'
-      preLoaderRoute: typeof KfzWertabgabeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/gesetz-importieren': {
-      id: '/gesetz-importieren'
-      path: '/gesetz-importieren'
-      fullPath: '/gesetz-importieren'
-      preLoaderRoute: typeof GesetzImportierenRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/fristenkalender': {
-      id: '/fristenkalender'
-      path: '/fristenkalender'
-      fullPath: '/fristenkalender'
-      preLoaderRoute: typeof FristenkalenderRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/fallverlauf': {
-      id: '/fallverlauf'
-      path: '/fallverlauf'
-      fullPath: '/fallverlauf'
-      preLoaderRoute: typeof FallverlaufRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/erfolge': {
-      id: '/erfolge'
-      path: '/erfolge'
-      fullPath: '/erfolge'
-      preLoaderRoute: typeof ErfolgeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/einstellungen': {
-      id: '/einstellungen'
-      path: '/einstellungen'
-      fullPath: '/einstellungen'
-      preLoaderRoute: typeof EinstellungenRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/csv-konverter': {
-      id: '/csv-konverter'
-      path: '/csv-konverter'
-      fullPath: '/csv-konverter'
-      preLoaderRoute: typeof CsvKonverterRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/chat': {
-      id: '/chat'
-      path: '/chat'
-      fullPath: '/chat'
-      preLoaderRoute: typeof ChatRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/akademie': {
@@ -451,32 +346,123 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AkademieRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/chat': {
+      id: '/chat'
+      path: '/chat'
+      fullPath: '/chat'
+      preLoaderRoute: typeof ChatRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/fall/$caseId': {
-      id: '/fall/$caseId'
-      path: '/fall/$caseId'
-      fullPath: '/fall/$caseId'
-      preLoaderRoute: typeof FallCaseIdRouteImport
+    '/csv-konverter': {
+      id: '/csv-konverter'
+      path: '/csv-konverter'
+      fullPath: '/csv-konverter'
+      preLoaderRoute: typeof CsvKonverterRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/tts': {
-      id: '/api/tts'
-      path: '/api/tts'
-      fullPath: '/api/tts'
-      preLoaderRoute: typeof ApiTtsRouteImport
+    '/einstellungen': {
+      id: '/einstellungen'
+      path: '/einstellungen'
+      fullPath: '/einstellungen'
+      preLoaderRoute: typeof EinstellungenRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/transcribe': {
-      id: '/api/transcribe'
-      path: '/api/transcribe'
-      fullPath: '/api/transcribe'
-      preLoaderRoute: typeof ApiTranscribeRouteImport
+    '/erfolge': {
+      id: '/erfolge'
+      path: '/erfolge'
+      fullPath: '/erfolge'
+      preLoaderRoute: typeof ErfolgeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fallverlauf': {
+      id: '/fallverlauf'
+      path: '/fallverlauf'
+      fullPath: '/fallverlauf'
+      preLoaderRoute: typeof FallverlaufRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fristenkalender': {
+      id: '/fristenkalender'
+      path: '/fristenkalender'
+      fullPath: '/fristenkalender'
+      preLoaderRoute: typeof FristenkalenderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gesetz-importieren': {
+      id: '/gesetz-importieren'
+      path: '/gesetz-importieren'
+      fullPath: '/gesetz-importieren'
+      preLoaderRoute: typeof GesetzImportierenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kfz-wertabgabe': {
+      id: '/kfz-wertabgabe'
+      path: '/kfz-wertabgabe'
+      fullPath: '/kfz-wertabgabe'
+      preLoaderRoute: typeof KfzWertabgabeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lernen': {
+      id: '/lernen'
+      path: '/lernen'
+      fullPath: '/lernen'
+      preLoaderRoute: typeof LernenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lerngebiete': {
+      id: '/lerngebiete'
+      path: '/lerngebiete'
+      fullPath: '/lerngebiete'
+      preLoaderRoute: typeof LerngebieteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/magazin': {
+      id: '/magazin'
+      path: '/magazin'
+      fullPath: '/magazin'
+      preLoaderRoute: typeof MagazinRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mittelverwendungsrechner': {
+      id: '/mittelverwendungsrechner'
+      path: '/mittelverwendungsrechner'
+      fullPath: '/mittelverwendungsrechner'
+      preLoaderRoute: typeof MittelverwendungsrechnerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/neue-anfrage': {
+      id: '/neue-anfrage'
+      path: '/neue-anfrage'
+      fullPath: '/neue-anfrage'
+      preLoaderRoute: typeof NeueAnfrageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/npo-pruefassistent': {
+      id: '/npo-pruefassistent'
+      path: '/npo-pruefassistent'
+      fullPath: '/npo-pruefassistent'
+      preLoaderRoute: typeof NpoPruefassistentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/skr-konverter': {
+      id: '/skr-konverter'
+      path: '/skr-konverter'
+      fullPath: '/skr-konverter'
+      preLoaderRoute: typeof SkrKonverterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wissensdatenbank': {
+      id: '/wissensdatenbank'
+      path: '/wissensdatenbank'
+      fullPath: '/wissensdatenbank'
+      preLoaderRoute: typeof WissensdatenbankRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/chat': {
+      id: '/api/chat'
+      path: '/api/chat'
+      fullPath: '/api/chat'
+      preLoaderRoute: typeof ApiChatRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/chat-tts': {
@@ -486,11 +472,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiChatTtsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/chat': {
-      id: '/api/chat'
-      path: '/api/chat'
-      fullPath: '/api/chat'
-      preLoaderRoute: typeof ApiChatRouteImport
+    '/api/transcribe': {
+      id: '/api/transcribe'
+      path: '/api/transcribe'
+      fullPath: '/api/transcribe'
+      preLoaderRoute: typeof ApiTranscribeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/tts': {
+      id: '/api/tts'
+      path: '/api/tts'
+      fullPath: '/api/tts'
+      preLoaderRoute: typeof ApiTtsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fall/$caseId': {
+      id: '/fall/$caseId'
+      path: '/fall/$caseId'
+      fullPath: '/fall/$caseId'
+      preLoaderRoute: typeof FallCaseIdRouteImport
       parentRoute: typeof rootRouteImport
     }
   }

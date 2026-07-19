@@ -3,7 +3,11 @@ import type { CapacitorConfig } from '@capacitor/cli';
 const config: CapacitorConfig = {
   appId: 'de.steuerstoff.app',
   appName: 'steuerstoff',
-  webDir: 'dist'
+  webDir: 'dist',
+
+  server: {
+    url: 'https://steuerstoff.com',
+  },
 };
 
 export default config;

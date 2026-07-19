@@ -8,7 +8,6 @@ import { Route as MagazinRouteImport } from "./routes/magazin";
 import { Route as LerngebieteRouteImport } from "./routes/lerngebiete";
 import { Route as LernenRouteImport } from "./routes/lernen";
 import { Route as KfzWertabgabeRouteImport } from "./routes/kfz-wertabgabe";
-import { Route as GesetzImportierenRouteImport } from "./routes/gesetz-importieren";
 import { Route as FristenkalenderRouteImport } from "./routes/fristenkalender";
 import { Route as FallverlaufRouteImport } from "./routes/fallverlauf";
 import { Route as ErfolgeRouteImport } from "./routes/erfolge";
@@ -62,11 +61,6 @@ const LernenRoute = LernenRouteImport.update({
 const KfzWertabgabeRoute = KfzWertabgabeRouteImport.update({
   id: "/kfz-wertabgabe",
   path: "/kfz-wertabgabe",
-  getParentRoute: () => rootRouteImport,
-} as const);
-const GesetzImportierenRoute = GesetzImportierenRouteImport.update({
-  id: "/gesetz-importieren",
-  path: "/gesetz-importieren",
   getParentRoute: () => rootRouteImport,
 } as const);
 const FristenkalenderRoute = FristenkalenderRouteImport.update({
@@ -124,7 +118,6 @@ const rootRouteChildren = {
   ErfolgeRoute,
   FallverlaufRoute,
   FristenkalenderRoute,
-  GesetzImportierenRoute,
   KfzWertabgabeRoute,
   LernenRoute,
   LerngebieteRoute,

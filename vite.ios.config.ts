@@ -10,7 +10,9 @@ export default defineConfig({
     outDir: "dist-ios",
     emptyOutDir: true,
     rollupOptions: {
-      input: "index.ios.html",
+      input: {
+        index: "index.ios.html",
+      },
     },
   },
 });

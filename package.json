@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
+    "build:ios": "vite build --config vite.ios.config.ts",
     "cap:prepare-web": "node scripts/prepare-capacitor-web.mjs",
-    "cap:sync:ios": "npm run build && npm run cap:prepare-web && npx cap sync ios",
+    "cap:sync:ios": "npm run build:ios && npx cap sync ios",
     "cap:open:ios": "npm run cap:sync:ios && npx cap open ios",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",

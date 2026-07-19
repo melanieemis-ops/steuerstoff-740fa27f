@@ -43,6 +43,7 @@ import {
   type ChatAttachment,
   type PersistedAttachment,
 } from "@/lib/chatAttachments";
+import { apiUrl } from "@/lib/api";
 
 
 
@@ -371,9 +372,9 @@ function ChatPage() {
         fd.set("message", trimmed);
         fd.set("history", JSON.stringify(history));
         for (const a of usedAttachments) fd.append("attachment", a.file, a.name);
-        resp = await fetch("/api/chat", { method: "POST", body: fd });
+        resp = await fetch(apiUrl("/api/chat"), { method: "POST", body: fd });
       } else {
-        resp = await fetch("/api/chat", {
+        resp = await fetch(apiUrl("/api/chat"), {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ message: trimmed, history }),

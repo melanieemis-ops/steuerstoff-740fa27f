@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { apiUrl } from "@/lib/api";
 
 type Options = {
   onTranscript: (text: string) => void;
@@ -114,7 +115,7 @@ export function useVoiceInput({ onTranscript, maxSeconds = 60 }: Options): State
     form.append("audio", file);
     let res: Response;
     try {
-      res = await fetch("/api/transcribe", { method: "POST", body: form });
+      res = await fetch(apiUrl("/api/transcribe"), { method: "POST", body: form });
     } catch {
       throw new Error("Netzwerkfehler. Bitte Verbindung prüfen.");
     }

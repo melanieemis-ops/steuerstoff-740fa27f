@@ -17,6 +17,7 @@ import {
   requestStopAllAudio,
   setCachedAudioUrl,
 } from "@/lib/chatTtsClient";
+import { apiUrl } from "@/lib/api";
 import { useSpeechContext } from "@/hooks/useSpeechSynthesis";
 
 type Props = {
@@ -124,7 +125,7 @@ export function ChatMessageAudioButton({ messageId, text, isStreaming = false }:
     setStatus("loading");
     setErrorMsg(null);
     try {
-      const res = await fetch("/api/chat-tts", {
+      const res = await fetch(apiUrl("/api/chat-tts"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: trimmed }),

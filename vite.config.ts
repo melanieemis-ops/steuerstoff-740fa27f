@@ -6,6 +6,10 @@ import { VitePWA } from "vite-plugin-pwa";
 export default defineConfig({
   tanstackStart: {
     server: { entry: "server" },
+
+    spa: {
+      enabled: true,
+    },
   },
   vite: {
     plugins: [

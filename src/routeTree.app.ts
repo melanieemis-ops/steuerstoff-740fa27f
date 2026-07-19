@@ -1,4 +1,4 @@
-import { Route as rootRouteImport } from "./routes/__root";
+import { AppRootRoute } from "./routeRoot.app";
 import { Route as WissensdatenbankRouteImport } from "./routes/wissensdatenbank";
 import { Route as SkrKonverterRouteImport } from "./routes/skr-konverter";
 import { Route as NpoPruefassistentRouteImport } from "./routes/npo-pruefassistent";
@@ -21,92 +21,92 @@ import { Route as FallCaseIdRouteImport } from "./routes/fall.$caseId";
 const WissensdatenbankRoute = WissensdatenbankRouteImport.update({
   id: "/wissensdatenbank",
   path: "/wissensdatenbank",
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AppRootRoute,
 } as const);
 const SkrKonverterRoute = SkrKonverterRouteImport.update({
   id: "/skr-konverter",
   path: "/skr-konverter",
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AppRootRoute,
 } as const);
 const NpoPruefassistentRoute = NpoPruefassistentRouteImport.update({
   id: "/npo-pruefassistent",
   path: "/npo-pruefassistent",
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AppRootRoute,
 } as const);
 const NeueAnfrageRoute = NeueAnfrageRouteImport.update({
   id: "/neue-anfrage",
   path: "/neue-anfrage",
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AppRootRoute,
 } as const);
 const MittelverwendungsrechnerRoute = MittelverwendungsrechnerRouteImport.update({
   id: "/mittelverwendungsrechner",
   path: "/mittelverwendungsrechner",
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AppRootRoute,
 } as const);
 const MagazinRoute = MagazinRouteImport.update({
   id: "/magazin",
   path: "/magazin",
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AppRootRoute,
 } as const);
 const LerngebieteRoute = LerngebieteRouteImport.update({
   id: "/lerngebiete",
   path: "/lerngebiete",
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AppRootRoute,
 } as const);
 const LernenRoute = LernenRouteImport.update({
   id: "/lernen",
   path: "/lernen",
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AppRootRoute,
 } as const);
 const KfzWertabgabeRoute = KfzWertabgabeRouteImport.update({
   id: "/kfz-wertabgabe",
   path: "/kfz-wertabgabe",
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AppRootRoute,
 } as const);
 const FristenkalenderRoute = FristenkalenderRouteImport.update({
   id: "/fristenkalender",
   path: "/fristenkalender",
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AppRootRoute,
 } as const);
 const FallverlaufRoute = FallverlaufRouteImport.update({
   id: "/fallverlauf",
   path: "/fallverlauf",
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AppRootRoute,
 } as const);
 const ErfolgeRoute = ErfolgeRouteImport.update({
   id: "/erfolge",
   path: "/erfolge",
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AppRootRoute,
 } as const);
 const EinstellungenRoute = EinstellungenRouteImport.update({
   id: "/einstellungen",
   path: "/einstellungen",
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AppRootRoute,
 } as const);
 const CsvKonverterRoute = CsvKonverterRouteImport.update({
   id: "/csv-konverter",
   path: "/csv-konverter",
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AppRootRoute,
 } as const);
 const ChatRoute = ChatRouteImport.update({
   id: "/chat",
   path: "/chat",
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AppRootRoute,
 } as const);
 const AkademieRoute = AkademieRouteImport.update({
   id: "/akademie",
   path: "/akademie",
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AppRootRoute,
 } as const);
 const IndexRoute = IndexRouteImport.update({
   id: "/",
   path: "/",
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AppRootRoute,
 } as const);
 const FallCaseIdRoute = FallCaseIdRouteImport.update({
   id: "/fall/$caseId",
   path: "/fall/$caseId",
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AppRootRoute,
 } as const);
 
 const rootRouteChildren = {
@@ -130,4 +130,4 @@ const rootRouteChildren = {
   FallCaseIdRoute,
 };
 
-export const routeTreeApp = rootRouteImport._addFileChildren(rootRouteChildren as never);
+export const routeTreeApp = AppRootRoute._addFileChildren(rootRouteChildren as never);

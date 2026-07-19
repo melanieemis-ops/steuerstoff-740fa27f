@@ -18,6 +18,41 @@ function showStartupError(message: string) {
   `;
 }
 
+function hideFallbackWhenRendered(rootElement: HTMLElement) {
+  if (!fallbackElement) return;
+
+  let attempts = 0;
+  const maxAttempts = 120;
+
+  const check = () => {
+    attempts += 1;
+    if (rootElement.childNodes.length > 0) {
+      fallbackElement.hidden = true;
+      return;
+    }
+
+    if (attempts < maxAttempts) {
+      window.requestAnimationFrame(check);
+      return;
+    }
+
+    showStartupError("Die Oberfläche konnte nicht gerendert werden.");
+  };
+
+  window.requestAnimationFrame(check);
+}
+
+window.addEventListener("error", (event) => {
+  const message = event.error instanceof Error ? event.error.message : "Unbekannter Laufzeitfehler.";
+  showStartupError(message);
+});
+
+window.addEventListener("unhandledrejection", (event) => {
+  const reason = event.reason;
+  const message = reason instanceof Error ? reason.message : String(reason ?? "Unbekannter Promise-Fehler.");
+  showStartupError(message);
+});
+
 try {
   const rootElement = document.getElementById("root");
   if (!rootElement) {
@@ -37,10 +72,7 @@ try {
       <RouterProvider router={router} />
     </StrictMode>,
   );
-
-  window.setTimeout(() => {
-    if (fallbackElement) fallbackElement.hidden = true;
-  }, 0);
+  hideFallbackWhenRendered(rootElement);
 } catch (error) {
   const message = error instanceof Error
     ? error.message

@@ -479,18 +479,150 @@ function classifyUst(q: string): UstClassification | null {
 
   // 5) Grundstück
   if (grundstueck) {
+    // Sub-Klassifizierung: Vermietung vs. Verkauf
+    const isVermietung = /\b(vermiet[a-zäöüß]*|miet[a-zäöüß]*|pacht[a-zäöüß]*)\b/i.test(q);
+    const isVerkauf = /\b(verkauf[a-zäöüß]*|verkauft|veräußer[a-zäöüß]*|kaufpreis|käufer)\b/i.test(q);
+    // Option nach § 9 UStG explizit erwähnt oder als relevant erkannt
+    const option9 =
+      /\b(optier[a-zäöüß]*|option\b)\b/i.test(q) ||
+      /§\s*9\s*(?:abs\.?\s*[12])?\s*ustg|§\s*9\s*ustg/i.test(q) ||
+      /\b(zur\s+steuerpflicht\s+optier|optier[a-zäöüß]*\s+zur\s+steuerpflicht)\b/i.test(q);
+
+    // -----------------------------------------------------------------------
+    // Spezialfall: Grundstücksvermietung + Option § 9 UStG
+    // Pflicht: alle 5 entscheidungserheblichen Angaben müssen vorliegen,
+    // bevor ein endgültiges Ergebnis ausgegeben werden darf.
+    // -----------------------------------------------------------------------
+    if (isVermietung && !isVerkauf && option9) {
+      // 1. Art des Mieters
+      const hasArtDesMieters =
+        /\b(unternehmer|gewerblich|privat(?:person|e?[sr]?\s+mieter|kunde)?|endverbraucher|arzt|zahnarzt|ärztin|praxis|klinik|krankenhaus|apotheke|bank|sparkasse|kreditinstitut|versicherung|schule|universität|kindergarten|pflegeheim|altenheim|gemeinnützig[a-zäöüß]*|freiberufl[a-zäöüß]*|steuerberater|rechtsanwalt|architekt|ingenieur|handwerker|einzelhändler|gastronomie|hotel|träger|verein|stiftung|körperschaft|gmbh|ug\b|ag\b|ohg|kg\b|kommunal)\b/i.test(q);
+
+      // 2. Tätigkeit des Mieters
+      const hasTaetigkeitDesMieters =
+        /\b(tätigkeit|tätig\b|tätige[rns]?\b|branche|betreib[a-zäöüß]*|erbring[a-zäöüß]*|ausüb[a-zäöüß]*|heilbehandlung|ärztlich[a-zäöüß]*|medizinisch[a-zäöüß]*|zahnärztlich[a-zäöüß]*|therapeut[a-zäöüß]*|heilberuf[a-zäöüß]*|freiberuflich|gewerblich|handwerk[a-zäöüß]*|einzelhandel|gastronomisch|produzier[a-zäöüß]*|dienstleist[a-zäöüß]*|versicherungsvermittl[a-zäöüß]*|bildung[a-zäöüß]*|pfleg[a-zäöüß]*|sozial[a-zäöüß]*)\b/i.test(q);
+
+      // 3. Steuerpflichtige oder steuerfreie Ausgangsumsätze
+      const hasAusgangsumsaetze =
+        /\b(steuerpflichtige?\s+(?:ausgangsumsätze?|umsätze?|leistungen?|tätigkei[a-zäöüß]*)|steuerfreie?\s+(?:ausgangsumsätze?|umsätze?|leistungen?|tätigkei[a-zäöüß]*)|ausgangsumsätze?|steuerpflichtig\b|steuerfrei\b|vollunternehmer|ausschließlich\s+(?:steuerpflichtig|steuerfrei)|§\s*15\s*abs\.?\s*2\s*ustg|vorsteuerschädlich[a-zäöüß]*|vorsteuerunschädlich[a-zäöüß]*)\b/i.test(q);
+
+      // 4. Vorsteuerabzugsberechtigung
+      const hasVorsteuer =
+        /\b(vorsteuerabzug[a-zäöüß]*|vorsteuerberechtigt[a-zäöüß]*|vorsteuerabzugsberechtigt[a-zäöüß]*|vorsteuerschädlich[a-zäöüß]*|nicht\s+vorsteuerabzugsberechtigt|vorsteuer\b|§\s*15\s*(?:abs\.?\s*[12])?\s*ustg)\b/i.test(q);
+
+      // 5. Getrennte Prüfung je Einheit
+      const hasEinheitPruefung =
+        /\b(je\s+einheit|pro\s+einheit|getrennt(?:e[rs]?\s+prüfung)?|räumlich(?:e\s+(?:aufteilung|trennung))?|einzeln|mehrere\s+(?:einheiten|wohnungen|büros|flächen|räume|mieteinheiten|mietobjekte)|zum\s+teil|teilweise|gemischt(?:e\s+nutzung)?|teils|stockwerk|etage|mieteinheit(?:en)?|je\s+mietobjekt|je\s+fläche)\b/i.test(q);
+
+      const missing: string[] = [];
+      if (!hasArtDesMieters)
+        missing.push("Art des Mieters (z. B. Unternehmer, Heilberufler, Privatperson)?");
+      if (!hasTaetigkeitDesMieters)
+        missing.push("Welcher Tätigkeit geht der Mieter nach (Berufs-/Branchenbeschreibung)?");
+      if (!hasAusgangsumsaetze)
+        missing.push("Erzielt der Mieter steuerpflichtige oder steuerfreie Ausgangsumsätze?");
+      if (!hasVorsteuer)
+        missing.push("Ist der Mieter (voll oder anteilig) vorsteuerabzugsberechtigt (§ 15 UStG)?");
+      if (!hasEinheitPruefung)
+        missing.push(
+          "Sind mehrere Einheiten betroffen? (Getrennte Prüfung je Einheit nach § 9 Abs. 2 UStG erforderlich.)",
+        );
+
+      const complete = missing.length === 0;
+
+      const optionScheme = [
+        {
+          title: "1. Steuerbefreiung (Ausgangspunkt)",
+          body: "Grundstücksvermietung ist grundsätzlich steuerfrei (§ 4 Nr. 12a UStG).",
+        },
+        {
+          title: "2. Optionsmöglichkeit § 9 Abs. 1 UStG",
+          body: "Verzicht auf Steuerbefreiung möglich, wenn der Mieter Unternehmer ist und das Grundstück für sein Unternehmen nutzt.",
+        },
+        {
+          title: "3. Einschränkung § 9 Abs. 2 UStG",
+          body: "Die Option ist nur zulässig, wenn der Mieter das Grundstück ausschließlich für Umsätze verwendet, die den Vorsteuerabzug nicht ausschließen (§ 15 Abs. 2 UStG).",
+        },
+        {
+          title: "4. Art des Mieters",
+          body: hasArtDesMieters
+            ? "✓ Im Sachverhalt angegeben."
+            : "⚠ Fehlt — für die Optionsprüfung zwingend erforderlich.",
+        },
+        {
+          title: "5. Tätigkeit des Mieters",
+          body: hasTaetigkeitDesMieters
+            ? "✓ Im Sachverhalt angegeben."
+            : "⚠ Fehlt — entscheidend für Vorsteuerschädlichkeit nach § 9 Abs. 2 UStG.",
+        },
+        {
+          title: "6. Ausgangsumsätze (steuerpflichtig / steuerfrei)",
+          body: hasAusgangsumsaetze
+            ? "✓ Im Sachverhalt angegeben."
+            : "⚠ Fehlt — maßgeblich für die Zulässigkeit der Option.",
+        },
+        {
+          title: "7. Vorsteuerabzugsberechtigung",
+          body: hasVorsteuer
+            ? "✓ Im Sachverhalt angegeben."
+            : "⚠ Fehlt — bestimmt, ob Option nach § 9 Abs. 2 UStG zulässig ist.",
+        },
+        {
+          title: "8. Prüfung je Einheit",
+          body: hasEinheitPruefung
+            ? "✓ Im Sachverhalt berücksichtigt."
+            : "⚠ Fehlt — getrennte Prüfung je Mieteinheit ist zwingend (§ 9 Abs. 2 UStG).",
+        },
+        {
+          title: "9. Ergebnis",
+          body: complete
+            ? "Alle Pflichtangaben vorhanden — Optionsprüfung nach § 9 UStG kann abgeschlossen werden."
+            : `Unvollständiger Sachverhalt — kein endgültiges Ergebnis möglich. Fehlende Angaben: ${missing.map((m, i) => `(${i + 1}) ${m}`).join("; ")}`,
+        },
+      ];
+
+      return {
+        type: "grundstueck",
+        label: "Grundstücksvermietung — Optionsprüfung § 9 UStG",
+        paragraph: "§ 4 Nr. 12a, § 9 UStG",
+        trail: buildTrail("§ 4 Nr. 12a UStG (Grundstücksvermietung), § 9 UStG (Option)"),
+        reasoning: complete
+          ? "Alle entscheidungserheblichen Angaben zur § 9 UStG-Option liegen vor — Prüfung kann abgeschlossen werden."
+          : "Für die Optionsprüfung nach § 9 UStG bei Grundstücksvermietung fehlen Pflichtangaben. Ohne diese darf kein endgültiges Ergebnis ausgegeben werden.",
+        scheme: optionScheme,
+        complete,
+        followUps: missing,
+        ergebnis: complete
+          ? "Sachverhalt vollständig: § 9 Abs. 2 UStG-Prüfung abschließbar. Die Option ist zulässig, wenn der Mieter das Grundstück ausschließlich für vorsteuerabzugsunschädliche Umsätze verwendet. Bei gemischter Nutzung gilt § 9 Abs. 2 UStG — raumeinheitliche Prüfung je Einheit. Bei voller Vorsteuerabzugsberechtigung des Mieters: Option wirksam → Vermietung 19 % USt, Vorsteuerabzug aus Eingangsleistungen des Vermieters steht zu."
+          : undefined,
+      };
+    }
+
+    // Allgemeiner Grundstücksfall (kein Vermietung+Option-Spezialfall)
     const scheme = baseScheme();
-    scheme[0].body = "Grundstücksbezogene Leistung / Grundstücksumsatz — Ort nach § 3a Abs. 3 Nr. 1 UStG (Belegenheitsort); Umsatz ggf. steuerfrei nach § 4 Nr. 9a UStG mit Optionsmöglichkeit § 9 UStG.";
+    scheme[0].body =
+      "Grundstücksbezogene Leistung / Grundstücksumsatz — Ort nach § 3a Abs. 3 Nr. 1 UStG (Belegenheitsort); Umsatz ggf. steuerfrei nach § 4 Nr. 9a UStG mit Optionsmöglichkeit § 9 UStG.";
     return {
       type: "grundstueck",
       label: "Grundstücksleistung / Grundstücksumsatz",
       paragraph: "§ 3a Abs. 3 Nr. 1, § 4 Nr. 9a, § 9, § 13b Abs. 2 Nr. 3 UStG",
       trail: buildTrail("§ 3a Abs. 3 Nr. 1 UStG (Grundstück)"),
-      reasoning: "Bei Grundstücken gelten Sonderregeln (Belegenheitsort, § 4 Nr. 9a Befreiung, Option, ggf. § 13b Abs. 2 Nr. 3).",
+      reasoning:
+        "Bei Grundstücken gelten Sonderregeln (Belegenheitsort, § 4 Nr. 9a Befreiung, Option, ggf. § 13b Abs. 2 Nr. 3).",
       scheme,
-      followUps: ["Verkauf oder Vermietung?", "Wird zur Steuerpflicht optiert (§ 9 UStG)?", "Empfänger Unternehmer?"],
+      followUps: isVermietung
+        ? ["Wird zur Steuerpflicht optiert (§ 9 UStG)?", "Empfänger Unternehmer?"]
+        : isVerkauf
+          ? [
+              "Unternehmer als Verkäufer?",
+              "Wird nach § 9 UStG zur Steuerpflicht optiert?",
+            ]
+          : [
+              "Verkauf oder Vermietung?",
+              "Wird zur Steuerpflicht optiert (§ 9 UStG)?",
+              "Empfänger Unternehmer?",
+            ],
     };
-
   }
 
   // 6) Ausfuhr / Einfuhr

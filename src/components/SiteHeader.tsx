@@ -241,7 +241,7 @@ export function SiteHeader() {
   return (
     <>
       <header className="sticky top-0 z-40 w-full border-b border-border/70 bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
-      <div className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between gap-3 px-4 sm:h-16 sm:px-6">
+      <div className="mx-auto flex h-14 w-full max-w-6xl items-center gap-3 px-4 sm:h-16 sm:px-6">
         <Link
           to="/"
           className="flex min-w-0 shrink items-center gap-2"
@@ -259,8 +259,12 @@ export function SiteHeader() {
             steuerstoff
           </span>
 
-          <span className="hidden whitespace-nowrap text-[11px] font-normal tracking-tight text-muted-foreground/80 min-[390px]:inline sm:text-xs">
+          <span className="hidden whitespace-nowrap text-[11px] font-normal tracking-tight text-muted-foreground/80 min-[390px]:inline md:hidden sm:text-xs">
             by Melanie Misakian
+          </span>
+
+          <span className="hidden max-w-28 truncate text-xs font-normal tracking-tight text-muted-foreground/80 md:inline lg:max-w-40 xl:max-w-none">
+            Melanie Misakian
           </span>
 
           <span
@@ -277,7 +281,7 @@ export function SiteHeader() {
         </Link>
 
         <nav
-          className="hidden min-w-0 items-center gap-1 overflow-x-auto md:flex"
+          className="ml-auto hidden min-w-0 items-center gap-1 overflow-x-auto md:flex"
           data-onboarding-target="menu"
           aria-label="Desktop Navigation"
         >

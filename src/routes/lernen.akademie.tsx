@@ -24,7 +24,6 @@ import { useState } from "react";
 import { getUserName, hasUserName, saveUserName } from "@/lib/profile";
 
 export const Route = createFileRoute("/lernen/akademie")({
-  validateSearch: () => ({}),
   component: AkademiePage,
   head: () => ({
     meta: [

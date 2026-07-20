@@ -16,7 +16,6 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { examCases, type ExamCase, type SolutionHint } from "@/data/examCases";
 
 export const Route = createFileRoute("/lernen/akademie/klausuren/$slug")({
-  validateSearch: () => ({}),
   loader: ({ params }) => {
     const found = examCases.find((c) => c.slug === params.slug);
     if (!found) throw notFound();
@@ -162,8 +161,6 @@ function KlausurDetailPage() {
             <Link
               to="/lernen/akademie/klausuren"
               search={{ category: "Umsatzsteuer" }}
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-ignore – TanStack Router incorrectly infers search param inheritance from /lernen
               className="inline-flex items-center gap-2 rounded-xl px-2 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
             >
               <ArrowLeft className="h-4 w-4" />

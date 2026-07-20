@@ -6,7 +6,6 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { examCases } from "@/data/examCases";
 
 export const Route = createFileRoute("/lernen/akademie/klausuren")({
-  validateSearch: () => ({}),
   component: KlausurenPage,
   head: () => ({
     meta: [
@@ -135,9 +134,7 @@ function ExamCaseCard({ examCase }: { examCase: (typeof examCases)[number] }) {
         <Link
           to="/lernen/akademie/klausuren/$slug"
           params={{ slug: examCase.slug }}
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore – TanStack Router incorrectly infers search param inheritance from /lernen
-          search={{}}
+          search={{ category: "Umsatzsteuer" }}
           className="inline-flex items-center gap-2 rounded-2xl bg-foreground px-5 py-3 text-sm font-semibold text-background shadow-sm transition-all hover:-translate-y-0.5 hover:opacity-90"
         >
           Fall bearbeiten

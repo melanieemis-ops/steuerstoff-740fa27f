@@ -1,3 +1,5 @@
+import { Link } from "@tanstack/react-router";
+
 export function SiteFooter() {
   return (
     <footer className="border-t border-border/70 bg-background pb-[env(safe-area-inset-bottom)]">
@@ -9,6 +11,17 @@ export function SiteFooter() {
         <p className="text-[11px] leading-relaxed text-muted-foreground/80">
           steuerstoff ist eine Arbeitshilfe und ersetzt keine verbindliche steuerliche Beratung.
         </p>
+        
+        <div className="border-t border-border/50 pt-3 text-center text-[11px] text-muted-foreground/70">
+          <span>by Melanie</span>
+          <span className="mx-1.5">·</span>
+          <Link
+            to="/impressum"
+            className="hover:text-muted-foreground transition-colors"
+          >
+            Impressum
+          </Link>
+        </div>
       </div>
     </footer>
   );

@@ -260,11 +260,11 @@ export function SiteHeader() {
           </span>
 
           <span className="hidden whitespace-nowrap text-[11px] font-normal tracking-tight text-muted-foreground/80 min-[390px]:inline md:hidden sm:text-xs">
-            by Melanie Misakian
+            by Melanie
           </span>
 
           <span className="hidden max-w-28 truncate text-xs font-normal tracking-tight text-muted-foreground/80 md:inline lg:max-w-40 xl:max-w-none">
-            Melanie Misakian
+            by Melanie
           </span>
 
           <span

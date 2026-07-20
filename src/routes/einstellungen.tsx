@@ -1,5 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { Moon, Monitor, RotateCcw, Sun, Volume2 } from "lucide-react";
+import { Moon, Monitor, RotateCcw, Sun, Volume2, Play, Square } from "lucide-react";
 import { useEffect, useState, type FormEvent } from "react";
 
 import { SiteFooter } from "@/components/SiteFooter";
@@ -69,6 +69,7 @@ function Einstellungen() {
   const [saved, setSaved] = useState(false);
   const [speechSettings, setSpeechSettings] = useState<SpeechSettings>(() => loadSpeechSettings());
   const [availableVoices, setAvailableVoices] = useState<SpeechSynthesisVoice[]>([]);
+  const [isTesting, setIsTesting] = useState(false);
   const isSpeechSupported =
     typeof window !== "undefined" &&
     "speechSynthesis" in window &&
@@ -126,6 +127,42 @@ function Einstellungen() {
       saveSpeechSettings(next);
       return next;
     });
+  }
+
+  function testVoice() {
+    if (!isSpeechSupported) return;
+
+    // Beende laufende Sprachausgabe
+    window.speechSynthesis.cancel();
+
+    const testText = "Hallo, ich bin die Stimme von Steuerstoff.";
+    const utterance = new SpeechSynthesisUtterance(testText);
+
+    // Wende die gespeicherten Einstellungen an
+    utterance.rate = speechSettings.rate;
+
+    // Verwende die ausgewählte Stimme oder die erste deutsche Stimme
+    if (speechSettings.voiceURI) {
+      const selectedVoice = availableVoices.find((v) => v.voiceURI === speechSettings.voiceURI);
+      if (selectedVoice) {
+        utterance.voice = selectedVoice;
+      }
+    } else if (availableVoices.length > 0) {
+      utterance.voice = availableVoices[0];
+    }
+
+    utterance.onstart = () => setIsTesting(true);
+    utterance.onend = () => setIsTesting(false);
+    utterance.onerror = () => setIsTesting(false);
+
+    window.speechSynthesis.speak(utterance);
+  }
+
+  function stopTestVoice() {
+    if (isSpeechSupported) {
+      window.speechSynthesis.cancel();
+      setIsTesting(false);
+    }
   }
 
   function save(event: FormEvent) {
@@ -421,7 +458,32 @@ function Einstellungen() {
                           </button>
                         ))}
                       </div>
+
+                      <button
+                        type="button"
+                        onClick={isTesting ? stopTestVoice : testVoice}
+                        className="mt-4 inline-flex items-center gap-2 rounded-lg border border-border bg-card px-3 py-2 text-xs font-medium text-foreground transition-colors hover:bg-accent"
+                        aria-label={isTesting ? "Wiedergabe stoppen" : "Stimme testen"}
+                      >
+                        {isTesting ? (
+                          <>
+                            <Square className="h-3.5 w-3.5" aria-hidden="true" />
+                            Wiedergabe stoppen
+                          </>
+                        ) : (
+                          <>
+                            <Play className="h-3.5 w-3.5" aria-hidden="true" />
+                            Stimme testen
+                          </>
+                        )}
+                      </button>
                     </div>
+                  )}
+
+                  {availableVoices.length === 0 && isSpeechSupported && (
+                    <p className="rounded-lg border border-border bg-muted/40 px-3 py-2 text-xs text-muted-foreground">
+                      Auf diesem Gerät sind derzeit keine auswählbaren Stimmen verfügbar.
+                    </p>
                   )}
                 </>
               )}

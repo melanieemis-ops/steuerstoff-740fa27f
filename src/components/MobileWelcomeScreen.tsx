@@ -401,7 +401,7 @@ export function MobileWelcomeScreen() {
           <h1>steuerstoff</h1>
 
           <p className="steuerstoff-welcome-byline">
-            by Melanie Misakian
+            by Melanie
           </p>
 
           <div className="steuerstoff-welcome-copy">

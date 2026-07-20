@@ -8,6 +8,7 @@ import {
   ArrowRightLeft,
   CalendarDays,
   FilePlus,
+  GraduationCap,
   Home,
   MessageSquare,
 } from "lucide-react";
@@ -194,6 +195,11 @@ export function MobileBottomNav() {
       Icon: Home,
     },
     {
+      to: "/lernen/akademie",
+      label: "Lernen",
+      Icon: GraduationCap,
+    },
+    {
       to: "/neue-anfrage",
       label: "Anfrage",
       Icon: FilePlus,
@@ -217,12 +223,22 @@ export function MobileBottomNav() {
       className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 pb-[env(safe-area-inset-bottom)] backdrop-blur md:hidden"
       aria-label="Mobile Navigation"
     >
-      <ul className="mx-auto flex w-full max-w-6xl items-stretch justify-between px-2">
+      <ul className="mx-auto flex w-full max-w-6xl items-stretch justify-between px-1">
         {items.map(({ to, label, Icon }) => {
-          const active =
-            location.pathname === to ||
-            (to !== "/" &&
-              location.pathname.startsWith(to));
+          // Spezielle Aktivmarkierung für Akademie
+          let active = false;
+          if (to === "/lernen/akademie") {
+            active =
+              location.pathname === to ||
+              location.pathname.startsWith("/lernen/akademie") ||
+              location.pathname === "/lerngebiete" ||
+              location.pathname.startsWith("/lerngebiete");
+          } else {
+            active =
+              location.pathname === to ||
+              (to !== "/" &&
+                location.pathname.startsWith(to));
+          }
 
           const onboardingTarget =
             to === "/skr-konverter" ? "skr" : undefined;
@@ -236,24 +252,24 @@ export function MobileBottomNav() {
                 to={to}
                 data-onboarding-target={onboardingTarget}
                 className={[
-                  "flex min-w-0 flex-col items-center justify-center gap-0.5 py-2 text-[10px] transition-colors",
+                  "flex min-w-0 flex-col items-center justify-center gap-0.5 py-1.5 px-0.5 text-[9px] transition-colors",
                   active
                     ? "text-foreground"
                     : "text-muted-foreground",
                 ].join(" ")}
               >
                 <Icon
-                  className="h-4 w-4"
+                  className="h-4 w-4 shrink-0"
                   aria-hidden="true"
                 />
 
-                <span className="truncate">
+                <span className="truncate font-medium leading-tight">
                   {label}
                 </span>
 
                 <span
                   className={[
-                    "mt-0.5 h-0.5 w-6 rounded-full",
+                    "mt-0.5 h-0.5 w-5 rounded-full shrink-0",
                     active
                       ? "bg-foreground"
                       : "bg-transparent",

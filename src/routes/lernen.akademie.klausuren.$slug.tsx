@@ -99,6 +99,7 @@ function KlausurDetailPage() {
 
   const [progress, setProgress] = useState<ExamProgress>(() => loadProgress(examCase.slug));
   const [showSolutionConfirm, setShowSolutionConfirm] = useState(false);
+  const [showClearConfirm, setShowClearConfirm] = useState(false);
   const [mistakesOpen, setMistakesOpen] = useState(false);
 
   useEffect(() => {
@@ -135,7 +136,12 @@ function KlausurDetailPage() {
   }
 
   function clearAnswer() {
+    setShowClearConfirm(true);
+  }
+
+  function confirmClearAnswer() {
     updateProgress({ ownAnswer: "" });
+    setShowClearConfirm(false);
   }
 
   const revealedCount =
@@ -270,16 +276,37 @@ function KlausurDetailPage() {
             />
 
             <div className="mt-3 flex flex-wrap gap-2">
-              {progress.ownAnswer.trim().length > 0 && (
-                <button
-                  type="button"
-                  onClick={clearAnswer}
-                  className="inline-flex items-center gap-1.5 rounded-xl border border-border/60 bg-background px-3 py-2 text-xs font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
-                >
-                  <Trash2 className="h-3.5 w-3.5" />
-                  Eingabe löschen
-                </button>
-              )}
+              {progress.ownAnswer.trim().length > 0 &&
+                (showClearConfirm ? (
+                  <div className="flex w-full items-center gap-2 rounded-xl border border-destructive/30 bg-destructive/5 px-3 py-2">
+                    <p className="flex-1 text-xs text-muted-foreground">
+                      Eingabe wirklich löschen?
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => setShowClearConfirm(false)}
+                      className="text-xs font-medium text-muted-foreground hover:text-foreground"
+                    >
+                      Abbrechen
+                    </button>
+                    <button
+                      type="button"
+                      onClick={confirmClearAnswer}
+                      className="rounded-lg bg-destructive px-2.5 py-1 text-xs font-semibold text-white hover:opacity-90"
+                    >
+                      Löschen
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={clearAnswer}
+                    className="inline-flex items-center gap-1.5 rounded-xl border border-border/60 bg-background px-3 py-2 text-xs font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+                  >
+                    <Trash2 className="h-3.5 w-3.5" />
+                    Eingabe löschen
+                  </button>
+                ))}
               {!progress.completed && (
                 <button
                   type="button"
@@ -457,7 +484,7 @@ function KlausurDetailPage() {
             )}
           </section>
 
-          {/* Bottom padding for mobile nav */}
+          {/* Extra bottom padding so content is not hidden by MobileBottomNav */}
           <div className="h-4" />
         </div>
       </main>
@@ -643,10 +670,11 @@ function DeepDiveContent({ content }: { content: string }) {
           );
         }
         if (block.includes("|")) {
-          // Render table as responsive cards on mobile
-          const rows = block.split("\n").filter((l) => l.trim() && !l.match(/^[\s|:-]+$/));
-          const isHeader = (r: string) => r.includes("Posten") || r.includes("Betrag");
-          const dataRows = rows.filter((r) => !isHeader(r));
+          // Render markdown table as responsive table
+          // Filter out separator lines (e.g. |---|---| or |:--|--:|) and the header row
+          const rows = block.split("\n").filter((l) => l.trim() && !l.match(/^[\s|:=-]+$/));
+          // The first row is the header; skip it and render only data rows
+          const dataRows = rows.slice(1);
           return (
             <div key={i} className="overflow-x-auto rounded-xl">
               <table className="w-full text-sm">

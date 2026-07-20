@@ -63,6 +63,16 @@ const magazineIssues: MagazineIssue[] = [
     coverBackgroundColor: "#000000",
     articleIds: ["mitunternehmeranteil-fehlbuchung-bfh-2026"],
   },
+  {
+    id: "03",
+    label: "Ausgabe 03",
+    cover: {
+      src: "/magazin-cover-ausgabe-03.png",
+      alt: "Cover des steuerstoff Magazins – Ausgabe 03/2026",
+    },
+    coverBackgroundColor: "#f6f0e7",
+    articleIds: ["e-rechnung-fehler-bmf-2025"],
+  },
 ];
 
 const magazinePages: MagazinePage[] = magazineIssues.flatMap((issue) => {
@@ -989,7 +999,7 @@ export function MagazineFlipbook() {
       {magazineIssues.length > 1 ? (
         <div className="mb-3">
           <p className="mb-1.5 text-center text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
-            Ausgabe wählen · <span className="text-foreground">Neu: Ausgabe 02</span>
+            Ausgabe wählen · <span className="text-foreground">Neu: Ausgabe 03</span>
           </p>
           <div
             role="tablist"
@@ -998,7 +1008,7 @@ export function MagazineFlipbook() {
           >
             {magazineIssues.map((issue) => {
               const active = issue.id === currentIssueId;
-              const isNew = issue.id === "02";
+              const isNew = issue.id === "03";
               return (
                 <button
                   key={issue.id}

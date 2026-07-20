@@ -710,4 +710,245 @@ export const magazineArticles: MagazineArticle[] = [
       { type: "paragraph", text: "Die BFH-Rechtsprechung stärkt damit die Position sorgfältig handelnder Unternehmer – sie ist jedoch kein Freibrief für eine lückenhafte Nachweisführung." },
     ],
   },
+  {
+    id: "e-rechnung-fehler-bmf-2025",
+    slug: "e-rechnung-fehler-bmf-2025",
+    category: "Umsatzsteuer",
+    issueLabel: "Ausgabe 03 · Umsatzsteuer",
+    issue: "03",
+    title: "Fehlerhafte E-Rechnungen richtig beurteilen",
+    subtitle: "Was das BMF zu Format-, Geschäftsregel- und Inhaltsfehlern sagt",
+    author: "Redaktion Steuerstoff",
+    readingTime: 7,
+    legalStatusDate: "2025-10-15",
+    publishedAt: "2026-07-19",
+    status: "bmf-schreiben",
+    statusLabel: "BMF-Schreiben",
+    tags: [
+      "E-Rechnung",
+      "Umsatzsteuer",
+      "§ 14 UStG",
+      "EN 16931",
+      "Vorsteuerabzug",
+      "Rechnungsprüfung",
+      "Validierung",
+    ],
+    lead: "Mit seinem Schreiben vom 15. Oktober 2025 hat das Bundesministerium der Finanzen seine Verwaltungsauffassung zur obligatorischen E-Rechnung weiter konkretisiert und zugleich den Umsatzsteuer-Anwendungserlass angepasst. Im Mittelpunkt stehen insbesondere die Behandlung fehlerhafter E-Rechnungen, deren technische Validierung und die Auswirkungen möglicher Fehler auf die Ordnungsmäßigkeit der Rechnung.",
+    highlights: [
+      { label: "Formatfehler", value: "Keine E-Rechnung" },
+      { label: "Geschäftsregelfehler", value: "Feldabhängige Folge" },
+      { label: "Inhaltsfehler", value: "Vorsteuer gefährdet" },
+      { label: "BMF-Schreiben", value: "15.10.2025" },
+    ],
+    blocks: [
+      {
+        type: "summary",
+        title: "Auf einen Blick",
+        items: [
+          "Ein Formatfehler führt dazu, dass die Datei nicht als E-Rechnung gilt.",
+          "Ein Geschäftsregelfehler kann steuerlich unbeachtlich sein oder zugleich einen Inhaltsfehler darstellen.",
+          "Inhaltsfehler können die Ordnungsmäßigkeit der Rechnung und damit den Vorsteuerabzug gefährden.",
+          "Eine technische Validierung ersetzt nicht die fachliche und umsatzsteuerliche Rechnungsprüfung.",
+        ],
+      },
+      {
+        type: "sourceLink",
+        title: "Amtliche Quelle",
+        text: "BMF-Schreiben vom 15.10.2025 – III C 2 – S 7287-a/00019/007/243, BStBl 2025 I S. 1806.",
+        buttonLabel: "BMF-Schreiben öffnen",
+        url: "https://www.bundesfinanzministerium.de/Content/DE/Downloads/BMF_Schreiben/Steuerarten/Umsatzsteuer/Umsatzsteuer-Anwendungserlass/2025-10-15-einfuehrung-obligatorische-e-rechnung.pdf?__blob=publicationFile&v=3",
+        note: "steuerstoff fasst das Schreiben redaktionell zusammen; maßgeblich bleibt die amtliche Fassung.",
+      },
+      { type: "heading", text: "1. Hintergrund" },
+      {
+        type: "paragraph",
+        text: "Seit dem 1. Januar 2025 gilt ein neues Verständnis der elektronischen Rechnung. Eine E-Rechnung muss in einem strukturierten elektronischen Format ausgestellt, übermittelt und empfangen werden und eine elektronische Verarbeitung ermöglichen. Eine einfache PDF-Datei ist daher grundsätzlich keine E-Rechnung mehr, sondern eine sonstige Rechnung.",
+      },
+      {
+        type: "paragraph",
+        text: "Während Unternehmen bereits seit dem 1. Januar 2025 technisch in der Lage sein müssen, E-Rechnungen zu empfangen, gelten für die verpflichtende Ausstellung weiterhin Übergangsregelungen. Bis Ende 2026 dürfen grundsätzlich noch sonstige Rechnungen verwendet werden. Für Rechnungsaussteller mit einem Vorjahresumsatz von höchstens 800.000 Euro verlängert sich diese Übergangsfrist unter bestimmten Voraussetzungen bis Ende 2027.",
+      },
+      {
+        type: "paragraph",
+        text: "Das BMF-Schreiben vom 15. Oktober 2025 ergänzt die bisherigen Verwaltungsgrundsätze insbesondere um eine systematische Einordnung möglicher Rechnungsfehler.",
+      },
+      { type: "heading", text: "2. Formatfehler: Die Datei ist keine E-Rechnung" },
+      {
+        type: "paragraph",
+        text: "Ein Formatfehler liegt vor, wenn eine Rechnungsdatei nicht den zulässigen Syntaxen beziehungsweise den technischen Vorgaben des verwendeten E-Rechnungsformats entspricht.",
+      },
+      {
+        type: "paragraph",
+        text: "Das gilt ebenfalls für ein zwischen den Vertragsparteien vereinbartes Format, wenn daraus die umsatzsteuerrechtlich erforderlichen Rechnungsangaben nicht richtig und vollständig extrahiert werden können.",
+      },
+      {
+        type: "notice",
+        variant: "wichtig",
+        text: "Eine Datei mit Formatfehlern erfüllt nicht die Voraussetzungen einer E-Rechnung. Sie ist stattdessen als sonstige Rechnung in einem anderen elektronischen Format zu behandeln. Ob ein solcher Fehler vorliegt, kann mithilfe einer geeigneten Validierungsanwendung überprüft werden.",
+      },
+      {
+        type: "subheading",
+        text: "Beispiel",
+      },
+      {
+        type: "paragraph",
+        text: "Eine XML-Datei kann aufgrund eines technischen Fehlers nicht ordnungsgemäß eingelesen werden oder entspricht nicht der vorgesehenen Syntax der XRechnung. In diesem Fall liegt keine E-Rechnung im Sinne des § 14 UStG vor.",
+      },
+      { type: "heading", text: "3. Geschäftsregelfehler: Die Rechtsfolge hängt vom betroffenen Feld ab" },
+      {
+        type: "paragraph",
+        text: "Von einem Formatfehler ist der sogenannte Geschäftsregelfehler zu unterscheiden.",
+      },
+      {
+        type: "paragraph",
+        text: "Geschäftsregeln prüfen die logischen Beziehungen der in einer E-Rechnung enthaltenen Daten. Ein Fehler kann beispielsweise vorliegen, wenn:",
+      },
+      {
+        type: "list",
+        items: [
+          "ein technisch vorgesehenes Pflichtfeld nicht ausgefüllt wurde,",
+          "sich einzelne Rechnungsangaben widersprechen oder",
+          "der ausgewiesene Steuerbetrag rechnerisch nicht zum angegebenen Steuersatz passt.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Die Datei kann trotz eines solchen Fehlers grundsätzlich weiterhin eine E-Rechnung sein. Für die umsatzsteuerliche Beurteilung kommt es darauf an, welche Angabe betroffen ist.",
+      },
+      {
+        type: "paragraph",
+        text: "Betrifft der Fehler lediglich eine technische oder nicht umsatzsteuerlich erforderliche Angabe, kann er steuerlich unbeachtlich sein. Das BMF nennt ausdrücklich das fehlende Feld „BT-10 Buyer reference" als Beispiel.",
+      },
+      {
+        type: "paragraph",
+        text: "Betrifft der Geschäftsregelfehler dagegen eine Pflichtangabe der §§ 14 oder 14a UStG, liegt zugleich ein Inhaltsfehler vor. Die Rechnung ist dann nicht ordnungsmäßig.",
+      },
+      {
+        type: "notice",
+        variant: "merke",
+        text: "Nicht jeder Geschäftsregelfehler ist automatisch ein umsatzsteuerlicher Inhaltsfehler.",
+      },
+      { type: "heading", text: "4. Inhaltsfehler: Gefahr für den Vorsteuerabzug" },
+      {
+        type: "paragraph",
+        text: "Ein Inhaltsfehler liegt vor, wenn eine umsatzsteuerrechtliche Pflichtangabe fehlt oder unrichtig ist. Betroffen sein können beispielsweise:",
+      },
+      {
+        type: "list",
+        items: [
+          "der vollständige Name oder die Anschrift der Beteiligten,",
+          "die Steuernummer oder Umsatzsteuer-Identifikationsnummer,",
+          "das Ausstellungsdatum,",
+          "die Rechnungsnummer,",
+          "die Leistungsbeschreibung,",
+          "der Leistungszeitpunkt,",
+          "das Entgelt oder",
+          "der Steuersatz und Steuerbetrag.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Eine Rechnung kann technisch vollständig der Norm EN 16931 entsprechen und trotzdem einen Inhaltsfehler enthalten. Ein falscher Steuersatz kann beispielsweise technisch korrekt in der Datei hinterlegt sein, ohne dass das Validierungsprogramm erkennt, dass dieser Steuersatz für den konkreten Umsatz sachlich falsch ist.",
+      },
+      {
+        type: "paragraph",
+        text: "Die Rechnung bleibt in einem solchen Fall zwar ihrem Format nach eine E-Rechnung. Sie ist jedoch keine ordnungsmäßige Rechnung im Sinne der §§ 14 und 14a UStG. Dadurch kann der Vorsteuerabzug gefährdet sein.",
+      },
+      { type: "heading", text: "5. Was kann eine technische Validierung leisten?" },
+      {
+        type: "paragraph",
+        text: "Eine Validierungsanwendung überprüft insbesondere:",
+      },
+      {
+        type: "list",
+        items: [
+          "das verwendete Rechnungsformat,",
+          "die Einhaltung der technischen Syntax und",
+          "die für das jeweilige Format geltenden Geschäftsregeln.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Unternehmer dürfen sich nach Auffassung des BMF auf das technische Ergebnis einer geeigneten Validierungsanwendung verlassen, wenn sie dabei die Sorgfaltspflichten eines ordentlichen Kaufmanns beachten.",
+      },
+      {
+        type: "paragraph",
+        text: "Das BMF empfiehlt außerdem, den erstellten Validierungsbericht aufzubewahren. Dieser kann dokumentieren, dass die Rechnung technisch geprüft wurde.",
+      },
+      {
+        type: "notice",
+        variant: "wichtig",
+        text: "Eine erfolgreiche Validierung ist kein vollständiges Qualitätssiegel. Sie ersetzt nicht die Prüfung, ob die Rechnung vollständig ist, den tatsächlichen Leistungsaustausch zutreffend wiedergibt, den richtigen Steuersatz enthält und im Übrigen die Voraussetzungen für den Vorsteuerabzug erfüllt.",
+      },
+      { type: "heading", text: "6. Weitere Klarstellungen des BMF" },
+      {
+        type: "subheading",
+        text: "Rechnungen von Kleinunternehmern",
+      },
+      {
+        type: "paragraph",
+        text: "Rechnungen über Leistungen von Kleinunternehmern dürfen weiterhin als sonstige Rechnung ausgestellt werden. Wird dennoch eine ordnungsgemäße E-Rechnung verwendet, ist hierfür keine Zustimmung des Empfängers erforderlich.",
+      },
+      {
+        type: "subheading",
+        text: "Änderung der Bemessungsgrundlage",
+      },
+      {
+        type: "paragraph",
+        text: "Mindert sich die Bemessungsgrundlage nach der Rechnungsausstellung, etwa aufgrund eines Skontos oder eines nachträglichen Nachlasses, ist grundsätzlich keine Rechnungsberichtigung erforderlich.",
+      },
+      {
+        type: "paragraph",
+        text: "Ändert sich dagegen der Umfang oder Inhalt der ausgeführten Leistung, kann eine Rechnungsberichtigung notwendig werden. Dies betrifft beispielsweise erhebliche Änderungen bei einem Aufmaß oder bei der Leistungsbeschreibung.",
+      },
+      {
+        type: "subheading",
+        text: "Aufbewahrung",
+      },
+      {
+        type: "paragraph",
+        text: "Bei einer E-Rechnung muss zumindest der strukturierte Rechnungsteil so aufbewahrt werden, dass er unversehrt in seiner ursprünglichen Form erhalten bleibt. Die umsatzsteuerrechtliche Aufbewahrungsfrist beträgt acht Jahre.",
+      },
+      {
+        type: "heading",
+        text: "Praxis-Check für den Rechnungseingang",
+      },
+      {
+        type: "checklist",
+        title: "Meine Checkliste zum Rechnungseingang",
+        storageKey: "steuerstoff-magazin-checklist-e-rechnung-2025-v1",
+        items: [
+          "Prüfen, ob die Datei technisch geöffnet und verarbeitet werden kann",
+          "Verwendetes Rechnungsformat und Syntax validieren",
+          "Validierungsbericht elektronisch zur Rechnung aufbewahren",
+          "Pflichtangaben nach §§ 14 und 14a UStG kontrollieren",
+          "Leistung, Leistungszeitpunkt und Entgelt mit dem Geschäftsvorfall abgleichen",
+          "Steuersatz und Steuerbetrag fachlich überprüfen",
+          "Bei relevanten Fehlern eine korrigierte Rechnung anfordern",
+        ],
+      },
+      { type: "heading", text: "Fazit" },
+      {
+        type: "paragraph",
+        text: "Das BMF schafft mit seinem Schreiben mehr Klarheit für die Behandlung fehlerhafter E-Rechnungen. Besonders wichtig ist die Unterscheidung zwischen technischen Formatfehlern, Geschäftsregelfehlern und umsatzsteuerlichen Inhaltsfehlern.",
+      },
+      {
+        type: "paragraph",
+        text: "Ein positives Validierungsergebnis erleichtert die technische Kontrolle und kann eine wichtige Nachweisfunktion erfüllen. Es ersetzt jedoch nicht die fachliche Rechnungsprüfung. Für den Vorsteuerabzug bleibt entscheidend, dass die Rechnung nicht nur technisch verarbeitet werden kann, sondern auch inhaltlich vollständig und richtig ist.",
+      },
+      {
+        type: "notice",
+        variant: "merke",
+        text: "Nicht jede technisch fehlerhafte Datei ist eine E-Rechnung – und nicht jede technisch fehlerfreie E-Rechnung ist automatisch umsatzsteuerlich ordnungsgemäß.",
+      },
+      {
+        type: "sourceLink",
+        title: "Amtliche Quelle",
+        text: "Bundesministerium der Finanzen, Schreiben vom 15. Oktober 2025 zur Einführung der obligatorischen elektronischen Rechnung bei Umsätzen zwischen inländischen Unternehmern und zur Anpassung des Umsatzsteuer-Anwendungserlasses.",
+        buttonLabel: "BMF-Schreiben öffnen",
+        url: "https://www.bundesfinanzministerium.de/Content/DE/Downloads/BMF_Schreiben/Steuerarten/Umsatzsteuer/Umsatzsteuer-Anwendungserlass/2025-10-15-einfuehrung-obligatorische-e-rechnung.pdf?__blob=publicationFile&v=3",
+        note: "steuerstoff fasst das Schreiben redaktionell und verständlich zusammen; maßgeblich bleibt die amtliche Fassung.",
+      },
+    ],
+  },
 ];

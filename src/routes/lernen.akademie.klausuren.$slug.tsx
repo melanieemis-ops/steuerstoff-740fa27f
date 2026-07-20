@@ -32,8 +32,7 @@ export const Route = createFileRoute("/lernen/akademie/klausuren/$slug")({
         </p>
         <Link
           to="/lernen/akademie/klausuren"
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore – TanStack Router incorrectly infers search param inheritance from /lernen
+          search={{}}
           className="mt-6 inline-flex items-center gap-2 rounded-2xl bg-foreground px-5 py-3 text-sm font-semibold text-background"
         >
           <ArrowLeft className="h-4 w-4" />

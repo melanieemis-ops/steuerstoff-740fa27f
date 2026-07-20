@@ -41,7 +41,7 @@ const baseNav: NavItem[] = [
     Icon: MessageSquare,
   },
   {
-    to: "/lernen",
+    to: "/lernen/akademie",
     label: "Lernen",
     Icon: GraduationCap,
   },

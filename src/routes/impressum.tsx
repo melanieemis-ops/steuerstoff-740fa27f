@@ -41,8 +41,8 @@ function ImpressumPage() {
               <h2 className="text-lg font-semibold text-foreground">Anbieter</h2>
               <p className="mt-2">
                 Melanie Misakian<br />
-                [Adresse hier eintragen]<br />
-                [PLZ Ort]<br />
+                Heuchelheimer Str. 151<br />
+                61350 Bad Homburg v. d. Höhe<br />
                 Deutschland
               </p>
             </section>
@@ -50,8 +50,21 @@ function ImpressumPage() {
             <section>
               <h2 className="text-lg font-semibold text-foreground">Kontakt</h2>
               <p className="mt-2">
-                E-Mail: [E-Mail-Adresse hier eintragen]<br />
-                Telefon: [Telefonnummer hier eintragen]
+                E-Mail:{" "}
+                <a
+                  href="mailto:steuerstoff@gmx.de"
+                  className="hover:text-accent transition-colors"
+                >
+                  steuerstoff@gmx.de
+                </a>
+                <br />
+                Telefon:{" "}
+                <a
+                  href="tel:+491776066031"
+                  className="hover:text-accent transition-colors"
+                >
+                  +49 177 6066 031
+                </a>
               </p>
             </section>
 
@@ -61,8 +74,8 @@ function ImpressumPage() {
               </h2>
               <p className="mt-2">
                 Melanie Misakian<br />
-                [Adresse hier eintragen]<br />
-                [PLZ Ort]<br />
+                Heuchelheimer Str. 151<br />
+                61350 Bad Homburg v. d. Höhe<br />
                 Deutschland
               </p>
             </section>

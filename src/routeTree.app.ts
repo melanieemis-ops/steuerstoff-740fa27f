@@ -7,6 +7,7 @@ import { Route as MittelverwendungsrechnerRouteImport } from "./routes/mittelver
 import { Route as MagazinRouteImport } from "./routes/magazin";
 import { Route as LerngebieteRouteImport } from "./routes/lerngebiete";
 import { Route as LernenRouteImport } from "./routes/lernen";
+import { Route as AkademieRouteImport } from "./routes/lernen.akademie";
 import { Route as KlausurenRouteImport } from "./routes/lernen.akademie.klausuren";
 import { Route as KlausurenSlugRouteImport } from "./routes/lernen.akademie.klausuren.$slug";
 import { Route as KfzWertabgabeRouteImport } from "./routes/kfz-wertabgabe";
@@ -16,7 +17,6 @@ import { Route as ErfolgeRouteImport } from "./routes/erfolge";
 import { Route as EinstellungenRouteImport } from "./routes/einstellungen";
 import { Route as CsvKonverterRouteImport } from "./routes/csv-konverter";
 import { Route as ChatRouteImport } from "./routes/chat";
-import { Route as AkademieRouteImport } from "./routes/akademie";
 import { Route as IndexRouteImport } from "./routes/index";
 import { Route as FallCaseIdRouteImport } from "./routes/fall.$caseId";
 
@@ -106,8 +106,8 @@ const ChatRoute = ChatRouteImport.update({
   getParentRoute: () => AppRootRoute,
 } as const);
 const AkademieRoute = AkademieRouteImport.update({
-  id: "/akademie",
-  path: "/akademie",
+  id: "/lernen/akademie",
+  path: "/lernen/akademie",
   getParentRoute: () => AppRootRoute,
 } as const);
 const IndexRoute = IndexRouteImport.update({

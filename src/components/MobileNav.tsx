@@ -22,8 +22,8 @@ export const SECTIONS = [
   },
   {
     to: "/lernen/akademie",
-    label: "Lernen",
-    short: "Lernen",
+    label: "Akademie",
+    short: "Akademie",
   },
   {
     to: "/",

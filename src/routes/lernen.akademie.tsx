@@ -415,10 +415,10 @@ function ExamTrainingCard() {
 
       <h3 className="mt-5 text-xl font-semibold text-foreground">Klausurtraining</h3>
       <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
-        Echte Prüfungsfälle Schritt für Schritt bearbeiten
+        Echte Prüfungsfälle mit gestuften Lösungshinweisen und Musterlösungen.
       </p>
       <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground">
-        Klausuren öffnen
+        Klausurfälle öffnen
         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
       </span>
     </Link>

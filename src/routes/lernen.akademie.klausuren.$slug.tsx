@@ -161,7 +161,7 @@ function KlausurDetailPage() {
           <div className="mx-auto w-full max-w-3xl px-4 py-6 sm:px-6 sm:py-8">
             <Link
               to="/lernen/akademie/klausuren"
-              search={{}}
+              search={{ category: "Umsatzsteuer" }}
               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               // @ts-ignore – TanStack Router incorrectly infers search param inheritance from /lernen
               className="inline-flex items-center gap-2 rounded-xl px-2 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"

@@ -24,6 +24,7 @@ import { useState } from "react";
 import { getUserName, hasUserName, saveUserName } from "@/lib/profile";
 
 export const Route = createFileRoute("/lernen/akademie")({
+  validateSearch: () => ({}),
   component: AkademiePage,
   head: () => ({
     meta: [
@@ -399,9 +400,6 @@ function ExamTrainingCard() {
   return (
     <Link
       to="/lernen/akademie/klausuren"
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore – TanStack Router incorrectly infers search param inheritance from /lernen
-      search={{}}
       className="group flex min-h-52 flex-col rounded-[1.75rem] border border-border/70 bg-card p-5 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md sm:p-6"
     >
       <div className="flex items-start justify-between gap-3">

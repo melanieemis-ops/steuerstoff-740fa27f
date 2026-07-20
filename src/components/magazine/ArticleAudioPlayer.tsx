@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AUDIO_CONTENT_VERSION } from "@/lib/articleSpeechText";
+import { apiUrl } from "@/lib/api";
 import { onAudioStop, requestStopAllAudio } from "@/lib/chatTtsClient";
 import { normalizeForSpeech } from "@/lib/speech-normalize";
 
@@ -248,16 +249,16 @@ function HlsPlayer({
 
   const hlsUrl = useMemo(
     () =>
-      `/api/tts?articleId=${encodeURIComponent(articleId)}&v=${encodeURIComponent(
+      apiUrl(`/api/tts?articleId=${encodeURIComponent(articleId)}&v=${encodeURIComponent(
         AUDIO_CONTENT_VERSION,
-      )}&hls=1`,
+      )}&hls=1`),
     [articleId],
   );
   const manifestUrl = useMemo(
     () =>
-      `/api/tts?articleId=${encodeURIComponent(articleId)}&v=${encodeURIComponent(
+      apiUrl(`/api/tts?articleId=${encodeURIComponent(articleId)}&v=${encodeURIComponent(
         AUDIO_CONTENT_VERSION,
-      )}&manifest=1`,
+      )}&manifest=1`),
     [articleId],
   );
 
@@ -642,9 +643,9 @@ function PlaylistPlayer({
 
   const manifestUrl = useMemo(
     () =>
-      `/api/tts?articleId=${encodeURIComponent(articleId)}&v=${encodeURIComponent(
+      apiUrl(`/api/tts?articleId=${encodeURIComponent(articleId)}&v=${encodeURIComponent(
         AUDIO_CONTENT_VERSION,
-      )}&manifest=1`,
+      )}&manifest=1`),
     [articleId],
   );
 
@@ -654,7 +655,14 @@ function PlaylistPlayer({
       try {
         const res = await fetch(manifestUrl, { cache: "no-store" });
         if (!res.ok) throw new Error(`Manifest ${res.status}`);
-        const data = (await res.json()) as Manifest;
+        const raw = (await res.json()) as Manifest;
+        const data: Manifest = {
+          ...raw,
+          segments: raw.segments.map((segment) => ({
+            ...segment,
+            url: apiUrl(segment.url),
+          })),
+        };
         if (!data.segments || data.segments.length === 0) throw new Error("Leeres Manifest");
         setManifest(data);
         setDurations(new Array(data.segmentCount).fill(NaN));

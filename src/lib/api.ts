@@ -1,0 +1,24 @@
+import { Capacitor } from "@capacitor/core";
+
+const DEFAULT_NATIVE_API_BASE_URL = "https://steuerstoff.com";
+
+function withLeadingSlash(path: string): string {
+  return path.startsWith("/") ? path : `/${path}`;
+}
+
+function withoutTrailingSlash(url: string): string {
+  return url.endsWith("/") ? url.slice(0, -1) : url;
+}
+
+export function apiUrl(path: string): string {
+  const normalizedPath = withLeadingSlash(path);
+
+  if (!Capacitor.isNativePlatform()) {
+    return normalizedPath;
+  }
+
+  const envBase = import.meta.env.VITE_API_BASE_URL?.trim();
+  const base = envBase && envBase.length > 0 ? envBase : DEFAULT_NATIVE_API_BASE_URL;
+
+  return `${withoutTrailingSlash(base)}${normalizedPath}`;
+}

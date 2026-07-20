@@ -1,3 +1,5 @@
+import { Capacitor } from "@capacitor/core";
+
 // Guarded service-worker registration. Never registers in dev/preview/iframe/kill-switch.
 // Emits a "steuerstoff:sw-update" CustomEvent when a new version is waiting.
 
@@ -7,6 +9,7 @@ function shouldSkip(): boolean {
   if (typeof window === "undefined") return true;
   if (!("serviceWorker" in navigator)) return true;
   if (!import.meta.env.PROD) return true;
+  if (Capacitor.isNativePlatform()) return true;
   try {
     if (window.top !== window.self) return true;
   } catch {

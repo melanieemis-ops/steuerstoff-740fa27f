@@ -92,6 +92,9 @@
       },
     },
   },
+  "overrides": {
+    "set-value": "^4.1.0",
+  },
   "packages": {
     "@apideck/better-ajv-errors": ["@apideck/better-ajv-errors@0.3.7", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/@apideck/better-ajv-errors/-/better-ajv-errors-0.3.7.tgz", { "dependencies": { "jsonpointer": "^5.0.1", "leven": "^3.1.0" }, "peerDependencies": { "ajv": ">=8" } }, "sha512-TajUJwGWbDwkCx/CZi7tRE8PVB7simCvKJfHUsSdvps+aTM/PDPP4gkLmKnc+x3CE//y9i/nj74GqdL/hwk7Iw=="],
 
@@ -1777,8 +1780,6 @@
 
     "is-answer": ["is-answer@0.1.1", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/is-answer/-/is-answer-0.1.1.tgz", { "dependencies": { "has-values": "^0.1.4", "is-primitive": "^2.0.0", "omit-empty": "^0.4.1" } }, "sha512-ifVYWfVjXzeNx32XK7twC8xMzVYfOqFGETEuwww/Oo8OZQe/tv+huAjP+05qP8omK+IfLmPWN0omZ7YvIvejMw=="],
 
-    "is-arguments": ["is-arguments@1.2.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/is-arguments/-/is-arguments-1.2.0.tgz", { "dependencies": { "call-bound": "^1.0.2", "has-tostringtag": "^1.0.2" } }, "sha512-7bVbi0huj/wrIAOzb8U1aszg9kdi3KN/CyU19CTI7tAoZYEZoL9yCDXpbXN+uPsuWnP02cyug1gleqq+TU+YCA=="],
-
     "is-array-buffer": ["is-array-buffer@3.0.5", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/is-array-buffer/-/is-array-buffer-3.0.5.tgz", { "dependencies": { "call-bind": "^1.0.8", "call-bound": "^1.0.3", "get-intrinsic": "^1.2.6" } }, "sha512-DDfANUiiG2wC1qawP66qlTugJeL5HyzMpfr8lLK+jMQirGzNod0B12cFB/9q838Ru27sBwfw78/rdoU7RERz6A=="],
 
     "is-async-function": ["is-async-function@2.1.1", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/is-async-function/-/is-async-function-2.1.1.tgz", { "dependencies": { "async-function": "^1.0.0", "call-bound": "^1.0.3", "get-proto": "^1.0.1", "has-tostringtag": "^1.0.2", "safe-regex-test": "^1.1.0" } }, "sha512-9dgM/cZBnNvjzaMYHVoxxfPj2QXt22Ev7SuuPrs+xav0ukGB0S6d4ydZdEiM48kLx5kDV+QBPrpVnFyefL8kkQ=="],
@@ -2485,7 +2486,7 @@
 
     "set-proto": ["set-proto@1.0.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/set-proto/-/set-proto-1.0.0.tgz", { "dependencies": { "dunder-proto": "^1.0.1", "es-errors": "^1.3.0", "es-object-atoms": "^1.0.0" } }, "sha512-RJRdvCo6IAnPdsvP/7m6bsQqNnn1FCBX5ZNtFL98MmFF/4xAIJTIg1YbHW5DC2W5SKZanrC6i4HsJqlajw/dZw=="],
 
-    "set-value": ["set-value@0.4.3", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/set-value/-/set-value-0.4.3.tgz", { "dependencies": { "extend-shallow": "^2.0.1", "is-extendable": "^0.1.1", "is-plain-object": "^2.0.1", "to-object-path": "^0.3.0" } }, "sha512-2Z0LRUUvYeF7gIFFep48ksPq0NR09e5oKoFXznaMGNcu+EZAfGnyL0K6xno2gCqX6dZYEZRjrcn04/gvZzcKhQ=="],
+    "set-value": ["set-value@4.1.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/set-value/-/set-value-4.1.0.tgz", { "dependencies": { "is-plain-object": "^2.0.4", "is-primitive": "^3.0.1" } }, "sha512-zTEg4HL0RwVrqcWs3ztF+x1vkxfm0lP+MQQFPiMJTKVceBwEV0A569Ou8l9IYQG8jOZdMVI1hGsc0tmeD2o/Lw=="],
 
     "shallow-clone": ["shallow-clone@0.1.2", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/shallow-clone/-/shallow-clone-0.1.2.tgz", { "dependencies": { "is-extendable": "^0.1.1", "kind-of": "^2.0.1", "lazy-cache": "^0.2.3", "mixin-object": "^2.0.1" } }, "sha512-J1zdXCky5GmNnuauESROVu31MQSnLoYvlyEn6j2Ztk6Q5EHFIhxkMhYcv6vuDzl2XEzoRr856QwzMgWM/TmZgw=="],
 
@@ -3271,8 +3272,6 @@
 
     "base-data/kind-of": ["kind-of@5.1.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/kind-of/-/kind-of-5.1.0.tgz", {}, "sha512-NGEErnH6F2vUuXDh+OlbcKW7/wOcfdRHaZ7VWtqCztfHri/++YKmP51OdWeGPuqCOba6kk2OTe5d02VmTB80Pw=="],
 
-    "base-data/set-value": ["set-value@2.0.1", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/set-value/-/set-value-2.0.1.tgz", { "dependencies": { "extend-shallow": "^2.0.1", "is-extendable": "^0.1.1", "is-plain-object": "^2.0.3", "split-string": "^3.0.1" } }, "sha512-JxHc1weCN68wRY0fhCoXpyK55m/XPHafOmK4UWD7m2CI14GMcFypt4w/0+NV5f/ZMby2F6S2wwA7fgynh9gWSw=="],
-
     "base-engines/debug": ["debug@2.6.9", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/debug/-/debug-2.6.9.tgz", { "dependencies": { "ms": "2.0.0" } }, "sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA=="],
 
     "base-engines/define-property": ["define-property@0.2.5", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/define-property/-/define-property-0.2.5.tgz", { "dependencies": { "is-descriptor": "^0.1.0" } }, "sha512-Rr7ADjQZenceVOAKop6ALkkRAmH1A4Gx9hV/7ZujPUN2rkATqFO0JZLZInbAjpZYoJ1gUx8MRMQVkYemcbMSTA=="],
@@ -3314,8 +3313,6 @@
     "base-option/define-property": ["define-property@0.2.5", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/define-property/-/define-property-0.2.5.tgz", { "dependencies": { "is-descriptor": "^0.1.0" } }, "sha512-Rr7ADjQZenceVOAKop6ALkkRAmH1A4Gx9hV/7ZujPUN2rkATqFO0JZLZInbAjpZYoJ1gUx8MRMQVkYemcbMSTA=="],
 
     "base-option/isobject": ["isobject@2.1.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/isobject/-/isobject-2.1.0.tgz", { "dependencies": { "isarray": "1.0.0" } }, "sha512-+OUdGJlgjOBZDfxnDjYYG6zp487z0JGNQq3cYQYg5f5hKR+syHMsaztzGeml/4kGG55CSpKSpWTY+jYGgsHLgA=="],
-
-    "base-option/set-value": ["set-value@0.3.3", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/set-value/-/set-value-0.3.3.tgz", { "dependencies": { "extend-shallow": "^2.0.1", "isobject": "^2.0.0", "to-object-path": "^0.2.0" } }, "sha512-aJPTd11HzK47w8xJMpyY4tBmFC6EidC8EG2fENxCJvPwLYzXLnNaesgo796y1fhSISSYAuah4Het+wDoPXK2tg=="],
 
     "base-pipeline/is-valid-app": ["is-valid-app@0.1.2", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/is-valid-app/-/is-valid-app-0.1.2.tgz", { "dependencies": { "debug": "^2.2.0", "is-registered": "^0.1.5", "is-valid-instance": "^0.1.0", "lazy-cache": "^2.0.1" } }, "sha512-UKIjincKieawS6pPJjpH76qUmblicLSi0pqGCvFdscOM3pWgnrRBtB/iWIRYXKNCW8qjxb+6k12wFd82Kq94CA=="],
 
@@ -3361,8 +3358,6 @@
 
     "cache-base/has-value": ["has-value@1.0.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/has-value/-/has-value-1.0.0.tgz", { "dependencies": { "get-value": "^2.0.6", "has-values": "^1.0.0", "isobject": "^3.0.0" } }, "sha512-IBXk4GTsLYdQ7Rvt+GRBrFSVEkmuOUy4re0Xjd9kJSUQpnTrWR4/y9RpfexN9vkAPMFuQoeWKwqzPozRTlasGw=="],
 
-    "cache-base/set-value": ["set-value@2.0.1", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/set-value/-/set-value-2.0.1.tgz", { "dependencies": { "extend-shallow": "^2.0.1", "is-extendable": "^0.1.1", "is-plain-object": "^2.0.3", "split-string": "^3.0.1" } }, "sha512-JxHc1weCN68wRY0fhCoXpyK55m/XPHafOmK4UWD7m2CI14GMcFypt4w/0+NV5f/ZMby2F6S2wwA7fgynh9gWSw=="],
-
     "center-align/lazy-cache": ["lazy-cache@1.0.4", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/lazy-cache/-/lazy-cache-1.0.4.tgz", {}, "sha512-RE2g0b5VGZsOCFOCgP7omTRYFqydmZkBwl5oNnQ1lDYC57uyO9KqNnNVxT7COSHTxrRCWVcAVOcbjk+tvh/rgQ=="],
 
     "class-utils/define-property": ["define-property@0.2.5", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/define-property/-/define-property-0.2.5.tgz", { "dependencies": { "is-descriptor": "^0.1.0" } }, "sha512-Rr7ADjQZenceVOAKop6ALkkRAmH1A4Gx9hV/7ZujPUN2rkATqFO0JZLZInbAjpZYoJ1gUx8MRMQVkYemcbMSTA=="],
@@ -3372,8 +3367,6 @@
     "cmdk/@radix-ui/react-primitive": ["@radix-ui/react-primitive@2.1.4", "", { "dependencies": { "@radix-ui/react-slot": "1.2.4" }, "peerDependencies": { "@types/react": "*", "@types/react-dom": "*", "react": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc", "react-dom": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" }, "optionalPeers": ["@types/react", "@types/react-dom"] }, "sha512-9hQc4+GNVtJAIEPEqlYqW5RiYdrr8ea5XQ0ZOnD6fgru+83kqT15mq2OCcbe8KnjRZl5vF3ks69AKz3kh1jrhg=="],
 
     "common-config/data-store": ["data-store@0.16.1", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/data-store/-/data-store-0.16.1.tgz", { "dependencies": { "cache-base": "^0.8.4", "clone-deep": "^0.2.4", "debug": "^2.2.0", "define-property": "^0.2.5", "extend-shallow": "^2.0.1", "graceful-fs": "^4.1.4", "has-own-deep": "^0.1.4", "lazy-cache": "^2.0.1", "mkdirp": "^0.5.1", "project-name": "^0.2.5", "resolve-dir": "^0.1.0", "rimraf": "^2.5.3", "union-value": "^0.2.3" } }, "sha512-tGbl4oVi9UPysie6y6+fuCjUNhaR3KxnuIRV0OMUCwq/wvikmWHXQYALbW/IVQvmxBNbrxUwjG5BWsrjx5v55w=="],
-
-    "common-config/set-value": ["set-value@3.0.3", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/set-value/-/set-value-3.0.3.tgz", { "dependencies": { "is-plain-object": "^2.0.4" } }, "sha512-Xsn/XSatoVOGBbp5hs3UylFDs5Bi9i+ArpVJKdHPniZHoEgRniXTqHWrWrGQ0PbEClVT6WtfnBwR8CAHC9sveg=="],
 
     "common-config/yargs-parser": ["yargs-parser@2.4.1", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/yargs-parser/-/yargs-parser-2.4.1.tgz", { "dependencies": { "camelcase": "^3.0.0", "lodash.assign": "^4.0.6" } }, "sha512-9pIKIJhnI5tonzG6OnCFlz/yln8xHYcGl+pn3xR0Vzff0vzN1PbNRaelgfgRUwZ3s4i3jvxT9WhmUGL4whnasA=="],
 
@@ -3388,8 +3381,6 @@
     "common-questions/debug": ["debug@2.6.9", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/debug/-/debug-2.6.9.tgz", { "dependencies": { "ms": "2.0.0" } }, "sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA=="],
 
     "common-questions/define-property": ["define-property@0.2.5", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/define-property/-/define-property-0.2.5.tgz", { "dependencies": { "is-descriptor": "^0.1.0" } }, "sha512-Rr7ADjQZenceVOAKop6ALkkRAmH1A4Gx9hV/7ZujPUN2rkATqFO0JZLZInbAjpZYoJ1gUx8MRMQVkYemcbMSTA=="],
-
-    "common-questions/set-value": ["set-value@2.0.1", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/set-value/-/set-value-2.0.1.tgz", { "dependencies": { "extend-shallow": "^2.0.1", "is-extendable": "^0.1.1", "is-plain-object": "^2.0.3", "split-string": "^3.0.1" } }, "sha512-JxHc1weCN68wRY0fhCoXpyK55m/XPHafOmK4UWD7m2CI14GMcFypt4w/0+NV5f/ZMby2F6S2wwA7fgynh9gWSw=="],
 
     "composer/define-property": ["define-property@0.2.5", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/define-property/-/define-property-0.2.5.tgz", { "dependencies": { "is-descriptor": "^0.1.0" } }, "sha512-Rr7ADjQZenceVOAKop6ALkkRAmH1A4Gx9hV/7ZujPUN2rkATqFO0JZLZInbAjpZYoJ1gUx8MRMQVkYemcbMSTA=="],
 
@@ -3427,17 +3418,11 @@
 
     "engine/lazy-cache": ["lazy-cache@0.2.7", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/lazy-cache/-/lazy-cache-0.2.7.tgz", {}, "sha512-gkX52wvU/R8DVMMt78ATVPFMJqfW8FPz1GZ1sVHBVQHmu/WvhIWE4cE1GBzhJNFicDeYhnwp6Rl35BcAIM3YOQ=="],
 
-    "engine/set-value": ["set-value@0.2.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/set-value/-/set-value-0.2.0.tgz", { "dependencies": { "isobject": "^1.0.0", "noncharacters": "^1.1.0" } }, "sha512-dJaeu7V8d1KwjePimg1oOpGp31cEw/uRcZlfL7wwemkr+A00ev/ZhikvSMiQ4hkf83d8JdY2AFoFmXsKzmHMSw=="],
-
     "es-abstract/hasown": ["hasown@2.0.3", "", { "dependencies": { "function-bind": "^1.1.2" } }, "sha512-ej4AhfhfL2Q2zpMmLo7U1Uv9+PyhIZpgQLGT1F9miIGmiCJIoCgSmczFdrc97mWT4kVY72KA+WnnhJ5pghSvSg=="],
 
     "execa/cross-spawn": ["cross-spawn@5.1.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/cross-spawn/-/cross-spawn-5.1.0.tgz", { "dependencies": { "lru-cache": "^4.0.1", "shebang-command": "^1.2.0", "which": "^1.2.9" } }, "sha512-pTgQJ5KC0d2hcY8eyL1IzlBPYjTkyH72XRZPnLyKus2mBfNjQs3klqbJU2VILqZryAZUt9JOb3h/mWMy23/f5A=="],
 
     "execa/is-stream": ["is-stream@1.1.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/is-stream/-/is-stream-1.1.0.tgz", {}, "sha512-uQPm8kcs47jx38atAcWTVxyltQYoPT68y9aWYdV6yWXSyW8mzSat0TL6CiWdZeCdF3KrAvpVtnHbTv4RN+rqdQ=="],
-
-    "expand-args/set-value": ["set-value@0.3.3", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/set-value/-/set-value-0.3.3.tgz", { "dependencies": { "extend-shallow": "^2.0.1", "isobject": "^2.0.0", "to-object-path": "^0.2.0" } }, "sha512-aJPTd11HzK47w8xJMpyY4tBmFC6EidC8EG2fENxCJvPwLYzXLnNaesgo796y1fhSISSYAuah4Het+wDoPXK2tg=="],
-
-    "expand-object/set-value": ["set-value@0.3.3", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/set-value/-/set-value-0.3.3.tgz", { "dependencies": { "extend-shallow": "^2.0.1", "isobject": "^2.0.0", "to-object-path": "^0.2.0" } }, "sha512-aJPTd11HzK47w8xJMpyY4tBmFC6EidC8EG2fENxCJvPwLYzXLnNaesgo796y1fhSISSYAuah4Het+wDoPXK2tg=="],
 
     "expand-pkg/debug": ["debug@2.6.9", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/debug/-/debug-2.6.9.tgz", { "dependencies": { "ms": "2.0.0" } }, "sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA=="],
 
@@ -3566,8 +3551,6 @@
     "matched/resolve-dir": ["resolve-dir@0.1.1", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/resolve-dir/-/resolve-dir-0.1.1.tgz", { "dependencies": { "expand-tilde": "^1.2.2", "global-modules": "^0.2.3" } }, "sha512-QxMPqI6le2u0dCLyiGzgy92kjkkL6zO0XyvHzjdTNH3zM6e5Hz3BwG6+aEyNgiQ5Xz6PwTwgQEj3U50dByPKIA=="],
 
     "merge-value/is-extendable": ["is-extendable@1.0.1", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/is-extendable/-/is-extendable-1.0.1.tgz", { "dependencies": { "is-plain-object": "^2.0.4" } }, "sha512-arnXMxT1hhoKo9k1LZdmlNyJdDDfy2v0fXjFlmok4+i8ul/6WlbVge9bhM74OpNPQPMGUToDtz+KXa1PneJxOA=="],
-
-    "merge-value/set-value": ["set-value@2.0.1", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/set-value/-/set-value-2.0.1.tgz", { "dependencies": { "extend-shallow": "^2.0.1", "is-extendable": "^0.1.1", "is-plain-object": "^2.0.3", "split-string": "^3.0.1" } }, "sha512-JxHc1weCN68wRY0fhCoXpyK55m/XPHafOmK4UWD7m2CI14GMcFypt4w/0+NV5f/ZMby2F6S2wwA7fgynh9gWSw=="],
 
     "micromatch/braces": ["braces@1.8.5", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/braces/-/braces-1.8.5.tgz", { "dependencies": { "expand-range": "^1.8.1", "preserve": "^0.2.0", "repeat-element": "^1.1.2" } }, "sha512-xU7bpz2ytJl1bH9cgIurjpg/n8Gohy9GTw81heDYLJQ4RU60dlyJsa+atVF2pI0yMMvKxI9HkKwjePCj5XI1hw=="],
 
@@ -3915,8 +3898,6 @@
 
     "question-cache/omit-empty": ["omit-empty@0.3.6", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/omit-empty/-/omit-empty-0.3.6.tgz", { "dependencies": { "has-values": "^0.1.4", "is-date-object": "^1.0.1", "isobject": "^2.0.0", "reduce-object": "^0.1.3" } }, "sha512-P5zl3TYREgcRAjjyj9kYHNhVtOOXMlCyYh/KNm53oUZNKpGOBbS0WLdRcThDPWbuFleXlbCd1KTBRZD86nj3RA=="],
 
-    "question-cache/set-value": ["set-value@0.3.3", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/set-value/-/set-value-0.3.3.tgz", { "dependencies": { "extend-shallow": "^2.0.1", "isobject": "^2.0.0", "to-object-path": "^0.2.0" } }, "sha512-aJPTd11HzK47w8xJMpyY4tBmFC6EidC8EG2fENxCJvPwLYzXLnNaesgo796y1fhSISSYAuah4Het+wDoPXK2tg=="],
-
     "question-store/data-store": ["data-store@0.16.1", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/data-store/-/data-store-0.16.1.tgz", { "dependencies": { "cache-base": "^0.8.4", "clone-deep": "^0.2.4", "debug": "^2.2.0", "define-property": "^0.2.5", "extend-shallow": "^2.0.1", "graceful-fs": "^4.1.4", "has-own-deep": "^0.1.4", "lazy-cache": "^2.0.1", "mkdirp": "^0.5.1", "project-name": "^0.2.5", "resolve-dir": "^0.1.0", "rimraf": "^2.5.3", "union-value": "^0.2.3" } }, "sha512-tGbl4oVi9UPysie6y6+fuCjUNhaR3KxnuIRV0OMUCwq/wvikmWHXQYALbW/IVQvmxBNbrxUwjG5BWsrjx5v55w=="],
 
     "question-store/debug": ["debug@2.6.9", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/debug/-/debug-2.6.9.tgz", { "dependencies": { "ms": "2.0.0" } }, "sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA=="],
@@ -3958,6 +3939,8 @@
     "safe-push-apply/isarray": ["isarray@2.0.5", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/isarray/-/isarray-2.0.5.tgz", {}, "sha512-xHjhDr3cNBK0BzdUJSPXZntQUx/mwMS5Rw4A7lPJ90XGAO6ISP/ePDNuo0vhqOZU+UD5JoodwCAAoZQd3FeAKw=="],
 
     "semver-diff/semver": ["semver@5.7.2", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/semver/-/semver-5.7.2.tgz", { "bin": { "semver": "bin/semver" } }, "sha512-cBznnQ9KjJqU67B52RMC65CMarK2600WFnbkcaiwWq3xy/5haFJlshgnpjovMVJ+Hff49d8GEn0b87C5pDQ10g=="],
+
+    "set-value/is-primitive": ["is-primitive@3.0.1", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/is-primitive/-/is-primitive-3.0.1.tgz", {}, "sha512-GljRxhWvlCNRfZyORiH77FwdFwGcMO620o37EOYC0ORWdq+WYNVqW0w2Juzew4M+L81l6/QS3t5gkkihyRqv9w=="],
 
     "shallow-clone/kind-of": ["kind-of@2.0.1", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/kind-of/-/kind-of-2.0.1.tgz", { "dependencies": { "is-buffer": "^1.0.2" } }, "sha512-0u8i1NZ/mg0b+W3MGGw5I7+6Eib2nx72S/QvXa0hYjEkjTknYmEYQJwGu3mLC0BrhtJjtQafTkyRUQ75Kx0LVg=="],
 
@@ -4004,8 +3987,6 @@
     "to-regex/extend-shallow": ["extend-shallow@3.0.2", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/extend-shallow/-/extend-shallow-3.0.2.tgz", { "dependencies": { "assign-symbols": "^1.0.0", "is-extendable": "^1.0.1" } }, "sha512-BwY5b5Ql4+qZoefgMj2NUmx+tehVTH/Kf4k1ZEtOHNFcm2wSxMRo992l6X3TIgni2eZVTZ85xMOjF31fwZAj6Q=="],
 
     "to-regex-range/is-number": ["is-number@7.0.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/is-number/-/is-number-7.0.0.tgz", {}, "sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng=="],
-
-    "union-value/set-value": ["set-value@2.0.1", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/set-value/-/set-value-2.0.1.tgz", { "dependencies": { "extend-shallow": "^2.0.1", "is-extendable": "^0.1.1", "is-plain-object": "^2.0.3", "split-string": "^3.0.1" } }, "sha512-JxHc1weCN68wRY0fhCoXpyK55m/XPHafOmK4UWD7m2CI14GMcFypt4w/0+NV5f/ZMby2F6S2wwA7fgynh9gWSw=="],
 
     "unique-stream/through2-filter": ["through2-filter@3.0.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/through2-filter/-/through2-filter-3.0.0.tgz", { "dependencies": { "through2": "~2.0.0", "xtend": "~4.0.0" } }, "sha512-jaRjI2WxN3W1V8/FMZ9HKIBXixtiqs3SQSX4/YGIiP3gL6djW48VoZq9tDqeCWs3MT8YY5wb/zli8VW8snY1CA=="],
 
@@ -4207,8 +4188,6 @@
 
     "base-data/is-valid-app/is-valid-instance": ["is-valid-instance@0.3.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/is-valid-instance/-/is-valid-instance-0.3.0.tgz", { "dependencies": { "isobject": "^3.0.0", "pascalcase": "^0.1.1" } }, "sha512-XEd0ddnORLW/Qf1+VMh7PnYb6XhWs0zK0C/Kh8muwj26IjdlCTlo7QQIjt8+efkE8RqtyzlqYNZE5SfN8ys9hQ=="],
 
-    "base-data/set-value/split-string": ["split-string@3.1.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/split-string/-/split-string-3.1.0.tgz", { "dependencies": { "extend-shallow": "^3.0.0" } }, "sha512-NzNVhJDYpwceVVii8/Hu6DKfD2G+NrQHlS/V/qgv763EYudVwEcMQNxd2lh+0VrUByXN/oJkl5grOhYWvQUYiw=="],
-
     "base-engines/debug/ms": ["ms@2.0.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/ms/-/ms-2.0.0.tgz", {}, "sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A=="],
 
     "base-engines/define-property/is-descriptor": ["is-descriptor@0.1.8", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/is-descriptor/-/is-descriptor-0.1.8.tgz", { "dependencies": { "is-accessor-descriptor": "^1.0.1", "is-data-descriptor": "^1.0.1" } }, "sha512-SceYGWXvdqlWa/OnQ5FQuV+NxvNmMRhMw/w9AHkH71hTzveND4BTYgvp16g+oITK47qbOl/3D0bl0iygehWAWQ=="],
@@ -4256,8 +4235,6 @@
     "base-npm/is-valid-app/is-valid-instance": ["is-valid-instance@0.1.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/is-valid-instance/-/is-valid-instance-0.1.0.tgz", { "dependencies": { "isobject": "^2.1.0", "pascalcase": "^0.1.1" } }, "sha512-js5DRu650+u3zcGfCe23npdFtPuBeLx3iR8q2vfCO4m1KqNz5R35fDQlLPm++gAzg5H+OJXDOG5LGyn8pzl/1Q=="],
 
     "base-option/define-property/is-descriptor": ["is-descriptor@0.1.8", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/is-descriptor/-/is-descriptor-0.1.8.tgz", { "dependencies": { "is-accessor-descriptor": "^1.0.1", "is-data-descriptor": "^1.0.1" } }, "sha512-SceYGWXvdqlWa/OnQ5FQuV+NxvNmMRhMw/w9AHkH71hTzveND4BTYgvp16g+oITK47qbOl/3D0bl0iygehWAWQ=="],
-
-    "base-option/set-value/to-object-path": ["to-object-path@0.2.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/to-object-path/-/to-object-path-0.2.0.tgz", { "dependencies": { "arr-flatten": "^1.0.1", "is-arguments": "^1.0.2" } }, "sha512-6oMu4CTicplxUMOXBoS1W9YNjIclUzmWpWf02v+JnYMEGVX24rTCsYMHay85WA7Wq+9wZa2iJ+HAAX0yGOcxCQ=="],
 
     "base-pipeline/is-valid-app/debug": ["debug@2.6.9", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/debug/-/debug-2.6.9.tgz", { "dependencies": { "ms": "2.0.0" } }, "sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA=="],
 
@@ -4319,8 +4296,6 @@
 
     "cache-base/has-value/has-values": ["has-values@1.0.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/has-values/-/has-values-1.0.0.tgz", { "dependencies": { "is-number": "^3.0.0", "kind-of": "^4.0.0" } }, "sha512-ODYZC64uqzmtfGMEAX/FvZiRyWLpAC3vYnNunURUnkGVTS+mI0smVsWaPydRBsE3g+ok7h960jChO8mFcWlHaQ=="],
 
-    "cache-base/set-value/split-string": ["split-string@3.1.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/split-string/-/split-string-3.1.0.tgz", { "dependencies": { "extend-shallow": "^3.0.0" } }, "sha512-NzNVhJDYpwceVVii8/Hu6DKfD2G+NrQHlS/V/qgv763EYudVwEcMQNxd2lh+0VrUByXN/oJkl5grOhYWvQUYiw=="],
-
     "class-utils/define-property/is-descriptor": ["is-descriptor@0.1.8", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/is-descriptor/-/is-descriptor-0.1.8.tgz", { "dependencies": { "is-accessor-descriptor": "^1.0.1", "is-data-descriptor": "^1.0.1" } }, "sha512-SceYGWXvdqlWa/OnQ5FQuV+NxvNmMRhMw/w9AHkH71hTzveND4BTYgvp16g+oITK47qbOl/3D0bl0iygehWAWQ=="],
 
     "common-config/data-store/cache-base": ["cache-base@0.8.5", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/cache-base/-/cache-base-0.8.5.tgz", { "dependencies": { "collection-visit": "^0.2.1", "component-emitter": "^1.2.1", "get-value": "^2.0.5", "has-value": "^0.3.1", "isobject": "^3.0.0", "lazy-cache": "^2.0.1", "set-value": "^0.4.2", "to-object-path": "^0.3.0", "union-value": "^0.2.3", "unset-value": "^0.1.1" } }, "sha512-19t0n7xdoVr5Q08+6sF85YZ9VuvbpVFq5JLm0gcsRmCvTO1Y3duTJGMaOQYf14Ras4o6dEnvoqvjdrUK1tNtgg=="],
@@ -4347,8 +4322,6 @@
 
     "common-questions/define-property/is-descriptor": ["is-descriptor@0.1.8", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/is-descriptor/-/is-descriptor-0.1.8.tgz", { "dependencies": { "is-accessor-descriptor": "^1.0.1", "is-data-descriptor": "^1.0.1" } }, "sha512-SceYGWXvdqlWa/OnQ5FQuV+NxvNmMRhMw/w9AHkH71hTzveND4BTYgvp16g+oITK47qbOl/3D0bl0iygehWAWQ=="],
 
-    "common-questions/set-value/split-string": ["split-string@3.1.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/split-string/-/split-string-3.1.0.tgz", { "dependencies": { "extend-shallow": "^3.0.0" } }, "sha512-NzNVhJDYpwceVVii8/Hu6DKfD2G+NrQHlS/V/qgv763EYudVwEcMQNxd2lh+0VrUByXN/oJkl5grOhYWvQUYiw=="],
-
     "composer/define-property/is-descriptor": ["is-descriptor@0.1.8", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/is-descriptor/-/is-descriptor-0.1.8.tgz", { "dependencies": { "is-accessor-descriptor": "^1.0.1", "is-data-descriptor": "^1.0.1" } }, "sha512-SceYGWXvdqlWa/OnQ5FQuV+NxvNmMRhMw/w9AHkH71hTzveND4BTYgvp16g+oITK47qbOl/3D0bl0iygehWAWQ=="],
 
     "composer/is-glob/is-extglob": ["is-extglob@1.0.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/is-extglob/-/is-extglob-1.0.0.tgz", {}, "sha512-7Q+VbVafe6x2T+Tu6NcOf6sRklazEPmBoB3IWk3WdGZM2iGUwU/Oe3Wtq5lSEkDTTlpp8yx+5t4pzO/i9Ty1ww=="],
@@ -4369,21 +4342,11 @@
 
     "engine/collection-visit/object-visit": ["object-visit@0.3.4", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/object-visit/-/object-visit-0.3.4.tgz", { "dependencies": { "isobject": "^2.0.0" } }, "sha512-6QNyX7uTuwqxP7pmDBqgBDKdmZws1rXriUyXM5KG6+7J0aYRuuAGoc636IGdLzgOL77WUwL+EpoTJrEHwWsyOA=="],
 
-    "engine/set-value/isobject": ["isobject@1.0.2", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/isobject/-/isobject-1.0.2.tgz", {}, "sha512-WQQgFoML/sLgmhu9zTekYHZUJaPoa/fpVMQ8oxIuOvppzs70DxxyHZdAIjwcuuNDOVtNYsahhqtBbUvKwhRcGw=="],
-
     "execa/cross-spawn/lru-cache": ["lru-cache@4.1.5", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/lru-cache/-/lru-cache-4.1.5.tgz", { "dependencies": { "pseudomap": "^1.0.2", "yallist": "^2.1.2" } }, "sha512-sWZlbEP2OsHNkXrMl5GYk/jKk70MBng6UU4YI/qGDYbgf6YbP4EvmqISbXCoJiRKs+1bSpFHVgQxvJ17F2li5g=="],
 
     "execa/cross-spawn/shebang-command": ["shebang-command@1.2.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/shebang-command/-/shebang-command-1.2.0.tgz", { "dependencies": { "shebang-regex": "^1.0.0" } }, "sha512-EV3L1+UQWGor21OmnvojK36mhg+TyIKDh3iFBKBohr5xeXIhNBcx8oWdgkTEEQ+BEFFYdLRuqMfd5L84N1V5Vg=="],
 
     "execa/cross-spawn/which": ["which@1.3.1", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/which/-/which-1.3.1.tgz", { "dependencies": { "isexe": "^2.0.0" }, "bin": { "which": "./bin/which" } }, "sha512-HxJdYWq1MTIQbJ3nw0cqssHoTNU267KlrDuGZ1WYlxDStUtKUhOaJmh112/TZmHxxUfuJqPXSOm7tDyas0OSIQ=="],
-
-    "expand-args/set-value/isobject": ["isobject@2.1.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/isobject/-/isobject-2.1.0.tgz", { "dependencies": { "isarray": "1.0.0" } }, "sha512-+OUdGJlgjOBZDfxnDjYYG6zp487z0JGNQq3cYQYg5f5hKR+syHMsaztzGeml/4kGG55CSpKSpWTY+jYGgsHLgA=="],
-
-    "expand-args/set-value/to-object-path": ["to-object-path@0.2.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/to-object-path/-/to-object-path-0.2.0.tgz", { "dependencies": { "arr-flatten": "^1.0.1", "is-arguments": "^1.0.2" } }, "sha512-6oMu4CTicplxUMOXBoS1W9YNjIclUzmWpWf02v+JnYMEGVX24rTCsYMHay85WA7Wq+9wZa2iJ+HAAX0yGOcxCQ=="],
-
-    "expand-object/set-value/isobject": ["isobject@2.1.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/isobject/-/isobject-2.1.0.tgz", { "dependencies": { "isarray": "1.0.0" } }, "sha512-+OUdGJlgjOBZDfxnDjYYG6zp487z0JGNQq3cYQYg5f5hKR+syHMsaztzGeml/4kGG55CSpKSpWTY+jYGgsHLgA=="],
-
-    "expand-object/set-value/to-object-path": ["to-object-path@0.2.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/to-object-path/-/to-object-path-0.2.0.tgz", { "dependencies": { "arr-flatten": "^1.0.1", "is-arguments": "^1.0.2" } }, "sha512-6oMu4CTicplxUMOXBoS1W9YNjIclUzmWpWf02v+JnYMEGVX24rTCsYMHay85WA7Wq+9wZa2iJ+HAAX0yGOcxCQ=="],
 
     "expand-pkg/debug/ms": ["ms@2.0.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/ms/-/ms-2.0.0.tgz", {}, "sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A=="],
 
@@ -4470,10 +4433,6 @@
     "map-schema/define-property/is-descriptor": ["is-descriptor@0.1.8", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/is-descriptor/-/is-descriptor-0.1.8.tgz", { "dependencies": { "is-accessor-descriptor": "^1.0.1", "is-data-descriptor": "^1.0.1" } }, "sha512-SceYGWXvdqlWa/OnQ5FQuV+NxvNmMRhMw/w9AHkH71hTzveND4BTYgvp16g+oITK47qbOl/3D0bl0iygehWAWQ=="],
 
     "matched/resolve-dir/expand-tilde": ["expand-tilde@1.2.2", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/expand-tilde/-/expand-tilde-1.2.2.tgz", { "dependencies": { "os-homedir": "^1.0.1" } }, "sha512-rtmc+cjLZqnu9dSYosX9EWmSJhTwpACgJQTfj4hgg2JjOD/6SIQalZrt4a3aQeh++oNxkazcaxrhPUj6+g5G/Q=="],
-
-    "merge-value/set-value/is-extendable": ["is-extendable@0.1.1", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/is-extendable/-/is-extendable-0.1.1.tgz", {}, "sha512-5BMULNob1vgFX6EjQw5izWDxrecWK9AM72rugNr0TFldMOi0fj6Jk+zeKIt0xGj4cEfQIJth4w3OKWOJ4f+AFw=="],
-
-    "merge-value/set-value/split-string": ["split-string@3.1.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/split-string/-/split-string-3.1.0.tgz", { "dependencies": { "extend-shallow": "^3.0.0" } }, "sha512-NzNVhJDYpwceVVii8/Hu6DKfD2G+NrQHlS/V/qgv763EYudVwEcMQNxd2lh+0VrUByXN/oJkl5grOhYWvQUYiw=="],
 
     "nanomatch/extend-shallow/assign-symbols": ["assign-symbols@1.0.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/assign-symbols/-/assign-symbols-1.0.0.tgz", {}, "sha512-Q+JC7Whu8HhmTdBph/Tq59IoRtoy6KAm5zzPv00WdujX82lbAL8K7WVjne7vdCsAmbF4AYaDOPyO3k0kl8qIrw=="],
 
@@ -5167,8 +5126,6 @@
 
     "question-cache/define-property/is-descriptor": ["is-descriptor@0.1.8", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/is-descriptor/-/is-descriptor-0.1.8.tgz", { "dependencies": { "is-accessor-descriptor": "^1.0.1", "is-data-descriptor": "^1.0.1" } }, "sha512-SceYGWXvdqlWa/OnQ5FQuV+NxvNmMRhMw/w9AHkH71hTzveND4BTYgvp16g+oITK47qbOl/3D0bl0iygehWAWQ=="],
 
-    "question-cache/set-value/to-object-path": ["to-object-path@0.2.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/to-object-path/-/to-object-path-0.2.0.tgz", { "dependencies": { "arr-flatten": "^1.0.1", "is-arguments": "^1.0.2" } }, "sha512-6oMu4CTicplxUMOXBoS1W9YNjIclUzmWpWf02v+JnYMEGVX24rTCsYMHay85WA7Wq+9wZa2iJ+HAAX0yGOcxCQ=="],
-
     "question-store/data-store/cache-base": ["cache-base@0.8.5", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/cache-base/-/cache-base-0.8.5.tgz", { "dependencies": { "collection-visit": "^0.2.1", "component-emitter": "^1.2.1", "get-value": "^2.0.5", "has-value": "^0.3.1", "isobject": "^3.0.0", "lazy-cache": "^2.0.1", "set-value": "^0.4.2", "to-object-path": "^0.3.0", "union-value": "^0.2.3", "unset-value": "^0.1.1" } }, "sha512-19t0n7xdoVr5Q08+6sF85YZ9VuvbpVFq5JLm0gcsRmCvTO1Y3duTJGMaOQYf14Ras4o6dEnvoqvjdrUK1tNtgg=="],
 
     "question-store/data-store/define-property": ["define-property@0.2.5", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/define-property/-/define-property-0.2.5.tgz", { "dependencies": { "is-descriptor": "^0.1.0" } }, "sha512-Rr7ADjQZenceVOAKop6ALkkRAmH1A4Gx9hV/7ZujPUN2rkATqFO0JZLZInbAjpZYoJ1gUx8MRMQVkYemcbMSTA=="],
@@ -5184,8 +5141,6 @@
     "question-store/question-cache/define-property": ["define-property@0.2.5", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/define-property/-/define-property-0.2.5.tgz", { "dependencies": { "is-descriptor": "^0.1.0" } }, "sha512-Rr7ADjQZenceVOAKop6ALkkRAmH1A4Gx9hV/7ZujPUN2rkATqFO0JZLZInbAjpZYoJ1gUx8MRMQVkYemcbMSTA=="],
 
     "question-store/question-cache/isobject": ["isobject@2.1.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/isobject/-/isobject-2.1.0.tgz", { "dependencies": { "isarray": "1.0.0" } }, "sha512-+OUdGJlgjOBZDfxnDjYYG6zp487z0JGNQq3cYQYg5f5hKR+syHMsaztzGeml/4kGG55CSpKSpWTY+jYGgsHLgA=="],
-
-    "question-store/question-cache/set-value": ["set-value@0.3.3", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/set-value/-/set-value-0.3.3.tgz", { "dependencies": { "extend-shallow": "^2.0.1", "isobject": "^2.0.0", "to-object-path": "^0.2.0" } }, "sha512-aJPTd11HzK47w8xJMpyY4tBmFC6EidC8EG2fENxCJvPwLYzXLnNaesgo796y1fhSISSYAuah4Het+wDoPXK2tg=="],
 
     "question-store/question-cache/use": ["use@2.0.2", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/use/-/use-2.0.2.tgz", { "dependencies": { "define-property": "^0.2.5", "isobject": "^3.0.0", "lazy-cache": "^2.0.2" } }, "sha512-RrhWfFWkNCz3djfSFZh7uSwu491QRhwNaHyAgB2sGl4kmmznb5ZUuuHpiWLVEsXOdpDakYK/x5+9o4lgg41UMw=="],
 
@@ -5226,8 +5181,6 @@
     "to-regex/extend-shallow/assign-symbols": ["assign-symbols@1.0.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/assign-symbols/-/assign-symbols-1.0.0.tgz", {}, "sha512-Q+JC7Whu8HhmTdBph/Tq59IoRtoy6KAm5zzPv00WdujX82lbAL8K7WVjne7vdCsAmbF4AYaDOPyO3k0kl8qIrw=="],
 
     "to-regex/extend-shallow/is-extendable": ["is-extendable@1.0.1", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/is-extendable/-/is-extendable-1.0.1.tgz", { "dependencies": { "is-plain-object": "^2.0.4" } }, "sha512-arnXMxT1hhoKo9k1LZdmlNyJdDDfy2v0fXjFlmok4+i8ul/6WlbVge9bhM74OpNPQPMGUToDtz+KXa1PneJxOA=="],
-
-    "union-value/set-value/split-string": ["split-string@3.1.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/split-string/-/split-string-3.1.0.tgz", { "dependencies": { "extend-shallow": "^3.0.0" } }, "sha512-NzNVhJDYpwceVVii8/Hu6DKfD2G+NrQHlS/V/qgv763EYudVwEcMQNxd2lh+0VrUByXN/oJkl5grOhYWvQUYiw=="],
 
     "update-notifier/chalk/ansi-styles": ["ansi-styles@3.2.1", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/ansi-styles/-/ansi-styles-3.2.1.tgz", { "dependencies": { "color-convert": "^1.9.0" } }, "sha512-VT0ZI6kZRdTh8YyJw3SMbYm/u+NqfsAxEpWO0Pf9sq8/e94WxxOpPKx9FR1FlyCtOVDNOQ+8ntlqFxiRc+r5qA=="],
 
@@ -5329,8 +5282,6 @@
 
     "base-data/is-valid-app/debug/ms": ["ms@2.0.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/ms/-/ms-2.0.0.tgz", {}, "sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A=="],
 
-    "base-data/set-value/split-string/extend-shallow": ["extend-shallow@3.0.2", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/extend-shallow/-/extend-shallow-3.0.2.tgz", { "dependencies": { "assign-symbols": "^1.0.0", "is-extendable": "^1.0.1" } }, "sha512-BwY5b5Ql4+qZoefgMj2NUmx+tehVTH/Kf4k1ZEtOHNFcm2wSxMRo992l6X3TIgni2eZVTZ85xMOjF31fwZAj6Q=="],
-
     "base-engines/is-valid-app/is-valid-instance/isobject": ["isobject@2.1.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/isobject/-/isobject-2.1.0.tgz", { "dependencies": { "isarray": "1.0.0" } }, "sha512-+OUdGJlgjOBZDfxnDjYYG6zp487z0JGNQq3cYQYg5f5hKR+syHMsaztzGeml/4kGG55CSpKSpWTY+jYGgsHLgA=="],
 
     "base-fs-conflicts/log-utils/ansi-colors/lazy-cache": ["lazy-cache@0.2.7", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/lazy-cache/-/lazy-cache-0.2.7.tgz", {}, "sha512-gkX52wvU/R8DVMMt78ATVPFMJqfW8FPz1GZ1sVHBVQHmu/WvhIWE4cE1GBzhJNFicDeYhnwp6Rl35BcAIM3YOQ=="],
@@ -5389,11 +5340,7 @@
 
     "cache-base/has-value/has-values/kind-of": ["kind-of@4.0.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/kind-of/-/kind-of-4.0.0.tgz", { "dependencies": { "is-buffer": "^1.1.5" } }, "sha512-24XsCxmEbRwEDbz/qz3stgin8TTzZ1ESR56OMCN0ujYg+vRutNSiOj9bHH9u85DKgXguraugV5sFuvbD4FW/hw=="],
 
-    "cache-base/set-value/split-string/extend-shallow": ["extend-shallow@3.0.2", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/extend-shallow/-/extend-shallow-3.0.2.tgz", { "dependencies": { "assign-symbols": "^1.0.0", "is-extendable": "^1.0.1" } }, "sha512-BwY5b5Ql4+qZoefgMj2NUmx+tehVTH/Kf4k1ZEtOHNFcm2wSxMRo992l6X3TIgni2eZVTZ85xMOjF31fwZAj6Q=="],
-
     "common-config/data-store/cache-base/collection-visit": ["collection-visit@0.2.3", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/collection-visit/-/collection-visit-0.2.3.tgz", { "dependencies": { "lazy-cache": "^2.0.1", "map-visit": "^0.1.5", "object-visit": "^0.3.4" } }, "sha512-V88PJOCqJfsZS45YBELDgmhQkECokQAAr9XR4hT6eFkFsAPsCsk3EoDHSuBPYzygjquGM/0KF4vdwTiQO6lbdw=="],
-
-    "common-config/data-store/cache-base/set-value": ["set-value@0.4.3", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/set-value/-/set-value-0.4.3.tgz", { "dependencies": { "extend-shallow": "^2.0.1", "is-extendable": "^0.1.1", "is-plain-object": "^2.0.1", "to-object-path": "^0.3.0" } }, "sha512-2Z0LRUUvYeF7gIFFep48ksPq0NR09e5oKoFXznaMGNcu+EZAfGnyL0K6xno2gCqX6dZYEZRjrcn04/gvZzcKhQ=="],
 
     "common-config/data-store/cache-base/unset-value": ["unset-value@0.1.2", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/unset-value/-/unset-value-0.1.2.tgz", { "dependencies": { "has-value": "^0.3.1", "isobject": "^3.0.0" } }, "sha512-yhv5I4TsldLdE3UcVQn0hD2T5sNCPv4+qm/CTUpRKIpwthYRIipsAPdsrNpOI79hPQa0rTTeW22Fq6JWRcTgNg=="],
 
@@ -5403,13 +5350,9 @@
 
     "common-config/data-store/resolve-dir/expand-tilde": ["expand-tilde@1.2.2", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/expand-tilde/-/expand-tilde-1.2.2.tgz", { "dependencies": { "os-homedir": "^1.0.1" } }, "sha512-rtmc+cjLZqnu9dSYosX9EWmSJhTwpACgJQTfj4hgg2JjOD/6SIQalZrt4a3aQeh++oNxkazcaxrhPUj6+g5G/Q=="],
 
-    "common-config/data-store/union-value/set-value": ["set-value@0.4.3", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/set-value/-/set-value-0.4.3.tgz", { "dependencies": { "extend-shallow": "^2.0.1", "is-extendable": "^0.1.1", "is-plain-object": "^2.0.1", "to-object-path": "^0.3.0" } }, "sha512-2Z0LRUUvYeF7gIFFep48ksPq0NR09e5oKoFXznaMGNcu+EZAfGnyL0K6xno2gCqX6dZYEZRjrcn04/gvZzcKhQ=="],
-
     "common-questions/base-questions/question-store/data-store": ["data-store@0.16.1", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/data-store/-/data-store-0.16.1.tgz", { "dependencies": { "cache-base": "^0.8.4", "clone-deep": "^0.2.4", "debug": "^2.2.0", "define-property": "^0.2.5", "extend-shallow": "^2.0.1", "graceful-fs": "^4.1.4", "has-own-deep": "^0.1.4", "lazy-cache": "^2.0.1", "mkdirp": "^0.5.1", "project-name": "^0.2.5", "resolve-dir": "^0.1.0", "rimraf": "^2.5.3", "union-value": "^0.2.3" } }, "sha512-tGbl4oVi9UPysie6y6+fuCjUNhaR3KxnuIRV0OMUCwq/wvikmWHXQYALbW/IVQvmxBNbrxUwjG5BWsrjx5v55w=="],
 
     "common-questions/base-questions/question-store/question-cache": ["question-cache@0.5.1", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/question-cache/-/question-cache-0.5.1.tgz", { "dependencies": { "arr-flatten": "^1.0.1", "arr-union": "^3.1.0", "async-each-series": "^1.1.0", "debug": "^2.2.0", "define-property": "^0.2.5", "get-value": "^2.0.6", "has-value": "^0.3.1", "inquirer2": "^0.1.1", "is-answer": "^0.1.0", "isobject": "^2.1.0", "lazy-cache": "^2.0.1", "mixin-deep": "^1.1.3", "omit-empty": "^0.4.1", "option-cache": "^3.4.0", "os-homedir": "^1.0.1", "project-name": "^0.2.5", "set-value": "^0.3.3", "to-choices": "^0.2.0", "use": "^2.0.0" } }, "sha512-v9F1LnlSQIUEAGFtrfVX/76lH4u4zyV34t94o6EkguPTKKfbvV6SLH8h3pn7LXGZLmAgD1PbmVOuKMY8ZWnuPg=="],
-
-    "common-questions/set-value/split-string/extend-shallow": ["extend-shallow@3.0.2", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/extend-shallow/-/extend-shallow-3.0.2.tgz", { "dependencies": { "assign-symbols": "^1.0.0", "is-extendable": "^1.0.1" } }, "sha512-BwY5b5Ql4+qZoefgMj2NUmx+tehVTH/Kf4k1ZEtOHNFcm2wSxMRo992l6X3TIgni2eZVTZ85xMOjF31fwZAj6Q=="],
 
     "engine/collection-visit/object-visit/isobject": ["isobject@2.1.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/isobject/-/isobject-2.1.0.tgz", { "dependencies": { "isarray": "1.0.0" } }, "sha512-+OUdGJlgjOBZDfxnDjYYG6zp487z0JGNQq3cYQYg5f5hKR+syHMsaztzGeml/4kGG55CSpKSpWTY+jYGgsHLgA=="],
 
@@ -5450,8 +5393,6 @@
     "macro-store/data-store/resolve-dir/expand-tilde": ["expand-tilde@1.2.2", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/expand-tilde/-/expand-tilde-1.2.2.tgz", { "dependencies": { "os-homedir": "^1.0.1" } }, "sha512-rtmc+cjLZqnu9dSYosX9EWmSJhTwpACgJQTfj4hgg2JjOD/6SIQalZrt4a3aQeh++oNxkazcaxrhPUj6+g5G/Q=="],
 
     "map-schema/collection-visit/object-visit/isobject": ["isobject@2.1.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/isobject/-/isobject-2.1.0.tgz", { "dependencies": { "isarray": "1.0.0" } }, "sha512-+OUdGJlgjOBZDfxnDjYYG6zp487z0JGNQq3cYQYg5f5hKR+syHMsaztzGeml/4kGG55CSpKSpWTY+jYGgsHLgA=="],
-
-    "merge-value/set-value/split-string/extend-shallow": ["extend-shallow@3.0.2", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/extend-shallow/-/extend-shallow-3.0.2.tgz", { "dependencies": { "assign-symbols": "^1.0.0", "is-extendable": "^1.0.1" } }, "sha512-BwY5b5Ql4+qZoefgMj2NUmx+tehVTH/Kf4k1ZEtOHNFcm2wSxMRo992l6X3TIgni2eZVTZ85xMOjF31fwZAj6Q=="],
 
     "npx/npm/ansi-align/string-width": ["string-width@2.1.1", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/string-width/-/string-width-2.1.1.tgz", { "dependencies": { "is-fullwidth-code-point": "^2.0.0", "strip-ansi": "^4.0.0" } }, "sha512-nOqH59deCq9SRHlxq1Aw85Jnt4w6KvLKqWVik6oA9ZklXLNIOlqg4F2yrT1MVaTjAqvVwdfeZ7w7aCvJD7ugkw=="],
 
@@ -5629,8 +5570,6 @@
 
     "question-store/question-cache/define-property/is-descriptor": ["is-descriptor@0.1.8", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/is-descriptor/-/is-descriptor-0.1.8.tgz", { "dependencies": { "is-accessor-descriptor": "^1.0.1", "is-data-descriptor": "^1.0.1" } }, "sha512-SceYGWXvdqlWa/OnQ5FQuV+NxvNmMRhMw/w9AHkH71hTzveND4BTYgvp16g+oITK47qbOl/3D0bl0iygehWAWQ=="],
 
-    "question-store/question-cache/set-value/to-object-path": ["to-object-path@0.2.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/to-object-path/-/to-object-path-0.2.0.tgz", { "dependencies": { "arr-flatten": "^1.0.1", "is-arguments": "^1.0.2" } }, "sha512-6oMu4CTicplxUMOXBoS1W9YNjIclUzmWpWf02v+JnYMEGVX24rTCsYMHay85WA7Wq+9wZa2iJ+HAAX0yGOcxCQ=="],
-
     "question-store/question-cache/use/isobject": ["isobject@3.0.1", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/isobject/-/isobject-3.0.1.tgz", {}, "sha512-WhB9zCku7EGTj/HQQRz5aUQEUeoQZH2bWcltRErOpymJ4boYE6wL9Tbr23krRPSZ+C5zqNSrSw+Cc7sZZ4b7vg=="],
 
     "resolve-dir/global-modules/global-prefix/ini": ["ini@1.3.8", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/ini/-/ini-1.3.8.tgz", {}, "sha512-JV/yugV2uzW5iMRSiZAyDtQd+nxtUnjeLt0acNdw98kKLrvuRVyB80tsREOE7yvGVgalhZ6RNXCmEHkUKBKxew=="],
@@ -5645,8 +5584,6 @@
 
     "time-diff/log-utils/ansi-colors/lazy-cache": ["lazy-cache@0.2.7", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/lazy-cache/-/lazy-cache-0.2.7.tgz", {}, "sha512-gkX52wvU/R8DVMMt78ATVPFMJqfW8FPz1GZ1sVHBVQHmu/WvhIWE4cE1GBzhJNFicDeYhnwp6Rl35BcAIM3YOQ=="],
 
-    "union-value/set-value/split-string/extend-shallow": ["extend-shallow@3.0.2", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/extend-shallow/-/extend-shallow-3.0.2.tgz", { "dependencies": { "assign-symbols": "^1.0.0", "is-extendable": "^1.0.1" } }, "sha512-BwY5b5Ql4+qZoefgMj2NUmx+tehVTH/Kf4k1ZEtOHNFcm2wSxMRo992l6X3TIgni2eZVTZ85xMOjF31fwZAj6Q=="],
-
     "update-notifier/chalk/ansi-styles/color-convert": ["color-convert@1.9.3", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/color-convert/-/color-convert-1.9.3.tgz", { "dependencies": { "color-name": "1.1.3" } }, "sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg=="],
 
     "update-notifier/chalk/supports-color/has-flag": ["has-flag@3.0.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/has-flag/-/has-flag-3.0.0.tgz", {}, "sha512-sKJf1+ceQBr4SMkvQnBDNDtf4TXpVhVGateu0t918bl30FnbE2m4vNLX+VWe/dpjlb+HugGYzW7uQXH98HPEYw=="],
@@ -5656,10 +5593,6 @@
     "workbox-build/glob/minimatch/brace-expansion": ["brace-expansion@5.0.5", "", { "dependencies": { "balanced-match": "^4.0.2" } }, "sha512-VZznLgtwhn+Mact9tfiwx64fA9erHH/MCXEUfB/0bX/6Fz6ny5EGTXYltMocqg4xFAQZtnO3DHWWXi8RiuN7cQ=="],
 
     "base-data/has-value/has-values/is-number/kind-of": ["kind-of@3.2.2", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/kind-of/-/kind-of-3.2.2.tgz", { "dependencies": { "is-buffer": "^1.1.5" } }, "sha512-NOW9QQXMoZGg/oqnVNoNTTIFEIid1627WCffUBJEdMxYApq7mNE7CpzucIPc+ZQg25Phej7IJSmX3hO+oblOtQ=="],
-
-    "base-data/set-value/split-string/extend-shallow/assign-symbols": ["assign-symbols@1.0.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/assign-symbols/-/assign-symbols-1.0.0.tgz", {}, "sha512-Q+JC7Whu8HhmTdBph/Tq59IoRtoy6KAm5zzPv00WdujX82lbAL8K7WVjne7vdCsAmbF4AYaDOPyO3k0kl8qIrw=="],
-
-    "base-data/set-value/split-string/extend-shallow/is-extendable": ["is-extendable@1.0.1", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/is-extendable/-/is-extendable-1.0.1.tgz", { "dependencies": { "is-plain-object": "^2.0.4" } }, "sha512-arnXMxT1hhoKo9k1LZdmlNyJdDDfy2v0fXjFlmok4+i8ul/6WlbVge9bhM74OpNPQPMGUToDtz+KXa1PneJxOA=="],
 
     "base-generators/base-task/is-valid-app/is-valid-instance/isobject": ["isobject@2.1.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/isobject/-/isobject-2.1.0.tgz", { "dependencies": { "isarray": "1.0.0" } }, "sha512-+OUdGJlgjOBZDfxnDjYYG6zp487z0JGNQq3cYQYg5f5hKR+syHMsaztzGeml/4kGG55CSpKSpWTY+jYGgsHLgA=="],
 
@@ -5671,8 +5604,6 @@
 
     "base-npm-prompt/base-questions/question-store/data-store/union-value": ["union-value@0.2.4", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/union-value/-/union-value-0.2.4.tgz", { "dependencies": { "arr-union": "^3.1.0", "get-value": "^2.0.6", "is-extendable": "^0.1.1", "set-value": "^0.4.3" } }, "sha512-Tv3cqdyY8yjW9ZcJ9WP7JdHS34natzylD0oNRLlYbWOfUdC4EQ0sf3fubnqrK2IErtlmobFmuS1pWvv88VghpA=="],
 
-    "base-npm-prompt/base-questions/question-store/question-cache/set-value": ["set-value@0.3.3", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/set-value/-/set-value-0.3.3.tgz", { "dependencies": { "extend-shallow": "^2.0.1", "isobject": "^2.0.0", "to-object-path": "^0.2.0" } }, "sha512-aJPTd11HzK47w8xJMpyY4tBmFC6EidC8EG2fENxCJvPwLYzXLnNaesgo796y1fhSISSYAuah4Het+wDoPXK2tg=="],
-
     "base-npm-prompt/base-questions/question-store/question-cache/use": ["use@2.0.2", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/use/-/use-2.0.2.tgz", { "dependencies": { "define-property": "^0.2.5", "isobject": "^3.0.0", "lazy-cache": "^2.0.2" } }, "sha512-RrhWfFWkNCz3djfSFZh7uSwu491QRhwNaHyAgB2sGl4kmmznb5ZUuuHpiWLVEsXOdpDakYK/x5+9o4lgg41UMw=="],
 
     "base-store/data-store/cache-base/collection-visit/map-visit": ["map-visit@0.1.5", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/map-visit/-/map-visit-0.1.5.tgz", { "dependencies": { "lazy-cache": "^2.0.1", "object-visit": "^0.3.4" } }, "sha512-zdmJBFvvVR/H5wCfsCP7XxSLp+346yAZ30Wy2OsQLcH19OVGMWa3Ms9quO00lj9ybsySu3gKOINNgICb4Zqauw=="],
@@ -5682,10 +5613,6 @@
     "boxen/chalk/ansi-styles/color-convert/color-name": ["color-name@1.1.3", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/color-name/-/color-name-1.1.3.tgz", {}, "sha512-72fSenhMw2HZMTVHeCA9KCmpEIbzWiQsjN+BHcBbS9vr1mtt+vJjPdksIBNUmKAW8TFUDPJK5SUU3QhE9NEXDw=="],
 
     "cache-base/has-value/has-values/is-number/kind-of": ["kind-of@3.2.2", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/kind-of/-/kind-of-3.2.2.tgz", { "dependencies": { "is-buffer": "^1.1.5" } }, "sha512-NOW9QQXMoZGg/oqnVNoNTTIFEIid1627WCffUBJEdMxYApq7mNE7CpzucIPc+ZQg25Phej7IJSmX3hO+oblOtQ=="],
-
-    "cache-base/set-value/split-string/extend-shallow/assign-symbols": ["assign-symbols@1.0.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/assign-symbols/-/assign-symbols-1.0.0.tgz", {}, "sha512-Q+JC7Whu8HhmTdBph/Tq59IoRtoy6KAm5zzPv00WdujX82lbAL8K7WVjne7vdCsAmbF4AYaDOPyO3k0kl8qIrw=="],
-
-    "cache-base/set-value/split-string/extend-shallow/is-extendable": ["is-extendable@1.0.1", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/is-extendable/-/is-extendable-1.0.1.tgz", { "dependencies": { "is-plain-object": "^2.0.4" } }, "sha512-arnXMxT1hhoKo9k1LZdmlNyJdDDfy2v0fXjFlmok4+i8ul/6WlbVge9bhM74OpNPQPMGUToDtz+KXa1PneJxOA=="],
 
     "common-config/data-store/cache-base/collection-visit/map-visit": ["map-visit@0.1.5", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/map-visit/-/map-visit-0.1.5.tgz", { "dependencies": { "lazy-cache": "^2.0.1", "object-visit": "^0.3.4" } }, "sha512-zdmJBFvvVR/H5wCfsCP7XxSLp+346yAZ30Wy2OsQLcH19OVGMWa3Ms9quO00lj9ybsySu3gKOINNgICb4Zqauw=="],
 
@@ -5699,13 +5626,7 @@
 
     "common-questions/base-questions/question-store/data-store/union-value": ["union-value@0.2.4", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/union-value/-/union-value-0.2.4.tgz", { "dependencies": { "arr-union": "^3.1.0", "get-value": "^2.0.6", "is-extendable": "^0.1.1", "set-value": "^0.4.3" } }, "sha512-Tv3cqdyY8yjW9ZcJ9WP7JdHS34natzylD0oNRLlYbWOfUdC4EQ0sf3fubnqrK2IErtlmobFmuS1pWvv88VghpA=="],
 
-    "common-questions/base-questions/question-store/question-cache/set-value": ["set-value@0.3.3", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/set-value/-/set-value-0.3.3.tgz", { "dependencies": { "extend-shallow": "^2.0.1", "isobject": "^2.0.0", "to-object-path": "^0.2.0" } }, "sha512-aJPTd11HzK47w8xJMpyY4tBmFC6EidC8EG2fENxCJvPwLYzXLnNaesgo796y1fhSISSYAuah4Het+wDoPXK2tg=="],
-
     "common-questions/base-questions/question-store/question-cache/use": ["use@2.0.2", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/use/-/use-2.0.2.tgz", { "dependencies": { "define-property": "^0.2.5", "isobject": "^3.0.0", "lazy-cache": "^2.0.2" } }, "sha512-RrhWfFWkNCz3djfSFZh7uSwu491QRhwNaHyAgB2sGl4kmmznb5ZUuuHpiWLVEsXOdpDakYK/x5+9o4lgg41UMw=="],
-
-    "common-questions/set-value/split-string/extend-shallow/assign-symbols": ["assign-symbols@1.0.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/assign-symbols/-/assign-symbols-1.0.0.tgz", {}, "sha512-Q+JC7Whu8HhmTdBph/Tq59IoRtoy6KAm5zzPv00WdujX82lbAL8K7WVjne7vdCsAmbF4AYaDOPyO3k0kl8qIrw=="],
-
-    "common-questions/set-value/split-string/extend-shallow/is-extendable": ["is-extendable@1.0.1", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/is-extendable/-/is-extendable-1.0.1.tgz", { "dependencies": { "is-plain-object": "^2.0.4" } }, "sha512-arnXMxT1hhoKo9k1LZdmlNyJdDDfy2v0fXjFlmok4+i8ul/6WlbVge9bhM74OpNPQPMGUToDtz+KXa1PneJxOA=="],
 
     "findup-sync/micromatch/braces/fill-range/is-number": ["is-number@3.0.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/is-number/-/is-number-3.0.0.tgz", { "dependencies": { "kind-of": "^3.0.2" } }, "sha512-4cboCqIpliH+mAvFNegjZQ4kgKc3ZUhQVr3HvWbSh5q3WH2v82ct+T2Y1hdU5Gdtorx/cLifQjqCbL7bpznLTg=="],
 
@@ -5720,10 +5641,6 @@
     "macro-store/data-store/cache-base/collection-visit/map-visit": ["map-visit@0.1.5", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/map-visit/-/map-visit-0.1.5.tgz", { "dependencies": { "lazy-cache": "^2.0.1", "object-visit": "^0.3.4" } }, "sha512-zdmJBFvvVR/H5wCfsCP7XxSLp+346yAZ30Wy2OsQLcH19OVGMWa3Ms9quO00lj9ybsySu3gKOINNgICb4Zqauw=="],
 
     "macro-store/data-store/cache-base/collection-visit/object-visit": ["object-visit@0.3.4", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/object-visit/-/object-visit-0.3.4.tgz", { "dependencies": { "isobject": "^2.0.0" } }, "sha512-6QNyX7uTuwqxP7pmDBqgBDKdmZws1rXriUyXM5KG6+7J0aYRuuAGoc636IGdLzgOL77WUwL+EpoTJrEHwWsyOA=="],
-
-    "merge-value/set-value/split-string/extend-shallow/assign-symbols": ["assign-symbols@1.0.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/assign-symbols/-/assign-symbols-1.0.0.tgz", {}, "sha512-Q+JC7Whu8HhmTdBph/Tq59IoRtoy6KAm5zzPv00WdujX82lbAL8K7WVjne7vdCsAmbF4AYaDOPyO3k0kl8qIrw=="],
-
-    "merge-value/set-value/split-string/extend-shallow/is-extendable": ["is-extendable@1.0.1", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/is-extendable/-/is-extendable-1.0.1.tgz", { "dependencies": { "is-plain-object": "^2.0.4" } }, "sha512-arnXMxT1hhoKo9k1LZdmlNyJdDDfy2v0fXjFlmok4+i8ul/6WlbVge9bhM74OpNPQPMGUToDtz+KXa1PneJxOA=="],
 
     "npx/npm/ansi-align/string-width/is-fullwidth-code-point": ["is-fullwidth-code-point@2.0.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/is-fullwidth-code-point/-/is-fullwidth-code-point-2.0.0.tgz", {}, "sha512-VHskAKYM8RfSFXwee5t5cbN5PZeq1Wrh6qd5bkyiXIf6UQcN6w/A0eXM9r6t8d+GYOh+o6ZhiEnb88LN/Y8m2w=="],
 
@@ -5783,10 +5700,6 @@
 
     "src-stream/merge-stream/through2/readable-stream/string_decoder": ["string_decoder@0.10.31", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/string_decoder/-/string_decoder-0.10.31.tgz", {}, "sha512-ev2QzSzWPYmy9GuqfIVildA4OdcGLeFZQrq5ys6RtiuF+RQQiZWr8TZNyAcuVXyQRYfEO+MsoB/1BuQVhOJuoQ=="],
 
-    "union-value/set-value/split-string/extend-shallow/assign-symbols": ["assign-symbols@1.0.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/assign-symbols/-/assign-symbols-1.0.0.tgz", {}, "sha512-Q+JC7Whu8HhmTdBph/Tq59IoRtoy6KAm5zzPv00WdujX82lbAL8K7WVjne7vdCsAmbF4AYaDOPyO3k0kl8qIrw=="],
-
-    "union-value/set-value/split-string/extend-shallow/is-extendable": ["is-extendable@1.0.1", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/is-extendable/-/is-extendable-1.0.1.tgz", { "dependencies": { "is-plain-object": "^2.0.4" } }, "sha512-arnXMxT1hhoKo9k1LZdmlNyJdDDfy2v0fXjFlmok4+i8ul/6WlbVge9bhM74OpNPQPMGUToDtz+KXa1PneJxOA=="],
-
     "update-notifier/chalk/ansi-styles/color-convert/color-name": ["color-name@1.1.3", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/color-name/-/color-name-1.1.3.tgz", {}, "sha512-72fSenhMw2HZMTVHeCA9KCmpEIbzWiQsjN+BHcBbS9vr1mtt+vJjPdksIBNUmKAW8TFUDPJK5SUU3QhE9NEXDw=="],
 
     "workbox-build/glob/minimatch/brace-expansion/balanced-match": ["balanced-match@4.0.4", "", {}, "sha512-BLrgEcRTwX2o6gGxGOCNyMvGSp35YofuYzw9h1IMTRmKqttAZZVU67bdb9Pr2vUHA8+j3i2tJfjO6C6+4myGTA=="],
@@ -5799,8 +5712,6 @@
 
     "base-npm-prompt/base-questions/question-store/data-store/resolve-dir/expand-tilde": ["expand-tilde@1.2.2", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/expand-tilde/-/expand-tilde-1.2.2.tgz", { "dependencies": { "os-homedir": "^1.0.1" } }, "sha512-rtmc+cjLZqnu9dSYosX9EWmSJhTwpACgJQTfj4hgg2JjOD/6SIQalZrt4a3aQeh++oNxkazcaxrhPUj6+g5G/Q=="],
 
-    "base-npm-prompt/base-questions/question-store/question-cache/set-value/to-object-path": ["to-object-path@0.2.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/to-object-path/-/to-object-path-0.2.0.tgz", { "dependencies": { "arr-flatten": "^1.0.1", "is-arguments": "^1.0.2" } }, "sha512-6oMu4CTicplxUMOXBoS1W9YNjIclUzmWpWf02v+JnYMEGVX24rTCsYMHay85WA7Wq+9wZa2iJ+HAAX0yGOcxCQ=="],
-
     "base-npm-prompt/base-questions/question-store/question-cache/use/isobject": ["isobject@3.0.1", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/isobject/-/isobject-3.0.1.tgz", {}, "sha512-WhB9zCku7EGTj/HQQRz5aUQEUeoQZH2bWcltRErOpymJ4boYE6wL9Tbr23krRPSZ+C5zqNSrSw+Cc7sZZ4b7vg=="],
 
     "base-store/data-store/cache-base/collection-visit/object-visit/isobject": ["isobject@2.1.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/isobject/-/isobject-2.1.0.tgz", { "dependencies": { "isarray": "1.0.0" } }, "sha512-+OUdGJlgjOBZDfxnDjYYG6zp487z0JGNQq3cYQYg5f5hKR+syHMsaztzGeml/4kGG55CSpKSpWTY+jYGgsHLgA=="],
@@ -5811,15 +5722,9 @@
 
     "common-questions/base-questions/question-store/data-store/cache-base/isobject": ["isobject@3.0.1", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/isobject/-/isobject-3.0.1.tgz", {}, "sha512-WhB9zCku7EGTj/HQQRz5aUQEUeoQZH2bWcltRErOpymJ4boYE6wL9Tbr23krRPSZ+C5zqNSrSw+Cc7sZZ4b7vg=="],
 
-    "common-questions/base-questions/question-store/data-store/cache-base/set-value": ["set-value@0.4.3", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/set-value/-/set-value-0.4.3.tgz", { "dependencies": { "extend-shallow": "^2.0.1", "is-extendable": "^0.1.1", "is-plain-object": "^2.0.1", "to-object-path": "^0.3.0" } }, "sha512-2Z0LRUUvYeF7gIFFep48ksPq0NR09e5oKoFXznaMGNcu+EZAfGnyL0K6xno2gCqX6dZYEZRjrcn04/gvZzcKhQ=="],
-
     "common-questions/base-questions/question-store/data-store/cache-base/unset-value": ["unset-value@0.1.2", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/unset-value/-/unset-value-0.1.2.tgz", { "dependencies": { "has-value": "^0.3.1", "isobject": "^3.0.0" } }, "sha512-yhv5I4TsldLdE3UcVQn0hD2T5sNCPv4+qm/CTUpRKIpwthYRIipsAPdsrNpOI79hPQa0rTTeW22Fq6JWRcTgNg=="],
 
     "common-questions/base-questions/question-store/data-store/resolve-dir/expand-tilde": ["expand-tilde@1.2.2", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/expand-tilde/-/expand-tilde-1.2.2.tgz", { "dependencies": { "os-homedir": "^1.0.1" } }, "sha512-rtmc+cjLZqnu9dSYosX9EWmSJhTwpACgJQTfj4hgg2JjOD/6SIQalZrt4a3aQeh++oNxkazcaxrhPUj6+g5G/Q=="],
-
-    "common-questions/base-questions/question-store/data-store/union-value/set-value": ["set-value@0.4.3", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/set-value/-/set-value-0.4.3.tgz", { "dependencies": { "extend-shallow": "^2.0.1", "is-extendable": "^0.1.1", "is-plain-object": "^2.0.1", "to-object-path": "^0.3.0" } }, "sha512-2Z0LRUUvYeF7gIFFep48ksPq0NR09e5oKoFXznaMGNcu+EZAfGnyL0K6xno2gCqX6dZYEZRjrcn04/gvZzcKhQ=="],
-
-    "common-questions/base-questions/question-store/question-cache/set-value/to-object-path": ["to-object-path@0.2.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/to-object-path/-/to-object-path-0.2.0.tgz", { "dependencies": { "arr-flatten": "^1.0.1", "is-arguments": "^1.0.2" } }, "sha512-6oMu4CTicplxUMOXBoS1W9YNjIclUzmWpWf02v+JnYMEGVX24rTCsYMHay85WA7Wq+9wZa2iJ+HAAX0yGOcxCQ=="],
 
     "common-questions/base-questions/question-store/question-cache/use/isobject": ["isobject@3.0.1", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/isobject/-/isobject-3.0.1.tgz", {}, "sha512-WhB9zCku7EGTj/HQQRz5aUQEUeoQZH2bWcltRErOpymJ4boYE6wL9Tbr23krRPSZ+C5zqNSrSw+Cc7sZZ4b7vg=="],
 

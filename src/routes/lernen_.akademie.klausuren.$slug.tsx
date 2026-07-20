@@ -15,7 +15,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { examCases, type ExamCase, type SolutionHint } from "@/data/examCases";
 
-export const Route = createFileRoute("/lernen/akademie/klausuren/$slug")({
+export const Route = createFileRoute("/lernen_/akademie/klausuren/$slug")({
   loader: ({ params }) => {
     const found = examCases.find((c) => c.slug === params.slug);
     if (!found) throw notFound();

@@ -5,7 +5,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { examCases } from "@/data/examCases";
 
-export const Route = createFileRoute("/lernen/akademie/klausuren")({
+export const Route = createFileRoute("/lernen_/akademie/klausuren")({
   component: KlausurenPage,
   head: () => ({
     meta: [

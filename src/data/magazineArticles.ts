@@ -817,7 +817,7 @@ export const magazineArticles: MagazineArticle[] = [
       },
       {
         type: "paragraph",
-        text: "Betrifft der Fehler lediglich eine technische oder nicht umsatzsteuerlich erforderliche Angabe, kann er steuerlich unbeachtlich sein. Das BMF nennt ausdrücklich das fehlende Feld „BT-10 Buyer reference" als Beispiel.",
+        text: "Betrifft der Fehler lediglich eine technische oder nicht umsatzsteuerlich erforderliche Angabe, kann er steuerlich unbeachtlich sein. Das BMF nennt ausdrücklich das fehlende Feld \"BT-10 Buyer reference\" als Beispiel.",
       },
       {
         type: "paragraph",

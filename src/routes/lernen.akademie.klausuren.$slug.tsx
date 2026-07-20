@@ -164,7 +164,6 @@ function KlausurDetailPage() {
               to="/lernen/akademie/klausuren"
               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               // @ts-ignore – TanStack Router incorrectly infers search param inheritance from /lernen
-              search={{}}
               className="inline-flex items-center gap-2 rounded-xl px-2 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
             >
               <ArrowLeft className="h-4 w-4" />

@@ -6,6 +6,7 @@ import {
   Brain,
   CheckCircle2,
   ClipboardCheck,
+  FileText,
   Flame,
   GraduationCap,
   Lock,
@@ -18,16 +19,9 @@ import {
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { learningQuestions } from "@/data";
-import {
-  getLearningStatistics,
-  loadLearningProgress,
-} from "@/lib/learningProgress";
+import { getLearningStatistics, loadLearningProgress } from "@/lib/learningProgress";
 import { useState } from "react";
-import {
-  getUserName,
-  hasUserName,
-  saveUserName,
-} from "@/lib/profile";
+import { getUserName, hasUserName, saveUserName } from "@/lib/profile";
 
 export const Route = createFileRoute("/akademie")({
   component: AkademiePage,
@@ -48,64 +42,58 @@ const DAILY_GOAL = 10;
 const ACADEMY_FEATURES = [
   {
     title: "Lernbereiche",
-    description:
-      "Übe Umsatzsteuer, AO, Einkommensteuer, Gewerbesteuer, Erbschaftsteuer und NPO.",
+    description: "Übe Umsatzsteuer, AO, Einkommensteuer, Gewerbesteuer, Erbschaftsteuer und NPO.",
     icon: BookOpen,
     status: "ready" as const,
   },
   {
     title: "Prüfungssimulation",
-    description:
-      "Bearbeite zufällige Fragen unter realistischen Prüfungsbedingungen.",
+    description: "Bearbeite zufällige Fragen unter realistischen Prüfungsbedingungen.",
     icon: ClipboardCheck,
     status: "soon" as const,
   },
   {
     title: "Fehlertrainer",
-    description:
-      "Wiederhole gezielt Fragen, die du noch nicht sicher beherrschst.",
+    description: "Wiederhole gezielt Fragen, die du noch nicht sicher beherrschst.",
     icon: Brain,
     status: "soon" as const,
   },
   {
     title: "Favoriten",
-    description:
-      "Speichere wichtige Fragen und baue dir deine persönliche Merkliste.",
+    description: "Speichere wichtige Fragen und baue dir deine persönliche Merkliste.",
     icon: Star,
     status: "soon" as const,
   },
   {
     title: "Fortschritt",
-    description:
-      "Behalte Trefferquote, Lernstand und Entwicklung im Blick.",
+    description: "Behalte Trefferquote, Lernstand und Entwicklung im Blick.",
     icon: BarChart3,
     status: "soon" as const,
   },
   {
     title: "Erfolge",
-    description:
-      "Sammle Abzeichen, erreiche Lernziele und halte deine Serie.",
+    description: "Sammle Abzeichen, erreiche Lernziele und halte deine Serie.",
     icon: Trophy,
     status: "soon" as const,
   },
 ];
 
 function AkademiePage() {
-const [userName, setUserName] = useState(getUserName());
+  const [userName, setUserName] = useState(getUserName());
 
-const [inputName, setInputName] = useState("");
+  const [inputName, setInputName] = useState("");
 
-const needsName = !hasUserName();
+  const needsName = !hasUserName();
 
-function handleSaveName() {
-  const trimmed = inputName.trim();
+  function handleSaveName() {
+    const trimmed = inputName.trim();
 
-  if (!trimmed) return;
+    if (!trimmed) return;
 
-  saveUserName(trimmed);
+    saveUserName(trimmed);
 
-  setUserName(trimmed);
-}
+    setUserName(trimmed);
+  }
   const progress = loadLearningProgress();
 
   const statistics = getLearningStatistics(
@@ -113,28 +101,18 @@ function handleSaveName() {
     progress,
   );
 
-  const answeredToday = Math.min(
-    statistics.totalAnswered,
-    DAILY_GOAL,
-  );
+  const answeredToday = Math.min(statistics.totalAnswered, DAILY_GOAL);
 
-  const dailyPercent = Math.round(
-    (answeredToday / DAILY_GOAL) * 100,
-  );
+  const dailyPercent = Math.round((answeredToday / DAILY_GOAL) * 100);
 
   const overallPercent =
     learningQuestions.length === 0
       ? 0
       : Math.round(
-          ((learningQuestions.length - statistics.unseen) /
-            learningQuestions.length) *
-            100,
+          ((learningQuestions.length - statistics.unseen) / learningQuestions.length) * 100,
         );
 
-  const estimatedMinutes = Math.max(
-    5,
-    Math.ceil((DAILY_GOAL - answeredToday) * 1.5),
-  );
+  const estimatedMinutes = Math.max(5, Math.ceil((DAILY_GOAL - answeredToday) * 1.5));
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
@@ -142,10 +120,7 @@ function handleSaveName() {
 
       <main className="flex-1">
         <section className="relative overflow-hidden border-b border-border/60">
-          <div
-            className="pointer-events-none absolute inset-0 opacity-60"
-            aria-hidden="true"
-          >
+          <div className="pointer-events-none absolute inset-0 opacity-60" aria-hidden="true">
             <div className="absolute -left-20 top-8 h-56 w-56 rounded-full bg-amber-100/60 blur-3xl" />
             <div className="absolute -right-20 top-24 h-64 w-64 rounded-full bg-emerald-100/50 blur-3xl" />
           </div>
@@ -170,48 +145,48 @@ function handleSaveName() {
 
                 <div className="mt-8">
                   {needsName ? (
-  <div className="mt-2 max-w-sm">
+                    <div className="mt-2 max-w-sm">
+                      <p className="text-sm font-medium text-muted-foreground">Willkommen 👋</p>
 
-    <p className="text-sm font-medium text-muted-foreground">
-      Willkommen 👋
-    </p>
+                      <p className="mt-2 text-sm text-muted-foreground">
+                        Wie dürfen wir dich nennen?
+                      </p>
 
-    <p className="mt-2 text-sm text-muted-foreground">
-      Wie dürfen wir dich nennen?
-    </p>
+                      <input
+                        value={inputName}
+                        onChange={(e) => setInputName(e.target.value)}
+                        placeholder="Dein Name"
+                        className="mt-4 w-full rounded-2xl border border-border bg-background px-4 py-3 outline-none focus:ring-2 focus:ring-primary"
+                      />
 
-    <input
-      value={inputName}
-      onChange={(e) => setInputName(e.target.value)}
-      placeholder="Dein Name"
-      className="mt-4 w-full rounded-2xl border border-border bg-background px-4 py-3 outline-none focus:ring-2 focus:ring-primary"
-    />
-
-    <button
-      onClick={handleSaveName}
-      className="mt-3 w-full rounded-2xl bg-foreground px-4 py-3 font-semibold text-background transition hover:opacity-90"
-    >
-      Weiter
-    </button>
-
-  </div>
-) : (
-  <p className="text-sm font-medium text-muted-foreground">
-    Willkommen zurück, {userName} 👋
-  </p>
-)}
+                      <button
+                        onClick={handleSaveName}
+                        className="mt-3 w-full rounded-2xl bg-foreground px-4 py-3 font-semibold text-background transition hover:opacity-90"
+                      >
+                        Weiter
+                      </button>
+                    </div>
+                  ) : (
+                    <p className="text-sm font-medium text-muted-foreground">
+                      Willkommen zurück, {userName} 👋
+                    </p>
+                  )}
                   <h2 className="mt-2 max-w-2xl text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl">
                     Heute ist ein guter Tag, um Steuerrecht zu meistern.
                   </h2>
                   <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-                    Lerne in kurzen Einheiten, wiederhole unsichere Fragen
-                    und baue dein Wissen Schritt für Schritt auf.
+                    Lerne in kurzen Einheiten, wiederhole unsichere Fragen und baue dein Wissen
+                    Schritt für Schritt auf.
                   </p>
                 </div>
 
                 <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
                   <Metric icon={BookOpen} label="Fragen" value={learningQuestions.length} />
-                  <Metric icon={CheckCircle2} label="Beantwortet" value={statistics.totalAnswered} />
+                  <Metric
+                    icon={CheckCircle2}
+                    label="Beantwortet"
+                    value={statistics.totalAnswered}
+                  />
                   <Metric icon={Target} label="Genauigkeit" value={`${statistics.accuracy} %`} />
                   <Metric icon={Flame} label="Lernserie" value="1 Tag" />
                 </div>
@@ -231,9 +206,7 @@ function handleSaveName() {
                     <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
                       Dein Fortschritt
                     </p>
-                    <p className="mt-1 text-lg font-semibold text-foreground">
-                      Gesamtwissen
-                    </p>
+                    <p className="mt-1 text-lg font-semibold text-foreground">Gesamtwissen</p>
                   </div>
                   <Sparkles className="h-5 w-5 text-amber-500" />
                 </div>
@@ -245,9 +218,7 @@ function handleSaveName() {
                 <div className="mt-8 rounded-2xl border border-border/70 bg-background/70 p-4">
                   <div className="flex items-center justify-between gap-3">
                     <div>
-                      <p className="text-xs font-medium text-muted-foreground">
-                        Tagesziel
-                      </p>
+                      <p className="text-xs font-medium text-muted-foreground">Tagesziel</p>
                       <p className="mt-1 text-sm font-semibold text-foreground">
                         {answeredToday} von {DAILY_GOAL} Fragen
                       </p>
@@ -285,8 +256,8 @@ function handleSaveName() {
             </div>
 
             <p className="max-w-xl text-sm leading-relaxed text-muted-foreground">
-              Starte mit den Lernbereichen. Die weiteren Werkzeuge werden
-              Schritt für Schritt freigeschaltet.
+              Starte mit den Lernbereichen. Die weiteren Werkzeuge werden Schritt für Schritt
+              freigeschaltet.
             </p>
           </div>
 
@@ -294,6 +265,7 @@ function handleSaveName() {
             {ACADEMY_FEATURES.map((feature) => (
               <AcademyCard key={feature.title} {...feature} />
             ))}
+            <ExamTrainingCard />
           </div>
         </section>
       </main>
@@ -315,12 +287,8 @@ function Metric({
   return (
     <div className="rounded-2xl border border-border/70 bg-background/70 p-3.5">
       <Icon className="h-4 w-4 text-muted-foreground" />
-      <p className="mt-3 text-xl font-semibold tabular-nums text-foreground">
-        {value}
-      </p>
-      <p className="mt-0.5 text-[11px] font-medium text-muted-foreground">
-        {label}
-      </p>
+      <p className="mt-3 text-xl font-semibold tabular-nums text-foreground">{value}</p>
+      <p className="mt-0.5 text-[11px] font-medium text-muted-foreground">{label}</p>
     </div>
   );
 }
@@ -329,8 +297,7 @@ function ProgressRing({ percent }: { percent: number }) {
   const safePercent = Math.max(0, Math.min(100, percent));
   const radius = 52;
   const circumference = 2 * Math.PI * radius;
-  const offset =
-    circumference - (safePercent / 100) * circumference;
+  const offset = circumference - (safePercent / 100) * circumference;
 
   return (
     <div className="relative h-36 w-36">
@@ -364,12 +331,8 @@ function ProgressRing({ percent }: { percent: number }) {
       </svg>
 
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="text-3xl font-semibold tabular-nums text-foreground">
-          {safePercent}%
-        </span>
-        <span className="mt-0.5 text-[11px] font-medium text-muted-foreground">
-          gelernt
-        </span>
+        <span className="text-3xl font-semibold tabular-nums text-foreground">{safePercent}%</span>
+        <span className="mt-0.5 text-[11px] font-medium text-muted-foreground">gelernt</span>
       </div>
     </div>
   );
@@ -401,12 +364,8 @@ function AcademyCard({
           </span>
         </div>
 
-        <h3 className="mt-5 text-xl font-semibold text-foreground">
-          {title}
-        </h3>
-        <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
-          {description}
-        </p>
+        <h3 className="mt-5 text-xl font-semibold text-foreground">{title}</h3>
+        <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{description}</p>
         <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground">
           Öffnen
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -427,15 +386,41 @@ function AcademyCard({
         </span>
       </div>
 
-      <h3 className="mt-5 text-xl font-semibold text-foreground">
-        {title}
-      </h3>
-      <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
-        {description}
-      </p>
+      <h3 className="mt-5 text-xl font-semibold text-foreground">{title}</h3>
+      <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{description}</p>
       <span className="mt-5 text-xs font-medium text-muted-foreground">
         Wird als Nächstes ausgebaut
       </span>
     </article>
+  );
+}
+
+function ExamTrainingCard() {
+  return (
+    <Link
+      to="/lernen/akademie/klausuren"
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore – TanStack Router incorrectly infers search param inheritance from /lernen
+      search={{}}
+      className="group flex min-h-52 flex-col rounded-[1.75rem] border border-border/70 bg-card p-5 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md sm:p-6"
+    >
+      <div className="flex items-start justify-between gap-3">
+        <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-violet-100 text-violet-700">
+          <FileText className="h-5 w-5" />
+        </span>
+        <span className="rounded-full bg-violet-100 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-violet-700">
+          1 Fall verfügbar
+        </span>
+      </div>
+
+      <h3 className="mt-5 text-xl font-semibold text-foreground">Klausurtraining</h3>
+      <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+        Echte Prüfungsfälle Schritt für Schritt bearbeiten
+      </p>
+      <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground">
+        Klausuren öffnen
+        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+      </span>
+    </Link>
   );
 }

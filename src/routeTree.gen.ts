@@ -32,6 +32,8 @@ import { Route as ApiTtsRouteImport } from './routes/api/tts'
 import { Route as ApiTranscribeRouteImport } from './routes/api/transcribe'
 import { Route as ApiChatTtsRouteImport } from './routes/api/chat-tts'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
+import { Route as LernenAkademieKlausurenRouteImport } from './routes/lernen.akademie.klausuren'
+import { Route as LernenAkademieKlausurenSlugRouteImport } from './routes/lernen.akademie.klausuren.$slug'
 
 const WissensdatenbankRoute = WissensdatenbankRouteImport.update({
   id: '/wissensdatenbank',
@@ -149,6 +151,17 @@ const ApiChatRoute = ApiChatRouteImport.update({
   path: '/api/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LernenAkademieKlausurenRoute = LernenAkademieKlausurenRouteImport.update({
+  id: '/akademie/klausuren',
+  path: '/akademie/klausuren',
+  getParentRoute: () => LernenRoute,
+} as any)
+const LernenAkademieKlausurenSlugRoute =
+  LernenAkademieKlausurenSlugRouteImport.update({
+    id: '/$slug',
+    path: '/$slug',
+    getParentRoute: () => LernenAkademieKlausurenRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -161,7 +174,7 @@ export interface FileRoutesByFullPath {
   '/fristenkalender': typeof FristenkalenderRoute
   '/gesetz-importieren': typeof GesetzImportierenRoute
   '/kfz-wertabgabe': typeof KfzWertabgabeRoute
-  '/lernen': typeof LernenRoute
+  '/lernen': typeof LernenRouteWithChildren
   '/lerngebiete': typeof LerngebieteRoute
   '/magazin': typeof MagazinRoute
   '/mittelverwendungsrechner': typeof MittelverwendungsrechnerRoute
@@ -174,6 +187,8 @@ export interface FileRoutesByFullPath {
   '/api/transcribe': typeof ApiTranscribeRoute
   '/api/tts': typeof ApiTtsRoute
   '/fall/$caseId': typeof FallCaseIdRoute
+  '/lernen/akademie/klausuren': typeof LernenAkademieKlausurenRouteWithChildren
+  '/lernen/akademie/klausuren/$slug': typeof LernenAkademieKlausurenSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -186,7 +201,7 @@ export interface FileRoutesByTo {
   '/fristenkalender': typeof FristenkalenderRoute
   '/gesetz-importieren': typeof GesetzImportierenRoute
   '/kfz-wertabgabe': typeof KfzWertabgabeRoute
-  '/lernen': typeof LernenRoute
+  '/lernen': typeof LernenRouteWithChildren
   '/lerngebiete': typeof LerngebieteRoute
   '/magazin': typeof MagazinRoute
   '/mittelverwendungsrechner': typeof MittelverwendungsrechnerRoute
@@ -199,6 +214,8 @@ export interface FileRoutesByTo {
   '/api/transcribe': typeof ApiTranscribeRoute
   '/api/tts': typeof ApiTtsRoute
   '/fall/$caseId': typeof FallCaseIdRoute
+  '/lernen/akademie/klausuren': typeof LernenAkademieKlausurenRouteWithChildren
+  '/lernen/akademie/klausuren/$slug': typeof LernenAkademieKlausurenSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -212,7 +229,7 @@ export interface FileRoutesById {
   '/fristenkalender': typeof FristenkalenderRoute
   '/gesetz-importieren': typeof GesetzImportierenRoute
   '/kfz-wertabgabe': typeof KfzWertabgabeRoute
-  '/lernen': typeof LernenRoute
+  '/lernen': typeof LernenRouteWithChildren
   '/lerngebiete': typeof LerngebieteRoute
   '/magazin': typeof MagazinRoute
   '/mittelverwendungsrechner': typeof MittelverwendungsrechnerRoute
@@ -225,6 +242,8 @@ export interface FileRoutesById {
   '/api/transcribe': typeof ApiTranscribeRoute
   '/api/tts': typeof ApiTtsRoute
   '/fall/$caseId': typeof FallCaseIdRoute
+  '/lernen/akademie/klausuren': typeof LernenAkademieKlausurenRouteWithChildren
+  '/lernen/akademie/klausuren/$slug': typeof LernenAkademieKlausurenSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -252,6 +271,8 @@ export interface FileRouteTypes {
     | '/api/transcribe'
     | '/api/tts'
     | '/fall/$caseId'
+    | '/lernen/akademie/klausuren'
+    | '/lernen/akademie/klausuren/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -277,6 +298,8 @@ export interface FileRouteTypes {
     | '/api/transcribe'
     | '/api/tts'
     | '/fall/$caseId'
+    | '/lernen/akademie/klausuren'
+    | '/lernen/akademie/klausuren/$slug'
   id:
     | '__root__'
     | '/'
@@ -302,6 +325,8 @@ export interface FileRouteTypes {
     | '/api/transcribe'
     | '/api/tts'
     | '/fall/$caseId'
+    | '/lernen/akademie/klausuren'
+    | '/lernen/akademie/klausuren/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -315,7 +340,7 @@ export interface RootRouteChildren {
   FristenkalenderRoute: typeof FristenkalenderRoute
   GesetzImportierenRoute: typeof GesetzImportierenRoute
   KfzWertabgabeRoute: typeof KfzWertabgabeRoute
-  LernenRoute: typeof LernenRoute
+  LernenRoute: typeof LernenRouteWithChildren
   LerngebieteRoute: typeof LerngebieteRoute
   MagazinRoute: typeof MagazinRoute
   MittelverwendungsrechnerRoute: typeof MittelverwendungsrechnerRoute
@@ -493,8 +518,47 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiChatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/lernen/akademie/klausuren': {
+      id: '/lernen/akademie/klausuren'
+      path: '/akademie/klausuren'
+      fullPath: '/lernen/akademie/klausuren'
+      preLoaderRoute: typeof LernenAkademieKlausurenRouteImport
+      parentRoute: typeof LernenRoute
+    }
+    '/lernen/akademie/klausuren/$slug': {
+      id: '/lernen/akademie/klausuren/$slug'
+      path: '/$slug'
+      fullPath: '/lernen/akademie/klausuren/$slug'
+      preLoaderRoute: typeof LernenAkademieKlausurenSlugRouteImport
+      parentRoute: typeof LernenAkademieKlausurenRoute
+    }
   }
 }
+
+interface LernenAkademieKlausurenRouteChildren {
+  LernenAkademieKlausurenSlugRoute: typeof LernenAkademieKlausurenSlugRoute
+}
+
+const LernenAkademieKlausurenRouteChildren: LernenAkademieKlausurenRouteChildren =
+  {
+    LernenAkademieKlausurenSlugRoute: LernenAkademieKlausurenSlugRoute,
+  }
+
+const LernenAkademieKlausurenRouteWithChildren =
+  LernenAkademieKlausurenRoute._addFileChildren(
+    LernenAkademieKlausurenRouteChildren,
+  )
+
+interface LernenRouteChildren {
+  LernenAkademieKlausurenRoute: typeof LernenAkademieKlausurenRouteWithChildren
+}
+
+const LernenRouteChildren: LernenRouteChildren = {
+  LernenAkademieKlausurenRoute: LernenAkademieKlausurenRouteWithChildren,
+}
+
+const LernenRouteWithChildren =
+  LernenRoute._addFileChildren(LernenRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -507,7 +571,7 @@ const rootRouteChildren: RootRouteChildren = {
   FristenkalenderRoute: FristenkalenderRoute,
   GesetzImportierenRoute: GesetzImportierenRoute,
   KfzWertabgabeRoute: KfzWertabgabeRoute,
-  LernenRoute: LernenRoute,
+  LernenRoute: LernenRouteWithChildren,
   LerngebieteRoute: LerngebieteRoute,
   MagazinRoute: MagazinRoute,
   MittelverwendungsrechnerRoute: MittelverwendungsrechnerRoute,
@@ -524,3 +588,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

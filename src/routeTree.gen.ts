@@ -36,7 +36,7 @@ import { Route as ApiChatTtsRouteImport } from './routes/api/chat-tts'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as LernenAkademieKlausurenRouteImport } from './routes/lernen_.akademie_.klausuren'
 import { Route as ApiUploadUploadIdRouteImport } from './routes/api/upload.$uploadId'
-import { Route as LernenAkademieKlausurenSlugRouteImport } from './routes/lernen_.akademie_.klausuren.$slug'
+import { Route as LernenAkademieKlausurenSlugRouteImport } from './routes/lernen_.akademie_.klausuren_.$slug'
 
 const WissensdatenbankRoute = WissensdatenbankRouteImport.update({
   id: '/wissensdatenbank',
@@ -176,9 +176,9 @@ const ApiUploadUploadIdRoute = ApiUploadUploadIdRouteImport.update({
 } as any)
 const LernenAkademieKlausurenSlugRoute =
   LernenAkademieKlausurenSlugRouteImport.update({
-    id: '/$slug',
-    path: '/$slug',
-    getParentRoute: () => LernenAkademieKlausurenRoute,
+    id: '/lernen_/akademie_/klausuren_/$slug',
+    path: '/lernen/akademie/klausuren/$slug',
+    getParentRoute: () => rootRouteImport,
   } as any)
 
 export interface FileRoutesByFullPath {
@@ -208,7 +208,7 @@ export interface FileRoutesByFullPath {
   '/fall/$caseId': typeof FallCaseIdRoute
   '/lernen/akademie': typeof LernenAkademieRoute
   '/api/upload/$uploadId': typeof ApiUploadUploadIdRoute
-  '/lernen/akademie/klausuren': typeof LernenAkademieKlausurenRouteWithChildren
+  '/lernen/akademie/klausuren': typeof LernenAkademieKlausurenRoute
   '/lernen/akademie/klausuren/$slug': typeof LernenAkademieKlausurenSlugRoute
 }
 export interface FileRoutesByTo {
@@ -238,7 +238,7 @@ export interface FileRoutesByTo {
   '/fall/$caseId': typeof FallCaseIdRoute
   '/lernen/akademie': typeof LernenAkademieRoute
   '/api/upload/$uploadId': typeof ApiUploadUploadIdRoute
-  '/lernen/akademie/klausuren': typeof LernenAkademieKlausurenRouteWithChildren
+  '/lernen/akademie/klausuren': typeof LernenAkademieKlausurenRoute
   '/lernen/akademie/klausuren/$slug': typeof LernenAkademieKlausurenSlugRoute
 }
 export interface FileRoutesById {
@@ -269,8 +269,8 @@ export interface FileRoutesById {
   '/fall/$caseId': typeof FallCaseIdRoute
   '/lernen_/akademie': typeof LernenAkademieRoute
   '/api/upload/$uploadId': typeof ApiUploadUploadIdRoute
-  '/lernen_/akademie_/klausuren': typeof LernenAkademieKlausurenRouteWithChildren
-  '/lernen_/akademie_/klausuren/$slug': typeof LernenAkademieKlausurenSlugRoute
+  '/lernen_/akademie_/klausuren': typeof LernenAkademieKlausurenRoute
+  '/lernen_/akademie_/klausuren_/$slug': typeof LernenAkademieKlausurenSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -362,7 +362,7 @@ export interface FileRouteTypes {
     | '/lernen_/akademie'
     | '/api/upload/$uploadId'
     | '/lernen_/akademie_/klausuren'
-    | '/lernen_/akademie_/klausuren/$slug'
+    | '/lernen_/akademie_/klausuren_/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -391,7 +391,8 @@ export interface RootRouteChildren {
   ApiUploadRoute: typeof ApiUploadRouteWithChildren
   FallCaseIdRoute: typeof FallCaseIdRoute
   LernenAkademieRoute: typeof LernenAkademieRoute
-  LernenAkademieKlausurenRoute: typeof LernenAkademieKlausurenRouteWithChildren
+  LernenAkademieKlausurenRoute: typeof LernenAkademieKlausurenRoute
+  LernenAkademieKlausurenSlugRoute: typeof LernenAkademieKlausurenSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -585,12 +586,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiUploadUploadIdRouteImport
       parentRoute: typeof ApiUploadRoute
     }
-    '/lernen_/akademie_/klausuren/$slug': {
-      id: '/lernen_/akademie_/klausuren/$slug'
-      path: '/$slug'
+    '/lernen_/akademie_/klausuren_/$slug': {
+      id: '/lernen_/akademie_/klausuren_/$slug'
+      path: '/lernen/akademie/klausuren/$slug'
       fullPath: '/lernen/akademie/klausuren/$slug'
       preLoaderRoute: typeof LernenAkademieKlausurenSlugRouteImport
-      parentRoute: typeof LernenAkademieKlausurenRoute
+      parentRoute: typeof rootRouteImport
     }
   }
 }
@@ -606,20 +607,6 @@ const ApiUploadRouteChildren: ApiUploadRouteChildren = {
 const ApiUploadRouteWithChildren = ApiUploadRoute._addFileChildren(
   ApiUploadRouteChildren,
 )
-
-interface LernenAkademieKlausurenRouteChildren {
-  LernenAkademieKlausurenSlugRoute: typeof LernenAkademieKlausurenSlugRoute
-}
-
-const LernenAkademieKlausurenRouteChildren: LernenAkademieKlausurenRouteChildren =
-  {
-    LernenAkademieKlausurenSlugRoute: LernenAkademieKlausurenSlugRoute,
-  }
-
-const LernenAkademieKlausurenRouteWithChildren =
-  LernenAkademieKlausurenRoute._addFileChildren(
-    LernenAkademieKlausurenRouteChildren,
-  )
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -647,7 +634,8 @@ const rootRouteChildren: RootRouteChildren = {
   ApiUploadRoute: ApiUploadRouteWithChildren,
   FallCaseIdRoute: FallCaseIdRoute,
   LernenAkademieRoute: LernenAkademieRoute,
-  LernenAkademieKlausurenRoute: LernenAkademieKlausurenRouteWithChildren,
+  LernenAkademieKlausurenRoute: LernenAkademieKlausurenRoute,
+  LernenAkademieKlausurenSlugRoute: LernenAkademieKlausurenSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

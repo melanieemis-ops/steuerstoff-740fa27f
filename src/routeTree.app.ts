@@ -7,6 +7,8 @@ import { Route as MittelverwendungsrechnerRouteImport } from "./routes/mittelver
 import { Route as MagazinRouteImport } from "./routes/magazin";
 import { Route as LerngebieteRouteImport } from "./routes/lerngebiete";
 import { Route as LernenRouteImport } from "./routes/lernen";
+import { Route as KlausurenRouteImport } from "./routes/lernen.akademie.klausuren";
+import { Route as KlausurenSlugRouteImport } from "./routes/lernen.akademie.klausuren.$slug";
 import { Route as KfzWertabgabeRouteImport } from "./routes/kfz-wertabgabe";
 import { Route as FristenkalenderRouteImport } from "./routes/fristenkalender";
 import { Route as FallverlaufRouteImport } from "./routes/fallverlauf";
@@ -56,6 +58,16 @@ const LerngebieteRoute = LerngebieteRouteImport.update({
 const LernenRoute = LernenRouteImport.update({
   id: "/lernen",
   path: "/lernen",
+  getParentRoute: () => AppRootRoute,
+} as const);
+const KlausurenRoute = KlausurenRouteImport.update({
+  id: "/lernen/akademie/klausuren",
+  path: "/lernen/akademie/klausuren",
+  getParentRoute: () => AppRootRoute,
+} as const);
+const KlausurenSlugRoute = KlausurenSlugRouteImport.update({
+  id: "/lernen/akademie/klausuren/$slug",
+  path: "/lernen/akademie/klausuren/$slug",
   getParentRoute: () => AppRootRoute,
 } as const);
 const KfzWertabgabeRoute = KfzWertabgabeRouteImport.update({
@@ -120,6 +132,8 @@ const rootRouteChildren = {
   FristenkalenderRoute,
   KfzWertabgabeRoute,
   LernenRoute,
+  KlausurenRoute,
+  KlausurenSlugRoute,
   LerngebieteRoute,
   MagazinRoute,
   MittelverwendungsrechnerRoute,

@@ -3,6 +3,12 @@
   "private": true,
   "sideEffects": false,
   "type": "module",
+  "overrides": {
+    "set-value": "^4.1.0"
+  },
+  "resolutions": {
+    "set-value": "^4.1.0"
+  },
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",

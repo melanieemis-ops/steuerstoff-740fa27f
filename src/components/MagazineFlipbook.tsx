@@ -57,7 +57,7 @@ const magazineIssues: MagazineIssue[] = [
     id: "02",
     label: "Ausgabe 02",
     cover: {
-      src: "/magazin-cover-ausgabe-02-final.svg",
+      src: "/magazin-cover-ausgabe-02-final.png",
       alt: "Cover des steuerstoff Magazins – Ausgabe 02/2026",
     },
     coverBackgroundColor: "#000000",
@@ -67,7 +67,7 @@ const magazineIssues: MagazineIssue[] = [
     id: "03",
     label: "Ausgabe 03",
     cover: {
-      src: "/magazin-cover-ausgabe-03.png",
+      src: "/magazin-cover-ausgabe-03-final.png",
       alt: "Cover des steuerstoff Magazins – Ausgabe 03/2026",
     },
     coverBackgroundColor: "#f6f0e7",

@@ -196,10 +196,7 @@ function KlausurDetailPage() {
                     {examCase.title}
                   </h1>
                   <div className="shrink-0">
-                    <FavoriteButton
-                      isFavorite={isExamFavorite}
-                      onClick={handleToggleFavorite}
-                    />
+                    <FavoriteButton isFavorite={isExamFavorite} onClick={handleToggleFavorite} />
                   </div>
                 </div>
                 <p className="mt-1 text-sm text-muted-foreground">

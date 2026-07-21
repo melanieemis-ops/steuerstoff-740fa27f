@@ -44,7 +44,8 @@ export const examCases: ExamCase[] = [
     maximumPoints: 30,
     durationMinutes: 45,
     difficulty: "Fortgeschritten",
-    source: "Interne Steuerstoff-Akademie – eigenständig überarbeiteter und aktualisierter Übungsfall",
+    source:
+      "Interne Steuerstoff-Akademie – eigenständig überarbeiteter und aktualisierter Übungsfall",
     rightsStatus: "prüfen",
     tags: [
       "Klausurfall",

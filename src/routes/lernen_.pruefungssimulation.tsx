@@ -59,7 +59,7 @@ function ExamSimulationPage() {
     return () => {
       document.documentElement.removeAttribute("data-exam-running");
     };
-  }, [session?.isSubmitted, session?.isAbandoned]);
+  }, [session]);
 
   // Filter questions based on selected categories
   const availableQuestions = useMemo(() => {
@@ -684,39 +684,35 @@ function ExamResultsView() {
   const { toggleFavorite, isFavorite } = useFavorites();
   const [recordedProgress, setRecordedProgress] = useState(false);
 
-  if (!session) return null;
-
   const results = calculateResults();
 
   // Record progress and mistakes only once
   useEffect(() => {
-    if (!recordedProgress && results) {
-      // Record to progress
-      recordExam({
-        questionCount: results.totalQuestions,
-        correctCount: results.correctCount,
-        wrongCount: results.wrongCount,
-        unansweredCount: results.unansweredCount,
-        duration: results.duration,
-        accuracy: results.accuracy,
-        categoryResults: results.categoryResults,
-      });
+    if (!session || !results || recordedProgress) return;
 
-      // Add wrong questions to mistakes
-      const wrongQuestions = session.questions
-        .filter(
-          (q) =>
-            q.selectedAnswerIndex === null || q.selectedAnswerIndex !== q.question.correctAnswer,
-        )
-        .map((q) => q.question);
+    // Record to progress
+    recordExam({
+      questionCount: results.totalQuestions,
+      correctCount: results.correctCount,
+      wrongCount: results.wrongCount,
+      unansweredCount: results.unansweredCount,
+      duration: results.duration,
+      accuracy: results.accuracy,
+      categoryResults: results.categoryResults,
+    });
 
-      addMistakesFromExam(wrongQuestions);
+    // Add wrong questions to mistakes
+    const wrongQuestions = session.questions
+      .filter(
+        (q) => q.selectedAnswerIndex === null || q.selectedAnswerIndex !== q.question.correctAnswer,
+      )
+      .map((q) => q.question);
 
-      setRecordedProgress(true);
-    }
+    addMistakesFromExam(wrongQuestions);
+    setRecordedProgress(true);
   }, [recordedProgress, results, session, recordExam, addMistakesFromExam]);
 
-  if (!results) return null;
+  if (!session || !results) return null;
 
   return (
     <div className="flex min-h-screen flex-col bg-background">

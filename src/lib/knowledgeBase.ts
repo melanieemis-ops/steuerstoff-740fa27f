@@ -30541,6 +30541,495 @@ Merksatz: RHB = Umlaufvermögen, Bewertung regelmäßig mit Anschaffungskosten, 
 
 Merksatz: § 173a AO korrigiert Schreib-/Rechenfehler — aber nur, wenn rechtserheblich und die Festsetzungsfrist noch läuft.`,
   },
+{
+  id: "fristen-berechnung-ao",
+  title: "Fristen im Steuerrecht: Arten, Berechnung und Wiedereinsetzung",
+  short:
+    "Überblick über Fristen und Termine im Besteuerungsverfahren, behördliche und gesetzliche Fristen, Fristbeginn, Fristdauer, Fristende, Bekanntgabefiktion, Zahlungsschonfrist und Wiedereinsetzung in den vorigen Stand.",
+  category: "Abgabenordnung",
+  source:
+    "Abgabenordnung und Bürgerliches Gesetzbuch sowie Lehrbuchauszug „Fristen“, S. 54–58; Rechtsstand 2026",
+  keywords:
+    /fristen?|fristberechnung|fristbeginn|fristdauer|fristende|termin|ereignisfrist|beginnfrist|einspruchsfrist|monatsfrist|bekanntgabe|bekanntgabefiktion|vier.?tages.?fiktion|zahlungsschonfrist|säumniszuschlag|wiedereinsetzung|ausschlussfrist|wochenende|feiertag/i,
+  references: [
+    "§ 108 AO",
+    "§ 109 AO",
+    "§ 110 AO",
+    "§ 122 Abs. 2 und 2a AO",
+    "§ 149 AO",
+    "§ 169 AO",
+    "§ 193 BGB",
+    "§§ 187–188 BGB",
+    "§ 224 AO",
+    "§ 240 Abs. 3 AO",
+    "§ 355 AO"
+  ],
+  body: `
+## 1. Begriff der Frist
+
+Eine **Frist** ist ein abgegrenzter, bestimmter oder zumindest bestimmbarer Zeitraum, innerhalb dessen eine Handlung vorgenommen werden muss oder eine Rechtswirkung eintreten kann.
+
+Beispiele:
+
+- Einspruchsfrist von einem Monat
+- Steuererklärungsfrist
+- Zahlungsfrist
+- Festsetzungsfrist
+- Zahlungsverjährungsfrist
+- Aufbewahrungsfrist
+
+Ein **Termin** ist dagegen ein bestimmter Zeitpunkt, an dem eine Handlung vorzunehmen ist oder eine Rechtswirkung eintritt.
+
+### Unterschied
+
+| Frist | Termin |
+|---|---|
+| Zeitraum | bestimmter Zeitpunkt |
+| Beispiel: ein Monat nach Bekanntgabe | Beispiel: Abgabe bis zum 31. Juli |
+| Das Fristende kann sich unter den Voraussetzungen des § 108 Abs. 3 AO verschieben | Ein ausdrücklich von der Behörde gesetzter Termin ist grundsätzlich auch dann einzuhalten, wenn er auf einen Samstag, Sonntag oder Feiertag fällt |
+
+Für die Berechnung steuerlicher Fristen verweist § 108 Abs. 1 AO grundsätzlich auf die §§ 187 bis 193 BGB.
+
+---
+
+## 2. Arten von Fristen
+
+Die Abgabenordnung unterscheidet insbesondere zwischen **behördlichen Fristen** und **gesetzlichen Fristen**.
+
+### 2.1 Behördliche Fristen
+
+Behördliche Fristen werden im Einzelfall durch die Finanzbehörde festgelegt.
+
+Beispiele:
+
+- Frist zur Beantwortung eines Auskunftsersuchens
+- Frist zur Einreichung bestimmter Unterlagen
+- Frist zur Erfüllung einer behördlichen Aufforderung
+
+Behördliche Fristen können nach § 109 AO grundsätzlich verlängert werden. Unter bestimmten Voraussetzungen ist auch eine rückwirkende Verlängerung einer bereits abgelaufenen Frist möglich.
+
+Die Verlängerung sollte rechtzeitig und unter Angabe nachvollziehbarer Gründe beantragt werden.
+
+---
+
+### 2.2 Gesetzliche Fristen
+
+Gesetzliche Fristen werden unmittelbar durch den Gesetzgeber bestimmt.
+
+Beispiele:
+
+- Einspruchsfrist nach § 355 AO
+- Steuererklärungsfristen nach § 149 AO
+- Festsetzungsfristen nach § 169 AO
+- Zahlungsverjährungsfristen nach § 228 AO
+- Zahlungsschonfrist nach § 240 Abs. 3 AO
+
+Gesetzliche Fristen können grundsätzlich nur verlängert werden, wenn das Gesetz dies ausdrücklich zulässt.
+
+### Verlängerbare gesetzliche Fristen
+
+Bestimmte gesetzliche Fristen können aufgrund einer gesetzlichen Ermächtigung verlängert werden. Hierzu können insbesondere Fristen zur Einreichung von Steuererklärungen gehören.
+
+### Nicht verlängerbare Fristen
+
+Bestimmte gesetzliche Fristen sind nicht verlängerbar. Dazu gehören insbesondere:
+
+- Einspruchsfrist nach § 355 AO
+- Festsetzungsfrist nach § 169 AO
+- Zahlungsschonfrist nach § 240 Abs. 3 AO
+
+Eine versäumte Einspruchsfrist kann daher nicht einfach durch einen Fristverlängerungsantrag verlängert werden.
+
+Kommt jedoch eine unverschuldete Fristversäumnis in Betracht, ist die Wiedereinsetzung in den vorigen Stand nach § 110 AO zu prüfen.
+
+---
+
+## 3. Grundschema der Fristberechnung
+
+Bei jeder Fristberechnung sind drei Fragen zu beantworten:
+
+1. **Wann beginnt die Frist?**
+2. **Wie lange dauert die Frist?**
+3. **Wann endet die Frist?**
+
+Das Prüfungsschema lautet:
+
+**Beginn der Frist**
+
+**+ Dauer der Frist**
+
+**= Ende der Frist**
+
+Anschließend ist zu prüfen, ob das errechnete Fristende auf einen Samstag, Sonntag oder gesetzlichen Feiertag fällt.
+
+---
+
+## 4. Beginn der Frist
+
+Das BGB unterscheidet zwischen **Ereignisfristen** und **Beginnfristen**.
+
+### 4.1 Ereignisfrist
+
+Bei einer Ereignisfrist wird die Frist durch ein bestimmtes Ereignis ausgelöst.
+
+Beispiele:
+
+- Bekanntgabe eines Steuerbescheids
+- Zugang einer Mahnung
+- Zustellung einer Entscheidung
+
+Der Tag des Ereignisses wird bei der Berechnung nicht mitgerechnet.
+
+Die Frist beginnt mit Ablauf des Tages, an dem das Ereignis eingetreten ist.
+
+Rechtsgrundlage: § 187 Abs. 1 BGB.
+
+### Beispiel
+
+Ein Steuerbescheid wird am 10. März bekannt gegeben.
+
+Der 10. März ist der Ereignistag und wird nicht mitgerechnet.
+
+Die Frist beginnt mit Ablauf des 10. März. Der erste volle Tag der Frist ist der 11. März.
+
+Die Einspruchsfrist nach § 355 AO ist eine Ereignisfrist.
+
+---
+
+### 4.2 Beginnfrist
+
+Bei einer Beginnfrist ist der Beginn eines bestimmten Tages für den Fristlauf maßgebend.
+
+Der Anfangstag wird bei der Berechnung mitgerechnet.
+
+Rechtsgrundlage: § 187 Abs. 2 BGB.
+
+Beispiele:
+
+- Fristberechnung für Vorauszahlungen
+- Berechnung des Lebensalters
+- Fristen, die ausdrücklich mit Beginn eines bestimmten Tages laufen
+
+---
+
+## 5. Dauer der Frist
+
+Fristen können nach unterschiedlichen Zeiteinheiten bestimmt sein.
+
+### Tagesfristen
+
+Beispiele:
+
+- Zahlungsschonfrist nach § 240 Abs. 3 AO
+- bestimmte behördliche Bearbeitungsfristen
+
+### Wochenfristen
+
+Beispiele:
+
+- behördlich gesetzte Zahlungs- oder Vorlagefristen
+- Mahnfristen
+- Vollstreckungsschutzfristen
+
+### Monatsfristen
+
+Beispiele:
+
+- Einspruchsfrist nach § 355 AO
+- Wiedereinsetzungsfrist nach § 110 Abs. 2 AO
+
+### Jahresfristen
+
+Beispiele:
+
+- Festsetzungsfristen nach §§ 169 ff. AO
+- Zahlungsverjährungsfristen nach §§ 228 ff. AO
+- Aufbewahrungsfristen
+
+---
+
+## 6. Ende der Frist
+
+Das Fristende richtet sich nach der Dauer der jeweiligen Frist.
+
+### 6.1 Tagesfristen
+
+Eine nach Tagen bestimmte Frist endet mit Ablauf des letzten Tages der Frist um 24:00 Uhr.
+
+Rechtsgrundlage: § 188 Abs. 1 BGB.
+
+### Beispiel
+
+Eine dreitägige Frist beginnt mit Ablauf des 10. September.
+
+Die drei Fristtage sind:
+
+1. 11. September  
+2. 12. September  
+3. 13. September  
+
+Die Frist endet mit Ablauf des 13. September um 24:00 Uhr.
+
+---
+
+### 6.2 Wochenfristen
+
+Eine nach Wochen bestimmte Ereignisfrist endet mit Ablauf des Tages der letzten Woche, der dieselbe Bezeichnung trägt wie der Ereignistag.
+
+### Beispiel
+
+Eine Mahnung wird am Freitag bekannt gegeben. Die Zahlungsfrist beträgt eine Woche.
+
+Die Wochenfrist endet grundsätzlich am Freitag der folgenden Woche um 24:00 Uhr.
+
+---
+
+### 6.3 Monatsfristen
+
+Eine nach Monaten bestimmte Ereignisfrist endet mit Ablauf des Tages des letzten Monats, der dieselbe Zahl trägt wie der Ereignistag.
+
+### Beispiel
+
+Ein Steuerbescheid wird am 11. Juni bekannt gegeben.
+
+Die einmonatige Einspruchsfrist endet grundsätzlich mit Ablauf des 11. Juli um 24:00 Uhr.
+
+Der Tag der Bekanntgabe wird dabei nicht als erster Fristtag mitgezählt. Für die Bestimmung des Fristendes bleibt seine Datumszahl jedoch maßgebend.
+
+---
+
+### 6.4 Fehlender entsprechender Kalendertag
+
+Fehlt im letzten Monat der für das Fristende maßgebende Kalendertag, endet die Frist mit Ablauf des letzten Tages dieses Monats.
+
+Rechtsgrundlage: § 188 Abs. 3 BGB.
+
+### Beispiel
+
+Ein Bescheid wird am 31. Januar bekannt gegeben.
+
+Eine einmonatige Frist endet grundsätzlich am letzten Tag des Februars:
+
+- in einem gewöhnlichen Jahr am 28. Februar,
+- in einem Schaltjahr am 29. Februar.
+
+---
+
+## 7. Samstag, Sonntag und gesetzliche Feiertage
+
+Fällt das Ende einer Frist auf einen:
+
+- Samstag,
+- Sonntag oder
+- gesetzlichen Feiertag,
+
+endet die Frist mit Ablauf des nächstfolgenden Werktags.
+
+Rechtsgrundlage: § 108 Abs. 3 AO in Verbindung mit § 193 BGB.
+
+### Beispiel
+
+Das errechnete Ende einer Einspruchsfrist fällt auf einen Sonntag.
+
+Die Einspruchsfrist endet daher erst mit Ablauf des folgenden Montags um 24:00 Uhr, sofern dieser Montag kein gesetzlicher Feiertag ist.
+
+Bei Feiertagen ist auf den Ort abzustellen, an dem die Handlung vorzunehmen ist. Deshalb können auch landesspezifische Feiertage von Bedeutung sein.
+
+### Achtung: Frist und behördlicher Termin unterscheiden
+
+Die Verschiebungsregel gilt für das **Ende einer Frist**.
+
+Ein ausdrücklich von einer Behörde gesetzter **Termin** ist nach § 108 Abs. 5 AO grundsätzlich auch dann einzuhalten, wenn er auf einen Samstag, Sonntag oder gesetzlichen Feiertag fällt.
+
+---
+
+## 8. Bekanntgabefiktion bei Steuerbescheiden
+
+Ein schriftlicher Verwaltungsakt, der im Inland durch die Post übermittelt wird, gilt grundsätzlich am **vierten Tag nach der Aufgabe zur Post** als bekannt gegeben.
+
+Auch ein elektronisch übermittelter Verwaltungsakt gilt grundsätzlich am **vierten Tag nach der Absendung** als bekannt gegeben.
+
+Rechtsgrundlage: § 122 Abs. 2 und 2a AO.
+
+> Ältere Lehrbücher und ältere Prüfungsfälle verwenden häufig noch eine Drei-Tages-Fiktion. Seit dem 1. Januar 2025 gilt grundsätzlich die Vier-Tages-Fiktion.
+
+Der Tag der Aufgabe zur Post oder der elektronischen Absendung wird nicht mitgerechnet.
+
+Fällt der vierte Tag auf einen Samstag, Sonntag oder gesetzlichen Feiertag, verschiebt sich der fingierte Bekanntgabetag nach § 108 Abs. 3 AO auf den nächstfolgenden Werktag.
+
+### Beispiel
+
+Ein Steuerbescheid wird am Dienstag, dem 01.09.2026, zur Post gegeben.
+
+Berechnung:
+
+- Aufgabe zur Post: Dienstag, 01.09.2026
+- vierter Tag nach Aufgabe zur Post: Samstag, 05.09.2026
+- Samstag: Verschiebung auf den nächsten Werktag
+- Bekanntgabetag: Montag, 07.09.2026
+
+Die Einspruchsfrist beginnt mit Ablauf des 07.09.2026.
+
+Sie endet grundsätzlich mit Ablauf des 07.10.2026 um 24:00 Uhr.
+
+Geht der Verwaltungsakt tatsächlich erst später zu, gilt der spätere Zugangstag. Im Zweifel muss die Finanzbehörde den Zugang und den Zeitpunkt des Zugangs nachweisen.
+
+---
+
+## 9. Einspruchsfrist
+
+Der Einspruch ist nach § 355 Abs. 1 AO grundsätzlich innerhalb eines Monats nach Bekanntgabe des Verwaltungsakts einzulegen.
+
+Die Einspruchsfrist ist eine:
+
+- gesetzliche Frist,
+- Monatsfrist,
+- Ereignisfrist und
+- grundsätzlich nicht verlängerbare Frist.
+
+### Prüfungsschema
+
+1. Datum der Aufgabe zur Post oder elektronischen Absendung feststellen.
+2. Bekanntgabetag nach § 122 AO ermitteln.
+3. Wochenende und Feiertage prüfen.
+4. Fristbeginn mit Ablauf des Bekanntgabetages bestimmen.
+5. Dauer von einem Monat berücksichtigen.
+6. Fristende nach § 188 BGB bestimmen.
+7. Erneut prüfen, ob das Fristende auf Samstag, Sonntag oder Feiertag fällt.
+
+Der Einspruch muss spätestens bis 24:00 Uhr des letzten Tages bei der zuständigen Finanzbehörde eingegangen sein.
+
+---
+
+## 10. Zahlungsschonfrist
+
+Nach § 240 Abs. 3 AO wird bei einer Säumnis von bis zu drei Tagen grundsätzlich kein Säumniszuschlag erhoben.
+
+Diese drei Tage werden als **Zahlungsschonfrist** bezeichnet.
+
+Die Zahlungsschonfrist beginnt erst nach Eintritt der Fälligkeit.
+
+### Berechnung
+
+1. Zunächst den Fälligkeitstag bestimmen.
+2. Fällt die gesetzliche Fälligkeit auf einen Samstag, Sonntag oder Feiertag, ist zunächst die Verschiebung auf den nächsten Werktag zu prüfen.
+3. Erst danach werden die drei Tage der Zahlungsschonfrist berechnet.
+4. Fällt der letzte Tag der Zahlungsschonfrist auf einen Samstag, Sonntag oder Feiertag, verschiebt sich auch dieses Fristende auf den nächsten Werktag.
+
+### Beispiel
+
+Eine Steuerzahlung wird am Mittwoch, dem 19. Juni, fällig.
+
+Berechnung:
+
+- Fälligkeit: Mittwoch, 19. Juni
+- plus drei Tage Zahlungsschonfrist
+- rechnerisches Ende: Samstag, 22. Juni
+- Verschiebung auf den nächsten Werktag
+- Ende der Zahlungsschonfrist: Montag, 24. Juni
+
+Damit kein Säumniszuschlag entsteht, muss der Betrag bei einer Überweisung spätestens am letzten Tag der Zahlungsschonfrist auf dem Konto der Finanzbehörde gutgeschrieben sein.
+
+Maßgeblich ist grundsätzlich nicht der Tag, an dem die Überweisung veranlasst wird, sondern der Tag der Gutschrift bei der Finanzbehörde.
+
+Die Zahlungsschonfrist gilt nicht für die in § 224 Abs. 2 Nr. 1 AO genannten Zahlungsarten.
+
+---
+
+## 11. Wiedereinsetzung in den vorigen Stand
+
+Wurde eine gesetzliche Frist versäumt, kann unter den Voraussetzungen des § 110 AO eine Wiedereinsetzung in den vorigen Stand gewährt werden.
+
+Die Wiedereinsetzung bewirkt, dass die betroffene Person so behandelt wird, als hätte sie die Frist nicht versäumt.
+
+### Voraussetzungen
+
+Die Wiedereinsetzung setzt voraus, dass:
+
+1. eine gesetzliche Frist versäumt wurde,
+2. die betroffene Person ohne eigenes Verschulden an der Einhaltung gehindert war,
+3. innerhalb eines Monats nach Wegfall des Hindernisses Wiedereinsetzung beantragt wird,
+4. die Gründe glaubhaft gemacht werden und
+5. die versäumte Handlung innerhalb der Antragsfrist nachgeholt wird.
+
+Das Verschulden eines gesetzlichen Vertreters oder Bevollmächtigten wird der vertretenen Person zugerechnet.
+
+### Beispiele für mögliche Wiedereinsetzungsgründe
+
+- plötzliche schwere Erkrankung
+- unvorhersehbare stationäre Behandlung
+- nachweisbarer technischer Ausfall ohne Ausweichmöglichkeit
+- Naturereignisse oder höhere Gewalt
+- fehlender oder erheblich verspäteter Zugang eines Verwaltungsakts
+
+Eine bloße Arbeitsüberlastung, Unkenntnis der Rechtslage oder ein einfaches Vergessen reichen grundsätzlich nicht aus.
+
+### Jahresfrist
+
+Nach Ablauf eines Jahres seit dem Ende der versäumten Frist ist eine Wiedereinsetzung grundsätzlich ausgeschlossen.
+
+Eine Ausnahme besteht, wenn die rechtzeitige Antragstellung aufgrund höherer Gewalt unmöglich war.
+
+---
+
+## 12. Kompaktes Prüfungsschema
+
+Bei einer Klausur oder in der Praxis kann die Frist wie folgt geprüft werden:
+
+### Schritt 1: Fristart bestimmen
+
+- gesetzliche oder behördliche Frist?
+- Tages-, Wochen-, Monats- oder Jahresfrist?
+- Ereignisfrist oder Beginnfrist?
+- verlängerbar oder nicht verlängerbar?
+
+### Schritt 2: Auslösendes Ereignis bestimmen
+
+Zum Beispiel:
+
+- Bekanntgabe des Steuerbescheids
+- Eingang einer Aufforderung
+- Eintritt der Fälligkeit
+
+### Schritt 3: Bekanntgabe berechnen
+
+Bei Postübermittlung im Inland und elektronischer Übermittlung grundsätzlich vier Tage nach Absendung.
+
+### Schritt 4: Fristbeginn bestimmen
+
+Bei Ereignisfristen wird der Ereignistag nicht mitgerechnet.
+
+### Schritt 5: Fristdauer hinzufügen
+
+Zum Beispiel ein Monat bei der Einspruchsfrist.
+
+### Schritt 6: Fristende bestimmen
+
+Bei Monatsfristen ist grundsätzlich die Zahl des Ereignistages maßgebend.
+
+### Schritt 7: Wochenende und Feiertage prüfen
+
+Fällt das Fristende auf Samstag, Sonntag oder Feiertag, endet die Frist grundsätzlich am nächsten Werktag.
+
+### Schritt 8: Fristversäumnis prüfen
+
+Bei einer versäumten gesetzlichen Frist ist eine Wiedereinsetzung nach § 110 AO zu prüfen.
+
+---
+
+## Merksätze
+
+- **Ereignistag nicht mitzählen.**
+- **Fristbeginn + Fristdauer = Fristende.**
+- **Monatsfristen enden grundsätzlich an dem Tag mit derselben Datumszahl.**
+- **Fehlt dieser Tag, endet die Frist am letzten Tag des Monats.**
+- **Samstag, Sonntag oder Feiertag am Fristende: nächster Werktag.**
+- **Seit 2025 gilt grundsätzlich die Vier-Tages-Bekanntgabefiktion.**
+- **Die Einspruchsfrist beträgt einen Monat und ist nicht verlängerbar.**
+- **Die Zahlungsschonfrist beträgt drei Tage.**
+- **Bei unverschuldeter Versäumung einer gesetzlichen Frist: Wiedereinsetzung prüfen.**
+`
+},
   {
     id: "ust-karussell-gutglaube",
     title: "Umsatzsteuerkarussell & Vertrauensschutz beim Vorsteuerabzug",

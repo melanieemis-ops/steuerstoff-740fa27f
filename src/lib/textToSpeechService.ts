@@ -1,6 +1,8 @@
 import { buildSpeechCacheSignature } from "@/lib/prepareTextForSpeech";
 import { DEFAULT_TTS_MODEL_ID, getVoiceProfile } from "@/lib/ttsVoiceProfiles";
 
+export const ELEVENLABS_VOICE_ID = "g1jpii0iyvtRs8fqXsd1";
+
 const cache = new Map<string, string>();
 const FUNCTION_NAME = "api/text-to-speech";
 
@@ -47,6 +49,7 @@ export type TtsRequestPayload = {
   voiceId?: string;
   modelId?: string;
   profileId?: string;
+  apiKey?: string;
 };
 
 export function getAudioCacheKey(payload: TtsRequestPayload): string {

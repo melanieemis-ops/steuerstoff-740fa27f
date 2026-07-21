@@ -4,6 +4,8 @@ import { z } from "zod";
 import { prepareTextForSpeech } from "@/lib/prepareTextForSpeech";
 import { DEFAULT_TTS_MODEL_ID, getVoiceProfile } from "@/lib/ttsVoiceProfiles";
 
+const ELEVENLABS_VOICE_ID = "g1jpii0iyvtRs8fqXsd1";
+
 const MAX_TEXT_LENGTH = 12000;
 const RATE_WINDOW_MS = 10 * 60 * 1000;
 const RATE_LIMIT = 24;
@@ -31,6 +33,7 @@ const requestSchema = z.object({
   voiceId: z.string().trim().min(1).max(200).optional(),
   modelId: z.string().trim().min(1).max(100).optional(),
   profileId: z.string().trim().min(1).max(80).optional(),
+  apiKey: z.string().trim().min(1).max(300).optional(),
 });
 
 function readServerSecret(name: string): string | undefined {
@@ -117,15 +120,6 @@ export const Route = createFileRoute("/api/text-to-speech")({
           return jsonError(403, "FORBIDDEN_ORIGIN", "Nicht erlaubt.");
         }
 
-        const apiKey = readServerSecret("ELEVENLABS_API_KEY");
-        if (!apiKey) {
-          return jsonError(
-            503,
-            "CONFIGURATION_ERROR",
-            "ElevenLabs ist serverseitig noch nicht vollständig konfiguriert.",
-          );
-        }
-
         const contentType = request.headers.get("content-type") ?? "";
         if (!contentType.toLowerCase().includes("application/json")) {
           return jsonError(415, "REQUEST_INVALID", "Ungueltiger Content-Type.");
@@ -140,6 +134,16 @@ export const Route = createFileRoute("/api/text-to-speech")({
         const parsed = requestSchema.safeParse(rawBody);
         if (!parsed.success) {
           return jsonError(400, "REQUEST_INVALID", "Ungueltige Anfrage.");
+        }
+
+        const serverApiKey = readServerSecret("ELEVENLABS_API_KEY");
+        const apiKey = serverApiKey || parsed.data.apiKey;
+        if (!apiKey) {
+          return jsonError(
+            503,
+            "CONFIGURATION_ERROR",
+            "ElevenLabs ist noch nicht konfiguriert. Bitte trage deinen API-Schlüssel in den Einstellungen ein.",
+          );
         }
 
         const preparedText = prepareTextForSpeech(parsed.data.text);
@@ -158,14 +162,7 @@ export const Route = createFileRoute("/api/text-to-speech")({
         const configuredVoiceId = readServerSecret("ELEVENLABS_VOICE_ID");
         const configuredModelId = readServerSecret("ELEVENLABS_MODEL_ID");
 
-        const voiceId = parsed.data.voiceId?.trim() || configuredVoiceId;
-        if (!voiceId) {
-          return jsonError(
-            503,
-            "CONFIGURATION_ERROR",
-            "ElevenLabs ist serverseitig noch nicht vollständig konfiguriert.",
-          );
-        }
+        const voiceId = parsed.data.voiceId?.trim() || configuredVoiceId || ELEVENLABS_VOICE_ID;
 
         const modelId = parsed.data.modelId?.trim() || configuredModelId || DEFAULT_TTS_MODEL_ID;
         const profile = getVoiceProfile(parsed.data.profileId);

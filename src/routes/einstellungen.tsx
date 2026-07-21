@@ -378,20 +378,24 @@ function Einstellungen() {
                       {(
                         [
                           {
-                            rate: 0.8,
-                            label: "Langsam",
+                            rate: 0.75,
+                            label: "0,75×",
                           },
                           {
                             rate: 1.0,
-                            label: "Normal",
+                            label: "1,0×",
                           },
                           {
-                            rate: 1.15,
-                            label: "Zügig",
+                            rate: 1.25,
+                            label: "1,25×",
                           },
                           {
-                            rate: 1.3,
-                            label: "Schnell",
+                            rate: 1.5,
+                            label: "1,5×",
+                          },
+                          {
+                            rate: 2.0,
+                            label: "2,0×",
                           },
                         ] as const
                       ).map(({ rate, label }) => (
@@ -411,7 +415,7 @@ function Einstellungen() {
                           ].join(" ")}
                           aria-pressed={speechSettings.rate === rate}
                         >
-                          {rate}× {label}
+                          {label}
                         </button>
                       ))}
                     </div>

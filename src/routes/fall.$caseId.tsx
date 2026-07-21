@@ -2,21 +2,13 @@ import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-ro
 import { useEffect, useMemo, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { ReadAloudButton } from "@/components/tts/ReadAloudButton";
+import { TextToSpeechControls } from "@/components/tts/TextToSpeechControls";
 import { Button } from "@/components/ui/button";
-import {
-  deleteCase,
-  getCase,
-  relativeTime,
-  type CaseRecord,
-} from "@/lib/casesStore";
-import {
-  ANSWER_MODES,
-  type AnswerMode,
-  KIND_LABEL,
-  riskLabel,
-  type Risk,
-} from "@/lib/analyze";
+import { deleteCase, getCase, relativeTime, type CaseRecord } from "@/lib/casesStore";
+import { ANSWER_MODES, type AnswerMode, KIND_LABEL, riskLabel, type Risk } from "@/lib/analyze";
 import { ArrowLeft, BookOpen, Check, Copy, Download, Trash2 } from "lucide-react";
+import { useTextToSpeech, type TtsSection } from "@/hooks/useTextToSpeech";
 
 export const Route = createFileRoute("/fall/$caseId")({
   component: FallPage,
@@ -29,12 +21,25 @@ function riskClasses(r: Risk): string {
   return "bg-red-500/15 text-red-700 border-red-500/40";
 }
 
+function splitParagraphs(text: string): string[] {
+  return text
+    .split(/\n{2,}|\n/)
+    .map((part) => part.trim())
+    .filter(Boolean);
+}
+
+function chunkLabel(id: string): string {
+  return id.replace(/__chunk_\d+$/, "");
+}
+
 function FallPage() {
   const { caseId } = Route.useParams();
   const navigate = useNavigate();
   const [rec, setRec] = useState<CaseRecord | undefined>(undefined);
   const [mode, setMode] = useState<AnswerMode>("kurz");
   const [copied, setCopied] = useState(false);
+  const tts = useTextToSpeech();
+  const stopTts = tts.stop;
 
   useEffect(() => {
     const found = getCase(caseId);
@@ -45,6 +50,77 @@ function FallPage() {
   }, [caseId]);
 
   const answerText = useMemo(() => rec?.analysis.answers[mode] ?? "", [rec, mode]);
+
+  const readSections = useMemo(() => {
+    if (!rec) {
+      return {
+        facts: [] as TtsSection[],
+        tasks: [] as TtsSection[],
+        all: [] as TtsSection[],
+      };
+    }
+
+    const caseIntro: TtsSection = {
+      id: "case-title",
+      text: `Klausurfall: ${rec.title}`,
+    };
+
+    const factSections: TtsSection[] = splitParagraphs(rec.description).map((paragraph, index) => ({
+      id: `facts-${index + 1}`,
+      text: paragraph,
+    }));
+
+    const hasExplicitTasks = rec.analysis.questions.length > 0;
+    const taskTexts = hasExplicitTasks
+      ? rec.analysis.questions
+      : [rec.analysis.recommendation || rec.analysis.summary];
+
+    const taskSections: TtsSection[] = [
+      { id: "tasks-heading", text: "Aufgabenstellung" },
+      ...taskTexts.map((task, index) => ({
+        id: `task-${index + 1}`,
+        text: hasExplicitTasks ? `Teilaufgabe ${index + 1}. ${task}` : task,
+      })),
+    ];
+
+    return {
+      facts: [caseIntro, { id: "facts-heading", text: "Sachverhalt" }, ...factSections],
+      tasks: taskSections,
+      all: [
+        caseIntro,
+        { id: "facts-heading", text: "Sachverhalt" },
+        ...factSections,
+        ...taskSections,
+      ],
+    };
+  }, [rec]);
+
+  const highlightedId =
+    tts.isSpeaking || tts.isPaused ? chunkLabel(tts.currentSectionId ?? "") : null;
+
+  useEffect(() => {
+    if (!highlightedId) return;
+
+    const node = document.getElementById(highlightedId);
+    if (!node) return;
+
+    const bounds = node.getBoundingClientRect();
+    const isVisible = bounds.top >= 100 && bounds.bottom <= window.innerHeight - 140;
+
+    if (!isVisible) {
+      node.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, [highlightedId]);
+
+  useEffect(() => {
+    return () => {
+      stopTts();
+    };
+  }, [stopTts]);
+
+  useEffect(() => {
+    stopTts();
+  }, [caseId, stopTts]);
 
   if (!rec) {
     return (
@@ -113,6 +189,8 @@ function FallPage() {
   }
 
   const a = rec.analysis;
+  const isExamSimulationMode =
+    typeof window !== "undefined" && window.location.pathname.includes("pruefungssimulation");
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
@@ -137,7 +215,13 @@ function FallPage() {
                   {KIND_LABEL[a.kind]}
                 </span>
               </div>
-              <h1 className="mt-2 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+              <h1
+                id="case-title"
+                className={[
+                  "mt-2 rounded-lg text-2xl font-semibold tracking-tight text-foreground transition-colors sm:text-3xl",
+                  highlightedId === "case-title" ? "bg-sky-100 px-2 py-1 ring-1 ring-sky-300" : "",
+                ].join(" ")}
+              >
                 {rec.title}
               </h1>
               <p className="mt-1 text-xs text-muted-foreground">
@@ -145,6 +229,13 @@ function FallPage() {
               </p>
             </div>
             <div className="flex flex-wrap gap-2">
+              <ReadAloudButton
+                disabled={isExamSimulationMode}
+                isSupported={tts.isSupported && !isExamSimulationMode}
+                onReadFacts={() => tts.speakSections(readSections.facts)}
+                onReadTasks={() => tts.speakSections(readSections.tasks)}
+                onReadAll={() => tts.speakSections(readSections.all)}
+              />
               <Button variant="outline" size="sm" onClick={handleExport}>
                 <Download className="h-4 w-4" /> Export .txt
               </Button>
@@ -153,6 +244,80 @@ function FallPage() {
               </Button>
             </div>
           </div>
+
+          <section className="mt-5 rounded-2xl border border-border bg-card p-5 shadow-card-soft">
+            <h2 className="text-sm font-semibold text-foreground">Klausurfall</h2>
+            <div className="mt-4 space-y-5">
+              <div>
+                <p
+                  id="facts-heading"
+                  className={[
+                    "text-[11px] uppercase tracking-wide text-muted-foreground transition-colors",
+                    highlightedId === "facts-heading" ? "text-foreground" : "",
+                  ].join(" ")}
+                >
+                  Sachverhalt
+                </p>
+                <div className="mt-2 space-y-3">
+                  {splitParagraphs(rec.description).map((paragraph, index) => (
+                    <p
+                      key={`facts-${index + 1}`}
+                      id={`facts-${index + 1}`}
+                      className={[
+                        "rounded-xl px-2 py-1.5 text-sm leading-relaxed text-foreground transition-colors",
+                        highlightedId === `facts-${index + 1}`
+                          ? "bg-sky-100 ring-1 ring-sky-300"
+                          : "",
+                      ].join(" ")}
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <p
+                  id="tasks-heading"
+                  className={[
+                    "text-[11px] uppercase tracking-wide text-muted-foreground transition-colors",
+                    highlightedId === "tasks-heading" ? "text-foreground" : "",
+                  ].join(" ")}
+                >
+                  Aufgabenstellung
+                </p>
+                {a.questions.length > 0 ? (
+                  <ol className="mt-2 space-y-2">
+                    {a.questions.map((question, index) => (
+                      <li
+                        key={`task-${index + 1}`}
+                        id={`task-${index + 1}`}
+                        className={[
+                          "rounded-xl px-2 py-1.5 text-sm leading-relaxed text-foreground transition-colors",
+                          highlightedId === `task-${index + 1}`
+                            ? "bg-sky-100 ring-1 ring-sky-300"
+                            : "",
+                        ].join(" ")}
+                      >
+                        <span className="mr-1 font-medium">{index + 1}.</span>
+                        {question}
+                      </li>
+                    ))}
+                  </ol>
+                ) : (
+                  <p
+                    id="task-1"
+                    className={[
+                      "mt-2 rounded-xl px-2 py-1.5 text-sm leading-relaxed text-foreground transition-colors",
+                      highlightedId === "task-1" ? "bg-sky-100 ring-1 ring-sky-300" : "",
+                    ].join(" ")}
+                  >
+                    {a.recommendation || a.summary}
+                  </p>
+                )}
+              </div>
+            </div>
+          </section>
 
           {a.knowledge ? (
             <>
@@ -187,7 +352,6 @@ function FallPage() {
                   </div>
                 ) : null}
               </div>
-
 
               {/* Frage zur Referenz */}
               <div className="mt-4 rounded-2xl border border-border bg-card p-4 shadow-card-soft">
@@ -225,7 +389,9 @@ function FallPage() {
               {/* Fehlende Angaben + Rückfragen */}
               <div className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-2">
                 <div className="rounded-2xl border border-border bg-card p-4 shadow-card-soft">
-                  <h2 className="text-sm font-semibold text-foreground">Erkannte fehlende Angaben</h2>
+                  <h2 className="text-sm font-semibold text-foreground">
+                    Erkannte fehlende Angaben
+                  </h2>
                   <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground">
                     {a.missing.map((m) => (
                       <li key={m} className="flex gap-2">
@@ -236,7 +402,9 @@ function FallPage() {
                   </ul>
                 </div>
                 <div className="rounded-2xl border border-border bg-card p-4 shadow-card-soft">
-                  <h2 className="text-sm font-semibold text-foreground">Vorgeschlagene Rückfragen</h2>
+                  <h2 className="text-sm font-semibold text-foreground">
+                    Vorgeschlagene Rückfragen
+                  </h2>
                   <ol className="mt-2 space-y-1.5 text-sm text-muted-foreground">
                     {a.questions.map((q, i) => (
                       <li key={q} className="flex gap-2">
@@ -251,7 +419,9 @@ function FallPage() {
               {/* Handlungsempfehlung */}
               <div className="mt-4 rounded-2xl border border-border bg-card p-4 shadow-card-soft">
                 <h2 className="text-sm font-semibold text-foreground">Handlungsempfehlung</h2>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{a.recommendation}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {a.recommendation}
+                </p>
               </div>
             </>
           )}
@@ -295,6 +465,8 @@ function FallPage() {
               </pre>
             </div>
           </div>
+
+          <TextToSpeechControls tts={tts} hidden={isExamSimulationMode} />
         </div>
       </main>
       <SiteFooter />

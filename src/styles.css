@@ -502,6 +502,19 @@ body,
    horizontal scrollbare Fachregister zu zerstören.
    -------------------------------------------------------------------------- */
 @media (max-width: 767px) {
+  /* Entferne backdrop-filter auf mobil: verhindert iOS-Spiegelungs-Artefakte */
+  header,
+  [class*="backdrop-blur"] {
+    backdrop-filter: none !important;
+    --tw-backdrop-filter: none;
+  }
+
+  /* Desktop-Navigation bleibt auf mobil vollständig verborgen */
+  nav[aria-label="Desktop Navigation"],
+  [data-onboarding-target="menu"] {
+    display: none !important;
+  }
+
   html,
   body {
     width: 100%;

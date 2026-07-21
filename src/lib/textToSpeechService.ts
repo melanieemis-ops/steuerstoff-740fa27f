@@ -2,6 +2,30 @@ import { buildSpeechCacheSignature } from "@/lib/prepareTextForSpeech";
 import { DEFAULT_TTS_MODEL_ID, getVoiceProfile } from "@/lib/ttsVoiceProfiles";
 
 const cache = new Map<string, string>();
+const FUNCTION_NAME = "api/text-to-speech";
+
+export type TtsApiErrorCode =
+  | "CONFIGURATION_ERROR"
+  | "INVALID_API_KEY"
+  | "VOICE_NOT_AVAILABLE"
+  | "VOICE_NOT_FOUND"
+  | "QUOTA_EXCEEDED"
+  | "ELEVENLABS_ERROR"
+  | "REQUEST_INVALID"
+  | "TEXT_TOO_LONG"
+  | "UNKNOWN_ERROR";
+
+export class TtsApiError extends Error {
+  code: TtsApiErrorCode;
+  status: number;
+
+  constructor(code: TtsApiErrorCode, message: string, status: number) {
+    super(message);
+    this.name = "TtsApiError";
+    this.code = code;
+    this.status = status;
+  }
+}
 
 function revokeCachedUrls() {
   for (const url of cache.values()) {
@@ -56,11 +80,41 @@ export async function requestElevenLabsAudio(
   });
 
   if (!response.ok) {
-    const message = await response.text().catch(() => "");
-    throw new Error(message || "Die Sprachausgabe konnte gerade nicht geladen werden.");
+    let code: TtsApiErrorCode = "UNKNOWN_ERROR";
+    let message = "Die Sprachausgabe konnte gerade nicht geladen werden.";
+
+    try {
+      const contentType = response.headers.get("content-type") ?? "";
+      if (contentType.toLowerCase().includes("application/json")) {
+        const payload = (await response.json()) as { error?: unknown; message?: unknown };
+        if (typeof payload.error === "string") {
+          code = payload.error as TtsApiErrorCode;
+        }
+        if (typeof payload.message === "string" && payload.message.trim()) {
+          message = payload.message;
+        }
+      } else {
+        const text = await response.text();
+        if (text.trim()) message = text;
+      }
+    } catch {
+      // ignore parsing errors
+    }
+
+    if (process.env.NODE_ENV === "development") {
+      // Keep diagnostics terse and sanitized.
+      console.warn(`[${FUNCTION_NAME}] status=${response.status} code=${code}`);
+    }
+
+    throw new TtsApiError(code, message, response.status);
   }
 
-  return response.blob();
+  const blob = await response.blob();
+  if (!blob.size) {
+    throw new TtsApiError("ELEVENLABS_ERROR", "Die Sprachausgabe konnte gerade nicht geladen werden.", 502);
+  }
+
+  return blob;
 }
 
 export function clearSpeechAudioCache(): void {

@@ -8,6 +8,7 @@ import {
   getCachedAudioUrl,
   requestElevenLabsAudio,
   storeCachedAudioUrl,
+  TtsApiError,
   type TtsRequestPayload,
 } from "@/lib/textToSpeechService";
 import { splitTextForSpeech } from "@/lib/splitTextForSpeech";
@@ -36,6 +37,27 @@ function estimateSeconds(text: string): number {
 }
 
 function formatErrorMessage(error: unknown): string {
+  if (error instanceof TtsApiError) {
+    if (error.code === "INVALID_API_KEY") {
+      return "Die KI-Stimme ist noch nicht korrekt eingerichtet.";
+    }
+    if (error.code === "VOICE_NOT_AVAILABLE") {
+      return "Diese Stimme kann mit dem aktuellen ElevenLabs-Konto nicht verwendet werden.";
+    }
+    if (error.code === "VOICE_NOT_FOUND") {
+      return "Die konfigurierte KI-Stimme wurde nicht gefunden.";
+    }
+    if (error.code === "QUOTA_EXCEEDED") {
+      return "Das verfuegbare Sprachguthaben ist derzeit aufgebraucht.";
+    }
+    if (error.code === "CONFIGURATION_ERROR") {
+      return "ElevenLabs ist serverseitig noch nicht vollstaendig konfiguriert.";
+    }
+    if (error.code === "TEXT_TOO_LONG") {
+      return "Der Text ist zu lang und wird in Abschnitten vorgelesen.";
+    }
+  }
+
   const msg = error instanceof Error ? error.message : "";
   if (/internet|network|fetch|failed/i.test(msg)) {
     return "Bitte pruefe deine Internetverbindung und versuche es erneut.";
@@ -118,6 +140,7 @@ export function useTextToSpeech() {
     setCurrentSectionIndex(-1);
     setCurrentSectionId(null);
     setCurrentTime(0);
+    setTotalDuration(0);
     setErrorMessage(null);
   }, []);
 
@@ -134,7 +157,15 @@ export function useTextToSpeech() {
   const computeTotalDuration = useCallback(() => {
     const durations = sectionDurationsRef.current;
     const queue = queueRef.current;
-    return queue.reduce((sum, item, index) => sum + (durations[index] ?? item.estimatedSeconds), 0);
+    let total = 0;
+    for (let i = 0; i < queue.length; i++) {
+      const duration = durations[i];
+      if (typeof duration !== "number" || !Number.isFinite(duration) || duration <= 0) {
+        return 0;
+      }
+      total += duration;
+    }
+    return total;
   }, []);
 
   const playBrowserFallback = useCallback(
@@ -221,6 +252,8 @@ export function useTextToSpeech() {
           setErrorMessage(friendly);
           setCurrentSectionIndex(-1);
           setCurrentSectionId(null);
+          setCurrentTime(0);
+          setTotalDuration(0);
           return;
         } finally {
           abortRef.current = null;
@@ -254,9 +287,11 @@ export function useTextToSpeech() {
         if (token !== requestTokenRef.current) return;
         setStatus("error");
         setErrorMessage("Die Sprachausgabe konnte gerade nicht geladen werden.");
+        setCurrentTime(0);
+        setTotalDuration(0);
       };
       audio.onloadedmetadata = () => {
-        const duration = Number.isFinite(audio.duration) ? audio.duration : item.estimatedSeconds;
+        const duration = Number.isFinite(audio.duration) ? audio.duration : 0;
         sectionDurationsRef.current[index] = duration;
         setTotalDuration(computeTotalDuration());
       };
@@ -315,9 +350,9 @@ export function useTextToSpeech() {
 
       queueRef.current = queue;
       fallbackQueueRef.current = queue;
-      sectionDurationsRef.current = queue.map((item) => item.estimatedSeconds);
+      sectionDurationsRef.current = queue.map(() => 0);
       setTotalSections(queue.length);
-      setTotalDuration(queue.reduce((sum, item) => sum + item.estimatedSeconds, 0));
+      setTotalDuration(0);
       setCurrentTime(0);
 
       requestTokenRef.current += 1;
@@ -367,16 +402,17 @@ export function useTextToSpeech() {
   const seekBy = useCallback(
     (seconds: number) => {
       const audio = audioRef.current;
-      if (!audio || currentSectionIndex < 0) return;
+      if (!audio || currentSectionIndex < 0 || totalDuration <= 0) return;
       const nextTime = Math.max(0, audio.currentTime + seconds);
       audio.currentTime = nextTime;
       setCurrentTime(getElapsedBefore(currentSectionIndex) + nextTime);
     },
-    [currentSectionIndex, getElapsedBefore],
+    [currentSectionIndex, getElapsedBefore, totalDuration],
   );
 
   const seekToProgress = useCallback(
     (fraction: number) => {
+      if (totalDuration <= 0) return;
       const clamped = Math.min(1, Math.max(0, fraction));
       const target = totalDuration * clamped;
       const durations = sectionDurationsRef.current;
@@ -462,6 +498,8 @@ export function useTextToSpeech() {
 
   const hasSession = queueRef.current.length > 0;
   const progress = totalDuration > 0 ? Math.min(1, currentTime / totalDuration) : 0;
+  const canStop = status === "loading" || status === "playing" || status === "paused";
+  const canSeek = totalDuration > 0 && hasSession;
 
   const voiceProfiles = useMemo(
     () => TTS_VOICE_PROFILES.map((profile) => ({ id: profile.id, label: profile.label })),
@@ -485,6 +523,8 @@ export function useTextToSpeech() {
     currentTime,
     totalDuration,
     progress,
+    canStop,
+    canSeek,
     currentSectionIndex,
     currentSectionId,
     totalSections,

@@ -7,7 +7,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { loadSpeechSettings, saveSpeechSettings, type SpeechSettings } from "@/lib/speech-storage";
-import { requestElevenLabsAudio } from "@/lib/textToSpeechService";
+import { requestElevenLabsAudio, TtsApiError } from "@/lib/textToSpeechService";
 import { DEFAULT_TTS_MODEL_ID, TTS_VOICE_PROFILES } from "@/lib/ttsVoiceProfiles";
 import { applyTheme, getThemeMode, saveThemeMode, type ThemeMode } from "@/lib/theme";
 
@@ -122,7 +122,7 @@ function Einstellungen() {
 
       const blob = await requestElevenLabsAudio(
         {
-          text: "Hallo, ich bin die professionelle Lernstimme von steuerstoff.",
+          text: "Willkommen bei Steuerstoff. Gemeinsam bereiten wir uns konzentriert auf deine naechste Klausur vor.",
           profileId: speechSettings.profileId,
           voiceId: speechSettings.voiceIdOverride,
           modelId: DEFAULT_TTS_MODEL_ID,
@@ -143,8 +143,26 @@ function Einstellungen() {
         setIsTesting(false);
       };
       await audio.play();
-    } catch {
-      setSpeechError("Bitte prüfe deine Internetverbindung und versuche es erneut.");
+    } catch (error) {
+      if (error instanceof TtsApiError) {
+        if (error.code === "INVALID_API_KEY") {
+          setSpeechError("Die KI-Stimme ist noch nicht korrekt eingerichtet.");
+        } else if (error.code === "VOICE_NOT_AVAILABLE") {
+          setSpeechError(
+            "Diese Stimme kann mit dem aktuellen ElevenLabs-Konto nicht verwendet werden.",
+          );
+        } else if (error.code === "VOICE_NOT_FOUND") {
+          setSpeechError("Die konfigurierte KI-Stimme wurde nicht gefunden.");
+        } else if (error.code === "QUOTA_EXCEEDED") {
+          setSpeechError("Das verfuegbare Sprachguthaben ist derzeit aufgebraucht.");
+        } else if (error.code === "CONFIGURATION_ERROR") {
+          setSpeechError("ElevenLabs ist serverseitig noch nicht vollstaendig konfiguriert.");
+        } else {
+          setSpeechError(error.message || "Die Sprachausgabe konnte gerade nicht geladen werden.");
+        }
+      } else {
+        setSpeechError("Bitte pruefe deine Internetverbindung und versuche es erneut.");
+      }
       setIsTesting(false);
     }
   }
@@ -494,7 +512,7 @@ function Einstellungen() {
                       ) : (
                         <>
                           <Play className="h-3.5 w-3.5" aria-hidden="true" />
-                          Hoerprobe
+                          KI-Stimme testen
                         </>
                       )}
                     </button>

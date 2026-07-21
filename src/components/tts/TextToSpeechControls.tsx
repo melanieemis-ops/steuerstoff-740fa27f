@@ -37,6 +37,7 @@ export function TextToSpeechControls({ tts, hidden = false }: TextToSpeechContro
             : "Bereit";
 
   const mmss = (seconds: number) => {
+    if (seconds <= 0 || !Number.isFinite(seconds)) return "--:--";
     const total = Math.max(0, Math.floor(seconds));
     const minutes = Math.floor(total / 60);
     const rest = total % 60;
@@ -67,21 +68,21 @@ export function TextToSpeechControls({ tts, hidden = false }: TextToSpeechContro
           label="Pause"
           ariaLabel="Vorlesen pausieren"
           onClick={tts.pause}
-          disabled={!tts.isSpeaking || tts.isLoading}
+          disabled={!tts.isSpeaking || tts.isLoading || !tts.canSeek}
           icon={<Pause className="h-4 w-4" aria-hidden="true" />}
         />
         <ControlButton
           label="Fortsetzen"
           ariaLabel="Vorlesen fortsetzen"
           onClick={tts.resume}
-          disabled={!tts.isPaused || tts.isLoading}
+          disabled={!tts.isPaused || tts.isLoading || !tts.canSeek}
           icon={<Play className="h-4 w-4" aria-hidden="true" />}
         />
         <ControlButton
           label="Stoppen"
           ariaLabel="Vorlesen stoppen"
           onClick={tts.stop}
-          disabled={!tts.hasSession}
+          disabled={!tts.canStop}
           icon={<Square className="h-4 w-4" aria-hidden="true" />}
         />
         <ControlButton
@@ -95,14 +96,14 @@ export function TextToSpeechControls({ tts, hidden = false }: TextToSpeechContro
           label="10s zurück"
           ariaLabel="Zehn Sekunden zurückspringen"
           onClick={() => tts.seekBy(-10)}
-          disabled={!tts.hasSession || tts.isLoading}
+          disabled={!tts.canSeek || tts.isLoading}
           icon={<SkipBack className="h-4 w-4" aria-hidden="true" />}
         />
         <ControlButton
           label="10s vor"
           ariaLabel="Zehn Sekunden vorspringen"
           onClick={() => tts.seekBy(10)}
-          disabled={!tts.hasSession || tts.isLoading}
+          disabled={!tts.canSeek || tts.isLoading}
           icon={<SkipForward className="h-4 w-4" aria-hidden="true" />}
         />
       </div>
@@ -119,6 +120,7 @@ export function TextToSpeechControls({ tts, hidden = false }: TextToSpeechContro
           step={1}
           value={Math.round(tts.progress * 1000)}
           onChange={(event) => tts.seekToProgress(Number(event.target.value) / 1000)}
+          disabled={!tts.canSeek}
           aria-label="Wiedergabeposition"
           className="h-2 w-full cursor-pointer accent-slate-100"
         />

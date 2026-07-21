@@ -502,16 +502,25 @@ body,
    horizontal scrollbare Fachregister zu zerstören.
    -------------------------------------------------------------------------- */
 @media (max-width: 767px) {
-  /* Entferne backdrop-filter auf mobil: verhindert iOS-Spiegelungs-Artefakte */
-  header,
-  [class*="backdrop-blur"] {
+  /* Entferne backdrop-filter auf mobil: verhindert iOS-Spiegelungs-Artefakte und Rendering-Probleme */
+  header {
     backdrop-filter: none !important;
     --tw-backdrop-filter: none;
   }
 
-  /* Desktop-Navigation bleibt auf mobil vollständig verborgen */
-  nav[aria-label="Desktop Navigation"],
-  [data-onboarding-target="menu"] {
+  /* SectionDots auch ohne Blur auf mobil */
+  div[class*="sticky"][class*="top-14"] {
+    backdrop-filter: none !important;
+    --tw-backdrop-filter: none;
+  }
+
+  /* Mobile-Navigation darf weiterhin blur haben, sitzt aber unten und verursacht keine Probleme */
+  nav[aria-label="Mobile Navigation"] {
+    /* backdrop-blur bleibt aktiv für visuellen Effekt, aber da die Nav unten ist, keine Spiegel-Artefakte */
+  }
+
+  /* Stelle sicher dass Desktop Navigation komplett versteckt wird mit echtem display:none */
+  nav[aria-label="Desktop Navigation"] {
     display: none !important;
   }
 

@@ -143,7 +143,9 @@ async function prepareAttachmentInputs(client: OpenAI, attachments: IncomingAtta
     }
 
     try {
-      const file = new File([stored.bytes], stored.name, { type: stored.mimeType });
+      const file = new File([new Uint8Array(stored.bytes)], stored.name, {
+        type: stored.mimeType,
+      });
       const uploaded = await client.files.create({
         file,
         purpose: stored.kind === "image" ? "vision" : "user_data",

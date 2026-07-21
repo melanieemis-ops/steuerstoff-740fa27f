@@ -129,7 +129,7 @@ export function useMistakes() {
           ...m,
           correctStreak: newStreak,
           lastReviewedAt: Date.now(),
-          status: isMastered ? "mastered" : "active",
+          status: isMastered ? ("mastered" as const) : ("active" as const),
         };
       });
       saveMistakes(updated);

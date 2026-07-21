@@ -147,7 +147,7 @@ function ExamSimulationPage() {
 
   // If exam is submitted, render results
   if (session && session.isSubmitted && !session.isAbandoned) {
-    return <ExamResultsView session={session} />;
+    return <ExamResultsView />;
   }
 
   // Show continue dialog if there's an existing session
@@ -366,8 +366,8 @@ function ExamSimulationPage() {
 // Exam Test View
 interface ExamTestViewProps {
   session: ExamSession;
-  selectAnswer: (optionIndex: number) => void;
-  toggleMarkQuestion: () => void;
+  selectAnswer: (questionIndex: number, optionIndex: number) => void;
+  toggleMarkQuestion: (questionIndex: number) => void;
   goToQuestion: (index: number) => void;
   nextQuestion: () => void;
   previousQuestion: () => void;
@@ -645,7 +645,7 @@ function ExamResultsView() {
   const { session, calculateResults, abandonSession } = useExamSession();
   const { addMistakesFromExam } = useMistakes();
   const { recordExam } = useProgress();
-  const { toggle: toggleFavorite, isFavorite } = useFavorites();
+  const { toggleFavorite, isFavorite } = useFavorites();
   const [recordedProgress, setRecordedProgress] = useState(false);
 
   if (!session) return null;
@@ -792,9 +792,11 @@ function ExamResultsView() {
                         onClick={() =>
                           toggleFavorite({
                             id: examQ.question.id,
-                            question: examQ.question.question,
+                            title: examQ.question.question,
                             category: examQ.question.category,
-                            topic: examQ.question.topic,
+                            source: "pruefungssimulation",
+                            description: examQ.question.topic,
+                            savedAt: Date.now(),
                           })
                         }
                         className={`text-sm px-3 py-1 rounded-lg transition ${

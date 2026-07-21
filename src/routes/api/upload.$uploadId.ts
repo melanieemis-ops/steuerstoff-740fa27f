@@ -19,7 +19,7 @@ export const Route = createFileRoute("/api/upload/$uploadId")({
         }
 
         const inline = new URL(request.url).searchParams.get("download") !== "1";
-        return new Response(record.bytes, {
+        return new Response(new Uint8Array(record.bytes), {
           status: 200,
           headers: {
             "content-type": record.mimeType,

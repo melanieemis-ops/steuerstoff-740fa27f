@@ -242,7 +242,7 @@ export function useExamSession() {
     let correctCount = 0;
     let wrongCount = 0;
     let unansweredCount = 0;
-    const categoryResults: Record<LearningCategory, { correct: number; total: number }> = {};
+    const categoryResults: Record<string, { correct: number; total: number }> = {};
 
     for (const examQ of session.questions) {
       const category = examQ.question.category;

@@ -2,10 +2,12 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { QueryClient } from "@tanstack/react-query";
 import { RouterProvider, createRouter } from "@tanstack/react-router";
-import { routeTreeApp } from "./routeTree.app";
+import { routeTree } from "./routeTree.gen";
 import "./styles.css";
 
-(window as Window & { __IOS_MAIN_STARTED?: boolean; __IOS_MAIN_RENDERED?: boolean }).__IOS_MAIN_STARTED = true;
+(
+  window as Window & { __IOS_MAIN_STARTED?: boolean; __IOS_MAIN_RENDERED?: boolean }
+).__IOS_MAIN_STARTED = true;
 
 const fallbackElement = document.getElementById("ios-boot-fallback");
 
@@ -46,13 +48,15 @@ function hideFallbackWhenRendered(rootElement: HTMLElement) {
 }
 
 window.addEventListener("error", (event) => {
-  const message = event.error instanceof Error ? event.error.message : "Unbekannter Laufzeitfehler.";
+  const message =
+    event.error instanceof Error ? event.error.message : "Unbekannter Laufzeitfehler.";
   showStartupError(message);
 });
 
 window.addEventListener("unhandledrejection", (event) => {
   const reason = event.reason;
-  const message = reason instanceof Error ? reason.message : String(reason ?? "Unbekannter Promise-Fehler.");
+  const message =
+    reason instanceof Error ? reason.message : String(reason ?? "Unbekannter Promise-Fehler.");
   showStartupError(message);
 });
 
@@ -64,7 +68,7 @@ try {
 
   const queryClient = new QueryClient();
   const router = createRouter({
-    routeTree: routeTreeApp,
+    routeTree,
     context: { queryClient },
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
@@ -77,8 +81,7 @@ try {
   );
   hideFallbackWhenRendered(rootElement);
 } catch (error) {
-  const message = error instanceof Error
-    ? error.message
-    : "Unbekannter Fehler beim Starten der App.";
+  const message =
+    error instanceof Error ? error.message : "Unbekannter Fehler beim Starten der App.";
   showStartupError(message);
 }

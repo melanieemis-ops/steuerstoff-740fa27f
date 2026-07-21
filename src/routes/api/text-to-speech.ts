@@ -31,6 +31,7 @@ const requestSchema = z.object({
   voiceId: z.string().trim().min(1).max(200).optional(),
   modelId: z.string().trim().min(1).max(100).optional(),
   profileId: z.string().trim().min(1).max(80).optional(),
+  apiKey: z.string().trim().min(1).max(300).optional(),
 });
 
 function readServerSecret(name: string): string | undefined {
@@ -117,15 +118,6 @@ export const Route = createFileRoute("/api/text-to-speech")({
           return jsonError(403, "FORBIDDEN_ORIGIN", "Nicht erlaubt.");
         }
 
-        const apiKey = readServerSecret("ELEVENLABS_API_KEY");
-        if (!apiKey) {
-          return jsonError(
-            503,
-            "CONFIGURATION_ERROR",
-            "ElevenLabs ist serverseitig noch nicht vollständig konfiguriert.",
-          );
-        }
-
         const contentType = request.headers.get("content-type") ?? "";
         if (!contentType.toLowerCase().includes("application/json")) {
           return jsonError(415, "REQUEST_INVALID", "Ungueltiger Content-Type.");
@@ -140,6 +132,16 @@ export const Route = createFileRoute("/api/text-to-speech")({
         const parsed = requestSchema.safeParse(rawBody);
         if (!parsed.success) {
           return jsonError(400, "REQUEST_INVALID", "Ungueltige Anfrage.");
+        }
+
+        const serverApiKey = readServerSecret("ELEVENLABS_API_KEY");
+        const apiKey = serverApiKey || parsed.data.apiKey?.trim();
+        if (!apiKey) {
+          return jsonError(
+            503,
+            "CONFIGURATION_ERROR",
+            "ElevenLabs ist noch nicht konfiguriert. Bitte trage deinen API-Schlüssel in den Einstellungen ein.",
+          );
         }
 
         const preparedText = prepareTextForSpeech(parsed.data.text);
@@ -163,7 +165,7 @@ export const Route = createFileRoute("/api/text-to-speech")({
           return jsonError(
             503,
             "CONFIGURATION_ERROR",
-            "ElevenLabs ist serverseitig noch nicht vollständig konfiguriert.",
+            "Keine Voice-ID konfiguriert. Bitte trage deine ElevenLabs Voice-ID in den Einstellungen ein.",
           );
         }
 

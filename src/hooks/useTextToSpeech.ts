@@ -51,7 +51,7 @@ function formatErrorMessage(error: unknown): string {
       return "Das verfuegbare Sprachguthaben ist derzeit aufgebraucht.";
     }
     if (error.code === "CONFIGURATION_ERROR") {
-      return "ElevenLabs ist serverseitig noch nicht vollstaendig konfiguriert.";
+      return "ElevenLabs ist nicht konfiguriert. Bitte trage deinen API-Schlüssel und deine Voice-ID in den Einstellungen ein.";
     }
     if (error.code === "TEXT_TOO_LONG") {
       return "Der Text ist zu lang und wird in Abschnitten vorgelesen.";
@@ -92,6 +92,7 @@ export function useTextToSpeech() {
     initialSettings.profileId ?? TTS_VOICE_PROFILES[0].id,
   );
   const [voiceIdOverride, setVoiceIdOverrideState] = useState(initialSettings.voiceIdOverride);
+  const [apiKey, setApiKeyState] = useState(initialSettings.apiKey);
 
   const queueRef = useRef<QueueItem[]>([]);
   const sectionDurationsRef = useRef<number[]>([]);
@@ -230,6 +231,7 @@ export function useTextToSpeech() {
         profileId: voiceProfileId,
         voiceId: voiceIdOverride?.trim() || undefined,
         modelId: DEFAULT_TTS_MODEL_ID,
+        apiKey: apiKey?.trim() || undefined,
       };
 
       const cacheKey = getAudioCacheKey(payload);
@@ -315,7 +317,7 @@ export function useTextToSpeech() {
         setErrorMessage("Bitte starte die Vorlesefunktion durch einen Klick erneut.");
       }
     },
-    [computeTotalDuration, getElapsedBefore, rate, totalDuration, voiceIdOverride, voiceProfileId],
+    [computeTotalDuration, getElapsedBefore, rate, totalDuration, apiKey, voiceIdOverride, voiceProfileId],
   );
 
   const buildQueue = useCallback((sections: TtsSection[]): QueueItem[] => {

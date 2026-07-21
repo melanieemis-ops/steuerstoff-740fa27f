@@ -126,6 +126,7 @@ function Einstellungen() {
           profileId: speechSettings.profileId,
           voiceId: speechSettings.voiceIdOverride,
           modelId: DEFAULT_TTS_MODEL_ID,
+          apiKey: speechSettings.apiKey,
         },
         new AbortController().signal,
       );
@@ -156,7 +157,7 @@ function Einstellungen() {
         } else if (error.code === "QUOTA_EXCEEDED") {
           setSpeechError("Das verfuegbare Sprachguthaben ist derzeit aufgebraucht.");
         } else if (error.code === "CONFIGURATION_ERROR") {
-          setSpeechError("ElevenLabs ist serverseitig noch nicht vollstaendig konfiguriert.");
+          setSpeechError("ElevenLabs ist nicht konfiguriert. Bitte prüfe deinen API-Schlüssel und deine Voice-ID oben.");
         } else {
           setSpeechError(error.message || "Die Sprachausgabe konnte gerade nicht geladen werden.");
         }
@@ -468,9 +469,42 @@ function Einstellungen() {
                   <div className="space-y-2">
                     <label
                       className="text-sm font-medium text-foreground"
+                      htmlFor="api-key-override"
+                    >
+                      ElevenLabs API-Schlüssel
+                    </label>
+                    <Input
+                      id="api-key-override"
+                      type="password"
+                      value={speechSettings.apiKey ?? ""}
+                      onChange={(event) =>
+                        updateSpeechSetting({
+                          apiKey: event.target.value.trim() || undefined,
+                        })
+                      }
+                      placeholder="sk_..."
+                      autoComplete="off"
+                    />
+                    <p className="text-xs text-muted-foreground">
+                      Deinen API-Schlüssel findest du unter{" "}
+                      <a
+                        href="https://elevenlabs.io/app/settings/api-keys"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline"
+                      >
+                        elevenlabs.io/app/settings/api-keys
+                      </a>
+                      .
+                    </p>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label
+                      className="text-sm font-medium text-foreground"
                       htmlFor="voice-id-override"
                     >
-                      Voice-ID (optional, fuer alternative Stimme)
+                      Voice-ID
                     </label>
                     <Input
                       id="voice-id-override"
@@ -480,8 +514,11 @@ function Einstellungen() {
                           voiceIdOverride: event.target.value.trim() || undefined,
                         })
                       }
-                      placeholder="leer lassen = ELEVENLABS_VOICE_ID vom Server"
+                      placeholder="z. B. EXAVITQu4vr4xnSDxMaL"
                     />
+                    <p className="text-xs text-muted-foreground">
+                      Die Voice-ID deiner gewünschten ElevenLabs-Stimme.
+                    </p>
                   </div>
 
                   <label className="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-3 py-2 text-xs text-foreground">

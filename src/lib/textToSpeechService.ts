@@ -47,6 +47,7 @@ export type TtsRequestPayload = {
   voiceId?: string;
   modelId?: string;
   profileId?: string;
+  apiKey?: string;
 };
 
 export function getAudioCacheKey(payload: TtsRequestPayload): string {

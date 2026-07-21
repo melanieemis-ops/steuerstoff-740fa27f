@@ -68,7 +68,7 @@ const ACADEMY_FEATURES = [
     title: "Fortschritt",
     description: "Behalte Trefferquote, Lernstand und Entwicklung im Blick.",
     icon: BarChart3,
-    status: "soon" as const,
+    status: "ready" as const,
   },
   {
     title: "Erfolge",
@@ -357,6 +357,10 @@ function AcademyCard({
   
   if (title === "Fehlertrainer") {
     targetPath = "/lernen/akademie/fehlertrainer";
+  }
+
+  if (title === "Fortschritt") {
+    targetPath = "/lernen/akademie/fortschritt";
   }
 
   if (status === "ready") {

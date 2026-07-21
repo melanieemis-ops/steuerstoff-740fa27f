@@ -60,7 +60,9 @@ function rateLimit(ip: string): boolean {
 function logDevError(status: number, code: TtsErrorCode, detail?: string) {
   if (process.env.NODE_ENV !== "development") return;
   const summary = detail ? detail.slice(0, 160) : "";
-  console.warn(`[${FUNCTION_NAME}] status=${status} code=${code}${summary ? ` detail=${summary}` : ""}`);
+  console.warn(
+    `[${FUNCTION_NAME}] status=${status} code=${code}${summary ? ` detail=${summary}` : ""}`,
+  );
 }
 
 function jsonError(status: number, code: TtsErrorCode, message: string, detail?: string) {

@@ -111,7 +111,11 @@ export async function requestElevenLabsAudio(
 
   const blob = await response.blob();
   if (!blob.size) {
-    throw new TtsApiError("ELEVENLABS_ERROR", "Die Sprachausgabe konnte gerade nicht geladen werden.", 502);
+    throw new TtsApiError(
+      "ELEVENLABS_ERROR",
+      "Die Sprachausgabe konnte gerade nicht geladen werden.",
+      502,
+    );
   }
 
   return blob;

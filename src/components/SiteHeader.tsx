@@ -245,6 +245,7 @@ export function SiteHeader() {
         <Link
           to="/"
           className="flex min-w-0 shrink items-center gap-2"
+          style={{ isolation: 'isolate' }}
         >
           <span
             className="inline-block h-2.5 w-2.5 shrink-0 rounded-full"
@@ -259,11 +260,11 @@ export function SiteHeader() {
             steuerstoff
           </span>
 
-          <span className="hidden whitespace-nowrap text-[11px] font-normal tracking-tight text-muted-foreground min-[390px]:inline md:hidden sm:text-xs" style={{ textShadow: 'none' }}>
+          <span className="hidden whitespace-nowrap text-[11px] font-normal tracking-tight text-muted-foreground drop-shadow-none min-[390px]:inline md:hidden sm:text-xs" style={{ textShadow: 'none', mixBlendMode: 'lighten' }}>
             by Melanie
           </span>
 
-          <span className="hidden max-w-28 truncate text-xs font-normal tracking-tight text-muted-foreground md:inline lg:max-w-40 xl:max-w-none" style={{ textShadow: 'none' }}>
+          <span className="hidden max-w-28 truncate text-xs font-normal tracking-tight text-muted-foreground drop-shadow-none md:inline lg:max-w-40 xl:max-w-none" style={{ textShadow: 'none', mixBlendMode: 'lighten' }}>
             by Melanie
           </span>
 

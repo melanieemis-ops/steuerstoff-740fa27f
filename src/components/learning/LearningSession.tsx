@@ -8,10 +8,12 @@ import {
   X,
   XCircle,
 } from "lucide-react";
+import { useEffect, useState } from "react";
 
 import type { LearningQuestion } from "@/data/types";
 import { useLearningSession } from "@/hooks/useLearningSession";
 import type { LearningProgressState } from "@/lib/learningProgress";
+import { useMistakes } from "@/hooks/useMistakes";
 
 import { ProgressBar } from "./ProgressBar";
 import { QuestionCard } from "./QuestionCard";
@@ -35,6 +37,33 @@ export function LearningSession({
     random: true,
     onProgressChange,
   });
+
+  const { addMistake } = useMistakes();
+  const [lastCheckedIndex, setLastCheckedIndex] = useState(-1);
+
+  // Track when answer is checked and save to mistakes if wrong
+  useEffect(() => {
+    if (
+      session.checked &&
+      session.currentQuestion &&
+      !session.isAnswerCorrect &&
+      lastCheckedIndex !== session.currentIndex
+    ) {
+      addMistake({
+        id: session.currentQuestion.id,
+        questionText: session.currentQuestion.question,
+        category: session.currentQuestion.category,
+        topic: session.currentQuestion.topic,
+        options: session.currentQuestion.options,
+        correctAnswer: session.currentQuestion.correctAnswer,
+        explanation: session.currentQuestion.explanation,
+        reference: session.currentQuestion.reference,
+        hint: session.currentQuestion.hint,
+        tags: session.currentQuestion.tags,
+      });
+      setLastCheckedIndex(session.currentIndex);
+    }
+  }, [session.checked, session.currentQuestion, session.isAnswerCorrect, session.currentIndex, lastCheckedIndex, addMistake]);
 
   if (
     session.status === "empty" ||

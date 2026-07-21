@@ -17,6 +17,7 @@ export type ExamCase = {
   title: string;
   subject: string;
   maximumPoints: number;
+  durationMinutes?: number;
   difficulty: "Einsteiger" | "Fortgeschritten" | "Experte";
   source?: string;
   sourceYear?: number;

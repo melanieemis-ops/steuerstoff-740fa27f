@@ -33,6 +33,17 @@ const requestSchema = z.object({
   profileId: z.string().trim().min(1).max(80).optional(),
 });
 
+function readServerSecret(name: string): string | undefined {
+  const denoEnv = (globalThis as { Deno?: { env?: { get: (key: string) => string | undefined } } }).Deno?.env;
+  const denoValue = denoEnv?.get(name);
+  if (typeof denoValue === "string" && denoValue.trim()) {
+    return denoValue.trim();
+  }
+
+  const nodeValue = process.env[name];
+  return typeof nodeValue === "string" && nodeValue.trim() ? nodeValue.trim() : undefined;
+}
+
 const buckets = new Map<string, number[]>();
 
 function getIp(request: Request): string {
@@ -102,7 +113,7 @@ export const Route = createFileRoute("/api/text-to-speech")({
           return jsonError(403, "FORBIDDEN_ORIGIN", "Nicht erlaubt.");
         }
 
-        const apiKey = process.env.ELEVENLABS_API_KEY;
+        const apiKey = readServerSecret("ELEVENLABS_API_KEY");
         if (!apiKey) {
           return jsonError(
             503,
@@ -140,8 +151,8 @@ export const Route = createFileRoute("/api/text-to-speech")({
           );
         }
 
-        const configuredVoiceId = process.env.ELEVENLABS_VOICE_ID?.trim();
-        const configuredModelId = process.env.ELEVENLABS_MODEL_ID?.trim();
+        const configuredVoiceId = readServerSecret("ELEVENLABS_VOICE_ID");
+        const configuredModelId = readServerSecret("ELEVENLABS_MODEL_ID");
 
         const voiceId = parsed.data.voiceId?.trim() || configuredVoiceId;
         if (!voiceId) {

@@ -1,8 +1,15 @@
-import { useCallback, useState, useEffect } from 'react';
+import { useCallback, useState, useEffect } from "react";
 
 export interface ActivityRecord {
   id: string;
-  type: 'question_correct' | 'question_wrong' | 'card_reviewed' | 'case_completed' | 'training_session' | 'mistake_mastered' | 'exam_completed';
+  type:
+    | "question_correct"
+    | "question_wrong"
+    | "card_reviewed"
+    | "case_completed"
+    | "training_session"
+    | "mistake_mastered"
+    | "exam_completed";
   category: string;
   title: string;
   timestamp: number;
@@ -47,7 +54,7 @@ export interface ProgressData {
   recentActivities: ActivityRecord[];
 }
 
-const STORAGE_KEY = 'steuerstoff_progress_v1';
+const STORAGE_KEY = "steuerstoff_progress_v1";
 const MAX_RECENT_ACTIVITIES = 100;
 
 const EMPTY_PROGRESS: ProgressData = {
@@ -72,7 +79,7 @@ const EMPTY_PROGRESS: ProgressData = {
 };
 
 function canUseStorage(): boolean {
-  return typeof window !== 'undefined';
+  return typeof window !== "undefined";
 }
 
 export function loadProgress(): ProgressData {
@@ -130,12 +137,12 @@ function saveProgress(data: ProgressData): void {
 
 function getTodayString(): string {
   const now = new Date();
-  return now.toLocaleDateString('en-CA'); // YYYY-MM-DD format
+  return now.toLocaleDateString("en-CA"); // YYYY-MM-DD format
 }
 
 function getDateString(timestamp: number): string {
   const date = new Date(timestamp);
-  return date.toLocaleDateString('en-CA');
+  return date.toLocaleDateString("en-CA");
 }
 
 function updateStreak(data: ProgressData, today: string): ProgressData {
@@ -150,7 +157,7 @@ function updateStreak(data: ProgressData, today: string): ProgressData {
   const lastDate = getDateString(data.lastActivityDate);
   const yesterday = new Date();
   yesterday.setDate(yesterday.getDate() - 1);
-  const yesterdayString = yesterday.toLocaleDateString('en-CA');
+  const yesterdayString = yesterday.toLocaleDateString("en-CA");
 
   if (lastDate === today) {
     // Already recorded today
@@ -235,9 +242,9 @@ export function recordQuestionAnswered(
   // Add to recent activities
   const activity: ActivityRecord = {
     id: `${questionId}-${now}`,
-    type: isCorrect ? 'question_correct' : 'question_wrong',
+    type: isCorrect ? "question_correct" : "question_wrong",
     category: category,
-    title: topic || 'Frage',
+    title: topic || "Frage",
     timestamp: now,
     source,
   };
@@ -250,10 +257,7 @@ export function recordQuestionAnswered(
   saveProgress(data);
 }
 
-export function recordLearningCardReviewed(
-  category: string,
-  title?: string,
-): void {
+export function recordLearningCardReviewed(category: string, title?: string): void {
   const data = loadProgress();
   const today = getTodayString();
   const now = Date.now();
@@ -290,9 +294,9 @@ export function recordLearningCardReviewed(
 
   const activity: ActivityRecord = {
     id: `card-${now}`,
-    type: 'card_reviewed',
+    type: "card_reviewed",
     category: category,
-    title: title || 'Lernkarte',
+    title: title || "Lernkarte",
     timestamp: now,
   };
 
@@ -304,10 +308,7 @@ export function recordLearningCardReviewed(
   saveProgress(data);
 }
 
-export function recordCaseCompleted(
-  category: string,
-  caseTitle?: string,
-): void {
+export function recordCaseCompleted(category: string, caseTitle?: string): void {
   const data = loadProgress();
   const today = getTodayString();
   const now = Date.now();
@@ -344,9 +345,9 @@ export function recordCaseCompleted(
 
   const activity: ActivityRecord = {
     id: `case-${now}`,
-    type: 'case_completed',
+    type: "case_completed",
     category: category,
-    title: caseTitle || 'Klausurfall',
+    title: caseTitle || "Klausurfall",
     timestamp: now,
   };
 
@@ -358,10 +359,7 @@ export function recordCaseCompleted(
   saveProgress(data);
 }
 
-export function recordTrainingSession(
-  correctCount: number,
-  wrongCount: number,
-): void {
+export function recordTrainingSession(correctCount: number, wrongCount: number): void {
   const data = loadProgress();
   const today = getTodayString();
   const now = Date.now();
@@ -379,8 +377,8 @@ export function recordTrainingSession(
 
   const activity: ActivityRecord = {
     id: `training-${now}`,
-    type: 'training_session',
-    category: 'Fehlertrainer',
+    type: "training_session",
+    category: "Fehlertrainer",
     title: `Trainingsrunde (${correctCount} richtig)`,
     timestamp: now,
   };
@@ -393,10 +391,7 @@ export function recordTrainingSession(
   saveProgress(data);
 }
 
-export function recordMistakeMastered(
-  category: string,
-  topic?: string,
-): void {
+export function recordMistakeMastered(category: string, topic?: string): void {
   const data = loadProgress();
   const today = getTodayString();
   const now = Date.now();
@@ -406,9 +401,9 @@ export function recordMistakeMastered(
 
   const activity: ActivityRecord = {
     id: `mastered-${now}`,
-    type: 'mistake_mastered',
+    type: "mistake_mastered",
     category: category,
-    title: topic || 'Fehlerfrage gemeistert',
+    title: topic || "Fehlerfrage gemeistert",
     timestamp: now,
   };
 
@@ -475,8 +470,8 @@ export function recordExam(examData: {
 
   const activity: ActivityRecord = {
     id: `exam-${now}`,
-    type: 'exam_completed',
-    category: 'Prüfungssimulation',
+    type: "exam_completed",
+    category: "Prüfungssimulation",
     title: `Prüfung (${examData.accuracy}%, ${examData.correctCount}/${examData.questionCount})`,
     timestamp: now,
     examData: {
@@ -514,7 +509,7 @@ export function getLast7DaysActivity(): Record<string, number> {
   for (let i = 6; i >= 0; i--) {
     const date = new Date();
     date.setDate(date.getDate() - i);
-    const dateStr = date.toLocaleDateString('en-CA');
+    const dateStr = date.toLocaleDateString("en-CA");
     result[dateStr] = data.activityByDate[dateStr] ?? 0;
   }
 

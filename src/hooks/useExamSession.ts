@@ -71,58 +71,55 @@ export function useExamSession() {
     return () => clearInterval(interval);
   }, [session]);
 
-  const createSession = useCallback(
-    (config: ExamSessionConfig, questions: LearningQuestion[]) => {
-      // Shuffle questions if needed
-      let shuffledQuestions = [...questions];
-      if (config.shuffleQuestions) {
-        shuffledQuestions = shuffledQuestions.sort(() => Math.random() - 0.5);
+  const createSession = useCallback((config: ExamSessionConfig, questions: LearningQuestion[]) => {
+    // Shuffle questions if needed
+    let shuffledQuestions = [...questions];
+    if (config.shuffleQuestions) {
+      shuffledQuestions = shuffledQuestions.sort(() => Math.random() - 0.5);
+    }
+
+    // Create exam questions with shuffled options if needed
+    const examQuestions: ExamQuestion[] = shuffledQuestions.map((q) => {
+      let questionCopy = { ...q };
+
+      if (config.shuffleOptions && q.type === "single-choice") {
+        // Shuffle options while keeping track of correct answer
+        const options = [...q.options];
+        const correctAnswerText = q.options[q.correctAnswer];
+        const shuffledOptions = options.sort(() => Math.random() - 0.5);
+        const newCorrectIndex = shuffledOptions.indexOf(correctAnswerText);
+
+        questionCopy = {
+          ...q,
+          options: shuffledOptions,
+          correctAnswer: newCorrectIndex,
+        };
       }
 
-      // Create exam questions with shuffled options if needed
-      const examQuestions: ExamQuestion[] = shuffledQuestions.map((q) => {
-        let questionCopy = { ...q };
-
-        if (config.shuffleOptions && q.type === "single-choice") {
-          // Shuffle options while keeping track of correct answer
-          const options = [...q.options];
-          const correctAnswerText = q.options[q.correctAnswer];
-          const shuffledOptions = options.sort(() => Math.random() - 0.5);
-          const newCorrectIndex = shuffledOptions.indexOf(correctAnswerText);
-
-          questionCopy = {
-            ...q,
-            options: shuffledOptions,
-            correctAnswer: newCorrectIndex,
-          };
-        }
-
-        return {
-          question: questionCopy,
-          selectedAnswerIndex: null,
-          isMarked: false,
-        };
-      });
-
-      const newSession: ExamSession = {
-        id: `exam-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-        config,
-        questions: examQuestions,
-        currentQuestionIndex: 0,
-        startTime: Date.now(),
-        endTime: null,
-        isSubmitted: false,
-        isAbandoned: false,
+      return {
+        question: questionCopy,
+        selectedAnswerIndex: null,
+        isMarked: false,
       };
+    });
 
-      setSession(newSession);
-      saveSession(newSession);
-      setTimeRemaining(config.timeLimit ? config.timeLimit * 60 : null);
+    const newSession: ExamSession = {
+      id: `exam-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+      config,
+      questions: examQuestions,
+      currentQuestionIndex: 0,
+      startTime: Date.now(),
+      endTime: null,
+      isSubmitted: false,
+      isAbandoned: false,
+    };
 
-      return newSession;
-    },
-    [],
-  );
+    setSession(newSession);
+    saveSession(newSession);
+    setTimeRemaining(config.timeLimit ? config.timeLimit * 60 : null);
+
+    return newSession;
+  }, []);
 
   const selectAnswer = useCallback(
     (questionIndex: number, answerIndex: number) => {

@@ -1,4 +1,5 @@
 import { useCallback, useState } from "react";
+import type { LearningQuestion } from "@/data/types";
 
 export interface Mistake {
   id: string;
@@ -59,7 +60,17 @@ export function useMistakes() {
   const [mistakes, setMistakes] = useState<Mistake[]>(() => loadMistakes());
 
   const addMistake = useCallback(
-    (mistake: Omit<Mistake, "wrongCount" | "correctStreak" | "firstWrongAt" | "lastWrongAt" | "lastReviewedAt" | "status">) => {
+    (
+      mistake: Omit<
+        Mistake,
+        | "wrongCount"
+        | "correctStreak"
+        | "firstWrongAt"
+        | "lastWrongAt"
+        | "lastReviewedAt"
+        | "status"
+      >,
+    ) => {
       setMistakes((prev) => {
         const exists = prev.find((m) => m.id === mistake.id);
         if (exists) {
@@ -99,11 +110,7 @@ export function useMistakes() {
 
   const updateMistake = useCallback((id: string, updates: Partial<Mistake>) => {
     setMistakes((prev) => {
-      const updated = prev.map((m) =>
-        m.id === id
-          ? { ...m, ...updates }
-          : m,
-      );
+      const updated = prev.map((m) => (m.id === id ? { ...m, ...updates } : m));
       saveMistakes(updated);
       return updated;
     });
@@ -182,57 +189,54 @@ export function useMistakes() {
 
   const getMistakeById = useCallback((id: string) => mistakes.find((m) => m.id === id), [mistakes]);
 
-  const addMistakesFromExam = useCallback(
-    (questions: any[]) => {
-      setMistakes((prev) => {
-        let updated = [...prev];
+  const addMistakesFromExam = useCallback((questions: LearningQuestion[]) => {
+    setMistakes((prev) => {
+      let updated = [...prev];
 
-        for (const question of questions) {
-          const exists = updated.find((m) => m.id === question.id);
+      for (const question of questions) {
+        const exists = updated.find((m) => m.id === question.id);
 
-          if (exists) {
-            // Update existing mistake
-            updated = updated.map((m) =>
-              m.id === question.id
-                ? {
-                    ...m,
-                    wrongCount: m.wrongCount + 1,
-                    correctStreak: 0,
-                    lastWrongAt: Date.now(),
-                    status: "active" as const,
-                  }
-                : m,
-            );
-          } else {
-            // Add new mistake
-            const newMistake: Mistake = {
-              id: question.id,
-              questionText: question.question,
-              category: question.category,
-              topic: question.topic,
-              options: question.options,
-              correctAnswer: question.correctAnswer,
-              explanation: question.explanation,
-              reference: question.reference,
-              hint: question.hint,
-              tags: question.tags || [],
-              wrongCount: 1,
-              correctStreak: 0,
-              firstWrongAt: Date.now(),
-              lastWrongAt: Date.now(),
-              lastReviewedAt: null,
-              status: "active",
-            };
-            updated = [newMistake, ...updated];
-          }
+        if (exists) {
+          // Update existing mistake
+          updated = updated.map((m) =>
+            m.id === question.id
+              ? {
+                  ...m,
+                  wrongCount: m.wrongCount + 1,
+                  correctStreak: 0,
+                  lastWrongAt: Date.now(),
+                  status: "active" as const,
+                }
+              : m,
+          );
+        } else {
+          // Add new mistake
+          const newMistake: Mistake = {
+            id: question.id,
+            questionText: question.question,
+            category: question.category,
+            topic: question.topic,
+            options: question.options,
+            correctAnswer: question.correctAnswer,
+            explanation: question.explanation,
+            reference: question.reference,
+            hint: question.hint,
+            tags: question.tags || [],
+            wrongCount: 1,
+            correctStreak: 0,
+            firstWrongAt: Date.now(),
+            lastWrongAt: Date.now(),
+            lastReviewedAt: null,
+            status: "active",
+          };
+          updated = [newMistake, ...updated];
         }
+      }
 
-        saveMistakes(updated);
-        return updated;
-      });
-    },
-    [],
-  );
+      saveMistakes(updated);
+      return updated;
+    });
+  }, []);
 
   return {
     mistakes,

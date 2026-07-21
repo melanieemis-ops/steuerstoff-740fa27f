@@ -63,12 +63,10 @@ function ExamSimulationPage() {
 
   // Filter questions based on selected categories
   const availableQuestions = useMemo(() => {
-    const catToUse =
-      selectedCategories.length === 0 ? allCategories : selectedCategories;
+    const catToUse = selectedCategories.length === 0 ? allCategories : selectedCategories;
     return learningQuestions.filter(
       (q) =>
-        catToUse.includes(q.category) &&
-        (q.type === "single-choice" || q.type === "true-false"),
+        catToUse.includes(q.category) && (q.type === "single-choice" || q.type === "true-false"),
     );
   }, [selectedCategories, allCategories]);
 
@@ -107,13 +105,11 @@ function ExamSimulationPage() {
     if (!canStartExam) return;
 
     // Select questions
-    const catToUse =
-      selectedCategories.length === 0 ? allCategories : selectedCategories;
+    const catToUse = selectedCategories.length === 0 ? allCategories : selectedCategories;
     const selectedQuestions = learningQuestions
       .filter(
         (q) =>
-          catToUse.includes(q.category) &&
-          (q.type === "single-choice" || q.type === "true-false"),
+          catToUse.includes(q.category) && (q.type === "single-choice" || q.type === "true-false"),
       )
       .sort(() => Math.random() - 0.5)
       .slice(0, questionCount);
@@ -138,11 +134,34 @@ function ExamSimulationPage() {
     // Logic to start new exam (reset session) is handled by abandonSession
   };
 
-  const { selectAnswer, toggleMarkQuestion, goToQuestion, nextQuestion, previousQuestion, handleSubmitExam: submitExam, abandonSession: abandon, getQuestionStats, timeRemaining } = useExamSession();
+  const {
+    selectAnswer,
+    toggleMarkQuestion,
+    goToQuestion,
+    nextQuestion,
+    previousQuestion,
+    handleSubmitExam: submitExam,
+    abandonSession: abandon,
+    getQuestionStats,
+    timeRemaining,
+  } = useExamSession();
 
   // If exam is running, render exam view instead
   if (session && !session.isSubmitted && !session.isAbandoned) {
-    return <ExamTestView session={session} selectAnswer={selectAnswer} toggleMarkQuestion={toggleMarkQuestion} goToQuestion={goToQuestion} nextQuestion={nextQuestion} previousQuestion={previousQuestion} handleSubmitExam={submitExam} abandonSession={abandon} getQuestionStats={getQuestionStats} timeRemaining={timeRemaining} />;
+    return (
+      <ExamTestView
+        session={session}
+        selectAnswer={selectAnswer}
+        toggleMarkQuestion={toggleMarkQuestion}
+        goToQuestion={goToQuestion}
+        nextQuestion={nextQuestion}
+        previousQuestion={previousQuestion}
+        handleSubmitExam={submitExam}
+        abandonSession={abandon}
+        getQuestionStats={getQuestionStats}
+        timeRemaining={timeRemaining}
+      />
+    );
   }
 
   // If exam is submitted, render results
@@ -158,8 +177,12 @@ function ExamSimulationPage() {
         <main className="flex-1 flex items-center justify-center pb-24">
           <div className="mx-auto w-full max-w-md px-4">
             <div className="rounded-2xl border border-border/70 bg-card p-6 sm:p-8">
-              <h2 className="text-xl font-semibold text-foreground">Laufende Prüfung fortsetzen?</h2>
-              <p className="mt-2 text-muted-foreground">Du hast eine noch nicht abgegebene Prüfung.</p>
+              <h2 className="text-xl font-semibold text-foreground">
+                Laufende Prüfung fortsetzen?
+              </h2>
+              <p className="mt-2 text-muted-foreground">
+                Du hast eine noch nicht abgegebene Prüfung.
+              </p>
               <div className="mt-6 space-y-3">
                 <button
                   onClick={handleContinueExam}
@@ -192,8 +215,7 @@ function ExamSimulationPage() {
           <div className="mb-8">
             <h1 className="text-4xl font-bold text-foreground">Prüfungssimulation</h1>
             <p className="mt-2 text-lg text-muted-foreground">
-              Teste dein Wissen mit zufällig ausgewählten Fragen unter
-              Prüfungsbedingungen.
+              Teste dein Wissen mit zufällig ausgewählten Fragen unter Prüfungsbedingungen.
             </p>
           </div>
 
@@ -319,9 +341,7 @@ function ExamSimulationPage() {
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Themen:</span>
                   <span className="font-medium text-foreground">
-                    {selectedCategories.length === 0
-                      ? "Alle"
-                      : selectedCategories.join(", ")}
+                    {selectedCategories.length === 0 ? "Alle" : selectedCategories.join(", ")}
                   </span>
                 </div>
                 <div className="flex justify-between">
@@ -338,8 +358,8 @@ function ExamSimulationPage() {
 
               <p className="text-sm text-muted-foreground mb-6 flex items-start gap-2">
                 <AlertCircle className="h-4 w-4 flex-shrink-0 mt-0.5" />
-                Die Auswertung erfolgt erst nach der Abgabe. Während der Prüfung werden
-                Lösungen nicht angezeigt.
+                Die Auswertung erfolgt erst nach der Abgabe. Während der Prüfung werden Lösungen
+                nicht angezeigt.
               </p>
 
               <button
@@ -373,12 +393,28 @@ interface ExamTestViewProps {
   previousQuestion: () => void;
   handleSubmitExam: () => void;
   abandonSession: () => void;
-  getQuestionStats: () => { total: number; answered: number; unanswered: number; marked: number } | null;
+  getQuestionStats: () => {
+    total: number;
+    answered: number;
+    unanswered: number;
+    marked: number;
+  } | null;
   timeRemaining: number | null;
 }
 
 function ExamTestView(props: ExamTestViewProps) {
-  const { session, timeRemaining, selectAnswer, toggleMarkQuestion, goToQuestion, nextQuestion, previousQuestion, handleSubmitExam, abandonSession, getQuestionStats } = props;
+  const {
+    session,
+    timeRemaining,
+    selectAnswer,
+    toggleMarkQuestion,
+    goToQuestion,
+    nextQuestion,
+    previousQuestion,
+    handleSubmitExam,
+    abandonSession,
+    getQuestionStats,
+  } = props;
   const [showSubmitConfirm, setShowSubmitConfirm] = useState(false);
   const [showAbandonConfirm, setShowAbandonConfirm] = useState(false);
   const [showQuestionsPanel, setShowQuestionsPanel] = useState(false);
@@ -670,8 +706,7 @@ function ExamResultsView() {
       const wrongQuestions = session.questions
         .filter(
           (q) =>
-            q.selectedAnswerIndex === null ||
-            q.selectedAnswerIndex !== q.question.correctAnswer,
+            q.selectedAnswerIndex === null || q.selectedAnswerIndex !== q.question.correctAnswer,
         )
         .map((q) => q.question);
 
@@ -728,7 +763,9 @@ function ExamResultsView() {
 
           {/* Category Results */}
           <section className="rounded-2xl border border-border/70 bg-card p-6 sm:p-8 mb-8">
-            <h2 className="text-xl font-semibold text-foreground mb-4">Ergebnis pro Themenbereich</h2>
+            <h2 className="text-xl font-semibold text-foreground mb-4">
+              Ergebnis pro Themenbereich
+            </h2>
 
             <div className="space-y-3">
               {Object.entries(results.categoryResults).map(([category, stats]) => (
@@ -736,7 +773,8 @@ function ExamResultsView() {
                   <div className="flex items-center justify-between mb-2">
                     <span className="font-medium text-foreground">{category}</span>
                     <span className="text-sm font-semibold text-foreground">
-                      {Math.round((stats.correct / stats.total) * 100)}% ({stats.correct}/{stats.total})
+                      {Math.round((stats.correct / stats.total) * 100)}% ({stats.correct}/
+                      {stats.total})
                     </span>
                   </div>
                   <div className="h-2 rounded-full bg-muted overflow-hidden">
@@ -752,7 +790,9 @@ function ExamResultsView() {
 
           {/* Detailed Review */}
           <section className="rounded-2xl border border-border/70 bg-card p-6 sm:p-8 mb-8">
-            <h2 className="text-xl font-semibold text-foreground mb-6">Detaillierte Lösungskontrolle</h2>
+            <h2 className="text-xl font-semibold text-foreground mb-6">
+              Detaillierte Lösungskontrolle
+            </h2>
 
             <div className="space-y-4">
               {session.questions.map((examQ, idx) => {
@@ -776,9 +816,7 @@ function ExamResultsView() {
                           <span className="text-sm font-semibold text-muted-foreground">
                             Frage {idx + 1}
                           </span>
-                          {isCorrect && (
-                            <CheckCircle2 className="h-5 w-5 text-emerald-600" />
-                          )}
+                          {isCorrect && <CheckCircle2 className="h-5 w-5 text-emerald-600" />}
                           {!isCorrect && !isUnanswered && (
                             <XCircle className="h-5 w-5 text-red-600" />
                           )}

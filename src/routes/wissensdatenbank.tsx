@@ -144,8 +144,7 @@ const ARTICLES: Article[] = [
   {
     id: "mittelverwendung",
     title: "Mittelverwendungsrechnung",
-    short:
-      "Pflicht für gemeinnützige Körperschaften: Mittel zeitnah verwenden (§ 55 AO).",
+    short: "Pflicht für gemeinnützige Körperschaften: Mittel zeitnah verwenden (§ 55 AO).",
     category: "NPO / Gemeinnützigkeit",
     tags: ["NPO", "Mittelverwendung", "§ 55 AO", "Rücklagenspiegel", "Verwendungsüberhang"],
     body: `Die Mittelverwendungsrechnung (MVR) dokumentiert, ob eine gemeinnützige Körperschaft ihre Mittel zeitnah und satzungsgemäß verwendet (§ 55 Abs. 1 Nr. 5 AO).
@@ -195,8 +194,7 @@ Praxis
   {
     id: "ruecklagen-62-ao",
     title: "Rücklagen nach § 62 AO",
-    short:
-      "Zweckgebundene, Wiederbeschaffungs- und freie Rücklage — Voraussetzungen und Grenzen.",
+    short: "Zweckgebundene, Wiederbeschaffungs- und freie Rücklage — Voraussetzungen und Grenzen.",
     category: "NPO / Gemeinnützigkeit",
     tags: ["NPO", "Rücklagen", "§ 62 AO", "Rücklagenspiegel", "Mittelverwendung"],
     body: `§ 62 AO erlaubt gemeinnützigen Körperschaften bestimmte Rücklagen. Mittel, die in eine zulässige Rücklage eingestellt werden, gelten als verwendet und sind der zeitnahen Mittelverwendung entzogen.
@@ -238,8 +236,7 @@ Formal
   {
     id: "bewirtungsbelege",
     title: "Bewirtungsbelege",
-    short:
-      "70 %-Regel, Pflichtangaben, Vorsteuerabzug — typische Fehlerquellen.",
+    short: "70 %-Regel, Pflichtangaben, Vorsteuerabzug — typische Fehlerquellen.",
     category: "Umsatzsteuer",
     tags: ["USt", "Bewirtung", "§ 4 EStG", "Vorsteuer"],
     body: `Voraussetzungen für den Betriebsausgabenabzug (§ 4 Abs. 5 Nr. 2 EStG):
@@ -272,15 +269,12 @@ Bei rein eigener Belegschaft (z. B. Weihnachtsfeier) gelten gesonderte Regeln �
       "Was war der konkrete Anlass?",
       "Liegt eine maschinelle Rechnung vor?",
     ],
-    relatedModules: [
-      { label: "Neue Anfrage starten", to: "/neue-anfrage" },
-    ],
+    relatedModules: [{ label: "Neue Anfrage starten", to: "/neue-anfrage" }],
   },
   {
     id: "reverse-charge",
     title: "Reverse Charge nach § 13b UStG",
-    short:
-      "Übergang der Steuerschuldnerschaft — Voraussetzungen und Rechnungspflichten.",
+    short: "Übergang der Steuerschuldnerschaft — Voraussetzungen und Rechnungspflichten.",
     category: "Umsatzsteuer",
     tags: ["USt", "Reverse Charge", "§ 13b UStG"],
     body: `Bei bestimmten Leistungen geht die Steuerschuldnerschaft auf den Leistungsempfänger über (§ 13b UStG).
@@ -1031,8 +1025,7 @@ Gesamtpunktzahl: 30 Punkte
   {
     id: "arap",
     title: "ARAP — Aktive Rechnungsabgrenzung",
-    short:
-      "Ausgaben vor dem Stichtag, Aufwand danach — periodengerechte Abgrenzung.",
+    short: "Ausgaben vor dem Stichtag, Aufwand danach — periodengerechte Abgrenzung.",
     category: "Jahresabschluss",
     tags: ["Jahresabschluss", "ARAP", "§ 250 HGB"],
     body: `§ 250 Abs. 1 HGB / § 5 Abs. 5 EStG verlangen die Bildung eines aktiven Rechnungsabgrenzungspostens, wenn Ausgaben vor dem Abschlussstichtag Aufwand für eine bestimmte Zeit danach darstellen.
@@ -1051,8 +1044,7 @@ Praxis
   {
     id: "opos",
     title: "OPOS — Offene-Posten-Verwaltung",
-    short:
-      "Forderungs- und Verbindlichkeitsabstimmung, Wertberichtigung, USt-Korrektur.",
+    short: "Forderungs- und Verbindlichkeitsabstimmung, Wertberichtigung, USt-Korrektur.",
     category: "Buchhaltung",
     tags: ["OPOS", "DATEV", "Debitoren", "Kreditoren"],
     body: `OPOS-Listen liefern die Basis für Mahnwesen, Liquiditätsplanung und Jahresabschluss.
@@ -1068,8 +1060,7 @@ Tipp: Kontenklärung Debitoren/Kreditoren vor der Bilanz aufstellen, ungeklärte
   {
     id: "spendenbescheinigung",
     title: "Spendenbescheinigungen (Zuwendungsbestätigung)",
-    short:
-      "Amtliches Muster, vereinfachter Nachweis, Sachspenden.",
+    short: "Amtliches Muster, vereinfachter Nachweis, Sachspenden.",
     category: "NPO / Gemeinnützigkeit",
     tags: ["NPO", "Spende", "§ 10b EStG", "§ 50 EStDV"],
     body: `Zuwendungsbestätigungen sind formgebunden (§ 50 EStDV, amtliches Muster).
@@ -1087,8 +1078,7 @@ Haftung: Aussteller haftet bei vorsätzlich/grob fahrlässig falscher Bestätigu
   {
     id: "datev-kontenrahmen",
     title: "DATEV Kontenrahmen SKR03 vs. SKR04",
-    short:
-      "Wann SKR03, wann SKR04? Unterschiede für Kanzleien und NPOs.",
+    short: "Wann SKR03, wann SKR04? Unterschiede für Kanzleien und NPOs.",
     category: "DATEV",
     tags: ["DATEV", "SKR03", "SKR04", "SKR42", "Kontenrahmen"],
     body: `SKR03 — Prozess­gliederungs­prinzip (Aufwand/Ertrag). Weit verbreitet im Mittelstand.
@@ -1103,8 +1093,7 @@ Empfehlung
   {
     id: "rueckfrage-checkliste",
     title: "Checkliste Mandanten-Rückfragen",
-    short:
-      "Was muss eine gute Rückfrage enthalten — Form und Inhalt.",
+    short: "Was muss eine gute Rückfrage enthalten — Form und Inhalt.",
     category: "Rückfragen",
     tags: ["Rückfragen"],
     body: `Eine gute Rückfrage:
@@ -1119,8 +1108,7 @@ Tonalität: sachlich, freundlich, ohne Fachjargon gegenüber Mandanten.`,
   {
     id: "skr03-typische-konten",
     title: "SKR03 — typische Konten Kanzleialltag",
-    short:
-      "Schnellüberblick: 4980 Werbung, 4650 Bewirtung, 1576 Vorsteuer, …",
+    short: "Schnellüberblick: 4980 Werbung, 4650 Bewirtung, 1576 Vorsteuer, …",
     category: "SKR03",
     tags: ["SKR03", "DATEV"],
     body: `Häufig genutzte SKR03-Konten:
@@ -1139,8 +1127,7 @@ Buchungssätze stets mit eindeutigem Belegtext und Belegnummer erfassen.`,
   {
     id: "skr42-sphaeren",
     title: "SKR42 — Sphären gemeinnütziger Körperschaften",
-    short:
-      "Ideell, Vermögensverwaltung, Zweckbetrieb, wirtschaftlicher Geschäftsbetrieb.",
+    short: "Ideell, Vermögensverwaltung, Zweckbetrieb, wirtschaftlicher Geschäftsbetrieb.",
     category: "SKR42",
     tags: ["NPO", "SKR42", "Sphären", "Mittelverwendung", "DATEV"],
     body: `SKR42 wird bei gemeinnützigen Organisationen genutzt, um Vorgänge nach steuerlichen Sphären zu strukturieren. Die Sphärenzuordnung beeinflusst Umsatzsteuer, Ertragsteuer, Mittelverwendung und Kontierung.
@@ -1238,15 +1225,12 @@ Steuerpflichtiger wirtschaftlicher Geschäftsbetrieb
       "Rückstellung und Rücklage verwechselt.",
       "Freie Rücklage nicht im Entstehungsjahr gebildet.",
     ],
-    relatedModules: [
-      { label: "Mittelverwendungsrechner", to: "/mittelverwendungsrechner" },
-    ],
+    relatedModules: [{ label: "Mittelverwendungsrechner", to: "/mittelverwendungsrechner" }],
   },
   {
     id: "jahresabschluss-checkliste",
     title: "Jahresabschluss — Checkliste",
-    short:
-      "Inventur, Abgrenzungen, Rückstellungen, OPOS, latente Steuern.",
+    short: "Inventur, Abgrenzungen, Rückstellungen, OPOS, latente Steuern.",
     category: "Jahresabschluss",
     tags: ["Jahresabschluss", "Bilanz", "Review"],
     body: `Vorbereitung
@@ -1326,9 +1310,7 @@ function matchHandouts(article: Article): Handout[] {
       .filter((s) => s.length > 2),
   );
   return all.filter((h) => {
-    const hay = [h.category, h.title, h.short, ...(h.tags ?? [])]
-      .join(" ")
-      .toLowerCase();
+    const hay = [h.category, h.title, h.short, ...(h.tags ?? [])].join(" ").toLowerCase();
     for (const t of tagSet) if (hay.includes(t)) return true;
     return false;
   });
@@ -1498,14 +1480,14 @@ function ArticleDetails({
             </div>
           </section>
         ) : (
-        <section>
-          <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            Inhalt
-          </h4>
-          <pre className="mt-2 whitespace-pre-wrap font-sans text-sm leading-relaxed text-foreground">
-            {articleBody(article)}
-          </pre>
-        </section>
+          <section>
+            <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              Inhalt
+            </h4>
+            <pre className="mt-2 whitespace-pre-wrap font-sans text-sm leading-relaxed text-foreground">
+              {articleBody(article)}
+            </pre>
+          </section>
         )}
 
         {article.checklist && article.checklist.length > 0 && (
@@ -1646,7 +1628,8 @@ function KnowledgeDetailPortal({
   onPruefnotiz: (article: Article) => void;
   onClose: () => void;
 }) {
-  if (typeof document === "undefined" || !document.body || !articleBody(article).trim()) return null;
+  if (typeof document === "undefined" || !document.body || !articleBody(article).trim())
+    return null;
 
   return createPortal(
     <>
@@ -1706,9 +1689,8 @@ function Wissensdatenbank() {
     if (typeof window === "undefined") return;
     // Dev-Debug: aktiver Filter + tatsächlich angezeigte Kategorien.
     if (import.meta.env.DEV) {
-      // eslint-disable-next-line no-console
       console.log("activeCategoryId", activeCategoryId);
-      // eslint-disable-next-line no-console
+
       console.log(
         "finalVisibleItems",
         finalVisibleItems.map((i) => ({ title: i.title, categoryId: getCategoryId(i) })),
@@ -1725,13 +1707,7 @@ function Wissensdatenbank() {
   }, []);
 
   const buildFullText = (a: Article) => {
-    const lines = [
-      `${getCategoryLabel(a)} — ${a.title}`,
-      "",
-      a.short,
-      "",
-      articleBody(a),
-    ];
+    const lines = [`${getCategoryLabel(a)} — ${a.title}`, "", a.short, "", articleBody(a)];
     if (a.checklist?.length) {
       lines.push("", "Prüfpunkte:", ...a.checklist.map((c) => `- ${c}`));
     }
@@ -1846,7 +1822,6 @@ function Wissensdatenbank() {
           </p>
           <AdminImporterBanner />
 
-
           <div className="relative mt-6">
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
@@ -1861,7 +1836,7 @@ function Wissensdatenbank() {
             {CATEGORIES.map((c) => (
               <button
                 key={c}
-                
+
                 type="button"
                 onClick={() => setCat(c)}
                 className={
@@ -1874,8 +1849,7 @@ function Wissensdatenbank() {
                 <span>{c}</span>
                 <span
                   className={
-                    "text-[10px] " +
-                    (cat === c ? "text-background/70" : "text-muted-foreground/70")
+                    "text-[10px] " + (cat === c ? "text-background/70" : "text-muted-foreground/70")
                   }
                 >
                   {counts[c] ?? 0}
@@ -1889,7 +1863,8 @@ function Wissensdatenbank() {
             className="mt-4 flex items-center justify-between gap-3 text-xs text-muted-foreground"
           >
             <span>
-              {finalVisibleItems.length} {finalVisibleItems.length === 1 ? "Inhalt" : "Inhalte"} gefunden
+              {finalVisibleItems.length} {finalVisibleItems.length === 1 ? "Inhalt" : "Inhalte"}{" "}
+              gefunden
               {cat !== "Alle" ? ` · Kategorie „${cat}“` : ""}
               {query.trim() ? ` · Suche „${query.trim()}“` : ""}
             </span>

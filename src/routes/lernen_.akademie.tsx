@@ -56,7 +56,7 @@ const ACADEMY_FEATURES = [
     title: "Fehlertrainer",
     description: "Wiederhole gezielt Fragen, die du noch nicht sicher beherrschst.",
     icon: Brain,
-    status: "soon" as const,
+    status: "ready" as const,
   },
   {
     title: "Favoriten",
@@ -353,6 +353,10 @@ function AcademyCard({
   
   if (title === "Favoriten") {
     targetPath = "/lernen/akademie/favoriten";
+  }
+  
+  if (title === "Fehlertrainer") {
+    targetPath = "/lernen/akademie/fehlertrainer";
   }
 
   if (status === "ready") {

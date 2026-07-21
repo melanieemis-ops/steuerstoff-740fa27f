@@ -35,9 +35,11 @@ import { Route as ApiTranscribeRouteImport } from './routes/api/transcribe'
 import { Route as ApiChatTtsRouteImport } from './routes/api/chat-tts'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as LernenAkademieKlausurenRouteImport } from './routes/lernen_.akademie_.klausuren'
+import { Route as LernenAkademieFehlertrainerRouteImport } from './routes/lernen_.akademie_.fehlertrainer'
 import { Route as LernenAkademieFavoritenRouteImport } from './routes/lernen_.akademie_.favoriten'
 import { Route as ApiUploadUploadIdRouteImport } from './routes/api/upload.$uploadId'
 import { Route as LernenAkademieKlausurenSlugRouteImport } from './routes/lernen_.akademie_.klausuren_.$slug'
+import { Route as LernenAkademieFehlertrainerTrainingRouteImport } from './routes/lernen_.akademie_.fehlertrainer_.training'
 
 const WissensdatenbankRoute = WissensdatenbankRouteImport.update({
   id: '/wissensdatenbank',
@@ -170,6 +172,12 @@ const LernenAkademieKlausurenRoute = LernenAkademieKlausurenRouteImport.update({
   path: '/lernen/akademie/klausuren',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LernenAkademieFehlertrainerRoute =
+  LernenAkademieFehlertrainerRouteImport.update({
+    id: '/lernen_/akademie_/fehlertrainer',
+    path: '/lernen/akademie/fehlertrainer',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const LernenAkademieFavoritenRoute = LernenAkademieFavoritenRouteImport.update({
   id: '/lernen_/akademie_/favoriten',
   path: '/lernen/akademie/favoriten',
@@ -184,6 +192,12 @@ const LernenAkademieKlausurenSlugRoute =
   LernenAkademieKlausurenSlugRouteImport.update({
     id: '/lernen_/akademie_/klausuren_/$slug',
     path: '/lernen/akademie/klausuren/$slug',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LernenAkademieFehlertrainerTrainingRoute =
+  LernenAkademieFehlertrainerTrainingRouteImport.update({
+    id: '/lernen_/akademie_/fehlertrainer_/training',
+    path: '/lernen/akademie/fehlertrainer/training',
     getParentRoute: () => rootRouteImport,
   } as any)
 
@@ -215,7 +229,9 @@ export interface FileRoutesByFullPath {
   '/lernen/akademie': typeof LernenAkademieRoute
   '/api/upload/$uploadId': typeof ApiUploadUploadIdRoute
   '/lernen/akademie/favoriten': typeof LernenAkademieFavoritenRoute
+  '/lernen/akademie/fehlertrainer': typeof LernenAkademieFehlertrainerRoute
   '/lernen/akademie/klausuren': typeof LernenAkademieKlausurenRoute
+  '/lernen/akademie/fehlertrainer/training': typeof LernenAkademieFehlertrainerTrainingRoute
   '/lernen/akademie/klausuren/$slug': typeof LernenAkademieKlausurenSlugRoute
 }
 export interface FileRoutesByTo {
@@ -246,7 +262,9 @@ export interface FileRoutesByTo {
   '/lernen/akademie': typeof LernenAkademieRoute
   '/api/upload/$uploadId': typeof ApiUploadUploadIdRoute
   '/lernen/akademie/favoriten': typeof LernenAkademieFavoritenRoute
+  '/lernen/akademie/fehlertrainer': typeof LernenAkademieFehlertrainerRoute
   '/lernen/akademie/klausuren': typeof LernenAkademieKlausurenRoute
+  '/lernen/akademie/fehlertrainer/training': typeof LernenAkademieFehlertrainerTrainingRoute
   '/lernen/akademie/klausuren/$slug': typeof LernenAkademieKlausurenSlugRoute
 }
 export interface FileRoutesById {
@@ -278,7 +296,9 @@ export interface FileRoutesById {
   '/lernen_/akademie': typeof LernenAkademieRoute
   '/api/upload/$uploadId': typeof ApiUploadUploadIdRoute
   '/lernen_/akademie_/favoriten': typeof LernenAkademieFavoritenRoute
+  '/lernen_/akademie_/fehlertrainer': typeof LernenAkademieFehlertrainerRoute
   '/lernen_/akademie_/klausuren': typeof LernenAkademieKlausurenRoute
+  '/lernen_/akademie_/fehlertrainer_/training': typeof LernenAkademieFehlertrainerTrainingRoute
   '/lernen_/akademie_/klausuren_/$slug': typeof LernenAkademieKlausurenSlugRoute
 }
 export interface FileRouteTypes {
@@ -311,7 +331,9 @@ export interface FileRouteTypes {
     | '/lernen/akademie'
     | '/api/upload/$uploadId'
     | '/lernen/akademie/favoriten'
+    | '/lernen/akademie/fehlertrainer'
     | '/lernen/akademie/klausuren'
+    | '/lernen/akademie/fehlertrainer/training'
     | '/lernen/akademie/klausuren/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -342,7 +364,9 @@ export interface FileRouteTypes {
     | '/lernen/akademie'
     | '/api/upload/$uploadId'
     | '/lernen/akademie/favoriten'
+    | '/lernen/akademie/fehlertrainer'
     | '/lernen/akademie/klausuren'
+    | '/lernen/akademie/fehlertrainer/training'
     | '/lernen/akademie/klausuren/$slug'
   id:
     | '__root__'
@@ -373,7 +397,9 @@ export interface FileRouteTypes {
     | '/lernen_/akademie'
     | '/api/upload/$uploadId'
     | '/lernen_/akademie_/favoriten'
+    | '/lernen_/akademie_/fehlertrainer'
     | '/lernen_/akademie_/klausuren'
+    | '/lernen_/akademie_/fehlertrainer_/training'
     | '/lernen_/akademie_/klausuren_/$slug'
   fileRoutesById: FileRoutesById
 }
@@ -404,7 +430,9 @@ export interface RootRouteChildren {
   FallCaseIdRoute: typeof FallCaseIdRoute
   LernenAkademieRoute: typeof LernenAkademieRoute
   LernenAkademieFavoritenRoute: typeof LernenAkademieFavoritenRoute
+  LernenAkademieFehlertrainerRoute: typeof LernenAkademieFehlertrainerRoute
   LernenAkademieKlausurenRoute: typeof LernenAkademieKlausurenRoute
+  LernenAkademieFehlertrainerTrainingRoute: typeof LernenAkademieFehlertrainerTrainingRoute
   LernenAkademieKlausurenSlugRoute: typeof LernenAkademieKlausurenSlugRoute
 }
 
@@ -592,6 +620,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LernenAkademieKlausurenRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/lernen_/akademie_/fehlertrainer': {
+      id: '/lernen_/akademie_/fehlertrainer'
+      path: '/lernen/akademie/fehlertrainer'
+      fullPath: '/lernen/akademie/fehlertrainer'
+      preLoaderRoute: typeof LernenAkademieFehlertrainerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/lernen_/akademie_/favoriten': {
       id: '/lernen_/akademie_/favoriten'
       path: '/lernen/akademie/favoriten'
@@ -611,6 +646,13 @@ declare module '@tanstack/react-router' {
       path: '/lernen/akademie/klausuren/$slug'
       fullPath: '/lernen/akademie/klausuren/$slug'
       preLoaderRoute: typeof LernenAkademieKlausurenSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lernen_/akademie_/fehlertrainer_/training': {
+      id: '/lernen_/akademie_/fehlertrainer_/training'
+      path: '/lernen/akademie/fehlertrainer/training'
+      fullPath: '/lernen/akademie/fehlertrainer/training'
+      preLoaderRoute: typeof LernenAkademieFehlertrainerTrainingRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -655,7 +697,10 @@ const rootRouteChildren: RootRouteChildren = {
   FallCaseIdRoute: FallCaseIdRoute,
   LernenAkademieRoute: LernenAkademieRoute,
   LernenAkademieFavoritenRoute: LernenAkademieFavoritenRoute,
+  LernenAkademieFehlertrainerRoute: LernenAkademieFehlertrainerRoute,
   LernenAkademieKlausurenRoute: LernenAkademieKlausurenRoute,
+  LernenAkademieFehlertrainerTrainingRoute:
+    LernenAkademieFehlertrainerTrainingRoute,
   LernenAkademieKlausurenSlugRoute: LernenAkademieKlausurenSlugRoute,
 }
 export const routeTree = rootRouteImport

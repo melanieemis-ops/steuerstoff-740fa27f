@@ -135,7 +135,7 @@ export const Route = createFileRoute("/api/text-to-speech")({
         }
 
         const serverApiKey = readServerSecret("ELEVENLABS_API_KEY");
-        const apiKey = serverApiKey || parsed.data.apiKey?.trim();
+        const apiKey = serverApiKey || parsed.data.apiKey;
         if (!apiKey) {
           return jsonError(
             503,

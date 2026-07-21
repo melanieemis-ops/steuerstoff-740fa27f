@@ -2,11 +2,16 @@ import { useCallback, useState, useEffect } from 'react';
 
 export interface ActivityRecord {
   id: string;
-  type: 'question_correct' | 'question_wrong' | 'card_reviewed' | 'case_completed' | 'training_session' | 'mistake_mastered';
+  type: 'question_correct' | 'question_wrong' | 'card_reviewed' | 'case_completed' | 'training_session' | 'mistake_mastered' | 'exam_completed';
   category: string;
   title: string;
   timestamp: number;
   source?: string;
+  examData?: {
+    correctCount: number;
+    totalCount: number;
+    accuracy: number;
+  };
 }
 
 export interface CategoryProgress {
@@ -30,6 +35,9 @@ export interface ProgressData {
   completedCases: number;
   completedTrainingSessions: number;
   totalLearningMinutes: number;
+  completedExams: number;
+  totalExamQuestions: number;
+  totalExamCorrect: number;
   currentStreak: number;
   longestStreak: number;
   lastActivityDate: number | null;
@@ -51,6 +59,9 @@ const EMPTY_PROGRESS: ProgressData = {
   completedCases: 0,
   completedTrainingSessions: 0,
   totalLearningMinutes: 0,
+  completedExams: 0,
+  totalExamQuestions: 0,
+  totalExamCorrect: 0,
   currentStreak: 0,
   longestStreak: 0,
   lastActivityDate: null,
@@ -406,6 +417,80 @@ export function recordMistakeMastered(
   saveProgress(data);
 }
 
+export function recordExam(examData: {
+  questionCount: number;
+  correctCount: number;
+  wrongCount: number;
+  unansweredCount: number;
+  duration: number;
+  accuracy: number;
+  categoryResults: Record<string, { correct: number; total: number }>;
+}): void {
+  const data = loadProgress();
+  const today = getTodayString();
+  const now = Date.now();
+
+  data.completedExams += 1;
+  data.totalExamQuestions += examData.questionCount;
+  data.totalExamCorrect += examData.correctCount;
+  data.activityByDate[today] = (data.activityByDate[today] ?? 0) + 1;
+  data.lastActivityDate = now;
+  if (!data.firstActivityDate) {
+    data.firstActivityDate = now;
+  }
+
+  const streakData = updateStreak(data, today);
+  data.currentStreak = streakData.currentStreak;
+  data.longestStreak = streakData.longestStreak;
+
+  // Update category results
+  Object.entries(examData.categoryResults).forEach(([category, results]) => {
+    const catKey = category;
+    if (!data.progressByCategory[catKey]) {
+      data.progressByCategory[catKey] = {
+        categoryId: catKey,
+        categoryName: category,
+        answeredQuestions: 0,
+        correctAnswers: 0,
+        wrongAnswers: 0,
+        accuracy: 0,
+        reviewedCards: 0,
+        completedItems: 0,
+        lastActivityAt: null,
+      };
+    }
+
+    const cat = data.progressByCategory[catKey];
+    cat.answeredQuestions += results.total;
+    cat.correctAnswers += results.correct;
+    cat.wrongAnswers += results.total - results.correct;
+    if (results.total > 0) {
+      cat.accuracy = Math.round((cat.correctAnswers / cat.answeredQuestions) * 100);
+    }
+    cat.lastActivityAt = now;
+  });
+
+  const activity: ActivityRecord = {
+    id: `exam-${now}`,
+    type: 'exam_completed',
+    category: 'Prüfungssimulation',
+    title: `Prüfung (${examData.accuracy}%, ${examData.correctCount}/${examData.questionCount})`,
+    timestamp: now,
+    examData: {
+      correctCount: examData.correctCount,
+      totalCount: examData.questionCount,
+      accuracy: examData.accuracy,
+    },
+  };
+
+  data.recentActivities.unshift(activity);
+  if (data.recentActivities.length > MAX_RECENT_ACTIVITIES) {
+    data.recentActivities = data.recentActivities.slice(0, MAX_RECENT_ACTIVITIES);
+  }
+
+  saveProgress(data);
+}
+
 export function getOverallAccuracy(): number {
   const data = loadProgress();
   if (data.totalQuestionsAnswered === 0) return 0;
@@ -484,6 +569,22 @@ export function useProgress() {
     setProgress(loadProgress());
   }, []);
 
+  const recordExamCallback = useCallback(
+    (examData: {
+      questionCount: number;
+      correctCount: number;
+      wrongCount: number;
+      unansweredCount: number;
+      duration: number;
+      accuracy: number;
+      categoryResults: Record<string, { correct: number; total: number }>;
+    }) => {
+      recordExam(examData);
+      setProgress(loadProgress());
+    },
+    [],
+  );
+
   return {
     progress,
     recordQuestion,
@@ -491,6 +592,7 @@ export function useProgress() {
     recordCase,
     recordSession,
     recordMastered,
+    recordExam: recordExamCallback,
     getAccuracy: getOverallAccuracy,
     getCategoryProgress,
     getLast7Days: getLast7DaysActivity,

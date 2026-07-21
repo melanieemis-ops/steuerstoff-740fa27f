@@ -27,6 +27,7 @@ import { Route as EinstellungenRouteImport } from './routes/einstellungen'
 import { Route as CsvKonverterRouteImport } from './routes/csv-konverter'
 import { Route as ChatRouteImport } from './routes/chat'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as LernenPruefungssimulationRouteImport } from './routes/lernen_.pruefungssimulation'
 import { Route as LernenAkademieRouteImport } from './routes/lernen_.akademie'
 import { Route as FallCaseIdRouteImport } from './routes/fall.$caseId'
 import { Route as ApiUploadRouteImport } from './routes/api/upload'
@@ -133,6 +134,12 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LernenPruefungssimulationRoute =
+  LernenPruefungssimulationRouteImport.update({
+    id: '/lernen_/pruefungssimulation',
+    path: '/lernen/pruefungssimulation',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const LernenAkademieRoute = LernenAkademieRouteImport.update({
   id: '/lernen_/akademie',
   path: '/lernen/akademie',
@@ -234,6 +241,7 @@ export interface FileRoutesByFullPath {
   '/api/upload': typeof ApiUploadRouteWithChildren
   '/fall/$caseId': typeof FallCaseIdRoute
   '/lernen/akademie': typeof LernenAkademieRoute
+  '/lernen/pruefungssimulation': typeof LernenPruefungssimulationRoute
   '/api/upload/$uploadId': typeof ApiUploadUploadIdRoute
   '/lernen/akademie/favoriten': typeof LernenAkademieFavoritenRoute
   '/lernen/akademie/fehlertrainer': typeof LernenAkademieFehlertrainerRoute
@@ -268,6 +276,7 @@ export interface FileRoutesByTo {
   '/api/upload': typeof ApiUploadRouteWithChildren
   '/fall/$caseId': typeof FallCaseIdRoute
   '/lernen/akademie': typeof LernenAkademieRoute
+  '/lernen/pruefungssimulation': typeof LernenPruefungssimulationRoute
   '/api/upload/$uploadId': typeof ApiUploadUploadIdRoute
   '/lernen/akademie/favoriten': typeof LernenAkademieFavoritenRoute
   '/lernen/akademie/fehlertrainer': typeof LernenAkademieFehlertrainerRoute
@@ -303,6 +312,7 @@ export interface FileRoutesById {
   '/api/upload': typeof ApiUploadRouteWithChildren
   '/fall/$caseId': typeof FallCaseIdRoute
   '/lernen_/akademie': typeof LernenAkademieRoute
+  '/lernen_/pruefungssimulation': typeof LernenPruefungssimulationRoute
   '/api/upload/$uploadId': typeof ApiUploadUploadIdRoute
   '/lernen_/akademie_/favoriten': typeof LernenAkademieFavoritenRoute
   '/lernen_/akademie_/fehlertrainer': typeof LernenAkademieFehlertrainerRoute
@@ -339,6 +349,7 @@ export interface FileRouteTypes {
     | '/api/upload'
     | '/fall/$caseId'
     | '/lernen/akademie'
+    | '/lernen/pruefungssimulation'
     | '/api/upload/$uploadId'
     | '/lernen/akademie/favoriten'
     | '/lernen/akademie/fehlertrainer'
@@ -373,6 +384,7 @@ export interface FileRouteTypes {
     | '/api/upload'
     | '/fall/$caseId'
     | '/lernen/akademie'
+    | '/lernen/pruefungssimulation'
     | '/api/upload/$uploadId'
     | '/lernen/akademie/favoriten'
     | '/lernen/akademie/fehlertrainer'
@@ -407,6 +419,7 @@ export interface FileRouteTypes {
     | '/api/upload'
     | '/fall/$caseId'
     | '/lernen_/akademie'
+    | '/lernen_/pruefungssimulation'
     | '/api/upload/$uploadId'
     | '/lernen_/akademie_/favoriten'
     | '/lernen_/akademie_/fehlertrainer'
@@ -442,6 +455,7 @@ export interface RootRouteChildren {
   ApiUploadRoute: typeof ApiUploadRouteWithChildren
   FallCaseIdRoute: typeof FallCaseIdRoute
   LernenAkademieRoute: typeof LernenAkademieRoute
+  LernenPruefungssimulationRoute: typeof LernenPruefungssimulationRoute
   LernenAkademieFavoritenRoute: typeof LernenAkademieFavoritenRoute
   LernenAkademieFehlertrainerRoute: typeof LernenAkademieFehlertrainerRoute
   LernenAkademieFortschrittRoute: typeof LernenAkademieFortschrittRoute
@@ -576,6 +590,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lernen_/pruefungssimulation': {
+      id: '/lernen_/pruefungssimulation'
+      path: '/lernen/pruefungssimulation'
+      fullPath: '/lernen/pruefungssimulation'
+      preLoaderRoute: typeof LernenPruefungssimulationRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/lernen_/akademie': {
@@ -717,6 +738,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiUploadRoute: ApiUploadRouteWithChildren,
   FallCaseIdRoute: FallCaseIdRoute,
   LernenAkademieRoute: LernenAkademieRoute,
+  LernenPruefungssimulationRoute: LernenPruefungssimulationRoute,
   LernenAkademieFavoritenRoute: LernenAkademieFavoritenRoute,
   LernenAkademieFehlertrainerRoute: LernenAkademieFehlertrainerRoute,
   LernenAkademieFortschrittRoute: LernenAkademieFortschrittRoute,

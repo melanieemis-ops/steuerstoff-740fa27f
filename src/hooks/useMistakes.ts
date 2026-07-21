@@ -182,6 +182,58 @@ export function useMistakes() {
 
   const getMistakeById = useCallback((id: string) => mistakes.find((m) => m.id === id), [mistakes]);
 
+  const addMistakesFromExam = useCallback(
+    (questions: any[]) => {
+      setMistakes((prev) => {
+        let updated = [...prev];
+
+        for (const question of questions) {
+          const exists = updated.find((m) => m.id === question.id);
+
+          if (exists) {
+            // Update existing mistake
+            updated = updated.map((m) =>
+              m.id === question.id
+                ? {
+                    ...m,
+                    wrongCount: m.wrongCount + 1,
+                    correctStreak: 0,
+                    lastWrongAt: Date.now(),
+                    status: "active" as const,
+                  }
+                : m,
+            );
+          } else {
+            // Add new mistake
+            const newMistake: Mistake = {
+              id: question.id,
+              questionText: question.question,
+              category: question.category,
+              topic: question.topic,
+              options: question.options,
+              correctAnswer: question.correctAnswer,
+              explanation: question.explanation,
+              reference: question.reference,
+              hint: question.hint,
+              tags: question.tags || [],
+              wrongCount: 1,
+              correctStreak: 0,
+              firstWrongAt: Date.now(),
+              lastWrongAt: Date.now(),
+              lastReviewedAt: null,
+              status: "active",
+            };
+            updated = [newMistake, ...updated];
+          }
+        }
+
+        saveMistakes(updated);
+        return updated;
+      });
+    },
+    [],
+  );
+
   return {
     mistakes,
     addMistake,
@@ -195,5 +247,6 @@ export function useMistakes() {
     getActiveMistakes,
     getMasteredMistakes,
     getMistakeById,
+    addMistakesFromExam,
   };
 }

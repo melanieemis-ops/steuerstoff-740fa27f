@@ -7,6 +7,8 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { loadSpeechSettings, saveSpeechSettings, type SpeechSettings } from "@/lib/speech-storage";
+import { requestElevenLabsAudio } from "@/lib/textToSpeechService";
+import { DEFAULT_TTS_MODEL_ID, TTS_VOICE_PROFILES } from "@/lib/ttsVoiceProfiles";
 import { applyTheme, getThemeMode, saveThemeMode, type ThemeMode } from "@/lib/theme";
 
 export const Route = createFileRoute("/einstellungen")({
@@ -68,12 +70,13 @@ function Einstellungen() {
   const [theme, setTheme] = useState<ThemeMode>("system");
   const [saved, setSaved] = useState(false);
   const [speechSettings, setSpeechSettings] = useState<SpeechSettings>(() => loadSpeechSettings());
-  const [availableVoices, setAvailableVoices] = useState<SpeechSynthesisVoice[]>([]);
+  const [voiceTestUrl, setVoiceTestUrl] = useState<string | null>(null);
+  const [speechError, setSpeechError] = useState<string | null>(null);
   const [isTesting, setIsTesting] = useState(false);
   const isSpeechSupported =
     typeof window !== "undefined" &&
-    "speechSynthesis" in window &&
-    "SpeechSynthesisUtterance" in window;
+    "Audio" in window &&
+    typeof window.fetch === "function";
 
   useEffect(() => {
     try {
@@ -94,28 +97,6 @@ function Einstellungen() {
     applyTheme(currentTheme);
   }, []);
 
-  // Verfügbare (deutsche) Stimmen laden
-  useEffect(() => {
-    if (!isSpeechSupported) return;
-
-    function loadVoices() {
-      const all = window.speechSynthesis.getVoices();
-      const german = all.filter((v) => v.lang.startsWith("de-DE") || v.lang.startsWith("de"));
-      german.sort((a, b) => {
-        const aDE = a.lang === "de-DE" ? 0 : 1;
-        const bDE = b.lang === "de-DE" ? 0 : 1;
-        return aDE - bDE;
-      });
-      setAvailableVoices(german);
-    }
-
-    loadVoices();
-    window.speechSynthesis.addEventListener("voiceschanged", loadVoices);
-    return () => {
-      window.speechSynthesis.removeEventListener("voiceschanged", loadVoices);
-    };
-  }, [isSpeechSupported]);
-
   function selectTheme(nextTheme: ThemeMode) {
     setTheme(nextTheme);
     saveThemeMode(nextTheme);
@@ -129,41 +110,62 @@ function Einstellungen() {
     });
   }
 
-  function testVoice() {
+  async function testVoice() {
     if (!isSpeechSupported) return;
 
-    // Beende laufende Sprachausgabe
-    window.speechSynthesis.cancel();
+    setSpeechError(null);
+    setIsTesting(true);
 
-    const testText = "Hallo, ich bin die Stimme von Steuerstoff.";
-    const utterance = new SpeechSynthesisUtterance(testText);
-
-    // Wende die gespeicherten Einstellungen an
-    utterance.rate = speechSettings.rate;
-
-    // Verwende die ausgewählte Stimme oder die erste deutsche Stimme
-    if (speechSettings.voiceURI) {
-      const selectedVoice = availableVoices.find((v) => v.voiceURI === speechSettings.voiceURI);
-      if (selectedVoice) {
-        utterance.voice = selectedVoice;
+    try {
+      if (voiceTestUrl) {
+        URL.revokeObjectURL(voiceTestUrl);
+        setVoiceTestUrl(null);
       }
-    } else if (availableVoices.length > 0) {
-      utterance.voice = availableVoices[0];
-    }
 
-    utterance.onstart = () => setIsTesting(true);
-    utterance.onend = () => setIsTesting(false);
-    utterance.onerror = () => setIsTesting(false);
+      const blob = await requestElevenLabsAudio(
+        {
+          text: "Hallo, ich bin die professionelle Lernstimme von steuerstoff.",
+          profileId: speechSettings.profileId,
+          voiceId: speechSettings.voiceIdOverride,
+          modelId: DEFAULT_TTS_MODEL_ID,
+        },
+        new AbortController().signal,
+      );
 
-    window.speechSynthesis.speak(utterance);
-  }
+      const url = URL.createObjectURL(blob);
+      setVoiceTestUrl(url);
 
-  function stopTestVoice() {
-    if (isSpeechSupported) {
-      window.speechSynthesis.cancel();
+      const audio = new Audio(url);
+      audio.playbackRate = speechSettings.rate;
+      audio.onended = () => {
+        setIsTesting(false);
+      };
+      audio.onerror = () => {
+        setSpeechError("Die Sprachausgabe konnte gerade nicht geladen werden.");
+        setIsTesting(false);
+      };
+      await audio.play();
+    } catch {
+      setSpeechError("Bitte prüfe deine Internetverbindung und versuche es erneut.");
       setIsTesting(false);
     }
   }
+
+  function stopTestVoice() {
+    if (voiceTestUrl) {
+      URL.revokeObjectURL(voiceTestUrl);
+      setVoiceTestUrl(null);
+    }
+    setIsTesting(false);
+  }
+
+  useEffect(() => {
+    return () => {
+      if (voiceTestUrl) {
+        URL.revokeObjectURL(voiceTestUrl);
+      }
+    };
+  }, [voiceTestUrl]);
 
   function save(event: FormEvent) {
     event.preventDefault();
@@ -359,8 +361,8 @@ function Einstellungen() {
                 <div>
                   <h2 className="text-base font-semibold text-foreground">Vorlesefunktion</h2>
                   <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                    steuerstoff nutzt die native Browser-Sprachausgabe (Web Speech API) deines
-                    Geräts – ohne externe Dienste oder API-Schlüssel.
+                    steuerstoff nutzt eine professionelle KI-Stimme fuer lange Klausurtexte.
+                    Die Sprachgenerierung erfolgt serverseitig und sicher.
                   </p>
                 </div>
               </div>
@@ -373,7 +375,7 @@ function Einstellungen() {
                 <>
                   {/* Lesegeschwindigkeit */}
                   <div>
-                    <p className="text-sm font-medium text-foreground">Lesegeschwindigkeit</p>
+                    <p className="text-sm font-medium text-foreground">Abspielgeschwindigkeit</p>
                     <div className="mt-2 flex flex-wrap gap-2">
                       {(
                         [
@@ -386,16 +388,16 @@ function Einstellungen() {
                             label: "1,0×",
                           },
                           {
+                            rate: 1.15,
+                            label: "1,15×",
+                          },
+                          {
                             rate: 1.25,
                             label: "1,25×",
                           },
                           {
                             rate: 1.5,
                             label: "1,5×",
-                          },
-                          {
-                            rate: 2.0,
-                            label: "2,0×",
                           },
                         ] as const
                       ).map(({ rate, label }) => (
@@ -421,74 +423,82 @@ function Einstellungen() {
                     </div>
                   </div>
 
-                  {/* Stimmenauswahl (nur wenn deutsche Stimmen verfügbar) */}
-                  {availableVoices.length > 0 && (
-                    <div>
-                      <p className="text-sm font-medium text-foreground">Stimme</p>
-                      <div className="mt-2 flex flex-col gap-1.5">
+                  <div>
+                    <p className="text-sm font-medium text-foreground">Professionelle KI-Stimme</p>
+                    <div className="mt-2 space-y-2">
+                      {TTS_VOICE_PROFILES.map((profile) => (
                         <button
+                          key={profile.id}
                           type="button"
                           onClick={() =>
                             updateSpeechSetting({
-                              voiceURI: undefined,
+                              profileId: profile.id,
                             })
                           }
                           className={[
-                            "rounded-lg border px-3 py-2 text-left text-xs transition-colors",
-                            !speechSettings.voiceURI
+                            "w-full rounded-lg border px-3 py-2 text-left text-xs transition-colors",
+                            speechSettings.profileId === profile.id
                               ? "border-foreground bg-foreground text-background"
                               : "border-border bg-card text-muted-foreground hover:text-foreground",
                           ].join(" ")}
                         >
-                          Automatisch (empfohlen)
+                          <span className="block font-semibold">{profile.label}</span>
+                          <span className="block opacity-70">{profile.description}</span>
                         </button>
-                        {availableVoices.map((voice) => (
-                          <button
-                            key={voice.voiceURI}
-                            type="button"
-                            onClick={() =>
-                              updateSpeechSetting({
-                                voiceURI: voice.voiceURI,
-                              })
-                            }
-                            className={[
-                              "rounded-lg border px-3 py-2 text-left text-xs transition-colors",
-                              speechSettings.voiceURI === voice.voiceURI
-                                ? "border-foreground bg-foreground text-background"
-                                : "border-border bg-card text-muted-foreground hover:text-foreground",
-                            ].join(" ")}
-                          >
-                            {voice.name} <span className="opacity-60">({voice.lang})</span>
-                          </button>
-                        ))}
-                      </div>
-
-                      <button
-                        type="button"
-                        onClick={isTesting ? stopTestVoice : testVoice}
-                        className="mt-4 inline-flex items-center gap-2 rounded-lg border border-border bg-card px-3 py-2 text-xs font-medium text-foreground transition-colors hover:bg-accent"
-                        aria-label={isTesting ? "Wiedergabe stoppen" : "Stimme testen"}
-                      >
-                        {isTesting ? (
-                          <>
-                            <Square className="h-3.5 w-3.5" aria-hidden="true" />
-                            Wiedergabe stoppen
-                          </>
-                        ) : (
-                          <>
-                            <Play className="h-3.5 w-3.5" aria-hidden="true" />
-                            Stimme testen
-                          </>
-                        )}
-                      </button>
+                      ))}
                     </div>
-                  )}
+                  </div>
 
-                  {availableVoices.length === 0 && isSpeechSupported && (
-                    <p className="rounded-lg border border-border bg-muted/40 px-3 py-2 text-xs text-muted-foreground">
-                      Auf diesem Gerät sind derzeit keine auswählbaren Stimmen verfügbar.
-                    </p>
-                  )}
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-foreground" htmlFor="voice-id-override">
+                      Voice-ID (optional, fuer alternative Stimme)
+                    </label>
+                    <Input
+                      id="voice-id-override"
+                      value={speechSettings.voiceIdOverride ?? ""}
+                      onChange={(event) =>
+                        updateSpeechSetting({
+                          voiceIdOverride: event.target.value.trim() || undefined,
+                        })
+                      }
+                      placeholder="leer lassen = ELEVENLABS_VOICE_ID vom Server"
+                    />
+                  </div>
+
+                  <label className="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-3 py-2 text-xs text-foreground">
+                    <input
+                      type="checkbox"
+                      checked={Boolean(speechSettings.allowBrowserFallback)}
+                      onChange={(event) =>
+                        updateSpeechSetting({
+                          allowBrowserFallback: event.target.checked,
+                        })
+                      }
+                    />
+                    Standardstimme als Ersatz verwenden (nur manuell bei Fehler)
+                  </label>
+
+                  <div className="flex flex-wrap items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={isTesting ? stopTestVoice : testVoice}
+                      className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-3 py-2 text-xs font-medium text-foreground transition-colors hover:bg-accent"
+                      aria-label={isTesting ? "Wiedergabe stoppen" : "Stimme testen"}
+                    >
+                      {isTesting ? (
+                        <>
+                          <Square className="h-3.5 w-3.5" aria-hidden="true" />
+                          Wiedergabe stoppen
+                        </>
+                      ) : (
+                        <>
+                          <Play className="h-3.5 w-3.5" aria-hidden="true" />
+                          Hoerprobe
+                        </>
+                      )}
+                    </button>
+                    {speechError ? <p className="text-xs text-red-600">{speechError}</p> : null}
+                  </div>
                 </>
               )}
             </section>

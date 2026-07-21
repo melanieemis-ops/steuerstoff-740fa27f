@@ -74,12 +74,18 @@ export function useExamSession() {
 
       if (remaining === 0 && !session.isSubmitted) {
         // Auto-submit
-        handleSubmitExam();
+        const updated = {
+          ...session,
+          isSubmitted: true,
+          endTime: Date.now(),
+        };
+        setSession(updated);
+        saveSession(updated);
       }
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [session, handleSubmitExam]);
+  }, [saveSession, session]);
 
   const createSession = useCallback(
     (config: ExamSessionConfig, questions: LearningQuestion[]) => {

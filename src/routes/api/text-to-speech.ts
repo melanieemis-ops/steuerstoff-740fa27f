@@ -34,7 +34,9 @@ const requestSchema = z.object({
 });
 
 function readServerSecret(name: string): string | undefined {
-  const denoEnv = (globalThis as { Deno?: { env?: { get: (key: string) => string | undefined } } }).Deno?.env;
+  const denoEnv = (globalThis as {
+    Deno?: { env?: { get: (key: string) => string | undefined } };
+  }).Deno?.env;
   const denoValue = denoEnv?.get(name);
   if (typeof denoValue === "string" && denoValue.trim()) {
     return denoValue.trim();

@@ -1236,6 +1236,785 @@ Bei einer späteren Gesetzesänderung muss dieser KB-Eintrag aktualisiert oder d
   ]
 },
 {
+  id: "allgemeines-steuerrecht-grundlagen-abgaben-steuerarten-nebenleistungen",
+
+  title:
+    "Allgemeines Steuerrecht: Abgaben, Steuerarten und steuerliche Nebenleistungen",
+
+  short:
+    "Grundlagen zu Steuern, Gebühren und Beiträgen, Steueraufkommen, Ertragshoheit, Einteilung und Erhebung der Steuern, Abzugsfähigkeit, Besteuerungsgrundsätzen sowie steuerlichen Nebenleistungen.",
+
+  category: "Allgemeines Steuerrecht / Grundlagen",
+
+  source:
+    "Interne Steuerstoff-Wissensdatenbank – Lehrzusammenfassung Allgemeines Steuerrecht",
+
+  keywords:
+    "allgemeines steuerrecht|öffentlich-rechtliche abgaben|steuerbegriff|steuern|gebühren|beiträge|steueraufkommen|ertragshoheit|gemeinschaftsteuern|bundessteuern|landessteuern|gemeindesteuern|personensteuern|sachsteuern|realsteuern|veranlagungssteuern|abzugsteuern|steuerquote|abgabenquote|steuerliche nebenleistungen|verzögerungsgeld|verspätungszuschlag|mitwirkungsverzögerungsgeld|zinsen|säumniszuschlag|zwangsgeld|besteuerungsgrundsätze",
+
+  references: [
+    "Art. 3 Abs. 1 GG",
+    "Art. 106 GG",
+    "§ 3 AO",
+    "§ 85 AO",
+    "§ 89 AO",
+    "§ 89a Abs. 7 AO",
+    "§ 146 Abs. 2c AO",
+    "§ 152 AO",
+    "§ 162 Abs. 4 und 4a AO",
+    "§ 178 AO",
+    "§ 200a Abs. 2 und 3 AO",
+    "§§ 233 bis 237 AO",
+    "§§ 238 und 239 AO",
+    "§ 240 AO",
+    "§ 329 AO",
+    "§§ 337 bis 345 AO",
+    "§ 12 Nr. 3 EStG",
+    "§ 4 Abs. 5b EStG",
+    "§ 10 Nr. 2 KStG",
+    "§§ 38 ff. EStG",
+    "§§ 43 ff. EStG",
+    "§§ 48 ff. EStG",
+    "§ 22a Abs. 5 EStG",
+    "§ 1 GewStG",
+    "§ 3 Abs. 2 AO"
+  ],
+
+  body: `
+⇨ Allgemeines Steuerrecht: Grundlagen der öffentlich-rechtlichen Abgaben
+
+► 1. Finanzierung staatlicher Aufgaben
+
+Bund, Länder und Gemeinden erfüllen zahlreiche öffentliche Aufgaben.
+
+Hierzu gehören beispielsweise:
+
+– innere und äußere Sicherheit,
+– Schulen und Hochschulen,
+– Straßen und öffentliche Infrastruktur,
+– soziale Sicherung,
+– Gesundheitswesen,
+– Justiz und Verwaltung,
+– Kultur und Umweltschutz.
+
+Zur Finanzierung dieser Aufgaben erhebt der Staat öffentlich-rechtliche Abgaben.
+
+Zu den öffentlich-rechtlichen Abgaben gehören insbesondere:
+
+1. Steuern,
+2. Gebühren,
+3. Beiträge,
+4. steuerliche Nebenleistungen.
+
+---
+
+⇨ 2. Begriff der Steuer
+
+Nach § 3 Abs. 1 AO sind Steuern Geldleistungen,
+
+– die keine Gegenleistung für eine besondere staatliche Leistung darstellen,
+– die von einem öffentlich-rechtlichen Gemeinwesen erhoben werden,
+– die der Erzielung von Einnahmen dienen und
+– die allen auferlegt werden, bei denen der gesetzliche Tatbestand erfüllt ist.
+
+Die Erzielung von Einnahmen muss nicht der einzige Zweck der Steuer sein.
+
+Eine Steuer kann zusätzlich eine Lenkungswirkung verfolgen.
+
+Beispiele:
+
+– Die Tabaksteuer soll Einnahmen erzielen, kann aber zugleich den Tabakkonsum beeinflussen.
+– Energiesteuern können neben der Einnahmeerzielung ökologische Lenkungszwecke verfolgen.
+– Steuervergünstigungen können bestimmte wirtschaftliche oder gesellschaftliche Tätigkeiten fördern.
+
+► Merksatz
+
+Bei einer Steuer erhält der Steuerpflichtige keine bestimmte, individuell zurechenbare Gegenleistung.
+
+---
+
+⇨ 3. Abgrenzung zwischen Steuern, Gebühren und Beiträgen
+
+► Steuern
+
+Steuern werden unabhängig davon erhoben, ob der Steuerpflichtige eine konkrete staatliche Leistung erhält.
+
+Beispiele:
+
+– Einkommensteuer,
+– Körperschaftsteuer,
+– Umsatzsteuer,
+– Gewerbesteuer,
+– Grundsteuer.
+
+► Gebühren
+
+Gebühren werden für die tatsächliche Inanspruchnahme einer bestimmten öffentlichen Leistung oder Einrichtung erhoben.
+
+Beispiele:
+
+– Gebühr für die Ausstellung eines Reisepasses,
+– Gebühr für eine behördliche Genehmigung,
+– Gerichtsgebühren,
+– Abwasser- oder Müllgebühren.
+
+► Beiträge
+
+Beiträge werden für die Möglichkeit der Inanspruchnahme oder für einen besonderen Vorteil erhoben.
+
+Eine tatsächliche Nutzung ist nicht zwingend erforderlich.
+
+Beispiele:
+
+– Erschließungsbeiträge,
+– Straßenbaubeiträge,
+– Beiträge zu öffentlich-rechtlichen Kammern.
+
+► Prüfungsschema
+
+1. Liegt eine konkrete Gegenleistung vor?
+
+Ja:
+Es kann sich um eine Gebühr handeln.
+
+Nein:
+Weiterprüfen.
+
+2. Wird bereits die Möglichkeit der Nutzung oder ein besonderer Vorteil abgegolten?
+
+Ja:
+Es kann sich um einen Beitrag handeln.
+
+Nein:
+Es kann sich um eine Steuer handeln.
+
+---
+
+⇨ 4. Steueraufkommen und Ertragshoheit
+
+Die Ertragshoheit beantwortet die Frage:
+
+Welcher Gebietskörperschaft steht das Aufkommen einer Steuer zu?
+
+Zu unterscheiden sind:
+
+1. Gemeinschaftsteuern,
+2. Bundessteuern,
+3. Landessteuern,
+4. Gemeindesteuern.
+
+Die Verteilung des Steueraufkommens ist insbesondere in Art. 106 GG geregelt.
+
+► Gemeinschaftsteuern
+
+Gemeinschaftsteuern stehen Bund und Ländern gemeinschaftlich zu.
+
+Die Gemeinden werden bei bestimmten Gemeinschaftsteuern beteiligt.
+
+Zu den Gemeinschaftsteuern gehören insbesondere:
+
+– Einkommensteuer,
+– Körperschaftsteuer,
+– Umsatzsteuer.
+
+Die Lohnsteuer und die Kapitalertragsteuer sind besondere Erhebungsformen der Einkommensteuer.
+
+► Bundessteuern
+
+Das Aufkommen der Bundessteuern steht grundsätzlich dem Bund zu.
+
+Beispiele:
+
+– Energiesteuer,
+– Tabaksteuer,
+– Versicherungsteuer,
+– Kraftfahrzeugsteuer,
+– Solidaritätszuschlag als Ergänzungsabgabe.
+
+► Landessteuern
+
+Das Aufkommen der Landessteuern steht grundsätzlich den Ländern zu.
+
+Beispiele:
+
+– Erbschaft- und Schenkungsteuer,
+– Grunderwerbsteuer,
+– Biersteuer,
+– Rennwett- und Lotteriesteuer,
+– Feuerschutzsteuer.
+
+► Gemeindesteuern
+
+Das Aufkommen der Gemeindesteuern steht grundsätzlich den Gemeinden zu.
+
+Beispiele:
+
+– Gewerbesteuer,
+– Grundsteuer,
+– örtliche Verbrauch- und Aufwandsteuern.
+
+Zu den örtlichen Verbrauch- und Aufwandsteuern können beispielsweise gehören:
+
+– Hundesteuer,
+– Vergnügungsteuer,
+– Zweitwohnungsteuer.
+
+► Wichtig
+
+Ertragshoheit, Gesetzgebungshoheit und Verwaltungshoheit müssen nicht bei derselben Körperschaft liegen.
+
+Eine Steuer kann beispielsweise durch Bundesgesetz geregelt, von Landesfinanzbehörden verwaltet und zwischen Bund, Ländern und Gemeinden verteilt werden.
+
+---
+
+⇨ 5. Steuerquote und Abgabenquote
+
+► Steuerquote
+
+Die volkswirtschaftliche Steuerquote beschreibt das Verhältnis zwischen dem gesamten Steueraufkommen und dem Bruttoinlandsprodukt.
+
+Formel:
+
+Steueraufkommen
+÷ Bruttoinlandsprodukt
+× 100
+= Steuerquote in Prozent
+
+► Abgabenquote
+
+Die Abgabenquote berücksichtigt zusätzlich die Sozialabgaben.
+
+Formel:
+
+Steuern + Sozialversicherungsbeiträge
+÷ Bruttoinlandsprodukt
+× 100
+= Abgabenquote in Prozent
+
+Die Höhe des Steueraufkommens hängt insbesondere ab von:
+
+– der gesamtwirtschaftlichen Entwicklung,
+– der Beschäftigung,
+– der Höhe der Einkommen und Unternehmensgewinne,
+– dem Konsum,
+– den geltenden Steuergesetzen,
+– Steuervergünstigungen und Freibeträgen.
+
+Hinweis:
+
+Zahlen aus älteren Lehrbüchern stellen historische Werte dar. Für aktuelle Steueraufkommenszahlen sind die jeweils aktuellen amtlichen Statistiken maßgebend.
+
+---
+
+⇨ 6. Einteilung der Steuern nach der Ertragshoheit
+
+Nach der Ertragshoheit wird unterschieden zwischen:
+
+– Gemeinschaftsteuern,
+– Bundessteuern,
+– Landessteuern,
+– Gemeindesteuern.
+
+► Merksatz
+
+Die Ertragshoheit beantwortet nicht die Frage, wer die Steuer festsetzt oder verwaltet, sondern wem das Steueraufkommen zusteht.
+
+---
+
+⇨ 7. Personensteuern und Sachsteuern
+
+► Personensteuern
+
+Personensteuern knüpfen an die Person und ihre persönliche oder wirtschaftliche Leistungsfähigkeit an.
+
+Beispiele:
+
+– Einkommensteuer,
+– Körperschaftsteuer.
+
+Steuern vom Einkommen und sonstige Personensteuern sind bei der steuerlichen Gewinnermittlung grundsätzlich nicht abziehbar.
+
+Für natürliche Personen ergibt sich das Abzugsverbot insbesondere aus § 12 Nr. 3 EStG.
+
+Bei Körperschaften ist insbesondere § 10 Nr. 2 KStG zu beachten.
+
+Das Abzugsverbot kann auch die auf diese Steuern entfallenden steuerlichen Nebenleistungen umfassen.
+
+► Sachsteuern
+
+Sachsteuern knüpfen an einen Gegenstand, einen wirtschaftlichen Vorgang oder ein bestimmtes Objekt an.
+
+Zu den Sachsteuern gehören insbesondere:
+
+– Realsteuern,
+– Verkehrsteuern,
+– Verbrauchsteuern.
+
+Der Begriff der Sachsteuer ist weiter als der Begriff der Realsteuer.
+
+► Realsteuern
+
+Nach § 3 Abs. 2 AO sind Realsteuern:
+
+1. die Grundsteuer und
+2. die Gewerbesteuer.
+
+Realsteuern knüpfen an ein bestimmtes Steuerobjekt an und berücksichtigen persönliche Verhältnisse grundsätzlich nur eingeschränkt.
+
+► Abzugsfähigkeit
+
+Betrieblich veranlasste Sachsteuern können grundsätzlich Betriebsausgaben sein.
+
+Beispiel:
+
+Die Grundsteuer für ein betrieblich genutztes Grundstück kann grundsätzlich als Betriebsausgabe berücksichtigt werden.
+
+Ausnahme:
+
+Die Gewerbesteuer und die darauf entfallenden Nebenleistungen sind nach § 4 Abs. 5b EStG keine Betriebsausgaben.
+
+► Merksatz
+
+Grundsteuer auf Betriebsvermögen:
+grundsätzlich betrieblich abziehbar.
+
+Gewerbesteuer:
+ausdrücklich nicht als Betriebsausgabe abziehbar.
+
+---
+
+⇨ 8. Veranlagungssteuern und Abzugsteuern
+
+Nach der Form der Steuererhebung wird insbesondere unterschieden zwischen:
+
+1. Veranlagungssteuern und
+2. Abzugsteuern.
+
+► Veranlagungssteuern
+
+Bei Veranlagungssteuern werden die Besteuerungsgrundlagen grundsätzlich im Rahmen eines Veranlagungsverfahrens ermittelt.
+
+Die Steuer wird regelmäßig durch einen Steuerbescheid festgesetzt.
+
+Beispiele:
+
+– Einkommensteuer,
+– Körperschaftsteuer,
+– Gewerbesteuer.
+
+Typischer Ablauf:
+
+1. Abgabe der Steuererklärung,
+2. Prüfung durch die Finanzbehörde,
+3. Ermittlung der Besteuerungsgrundlagen,
+4. Festsetzung der Steuer,
+5. Bekanntgabe des Steuerbescheids.
+
+► Abzugsteuern
+
+Bei Abzugsteuern wird die Steuer unmittelbar an der Quelle einbehalten.
+
+Der zum Steuerabzug Verpflichtete behält die Steuer ein und führt sie an die Finanzbehörde ab.
+
+Beispiele:
+
+– Lohnsteuer nach §§ 38 ff. EStG,
+– Kapitalertragsteuer nach §§ 43 ff. EStG,
+– Bauabzugsteuer nach §§ 48 ff. EStG.
+
+► Beispiel Lohnsteuer
+
+Der Arbeitgeber behält die Lohnsteuer vom Arbeitslohn des Arbeitnehmers ein und führt sie an das Finanzamt ab.
+
+Steuerschuldner und die Person, die den Steuerabzug vornimmt, können daher unterschiedliche Personen sein.
+
+---
+
+⇨ 9. Grundsätze der Besteuerung
+
+Ein Steuersystem soll sowohl die finanziellen Interessen des Staates als auch die Interessen der Bürger berücksichtigen.
+
+Zu den wichtigen Besteuerungsgrundsätzen gehören:
+
+1. der Grundsatz eines ausreichenden Steueraufkommens,
+2. das Leistungsfähigkeitsprinzip,
+3. der Grundsatz der steuerlichen Gerechtigkeit,
+4. der Grundsatz einer einfachen und sparsamen Steuerverwaltung.
+
+► Ausreichendes Steueraufkommen
+
+Das Steueraufkommen soll grundsätzlich ausreichen, um die staatlichen Aufgaben dauerhaft zu finanzieren.
+
+Dieser Gedanke wird teilweise als Grundsatz des objektiven Steuermaßes oder als fiskalischer Besteuerungsgrundsatz bezeichnet.
+
+► Leistungsfähigkeitsprinzip
+
+Die steuerliche Belastung soll sich an der wirtschaftlichen Leistungsfähigkeit des Steuerpflichtigen orientieren.
+
+Anzeichen für wirtschaftliche Leistungsfähigkeit können sein:
+
+– Einkommen,
+– Vermögen,
+– Konsum,
+– wirtschaftlicher Ertrag.
+
+Dieser Gedanke wird teilweise als Grundsatz des subjektiven Steuermaßes bezeichnet.
+
+► Steuerliche Gerechtigkeit
+
+Vergleichbare Sachverhalte sollen steuerlich gleich behandelt werden.
+
+Unterschiedliche Sachverhalte dürfen entsprechend ihrer Unterschiede verschieden behandelt werden.
+
+Der allgemeine Gleichheitssatz des Art. 3 Abs. 1 GG besitzt deshalb auch im Steuerrecht besondere Bedeutung.
+
+► Einfache und sparsame Steuerverwaltung
+
+Die Erhebung einer Steuer soll:
+
+– verständlich,
+– praktikabel,
+– rechtssicher,
+– möglichst einfach und
+– mit angemessenem Verwaltungsaufwand durchführbar sein.
+
+Die Kosten der Steuererhebung sollen nicht außer Verhältnis zum erzielten Steueraufkommen stehen.
+
+---
+
+⇨ 10. Steuerliche Nebenleistungen
+
+Steuerliche Nebenleistungen sind selbst keine Steuern.
+
+Sie entstehen jedoch im Zusammenhang mit der Besteuerung, der Steuererhebung oder dem steuerlichen Verwaltungsverfahren.
+
+Die steuerlichen Nebenleistungen sind in § 3 Abs. 4 AO aufgezählt.
+
+Zu ihnen gehören insbesondere:
+
+1. Verzögerungsgelder nach § 146 Abs. 2c AO,
+2. Verspätungszuschläge nach § 152 AO,
+3. Zuschläge nach § 162 Abs. 4 und 4a AO,
+4. Mitwirkungsverzögerungsgelder nach § 200a Abs. 2 AO,
+5. Zuschläge zum Mitwirkungsverzögerungsgeld nach § 200a Abs. 3 AO,
+6. Zinsen nach den §§ 233 bis 237 AO,
+7. Säumniszuschläge nach § 240 AO,
+8. Zwangsgelder nach § 329 AO,
+9. bestimmte Kosten des steuerlichen Verwaltungsverfahrens,
+10. Zinsen auf Einfuhr- und Ausfuhrabgaben,
+11. Verspätungsgelder nach § 22a Abs. 5 EStG,
+12. bestimmte Kosten nach dem Plattformen-Steuertransparenzgesetz.
+
+---
+
+⇨ 11. Verzögerungsgeld
+
+Ein Verzögerungsgeld kann nach § 146 Abs. 2c AO festgesetzt werden, wenn bestimmten gesetzlichen Pflichten im Zusammenhang mit elektronischen Büchern, Aufzeichnungen, Datenzugriffen oder der Vorlage von Unterlagen nicht nachgekommen wird.
+
+Das Verzögerungsgeld dient dazu, die Erfüllung steuerlicher Mitwirkungs- und Aufzeichnungspflichten sicherzustellen.
+
+► Wichtig
+
+In älteren Lehrbüchern kann noch auf § 146 Abs. 2b AO verwiesen werden.
+
+Nach der aktuellen Nummerierung befindet sich die Regelung zum Verzögerungsgeld in § 146 Abs. 2c AO.
+
+---
+
+⇨ 12. Verspätungszuschlag
+
+Ein Verspätungszuschlag kann festgesetzt werden, wenn eine vorgeschriebene Steuererklärung nicht oder nicht fristgerecht abgegeben wird.
+
+Rechtsgrundlage:
+
+§ 152 AO
+
+Je nach Fall unterscheidet das Gesetz zwischen:
+
+– einer Ermessensentscheidung der Finanzbehörde und
+– einer verpflichtenden Festsetzung des Verspätungszuschlags.
+
+► Merksatz
+
+Verspätungszuschlag:
+verspätete Abgabe einer Steuererklärung.
+
+---
+
+⇨ 13. Zuschläge nach § 162 AO
+
+Zuschläge nach § 162 Abs. 4 und 4a AO können insbesondere bei Verletzungen bestimmter Aufzeichnungs-, Dokumentations- oder Mitwirkungspflichten festgesetzt werden.
+
+Die Regelungen sind vor allem bei grenzüberschreitenden Sachverhalten und Verrechnungspreisdokumentationen von Bedeutung.
+
+Die Zuschläge treten neben eine mögliche Schätzung der Besteuerungsgrundlagen.
+
+---
+
+⇨ 14. Mitwirkungsverzögerungsgeld
+
+Im Rahmen einer Außenprüfung kann die Finanzbehörde ein qualifiziertes Mitwirkungsverlangen erlassen.
+
+Kommt der Steuerpflichtige diesem Mitwirkungsverlangen nicht oder nicht ausreichend nach, kann beziehungsweise muss nach Maßgabe des § 200a AO ein Mitwirkungsverzögerungsgeld festgesetzt werden.
+
+Rechtsgrundlagen:
+
+– § 200a Abs. 2 AO,
+– § 200a Abs. 3 AO für einen möglichen zusätzlichen Zuschlag.
+
+► Merksatz
+
+Das Mitwirkungsverzögerungsgeld betrifft besonders die verzögerte Mitwirkung während einer Außenprüfung.
+
+---
+
+⇨ 15. Zinsen
+
+Ansprüche aus dem Steuerschuldverhältnis werden nur verzinst, wenn eine gesetzliche Grundlage dies ausdrücklich vorsieht.
+
+Rechtsgrundlage:
+
+§§ 233 bis 237 AO
+
+Zu unterscheiden sind insbesondere:
+
+– Zinsen auf Steuernachforderungen und Steuererstattungen nach § 233a AO,
+– Stundungszinsen nach § 234 AO,
+– Hinterziehungszinsen nach § 235 AO,
+– Prozesszinsen auf Erstattungsbeträge nach § 236 AO,
+– Aussetzungszinsen nach § 237 AO.
+
+► Merksatz
+
+Im Steuerrecht entstehen Zinsen nicht allein deshalb, weil eine Forderung besteht.
+
+Es muss eine besondere gesetzliche Verzinsungsregelung vorliegen.
+
+---
+
+⇨ 16. Säumniszuschlag
+
+Wird eine fällige Steuer nicht rechtzeitig entrichtet, können Säumniszuschläge entstehen.
+
+Rechtsgrundlage:
+
+§ 240 AO
+
+Der Säumniszuschlag knüpft an die verspätete Zahlung an.
+
+► Abgrenzung
+
+Verspätungszuschlag:
+Die Steuererklärung wird verspätet abgegeben.
+
+Säumniszuschlag:
+Die festgesetzte oder angemeldete Steuer wird verspätet bezahlt.
+
+► Merksatz
+
+Erklärung zu spät:
+Verspätungszuschlag.
+
+Zahlung zu spät:
+Säumniszuschlag.
+
+---
+
+⇨ 17. Zwangsgeld
+
+Ein Zwangsgeld ist ein Mittel zur Durchsetzung einer Handlung, Duldung oder Unterlassung.
+
+Rechtsgrundlage:
+
+§ 329 AO
+
+Ein Zwangsgeld kann beispielsweise angedroht und festgesetzt werden, wenn ein Steuerpflichtiger einer durchsetzbaren Mitwirkungspflicht nicht nachkommt.
+
+Das Zwangsgeld soll den Steuerpflichtigen zur Erfüllung seiner Pflicht bewegen.
+
+Es besitzt daher grundsätzlich keinen Strafcharakter.
+
+► Beispiel
+
+Ein Steuerpflichtiger wird zur Abgabe einer noch fehlenden Steuererklärung aufgefordert.
+
+Kommt er der Aufforderung trotz Zwangsgeldandrohung nicht nach, kann das Zwangsgeld festgesetzt werden.
+
+---
+
+⇨ 18. Kosten
+
+Bestimmte Gebühren und Auslagen des steuerlichen Verwaltungsverfahrens gehören ebenfalls zu den steuerlichen Nebenleistungen.
+
+Hierzu zählen insbesondere bestimmte Kosten nach:
+
+– § 89 AO,
+– § 89a Abs. 7 AO,
+– § 178 AO,
+– §§ 337 bis 345 AO.
+
+Ein Beispiel sind Gebühren für die Bearbeitung bestimmter verbindlicher Auskünfte.
+
+---
+
+⇨ 19. Bußgelder und Geldstrafen
+
+Bußgelder und Geldstrafen gehören nicht zu den steuerlichen Nebenleistungen.
+
+Dies gilt auch dann, wenn sie im Zusammenhang mit einer Steuerordnungswidrigkeit oder Steuerstraftat festgesetzt werden.
+
+Beispiele:
+
+– Bußgeld wegen einer leichtfertigen Steuerverkürzung,
+– Geldstrafe wegen einer Steuerhinterziehung.
+
+Der Grund:
+
+Bußgelder und Geldstrafen dienen in erster Linie der Ahndung eines rechtswidrigen Verhaltens.
+
+Sie dienen nicht der Erzielung von Steuereinnahmen und nicht der gewöhnlichen Durchführung des Besteuerungsverfahrens.
+
+---
+
+⇨ 20. Gesamtübersicht
+
+► Öffentlich-rechtliche Abgaben
+
+Steuern:
+keine konkrete Gegenleistung.
+
+Gebühren:
+tatsächliche Inanspruchnahme einer konkreten Leistung.
+
+Beiträge:
+Möglichkeit der Nutzung oder besonderer Vorteil.
+
+Steuerliche Nebenleistungen:
+entstehen im Zusammenhang mit dem Besteuerungs- oder Erhebungsverfahren.
+
+► Ertragshoheit
+
+Gemeinschaftsteuern:
+insbesondere Einkommensteuer, Körperschaftsteuer und Umsatzsteuer.
+
+Bundessteuern:
+beispielsweise Energiesteuer, Tabaksteuer und Versicherungsteuer.
+
+Landessteuern:
+beispielsweise Erbschaftsteuer und Grunderwerbsteuer.
+
+Gemeindesteuern:
+insbesondere Gewerbesteuer und Grundsteuer.
+
+► Einteilung nach dem Steuergegenstand
+
+Personensteuern:
+knüpfen an die Person und ihre Leistungsfähigkeit an.
+
+Sachsteuern:
+knüpfen an einen Gegenstand oder wirtschaftlichen Vorgang an.
+
+Realsteuern:
+Grundsteuer und Gewerbesteuer.
+
+► Einteilung nach der Erhebungsform
+
+Veranlagungssteuern:
+Festsetzung regelmäßig nach Durchführung einer Veranlagung.
+
+Abzugsteuern:
+Einbehaltung unmittelbar an der Einkommens- oder Zahlungsquelle.
+
+► Nebenleistungen
+
+Erklärung verspätet:
+Verspätungszuschlag.
+
+Zahlung verspätet:
+Säumniszuschlag.
+
+Mitwirkung nicht erfüllt:
+Zwangsgeld oder besondere Mitwirkungszuschläge.
+
+Gesetzlich angeordnete Verzinsung:
+Zinsen.
+
+---
+
+⇨ 21. Wiederholungsfragen
+
+1. Welche Voraussetzungen muss eine Geldleistung erfüllen, um eine Steuer im Sinne des § 3 AO zu sein?
+
+2. Worin unterscheiden sich Steuern, Gebühren und Beiträge?
+
+3. Was versteht man unter der Ertragshoheit?
+
+4. Welche Steuern gehören zu den Gemeinschaftsteuern?
+
+5. Welche Steuern werden als Realsteuern bezeichnet?
+
+6. Was ist der Unterschied zwischen Personensteuern und Sachsteuern?
+
+7. Warum ist die Gewerbesteuer trotz ihrer betrieblichen Veranlassung nicht als Betriebsausgabe abziehbar?
+
+8. Was ist der Unterschied zwischen Veranlagungssteuern und Abzugsteuern?
+
+9. Was beschreibt die Steuerquote?
+
+10. Was beschreibt die Abgabenquote?
+
+11. Welche steuerlichen Nebenleistungen nennt § 3 Abs. 4 AO?
+
+12. Worin unterscheiden sich Verspätungszuschlag und Säumniszuschlag?
+
+13. Wann kann ein Zwangsgeld eingesetzt werden?
+
+14. Warum gehören Bußgelder und Geldstrafen nicht zu den steuerlichen Nebenleistungen?
+
+15. Welche Besteuerungsgrundsätze sollen bei der Ausgestaltung eines Steuersystems berücksichtigt werden?
+
+---
+
+⇨ 22. Klausur-Merksätze
+
+► Steuer
+
+Geldleistung ohne Anspruch auf eine konkrete Gegenleistung.
+
+► Gebühr
+
+Entgelt für die tatsächliche Inanspruchnahme einer besonderen öffentlichen Leistung.
+
+► Beitrag
+
+Abgabe für die Möglichkeit der Nutzung oder einen besonderen Vorteil.
+
+► Realsteuern
+
+Grundsteuer und Gewerbesteuer.
+
+► Gewerbesteuer
+
+Nach § 4 Abs. 5b EStG keine Betriebsausgabe.
+
+► Verspätungszuschlag
+
+Die Steuererklärung wurde nicht oder verspätet abgegeben.
+
+► Säumniszuschlag
+
+Eine fällige Steuer wurde nicht rechtzeitig bezahlt.
+
+► Zwangsgeld
+
+Druckmittel zur Durchsetzung einer steuerlichen Pflicht.
+
+► Bußgeld und Geldstrafe
+
+Keine Steuer und keine steuerliche Nebenleistung.
+`
+},
+{
   id: "bfh-v-r-11-24-gemeinnuetzigkeit-unternehmensverbundene-stiftung",
 
   title:

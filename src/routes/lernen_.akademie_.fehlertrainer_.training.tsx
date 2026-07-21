@@ -5,6 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { useMistakes, type Mistake } from "@/hooks/useMistakes";
+import { useProgress } from "@/hooks/useProgress";
 
 export const Route = createFileRoute("/lernen_/akademie_/fehlertrainer_/training")({
   component: MistakeTrainingPage,
@@ -26,7 +27,8 @@ function shuffleQuestions(questions: Mistake[]): Mistake[] {
 }
 
 function MistakeTrainingPage() {
-  const { getActiveMistakes, recordCorrectAnswer, recordWrongAnswer } = useMistakes();
+  const { getActiveMistakes, recordCorrectAnswer, recordWrongAnswer, getMistakeById } = useMistakes();
+  const { recordSession, recordMastered } = useProgress();
   const [sessionMistakes, setSessionMistakes] = useState<Mistake[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
@@ -59,13 +61,24 @@ function MistakeTrainingPage() {
 
     if (isAnswerCorrect) {
       recordCorrectAnswer(currentMistake.id);
-      setResults((r) => ({
-        ...r,
-        correct: r.correct + 1,
-        mastered: r.mastered.includes(currentMistake.id)
-          ? r.mastered
-          : isAnswerCorrect ? r.mastered : r.mastered,
-      }));
+      
+      // Check if now mastered
+      setTimeout(() => {
+        const updated = getMistakeById(currentMistake.id);
+        if (updated && updated.status === 'mastered') {
+          recordMastered(currentMistake.category, currentMistake.topic);
+          setResults((r) => ({
+            ...r,
+            correct: r.correct + 1,
+            mastered: [...r.mastered, currentMistake.id],
+          }));
+        } else {
+          setResults((r) => ({
+            ...r,
+            correct: r.correct + 1,
+          }));
+        }
+      }, 0);
     } else {
       recordWrongAnswer(currentMistake.id);
       setResults((r) => ({
@@ -73,7 +86,7 @@ function MistakeTrainingPage() {
         wrong: r.wrong + 1,
       }));
     }
-  }, [selectedAnswer, checked, currentMistake, isAnswerCorrect, recordCorrectAnswer, recordWrongAnswer]);
+  }, [selectedAnswer, checked, currentMistake, isAnswerCorrect, recordCorrectAnswer, recordWrongAnswer, recordMastered, getMistakeById]);
 
   const handleNextQuestion = useCallback(() => {
     if (!checked) return;
@@ -88,6 +101,13 @@ function MistakeTrainingPage() {
     setSelectedAnswer(null);
     setChecked(false);
   }, [checked, currentIndex, sessionMistakes.length]);
+
+  // Record training session when finished
+  useEffect(() => {
+    if (finished && (results.correct > 0 || results.wrong > 0)) {
+      recordSession(results.correct, results.wrong);
+    }
+  }, [finished, results, recordSession]);
 
   if (sessionMistakes.length === 0 && !finished) {
     return (

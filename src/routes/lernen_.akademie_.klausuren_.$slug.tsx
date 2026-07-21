@@ -9,12 +9,15 @@ import {
   Tag,
   Trash2,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { FavoriteButton } from "@/components/FavoriteButton";
+import { ReadAloudButton } from "@/components/tts/ReadAloudButton";
+import { TextToSpeechControls } from "@/components/tts/TextToSpeechControls";
 import { useFavorites } from "@/hooks/useFavorites";
+import { useTextToSpeech, type TtsSection } from "@/hooks/useTextToSpeech";
 import { examCases, type ExamCase, type SolutionHint } from "@/data/examCases";
 
 export const Route = createFileRoute("/lernen_/akademie_/klausuren_/$slug")({
@@ -93,8 +96,21 @@ function saveProgress(slug: string, progress: ExamProgress) {
   }
 }
 
+function splitParagraphs(text: string): string[] {
+  return text
+    .split(/\n{2,}|\n/)
+    .map((part) => part.trim())
+    .filter(Boolean);
+}
+
+function chunkLabel(id: string): string {
+  return id.replace(/__chunk_\d+$/, "");
+}
+
 function KlausurDetailPage() {
   const examCase = Route.useLoaderData() as ExamCase;
+  const tts = useTextToSpeech();
+  const stopTts = tts.stop;
 
   const [progress, setProgress] = useState<ExamProgress>(() => loadProgress(examCase.slug));
   const [showSolutionConfirm, setShowSolutionConfirm] = useState(false);
@@ -166,6 +182,65 @@ function KlausurDetailPage() {
 
   const taskCount = examCase.tasks.length;
 
+  const readSections = useMemo(() => {
+    const intro: TtsSection = {
+      id: "case-title",
+      text: `Klausurfall: ${examCase.title}`,
+    };
+
+    const facts = splitParagraphs(examCase.caseText).map((paragraph, index) => ({
+      id: `facts-${index + 1}`,
+      text: paragraph,
+    }));
+
+    const tasks: TtsSection[] = examCase.tasks.map((task, index) => ({
+      id: `task-${index + 1}`,
+      text:
+        typeof task.points === "number"
+          ? `${task.label}, ${task.points.toFixed(1)} Punkte. ${task.text}`
+          : `${task.label}. ${task.text}`,
+    }));
+
+    return {
+      facts: [intro, { id: "facts-heading", text: "Sachverhalt" }, ...facts],
+      tasks: [{ id: "tasks-heading", text: "Aufgabenstellung" }, ...tasks],
+      all: [
+        intro,
+        { id: "facts-heading", text: "Sachverhalt" },
+        ...facts,
+        { id: "tasks-heading", text: "Aufgabenstellung" },
+        ...tasks,
+      ],
+    };
+  }, [examCase]);
+
+  const highlightedId =
+    tts.isSpeaking || tts.isPaused ? chunkLabel(tts.currentSectionId ?? "") : null;
+
+  useEffect(() => {
+    if (!highlightedId) return;
+
+    const node = document.getElementById(highlightedId);
+    if (!node) return;
+
+    const bounds = node.getBoundingClientRect();
+    const isVisible = bounds.top >= 110 && bounds.bottom <= window.innerHeight - 140;
+
+    if (!isVisible) {
+      node.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, [highlightedId]);
+
+  useEffect(() => {
+    return () => {
+      stopTts();
+    };
+  }, [stopTts]);
+
+  useEffect(() => {
+    stopTts();
+  }, [examCase.slug, stopTts]);
+
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <SiteHeader />
@@ -192,7 +267,13 @@ function KlausurDetailPage() {
                   {examCase.subject}
                 </p>
                 <div className="mt-1 flex items-start justify-between gap-4">
-                  <h1 className="text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl">
+                  <h1
+                    id="case-title"
+                    className={[
+                      "rounded-xl px-2 py-1 text-2xl font-semibold leading-tight tracking-tight text-foreground transition-colors sm:text-3xl",
+                      highlightedId === "case-title" ? "bg-sky-100 ring-1 ring-sky-300" : "",
+                    ].join(" ")}
+                  >
                     {examCase.title}
                   </h1>
                   <div className="shrink-0">
@@ -229,6 +310,15 @@ function KlausurDetailPage() {
               ))}
             </div>
 
+            <div className="mt-4">
+              <ReadAloudButton
+                isSupported={tts.isSupported}
+                onReadFacts={() => tts.speakSections(readSections.facts)}
+                onReadTasks={() => tts.speakSections(readSections.tasks)}
+                onReadAll={() => tts.speakSections(readSections.all)}
+              />
+            </div>
+
             {/* Progress bar */}
             <div className="mt-5">
               <div className="mb-1.5 flex items-center justify-between gap-3">
@@ -258,8 +348,24 @@ function KlausurDetailPage() {
           {/* Sachverhalt */}
           <ContentSection title="Sachverhalt" defaultOpen>
             <div className="prose-sm max-w-none">
-              {examCase.caseText.split("\n\n").map((paragraph, i) => (
-                <p key={i} className="mb-3 text-sm leading-relaxed text-foreground last:mb-0">
+              <p
+                id="facts-heading"
+                className={[
+                  "mb-2 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground transition-colors",
+                  highlightedId === "facts-heading" ? "text-foreground" : "",
+                ].join(" ")}
+              >
+                Sachverhalt
+              </p>
+              {splitParagraphs(examCase.caseText).map((paragraph, i) => (
+                <p
+                  key={i}
+                  id={`facts-${i + 1}`}
+                  className={[
+                    "mb-3 rounded-xl px-2 py-1.5 text-sm leading-relaxed text-foreground transition-colors last:mb-0",
+                    highlightedId === `facts-${i + 1}` ? "bg-sky-100 ring-1 ring-sky-300" : "",
+                  ].join(" ")}
+                >
                   {paragraph}
                 </p>
               ))}
@@ -269,8 +375,17 @@ function KlausurDetailPage() {
           {/* Aufgabenstellung */}
           <ContentSection title="Aufgabenstellung" defaultOpen>
             <div className="space-y-4">
-              {examCase.tasks.map((task) => (
-                <div key={task.id}>
+              <p
+                id="tasks-heading"
+                className={[
+                  "text-[11px] font-semibold uppercase tracking-wide text-muted-foreground transition-colors",
+                  highlightedId === "tasks-heading" ? "text-foreground" : "",
+                ].join(" ")}
+              >
+                Aufgabenstellung
+              </p>
+              {examCase.tasks.map((task, index) => (
+                <div key={task.id} id={`task-${index + 1}`}>
                   <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                     {task.label}
                     {task.points !== undefined && (
@@ -279,7 +394,14 @@ function KlausurDetailPage() {
                       </span>
                     )}
                   </p>
-                  <p className="mt-2 text-sm leading-relaxed text-foreground">{task.text}</p>
+                  <p
+                    className={[
+                      "mt-2 rounded-xl px-2 py-1.5 text-sm leading-relaxed text-foreground transition-colors",
+                      highlightedId === `task-${index + 1}` ? "bg-sky-100 ring-1 ring-sky-300" : "",
+                    ].join(" ")}
+                  >
+                    {task.text}
+                  </p>
                 </div>
               ))}
             </div>
@@ -513,6 +635,8 @@ function KlausurDetailPage() {
           {/* Extra bottom padding so content is not hidden by MobileBottomNav */}
           <div className="h-4" />
         </div>
+
+        <TextToSpeechControls tts={tts} />
       </main>
 
       <SiteFooter />

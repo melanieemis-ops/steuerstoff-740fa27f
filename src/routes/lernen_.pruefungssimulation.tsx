@@ -138,14 +138,16 @@ function ExamSimulationPage() {
     // Logic to start new exam (reset session) is handled by abandonSession
   };
 
+  const { selectAnswer, toggleMarkQuestion, goToQuestion, nextQuestion, previousQuestion, handleSubmitExam: submitExam, abandonSession: abandon, getQuestionStats, timeRemaining } = useExamSession();
+
   // If exam is running, render exam view instead
   if (session && !session.isSubmitted && !session.isAbandoned) {
-    return <ExamTestView />;
+    return <ExamTestView session={session} selectAnswer={selectAnswer} toggleMarkQuestion={toggleMarkQuestion} goToQuestion={goToQuestion} nextQuestion={nextQuestion} previousQuestion={previousQuestion} handleSubmitExam={submitExam} abandonSession={abandon} getQuestionStats={getQuestionStats} timeRemaining={timeRemaining} />;
   }
 
   // If exam is submitted, render results
   if (session && session.isSubmitted && !session.isAbandoned) {
-    return <ExamResultsView />;
+    return <ExamResultsView session={session} />;
   }
 
   // Show continue dialog if there's an existing session
@@ -362,8 +364,21 @@ function ExamSimulationPage() {
 }
 
 // Exam Test View
-function ExamTestView() {
-  const { session, timeRemaining, selectAnswer, toggleMarkQuestion, goToQuestion, nextQuestion, previousQuestion, handleSubmitExam, abandonSession, getQuestionStats } = useExamSession();
+interface ExamTestViewProps {
+  session: ExamSession;
+  selectAnswer: (optionIndex: number) => void;
+  toggleMarkQuestion: () => void;
+  goToQuestion: (index: number) => void;
+  nextQuestion: () => void;
+  previousQuestion: () => void;
+  handleSubmitExam: () => void;
+  abandonSession: () => void;
+  getQuestionStats: () => { total: number; answered: number; unanswered: number; marked: number } | null;
+  timeRemaining: number | null;
+}
+
+function ExamTestView(props: ExamTestViewProps) {
+  const { session, timeRemaining, selectAnswer, toggleMarkQuestion, goToQuestion, nextQuestion, previousQuestion, handleSubmitExam, abandonSession, getQuestionStats } = props;
   const [showSubmitConfirm, setShowSubmitConfirm] = useState(false);
   const [showAbandonConfirm, setShowAbandonConfirm] = useState(false);
   const [showQuestionsPanel, setShowQuestionsPanel] = useState(false);

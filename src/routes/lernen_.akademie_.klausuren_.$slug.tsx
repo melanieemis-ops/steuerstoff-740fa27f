@@ -206,6 +206,16 @@ function KlausurDetailPage() {
                   Maximal {examCase.maximumPoints.toFixed(1)} Punkte · {taskCount}{" "}
                   {taskCount === 1 ? "Teilaufgabe" : "Teilaufgaben"}
                 </p>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  <span className="rounded-full border border-border/60 bg-background px-2.5 py-0.5 text-[11px] text-muted-foreground">
+                    Schwierigkeitsgrad: {examCase.difficulty}
+                  </span>
+                  {typeof examCase.durationMinutes === "number" && (
+                    <span className="rounded-full border border-border/60 bg-background px-2.5 py-0.5 text-[11px] text-muted-foreground">
+                      Bearbeitungszeit: {examCase.durationMinutes} Min
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
 

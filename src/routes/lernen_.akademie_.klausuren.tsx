@@ -113,6 +113,9 @@ function ExamCaseCard({ examCase }: { examCase: (typeof examCases)[number] }) {
           </span>{" "}
           Punkte
         </span>
+        {typeof examCase.durationMinutes === "number" && (
+          <span>{examCase.durationMinutes} Min Bearbeitungszeit</span>
+        )}
         <span>
           {taskCount} {taskCount === 1 ? "Teilaufgabe" : "Teilaufgaben"}
         </span>

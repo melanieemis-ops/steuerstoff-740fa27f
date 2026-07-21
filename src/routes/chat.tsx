@@ -26,6 +26,7 @@ import {
   type ChatMessageAttachment,
 } from "@/lib/attachment-types";
 import { generateAnswer, REVIEW_HINT, type ChatAnswer } from "@/lib/chatHeuristics";
+import { apiUrl } from "@/lib/api";
 import {
   AlertCircle,
   ArrowRight,
@@ -310,7 +311,7 @@ function ChatPage() {
     let accumulated = "";
 
     try {
-      const resp = await fetch("/api/chat", {
+      const resp = await fetch(apiUrl("/api/chat"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

@@ -1,3 +1,5 @@
+import { apiUrl } from "@/lib/api";
+
 export type UploadFileResult = {
   uploadedFileId: string;
   downloadUrl: string;
@@ -10,7 +12,7 @@ export function uploadFileWithProgress(
 ): Promise<UploadFileResult> {
   return new Promise((resolve, reject) => {
     const request = new XMLHttpRequest();
-    request.open("POST", "/api/upload");
+    request.open("POST", apiUrl("/api/upload"));
     request.responseType = "json";
     request.upload.onprogress = (event) => {
       if (!event.lengthComputable) return;
@@ -38,7 +40,7 @@ export function uploadFileWithProgress(
       onProgress?.(100);
       resolve({
         uploadedFileId: response.uploadedFileId,
-        downloadUrl: response.downloadUrl,
+        downloadUrl: apiUrl(response.downloadUrl),
         expiresAt: response.expiresAt,
       });
     };

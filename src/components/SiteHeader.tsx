@@ -273,7 +273,7 @@ export function SiteHeader() {
               "inline-flex h-4 w-4 shrink-0 items-center justify-center transition-opacity",
               refreshing
                 ? "opacity-100"
-                : "opacity-0",
+                : "hidden opacity-0",
             ].join(" ")}
           >
             <Loader2 className="h-3.5 w-3.5 animate-spin text-muted-foreground" />

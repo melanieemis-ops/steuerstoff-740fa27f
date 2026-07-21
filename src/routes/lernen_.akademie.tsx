@@ -50,7 +50,7 @@ const ACADEMY_FEATURES = [
     title: "Prüfungssimulation",
     description: "Bearbeite zufällige Fragen unter realistischen Prüfungsbedingungen.",
     icon: ClipboardCheck,
-    status: "soon" as const,
+    status: "ready" as const,
   },
   {
     title: "Fehlertrainer",
@@ -361,6 +361,10 @@ function AcademyCard({
 
   if (title === "Fortschritt") {
     targetPath = "/lernen/akademie/fortschritt";
+  }
+
+  if (title === "Prüfungssimulation") {
+    targetPath = "/lernen/pruefungssimulation";
   }
 
   if (status === "ready") {

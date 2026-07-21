@@ -157,7 +157,7 @@ function Einstellungen() {
         } else if (error.code === "QUOTA_EXCEEDED") {
           setSpeechError("Das verfuegbare Sprachguthaben ist derzeit aufgebraucht.");
         } else if (error.code === "CONFIGURATION_ERROR") {
-          setSpeechError("ElevenLabs ist nicht konfiguriert. Bitte prüfe deinen API-Schlüssel und deine Voice-ID oben.");
+          setSpeechError("ElevenLabs ist nicht konfiguriert. Bitte pruefe deinen API-Schlussel und deine Voice-ID oben.");
         } else {
           setSpeechError(error.message || "Die Sprachausgabe konnte gerade nicht geladen werden.");
         }

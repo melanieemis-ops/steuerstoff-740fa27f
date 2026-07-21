@@ -7,7 +7,7 @@ Diese Anwendung nutzt ElevenLabs ausschliesslich serverseitig ueber die Route `s
 Setze folgende Variablen in der Laufzeitumgebung:
 
 - `ELEVENLABS_API_KEY`
-- `ELEVENLABS_VOICE_ID`
+- `ELEVENLABS_VOICE_ID` (optional, Standard ist `g1jpii0iyvtRs8fqXsd1` – im Code fest hinterlegt)
 - `ELEVENLABS_MODEL_ID` (optional, Standard ist `eleven_multilingual_v2`)
 
 Wichtig:

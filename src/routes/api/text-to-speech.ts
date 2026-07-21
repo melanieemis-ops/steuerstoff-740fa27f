@@ -4,6 +4,8 @@ import { z } from "zod";
 import { prepareTextForSpeech } from "@/lib/prepareTextForSpeech";
 import { DEFAULT_TTS_MODEL_ID, getVoiceProfile } from "@/lib/ttsVoiceProfiles";
 
+const ELEVENLABS_VOICE_ID = "g1jpii0iyvtRs8fqXsd1";
+
 const MAX_TEXT_LENGTH = 12000;
 const RATE_WINDOW_MS = 10 * 60 * 1000;
 const RATE_LIMIT = 24;
@@ -160,14 +162,7 @@ export const Route = createFileRoute("/api/text-to-speech")({
         const configuredVoiceId = readServerSecret("ELEVENLABS_VOICE_ID");
         const configuredModelId = readServerSecret("ELEVENLABS_MODEL_ID");
 
-        const voiceId = parsed.data.voiceId?.trim() || configuredVoiceId;
-        if (!voiceId) {
-          return jsonError(
-            503,
-            "CONFIGURATION_ERROR",
-            "Keine Voice-ID konfiguriert. Bitte trage deine ElevenLabs Voice-ID in den Einstellungen ein.",
-          );
-        }
+        const voiceId = parsed.data.voiceId?.trim() || configuredVoiceId || ELEVENLABS_VOICE_ID;
 
         const modelId = parsed.data.modelId?.trim() || configuredModelId || DEFAULT_TTS_MODEL_ID;
         const profile = getVoiceProfile(parsed.data.profileId);

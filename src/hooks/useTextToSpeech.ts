@@ -4,6 +4,7 @@ import { prepareTextForSpeech } from "@/lib/prepareTextForSpeech";
 import { loadSpeechSettings, saveSpeechSettings } from "@/lib/speech-storage";
 import {
   clearSpeechAudioCache,
+  ELEVENLABS_VOICE_ID,
   getAudioCacheKey,
   getCachedAudioUrl,
   requestElevenLabsAudio,
@@ -229,7 +230,7 @@ export function useTextToSpeech() {
       const payload: TtsRequestPayload = {
         text: item.text,
         profileId: voiceProfileId,
-        voiceId: voiceIdOverride?.trim() || undefined,
+        voiceId: voiceIdOverride?.trim() || ELEVENLABS_VOICE_ID,
         modelId: DEFAULT_TTS_MODEL_ID,
         apiKey: apiKey?.trim() || undefined,
       };

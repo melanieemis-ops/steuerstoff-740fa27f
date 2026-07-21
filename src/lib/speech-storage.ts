@@ -50,8 +50,7 @@ export function loadSpeechSettings(): SpeechSettings {
             ? parsedRate
             : DEFAULTS.rate,
         voiceURI: rawVoice && rawVoice.trim().length > 0 ? rawVoice : undefined,
-        profileId:
-          rawProfile && rawProfile.trim().length > 0 ? rawProfile : DEFAULTS.profileId,
+        profileId: rawProfile && rawProfile.trim().length > 0 ? rawProfile : DEFAULTS.profileId,
         voiceIdOverride:
           rawVoiceOverride && rawVoiceOverride.trim().length > 0 ? rawVoiceOverride : undefined,
         allowBrowserFallback: rawFallback === "1",

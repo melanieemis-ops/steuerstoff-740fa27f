@@ -115,25 +115,28 @@ export const Route = createFileRoute("/api/text-to-speech")({
         const upstreamController = new AbortController();
         request.signal.addEventListener("abort", () => upstreamController.abort());
 
-        const upstream = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${encodeURIComponent(voiceId)}`, {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-            accept: "audio/mpeg",
-            "xi-api-key": apiKey,
-          },
-          signal: upstreamController.signal,
-          body: JSON.stringify({
-            text: preparedText,
-            model_id: modelId,
-            voice_settings: {
-              stability: profile.stability,
-              similarity_boost: profile.similarityBoost,
-              style: profile.style,
-              use_speaker_boost: profile.useSpeakerBoost,
+        const upstream = await fetch(
+          `https://api.elevenlabs.io/v1/text-to-speech/${encodeURIComponent(voiceId)}`,
+          {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+              accept: "audio/mpeg",
+              "xi-api-key": apiKey,
             },
-          }),
-        });
+            signal: upstreamController.signal,
+            body: JSON.stringify({
+              text: preparedText,
+              model_id: modelId,
+              voice_settings: {
+                stability: profile.stability,
+                similarity_boost: profile.similarityBoost,
+                style: profile.style,
+                use_speaker_boost: profile.useSpeakerBoost,
+              },
+            }),
+          },
+        );
 
         if (!upstream.ok || !upstream.body) {
           const errorText = await upstream.text().catch(() => "");

@@ -74,9 +74,7 @@ function Einstellungen() {
   const [speechError, setSpeechError] = useState<string | null>(null);
   const [isTesting, setIsTesting] = useState(false);
   const isSpeechSupported =
-    typeof window !== "undefined" &&
-    "Audio" in window &&
-    typeof window.fetch === "function";
+    typeof window !== "undefined" && "Audio" in window && typeof window.fetch === "function";
 
   useEffect(() => {
     try {
@@ -361,8 +359,8 @@ function Einstellungen() {
                 <div>
                   <h2 className="text-base font-semibold text-foreground">Vorlesefunktion</h2>
                   <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                    steuerstoff nutzt eine professionelle KI-Stimme fuer lange Klausurtexte.
-                    Die Sprachgenerierung erfolgt serverseitig und sicher.
+                    steuerstoff nutzt eine professionelle KI-Stimme fuer lange Klausurtexte. Die
+                    Sprachgenerierung erfolgt serverseitig und sicher.
                   </p>
                 </div>
               </div>
@@ -450,7 +448,10 @@ function Einstellungen() {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground" htmlFor="voice-id-override">
+                    <label
+                      className="text-sm font-medium text-foreground"
+                      htmlFor="voice-id-override"
+                    >
                       Voice-ID (optional, fuer alternative Stimme)
                     </label>
                     <Input

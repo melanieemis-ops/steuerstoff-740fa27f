@@ -27,14 +27,14 @@ export function TextToSpeechControls({ tts, hidden = false }: TextToSpeechContro
   const statusLabel = tts.isLoading
     ? "Audio wird vorbereitet ..."
     : tts.isSpeaking
-    ? "Wird vorgelesen"
-    : tts.isPaused
-      ? "Pausiert"
-      : tts.status === "ended"
-        ? "Vorlesen beendet"
-        : tts.status === "error"
-          ? "Fehler bei der Sprachausgabe"
-        : "Bereit";
+      ? "Wird vorgelesen"
+      : tts.isPaused
+        ? "Pausiert"
+        : tts.status === "ended"
+          ? "Vorlesen beendet"
+          : tts.status === "error"
+            ? "Fehler bei der Sprachausgabe"
+            : "Bereit";
 
   const mmss = (seconds: number) => {
     const total = Math.max(0, Math.floor(seconds));
@@ -153,8 +153,7 @@ export function TextToSpeechControls({ tts, hidden = false }: TextToSpeechContro
           >
             {tts.rateOptions.map((option) => (
               <option key={option} value={option}>
-                {option.toFixed(2).replace(".", ",")}
-                x
+                {option.toFixed(2).replace(".", ",")}x
               </option>
             ))}
           </select>

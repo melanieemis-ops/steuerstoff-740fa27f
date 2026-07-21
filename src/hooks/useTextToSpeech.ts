@@ -79,7 +79,12 @@ export function useTextToSpeech() {
   const fallbackQueueRef = useRef<QueueItem[]>([]);
 
   const persistSettings = useCallback(
-    (next: { rate?: number; profileId?: string; voiceIdOverride?: string; allowBrowserFallback?: boolean }) => {
+    (next: {
+      rate?: number;
+      profileId?: string;
+      voiceIdOverride?: string;
+      allowBrowserFallback?: boolean;
+    }) => {
       const merged = {
         ...loadSpeechSettings(),
         rate,
@@ -240,7 +245,8 @@ export function useTextToSpeech() {
       };
       audio.onended = () => {
         if (token !== requestTokenRef.current) return;
-        const elapsed = getElapsedBefore(index) + (sectionDurationsRef.current[index] ?? item.estimatedSeconds);
+        const elapsed =
+          getElapsedBefore(index) + (sectionDurationsRef.current[index] ?? item.estimatedSeconds);
         setCurrentTime(elapsed);
         void startFromIndex(index + 1, 0, true);
       };
@@ -274,14 +280,7 @@ export function useTextToSpeech() {
         setErrorMessage("Bitte starte die Vorlesefunktion durch einen Klick erneut.");
       }
     },
-    [
-      computeTotalDuration,
-      getElapsedBefore,
-      rate,
-      totalDuration,
-      voiceIdOverride,
-      voiceProfileId,
-    ],
+    [computeTotalDuration, getElapsedBefore, rate, totalDuration, voiceIdOverride, voiceProfileId],
   );
 
   const buildQueue = useCallback((sections: TtsSection[]): QueueItem[] => {

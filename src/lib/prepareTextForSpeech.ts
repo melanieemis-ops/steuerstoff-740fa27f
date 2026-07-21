@@ -39,18 +39,7 @@ function numberToGerman(n: number): string {
   const num = Math.floor(Math.abs(n));
   if (num === 0) return "null";
 
-  const ones = [
-    "",
-    "eins",
-    "zwei",
-    "drei",
-    "vier",
-    "fuenf",
-    "sechs",
-    "sieben",
-    "acht",
-    "neun",
-  ];
+  const ones = ["", "eins", "zwei", "drei", "vier", "fuenf", "sechs", "sieben", "acht", "neun"];
   const teens = [
     "zehn",
     "elf",
@@ -108,10 +97,13 @@ function numberToGerman(n: number): string {
 function expandStatuteRefs(text: string): string {
   let next = text;
 
-  next = next.replace(/Paragraphen\s+(\d+)\s+folgende\s+([A-Za-z][A-Za-z0-9]*)/g, (_m, pNum, law) => {
-    const lawName = LAW_MAP[law] ?? law;
-    return `Paragraphen ${numberToGerman(Number(pNum))} folgende der ${lawName}`;
-  });
+  next = next.replace(
+    /Paragraphen\s+(\d+)\s+folgende\s+([A-Za-z][A-Za-z0-9]*)/g,
+    (_m, pNum, law) => {
+      const lawName = LAW_MAP[law] ?? law;
+      return `Paragraphen ${numberToGerman(Number(pNum))} folgende der ${lawName}`;
+    },
+  );
 
   next = next.replace(/Paragraph\s+(\d+)\s+([A-Za-z][A-Za-z0-9]*)/g, (_m, pNum, law) => {
     const lawName = LAW_MAP[law] ?? law;
@@ -186,7 +178,10 @@ export function prepareTextForSpeech(input: string): string {
   text = normalizeDateAndTime(text);
   text = normalizeMoneyAndPercent(text);
 
-  return text.replace(/\s{2,}/g, " ").replace(/\n{3,}/g, "\n\n").trim();
+  return text
+    .replace(/\s{2,}/g, " ")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
 }
 
 export function buildSpeechCacheSignature(opts: {

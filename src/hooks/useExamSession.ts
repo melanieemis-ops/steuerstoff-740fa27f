@@ -32,6 +32,16 @@ export function useExamSession() {
   const [session, setSession] = useState<ExamSession | null>(null);
   const [timeRemaining, setTimeRemaining] = useState<number | null>(null);
 
+  const saveSession = useCallback((sess: ExamSession) => {
+    if (typeof window === "undefined") return;
+
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(sess));
+    } catch (error) {
+      console.error("Failed to save exam session:", error);
+    }
+  }, []);
+
   // Load session from localStorage on mount
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -69,57 +79,60 @@ export function useExamSession() {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [session]);
+  }, [session, handleSubmitExam]);
 
-  const createSession = useCallback((config: ExamSessionConfig, questions: LearningQuestion[]) => {
-    // Shuffle questions if needed
-    let shuffledQuestions = [...questions];
-    if (config.shuffleQuestions) {
-      shuffledQuestions = shuffledQuestions.sort(() => Math.random() - 0.5);
-    }
-
-    // Create exam questions with shuffled options if needed
-    const examQuestions: ExamQuestion[] = shuffledQuestions.map((q) => {
-      let questionCopy = { ...q };
-
-      if (config.shuffleOptions && q.type === "single-choice") {
-        // Shuffle options while keeping track of correct answer
-        const options = [...q.options];
-        const correctAnswerText = q.options[q.correctAnswer];
-        const shuffledOptions = options.sort(() => Math.random() - 0.5);
-        const newCorrectIndex = shuffledOptions.indexOf(correctAnswerText);
-
-        questionCopy = {
-          ...q,
-          options: shuffledOptions,
-          correctAnswer: newCorrectIndex,
-        };
+  const createSession = useCallback(
+    (config: ExamSessionConfig, questions: LearningQuestion[]) => {
+      // Shuffle questions if needed
+      let shuffledQuestions = [...questions];
+      if (config.shuffleQuestions) {
+        shuffledQuestions = shuffledQuestions.sort(() => Math.random() - 0.5);
       }
 
-      return {
-        question: questionCopy,
-        selectedAnswerIndex: null,
-        isMarked: false,
+      // Create exam questions with shuffled options if needed
+      const examQuestions: ExamQuestion[] = shuffledQuestions.map((q) => {
+        let questionCopy = { ...q };
+
+        if (config.shuffleOptions && q.type === "single-choice") {
+          // Shuffle options while keeping track of correct answer
+          const options = [...q.options];
+          const correctAnswerText = q.options[q.correctAnswer];
+          const shuffledOptions = options.sort(() => Math.random() - 0.5);
+          const newCorrectIndex = shuffledOptions.indexOf(correctAnswerText);
+
+          questionCopy = {
+            ...q,
+            options: shuffledOptions,
+            correctAnswer: newCorrectIndex,
+          };
+        }
+
+        return {
+          question: questionCopy,
+          selectedAnswerIndex: null,
+          isMarked: false,
+        };
+      });
+
+      const newSession: ExamSession = {
+        id: `exam-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+        config,
+        questions: examQuestions,
+        currentQuestionIndex: 0,
+        startTime: Date.now(),
+        endTime: null,
+        isSubmitted: false,
+        isAbandoned: false,
       };
-    });
 
-    const newSession: ExamSession = {
-      id: `exam-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-      config,
-      questions: examQuestions,
-      currentQuestionIndex: 0,
-      startTime: Date.now(),
-      endTime: null,
-      isSubmitted: false,
-      isAbandoned: false,
-    };
+      setSession(newSession);
+      saveSession(newSession);
+      setTimeRemaining(config.timeLimit ? config.timeLimit * 60 : null);
 
-    setSession(newSession);
-    saveSession(newSession);
-    setTimeRemaining(config.timeLimit ? config.timeLimit * 60 : null);
-
-    return newSession;
-  }, []);
+      return newSession;
+    },
+    [saveSession],
+  );
 
   const selectAnswer = useCallback(
     (questionIndex: number, answerIndex: number) => {
@@ -135,7 +148,7 @@ export function useExamSession() {
       setSession(updated);
       saveSession(updated);
     },
-    [session],
+    [saveSession, session],
   );
 
   const toggleMarkQuestion = useCallback(
@@ -152,7 +165,7 @@ export function useExamSession() {
       setSession(updated);
       saveSession(updated);
     },
-    [session],
+    [saveSession, session],
   );
 
   const goToQuestion = useCallback(
@@ -163,7 +176,7 @@ export function useExamSession() {
       setSession(updated);
       saveSession(updated);
     },
-    [session],
+    [saveSession, session],
   );
 
   const nextQuestion = useCallback(() => {
@@ -172,7 +185,7 @@ export function useExamSession() {
     const updated = { ...session, currentQuestionIndex: session.currentQuestionIndex + 1 };
     setSession(updated);
     saveSession(updated);
-  }, [session]);
+  }, [saveSession, session]);
 
   const previousQuestion = useCallback(() => {
     if (!session || session.currentQuestionIndex <= 0) return;
@@ -180,7 +193,7 @@ export function useExamSession() {
     const updated = { ...session, currentQuestionIndex: session.currentQuestionIndex - 1 };
     setSession(updated);
     saveSession(updated);
-  }, [session]);
+  }, [saveSession, session]);
 
   const handleSubmitExam = useCallback(() => {
     if (!session || session.isSubmitted) return;
@@ -193,7 +206,7 @@ export function useExamSession() {
 
     setSession(updated);
     saveSession(updated);
-  }, [session]);
+  }, [saveSession, session]);
 
   const abandonSession = useCallback(() => {
     if (!session) return;
@@ -203,16 +216,6 @@ export function useExamSession() {
       localStorage.removeItem(STORAGE_KEY);
     }
   }, [session]);
-
-  const saveSession = useCallback((sess: ExamSession) => {
-    if (typeof window === "undefined") return;
-
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(sess));
-    } catch (error) {
-      console.error("Failed to save exam session:", error);
-    }
-  }, []);
 
   const getQuestionStats = useCallback(() => {
     if (!session) return null;

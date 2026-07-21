@@ -40,7 +40,7 @@ export function uploadFileWithProgress(
       onProgress?.(100);
       resolve({
         uploadedFileId: response.uploadedFileId,
-        downloadUrl: response.downloadUrl,
+        downloadUrl: apiUrl(response.downloadUrl),
         expiresAt: response.expiresAt,
       });
     };

@@ -7,14 +7,7 @@ import tseslint from "typescript-eslint";
 
 export default tseslint.config(
   {
-    ignores: [
-      "dist/**",
-      "dist-ios/**",
-      ".output/**",
-      ".vinxi/**",
-      ".wrangler/**",
-      "ios/**",
-    ],
+    ignores: ["dist/**", "dist-ios/**", ".output/**", ".vinxi/**", ".wrangler/**", "ios/**"],
   },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],

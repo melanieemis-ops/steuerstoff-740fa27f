@@ -13,6 +13,8 @@ import { useEffect, useState } from "react";
 
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import { FavoriteButton } from "@/components/FavoriteButton";
+import { useFavorites } from "@/hooks/useFavorites";
 import { examCases, type ExamCase, type SolutionHint } from "@/data/examCases";
 
 export const Route = createFileRoute("/lernen_/akademie_/klausuren_/$slug")({
@@ -99,6 +101,20 @@ function KlausurDetailPage() {
   const [showClearConfirm, setShowClearConfirm] = useState(false);
   const [mistakesOpen, setMistakesOpen] = useState(false);
 
+  const { isFavorite, toggleFavorite } = useFavorites();
+  const isExamFavorite = isFavorite(examCase.slug);
+
+  const handleToggleFavorite = () => {
+    toggleFavorite({
+      id: examCase.slug,
+      title: examCase.title,
+      category: examCase.subject,
+      source: `/lernen/akademie/klausuren/${examCase.slug}`,
+      description: examCase.tasks.map((t) => t.label).join(", "),
+      savedAt: Date.now(),
+    });
+  };
+
   useEffect(() => {
     saveProgress(examCase.slug, progress);
   }, [examCase.slug, progress]);
@@ -175,9 +191,17 @@ function KlausurDetailPage() {
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
                   {examCase.subject}
                 </p>
-                <h1 className="mt-1 text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl">
-                  {examCase.title}
-                </h1>
+                <div className="mt-1 flex items-start justify-between gap-4">
+                  <h1 className="text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl">
+                    {examCase.title}
+                  </h1>
+                  <div className="shrink-0">
+                    <FavoriteButton
+                      isFavorite={isExamFavorite}
+                      onClick={handleToggleFavorite}
+                    />
+                  </div>
+                </div>
                 <p className="mt-1 text-sm text-muted-foreground">
                   Maximal {examCase.maximumPoints.toFixed(1)} Punkte · {taskCount}{" "}
                   {taskCount === 1 ? "Teilaufgabe" : "Teilaufgaben"}

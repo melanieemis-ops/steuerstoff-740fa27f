@@ -62,7 +62,7 @@ const ACADEMY_FEATURES = [
     title: "Favoriten",
     description: "Speichere wichtige Fragen und baue dir deine persönliche Merkliste.",
     icon: Star,
-    status: "soon" as const,
+    status: "ready" as const,
   },
   {
     title: "Fortschritt",
@@ -349,10 +349,16 @@ function AcademyCard({
   icon: typeof BookOpen;
   status: "ready" | "soon";
 }) {
+  let targetPath = "/lerngebiete";
+  
+  if (title === "Favoriten") {
+    targetPath = "/lernen/akademie/favoriten";
+  }
+
   if (status === "ready") {
     return (
       <Link
-        to="/lerngebiete"
+        to={targetPath}
         className="group flex min-h-52 flex-col rounded-[1.75rem] border border-border/70 bg-card p-5 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md sm:p-6"
       >
         <div className="flex items-start justify-between gap-3">

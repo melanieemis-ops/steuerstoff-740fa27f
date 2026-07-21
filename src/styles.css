@@ -1045,3 +1045,8 @@ body,
   box-shadow: 0 0 0 2px var(--background);
   pointer-events: none;
 }
+
+/* Hide mobile nav during exam */
+html[data-exam-running="true"] nav[aria-label="Mobile Navigation"] {
+  display: none;
+}

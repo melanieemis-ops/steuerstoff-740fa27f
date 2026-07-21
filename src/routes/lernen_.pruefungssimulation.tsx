@@ -49,6 +49,18 @@ function ExamSimulationPage() {
 
   const allCategories = useMemo(() => getLearningCategories(), []);
 
+  // Hide mobile nav during exam
+  useEffect(() => {
+    if (session && !session.isSubmitted && !session.isAbandoned) {
+      document.documentElement.setAttribute("data-exam-running", "true");
+    } else {
+      document.documentElement.removeAttribute("data-exam-running");
+    }
+    return () => {
+      document.documentElement.removeAttribute("data-exam-running");
+    };
+  }, [session?.isSubmitted, session?.isAbandoned]);
+
   // Filter questions based on selected categories
   const availableQuestions = useMemo(() => {
     const catToUse =

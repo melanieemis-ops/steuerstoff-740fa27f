@@ -234,6 +234,10 @@ export function OnboardingTour() {
     return null;
   }
 
+  return <OnboardingTourContent />;
+}
+
+function OnboardingTourContent() {
   const [open, setOpen] = useState(false);
   const [stepIndex, setStepIndex] = useState(0);
   const [targetRect, setTargetRect] =

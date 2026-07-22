@@ -280,6 +280,7 @@ function Home() {
 
           {/* Mobile: horizontaler Carousel */}
           <div
+            data-no-swipe="true"
             className="quickstart-carousel -mx-4 flex gap-4 overflow-x-auto px-4 pb-4 snap-x snap-mandatory sm:hidden"
             onPointerDown={handlePointerDown}
             onPointerMove={handlePointerMove}

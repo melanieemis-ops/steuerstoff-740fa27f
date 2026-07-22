@@ -8,6 +8,7 @@ import {
   Volume2,
   AlertCircle,
 } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 
 import type { useTextToSpeech } from "@/hooks/useTextToSpeech";
@@ -20,7 +21,7 @@ interface TextToSpeechControlsProps {
 }
 
 export function TextToSpeechControls({ tts, hidden = false }: TextToSpeechControlsProps) {
-  if (hidden || !tts.isSupported || !tts.hasSession) {
+  if (hidden || !tts.isSupported || (!tts.hasSession && tts.status !== "error")) {
     return null;
   }
 
@@ -132,6 +133,14 @@ export function TextToSpeechControls({ tts, hidden = false }: TextToSpeechContro
             <AlertCircle className="h-3.5 w-3.5" aria-hidden="true" />
             {tts.errorMessage}
           </p>
+          {tts.errorNeedsSettings && (
+            <Link
+              to="/einstellungen"
+              className="mt-2 inline-flex min-h-9 items-center rounded-lg border border-slate-300/40 bg-slate-800 px-3 py-1.5 font-medium text-slate-100 hover:bg-slate-700"
+            >
+              Zu den Einstellungen
+            </Link>
+          )}
           {tts.allowBrowserFallback && (
             <button
               type="button"

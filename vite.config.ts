@@ -17,7 +17,7 @@ export default defineConfig({
         devOptions: { enabled: false },
         manifest: false,
         workbox: {
-          cacheId: "steuerstoff-2026-07-22-elevenlabs-user-credentials",
+          cacheId: "steuerstoff-2026-07-22-tts-access-code",
           cleanupOutdatedCaches: true,
           clientsClaim: true,
           skipWaiting: true,

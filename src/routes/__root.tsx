@@ -32,6 +32,7 @@ import {
   watchSystemTheme,
 } from "@/lib/theme";
 import { startScrollLockWatchdog } from "@/lib/scroll-lock-watchdog";
+import { removeLegacyClientElevenLabsCredentials } from "@/lib/ttsAccessCodeStorage";
 import {
   PrivacyAcknowledgementGate,
   hasCurrentPrivacyAcknowledgement,
@@ -317,6 +318,7 @@ function RootComponent() {
 
   useEffect(() => {
     setPrivacyAccepted(hasCurrentPrivacyAcknowledgement());
+    void removeLegacyClientElevenLabsCredentials();
   }, []);
 
 

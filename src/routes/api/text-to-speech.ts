@@ -8,31 +8,30 @@ const MAX_TEXT_LENGTH = 12000;
 const RATE_WINDOW_MS = 10 * 60 * 1000;
 const RATE_LIMIT = 24;
 const FUNCTION_NAME = "api/text-to-speech";
+const DEFAULT_VOICE_ID = "g1jpii0iyvtRs8fqXsd1";
 
 const CORS_HEADERS = {
   "access-control-allow-origin": "*",
   "access-control-allow-methods": "POST,OPTIONS",
-  "access-control-allow-headers": "authorization, x-client-info, apikey, content-type",
+  "access-control-allow-headers": "Content-Type, x-tts-access-code",
+  "access-control-max-age": "86400",
 };
 
 type TtsErrorCode =
   | "CONFIGURATION_ERROR"
-  | "INVALID_API_KEY"
-  | "VOICE_NOT_AVAILABLE"
-  | "VOICE_NOT_FOUND"
-  | "QUOTA_EXCEEDED"
+  | "INVALID_TTS_ACCESS_CODE"
+  | "RATE_LIMITED"
   | "ELEVENLABS_ERROR"
   | "REQUEST_INVALID"
-  | "FORBIDDEN_ORIGIN"
   | "TEXT_TOO_LONG";
 
-const requestSchema = z.object({
-  text: z.string().min(1).max(MAX_TEXT_LENGTH),
-  voiceId: z.string().trim().min(1).max(200),
-  modelId: z.string().trim().min(1).max(100).optional(),
-  profileId: z.string().trim().min(1).max(80).optional(),
-  apiKey: z.string().trim().min(1).max(300),
-});
+const requestSchema = z
+  .object({
+    text: z.string().min(1).max(MAX_TEXT_LENGTH),
+    modelId: z.string().trim().min(1).max(100).optional(),
+    profileId: z.string().trim().min(1).max(80).optional(),
+  })
+  .strict();
 
 function readServerSecret(name: string): string | undefined {
   const workerEnv = (globalThis as { __env__?: Record<string, unknown> }).__env__;
@@ -79,16 +78,13 @@ function rateLimit(ip: string): boolean {
   return true;
 }
 
-function logDevError(status: number, code: TtsErrorCode, detail?: string) {
+function logDevError(status: number, code: TtsErrorCode) {
   if (process.env.NODE_ENV !== "development") return;
-  const summary = detail ? detail.slice(0, 160) : "";
-  console.warn(
-    `[${FUNCTION_NAME}] status=${status} code=${code}${summary ? ` detail=${summary}` : ""}`,
-  );
+  console.warn(`[${FUNCTION_NAME}] status=${status} code=${code}`);
 }
 
-function jsonError(status: number, code: TtsErrorCode, message: string, detail?: string) {
-  logDevError(status, code, detail);
+function jsonError(status: number, code: TtsErrorCode, message: string) {
+  logDevError(status, code);
   return new Response(JSON.stringify({ error: code, message }), {
     status,
     headers: {
@@ -99,29 +95,27 @@ function jsonError(status: number, code: TtsErrorCode, message: string, detail?:
   });
 }
 
-function assertSameOrigin(request: Request): boolean {
-  const origin = request.headers.get("origin");
-  const host = request.headers.get("host");
-
-  if (!origin || !host) return true;
-
-  try {
-    const parsed = new URL(origin);
-    return parsed.host === host;
-  } catch {
-    return false;
-  }
-}
-
 export const Route = createFileRoute("/api/text-to-speech")({
   server: {
     handlers: {
       OPTIONS: async () => {
-        return new Response("ok", { headers: CORS_HEADERS });
+        return new Response(null, { status: 204, headers: CORS_HEADERS });
       },
       POST: async ({ request }) => {
-        if (!assertSameOrigin(request)) {
-          return jsonError(403, "FORBIDDEN_ORIGIN", "Nicht erlaubt.");
+        const apiKey = readServerSecret("ELEVENLABS_API_KEY");
+        const expectedAccessCode = readServerSecret("TTS_ACCESS_CODE");
+
+        if (!apiKey || !expectedAccessCode) {
+          return jsonError(
+            500,
+            "CONFIGURATION_ERROR",
+            "Die Vorlesefunktion ist momentan nicht verfügbar.",
+          );
+        }
+
+        const submittedAccessCode = request.headers.get("x-tts-access-code")?.trim();
+        if (!submittedAccessCode || submittedAccessCode !== expectedAccessCode) {
+          return jsonError(401, "INVALID_TTS_ACCESS_CODE", "Der Freischaltcode ist ungültig.");
         }
 
         const contentType = request.headers.get("content-type") ?? "";
@@ -131,7 +125,11 @@ export const Route = createFileRoute("/api/text-to-speech")({
 
         const ip = getIp(request);
         if (!rateLimit(ip)) {
-          return jsonError(429, "QUOTA_EXCEEDED", "Zu viele Anfragen. Bitte warte einen Moment.");
+          return jsonError(
+            429,
+            "RATE_LIMITED",
+            "Die Vorlesefunktion wird gerade sehr häufig verwendet. Bitte versuche es in Kürze erneut.",
+          );
         }
 
         const rawBody = await request.json().catch(() => null);
@@ -155,84 +153,67 @@ export const Route = createFileRoute("/api/text-to-speech")({
 
         const configuredModelId = readServerSecret("ELEVENLABS_MODEL_ID");
 
-        const apiKey = parsed.data.apiKey.trim();
-        const voiceId = parsed.data.voiceId.trim();
+        const voiceId = DEFAULT_VOICE_ID;
         const modelId = parsed.data.modelId?.trim() || configuredModelId || DEFAULT_TTS_MODEL_ID;
         const profile = getVoiceProfile(parsed.data.profileId);
 
         const upstreamController = new AbortController();
-        request.signal.addEventListener("abort", () => upstreamController.abort());
+        request.signal.addEventListener("abort", () => upstreamController.abort(), { once: true });
 
-        const upstream = await fetch(
-          `https://api.elevenlabs.io/v1/text-to-speech/${encodeURIComponent(voiceId)}`,
-          {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-              accept: "audio/mpeg",
-              "xi-api-key": apiKey,
-            },
-            signal: upstreamController.signal,
-            body: JSON.stringify({
-              text: preparedText,
-              model_id: modelId,
-              voice_settings: {
-                stability: profile.stability,
-                similarity_boost: profile.similarityBoost,
-                style: profile.style,
-                use_speaker_boost: profile.useSpeakerBoost,
+        let upstream: Response;
+        try {
+          upstream = await fetch(
+            `https://api.elevenlabs.io/v1/text-to-speech/${encodeURIComponent(voiceId)}`,
+            {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+                accept: "audio/mpeg",
+                "xi-api-key": apiKey,
               },
-            }),
-          },
-        );
+              signal: upstreamController.signal,
+              body: JSON.stringify({
+                text: preparedText,
+                model_id: modelId,
+                voice_settings: {
+                  stability: profile.stability,
+                  similarity_boost: profile.similarityBoost,
+                  style: profile.style,
+                  use_speaker_boost: profile.useSpeakerBoost,
+                },
+              }),
+            },
+          );
+        } catch {
+          if (request.signal.aborted) {
+            return new Response(null, { status: 499, headers: CORS_HEADERS });
+          }
+          return jsonError(
+            502,
+            "ELEVENLABS_ERROR",
+            "Die Audiodatei konnte gerade nicht erstellt werden. Bitte versuche es erneut.",
+          );
+        }
 
         if (!upstream.ok || !upstream.body) {
-          const errorText = await upstream.text().catch(() => "");
-          if (upstream.status === 401) {
-            return jsonError(
-              401,
-              "INVALID_API_KEY",
-              "Die KI-Stimme ist noch nicht korrekt eingerichtet.",
-              errorText,
-            );
-          }
-          if (upstream.status === 403) {
-            return jsonError(
-              403,
-              "VOICE_NOT_AVAILABLE",
-              "Diese Stimme kann mit dem aktuellen ElevenLabs-Konto nicht verwendet werden.",
-              errorText,
-            );
-          }
-          if (upstream.status === 404) {
-            return jsonError(
-              404,
-              "VOICE_NOT_FOUND",
-              "Die konfigurierte KI-Stimme wurde nicht gefunden.",
-              errorText,
-            );
-          }
           if (upstream.status === 429) {
             return jsonError(
               429,
-              "QUOTA_EXCEEDED",
-              "Das verfügbare Sprachguthaben ist derzeit aufgebraucht.",
-              errorText,
+              "RATE_LIMITED",
+              "Die Vorlesefunktion wird gerade sehr häufig verwendet. Bitte versuche es in Kürze erneut.",
             );
           }
           if (upstream.status === 413) {
             return jsonError(
               413,
               "TEXT_TOO_LONG",
-              "Der Text ist zu lang und wird in Abschnitten vorgelesen.",
-              errorText,
+              "Die Audiodatei konnte gerade nicht erstellt werden. Bitte versuche es erneut.",
             );
           }
           return jsonError(
             502,
             "ELEVENLABS_ERROR",
-            "Die Sprachausgabe konnte gerade nicht geladen werden.",
-            errorText,
+            "Die Audiodatei konnte gerade nicht erstellt werden. Bitte versuche es erneut.",
           );
         }
 
@@ -245,7 +226,6 @@ export const Route = createFileRoute("/api/text-to-speech")({
             "cache-control": "private, max-age=3600",
             "x-tts-provider": "elevenlabs",
             "x-tts-model": modelId,
-            "x-tts-voice-id": voiceId,
             "x-tts-profile-id": profile.id,
           },
         });

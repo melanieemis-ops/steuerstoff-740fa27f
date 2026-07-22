@@ -10,11 +10,19 @@ import {
   Calendar,
   AlertCircle,
   Trash2,
+  type LucideIcon,
 } from 'lucide-react';
 import { useState } from 'react';
 import { SiteFooter } from '@/components/SiteFooter';
 import { SiteHeader } from '@/components/SiteHeader';
-import { useProgress, loadProgress, resetProgress, getLast7DaysActivity } from '@/hooks/useProgress';
+import {
+  useProgress,
+  loadProgress,
+  resetProgress,
+  getLast7DaysActivity,
+  type ActivityRecord,
+  type CategoryProgress,
+} from '@/hooks/useProgress';
 import { useMistakes } from '@/hooks/useMistakes';
 
 export const Route = createFileRoute('/lernen_/akademie_/fortschritt')({
@@ -257,7 +265,7 @@ function StatCard({
   value,
   suffix,
 }: {
-  icon: any;
+  icon: LucideIcon;
   label: string;
   value: number | string;
   suffix: string;
@@ -310,7 +318,7 @@ function ActivityChart({ activityData }: { activityData: Record<string, number> 
   );
 }
 
-function CategoryCard({ category }: { category: any }) {
+function CategoryCard({ category }: { category: CategoryProgress }) {
   const progressPercent = Math.min(100, category.accuracy || 0);
 
   return (
@@ -350,7 +358,7 @@ function CategoryCard({ category }: { category: any }) {
   );
 }
 
-function ActivityItem({ activity }: { activity: any }) {
+function ActivityItem({ activity }: { activity: ActivityRecord }) {
   const getIcon = () => {
     switch (activity.type) {
       case 'question_correct':

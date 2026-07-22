@@ -2,41 +2,19 @@
  * /api/chat-tts
  *
  * Sichere TTS für Chat-Antworten.
- * - POST-Only, Body: { text: string }
+ * - POST-Only, Body: { text: string, apiKey: string, voiceId: string }
  * - Rate-Limit best-effort in-memory pro IP (bei Serverless nur je Instanz).
  * - Normalisierung serverseitig via speech-normalize.
- * - ElevenLabs-Aufruf ausschließlich serverseitig mit Cloudflare-Secret.
- * - Feste Voice-ID, kein API-Key/Voice-ID im Frontend.
+ * - ElevenLabs-Aufruf ausschließlich über den Worker.
+ * - API-Key und Voice-ID kommen aus den lokalen Benutzereinstellungen.
  * - Cache-Control: private, no-store (dynamische Inhalte).
  */
 
 import { createFileRoute } from "@tanstack/react-router";
 import { normalizeForSpeech } from "@/lib/speech-normalize";
 
-const ELEVENLABS_VOICE_ID = "g1jpii0iyvtRs8fqXsd1";
 const ELEVENLABS_MODEL_ID = "eleven_multilingual_v2";
 const MAX_TEXT_LENGTH = 5000;
-
-function readServerSecret(name: string): string | undefined {
-  const workerEnv = (globalThis as { __env__?: Record<string, unknown> }).__env__;
-  const workerValue = workerEnv?.[name];
-  if (typeof workerValue === "string" && workerValue.trim()) {
-    return workerValue.trim();
-  }
-
-  const denoEnv = (
-    globalThis as {
-      Deno?: { env?: { get: (key: string) => string | undefined } };
-    }
-  ).Deno?.env;
-  const denoValue = denoEnv?.get(name);
-  if (typeof denoValue === "string" && denoValue.trim()) {
-    return denoValue.trim();
-  }
-
-  const nodeValue = process.env[name];
-  return typeof nodeValue === "string" && nodeValue.trim() ? nodeValue.trim() : undefined;
-}
 
 // ── Rate-Limit (best-effort; auf Serverless nur pro Instanz gültig) ──────────
 const RATE_WINDOW_MS = 10 * 60 * 1000;
@@ -72,30 +50,31 @@ function getIp(request: Request): string {
 
 async function elevenLabsTts(opts: {
   apiKey: string;
+  voiceId: string;
   text: string;
   signal: AbortSignal;
 }): Promise<Response> {
   return fetch(
-    `https://api.elevenlabs.io/v1/text-to-speech/${ELEVENLABS_VOICE_ID}?output_format=mp3_44100_128`,
+    `https://api.elevenlabs.io/v1/text-to-speech/${encodeURIComponent(opts.voiceId)}?output_format=mp3_44100_128`,
     {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "audio/mpeg",
-      "xi-api-key": opts.apiKey,
-    },
-    signal: opts.signal,
-    body: JSON.stringify({
-      model_id: ELEVENLABS_MODEL_ID,
-      text: opts.text,
-      voice_settings: {
-        stability: 0.45,
-        similarity_boost: 0.8,
-        style: 0.2,
-        use_speaker_boost: true,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "audio/mpeg",
+        "xi-api-key": opts.apiKey,
       },
-    }),
-  },
+      signal: opts.signal,
+      body: JSON.stringify({
+        model_id: ELEVENLABS_MODEL_ID,
+        text: opts.text,
+        voice_settings: {
+          stability: 0.45,
+          similarity_boost: 0.8,
+          style: 0.2,
+          use_speaker_boost: true,
+        },
+      }),
+    },
   );
 }
 
@@ -103,11 +82,6 @@ export const Route = createFileRoute("/api/chat-tts")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const apiKey = readServerSecret("ELEVENLABS_API_KEY");
-        if (!apiKey) {
-          return new Response("Audio derzeit nicht verfügbar.", { status: 503 });
-        }
-
         const origin = request.headers.get("origin");
         const host = request.headers.get("host");
         if (origin && host) {
@@ -135,9 +109,21 @@ export const Route = createFileRoute("/api/chat-tts")({
         if (!parsed || typeof parsed !== "object") {
           return new Response("Ungültiger Body.", { status: 400 });
         }
-        const rawText = (parsed as { text?: unknown }).text;
+        const body = parsed as { text?: unknown; apiKey?: unknown; voiceId?: unknown };
+        const rawText = body.text;
         if (typeof rawText !== "string") {
           return new Response("text fehlt.", { status: 400 });
+        }
+        if (typeof body.apiKey !== "string" || !body.apiKey.trim()) {
+          return new Response("ElevenLabs API-Key fehlt.", { status: 400 });
+        }
+        if (typeof body.voiceId !== "string" || !body.voiceId.trim()) {
+          return new Response("ElevenLabs Voice-ID fehlt.", { status: 400 });
+        }
+        const apiKey = body.apiKey.trim();
+        const voiceId = body.voiceId.trim();
+        if (apiKey.length > 300 || voiceId.length > 200) {
+          return new Response("ElevenLabs-Zugangsdaten sind ungültig.", { status: 400 });
         }
         const trimmed = rawText.trim();
         if (!trimmed) {
@@ -168,6 +154,7 @@ export const Route = createFileRoute("/api/chat-tts")({
         try {
           const upstream = await elevenLabsTts({
             apiKey,
+            voiceId,
             text: cleaned,
             signal: controller.signal,
           });
@@ -176,8 +163,26 @@ export const Route = createFileRoute("/api/chat-tts")({
             const status = upstream.status;
             const t = await upstream.text().catch(() => "");
             console.error("[steuerstoff-chat-tts] elevenlabs upstream", status, t.slice(0, 300));
-            return new Response("Audio konnte nicht erzeugt werden.", {
-              status: 502,
+
+            const clientError =
+              status === 401
+                ? { message: "Dein ElevenLabs API-Key ist ungültig.", status: 401 }
+                : status === 403
+                  ? {
+                      message: "Diese Voice-ID ist für dein ElevenLabs-Konto nicht verfügbar.",
+                      status: 403,
+                    }
+                  : status === 404
+                    ? { message: "Die ElevenLabs Voice-ID wurde nicht gefunden.", status: 404 }
+                    : status === 429
+                      ? {
+                          message: "Dein ElevenLabs-Sprachguthaben ist aufgebraucht.",
+                          status: 429,
+                        }
+                      : { message: "Audio konnte nicht erzeugt werden.", status: 502 };
+
+            return new Response(clientError.message, {
+              status: clientError.status,
               headers: { "cache-control": "private, no-store" },
             });
           }

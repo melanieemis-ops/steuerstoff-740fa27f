@@ -6,6 +6,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { clearSpeechSettings, loadSpeechSettings, saveSpeechSettings } from "@/lib/speech-storage";
 import { applyTheme, getThemeMode, saveThemeMode, type ThemeMode } from "@/lib/theme";
 
 export const Route = createFileRoute("/einstellungen")({
@@ -21,18 +22,6 @@ export const Route = createFileRoute("/einstellungen")({
 
 const SETTINGS_KEY = "steuerstoff.settings.v1";
 const ONBOARDING_KEY = "steuerstoff.onboarding.v1";
-const LEGACY_TTS_CONFIG_KEYS = [
-  "elevenlabsApiKey",
-  "elevenlabsVoiceId",
-  "ELEVENLABS_API_KEY",
-  "ELEVENLABS_VOICE_ID",
-  "ttsApiKey",
-  "ttsVoiceId",
-  "speechApiKey",
-  "speechVoiceId",
-  "steuerstoff.tts.settings",
-  "steuerstoff.tts.config",
-] as const;
 
 interface Settings {
   kanzlei: string;
@@ -78,14 +67,12 @@ function Einstellungen() {
   const [settings, setSettings] = useState<Settings>(DEFAULTS);
   const [theme, setTheme] = useState<ThemeMode>("system");
   const [saved, setSaved] = useState(false);
+  const [elevenLabsApiKey, setElevenLabsApiKey] = useState("");
+  const [elevenLabsVoiceId, setElevenLabsVoiceId] = useState("");
+  const [credentialError, setCredentialError] = useState<string | null>(null);
 
   useEffect(() => {
     try {
-      // Alte Client-Konfigurationen bereinigen: TTS läuft serverseitig.
-      for (const key of LEGACY_TTS_CONFIG_KEYS) {
-        window.localStorage.removeItem(key);
-      }
-
       const raw = window.localStorage.getItem(SETTINGS_KEY);
 
       if (raw) {
@@ -94,6 +81,10 @@ function Einstellungen() {
           ...JSON.parse(raw),
         });
       }
+
+      const speechSettings = loadSpeechSettings();
+      setElevenLabsApiKey(speechSettings.apiKey ?? "");
+      setElevenLabsVoiceId(speechSettings.voiceIdOverride ?? "");
     } catch {
       // Ungültige lokale Daten ignorieren.
     }
@@ -110,10 +101,24 @@ function Einstellungen() {
   function save(event: FormEvent) {
     event.preventDefault();
 
+    const apiKey = elevenLabsApiKey.trim();
+    const voiceId = elevenLabsVoiceId.trim();
+    if (!apiKey || !voiceId) {
+      setCredentialError("Bitte trage deinen ElevenLabs API-Key und deine Voice-ID ein.");
+      return;
+    }
+
     window.localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+
+    saveSpeechSettings({
+      ...loadSpeechSettings(),
+      apiKey,
+      voiceIdOverride: voiceId,
+    });
 
     saveThemeMode(theme);
 
+    setCredentialError(null);
     setSaved(true);
 
     window.setTimeout(() => setSaved(false), 1500);
@@ -134,8 +139,12 @@ function Einstellungen() {
 
     window.localStorage.removeItem("steuerstoff.cases.v1");
     window.localStorage.removeItem(SETTINGS_KEY);
+    clearSpeechSettings();
 
     setSettings(DEFAULTS);
+    setElevenLabsApiKey("");
+    setElevenLabsVoiceId("");
+    setCredentialError(null);
 
     window.dispatchEvent(new Event("steuerstoff:cases"));
   }
@@ -300,19 +309,62 @@ function Einstellungen() {
                 <div>
                   <h2 className="text-base font-semibold text-foreground">Vorlesefunktion</h2>
                   <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                    Chat-Antworten werden automatisch mit der festen steuerstoff KI-Stimme
-                    vorgelesen. Es ist keine Stimmenauswahl und keine manuelle Eingabe mehr
-                    erforderlich.
+                    Trage deinen eigenen ElevenLabs API-Key und die gewünschte Voice-ID ein. Die
+                    Angaben werden nur lokal auf diesem Gerät gespeichert und für die Audioerzeugung
+                    an den steuerstoff-Worker gesendet.
                   </p>
                 </div>
               </div>
 
-              <div className="rounded-lg border border-border bg-background/40 p-4">
-                <p className="text-sm font-medium text-foreground">Aktive Stimme</p>
-                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                  Die KI-Stimme wird serverseitig fest verwendet. Lokale Systemstimmen wie
-                  Melanie werden hier nicht mehr angeboten.
-                </p>
+              <div className="space-y-4 rounded-lg border border-border bg-background/40 p-4">
+                <div>
+                  <label
+                    htmlFor="elevenlabs-api-key"
+                    className="text-sm font-medium text-foreground"
+                  >
+                    ElevenLabs API-Key
+                  </label>
+                  <Input
+                    id="elevenlabs-api-key"
+                    type="password"
+                    value={elevenLabsApiKey}
+                    onChange={(event) => setElevenLabsApiKey(event.target.value)}
+                    placeholder="sk_…"
+                    autoComplete="off"
+                    spellCheck={false}
+                    required
+                    className="mt-1.5"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="elevenlabs-voice-id"
+                    className="text-sm font-medium text-foreground"
+                  >
+                    ElevenLabs Voice-ID
+                  </label>
+                  <Input
+                    id="elevenlabs-voice-id"
+                    value={elevenLabsVoiceId}
+                    onChange={(event) => setElevenLabsVoiceId(event.target.value)}
+                    placeholder="z. B. 21m00Tcm4TlvDq8ikWAM"
+                    autoComplete="off"
+                    spellCheck={false}
+                    required
+                    className="mt-1.5"
+                  />
+                </div>
+
+                {credentialError && (
+                  <p role="alert" className="text-sm text-destructive">
+                    {credentialError}
+                  </p>
+                )}
+
+                <Button type="submit" className="w-full sm:w-auto">
+                  {saved ? "ElevenLabs-Zugang gespeichert" : "ElevenLabs-Zugang speichern"}
+                </Button>
               </div>
             </section>
           </form>

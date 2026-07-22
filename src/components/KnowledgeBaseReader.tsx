@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ELEVENLABS_VOICE_ID, requestElevenLabsAudio } from "@/lib/textToSpeechService";
+import { loadSpeechSettings } from "@/lib/speech-storage";
+import { requestElevenLabsAudio } from "@/lib/textToSpeechService";
 
 interface KnowledgeBaseReaderProps {
   title?: string;
@@ -217,6 +218,16 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
       return;
     }
 
+    const speechSettings = loadSpeechSettings();
+    const apiKey = speechSettings.apiKey?.trim();
+    const voiceId = speechSettings.voiceIdOverride?.trim();
+    if (!apiKey || !voiceId) {
+      setError(
+        "Bitte trage deinen ElevenLabs API-Key und deine Voice-ID in den Einstellungen ein.",
+      );
+      return;
+    }
+
     const chunks = splitTextIntoChunks(preparedContent);
     const sessionId = readingSessionRef.current;
 
@@ -240,7 +251,8 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
           audioBlob = await requestElevenLabsAudio(
             {
               text: chunks[index],
-              voiceId: ELEVENLABS_VOICE_ID,
+              apiKey,
+              voiceId,
             },
             abortController.signal,
           );

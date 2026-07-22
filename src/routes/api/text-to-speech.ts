@@ -34,7 +34,21 @@ const requestSchema = z
   })
   .strict();
 
-function readServerSecret(name: string): string | undefined {
+type CloudflareRuntimeRequest = Request & {
+  runtime?: {
+    cloudflare?: {
+      env?: Record<string, unknown>;
+    };
+  };
+};
+
+function readServerSecret(name: string, request?: Request): string | undefined {
+  const requestEnv = (request as CloudflareRuntimeRequest | undefined)?.runtime?.cloudflare?.env;
+  const requestValue = requestEnv?.[name];
+  if (typeof requestValue === "string" && requestValue.trim()) {
+    return requestValue.trim();
+  }
+
   const directWorkerValue = (cloudflareEnv as unknown as Record<string, unknown>)[name];
   if (typeof directWorkerValue === "string" && directWorkerValue.trim()) {
     return directWorkerValue.trim();
@@ -108,8 +122,8 @@ export const Route = createFileRoute("/api/text-to-speech")({
         return new Response(null, { status: 204, headers: CORS_HEADERS });
       },
       POST: async ({ request }) => {
-        const apiKey = readServerSecret("ELEVENLABS_API_KEY");
-        const expectedAccessCode = readServerSecret("TTS_ACCESS_CODE");
+        const apiKey = readServerSecret("ELEVENLABS_API_KEY", request);
+        const expectedAccessCode = readServerSecret("TTS_ACCESS_CODE", request);
 
         if (!apiKey || !expectedAccessCode) {
           return jsonError(
@@ -157,7 +171,7 @@ export const Route = createFileRoute("/api/text-to-speech")({
           );
         }
 
-        const configuredModelId = readServerSecret("ELEVENLABS_MODEL_ID");
+        const configuredModelId = readServerSecret("ELEVENLABS_MODEL_ID", request);
 
         const voiceId = DEFAULT_VOICE_ID;
         const modelId = parsed.data.modelId?.trim() || configuredModelId || DEFAULT_TTS_MODEL_ID;

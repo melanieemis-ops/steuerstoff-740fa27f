@@ -4,7 +4,6 @@ import { prepareTextForSpeech } from "@/lib/prepareTextForSpeech";
 import { loadSpeechSettings, saveSpeechSettings } from "@/lib/speech-storage";
 import {
   clearSpeechAudioCache,
-  ELEVENLABS_VOICE_ID,
   getAudioCacheKey,
   getCachedAudioUrl,
   requestElevenLabsAudio,
@@ -40,7 +39,7 @@ function estimateSeconds(text: string): number {
 function formatErrorMessage(error: unknown): string {
   if (error instanceof TtsApiError) {
     if (error.code === "INVALID_API_KEY") {
-      return "Die KI-Stimme ist serverseitig derzeit nicht verfügbar.";
+      return "Dein ElevenLabs API-Key ist ungültig.";
     }
     if (error.code === "VOICE_NOT_AVAILABLE") {
       return "Diese Stimme kann mit dem aktuellen ElevenLabs-Konto nicht verwendet werden.";
@@ -52,7 +51,7 @@ function formatErrorMessage(error: unknown): string {
       return "Das verfuegbare Sprachguthaben ist derzeit aufgebraucht.";
     }
     if (error.code === "CONFIGURATION_ERROR") {
-      return "Die KI-Stimme ist serverseitig noch nicht konfiguriert.";
+      return "Bitte trage deinen ElevenLabs API-Key und deine Voice-ID in den Einstellungen ein.";
     }
     if (error.code === "TEXT_TOO_LONG") {
       return "Der Text ist zu lang und wird in Abschnitten vorgelesen.";
@@ -104,6 +103,7 @@ export function useTextToSpeech() {
       rate?: number;
       profileId?: string;
       voiceIdOverride?: string;
+      apiKey?: string;
       allowBrowserFallback?: boolean;
     }) => {
       const merged = {
@@ -111,12 +111,13 @@ export function useTextToSpeech() {
         rate,
         profileId: voiceProfileId,
         voiceIdOverride,
+        apiKey,
         allowBrowserFallback: false,
         ...next,
       };
       saveSpeechSettings(merged);
     },
-    [rate, voiceIdOverride, voiceProfileId],
+    [apiKey, rate, voiceIdOverride, voiceProfileId],
   );
 
   const stopInternal = useCallback(() => {
@@ -188,6 +189,8 @@ export function useTextToSpeech() {
 
       const payload: TtsRequestPayload = {
         text: item.text,
+        apiKey,
+        voiceId: voiceIdOverride,
         profileId: voiceProfileId,
         modelId: DEFAULT_TTS_MODEL_ID,
       };
@@ -275,7 +278,15 @@ export function useTextToSpeech() {
         setErrorMessage("Bitte starte die Vorlesefunktion durch einen Klick erneut.");
       }
     },
-    [computeTotalDuration, getElapsedBefore, rate, totalDuration, voiceProfileId],
+    [
+      apiKey,
+      computeTotalDuration,
+      getElapsedBefore,
+      rate,
+      totalDuration,
+      voiceIdOverride,
+      voiceProfileId,
+    ],
   );
 
   const buildQueue = useCallback((sections: TtsSection[]): QueueItem[] => {
@@ -301,6 +312,14 @@ export function useTextToSpeech() {
       if (!isSupported) return;
 
       stopInternal();
+      if (!apiKey?.trim() || !voiceIdOverride?.trim()) {
+        setStatus("error");
+        setErrorMessage(
+          "Bitte trage deinen ElevenLabs API-Key und deine Voice-ID in den Einstellungen ein.",
+        );
+        return;
+      }
+
       const queue = buildQueue(sections);
       if (!queue.length) {
         setStatus("error");
@@ -317,7 +336,7 @@ export function useTextToSpeech() {
       requestTokenRef.current += 1;
       void startFromIndex(0, 0, true);
     },
-    [buildQueue, isSupported, startFromIndex, stopInternal],
+    [apiKey, buildQueue, isSupported, startFromIndex, stopInternal, voiceIdOverride],
   );
 
   const pause = useCallback(() => {
@@ -424,6 +443,15 @@ export function useTextToSpeech() {
     [persistSettings],
   );
 
+  const setApiKey = useCallback(
+    (nextApiKey?: string) => {
+      const cleaned = nextApiKey?.trim() ? nextApiKey.trim() : undefined;
+      setApiKeyState(cleaned);
+      persistSettings({ apiKey: cleaned });
+    },
+    [persistSettings],
+  );
+
   const setAllowBrowserFallback = useCallback(
     (_enabled: boolean) => {
       setAllowBrowserFallbackState(false);
@@ -471,6 +499,7 @@ export function useTextToSpeech() {
     voiceProfileId,
     voiceProfiles,
     voiceIdOverride,
+    apiKey,
     allowBrowserFallback,
     errorMessage,
     currentTime,
@@ -491,6 +520,7 @@ export function useTextToSpeech() {
     setRate,
     setVoiceProfileId,
     setVoiceIdOverride,
+    setApiKey,
     setAllowBrowserFallback,
     startBrowserFallback,
   };

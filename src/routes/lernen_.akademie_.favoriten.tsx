@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, Star } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ComponentProps } from "react";
 
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -132,7 +132,7 @@ function FavoriteCard({
 
   return (
     <Link
-      to={favorite.source as any}
+      to={favorite.source as ComponentProps<typeof Link>["to"]}
       className={[
         "group block rounded-2xl border border-border bg-card/80 p-5 transition-all hover:bg-card hover:shadow-sm hover:border-border/80 sm:p-6",
         isRemoving && "opacity-0 pointer-events-none",

@@ -12,9 +12,9 @@ export const DEFAULT_TTS_MODEL_ID = "eleven_multilingual_v2";
 
 export const TTS_VOICE_PROFILES: TtsVoiceProfile[] = [
   {
-    id: "melanie-lernstimme",
-    label: "Melanie - ruhige Lernstimme",
-    description: "Ruhig, professionell und gut geeignet fuer laengere Klausurfaelle.",
+    id: "steuerstoff-ki-stimme",
+    label: "steuerstoff KI-Stimme",
+    description: "Ruhig, professionell und gut geeignet fuer laengere Fachtexte.",
     stability: 0.6,
     similarityBoost: 0.75,
     style: 0.1,

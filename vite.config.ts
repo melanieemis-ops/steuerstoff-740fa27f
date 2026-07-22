@@ -17,7 +17,7 @@ export default defineConfig({
         devOptions: { enabled: false },
         manifest: false,
         workbox: {
-          cacheId: "steuerstoff-2026-07-18-magazin-02-clean-svg",
+          cacheId: "steuerstoff-2026-07-22-elevenlabs-server-fixed",
           cleanupOutdatedCaches: true,
           clientsClaim: true,
           skipWaiting: true,

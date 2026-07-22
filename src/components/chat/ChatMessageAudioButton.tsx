@@ -4,8 +4,7 @@
  * Vorlese-Button für eine abgeschlossene Assistant-Antwort.
  * - Erzeugt beim ersten Klick über /api/chat-tts ein MP3.
  * - Cacht das Ergebnis pro Antworttext (Session).
- * - Nur eine Chat-Antwort spielt gleichzeitig; stoppt Magazin/Browserstimme.
- * - Bei Fehler: Fallback-Möglichkeit auf window.speechSynthesis.
+ * - Nur eine Chat-Antwort spielt gleichzeitig.
  */
 
 import { AlertCircle, Loader2, Pause, Play, Square, Volume2 } from "lucide-react";
@@ -18,7 +17,6 @@ import {
   setCachedAudioUrl,
 } from "@/lib/chatTtsClient";
 import { apiUrl } from "@/lib/api";
-import { useSpeechContext } from "@/hooks/useSpeechSynthesis";
 
 type Props = {
   messageId: string;
@@ -41,8 +39,6 @@ export function ChatMessageAudioButton({ messageId, text, isStreaming = false }:
   const [isPlaying, setIsPlaying] = useState(false);
   const [speed, setSpeed] = useState<Speed>(1);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
-
-  const speech = useSpeechContext();
 
   const stopThisAudio = useCallback(() => {
     const el = audioRef.current;
@@ -163,13 +159,6 @@ export function ChatMessageAudioButton({ messageId, text, isStreaming = false }:
     if (el) el.playbackRate = next;
   }, []);
 
-  const handleFallback = useCallback(() => {
-    setStatus("idle");
-    setErrorMsg(null);
-    requestStopAllAudio(instanceId);
-    speech.speak(messageId, trimmed);
-  }, [instanceId, messageId, speech, trimmed]);
-
   const disabled = isStreaming || !trimmed;
   const isLoading = status === "loading";
 
@@ -261,18 +250,6 @@ export function ChatMessageAudioButton({ messageId, text, isStreaming = false }:
           <span className="max-w-[220px] truncate" title={errorMsg ?? undefined}>
             {errorMsg ?? "Audio-Fehler."}
           </span>
-          {speech.isSupported && (
-            <button
-              type="button"
-              onClick={handleFallback}
-              className={`${idle} border border-border`}
-              style={{ minHeight: 32 }}
-              aria-label="Mit Browserstimme vorlesen"
-            >
-              <Volume2 className="h-3 w-3" aria-hidden="true" />
-              <span>Browserstimme</span>
-            </button>
-          )}
         </div>
       )}
     </div>

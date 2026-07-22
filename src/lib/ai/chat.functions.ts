@@ -197,7 +197,7 @@ export const askChat = createServerFn({ method: "POST" })
     const apiKey = process.env.OPENAI_API_KEY;
     const vectorStoreId = process.env.OPENAI_VECTOR_STORE_ID;
     const model = process.env.OPENAI_MODEL || "gpt-4.1-mini";
-    if (!apiKey) throw new Error("OPENAI_API_KEY ist auf dem Server nicht gesetzt.");
+    if (!apiKey) throw new Error("KI-Funktion ist serverseitig nicht konfiguriert.");
     if (!vectorStoreId) {
       throw new Error(
         "OPENAI_VECTOR_STORE_ID ist auf dem Server nicht gesetzt. Bitte das Wissenssync-Skript ausführen.",
@@ -267,7 +267,7 @@ export const askChat = createServerFn({ method: "POST" })
         throw new Error("Das KI-Modell ist gerade stark ausgelastet. Bitte in wenigen Sekunden erneut versuchen.");
       }
       if (msg.includes("401") || msg.toLowerCase().includes("api key")) {
-        throw new Error("Der KI-Schlüssel ist ungültig oder abgelaufen.");
+        throw new Error("Der KI-Service ist derzeit nicht verfügbar.");
       }
       if (msg.includes("402") || msg.toLowerCase().includes("quota") || msg.toLowerCase().includes("insufficient")) {
         throw new Error("Das KI-Kontingent ist aufgebraucht. Bitte Abrechnungseinstellungen prüfen.");

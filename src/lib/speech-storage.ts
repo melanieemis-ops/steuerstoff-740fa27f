@@ -11,6 +11,17 @@ const FALLBACK_KEY = "steuerstoff_tts_browser_fallback_v1";
 const VOICE_OVERRIDE_KEY = "steuerstoff_tts_voice_override_v1";
 const API_KEY_KEY = "steuerstoff_tts_api_key_v1";
 
+const LEGACY_KEYS = [
+  "elevenlabsApiKey",
+  "elevenlabsVoiceId",
+  "ELEVENLABS_API_KEY",
+  "ELEVENLABS_VOICE_ID",
+  "ttsApiKey",
+  "ttsVoiceId",
+  "speechApiKey",
+  "speechVoiceId",
+] as const;
+
 export type SpeechSettings = {
   rate: number;
   voiceURI?: string;
@@ -22,28 +33,27 @@ export type SpeechSettings = {
 
 const DEFAULTS: SpeechSettings = {
   rate: 1.0,
-  profileId: "melanie-lernstimme",
+  profileId: "steuerstoff-ki-stimme",
   allowBrowserFallback: false,
 };
 
 export function loadSpeechSettings(): SpeechSettings {
   if (typeof window === "undefined") return { ...DEFAULTS };
   try {
+    // Alte TTS-Konfigurationen entfernen: Key/Voice werden serverseitig festgelegt.
+    for (const key of LEGACY_KEYS) {
+      window.localStorage.removeItem(key);
+    }
+
+    window.localStorage.removeItem(API_KEY_KEY);
+    window.localStorage.removeItem(VOICE_OVERRIDE_KEY);
+
     const rawRate = window.localStorage.getItem(RATE_KEY);
     const rawVoice = window.localStorage.getItem(VOICE_KEY);
     const rawProfile = window.localStorage.getItem(PROFILE_KEY);
     const rawFallback = window.localStorage.getItem(FALLBACK_KEY);
-    const rawVoiceOverride = window.localStorage.getItem(VOICE_OVERRIDE_KEY);
-    const rawApiKey = window.localStorage.getItem(API_KEY_KEY);
 
-    if (
-      rawRate !== null ||
-      rawVoice !== null ||
-      rawProfile !== null ||
-      rawFallback !== null ||
-      rawVoiceOverride !== null ||
-      rawApiKey !== null
-    ) {
+    if (rawRate !== null || rawVoice !== null || rawProfile !== null || rawFallback !== null) {
       const parsedRate = rawRate === null ? undefined : Number(rawRate);
       return {
         rate:
@@ -55,17 +65,15 @@ export function loadSpeechSettings(): SpeechSettings {
             : DEFAULTS.rate,
         voiceURI: rawVoice && rawVoice.trim().length > 0 ? rawVoice : undefined,
         profileId: rawProfile && rawProfile.trim().length > 0 ? rawProfile : DEFAULTS.profileId,
-        voiceIdOverride:
-          rawVoiceOverride && rawVoiceOverride.trim().length > 0 ? rawVoiceOverride : undefined,
-        apiKey: rawApiKey && rawApiKey.trim().length > 0 ? rawApiKey : undefined,
         allowBrowserFallback: rawFallback === "1",
       };
     }
 
     const raw = window.localStorage.getItem(STORAGE_KEY);
     if (!raw) return { ...DEFAULTS };
-    const parsed = JSON.parse(raw) as Partial<SpeechSettings>;
-    return {
+
+    const parsed = JSON.parse(raw) as Partial<SpeechSettings> & Record<string, unknown>;
+    const sanitized: SpeechSettings = {
       rate:
         typeof parsed.rate === "number" && parsed.rate >= 0.1 && parsed.rate <= 10
           ? parsed.rate
@@ -79,15 +87,27 @@ export function loadSpeechSettings(): SpeechSettings {
         typeof parsed.voiceIdOverride === "string" && parsed.voiceIdOverride.trim().length > 0
           ? parsed.voiceIdOverride
           : undefined,
-      apiKey:
-        typeof parsed.apiKey === "string" && parsed.apiKey.trim().length > 0
-          ? parsed.apiKey
-          : undefined,
       allowBrowserFallback:
         typeof parsed.allowBrowserFallback === "boolean"
           ? parsed.allowBrowserFallback
           : DEFAULTS.allowBrowserFallback,
     };
+
+    // Falls frühere Versionen API-/Voice-IDs unter demselben Key gespeichert haben,
+    // wird der Eintrag auf das neue, reduzierte Format zurückgeschrieben.
+    const hasLegacyFields =
+      "apiKey" in parsed ||
+      "voiceId" in parsed ||
+      "elevenlabsApiKey" in parsed ||
+      "elevenlabsVoiceId" in parsed;
+    if (hasLegacyFields) {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(sanitized));
+    }
+
+    sanitized.apiKey = undefined;
+    sanitized.voiceIdOverride = undefined;
+
+    return sanitized;
   } catch {
     return { ...DEFAULTS };
   }
@@ -110,11 +130,7 @@ export function saveSpeechSettings(settings: SpeechSettings): void {
     } else {
       window.localStorage.removeItem(VOICE_OVERRIDE_KEY);
     }
-    if (settings.apiKey) {
-      window.localStorage.setItem(API_KEY_KEY, settings.apiKey);
-    } else {
-      window.localStorage.removeItem(API_KEY_KEY);
-    }
+    window.localStorage.removeItem(API_KEY_KEY);
   } catch {
     // Quota / privacy mode ignorieren.
   }

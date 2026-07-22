@@ -182,7 +182,9 @@ export const Route = createFileRoute("/api/chat")({
       POST: async ({ request }) => {
         const apiKey = process.env.OPENAI_API_KEY;
         if (!apiKey) {
-          return new Response("OPENAI_API_KEY fehlt.", { status: 500 });
+          return new Response("KI-Funktion ist derzeit serverseitig nicht konfiguriert.", {
+            status: 503,
+          });
         }
 
         const body = (await request.json().catch(() => null)) as {
@@ -296,7 +298,7 @@ export const Route = createFileRoute("/api/chat")({
               status === 429
                 ? "Modell ausgelastet oder Kontingent erschöpft. Bitte kurz warten."
                 : status === 401
-                  ? "KI-Schlüssel ungültig."
+                  ? "KI-Service ist derzeit nicht verfügbar."
                   : status === 402
                     ? "KI-Kontingent aufgebraucht."
                     : attachments.length > 0

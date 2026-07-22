@@ -1,14 +1,11 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { Moon, Monitor, RotateCcw, Sun, Volume2, Play, Square } from "lucide-react";
+import { Moon, Monitor, RotateCcw, Sun, Volume2 } from "lucide-react";
 import { useEffect, useState, type FormEvent } from "react";
 
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { loadSpeechSettings, saveSpeechSettings, type SpeechSettings } from "@/lib/speech-storage";
-import { requestElevenLabsAudio, TtsApiError } from "@/lib/textToSpeechService";
-import { DEFAULT_TTS_MODEL_ID, TTS_VOICE_PROFILES } from "@/lib/ttsVoiceProfiles";
 import { applyTheme, getThemeMode, saveThemeMode, type ThemeMode } from "@/lib/theme";
 
 export const Route = createFileRoute("/einstellungen")({
@@ -24,6 +21,18 @@ export const Route = createFileRoute("/einstellungen")({
 
 const SETTINGS_KEY = "steuerstoff.settings.v1";
 const ONBOARDING_KEY = "steuerstoff.onboarding.v1";
+const LEGACY_TTS_CONFIG_KEYS = [
+  "elevenlabsApiKey",
+  "elevenlabsVoiceId",
+  "ELEVENLABS_API_KEY",
+  "ELEVENLABS_VOICE_ID",
+  "ttsApiKey",
+  "ttsVoiceId",
+  "speechApiKey",
+  "speechVoiceId",
+  "steuerstoff.tts.settings",
+  "steuerstoff.tts.config",
+] as const;
 
 interface Settings {
   kanzlei: string;
@@ -69,15 +78,14 @@ function Einstellungen() {
   const [settings, setSettings] = useState<Settings>(DEFAULTS);
   const [theme, setTheme] = useState<ThemeMode>("system");
   const [saved, setSaved] = useState(false);
-  const [speechSettings, setSpeechSettings] = useState<SpeechSettings>(() => loadSpeechSettings());
-  const [voiceTestUrl, setVoiceTestUrl] = useState<string | null>(null);
-  const [speechError, setSpeechError] = useState<string | null>(null);
-  const [isTesting, setIsTesting] = useState(false);
-  const isSpeechSupported =
-    typeof window !== "undefined" && "Audio" in window && typeof window.fetch === "function";
 
   useEffect(() => {
     try {
+      // Alte Client-Konfigurationen bereinigen: TTS läuft serverseitig.
+      for (const key of LEGACY_TTS_CONFIG_KEYS) {
+        window.localStorage.removeItem(key);
+      }
+
       const raw = window.localStorage.getItem(SETTINGS_KEY);
 
       if (raw) {
@@ -99,98 +107,12 @@ function Einstellungen() {
     setTheme(nextTheme);
     saveThemeMode(nextTheme);
   }
-
-  function updateSpeechSetting(partial: Partial<SpeechSettings>) {
-    setSpeechSettings((prev) => {
-      const next = { ...prev, ...partial };
-      saveSpeechSettings(next);
-      return next;
-    });
-  }
-
-  async function testVoice() {
-    if (!isSpeechSupported) return;
-
-    setSpeechError(null);
-    setIsTesting(true);
-
-    try {
-      if (voiceTestUrl) {
-        URL.revokeObjectURL(voiceTestUrl);
-        setVoiceTestUrl(null);
-      }
-
-      const blob = await requestElevenLabsAudio(
-        {
-          text: "Willkommen bei Steuerstoff. Gemeinsam bereiten wir uns konzentriert auf deine naechste Klausur vor.",
-          profileId: speechSettings.profileId,
-          voiceId: speechSettings.voiceIdOverride,
-          modelId: DEFAULT_TTS_MODEL_ID,
-          apiKey: speechSettings.apiKey,
-        },
-        new AbortController().signal,
-      );
-
-      const url = URL.createObjectURL(blob);
-      setVoiceTestUrl(url);
-
-      const audio = new Audio(url);
-      audio.playbackRate = speechSettings.rate;
-      audio.onended = () => {
-        setIsTesting(false);
-      };
-      audio.onerror = () => {
-        setSpeechError("Die Sprachausgabe konnte gerade nicht geladen werden.");
-        setIsTesting(false);
-      };
-      await audio.play();
-    } catch (error) {
-      if (error instanceof TtsApiError) {
-        if (error.code === "INVALID_API_KEY") {
-          setSpeechError("Die KI-Stimme ist noch nicht korrekt eingerichtet.");
-        } else if (error.code === "VOICE_NOT_AVAILABLE") {
-          setSpeechError(
-            "Diese Stimme kann mit dem aktuellen ElevenLabs-Konto nicht verwendet werden.",
-          );
-        } else if (error.code === "VOICE_NOT_FOUND") {
-          setSpeechError("Die konfigurierte KI-Stimme wurde nicht gefunden.");
-        } else if (error.code === "QUOTA_EXCEEDED") {
-          setSpeechError("Das verfuegbare Sprachguthaben ist derzeit aufgebraucht.");
-        } else if (error.code === "CONFIGURATION_ERROR") {
-          setSpeechError("ElevenLabs ist nicht konfiguriert. Bitte pruefe deinen API-Schlussel und deine Voice-ID oben.");
-        } else {
-          setSpeechError(error.message || "Die Sprachausgabe konnte gerade nicht geladen werden.");
-        }
-      } else {
-        setSpeechError("Bitte pruefe deine Internetverbindung und versuche es erneut.");
-      }
-      setIsTesting(false);
-    }
-  }
-
-  function stopTestVoice() {
-    if (voiceTestUrl) {
-      URL.revokeObjectURL(voiceTestUrl);
-      setVoiceTestUrl(null);
-    }
-    setIsTesting(false);
-  }
-
-  useEffect(() => {
-    return () => {
-      if (voiceTestUrl) {
-        URL.revokeObjectURL(voiceTestUrl);
-      }
-    };
-  }, [voiceTestUrl]);
-
   function save(event: FormEvent) {
     event.preventDefault();
 
     window.localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
 
     saveThemeMode(theme);
-    saveSpeechSettings(speechSettings);
 
     setSaved(true);
 
@@ -378,185 +300,20 @@ function Einstellungen() {
                 <div>
                   <h2 className="text-base font-semibold text-foreground">Vorlesefunktion</h2>
                   <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                    steuerstoff nutzt eine professionelle KI-Stimme fuer lange Klausurtexte. Die
-                    Sprachgenerierung erfolgt serverseitig und sicher.
+                    Chat-Antworten werden automatisch mit der festen steuerstoff KI-Stimme
+                    vorgelesen. Es ist keine Stimmenauswahl und keine manuelle Eingabe mehr
+                    erforderlich.
                   </p>
                 </div>
               </div>
 
-              {!isSpeechSupported ? (
-                <p className="rounded-lg border border-border bg-muted/40 px-3 py-2 text-sm text-muted-foreground">
-                  Die Vorlesefunktion wird von diesem Browser leider nicht unterstützt.
+              <div className="rounded-lg border border-border bg-background/40 p-4">
+                <p className="text-sm font-medium text-foreground">Aktive Stimme</p>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Die KI-Stimme wird serverseitig fest verwendet. Lokale Systemstimmen wie
+                  Melanie werden hier nicht mehr angeboten.
                 </p>
-              ) : (
-                <>
-                  {/* Lesegeschwindigkeit */}
-                  <div>
-                    <p className="text-sm font-medium text-foreground">Abspielgeschwindigkeit</p>
-                    <div className="mt-2 flex flex-wrap gap-2">
-                      {(
-                        [
-                          {
-                            rate: 0.75,
-                            label: "0,75×",
-                          },
-                          {
-                            rate: 1.0,
-                            label: "1,0×",
-                          },
-                          {
-                            rate: 1.15,
-                            label: "1,15×",
-                          },
-                          {
-                            rate: 1.25,
-                            label: "1,25×",
-                          },
-                          {
-                            rate: 1.5,
-                            label: "1,5×",
-                          },
-                        ] as const
-                      ).map(({ rate, label }) => (
-                        <button
-                          key={rate}
-                          type="button"
-                          onClick={() =>
-                            updateSpeechSetting({
-                              rate,
-                            })
-                          }
-                          className={[
-                            "rounded-full border px-3 py-1 text-xs transition-colors",
-                            speechSettings.rate === rate
-                              ? "border-foreground bg-foreground text-background"
-                              : "border-border bg-card text-muted-foreground hover:text-foreground",
-                          ].join(" ")}
-                          aria-pressed={speechSettings.rate === rate}
-                        >
-                          {label}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <p className="text-sm font-medium text-foreground">Professionelle KI-Stimme</p>
-                    <div className="mt-2 space-y-2">
-                      {TTS_VOICE_PROFILES.map((profile) => (
-                        <button
-                          key={profile.id}
-                          type="button"
-                          onClick={() =>
-                            updateSpeechSetting({
-                              profileId: profile.id,
-                            })
-                          }
-                          className={[
-                            "w-full rounded-lg border px-3 py-2 text-left text-xs transition-colors",
-                            speechSettings.profileId === profile.id
-                              ? "border-foreground bg-foreground text-background"
-                              : "border-border bg-card text-muted-foreground hover:text-foreground",
-                          ].join(" ")}
-                        >
-                          <span className="block font-semibold">{profile.label}</span>
-                          <span className="block opacity-70">{profile.description}</span>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <label
-                      className="text-sm font-medium text-foreground"
-                      htmlFor="api-key-override"
-                    >
-                      ElevenLabs API-Schlüssel
-                    </label>
-                    <Input
-                      id="api-key-override"
-                      type="password"
-                      value={speechSettings.apiKey ?? ""}
-                      onChange={(event) =>
-                        updateSpeechSetting({
-                          apiKey: event.target.value.trim() || undefined,
-                        })
-                      }
-                      placeholder="sk_..."
-                      autoComplete="off"
-                    />
-                    <p className="text-xs text-muted-foreground">
-                      Deinen API-Schlüssel findest du unter{" "}
-                      <a
-                        href="https://elevenlabs.io/app/settings/api-keys"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="underline"
-                      >
-                        elevenlabs.io/app/settings/api-keys
-                      </a>
-                      .
-                    </p>
-                  </div>
-
-                  <div className="space-y-2">
-                    <label
-                      className="text-sm font-medium text-foreground"
-                      htmlFor="voice-id-override"
-                    >
-                      Voice-ID
-                    </label>
-                    <Input
-                      id="voice-id-override"
-                      value={speechSettings.voiceIdOverride ?? ""}
-                      onChange={(event) =>
-                        updateSpeechSetting({
-                          voiceIdOverride: event.target.value.trim() || undefined,
-                        })
-                      }
-                      placeholder="z. B. EXAVITQu4vr4xnSDxMaL"
-                    />
-                    <p className="text-xs text-muted-foreground">
-                      Die Voice-ID deiner gewünschten ElevenLabs-Stimme.
-                    </p>
-                  </div>
-
-                  <label className="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-3 py-2 text-xs text-foreground">
-                    <input
-                      type="checkbox"
-                      checked={Boolean(speechSettings.allowBrowserFallback)}
-                      onChange={(event) =>
-                        updateSpeechSetting({
-                          allowBrowserFallback: event.target.checked,
-                        })
-                      }
-                    />
-                    Standardstimme als Ersatz verwenden (nur manuell bei Fehler)
-                  </label>
-
-                  <div className="flex flex-wrap items-center gap-2">
-                    <button
-                      type="button"
-                      onClick={isTesting ? stopTestVoice : testVoice}
-                      className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-3 py-2 text-xs font-medium text-foreground transition-colors hover:bg-accent"
-                      aria-label={isTesting ? "Wiedergabe stoppen" : "Stimme testen"}
-                    >
-                      {isTesting ? (
-                        <>
-                          <Square className="h-3.5 w-3.5" aria-hidden="true" />
-                          Wiedergabe stoppen
-                        </>
-                      ) : (
-                        <>
-                          <Play className="h-3.5 w-3.5" aria-hidden="true" />
-                          KI-Stimme testen
-                        </>
-                      )}
-                    </button>
-                    {speechError ? <p className="text-xs text-red-600">{speechError}</p> : null}
-                  </div>
-                </>
-              )}
+              </div>
             </section>
           </form>
         </div>

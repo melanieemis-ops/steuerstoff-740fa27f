@@ -11,13 +11,13 @@ import {
 import { SiteHeader } from "@/components/SiteHeader";
 import { AttachmentPreviewList } from "@/components/chat/AttachmentPreviewList";
 import { ChatAttachmentButton } from "@/components/chat/ChatAttachmentButton";
+import { ChatMessageAudioButton } from "@/components/chat/ChatMessageAudioButton";
 import { ChatMessageAttachments } from "@/components/chat/ChatMessageAttachments";
 import { FileDropZone } from "@/components/chat/FileDropZone";
-import { MessageSpeechControls } from "@/components/chat/MessageSpeechControls";
 import { SpeechMiniPlayer } from "@/components/chat/SpeechMiniPlayer";
 import { UploadSafetyNotice } from "@/components/chat/UploadSafetyNotice";
 import { useChatAttachments } from "@/hooks/useChatAttachments";
-import { SpeechProvider, useSpeechContext } from "@/hooks/useSpeechSynthesis";
+import { SpeechProvider } from "@/hooks/useSpeechSynthesis";
 import { useVoiceInput } from "@/hooks/useVoiceInput";
 import {
   ALL_ATTACHMENT_ACCEPT,
@@ -1239,10 +1239,6 @@ function AssistantCard({
   const showReasoning =
     !!a.reasoning && !sections.some((s) => /subsumtion|begründung/i.test(s.title));
 
-  // Sprachausgabe: aktiver Zustand
-  const { isSupported, activeId, state } = useSpeechContext();
-  const isActive = isSupported && activeId === msg.id;
-  const isPlaying = isActive && state === "playing";
   const reducedMotion =
     typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -1414,19 +1410,7 @@ function AssistantCard({
           {copied ? "Kopiert" : "Kopieren"}
         </button>
 
-        {/* Animiertes Audio-Symbol während des Vorlesens */}
-        {isActive && (
-          <span
-            aria-hidden="true"
-            className={[
-              "inline-flex h-4 w-4 items-center justify-center rounded-full ml-1",
-              isPlaying && !reducedMotion ? "animate-pulse" : "",
-            ].join(" ")}
-            style={{ background: "var(--gradient-accent)" }}
-          />
-        )}
-
-        <MessageSpeechControls messageId={msg.id} rawText={speechText} isStreaming={isStreaming} />
+        <ChatMessageAudioButton messageId={msg.id} text={speechText} isStreaming={isStreaming} />
       </div>
     </div>
   );

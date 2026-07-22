@@ -5,28 +5,17 @@
  * - POST-Only, Body: { text: string }
  * - Rate-Limit best-effort in-memory pro IP (bei Serverless nur je Instanz).
  * - Normalisierung serverseitig via speech-normalize.
- * - Modell-Fallback-Kette wie /api/tts.
- * - Liefert einen validen WAV-Stream (PCM16, 24 kHz, mono), damit die
- *   Wiedergabe auf iOS/Safari zuverlässig funktioniert.
+ * - ElevenLabs-Aufruf ausschließlich serverseitig mit Cloudflare-Secret.
+ * - Feste Voice-ID, kein API-Key/Voice-ID im Frontend.
  * - Cache-Control: private, no-store (dynamische Inhalte).
  */
 
 import { createFileRoute } from "@tanstack/react-router";
 import { normalizeForSpeech } from "@/lib/speech-normalize";
-import { mapWithConcurrency, pcmChunksToWav } from "@/lib/audioWav";
 
-const PRIMARY_MODEL = "gpt-4o-mini-tts-2025-12-15";
-const SECONDARY_MODEL = "gpt-4o-mini-tts";
-const FALLBACK_MODEL = "tts-1-hd";
-const PRIMARY_VOICE = "marin";
-const FALLBACK_VOICE = "nova";
-
-const SPEECH_INSTRUCTIONS =
-  "Sprich natürliches Hochdeutsch, warm, kompetent, souverän, ruhig und klar – wie die professionelle Sprecherin eines modernen steuerrechtlichen Fachmagazins. Rechtsnormen wie Paragrafen, Absätze, Sätze, Nummern und Gesetzesnamen deutlich und klar artikulieren.";
-
-const MAX_TEXT_LENGTH = 8000;
-const CHUNK_TARGET = 2500;
-const CHUNK_CONCURRENCY = 3;
+const ELEVENLABS_VOICE_ID = "g1jpii0iyvtRs8fqXsd1";
+const ELEVENLABS_MODEL_ID = "eleven_multilingual_v2";
+const MAX_TEXT_LENGTH = 5000;
 
 // ── Rate-Limit (best-effort; auf Serverless nur pro Instanz gültig) ──────────
 const RATE_WINDOW_MS = 10 * 60 * 1000;
@@ -60,54 +49,40 @@ function getIp(request: Request): string {
   );
 }
 
-function chunkText(text: string, target: number): string[] {
-  if (text.length <= target) return [text];
-  const parts: string[] = [];
-  const sentences = text.split(/(?<=[.!?])\s+/);
-  let cur = "";
-  for (const s of sentences) {
-    if ((cur + " " + s).trim().length > target && cur) {
-      parts.push(cur.trim());
-      cur = s;
-    } else {
-      cur = (cur + " " + s).trim();
-    }
-  }
-  if (cur) parts.push(cur.trim());
-  return parts.filter(Boolean);
-}
-
-async function ttsChunk(opts: {
+async function elevenLabsTts(opts: {
   apiKey: string;
-  model: string;
-  voice: string;
-  input: string;
-  useInstructions: boolean;
+  text: string;
   signal: AbortSignal;
 }): Promise<Response> {
-  const body: Record<string, unknown> = {
-    model: opts.model,
-    voice: opts.voice,
-    input: opts.input,
-    response_format: "pcm",
-  };
-  if (opts.useInstructions) body.instructions = SPEECH_INSTRUCTIONS;
-  return fetch("https://api.openai.com/v1/audio/speech", {
+  return fetch(
+    `https://api.elevenlabs.io/v1/text-to-speech/${ELEVENLABS_VOICE_ID}?output_format=mp3_44100_128`,
+    {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${opts.apiKey}`,
+      Accept: "audio/mpeg",
+      "xi-api-key": opts.apiKey,
     },
     signal: opts.signal,
-    body: JSON.stringify(body),
-  });
+    body: JSON.stringify({
+      model_id: ELEVENLABS_MODEL_ID,
+      text: opts.text,
+      voice_settings: {
+        stability: 0.45,
+        similarity_boost: 0.8,
+        style: 0.2,
+        use_speaker_boost: true,
+      },
+    }),
+  },
+  );
 }
 
 export const Route = createFileRoute("/api/chat-tts")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const apiKey = process.env.OPENAI_API_KEY;
+        const apiKey = process.env.ELEVENLABS_API_KEY;
         if (!apiKey) {
           return new Response("Audio derzeit nicht verfügbar.", { status: 503 });
         }
@@ -166,121 +141,41 @@ export const Route = createFileRoute("/api/chat-tts")({
         if (!cleaned) {
           return new Response("Leerer Sprechtext.", { status: 400 });
         }
-
-        const chunks = chunkText(cleaned, CHUNK_TARGET);
         const controller = new AbortController();
         request.signal?.addEventListener("abort", () => controller.abort());
 
-        let modelUsed = PRIMARY_MODEL;
-        let voiceUsed = PRIMARY_VOICE;
-        let useInstructions = true;
-
-        const tryChain = async (input: string): Promise<Response> => {
-          let r = await ttsChunk({
+        try {
+          const upstream = await elevenLabsTts({
             apiKey,
-            model: PRIMARY_MODEL,
-            voice: PRIMARY_VOICE,
-            input,
-            useInstructions: true,
+            text: cleaned,
             signal: controller.signal,
           });
-          if (r.ok) return r;
-          const err1 = await r.text().catch(() => "");
-          if (r.status === 404 || /model_not_found|deprecated|does not exist/i.test(err1)) {
-            r = await ttsChunk({
-              apiKey,
-              model: SECONDARY_MODEL,
-              voice: PRIMARY_VOICE,
-              input,
-              useInstructions: true,
-              signal: controller.signal,
-            });
-            if (r.ok) {
-              modelUsed = SECONDARY_MODEL;
-              return r;
-            }
-            const err2 = await r.text().catch(() => "");
-            if (/voice/i.test(err2) && /invalid|unknown|not/i.test(err2)) {
-              r = await ttsChunk({
-                apiKey,
-                model: SECONDARY_MODEL,
-                voice: FALLBACK_VOICE,
-                input,
-                useInstructions: true,
-                signal: controller.signal,
-              });
-              if (r.ok) {
-                modelUsed = SECONDARY_MODEL;
-                voiceUsed = FALLBACK_VOICE;
-                return r;
-              }
-            }
-            r = await ttsChunk({
-              apiKey,
-              model: FALLBACK_MODEL,
-              voice: FALLBACK_VOICE,
-              input,
-              useInstructions: false,
-              signal: controller.signal,
-            });
-            if (r.ok) {
-              modelUsed = FALLBACK_MODEL;
-              voiceUsed = FALLBACK_VOICE;
-              useInstructions = false;
-              return r;
-            }
-          }
-          return r;
-        };
 
-        try {
-          const first = await tryChain(chunks[0]);
-          if (!first.ok) {
-            const status = first.status;
-            const t = await first.text().catch(() => "");
-            console.error("[steuerstoff-chat-tts] upstream", status, t.slice(0, 300));
+          if (!upstream.ok) {
+            const status = upstream.status;
+            const t = await upstream.text().catch(() => "");
+            console.error("[steuerstoff-chat-tts] elevenlabs upstream", status, t.slice(0, 300));
             return new Response("Audio konnte nicht erzeugt werden.", {
               status: 502,
               headers: { "cache-control": "private, no-store" },
             });
           }
-          const pcmParts: Uint8Array[] = new Array(chunks.length);
-          pcmParts[0] = new Uint8Array(await first.arrayBuffer());
 
-          if (chunks.length > 1) {
-            const rest = chunks.slice(1);
-            const results = await mapWithConcurrency(rest, CHUNK_CONCURRENCY, async (input) => {
-              const r = await ttsChunk({
-                apiKey,
-                model: modelUsed,
-                voice: voiceUsed,
-                input,
-                useInstructions,
-                signal: controller.signal,
-              });
-              if (!r.ok) {
-                const t = await r.text().catch(() => "");
-                throw new Error(`chunk ${r.status}: ${t.slice(0, 200)}`);
-              }
-              return new Uint8Array(await r.arrayBuffer());
-            });
-            for (let i = 0; i < results.length; i++) {
-              pcmParts[i + 1] = results[i];
-            }
+          const body = await upstream.arrayBuffer();
+          const contentType = upstream.headers.get("content-type") ?? "audio/mpeg";
+
+          const headers = new Headers({
+            "content-type": contentType,
+            "cache-control": "private, no-store",
+          });
+          const upstreamLength = upstream.headers.get("content-length");
+          if (upstreamLength) {
+            headers.set("content-length", upstreamLength);
           }
 
-          const wav = pcmChunksToWav(pcmParts);
-          const body: ArrayBuffer = wav.buffer.slice(
-            wav.byteOffset,
-            wav.byteOffset + wav.byteLength,
-          ) as ArrayBuffer;
           return new Response(body, {
             status: 200,
-            headers: {
-              "content-type": "audio/wav",
-              "content-length": String(wav.byteLength),
-              "cache-control": "private, no-store",
-            },
+            headers,
           });
         } catch (e) {
           if (request.signal?.aborted) return new Response(null, { status: 499 });

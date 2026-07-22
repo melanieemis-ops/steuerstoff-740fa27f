@@ -2,7 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { QueryClient } from "@tanstack/react-query";
 import { RouterProvider, createRouter } from "@tanstack/react-router";
-import { routeTree } from "./routeTree.gen";
+import { routeTreeIos } from "./routeTree.ios";
 import "./styles.css";
 
 (
@@ -68,7 +68,7 @@ try {
 
   const queryClient = new QueryClient();
   const router = createRouter({
-    routeTree,
+    routeTree: routeTreeIos,
     context: { queryClient },
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,

@@ -34,7 +34,6 @@ import { Route as ApiUploadRouteImport } from './routes/api/upload'
 import { Route as ApiTtsRouteImport } from './routes/api/tts'
 import { Route as ApiTranscribeRouteImport } from './routes/api/transcribe'
 import { Route as ApiTextToSpeechRouteImport } from './routes/api/text-to-speech'
-import { Route as ApiChatTtsRouteImport } from './routes/api/chat-tts'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as LernenAkademieKlausurenRouteImport } from './routes/lernen_.akademie_.klausuren'
 import { Route as LernenAkademieFortschrittRouteImport } from './routes/lernen_.akademie_.fortschritt'
@@ -171,11 +170,6 @@ const ApiTextToSpeechRoute = ApiTextToSpeechRouteImport.update({
   path: '/api/text-to-speech',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiChatTtsRoute = ApiChatTtsRouteImport.update({
-  id: '/api/chat-tts',
-  path: '/api/chat-tts',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ApiChatRoute = ApiChatRouteImport.update({
   id: '/api/chat',
   path: '/api/chat',
@@ -241,7 +235,6 @@ export interface FileRoutesByFullPath {
   '/skr-konverter': typeof SkrKonverterRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
   '/api/chat': typeof ApiChatRoute
-  '/api/chat-tts': typeof ApiChatTtsRoute
   '/api/text-to-speech': typeof ApiTextToSpeechRoute
   '/api/transcribe': typeof ApiTranscribeRoute
   '/api/tts': typeof ApiTtsRoute
@@ -277,7 +270,6 @@ export interface FileRoutesByTo {
   '/skr-konverter': typeof SkrKonverterRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
   '/api/chat': typeof ApiChatRoute
-  '/api/chat-tts': typeof ApiChatTtsRoute
   '/api/text-to-speech': typeof ApiTextToSpeechRoute
   '/api/transcribe': typeof ApiTranscribeRoute
   '/api/tts': typeof ApiTtsRoute
@@ -314,7 +306,6 @@ export interface FileRoutesById {
   '/skr-konverter': typeof SkrKonverterRoute
   '/wissensdatenbank': typeof WissensdatenbankRoute
   '/api/chat': typeof ApiChatRoute
-  '/api/chat-tts': typeof ApiChatTtsRoute
   '/api/text-to-speech': typeof ApiTextToSpeechRoute
   '/api/transcribe': typeof ApiTranscribeRoute
   '/api/tts': typeof ApiTtsRoute
@@ -352,7 +343,6 @@ export interface FileRouteTypes {
     | '/skr-konverter'
     | '/wissensdatenbank'
     | '/api/chat'
-    | '/api/chat-tts'
     | '/api/text-to-speech'
     | '/api/transcribe'
     | '/api/tts'
@@ -388,7 +378,6 @@ export interface FileRouteTypes {
     | '/skr-konverter'
     | '/wissensdatenbank'
     | '/api/chat'
-    | '/api/chat-tts'
     | '/api/text-to-speech'
     | '/api/transcribe'
     | '/api/tts'
@@ -424,7 +413,6 @@ export interface FileRouteTypes {
     | '/skr-konverter'
     | '/wissensdatenbank'
     | '/api/chat'
-    | '/api/chat-tts'
     | '/api/text-to-speech'
     | '/api/transcribe'
     | '/api/tts'
@@ -461,7 +449,6 @@ export interface RootRouteChildren {
   SkrKonverterRoute: typeof SkrKonverterRoute
   WissensdatenbankRoute: typeof WissensdatenbankRoute
   ApiChatRoute: typeof ApiChatRoute
-  ApiChatTtsRoute: typeof ApiChatTtsRoute
   ApiTextToSpeechRoute: typeof ApiTextToSpeechRoute
   ApiTranscribeRoute: typeof ApiTranscribeRoute
   ApiTtsRoute: typeof ApiTtsRoute
@@ -654,13 +641,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiTextToSpeechRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/chat-tts': {
-      id: '/api/chat-tts'
-      path: '/api/chat-tts'
-      fullPath: '/api/chat-tts'
-      preLoaderRoute: typeof ApiChatTtsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/api/chat': {
       id: '/api/chat'
       path: '/api/chat'
@@ -752,7 +732,6 @@ const rootRouteChildren: RootRouteChildren = {
   SkrKonverterRoute: SkrKonverterRoute,
   WissensdatenbankRoute: WissensdatenbankRoute,
   ApiChatRoute: ApiChatRoute,
-  ApiChatTtsRoute: ApiChatTtsRoute,
   ApiTextToSpeechRoute: ApiTextToSpeechRoute,
   ApiTranscribeRoute: ApiTranscribeRoute,
   ApiTtsRoute: ApiTtsRoute,
@@ -771,3 +750,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

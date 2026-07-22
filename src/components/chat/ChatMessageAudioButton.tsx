@@ -2,12 +2,13 @@
  * ChatMessageAudioButton.tsx
  *
  * Vorlese-Button für eine abgeschlossene Assistant-Antwort.
- * - Erzeugt beim ersten Klick über /api/chat-tts ein MP3.
+ * - Erzeugt beim ersten Klick über den zentralen TTS-Service ein MP3.
  * - Cacht das Ergebnis pro Antworttext (Session).
  * - Nur eine Chat-Antwort spielt gleichzeitig.
  */
 
 import { AlertCircle, Loader2, Pause, Play, Square, Volume2 } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import {
   getCachedAudioUrl,
@@ -16,8 +17,12 @@ import {
   requestStopAllAudio,
   setCachedAudioUrl,
 } from "@/lib/chatTtsClient";
-import { apiUrl } from "@/lib/api";
-import { loadSpeechSettings } from "@/lib/speech-storage";
+import {
+  isTtsAbortError,
+  requestElevenLabsAudio,
+  ttsErrorMessage,
+  ttsErrorNeedsSettings,
+} from "@/lib/textToSpeechService";
 
 type Props = {
   messageId: string;
@@ -40,6 +45,7 @@ export function ChatMessageAudioButton({ messageId, text, isStreaming = false }:
   const [isPlaying, setIsPlaying] = useState(false);
   const [speed, setSpeed] = useState<Speed>(1);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [errorNeedsSettings, setErrorNeedsSettings] = useState(false);
 
   const stopThisAudio = useCallback(() => {
     const el = audioRef.current;
@@ -114,16 +120,9 @@ export function ChatMessageAudioButton({ messageId, text, isStreaming = false }:
     // Neu generieren
     setStatus("loading");
     setErrorMsg(null);
-    const speechSettings = loadSpeechSettings();
-    const apiKey = speechSettings.apiKey?.trim();
-    const voiceId = speechSettings.voiceIdOverride?.trim();
-    if (!apiKey || !voiceId) {
-      setStatus("error");
-      setErrorMsg("Bitte API-Key und Voice-ID in den Einstellungen eintragen.");
-      return;
-    }
+    setErrorNeedsSettings(false);
 
-    const cacheKey = hashText(`${voiceId}\n${trimmed}`);
+    const cacheKey = hashText(`steuerstoff-default\n${trimmed}`);
 
     const cached = getCachedAudioUrl(cacheKey);
     if (cached) {
@@ -136,28 +135,17 @@ export function ChatMessageAudioButton({ messageId, text, isStreaming = false }:
     const abortController = new AbortController();
     abortControllerRef.current = abortController;
     try {
-      const res = await fetch(apiUrl("/api/chat-tts"), {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: trimmed, apiKey, voiceId }),
-        signal: abortController.signal,
-      });
-      if (!res.ok) {
-        const msg = await res.text().catch(() => "");
-        setStatus("error");
-        setErrorMsg(msg || "Audio konnte nicht erzeugt werden.");
-        return;
-      }
-      const blob = await res.blob();
+      const blob = await requestElevenLabsAudio({ text: trimmed }, abortController.signal);
       const url = URL.createObjectURL(blob);
       setCachedAudioUrl(cacheKey, url);
       setStatus("ready");
       const el = attachAudio(url);
       await play(el);
     } catch (error) {
-      if (error instanceof DOMException && error.name === "AbortError") return;
+      if (isTtsAbortError(error)) return;
       setStatus("error");
-      setErrorMsg("Netzwerkfehler beim Erzeugen der Audioausgabe.");
+      setErrorNeedsSettings(ttsErrorNeedsSettings(error));
+      setErrorMsg(ttsErrorMessage(error));
     } finally {
       if (abortControllerRef.current === abortController) {
         abortControllerRef.current = null;
@@ -263,11 +251,18 @@ export function ChatMessageAudioButton({ messageId, text, isStreaming = false }:
       )}
 
       {status === "error" && (
-        <div className="flex items-center gap-1.5 pl-1 text-[11px] text-destructive">
-          <AlertCircle className="h-3 w-3" aria-hidden="true" />
-          <span className="max-w-[220px] truncate" title={errorMsg ?? undefined}>
-            {errorMsg ?? "Audio-Fehler."}
+        <div className="flex flex-wrap items-center gap-1.5 pl-1 text-[11px] text-destructive">
+          <span className="inline-flex items-center gap-1.5">
+            <AlertCircle className="h-3 w-3" aria-hidden="true" />
+            <span className="max-w-[280px]" title={errorMsg ?? undefined}>
+              {errorMsg ?? "Audio-Fehler."}
+            </span>
           </span>
+          {errorNeedsSettings && (
+            <Link to="/einstellungen" className="font-semibold underline underline-offset-2">
+              Zu den Einstellungen
+            </Link>
+          )}
         </div>
       )}
     </div>

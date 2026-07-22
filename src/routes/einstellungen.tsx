@@ -1,13 +1,18 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { Moon, Monitor, RotateCcw, Sun, Volume2 } from "lucide-react";
+import { Eye, EyeOff, Moon, Monitor, RotateCcw, Sun, Volume2 } from "lucide-react";
 import { useEffect, useState, type FormEvent } from "react";
 
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { clearSpeechSettings, loadSpeechSettings, saveSpeechSettings } from "@/lib/speech-storage";
+import { clearSpeechSettings } from "@/lib/speech-storage";
 import { applyTheme, getThemeMode, saveThemeMode, type ThemeMode } from "@/lib/theme";
+import {
+  getTtsAccessCode,
+  removeTtsAccessCode,
+  saveTtsAccessCode,
+} from "@/lib/ttsAccessCodeStorage";
 
 export const Route = createFileRoute("/einstellungen")({
   component: Einstellungen,
@@ -66,10 +71,15 @@ function Einstellungen() {
 
   const [settings, setSettings] = useState<Settings>(DEFAULTS);
   const [theme, setTheme] = useState<ThemeMode>("system");
-  const [saved, setSaved] = useState(false);
-  const [elevenLabsApiKey, setElevenLabsApiKey] = useState("");
-  const [elevenLabsVoiceId, setElevenLabsVoiceId] = useState("");
-  const [credentialError, setCredentialError] = useState<string | null>(null);
+  const [generalSaved, setGeneralSaved] = useState(false);
+  const [ttsAccessCode, setTtsAccessCode] = useState("");
+  const [showTtsAccessCode, setShowTtsAccessCode] = useState(false);
+  const [hasStoredTtsAccessCode, setHasStoredTtsAccessCode] = useState(false);
+  const [isSavingTtsAccessCode, setIsSavingTtsAccessCode] = useState(false);
+  const [ttsFeedback, setTtsFeedback] = useState<{
+    type: "success" | "error";
+    message: string;
+  } | null>(null);
 
   useEffect(() => {
     try {
@@ -81,47 +91,82 @@ function Einstellungen() {
           ...JSON.parse(raw),
         });
       }
-
-      const speechSettings = loadSpeechSettings();
-      setElevenLabsApiKey(speechSettings.apiKey ?? "");
-      setElevenLabsVoiceId(speechSettings.voiceIdOverride ?? "");
     } catch {
       // Ungültige lokale Daten ignorieren.
     }
 
+    let active = true;
+    void getTtsAccessCode().then((code) => {
+      if (active) setHasStoredTtsAccessCode(Boolean(code));
+    });
+
     const currentTheme = getThemeMode();
     setTheme(currentTheme);
     applyTheme(currentTheme);
+
+    return () => {
+      active = false;
+    };
   }, []);
 
   function selectTheme(nextTheme: ThemeMode) {
     setTheme(nextTheme);
     saveThemeMode(nextTheme);
   }
-  function save(event: FormEvent) {
+  function saveGeneralSettings(event: FormEvent) {
     event.preventDefault();
 
-    const apiKey = elevenLabsApiKey.trim();
-    const voiceId = elevenLabsVoiceId.trim();
-    if (!apiKey || !voiceId) {
-      setCredentialError("Bitte trage deinen ElevenLabs API-Key und deine Voice-ID ein.");
+    window.localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+    saveThemeMode(theme);
+
+    setGeneralSaved(true);
+
+    window.setTimeout(() => setGeneralSaved(false), 1500);
+  }
+
+  async function saveAccessCode(event: FormEvent) {
+    event.preventDefault();
+
+    const code = ttsAccessCode.trim();
+    if (!code) {
+      setTtsFeedback({
+        type: "error",
+        message: "Bitte trage einen Freischaltcode ein.",
+      });
       return;
     }
 
-    window.localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+    setIsSavingTtsAccessCode(true);
+    setTtsFeedback(null);
 
-    saveSpeechSettings({
-      ...loadSpeechSettings(),
-      apiKey,
-      voiceIdOverride: voiceId,
+    try {
+      await saveTtsAccessCode(code);
+      setTtsAccessCode("");
+      setShowTtsAccessCode(false);
+      setHasStoredTtsAccessCode(true);
+      setTtsFeedback({
+        type: "success",
+        message: "Freischaltcode erfolgreich gespeichert.",
+      });
+    } catch {
+      setTtsFeedback({
+        type: "error",
+        message: "Der Freischaltcode konnte nicht gespeichert werden. Bitte versuche es erneut.",
+      });
+    } finally {
+      setIsSavingTtsAccessCode(false);
+    }
+  }
+
+  async function removeAccessCode() {
+    await removeTtsAccessCode();
+    setTtsAccessCode("");
+    setShowTtsAccessCode(false);
+    setHasStoredTtsAccessCode(false);
+    setTtsFeedback({
+      type: "success",
+      message: "Freischaltcode entfernt.",
     });
-
-    saveThemeMode(theme);
-
-    setCredentialError(null);
-    setSaved(true);
-
-    window.setTimeout(() => setSaved(false), 1500);
   }
 
   function restartOnboarding() {
@@ -132,7 +177,7 @@ function Einstellungen() {
     });
   }
 
-  function resetData() {
+  async function resetData() {
     if (!window.confirm("Alle Fälle und Einstellungen lokal löschen?")) {
       return;
     }
@@ -140,11 +185,13 @@ function Einstellungen() {
     window.localStorage.removeItem("steuerstoff.cases.v1");
     window.localStorage.removeItem(SETTINGS_KEY);
     clearSpeechSettings();
+    await removeTtsAccessCode();
 
     setSettings(DEFAULTS);
-    setElevenLabsApiKey("");
-    setElevenLabsVoiceId("");
-    setCredentialError(null);
+    setTtsAccessCode("");
+    setShowTtsAccessCode(false);
+    setHasStoredTtsAccessCode(false);
+    setTtsFeedback(null);
 
     window.dispatchEvent(new Event("steuerstoff:cases"));
   }
@@ -163,7 +210,7 @@ function Einstellungen() {
             Erscheinungsbild, Kanzleidaten und Standardwerte für steuerstoff.
           </p>
 
-          <form onSubmit={save} className="mt-8 space-y-6">
+          <form onSubmit={saveGeneralSettings} className="mt-8 space-y-6">
             <section className="rounded-2xl border border-border bg-card p-5 shadow-card-soft sm:p-6">
               <div>
                 <h2 className="text-base font-semibold text-foreground">Erscheinungsbild</h2>
@@ -291,15 +338,16 @@ function Einstellungen() {
               </div>
 
               <div className="flex flex-col gap-2 pt-2 sm:flex-row sm:items-center sm:justify-between">
-                <Button type="submit">{saved ? "Gespeichert" : "Speichern"}</Button>
+                <Button type="submit">{generalSaved ? "Gespeichert" : "Speichern"}</Button>
 
                 <Button type="button" variant="ghost" onClick={resetData}>
                   Lokale Daten zurücksetzen
                 </Button>
               </div>
             </section>
+          </form>
 
-            {/* Vorlesefunktion */}
+          <form onSubmit={saveAccessCode} className="mt-6">
             <section className="space-y-5 rounded-2xl border border-border bg-card p-5 shadow-card-soft sm:p-6">
               <div className="flex items-start gap-3">
                 <Volume2
@@ -309,62 +357,92 @@ function Einstellungen() {
                 <div>
                   <h2 className="text-base font-semibold text-foreground">Vorlesefunktion</h2>
                   <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                    Trage deinen eigenen ElevenLabs API-Key und die gewünschte Voice-ID ein. Die
-                    Angaben werden nur lokal auf diesem Gerät gespeichert und für die Audioerzeugung
-                    an den steuerstoff-Worker gesendet.
+                    Mit deinem persönlichen Steuerstoff-Freischaltcode kannst du die professionelle
+                    KI-Stimme für Fachbeiträge und Klausurfälle verwenden.
                   </p>
                 </div>
               </div>
 
               <div className="space-y-4 rounded-lg border border-border bg-background/40 p-4">
                 <div>
-                  <label
-                    htmlFor="elevenlabs-api-key"
-                    className="text-sm font-medium text-foreground"
-                  >
-                    ElevenLabs API-Key
+                  <label htmlFor="tts-access-code" className="text-sm font-medium text-foreground">
+                    Freischaltcode für die Vorlesefunktion
                   </label>
-                  <Input
-                    id="elevenlabs-api-key"
-                    type="password"
-                    value={elevenLabsApiKey}
-                    onChange={(event) => setElevenLabsApiKey(event.target.value)}
-                    placeholder="sk_…"
-                    autoComplete="off"
-                    spellCheck={false}
-                    required
-                    className="mt-1.5"
-                  />
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                    Den Freischaltcode kannst du über Instagram bei @steuerstoff anfragen.
+                  </p>
+
+                  <div className="relative mt-3">
+                    <Input
+                      id="tts-access-code"
+                      type={showTtsAccessCode ? "text" : "password"}
+                      value={ttsAccessCode}
+                      onChange={(event) => {
+                        setTtsAccessCode(event.target.value);
+                        setTtsFeedback(null);
+                      }}
+                      placeholder={
+                        hasStoredTtsAccessCode ? "Gespeicherter Code ••••••••" : "Freischaltcode"
+                      }
+                      autoComplete="new-password"
+                      spellCheck={false}
+                      className="pr-12"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowTtsAccessCode((current) => !current)}
+                      aria-label={
+                        showTtsAccessCode ? "Freischaltcode verbergen" : "Freischaltcode anzeigen"
+                      }
+                      className="absolute inset-y-0 right-0 inline-flex w-11 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      {showTtsAccessCode ? (
+                        <EyeOff className="h-4 w-4" aria-hidden="true" />
+                      ) : (
+                        <Eye className="h-4 w-4" aria-hidden="true" />
+                      )}
+                    </button>
+                  </div>
                 </div>
 
-                <div>
-                  <label
-                    htmlFor="elevenlabs-voice-id"
-                    className="text-sm font-medium text-foreground"
-                  >
-                    ElevenLabs Voice-ID
-                  </label>
-                  <Input
-                    id="elevenlabs-voice-id"
-                    value={elevenLabsVoiceId}
-                    onChange={(event) => setElevenLabsVoiceId(event.target.value)}
-                    placeholder="z. B. 21m00Tcm4TlvDq8ikWAM"
-                    autoComplete="off"
-                    spellCheck={false}
-                    required
-                    className="mt-1.5"
-                  />
-                </div>
-
-                {credentialError && (
-                  <p role="alert" className="text-sm text-destructive">
-                    {credentialError}
+                {hasStoredTtsAccessCode && !ttsFeedback && (
+                  <p className="text-sm text-muted-foreground">
+                    Ein Freischaltcode ist auf diesem Gerät gespeichert. Er wird aus
+                    Sicherheitsgründen nicht vollständig angezeigt.
                   </p>
                 )}
 
-                <Button type="submit" className="w-full sm:w-auto">
-                  {saved ? "ElevenLabs-Zugang gespeichert" : "ElevenLabs-Zugang speichern"}
-                </Button>
+                {ttsFeedback && (
+                  <p
+                    role={ttsFeedback.type === "error" ? "alert" : "status"}
+                    className={
+                      ttsFeedback.type === "error"
+                        ? "text-sm text-destructive"
+                        : "text-sm text-emerald-700"
+                    }
+                  >
+                    {ttsFeedback.message}
+                  </p>
+                )}
+
+                <div className="flex flex-col gap-2 sm:flex-row">
+                  <Button
+                    type="submit"
+                    disabled={isSavingTtsAccessCode}
+                    className="w-full sm:w-auto"
+                  >
+                    {isSavingTtsAccessCode ? "Wird gespeichert …" : "Speichern"}
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    disabled={!hasStoredTtsAccessCode || isSavingTtsAccessCode}
+                    onClick={() => void removeAccessCode()}
+                    className="w-full sm:w-auto"
+                  >
+                    Freischaltcode entfernen
+                  </Button>
+                </div>
               </div>
             </section>
           </form>

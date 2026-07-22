@@ -7,6 +7,11 @@ import { join } from "node:path";
 
 export default defineConfig({
   base: "./",
+  resolve: {
+    alias: {
+      "node:async_hooks": join(process.cwd(), "src/lib/async-local-storage.browser.ts"),
+    },
+  },
   plugins: [
     react(),
     tailwindcss(),

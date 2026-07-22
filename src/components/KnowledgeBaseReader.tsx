@@ -1,6 +1,12 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { loadSpeechSettings, saveSpeechSettings } from "@/lib/speech-storage";
-import { requestElevenLabsAudio } from "@/lib/textToSpeechService";
+import {
+  isTtsAbortError,
+  requestElevenLabsAudio,
+  ttsErrorMessage,
+  ttsErrorNeedsSettings,
+} from "@/lib/textToSpeechService";
 
 interface KnowledgeBaseReaderProps {
   title?: string;
@@ -22,9 +28,7 @@ function playbackErrorMessage(error: unknown): string {
     return "Die Vorschau hat den automatischen Audiostart blockiert. Tippe auf „Weiter“, um die Wiedergabe freizugeben.";
   }
 
-  return error instanceof Error
-    ? error.message
-    : "Beim Vorlesen ist ein unbekannter Fehler aufgetreten.";
+  return ttsErrorMessage(error);
 }
 
 function prepareTextForSpeech(value: string): string {
@@ -147,6 +151,7 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
   const [currentPart, setCurrentPart] = useState(0);
   const [totalParts, setTotalParts] = useState(0);
   const [error, setError] = useState<string | null>(null);
+  const [errorNeedsSettings, setErrorNeedsSettings] = useState(false);
   const [playbackRate, setPlaybackRate] = useState<PlaybackRate>(1);
 
   const releaseCurrentAudio = useCallback((preserveElement = false) => {
@@ -189,6 +194,7 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
     setIsPaused(false);
     setCurrentPart(0);
     setTotalParts(0);
+    setErrorNeedsSettings(false);
   };
 
   const playAudioBlob = (blob: Blob, sessionId: number): Promise<void> => {
@@ -260,21 +266,12 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
   const startReading = async () => {
     stopReading();
     setError(null);
+    setErrorNeedsSettings(false);
 
     const preparedContent = prepareTextForSpeech([title, content].filter(Boolean).join("\n\n"));
 
     if (!preparedContent) {
       setError("Für diesen Beitrag wurde kein vorlesbarer Text gefunden.");
-      return;
-    }
-
-    const speechSettings = loadSpeechSettings();
-    const apiKey = speechSettings.apiKey?.trim();
-    const voiceId = speechSettings.voiceIdOverride?.trim();
-    if (!apiKey || !voiceId) {
-      setError(
-        "Bitte trage deinen ElevenLabs API-Key und deine Voice-ID in den Einstellungen ein.",
-      );
       return;
     }
 
@@ -310,8 +307,6 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
           audioBlob = await requestElevenLabsAudio(
             {
               text: chunks[index],
-              apiKey,
-              voiceId,
             },
             abortController.signal,
           );
@@ -340,12 +335,16 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
       if (sessionId !== readingSessionRef.current) {
         return;
       }
+      if (isTtsAbortError(unknownError)) {
+        return;
+      }
 
       releaseCurrentAudio();
       setIsPreparing(false);
       setIsPlaying(false);
       setIsPaused(false);
 
+      setErrorNeedsSettings(ttsErrorNeedsSettings(unknownError));
       setError(playbackErrorMessage(unknownError));
     }
   };
@@ -473,9 +472,17 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
       </div>
 
       {error && (
-        <p role="alert" className="mt-3 rounded-xl bg-red-50 px-3 py-2 text-sm text-red-700">
-          {error}
-        </p>
+        <div role="alert" className="mt-3 rounded-xl bg-red-50 px-3 py-2 text-sm text-red-700">
+          <p>{error}</p>
+          {errorNeedsSettings && (
+            <Link
+              to="/einstellungen"
+              className="mt-2 inline-flex min-h-9 items-center rounded-lg border border-red-200 bg-white px-3 py-1.5 font-medium text-red-800 hover:bg-red-100"
+            >
+              Zu den Einstellungen
+            </Link>
+          )}
+        </div>
       )}
     </div>
   );

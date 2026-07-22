@@ -13,6 +13,7 @@ function withoutTrailingSlash(url: string): string {
 export function apiUrl(path: string): string {
   const normalizedPath = withLeadingSlash(path);
 
+  // Web requests stay on the currently deployed origin; native builds use the public API origin.
   if (!Capacitor.isNativePlatform()) {
     return normalizedPath;
   }

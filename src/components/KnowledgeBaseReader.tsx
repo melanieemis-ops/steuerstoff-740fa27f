@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { loadSpeechSettings } from "@/lib/speech-storage";
+import { loadSpeechSettings, saveSpeechSettings } from "@/lib/speech-storage";
 import { requestElevenLabsAudio } from "@/lib/textToSpeechService";
 
 interface KnowledgeBaseReaderProps {
@@ -9,6 +9,9 @@ interface KnowledgeBaseReaderProps {
 
 const SILENT_AUDIO_DATA_URL =
   "data:audio/wav;base64,UklGRiUAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQEAAACA";
+const PLAYBACK_RATES = [1, 1.25, 1.5] as const;
+
+type PlaybackRate = (typeof PLAYBACK_RATES)[number];
 
 function isPlaybackBlockedError(error: unknown): boolean {
   return error instanceof DOMException && error.name === "NotAllowedError";
@@ -136,6 +139,7 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
   const readingSessionRef = useRef(0);
   const abortControllerRef = useRef<AbortController | null>(null);
   const pendingPlaybackRejectRef = useRef<((reason?: unknown) => void) | null>(null);
+  const playbackRateRef = useRef<PlaybackRate>(1);
 
   const [isPreparing, setIsPreparing] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -143,6 +147,7 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
   const [currentPart, setCurrentPart] = useState(0);
   const [totalParts, setTotalParts] = useState(0);
   const [error, setError] = useState<string | null>(null);
+  const [playbackRate, setPlaybackRate] = useState<PlaybackRate>(1);
 
   const releaseCurrentAudio = useCallback((preserveElement = false) => {
     const audio = audioRef.current;
@@ -203,6 +208,7 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
       audioRef.current = audio;
       audio.src = objectUrl;
       audio.preload = "auto";
+      audio.playbackRate = playbackRateRef.current;
 
       audio.onplay = () => {
         setError(null);
@@ -362,6 +368,29 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
     }
   };
 
+  const changePlaybackRate = (nextRate: PlaybackRate) => {
+    playbackRateRef.current = nextRate;
+    setPlaybackRate(nextRate);
+
+    if (audioRef.current) {
+      audioRef.current.playbackRate = nextRate;
+    }
+
+    saveSpeechSettings({
+      ...loadSpeechSettings(),
+      rate: nextRate,
+    });
+  };
+
+  useEffect(() => {
+    const savedRate = loadSpeechSettings().rate;
+    if (PLAYBACK_RATES.includes(savedRate as PlaybackRate)) {
+      const supportedRate = savedRate as PlaybackRate;
+      playbackRateRef.current = supportedRate;
+      setPlaybackRate(supportedRate);
+    }
+  }, []);
+
   useEffect(() => {
     return () => {
       readingSessionRef.current += 1;
@@ -412,6 +441,35 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
             Abschnitt {currentPart} von {totalParts}
           </span>
         )}
+
+        <div
+          className="inline-flex items-center gap-1 rounded-xl border border-slate-200 bg-slate-50 p-1"
+          role="group"
+          aria-label="Wiedergabegeschwindigkeit"
+        >
+          <span className="px-1.5 text-xs font-medium text-slate-500">Tempo</span>
+          {PLAYBACK_RATES.map((rate) => {
+            const selected = playbackRate === rate;
+            const label = `${rate.toString().replace(".", ",")}×`;
+
+            return (
+              <button
+                key={rate}
+                type="button"
+                onClick={() => changePlaybackRate(rate)}
+                aria-label={`Wiedergabegeschwindigkeit ${label}`}
+                aria-pressed={selected}
+                className={`inline-flex min-h-9 min-w-11 items-center justify-center rounded-lg px-2 text-xs font-semibold transition ${
+                  selected
+                    ? "bg-slate-900 text-white shadow-sm"
+                    : "text-slate-600 hover:bg-white hover:text-slate-900"
+                }`}
+              >
+                {label}
+              </button>
+            );
+          })}
+        </div>
       </div>
 
       {error && (

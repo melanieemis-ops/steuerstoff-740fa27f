@@ -1,5 +1,6 @@
 import { buildSpeechCacheSignature } from "@/lib/prepareTextForSpeech";
 import { DEFAULT_TTS_MODEL_ID, getVoiceProfile } from "@/lib/ttsVoiceProfiles";
+import { apiUrl } from "@/lib/api";
 
 export const ELEVENLABS_VOICE_ID = "g1jpii0iyvtRs8fqXsd1";
 
@@ -73,7 +74,7 @@ export async function requestElevenLabsAudio(
   payload: TtsRequestPayload,
   signal: AbortSignal,
 ): Promise<Blob> {
-  const response = await fetch("/api/text-to-speech", {
+  const response = await fetch(apiUrl("/api/text-to-speech"), {
     method: "POST",
     headers: {
       "content-type": "application/json",

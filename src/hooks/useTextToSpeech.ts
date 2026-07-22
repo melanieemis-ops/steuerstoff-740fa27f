@@ -40,7 +40,7 @@ function estimateSeconds(text: string): number {
 function formatErrorMessage(error: unknown): string {
   if (error instanceof TtsApiError) {
     if (error.code === "INVALID_API_KEY") {
-      return "Die KI-Stimme ist noch nicht korrekt eingerichtet.";
+      return "Die KI-Stimme ist serverseitig derzeit nicht verfügbar.";
     }
     if (error.code === "VOICE_NOT_AVAILABLE") {
       return "Diese Stimme kann mit dem aktuellen ElevenLabs-Konto nicht verwendet werden.";
@@ -52,7 +52,7 @@ function formatErrorMessage(error: unknown): string {
       return "Das verfuegbare Sprachguthaben ist derzeit aufgebraucht.";
     }
     if (error.code === "CONFIGURATION_ERROR") {
-      return "ElevenLabs ist nicht konfiguriert. Bitte trage deinen API-Schlüssel und deine Voice-ID in den Einstellungen ein.";
+      return "Die KI-Stimme ist serverseitig noch nicht konfiguriert.";
     }
     if (error.code === "TEXT_TOO_LONG") {
       return "Der Text ist zu lang und wird in Abschnitten vorgelesen.";
@@ -230,9 +230,7 @@ export function useTextToSpeech() {
       const payload: TtsRequestPayload = {
         text: item.text,
         profileId: voiceProfileId,
-        voiceId: voiceIdOverride?.trim() || ELEVENLABS_VOICE_ID,
         modelId: DEFAULT_TTS_MODEL_ID,
-        apiKey: apiKey?.trim() || undefined,
       };
 
       const cacheKey = getAudioCacheKey(payload);
@@ -318,7 +316,7 @@ export function useTextToSpeech() {
         setErrorMessage("Bitte starte die Vorlesefunktion durch einen Klick erneut.");
       }
     },
-    [computeTotalDuration, getElapsedBefore, rate, totalDuration, apiKey, voiceIdOverride, voiceProfileId],
+    [computeTotalDuration, getElapsedBefore, rate, totalDuration, voiceProfileId],
   );
 
   const buildQueue = useCallback((sections: TtsSection[]): QueueItem[] => {

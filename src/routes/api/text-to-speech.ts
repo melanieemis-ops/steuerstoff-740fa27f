@@ -137,12 +137,11 @@ export const Route = createFileRoute("/api/text-to-speech")({
         }
 
         const serverApiKey = readServerSecret("ELEVENLABS_API_KEY");
-        const apiKey = serverApiKey || parsed.data.apiKey;
-        if (!apiKey) {
+        if (!serverApiKey) {
           return jsonError(
             503,
             "CONFIGURATION_ERROR",
-            "ElevenLabs ist noch nicht konfiguriert. Bitte trage deinen API-Schlüssel in den Einstellungen ein.",
+            "Die KI-Stimme ist serverseitig noch nicht konfiguriert.",
           );
         }
 
@@ -162,7 +161,7 @@ export const Route = createFileRoute("/api/text-to-speech")({
         const configuredVoiceId = readServerSecret("ELEVENLABS_VOICE_ID");
         const configuredModelId = readServerSecret("ELEVENLABS_MODEL_ID");
 
-        const voiceId = parsed.data.voiceId?.trim() || configuredVoiceId || ELEVENLABS_VOICE_ID;
+        const voiceId = configuredVoiceId || ELEVENLABS_VOICE_ID;
 
         const modelId = parsed.data.modelId?.trim() || configuredModelId || DEFAULT_TTS_MODEL_ID;
         const profile = getVoiceProfile(parsed.data.profileId);
@@ -177,7 +176,7 @@ export const Route = createFileRoute("/api/text-to-speech")({
             headers: {
               "content-type": "application/json",
               accept: "audio/mpeg",
-              "xi-api-key": apiKey,
+              "xi-api-key": serverApiKey,
             },
             signal: upstreamController.signal,
             body: JSON.stringify({

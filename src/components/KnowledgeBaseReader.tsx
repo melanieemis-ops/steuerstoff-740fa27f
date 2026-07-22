@@ -7,6 +7,23 @@ interface KnowledgeBaseReaderProps {
   content: string;
 }
 
+const SILENT_AUDIO_DATA_URL =
+  "data:audio/wav;base64,UklGRiUAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQEAAACA";
+
+function isPlaybackBlockedError(error: unknown): boolean {
+  return error instanceof DOMException && error.name === "NotAllowedError";
+}
+
+function playbackErrorMessage(error: unknown): string {
+  if (isPlaybackBlockedError(error)) {
+    return "Die Vorschau hat den automatischen Audiostart blockiert. Tippe auf „Weiter“, um die Wiedergabe freizugeben.";
+  }
+
+  return error instanceof Error
+    ? error.message
+    : "Beim Vorlesen ist ein unbekannter Fehler aufgetreten.";
+}
+
 function prepareTextForSpeech(value: string): string {
   return (
     value
@@ -118,6 +135,7 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
   const objectUrlRef = useRef<string | null>(null);
   const readingSessionRef = useRef(0);
   const abortControllerRef = useRef<AbortController | null>(null);
+  const pendingPlaybackRejectRef = useRef<((reason?: unknown) => void) | null>(null);
 
   const [isPreparing, setIsPreparing] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -126,12 +144,21 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
   const [totalParts, setTotalParts] = useState(0);
   const [error, setError] = useState<string | null>(null);
 
-  const releaseCurrentAudio = useCallback(() => {
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.removeAttribute("src");
-      audioRef.current.load();
-      audioRef.current = null;
+  const releaseCurrentAudio = useCallback((preserveElement = false) => {
+    const audio = audioRef.current;
+
+    if (audio) {
+      audio.onplay = null;
+      audio.onpause = null;
+      audio.onended = null;
+      audio.onerror = null;
+      audio.pause();
+      audio.removeAttribute("src");
+      audio.load();
+
+      if (!preserveElement) {
+        audioRef.current = null;
+      }
     }
 
     if (objectUrlRef.current) {
@@ -147,6 +174,8 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
 
   const stopReading = () => {
     readingSessionRef.current += 1;
+    pendingPlaybackRejectRef.current?.(new DOMException("Abgebrochen", "AbortError"));
+    pendingPlaybackRejectRef.current = null;
     abortPendingRequest();
     releaseCurrentAudio();
 
@@ -164,15 +193,19 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
         return;
       }
 
-      releaseCurrentAudio();
+      releaseCurrentAudio(true);
 
       const objectUrl = URL.createObjectURL(blob);
-      const audio = new Audio(objectUrl);
+      const audio = audioRef.current ?? new Audio();
 
+      pendingPlaybackRejectRef.current = reject;
       objectUrlRef.current = objectUrl;
       audioRef.current = audio;
+      audio.src = objectUrl;
+      audio.preload = "auto";
 
       audio.onplay = () => {
+        setError(null);
         setIsPreparing(false);
         setIsPlaying(true);
         setIsPaused(false);
@@ -186,17 +219,28 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
       };
 
       audio.onended = () => {
-        releaseCurrentAudio();
+        pendingPlaybackRejectRef.current = null;
+        releaseCurrentAudio(true);
         resolve();
       };
 
       audio.onerror = () => {
-        releaseCurrentAudio();
+        pendingPlaybackRejectRef.current = null;
+        releaseCurrentAudio(true);
         reject(new Error("Die Audiodatei konnte nicht abgespielt werden."));
       };
 
       audio.play().catch((playError: unknown) => {
-        releaseCurrentAudio();
+        if (isPlaybackBlockedError(playError)) {
+          setIsPreparing(false);
+          setIsPlaying(false);
+          setIsPaused(true);
+          setError(playbackErrorMessage(playError));
+          return;
+        }
+
+        pendingPlaybackRejectRef.current = null;
+        releaseCurrentAudio(true);
 
         reject(
           playError instanceof Error
@@ -227,6 +271,15 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
       );
       return;
     }
+
+    // iOS/Safari erlaubt die spätere Wiedergabe nach dem Netzwerkaufruf nur,
+    // wenn dasselbe Audioelement bereits direkt im Klick freigeschaltet wurde.
+    const primedAudio = new Audio(SILENT_AUDIO_DATA_URL);
+    primedAudio.preload = "auto";
+    audioRef.current = primedAudio;
+    void primedAudio.play().catch(() => {
+      // Der eigentliche Wiedergabeversuch liefert unten eine verständliche Meldung.
+    });
 
     const chunks = splitTextIntoChunks(preparedContent);
     const sessionId = readingSessionRef.current;
@@ -287,11 +340,7 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
       setIsPlaying(false);
       setIsPaused(false);
 
-      setError(
-        unknownError instanceof Error
-          ? unknownError.message
-          : "Beim Vorlesen ist ein unbekannter Fehler aufgetreten.",
-      );
+      setError(playbackErrorMessage(unknownError));
     }
   };
 
@@ -305,8 +354,8 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
     if (audio.paused) {
       try {
         await audio.play();
-      } catch {
-        setError("Die Wiedergabe konnte nicht fortgesetzt werden.");
+      } catch (playError) {
+        setError(playbackErrorMessage(playError));
       }
     } else {
       audio.pause();
@@ -316,6 +365,8 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
   useEffect(() => {
     return () => {
       readingSessionRef.current += 1;
+      pendingPlaybackRejectRef.current?.(new DOMException("Abgebrochen", "AbortError"));
+      pendingPlaybackRejectRef.current = null;
       abortPendingRequest();
       releaseCurrentAudio();
     };

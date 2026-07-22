@@ -17,7 +17,7 @@ export default defineConfig({
         devOptions: { enabled: false },
         manifest: false,
         workbox: {
-          cacheId: "steuerstoff-2026-07-22-elevenlabs-server-fixed",
+          cacheId: "steuerstoff-2026-07-22-elevenlabs-user-credentials",
           cleanupOutdatedCaches: true,
           clientsClaim: true,
           skipWaiting: true,

@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { env as cloudflareEnv } from "cloudflare:workers";
 import { z } from "zod";
 
 import { prepareTextForSpeech } from "@/lib/prepareTextForSpeech";
@@ -34,6 +35,11 @@ const requestSchema = z
   .strict();
 
 function readServerSecret(name: string): string | undefined {
+  const directWorkerValue = (cloudflareEnv as unknown as Record<string, unknown>)[name];
+  if (typeof directWorkerValue === "string" && directWorkerValue.trim()) {
+    return directWorkerValue.trim();
+  }
+
   const workerEnv = (globalThis as { __env__?: Record<string, unknown> }).__env__;
   const workerValue = workerEnv?.[name];
   if (typeof workerValue === "string" && workerValue.trim()) {

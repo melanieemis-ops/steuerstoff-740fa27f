@@ -8,6 +8,14 @@ export default defineConfig({
     server: { entry: "server" },
   },
   vite: {
+    build: {
+      rollupOptions: {
+        external: ["cloudflare:workers"],
+      },
+    },
+    ssr: {
+      external: ["cloudflare:workers"],
+    },
     plugins: [
       VitePWA({
         registerType: "autoUpdate",

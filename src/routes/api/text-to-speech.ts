@@ -37,6 +37,12 @@ const requestSchema = z.object({
 });
 
 function readServerSecret(name: string): string | undefined {
+  const workerEnv = (globalThis as { __env__?: Record<string, unknown> }).__env__;
+  const workerValue = workerEnv?.[name];
+  if (typeof workerValue === "string" && workerValue.trim()) {
+    return workerValue.trim();
+  }
+
   const denoEnv = (
     globalThis as {
       Deno?: { env?: { get: (key: string) => string | undefined } };

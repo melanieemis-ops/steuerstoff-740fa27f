@@ -17,6 +17,27 @@ const ELEVENLABS_VOICE_ID = "g1jpii0iyvtRs8fqXsd1";
 const ELEVENLABS_MODEL_ID = "eleven_multilingual_v2";
 const MAX_TEXT_LENGTH = 5000;
 
+function readServerSecret(name: string): string | undefined {
+  const workerEnv = (globalThis as { __env__?: Record<string, unknown> }).__env__;
+  const workerValue = workerEnv?.[name];
+  if (typeof workerValue === "string" && workerValue.trim()) {
+    return workerValue.trim();
+  }
+
+  const denoEnv = (
+    globalThis as {
+      Deno?: { env?: { get: (key: string) => string | undefined } };
+    }
+  ).Deno?.env;
+  const denoValue = denoEnv?.get(name);
+  if (typeof denoValue === "string" && denoValue.trim()) {
+    return denoValue.trim();
+  }
+
+  const nodeValue = process.env[name];
+  return typeof nodeValue === "string" && nodeValue.trim() ? nodeValue.trim() : undefined;
+}
+
 // ── Rate-Limit (best-effort; auf Serverless nur pro Instanz gültig) ──────────
 const RATE_WINDOW_MS = 10 * 60 * 1000;
 const RATE_MAX = 10;
@@ -82,7 +103,7 @@ export const Route = createFileRoute("/api/chat-tts")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const apiKey = process.env.ELEVENLABS_API_KEY;
+        const apiKey = readServerSecret("ELEVENLABS_API_KEY");
         if (!apiKey) {
           return new Response("Audio derzeit nicht verfügbar.", { status: 503 });
         }

@@ -4,8 +4,6 @@ import { z } from "zod";
 import { prepareTextForSpeech } from "@/lib/prepareTextForSpeech";
 import { DEFAULT_TTS_MODEL_ID, getVoiceProfile } from "@/lib/ttsVoiceProfiles";
 
-const ELEVENLABS_VOICE_ID = "g1jpii0iyvtRs8fqXsd1";
-
 const MAX_TEXT_LENGTH = 12000;
 const RATE_WINDOW_MS = 10 * 60 * 1000;
 const RATE_LIMIT = 24;
@@ -30,10 +28,10 @@ type TtsErrorCode =
 
 const requestSchema = z.object({
   text: z.string().min(1).max(MAX_TEXT_LENGTH),
-  voiceId: z.string().trim().min(1).max(200).optional(),
+  voiceId: z.string().trim().min(1).max(200),
   modelId: z.string().trim().min(1).max(100).optional(),
   profileId: z.string().trim().min(1).max(80).optional(),
-  apiKey: z.string().trim().min(1).max(300).optional(),
+  apiKey: z.string().trim().min(1).max(300),
 });
 
 function readServerSecret(name: string): string | undefined {
@@ -142,15 +140,6 @@ export const Route = createFileRoute("/api/text-to-speech")({
           return jsonError(400, "REQUEST_INVALID", "Ungueltige Anfrage.");
         }
 
-        const serverApiKey = readServerSecret("ELEVENLABS_API_KEY");
-        if (!serverApiKey) {
-          return jsonError(
-            503,
-            "CONFIGURATION_ERROR",
-            "Die KI-Stimme ist serverseitig noch nicht konfiguriert.",
-          );
-        }
-
         const preparedText = prepareTextForSpeech(parsed.data.text);
         if (!preparedText) {
           return jsonError(400, "REQUEST_INVALID", "Der Text ist leer oder ungueltig.");
@@ -164,11 +153,10 @@ export const Route = createFileRoute("/api/text-to-speech")({
           );
         }
 
-        const configuredVoiceId = readServerSecret("ELEVENLABS_VOICE_ID");
         const configuredModelId = readServerSecret("ELEVENLABS_MODEL_ID");
 
-        const voiceId = configuredVoiceId || ELEVENLABS_VOICE_ID;
-
+        const apiKey = parsed.data.apiKey.trim();
+        const voiceId = parsed.data.voiceId.trim();
         const modelId = parsed.data.modelId?.trim() || configuredModelId || DEFAULT_TTS_MODEL_ID;
         const profile = getVoiceProfile(parsed.data.profileId);
 
@@ -182,7 +170,7 @@ export const Route = createFileRoute("/api/text-to-speech")({
             headers: {
               "content-type": "application/json",
               accept: "audio/mpeg",
-              "xi-api-key": serverApiKey,
+              "xi-api-key": apiKey,
             },
             signal: upstreamController.signal,
             body: JSON.stringify({

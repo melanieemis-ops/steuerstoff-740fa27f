@@ -1,10 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-
-const VOICE_ID = "g1jpii0iyvtRs8fqXsd1";
-
-// Hier exakt denselben Cloudflare-Endpunkt einsetzen,
-// den die Vorlesefunktion der Klausurfälle bereits verwendet.
-const TTS_ENDPOINT = "/api/tts";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { ELEVENLABS_VOICE_ID, requestElevenLabsAudio } from "@/lib/textToSpeechService";
 
 interface KnowledgeBaseReaderProps {
   title?: string;
@@ -12,40 +7,42 @@ interface KnowledgeBaseReaderProps {
 }
 
 function prepareTextForSpeech(value: string): string {
-  return value
-    // Codeblöcke vollständig entfernen
-    .replace(/```[\s\S]*?```/g, " ")
+  return (
+    value
+      // Codeblöcke vollständig entfernen
+      .replace(/```[\s\S]*?```/g, " ")
 
-    // Inline-Code lesbar machen
-    .replace(/`([^`]+)`/g, "$1")
+      // Inline-Code lesbar machen
+      .replace(/`([^`]+)`/g, "$1")
 
-    // Bilder entfernen
-    .replace(/!\[[^\]]*]\([^)]*\)/g, " ")
+      // Bilder entfernen
+      .replace(/!\[[^\]]*]\([^)]*\)/g, " ")
 
-    // Links: nur den sichtbaren Linktext behalten
-    .replace(/\[([^\]]+)]\([^)]*\)/g, "$1")
+      // Links: nur den sichtbaren Linktext behalten
+      .replace(/\[([^\]]+)]\([^)]*\)/g, "$1")
 
-    // Markdown-Überschriften entfernen
-    .replace(/^#{1,6}\s+/gm, "")
+      // Markdown-Überschriften entfernen
+      .replace(/^#{1,6}\s+/gm, "")
 
-    // Fettdruck und Kursivschrift entfernen
-    .replace(/(\*\*|__|\*|_)/g, "")
+      // Fettdruck und Kursivschrift entfernen
+      .replace(/(\*\*|__|\*|_)/g, "")
 
-    // Listenzeichen entfernen
-    .replace(/^\s*[-*+]\s+/gm, "")
-    .replace(/^\s*\d+\.\s+/gm, "")
+      // Listenzeichen entfernen
+      .replace(/^\s*[-*+]\s+/gm, "")
+      .replace(/^\s*\d+\.\s+/gm, "")
 
-    // Blockquotes entfernen
-    .replace(/^\s*>\s?/gm, "")
+      // Blockquotes entfernen
+      .replace(/^\s*>\s?/gm, "")
 
-    // Tabellenzeichen und HTML-Tags entfernen
-    .replace(/\|/g, " ")
-    .replace(/<[^>]+>/g, " ")
+      // Tabellenzeichen und HTML-Tags entfernen
+      .replace(/\|/g, " ")
+      .replace(/<[^>]+>/g, " ")
 
-    // Mehrfache Leerzeichen und Leerzeilen reduzieren
-    .replace(/[ \t]+/g, " ")
-    .replace(/\n{3,}/g, "\n\n")
-    .trim();
+      // Mehrfache Leerzeichen und Leerzeilen reduzieren
+      .replace(/[ \t]+/g, " ")
+      .replace(/\n{3,}/g, "\n\n")
+      .trim()
+  );
 }
 
 function splitTextIntoChunks(text: string, maxLength = 2200): string[] {
@@ -73,9 +70,7 @@ function splitTextIntoChunks(text: string, maxLength = 2200): string[] {
 
   for (const paragraph of paragraphs) {
     if (paragraph.length <= maxLength) {
-      const combined = currentChunk
-        ? `${currentChunk}\n\n${paragraph}`
-        : paragraph;
+      const combined = currentChunk ? `${currentChunk}\n\n${paragraph}` : paragraph;
 
       if (combined.length <= maxLength) {
         currentChunk = combined;
@@ -88,15 +83,12 @@ function splitTextIntoChunks(text: string, maxLength = 2200): string[] {
     }
 
     // Sehr lange Absätze zusätzlich nach Sätzen aufteilen
-    const sentences =
-      paragraph.match(/[^.!?]+[.!?]+|[^.!?]+$/g)?.map((sentence) =>
-        sentence.trim(),
-      ) ?? [paragraph];
+    const sentences = paragraph
+      .match(/[^.!?]+[.!?]+|[^.!?]+$/g)
+      ?.map((sentence) => sentence.trim()) ?? [paragraph];
 
     for (const sentence of sentences) {
-      const combined = currentChunk
-        ? `${currentChunk} ${sentence}`
-        : sentence;
+      const combined = currentChunk ? `${currentChunk} ${sentence}` : sentence;
 
       if (combined.length <= maxLength) {
         currentChunk = combined;
@@ -120,45 +112,11 @@ function splitTextIntoChunks(text: string, maxLength = 2200): string[] {
   return chunks;
 }
 
-async function createSpeechAudio(text: string): Promise<Blob> {
-  const response = await fetch(TTS_ENDPOINT, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "audio/mpeg",
-    },
-    body: JSON.stringify({
-      text,
-      voiceId: VOICE_ID,
-    }),
-  });
-
-  if (!response.ok) {
-    let message = "Die Sprachausgabe konnte nicht erstellt werden.";
-
-    try {
-      const data = await response.json();
-
-      if (typeof data?.error === "string") {
-        message = data.error;
-      }
-    } catch {
-      // Die Standardfehlermeldung bleibt bestehen.
-    }
-
-    throw new Error(message);
-  }
-
-  return response.blob();
-}
-
-export default function KnowledgeBaseReader({
-  title,
-  content,
-}: KnowledgeBaseReaderProps) {
+export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseReaderProps) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const objectUrlRef = useRef<string | null>(null);
   const readingSessionRef = useRef(0);
+  const abortControllerRef = useRef<AbortController | null>(null);
 
   const [isPreparing, setIsPreparing] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -167,7 +125,7 @@ export default function KnowledgeBaseReader({
   const [totalParts, setTotalParts] = useState(0);
   const [error, setError] = useState<string | null>(null);
 
-  const releaseCurrentAudio = () => {
+  const releaseCurrentAudio = useCallback(() => {
     if (audioRef.current) {
       audioRef.current.pause();
       audioRef.current.removeAttribute("src");
@@ -179,10 +137,16 @@ export default function KnowledgeBaseReader({
       URL.revokeObjectURL(objectUrlRef.current);
       objectUrlRef.current = null;
     }
-  };
+  }, []);
+
+  const abortPendingRequest = useCallback(() => {
+    abortControllerRef.current?.abort();
+    abortControllerRef.current = null;
+  }, []);
 
   const stopReading = () => {
     readingSessionRef.current += 1;
+    abortPendingRequest();
     releaseCurrentAudio();
 
     setIsPreparing(false);
@@ -192,10 +156,7 @@ export default function KnowledgeBaseReader({
     setTotalParts(0);
   };
 
-  const playAudioBlob = (
-    blob: Blob,
-    sessionId: number,
-  ): Promise<void> => {
+  const playAudioBlob = (blob: Blob, sessionId: number): Promise<void> => {
     return new Promise((resolve, reject) => {
       if (sessionId !== readingSessionRef.current) {
         resolve();
@@ -249,9 +210,7 @@ export default function KnowledgeBaseReader({
     stopReading();
     setError(null);
 
-    const preparedContent = prepareTextForSpeech(
-      [title, content].filter(Boolean).join("\n\n"),
-    );
+    const preparedContent = prepareTextForSpeech([title, content].filter(Boolean).join("\n\n"));
 
     if (!preparedContent) {
       setError("Für diesen Beitrag wurde kein vorlesbarer Text gefunden.");
@@ -273,7 +232,23 @@ export default function KnowledgeBaseReader({
         setCurrentPart(index + 1);
         setIsPreparing(true);
 
-        const audioBlob = await createSpeechAudio(chunks[index]);
+        const abortController = new AbortController();
+        abortControllerRef.current = abortController;
+
+        let audioBlob: Blob;
+        try {
+          audioBlob = await requestElevenLabsAudio(
+            {
+              text: chunks[index],
+              voiceId: ELEVENLABS_VOICE_ID,
+            },
+            abortController.signal,
+          );
+        } finally {
+          if (abortControllerRef.current === abortController) {
+            abortControllerRef.current = null;
+          }
+        }
 
         if (sessionId !== readingSessionRef.current) {
           return;
@@ -329,9 +304,10 @@ export default function KnowledgeBaseReader({
   useEffect(() => {
     return () => {
       readingSessionRef.current += 1;
+      abortPendingRequest();
       releaseCurrentAudio();
     };
-  }, []);
+  }, [abortPendingRequest, releaseCurrentAudio]);
 
   return (
     <div className="my-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
@@ -366,11 +342,7 @@ export default function KnowledgeBaseReader({
           </button>
         )}
 
-        {isPreparing && (
-          <span className="text-sm text-slate-500">
-            Stimme wird vorbereitet …
-          </span>
-        )}
+        {isPreparing && <span className="text-sm text-slate-500">Stimme wird vorbereitet …</span>}
 
         {totalParts > 1 && currentPart > 0 && (
           <span className="text-sm text-slate-500">
@@ -380,10 +352,7 @@ export default function KnowledgeBaseReader({
       </div>
 
       {error && (
-        <p
-          role="alert"
-          className="mt-3 rounded-xl bg-red-50 px-3 py-2 text-sm text-red-700"
-        >
+        <p role="alert" className="mt-3 rounded-xl bg-red-50 px-3 py-2 text-sm text-red-700">
           {error}
         </p>
       )}

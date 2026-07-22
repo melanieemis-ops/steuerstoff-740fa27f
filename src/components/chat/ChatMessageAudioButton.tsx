@@ -8,7 +8,7 @@
  */
 
 import { AlertCircle, Loader2, Pause, Play, Square, Volume2 } from "lucide-react";
-import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import {
   getCachedAudioUrl,
   hashText,
@@ -17,6 +17,7 @@ import {
   setCachedAudioUrl,
 } from "@/lib/chatTtsClient";
 import { apiUrl } from "@/lib/api";
+import { loadSpeechSettings } from "@/lib/speech-storage";
 
 type Props = {
   messageId: string;
@@ -31,8 +32,8 @@ type Status = "idle" | "loading" | "ready" | "error";
 
 export function ChatMessageAudioButton({ messageId, text, isStreaming = false }: Props) {
   const trimmed = text.trim();
-  const cacheKey = useMemo(() => hashText(trimmed), [trimmed]);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const abortControllerRef = useRef<AbortController | null>(null);
   const instanceId = useId();
 
   const [status, setStatus] = useState<Status>("idle");
@@ -58,6 +59,7 @@ export function ChatMessageAudioButton({ messageId, text, isStreaming = false }:
 
   useEffect(() => {
     return () => {
+      abortControllerRef.current?.abort();
       const el = audioRef.current;
       if (el) el.pause();
     };
@@ -109,22 +111,36 @@ export function ChatMessageAudioButton({ messageId, text, isStreaming = false }:
       return;
     }
 
-    // Aus Cache?
+    // Neu generieren
+    setStatus("loading");
+    setErrorMsg(null);
+    const speechSettings = loadSpeechSettings();
+    const apiKey = speechSettings.apiKey?.trim();
+    const voiceId = speechSettings.voiceIdOverride?.trim();
+    if (!apiKey || !voiceId) {
+      setStatus("error");
+      setErrorMsg("Bitte API-Key und Voice-ID in den Einstellungen eintragen.");
+      return;
+    }
+
+    const cacheKey = hashText(`${voiceId}\n${trimmed}`);
+
     const cached = getCachedAudioUrl(cacheKey);
     if (cached) {
+      setStatus("ready");
       const el = attachAudio(cached);
       await play(el);
       return;
     }
 
-    // Neu generieren
-    setStatus("loading");
-    setErrorMsg(null);
+    const abortController = new AbortController();
+    abortControllerRef.current = abortController;
     try {
       const res = await fetch(apiUrl("/api/chat-tts"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: trimmed }),
+        body: JSON.stringify({ text: trimmed, apiKey, voiceId }),
+        signal: abortController.signal,
       });
       if (!res.ok) {
         const msg = await res.text().catch(() => "");
@@ -138,11 +154,16 @@ export function ChatMessageAudioButton({ messageId, text, isStreaming = false }:
       setStatus("ready");
       const el = attachAudio(url);
       await play(el);
-    } catch {
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") return;
       setStatus("error");
       setErrorMsg("Netzwerkfehler beim Erzeugen der Audioausgabe.");
+    } finally {
+      if (abortControllerRef.current === abortController) {
+        abortControllerRef.current = null;
+      }
     }
-  }, [attachAudio, cacheKey, isPlaying, isStreaming, play, trimmed]);
+  }, [attachAudio, isPlaying, isStreaming, play, trimmed]);
 
   const handleStop = useCallback(() => {
     const el = audioRef.current;
@@ -199,10 +220,7 @@ export function ChatMessageAudioButton({ messageId, text, isStreaming = false }:
         className={isPlaying || audioRef.current ? active : idle}
         style={{ minHeight: 44, minWidth: 44 }}
       >
-        <Icon
-          className={`h-3 w-3 ${isLoading ? "animate-spin" : ""}`}
-          aria-hidden="true"
-        />
+        <Icon className={`h-3 w-3 ${isLoading ? "animate-spin" : ""}`} aria-hidden="true" />
         <span>{label}</span>
       </button>
 

@@ -39,7 +39,19 @@ export const Route = createFileRoute("/lernen_/pruefungssimulation")({
 });
 
 function ExamSimulationPage() {
-  const { session, createSession } = useExamSession();
+  const {
+    session,
+    createSession,
+    selectAnswer,
+    toggleMarkQuestion,
+    goToQuestion,
+    nextQuestion,
+    previousQuestion,
+    handleSubmitExam: submitExam,
+    abandonSession: abandon,
+    getQuestionStats,
+    timeRemaining,
+  } = useExamSession();
   const [selectedCategories, setSelectedCategories] = useState<LearningCategory[]>([]);
   const [questionCount, setQuestionCount] = useState(10);
   const [timeLimit, setTimeLimit] = useState<number | null>(null);

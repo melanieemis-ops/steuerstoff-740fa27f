@@ -146,17 +146,8 @@ function ExamSimulationPage() {
     // Logic to start new exam (reset session) is handled by abandonSession
   };
 
-  const {
-    selectAnswer,
-    toggleMarkQuestion,
-    goToQuestion,
-    nextQuestion,
-    previousQuestion,
-    handleSubmitExam: submitExam,
-    abandonSession: abandon,
-    getQuestionStats,
-    timeRemaining,
-  } = useExamSession();
+
+
 
   // If exam is running, render exam view instead
   if (session && !session.isSubmitted && !session.isAbandoned) {

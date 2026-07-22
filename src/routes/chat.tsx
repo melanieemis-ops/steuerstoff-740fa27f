@@ -14,10 +14,8 @@ import { ChatAttachmentButton } from "@/components/chat/ChatAttachmentButton";
 import { ChatMessageAudioButton } from "@/components/chat/ChatMessageAudioButton";
 import { ChatMessageAttachments } from "@/components/chat/ChatMessageAttachments";
 import { FileDropZone } from "@/components/chat/FileDropZone";
-import { SpeechMiniPlayer } from "@/components/chat/SpeechMiniPlayer";
 import { UploadSafetyNotice } from "@/components/chat/UploadSafetyNotice";
 import { useChatAttachments } from "@/hooks/useChatAttachments";
-import { SpeechProvider } from "@/hooks/useSpeechSynthesis";
 import { useVoiceInput } from "@/hooks/useVoiceInput";
 import {
   ALL_ATTACHMENT_ACCEPT,
@@ -627,8 +625,7 @@ function ChatPage() {
     !busy && ((chatAttachments.attachments.length === 0 && hasText) || allAttachmentsReady);
 
   return (
-    <SpeechProvider>
-      <div
+    <div
         className="chat-page chat-bg-deep relative flex min-h-screen flex-col"
         data-page="chat"
         onDragEnter={chatAttachments.onDragEnter}
@@ -1031,8 +1028,6 @@ function ChatPage() {
           }}
         />
       </div>
-      <SpeechMiniPlayer />
-    </SpeechProvider>
   );
 }
 

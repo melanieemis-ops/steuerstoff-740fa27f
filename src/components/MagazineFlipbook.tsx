@@ -223,27 +223,6 @@ function pageBackgroundColor(page: MagazinePage): string {
     : "#f6f0e7";
 }
 
-function normalizeForSpeech(text: string): string {
-  return text
-    .replace(/§§/g, "Paragrafen")
-    .replace(/§/g, "Paragraf")
-    .replace(/(\d+)([a-z])\b/g, "$1 $2")
-    .replace(/\bAbs\./g, "Absatz")
-    .replace(/\bNr\./g, "Nummer")
-    .replace(/\bBuchst\./g, "Buchstabe")
-    .replace(/\bEStG\b/g, "Einkommensteuergesetz")
-    .replace(/\bUStG\b/g, "Umsatzsteuergesetz")
-    .replace(/\bAO\b/g, "Abgabenordnung")
-    .replace(/\bKStG\b/g, "Körperschaftsteuergesetz")
-    .replace(/\bGewStG\b/g, "Gewerbesteuergesetz")
-    .replace(/\bBGB\b/g, "Bürgerliches Gesetzbuch")
-    .replace(/\bBFH\b/g, "Bundesfinanzhof")
-    .replace(/\bBMF\b/g, "Bundesministerium der Finanzen")
-    .replace(/\bEuGH\b/g, "Europäischer Gerichtshof")
-    .replace(/\bEWR\b/g, "Europäischer Wirtschaftsraum")
-    .replace(/\bEU\b/g, "Europäische Union");
-}
-
 function blockToPlainText(block: ArticleBlockLike): string {
   switch (block.type) {
     case "paragraph":
@@ -284,10 +263,9 @@ function blockToPlainText(block: ArticleBlockLike): string {
 // Local alias to make blockToPlainText typing simple
 type ArticleBlockLike = MagazineArticle["blocks"][number];
 
-function ArticleToolbar({ article, hideSpeak = false }: { article: MagazineArticle; hideSpeak?: boolean }) {
+function ArticleToolbar({ article }: { article: MagazineArticle }) {
   const bookmarkKey = `steuerstoff-magazin-bookmark-${article.id}`;
   const [bookmarked, setBookmarked] = useState(false);
-  const [isSpeaking, setIsSpeaking] = useState(false);
 
   useEffect(() => {
     try {
@@ -296,14 +274,6 @@ function ArticleToolbar({ article, hideSpeak = false }: { article: MagazineArtic
       /* ignore */
     }
   }, [bookmarkKey]);
-
-  useEffect(() => {
-    return () => {
-      if (typeof window !== "undefined" && "speechSynthesis" in window) {
-        window.speechSynthesis.cancel();
-      }
-    };
-  }, []);
 
   const toggleBookmark = () => {
     try {
@@ -337,36 +307,6 @@ function ArticleToolbar({ article, hideSpeak = false }: { article: MagazineArtic
     }
   };
 
-  const speak = () => {
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-    const synth = window.speechSynthesis;
-    if (isSpeaking) {
-      synth.cancel();
-      setIsSpeaking(false);
-      return;
-    }
-    const parts: string[] = [
-      article.title,
-      article.subtitle ?? "",
-      article.lead,
-      ...article.blocks.map(blockToPlainText),
-    ];
-    const full = normalizeForSpeech(parts.filter(Boolean).join(". "));
-    // Chunk to avoid engine limits
-    const chunks = full.match(/[^.!?]+[.!?]+|\S[^.!?]*$/g) ?? [full];
-    synth.cancel();
-    chunks.forEach((c, idx) => {
-      const u = new SpeechSynthesisUtterance(c.trim());
-      u.lang = "de-DE";
-      u.rate = 1;
-      if (idx === chunks.length - 1) {
-        u.onend = () => setIsSpeaking(false);
-      }
-      synth.speak(u);
-    });
-    setIsSpeaking(true);
-  };
-
   return (
     <div className="mb-4 flex flex-wrap items-center gap-2">
       <button
@@ -377,16 +317,6 @@ function ArticleToolbar({ article, hideSpeak = false }: { article: MagazineArtic
       >
         {bookmarked ? "★ Gemerkt" : "☆ Merken"}
       </button>
-      {hideSpeak ? null : (
-        <button
-          type="button"
-          onClick={speak}
-          aria-pressed={isSpeaking}
-          className="inline-flex items-center gap-1.5 rounded-full border border-[#22d3ee]/30 bg-[#0b1220]/5 px-3 py-1.5 text-[12px] font-medium text-[#0b1220] transition hover:bg-[#0b1220]/10"
-        >
-          {isSpeaking ? "⏹ Stoppen" : "▶ Vorlesen"}
-        </button>
-      )}
       <button
         type="button"
         onClick={share}
@@ -630,9 +560,7 @@ function FullArticle({ article }: { article: MagazineArticle }) {
             }
           />
         ) : null}
-        {isSpecial || isAudioAllowed(article.id) ? (
-          <ArticleToolbar article={article} hideSpeak={isAudioAllowed(article.id)} />
-        ) : null}
+        {isSpecial || isAudioAllowed(article.id) ? <ArticleToolbar article={article} /> : null}
         {isSpecial ? (
           <p
             className="font-medium leading-[1.65] text-[#3a2f20]"

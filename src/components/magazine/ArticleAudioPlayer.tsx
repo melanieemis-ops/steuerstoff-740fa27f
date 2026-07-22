@@ -25,7 +25,6 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AUDIO_CONTENT_VERSION } from "@/lib/articleSpeechText";
 import { apiUrl } from "@/lib/api";
 import { onAudioStop, requestStopAllAudio } from "@/lib/chatTtsClient";
-import { normalizeForSpeech } from "@/lib/speech-normalize";
 
 type BrowserSpeakContext = {
   title: string;
@@ -241,7 +240,6 @@ function HlsPlayer({
   const [duration, setDuration] = useState<number>(NaN);
   const [speed, setSpeed] = useState<Speed>(1);
   const [muted, setMuted] = useState(false);
-  const [browserFallbackActive, setBrowserFallbackActive] = useState(false);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const restoredRef = useRef(false);
@@ -299,7 +297,6 @@ function HlsPlayer({
     if (typeof window !== "undefined" && "speechSynthesis" in window) {
       window.speechSynthesis.cancel();
     }
-    setBrowserFallbackActive(false);
   }, []);
 
   // Ein einziges Audio-Element für die gesamte Lebensdauer. Wird NICHT durch
@@ -514,35 +511,6 @@ function HlsPlayer({
     });
   }, []);
 
-  const startBrowserFallback = useCallback(() => {
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-    requestStopAllAudio(sourceId);
-    const el = audioRef.current;
-    if (el && !el.paused) el.pause();
-    const synth = window.speechSynthesis;
-    synth.cancel();
-    const parts = [
-      browserSpeakContext.title,
-      browserSpeakContext.subtitle ?? "",
-      browserSpeakContext.lead,
-      browserSpeakContext.bodyText,
-    ];
-    const full = browserSpeakContext.speechOverride
-      ? browserSpeakContext.speechOverride
-      : normalizeForSpeech(parts.filter(Boolean).join(". "));
-    const chunks = full.match(/[^.!?]+[.!?]+|\S[^.!?]*$/g) ?? [full];
-    setBrowserFallbackActive(true);
-    chunks.forEach((c, idx) => {
-      const u = new SpeechSynthesisUtterance(c.trim());
-      u.lang = "de-DE";
-      u.rate = 1;
-      if (idx === chunks.length - 1) {
-        u.onend = () => setBrowserFallbackActive(false);
-      }
-      synth.speak(u);
-    });
-  }, [browserSpeakContext, sourceId]);
-
   // Media Session – lokal in HLS-Modus, steuert dasselbe Audio-Element.
   useMediaSession(true, browserSpeakContext.title, browserSpeakContext.subtitle, {
     play: () => {
@@ -593,9 +561,6 @@ function HlsPlayer({
       onSeekBack={() => seekBy(-15)}
       onSeekForward={() => seekBy(15)}
       onRetry={retryAfterError}
-      onBrowserFallback={startBrowserFallback}
-      browserFallbackActive={browserFallbackActive}
-      onStopBrowser={stopBrowserSpeech}
       currentTime={currentTime}
       totalDuration={effectiveDuration}
       totalLabel={totalLabel}
@@ -634,7 +599,6 @@ function PlaylistPlayer({
   const [pendingClick, setPendingClick] = useState(false);
   const [speed, setSpeed] = useState<Speed>(1);
   const [muted, setMuted] = useState(false);
-  const [browserFallbackActive, setBrowserFallbackActive] = useState(false);
 
   const currentAudioRef = useRef<HTMLAudioElement | null>(null);
   const preloadAudioRef = useRef<HTMLAudioElement | null>(null);
@@ -722,7 +686,6 @@ function PlaylistPlayer({
     if (typeof window !== "undefined" && "speechSynthesis" in window) {
       window.speechSynthesis.cancel();
     }
-    setBrowserFallbackActive(false);
   }, []);
 
   useEffect(() => {
@@ -1029,35 +992,6 @@ function PlaylistPlayer({
     });
   }, []);
 
-  const startBrowserFallback = useCallback(() => {
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-    requestStopAllAudio(sourceId);
-    disposeAudio(currentAudioRef);
-    disposeAudio(preloadAudioRef);
-    const synth = window.speechSynthesis;
-    synth.cancel();
-    const parts = [
-      browserSpeakContext.title,
-      browserSpeakContext.subtitle ?? "",
-      browserSpeakContext.lead,
-      browserSpeakContext.bodyText,
-    ];
-    const full = browserSpeakContext.speechOverride
-      ? browserSpeakContext.speechOverride
-      : normalizeForSpeech(parts.filter(Boolean).join(". "));
-    const chunks = full.match(/[^.!?]+[.!?]+|\S[^.!?]*$/g) ?? [full];
-    setBrowserFallbackActive(true);
-    chunks.forEach((c, idx) => {
-      const u = new SpeechSynthesisUtterance(c.trim());
-      u.lang = "de-DE";
-      u.rate = 1;
-      if (idx === chunks.length - 1) {
-        u.onend = () => setBrowserFallbackActive(false);
-      }
-      synth.speak(u);
-    });
-  }, [browserSpeakContext, disposeAudio, sourceId]);
-
   const isLoading = status === "loading";
   const hasManifest = !!manifest;
   const totalLabel = !hasManifest
@@ -1085,9 +1019,6 @@ function PlaylistPlayer({
       onSeekBack={() => seekBy(-15)}
       onSeekForward={() => seekBy(15)}
       onRetry={retryAfterError}
-      onBrowserFallback={startBrowserFallback}
-      browserFallbackActive={browserFallbackActive}
-      onStopBrowser={stopBrowserSpeech}
       currentTime={globalTime}
       totalDuration={totalDuration}
       totalLabel={totalLabel}
@@ -1118,9 +1049,6 @@ function PlayerShell(props: {
   onSeekBack: () => void;
   onSeekForward: () => void;
   onRetry: () => void;
-  onBrowserFallback: () => void;
-  browserFallbackActive: boolean;
-  onStopBrowser: () => void;
   currentTime: number;
   totalDuration: number;
   totalLabel: string;
@@ -1144,9 +1072,6 @@ function PlayerShell(props: {
     onSeekBack,
     onSeekForward,
     onRetry,
-    onBrowserFallback,
-    browserFallbackActive,
-    onStopBrowser,
     currentTime,
     totalDuration,
     totalLabel,
@@ -1185,13 +1110,6 @@ function PlayerShell(props: {
               className="rounded-full border border-[#22d3ee]/40 bg-white/5 px-3 py-1.5 text-[12px] font-medium text-[#f5efe1] transition hover:bg-white/10"
             >
               Erneut versuchen
-            </button>
-            <button
-              type="button"
-              onClick={onBrowserFallback}
-              className="rounded-full border border-[#22d3ee]/40 bg-white/5 px-3 py-1.5 text-[12px] font-medium text-[#f5efe1] transition hover:bg-white/10"
-            >
-              Browserstimme verwenden
             </button>
           </div>
         ) : null}
@@ -1305,13 +1223,6 @@ function PlayerShell(props: {
                 </button>
               );
             })}
-            <button
-              type="button"
-              onClick={browserFallbackActive ? onStopBrowser : onBrowserFallback}
-              className="ml-auto rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-medium text-[#c8d3ea] transition hover:bg-white/10"
-            >
-              {browserFallbackActive ? "Browserstimme stoppen" : "Browserstimme"}
-            </button>
           </div>
         </div>
       ) : null}

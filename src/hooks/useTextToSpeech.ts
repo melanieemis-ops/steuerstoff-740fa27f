@@ -86,9 +86,7 @@ export function useTextToSpeech() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [currentTime, setCurrentTime] = useState(0);
   const [totalDuration, setTotalDuration] = useState(0);
-  const [allowBrowserFallback, setAllowBrowserFallbackState] = useState(
-    initialSettings.allowBrowserFallback ?? false,
-  );
+  const [allowBrowserFallback, setAllowBrowserFallbackState] = useState(false);
   const [voiceProfileId, setVoiceProfileIdState] = useState(
     initialSettings.profileId ?? TTS_VOICE_PROFILES[0].id,
   );
@@ -100,7 +98,6 @@ export function useTextToSpeech() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const abortRef = useRef<AbortController | null>(null);
   const requestTokenRef = useRef(0);
-  const fallbackQueueRef = useRef<QueueItem[]>([]);
 
   const persistSettings = useCallback(
     (next: {
@@ -114,12 +111,12 @@ export function useTextToSpeech() {
         rate,
         profileId: voiceProfileId,
         voiceIdOverride,
-        allowBrowserFallback,
+        allowBrowserFallback: false,
         ...next,
       };
       saveSpeechSettings(merged);
     },
-    [allowBrowserFallback, rate, voiceIdOverride, voiceProfileId],
+    [rate, voiceIdOverride, voiceProfileId],
   );
 
   const stopInternal = useCallback(() => {
@@ -169,44 +166,6 @@ export function useTextToSpeech() {
     }
     return total;
   }, []);
-
-  const playBrowserFallback = useCallback(
-    (index: number, token: number) => {
-      if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-      if (token !== requestTokenRef.current) return;
-      const item = fallbackQueueRef.current[index];
-      if (!item) {
-        setStatus("ended");
-        setCurrentSectionIndex(-1);
-        setCurrentSectionId(null);
-        return;
-      }
-
-      setCurrentSectionIndex(index);
-      setCurrentSectionId(item.id);
-      setCurrentTime(getElapsedBefore(index));
-
-      const utterance = new SpeechSynthesisUtterance(item.text);
-      utterance.lang = "de-DE";
-      utterance.rate = rate;
-
-      utterance.onstart = () => {
-        if (token !== requestTokenRef.current) return;
-        setStatus("playing");
-      };
-      utterance.onend = () => {
-        if (token !== requestTokenRef.current) return;
-        playBrowserFallback(index + 1, token);
-      };
-      utterance.onerror = () => {
-        if (token !== requestTokenRef.current) return;
-        playBrowserFallback(index + 1, token);
-      };
-
-      window.speechSynthesis.speak(utterance);
-    },
-    [getElapsedBefore, rate],
-  );
 
   const startFromIndex = useCallback(
     async (index: number, startAtSeconds = 0, shouldPlay = true) => {
@@ -350,7 +309,6 @@ export function useTextToSpeech() {
       }
 
       queueRef.current = queue;
-      fallbackQueueRef.current = queue;
       sectionDurationsRef.current = queue.map(() => 0);
       setTotalSections(queue.length);
       setTotalDuration(0);
@@ -467,23 +425,17 @@ export function useTextToSpeech() {
   );
 
   const setAllowBrowserFallback = useCallback(
-    (enabled: boolean) => {
-      setAllowBrowserFallbackState(enabled);
-      persistSettings({ allowBrowserFallback: enabled });
+    (_enabled: boolean) => {
+      setAllowBrowserFallbackState(false);
+      persistSettings({ allowBrowserFallback: false });
     },
     [persistSettings],
   );
 
   const startBrowserFallback = useCallback(() => {
-    if (!allowBrowserFallback) return;
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-    if (!fallbackQueueRef.current.length) return;
-
-    stopInternal();
-    requestTokenRef.current += 1;
-    const token = requestTokenRef.current;
-    playBrowserFallback(0, token);
-  }, [allowBrowserFallback, playBrowserFallback, stopInternal]);
+    setAllowBrowserFallbackState(false);
+    setErrorMessage("Nur KI-Stimme (ElevenLabs) ist aktiviert.");
+  }, []);
 
   useEffect(() => {
     const onPageHide = () => {

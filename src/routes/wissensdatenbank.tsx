@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { BookOpen, Search, X, Copy, Check, ClipboardList, FileText, Upload } from "lucide-react";
 import { KNOWLEDGE_BASE } from "@/lib/knowledgeBase";
 import { HandoutsManager } from "@/components/HandoutsManager";
+import KnowledgeBaseReader from "@/components/KnowledgeBaseReader";
 import { listHandouts, type Handout } from "@/lib/knowledgeTopics";
 import { useIsAdmin } from "@/hooks/useIsAdmin";
 
@@ -652,6 +653,10 @@ function ArticleDetails({
       </div>
 
       <div className="flex-1 overflow-y-auto p-4 pb-6">
+        {!isKlausurfall(article) && (
+          <KnowledgeBaseReader title={article.title} content={articleBody(article)} />
+        )}
+
         {isKlausurfall(article) && (
           <section className="rounded-xl border border-border bg-background p-3 sm:p-4">
             <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">

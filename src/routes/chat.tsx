@@ -1259,7 +1259,7 @@ function AssistantCard({
     <div
       className={[
         "w-full max-w-[94%] space-y-3 rounded-2xl rounded-tl-md border bg-card p-4 shadow-sm transition-all duration-300",
-        isActive
+        isStreaming
           ? "border-cyan-400/60 dark:border-cyan-500/50 shadow-[0_0_0_1px_theme(colors.cyan.400/30),0_4px_24px_-4px_theme(colors.cyan.400/20)] dark:shadow-[0_0_0_1px_theme(colors.cyan.500/25),0_4px_24px_-4px_theme(colors.cyan.500/15)]"
           : "border-border",
       ].join(" ")}

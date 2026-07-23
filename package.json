@@ -18,7 +18,7 @@
     "cap:open:ios": "npm run cap:sync:ios && npx cap open ios",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
-    "test:kfz": "node --experimental-strip-types --test tests/kfzWertabgabe.test.ts",
+    "test:kfz": "node --experimental-strip-types --test tests/kfzWertabgabe*.test.ts",
     "lint": "eslint .",
     "format": "prettier --write ."
   },

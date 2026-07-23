@@ -1,3 +1,4 @@
+import { Capacitor } from "@capacitor/core";
 import {
   calculateKfz,
   getKfzCalculationErrors,
@@ -745,23 +746,29 @@ export async function deliverKfzWorkpaper(
   fileName: string,
 ): Promise<KfzWorkpaperDelivery> {
   const blob = new Blob([bytes], { type: XLSX_MIME });
-  const file = new File([blob], fileName, { type: XLSX_MIME });
-  const shareData: ShareData = {
-    title: "Kfz-Wertabgaben-Arbeitspapier",
-    text: "Excel-Arbeitspapier aus steuerstoff",
-    files: [file],
-  };
 
-  if (navigator.share && navigator.canShare?.(shareData)) {
-    await navigator.share(shareData);
-    return { shared: true };
+  if (Capacitor.isNativePlatform() && navigator.share) {
+    const file = new File([blob], fileName, { type: XLSX_MIME });
+    const shareData: ShareData = {
+      title: "Kfz-Wertabgaben-Arbeitspapier",
+      text: "Excel-Arbeitspapier aus steuerstoff",
+      files: [file],
+    };
+    const canShareFile = navigator.canShare ? navigator.canShare(shareData) : true;
+    if (canShareFile) {
+      await navigator.share(shareData);
+      return { shared: true };
+    }
   }
 
   const url = URL.createObjectURL(blob);
   const anchor = document.createElement("a");
   anchor.href = url;
   anchor.download = fileName;
+  anchor.style.display = "none";
+  document.body.appendChild(anchor);
   anchor.click();
-  setTimeout(() => URL.revokeObjectURL(url), 1_000);
+  anchor.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 60_000);
   return { shared: false };
 }

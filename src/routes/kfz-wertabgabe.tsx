@@ -1273,6 +1273,17 @@ function Page() {
                         <li>Weitere {workpaperErrors.length - 4} Angaben fehlen.</li>
                       )}
                     </ul>
+                    <Button
+                      disabled
+                      className="mt-3 w-full sm:w-auto"
+                      aria-describedby="excel-missing-fields"
+                    >
+                      <FileSpreadsheet className="h-4 w-4" />
+                      Excel-Arbeitspapier herunterladen
+                    </Button>
+                    <p id="excel-missing-fields" className="mt-1.5 text-[11px] text-amber-800">
+                      Der Button wird aktiv, sobald die oben genannten Angaben vollständig sind.
+                    </p>
                   </div>
                 </div>
               </div>

@@ -1,7 +1,11 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import type { CostRow, Vehicle } from "../src/lib/kfzWertabgabe.ts";
-import { createKfzWorkpaper, getKfzWorkpaperErrors } from "../src/lib/kfzWertabgabeExcel.ts";
+import {
+  createKfzWorkpaper,
+  deliverKfzWorkpaper,
+  getKfzWorkpaperErrors,
+} from "../src/lib/kfzWertabgabeExcel.ts";
 
 const EURO_FORMAT = "#,##0.00 [$€-407]";
 
@@ -129,4 +133,76 @@ test("unvollständige Eingaben blockieren den Excel-Export", async () => {
   assert.ok(errors.some((error) => error.includes("Bruttolistenpreis")));
   assert.ok(errors.some((error) => error.includes("Gesamtfahrzeugkosten")));
   await assert.rejects(() => createKfzWorkpaper([input]), /Bruttolistenpreis/);
+});
+
+test("Web-Download lädt die Excel-Datei direkt statt die Teilen-Funktion zu öffnen", async () => {
+  const navigatorDescriptor = Object.getOwnPropertyDescriptor(globalThis, "navigator");
+  const documentDescriptor = Object.getOwnPropertyDescriptor(globalThis, "document");
+  const originalCreateObjectUrl = URL.createObjectURL;
+  const originalRevokeObjectUrl = URL.revokeObjectURL;
+  const originalSetTimeout = globalThis.setTimeout;
+  let shareCalled = false;
+  let anchorAppended = false;
+  let anchorClicked = false;
+  let anchorRemoved = false;
+  let objectUrlRevoked = false;
+  const anchor = {
+    href: "",
+    download: "",
+    style: { display: "" },
+    click: () => {
+      anchorClicked = true;
+    },
+    remove: () => {
+      anchorRemoved = true;
+    },
+  };
+
+  Object.defineProperty(globalThis, "navigator", {
+    configurable: true,
+    value: {
+      canShare: () => true,
+      share: async () => {
+        shareCalled = true;
+      },
+    },
+  });
+  Object.defineProperty(globalThis, "document", {
+    configurable: true,
+    value: {
+      body: {
+        appendChild: () => {
+          anchorAppended = true;
+        },
+      },
+      createElement: () => anchor,
+    },
+  });
+  URL.createObjectURL = () => "blob:steuerstoff-test";
+  URL.revokeObjectURL = () => {
+    objectUrlRevoked = true;
+  };
+  globalThis.setTimeout = ((handler: TimerHandler) => {
+    if (typeof handler === "function") handler();
+    return 1;
+  }) as typeof setTimeout;
+
+  try {
+    const delivery = await deliverKfzWorkpaper(new ArrayBuffer(8), "arbeitspapier.xlsx");
+    assert.equal(delivery.shared, false);
+    assert.equal(shareCalled, false);
+    assert.equal(anchorAppended, true);
+    assert.equal(anchorClicked, true);
+    assert.equal(anchorRemoved, true);
+    assert.equal(objectUrlRevoked, true);
+    assert.equal(anchor.download, "arbeitspapier.xlsx");
+  } finally {
+    if (navigatorDescriptor) Object.defineProperty(globalThis, "navigator", navigatorDescriptor);
+    else Reflect.deleteProperty(globalThis, "navigator");
+    if (documentDescriptor) Object.defineProperty(globalThis, "document", documentDescriptor);
+    else Reflect.deleteProperty(globalThis, "document");
+    URL.createObjectURL = originalCreateObjectUrl;
+    URL.revokeObjectURL = originalRevokeObjectUrl;
+    globalThis.setTimeout = originalSetTimeout;
+  }
 });

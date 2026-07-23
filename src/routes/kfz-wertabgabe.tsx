@@ -5,6 +5,12 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Plus, Trash2, Copy, Download, AlertTriangle, Info, Car, FileText } from "lucide-react";
+import {
+  calculateKfz as calc,
+  type CostRow,
+  type Nachweis,
+  type Vehicle,
+} from "@/lib/kfzWertabgabe";
 
 export const Route = createFileRoute("/kfz-wertabgabe")({
   component: Page,
@@ -20,52 +26,19 @@ export const Route = createFileRoute("/kfz-wertabgabe")({
   }),
 });
 
-// ---------- Number parsing (deutsch) ----------
-function parseDe(input: string): number | null {
-  const s = input.trim();
-  if (!s) return null;
-  // Tausenderpunkt + Dezimalkomma
-  // 1.200,50 / 1200,50 / 20 / 20.00 / 20,00
-  const normalized = s.includes(",")
-    ? s.replace(/\./g, "").replace(",", ".")
-    : // ohne Komma: Punkt als Dezimaltrenner zulassen, wenn nur ein Punkt mit 1-2 Nachkommastellen
-      /^\d+\.\d{1,2}$/.test(s)
-      ? s
-      : s.replace(/\./g, "");
-  const n = Number(normalized);
-  return Number.isFinite(n) ? n : null;
-}
 const fmtEUR = (n: number | null | undefined) =>
   n == null || !Number.isFinite(n)
     ? "nicht angegeben"
-    : n.toLocaleString("de-DE", { style: "currency", currency: "EUR", minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    : n.toLocaleString("de-DE", {
+        style: "currency",
+        currency: "EUR",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      });
 const fmtNum = (n: number | null | undefined, d = 2) =>
-  n == null || !Number.isFinite(n) ? "nicht angegeben" : n.toLocaleString("de-DE", { minimumFractionDigits: d, maximumFractionDigits: d });
-
-// ---------- Types ----------
-type Nachweis = "ja" | "nein" | "unklar";
-
-interface CostRow {
-  key: string;
-  label: string;
-  hint?: string;
-  totalNet: string;
-  withoutVat: string;
-}
-
-interface Vehicle {
-  id: string;
-  bez: string;
-  kennz: string;
-  fuehrer: string;
-  anschaffung: string;
-  blpInput: string;
-  monateInput: string;
-  distanceInput: string;
-  workdaysInput: string;
-  nachweis: Nachweis;
-  costs: CostRow[];
-}
+  n == null || !Number.isFinite(n)
+    ? "nicht angegeben"
+    : n.toLocaleString("de-DE", { minimumFractionDigits: d, maximumFractionDigits: d });
 
 function uid() {
   return Math.random().toString(36).slice(2, 10);
@@ -77,16 +50,30 @@ const COST_DEFS: { key: string; label: string; hint?: string }[] = [
   { key: "zinsen", label: "Schuldzinsen", hint: "regelmäßig ohne Vorsteuer prüfen" },
   { key: "kfzst", label: "Kfz-Steuer", hint: "regelmäßig ohne Vorsteuer" },
   { key: "vers", label: "Kfz-Versicherung", hint: "regelmäßig ohne Vorsteuer" },
-  { key: "kraft", label: "Kraftstoff", hint: "regelmäßig mit Vorsteuer, sofern ordnungsgemäße Rechnung vorliegt" },
+  {
+    key: "kraft",
+    label: "Kraftstoff",
+    hint: "regelmäßig mit Vorsteuer, sofern ordnungsgemäße Rechnung vorliegt",
+  },
   { key: "pflege", label: "Wagenpflege / Öl", hint: "regelmäßig mit Vorsteuer" },
   { key: "rep", label: "Reparaturen", hint: "regelmäßig mit Vorsteuer" },
-  { key: "verse", label: "Versicherungsentschädigungen (-)", hint: "als negativer Betrag erfassen" },
+  {
+    key: "verse",
+    label: "Versicherungsentschädigungen (-)",
+    hint: "als negativer Betrag erfassen",
+  },
   { key: "garage", label: "Garagenmiete" },
   { key: "sonst", label: "Sonstige Kosten" },
 ];
 
 function emptyCosts(): CostRow[] {
-  return COST_DEFS.map((c) => ({ key: c.key, label: c.label, hint: c.hint, totalNet: "", withoutVat: "" }));
+  return COST_DEFS.map((c) => ({
+    key: c.key,
+    label: c.label,
+    hint: c.hint,
+    totalNet: "",
+    withoutVat: "",
+  }));
 }
 function emptyVehicle(): Vehicle {
   return {
@@ -95,139 +82,14 @@ function emptyVehicle(): Vehicle {
     kennz: "",
     fuehrer: "",
     anschaffung: "",
+    yearInput: "2026",
     blpInput: "",
     monateInput: "",
     distanceInput: "",
     workdaysInput: "",
+    vatPrivateShareInput: "50",
     nachweis: "ja",
     costs: emptyCosts(),
-  };
-}
-
-// ---------- Calculation ----------
-interface Calc {
-  roundedListPrice: number | null;
-  months: number | null;
-  distanceKm: number | null;
-  workdays: number | null;
-  onePercentValue: number | null;
-  nonVatDeduction20: number | null;
-  vatBaseBeforeCap: number | null;
-  vatBeforeCap: number | null;
-  commuteValue: number | null;
-  nonDeductibleCommuteExpense: number | null;
-  commuteCorrection: number | null;
-  totalVehicleCostsNet: number;
-  nonVatVehicleCosts: number;
-  vatVehicleCostsNet: number;
-  maxVatBaseByCostCap: number;
-  vatBase8921: number | null;
-  vatDue: number | null;
-  amount8924: number | null;
-  totalBeforeCap: number | null;
-  totalAfterCap: number | null;
-  warnings: string[];
-}
-
-function calc(v: Vehicle): Calc {
-  const blp = parseDe(v.blpInput);
-  const roundedListPrice = blp != null ? Math.floor(blp / 100) * 100 : null;
-  const months = parseDe(v.monateInput);
-  const distanceKm = parseDe(v.distanceInput);
-  const workdays = parseDe(v.workdaysInput);
-
-  const onePercentValue =
-    roundedListPrice != null && months != null ? roundedListPrice * 0.01 * months : null;
-  const nonVatDeduction20 = onePercentValue != null ? onePercentValue * 0.2 : null;
-  const vatBaseBeforeCap =
-    onePercentValue != null && nonVatDeduction20 != null ? onePercentValue - nonVatDeduction20 : null;
-  const vatBeforeCap = vatBaseBeforeCap != null ? vatBaseBeforeCap * 0.19 : null;
-
-  const commuteValue =
-    roundedListPrice != null && distanceKm != null && months != null
-      ? roundedListPrice * 0.0003 * distanceKm * months
-      : null;
-  const nonDeductibleCommuteExpense =
-    workdays != null && distanceKm != null ? workdays * distanceKm * 0.3 : null;
-  const commuteCorrection =
-    commuteValue != null && nonDeductibleCommuteExpense != null
-      ? commuteValue - nonDeductibleCommuteExpense
-      : null;
-
-  let totalVehicleCostsNet = 0;
-  let nonVatVehicleCosts = 0;
-  for (const c of v.costs) {
-    const t = parseDe(c.totalNet);
-    const nv = parseDe(c.withoutVat);
-    if (t != null) totalVehicleCostsNet += t;
-    if (nv != null) nonVatVehicleCosts += nv;
-  }
-  const vatVehicleCostsNet = totalVehicleCostsNet - nonVatVehicleCosts;
-  const maxVatBaseByCostCap = vatVehicleCostsNet * 0.5;
-
-  const vatBase8921 =
-    vatBaseBeforeCap != null ? Math.min(vatBaseBeforeCap, maxVatBaseByCostCap) : null;
-  const vatDue = vatBase8921 != null ? vatBase8921 * 0.19 : null;
-  const amount8924 =
-    onePercentValue != null && commuteCorrection != null && vatBase8921 != null
-      ? onePercentValue + commuteCorrection - vatBase8921
-      : null;
-
-  const totalBeforeCap =
-    onePercentValue != null && vatBeforeCap != null && commuteCorrection != null
-      ? onePercentValue + vatBeforeCap + commuteCorrection
-      : null;
-  const totalAfterCap =
-    vatBase8921 != null && vatDue != null && amount8924 != null
-      ? vatBase8921 + vatDue + amount8924
-      : null;
-
-  const warnings: string[] = [];
-  if (blp == null) warnings.push("Bruttolistenpreis fehlt – 1-%-Berechnung nicht möglich.");
-  if (months == null) warnings.push("Nutzungsmonate fehlen.");
-  if (distanceKm != null && workdays == null)
-    warnings.push("Arbeitstage fehlen – Berechnung Fahrten Wohnung/Betrieb prüfen.");
-  if (v.nachweis !== "ja")
-    warnings.push("1-%-Methode setzt betriebliche Nutzung über 50 % voraus. Bitte Nachweis prüfen.");
-  if (vatVehicleCostsNet <= 0)
-    warnings.push("Kostendeckelung kann nicht plausibel geprüft werden (keine mit Vorsteuer belasteten Kosten erfasst).");
-  if (vatBaseBeforeCap != null && vatBaseBeforeCap > maxVatBaseByCostCap && vatVehicleCostsNet > 0)
-    warnings.push(
-      "Kostendeckelung greift: Die USt-Bemessungsgrundlage wird auf 50 % der mit Vorsteuer belasteten Fahrzeugkosten begrenzt.",
-    );
-  if (vatBaseBeforeCap != null && vatBaseBeforeCap <= maxVatBaseByCostCap && vatVehicleCostsNet > 0)
-    warnings.push("Kostendeckelung greift nicht.");
-  if (amount8924 != null && amount8924 > 0)
-    warnings.push("Ein Anteil ist ohne Umsatzsteuer auf Konto 8924 auszuweisen.");
-  if (amount8924 != null && amount8924 < 0)
-    warnings.push("Anteil ohne USt ist negativ. Bitte Eingaben und Kostendeckelung prüfen.");
-  if (commuteCorrection != null && commuteCorrection !== 0)
-    warnings.push("Fahrten Wohnung/Betrieb gesondert prüfen und außerbilanziell korrigieren.");
-  if (commuteCorrection != null && commuteCorrection < 0)
-    warnings.push("Der Wert Fahrten Wohnung/Betrieb ist negativ. Bitte Arbeitstage, Entfernung und Nutzungsmonate prüfen.");
-
-  return {
-    roundedListPrice,
-    months,
-    distanceKm,
-    workdays,
-    onePercentValue,
-    nonVatDeduction20,
-    vatBaseBeforeCap,
-    vatBeforeCap,
-    commuteValue,
-    nonDeductibleCommuteExpense,
-    commuteCorrection,
-    totalVehicleCostsNet,
-    nonVatVehicleCosts,
-    vatVehicleCostsNet,
-    maxVatBaseByCostCap,
-    vatBase8921,
-    vatDue,
-    amount8924,
-    totalBeforeCap,
-    totalAfterCap,
-    warnings,
   };
 }
 
@@ -246,12 +108,17 @@ function buildExport(vehicles: Vehicle[]): string {
   vehicles.forEach((v, i) => {
     const c = calc(v);
     lines.push("");
-    lines.push(`Fahrzeug ${i + 1}: ${v.bez || "(ohne Bezeichnung)"} ${v.kennz ? "[" + v.kennz + "]" : ""}`.trim());
+    lines.push(
+      `Fahrzeug ${i + 1}: ${v.bez || "(ohne Bezeichnung)"} ${v.kennz ? "[" + v.kennz + "]" : ""}`.trim(),
+    );
     lines.push("-".repeat(48));
     lines.push("1) Fahrzeugdaten");
     lines.push(`  Führer: ${v.fuehrer || "—"}  Anschaffung: ${v.anschaffung || "—"}`);
+    lines.push(`  Veranlagungsjahr: ${c.taxYear ?? "nicht angegeben"}`);
     lines.push(`  Bruttolistenpreis (abgerundet): ${fmtEUR(c.roundedListPrice)}`);
-    lines.push(`  Nutzungsmonate: ${fmtNum(c.months, 0)}  Entfernung: ${fmtNum(c.distanceKm, 0)} km  Arbeitstage: ${fmtNum(c.workdays, 0)}`);
+    lines.push(
+      `  Nutzungsmonate: ${fmtNum(c.months, 0)}  Entfernung: ${fmtNum(c.distanceKm, 0)} km  Arbeitstage: ${fmtNum(c.workdays, 0)}`,
+    );
     lines.push(`  Nachweis > 50 %: ${v.nachweis}`);
     lines.push("2) 1-%-Methode (Privatfahrten)");
     lines.push(`  1-%-Wert: ${fmtEUR(c.onePercentValue)}`);
@@ -260,14 +127,30 @@ function buildExport(vehicles: Vehicle[]): string {
     lines.push(`  USt 19 % vor Deckel: ${fmtEUR(c.vatBeforeCap)}`);
     lines.push("3) Fahrten Wohnung/Betrieb");
     lines.push(`  0,03-%-Wert: ${fmtEUR(c.commuteValue)}`);
-    lines.push(`  nicht abzugsfähige BA: ${fmtEUR(c.nonDeductibleCommuteExpense)}`);
-    lines.push(`  Korrektur: ${fmtEUR(c.commuteCorrection)}`);
-    lines.push("4) Kostendeckelung");
+    lines.push(
+      `  Entfernungspauschale (${c.distanceAllowanceRateLabel}): ${fmtEUR(c.nonDeductibleCommuteExpense)}`,
+    );
+    lines.push(`  Positive Korrektur Fahrten W/B: ${fmtEUR(c.commuteCorrection)}`);
+    lines.push("4) Ertragsteuerliche Kostendeckelung");
     lines.push(`  Gesamtfahrzeugkosten netto: ${fmtEUR(c.totalVehicleCostsNet)}`);
     lines.push(`  nicht mit Vorsteuer belastet: ${fmtEUR(c.nonVatVehicleCosts)}`);
     lines.push(`  mit Vorsteuer belastet netto: ${fmtEUR(c.vatVehicleCostsNet)}`);
-    lines.push(`  50-%-Deckel: ${fmtEUR(c.maxVatBaseByCostCap)}`);
-    lines.push("5) DATEV-Buchungswerte");
+    lines.push(`  Pauschale Wertansätze (1 % + 0,03 %): ${fmtEUR(c.pauschalIncomeTaxValues)}`);
+    lines.push(
+      `  Kostendeckelung greift: ${c.costCapApplies == null ? "nicht prüfbar" : c.costCapApplies ? "ja" : "nein"}`,
+    );
+    lines.push(
+      `  Ertragsteuerliche Korrektur nach Deckelung: ${fmtEUR(c.incomeTaxCorrectionAfterCap)}`,
+    );
+    lines.push("5) Umsatzsteuer und DATEV-Buchungswerte");
+    lines.push(
+      `  USt-Methode: ${
+        c.costCapApplies
+          ? `sachgerechte Schätzung mit ${fmtNum(c.vatPrivateSharePercent)} % Privatanteil`
+          : "1-%-Methode mit 20-%-Abschlag"
+      }`,
+    );
+    if (c.costCapApplies) lines.push(`  BMG aus USt-Schätzung: ${fmtEUR(c.vatBaseByEstimate)}`);
     lines.push(`  ⇨ 8921 0 BMG: ${fmtEUR(c.vatBase8921)}`);
     lines.push(`  ⇨ 8921 0 USt 19 %: ${fmtEUR(c.vatDue)}`);
     lines.push(`  ⇨ 8924 0 Betrag: ${fmtEUR(c.amount8924)}`);
@@ -361,7 +244,9 @@ function SectionTitle({ no, children }: { no: string; children: React.ReactNode 
 
 function ResultRow({ label, value, strong }: { label: string; value: string; strong?: boolean }) {
   return (
-    <div className={`flex items-baseline justify-between gap-3 border-b border-dashed border-border/70 py-1.5 text-sm ${strong ? "font-semibold text-foreground" : "text-foreground/85"}`}>
+    <div
+      className={`flex items-baseline justify-between gap-3 border-b border-dashed border-border/70 py-1.5 text-sm ${strong ? "font-semibold text-foreground" : "text-foreground/85"}`}
+    >
       <span className="text-foreground/70">{label}</span>
       <span className="tabular-nums">{value}</span>
     </div>
@@ -377,11 +262,14 @@ function Page() {
   const updateCost = (vid: string, key: string, patch: Partial<CostRow>) =>
     setVehicles((vs) =>
       vs.map((v) =>
-        v.id === vid ? { ...v, costs: v.costs.map((c) => (c.key === key ? { ...c, ...patch } : c)) } : v,
+        v.id === vid
+          ? { ...v, costs: v.costs.map((c) => (c.key === key ? { ...c, ...patch } : c)) }
+          : v,
       ),
     );
   const add = () => setVehicles((vs) => [...vs, emptyVehicle()]);
-  const remove = (id: string) => setVehicles((vs) => (vs.length > 1 ? vs.filter((v) => v.id !== id) : vs));
+  const remove = (id: string) =>
+    setVehicles((vs) => (vs.length > 1 ? vs.filter((v) => v.id !== id) : vs));
 
   const totals = useMemo(() => {
     let b = 0,
@@ -455,9 +343,7 @@ function Page() {
                 className="rounded-2xl border border-border bg-card p-4 shadow-sm sm:p-6"
               >
                 <header className="mb-4 flex items-center justify-between gap-3">
-                  <h2 className="text-base font-semibold text-foreground">
-                    {idx + 1}. Fahrzeug
-                  </h2>
+                  <h2 className="text-base font-semibold text-foreground">{idx + 1}. Fahrzeug</h2>
                   {vehicles.length > 1 && (
                     <Button
                       variant="ghost"
@@ -475,23 +361,52 @@ function Page() {
                 <div className="grid gap-3 sm:grid-cols-2">
                   <label>
                     <FieldLabel>Fahrzeug / Bezeichnung</FieldLabel>
-                    <TextInput value={v.bez} onChange={(s) => update(v.id, { bez: s })} placeholder="z. B. BMW 320d" />
+                    <TextInput
+                      value={v.bez}
+                      onChange={(s) => update(v.id, { bez: s })}
+                      placeholder="z. B. BMW 320d"
+                    />
                   </label>
                   <label>
                     <FieldLabel>PKW-Kennzeichen</FieldLabel>
-                    <TextInput value={v.kennz} onChange={(s) => update(v.id, { kennz: s })} placeholder="z. B. B-AB 1234" />
+                    <TextInput
+                      value={v.kennz}
+                      onChange={(s) => update(v.id, { kennz: s })}
+                      placeholder="z. B. B-AB 1234"
+                    />
                   </label>
                   <label>
                     <FieldLabel>Fahrzeugführer</FieldLabel>
-                    <TextInput value={v.fuehrer} onChange={(s) => update(v.id, { fuehrer: s })} placeholder="z. B. Max Mustermann" />
+                    <TextInput
+                      value={v.fuehrer}
+                      onChange={(s) => update(v.id, { fuehrer: s })}
+                      placeholder="z. B. Max Mustermann"
+                    />
                   </label>
                   <label>
                     <FieldLabel>Anschaffungsdatum</FieldLabel>
-                    <TextInput value={v.anschaffung} onChange={(s) => update(v.id, { anschaffung: s })} placeholder="TT.MM.JJJJ" />
+                    <TextInput
+                      value={v.anschaffung}
+                      onChange={(s) => update(v.id, { anschaffung: s })}
+                      placeholder="TT.MM.JJJJ"
+                    />
+                  </label>
+                  <label>
+                    <FieldLabel>Veranlagungsjahr</FieldLabel>
+                    <NumInput
+                      value={v.yearInput}
+                      onChange={(s) => update(v.id, { yearInput: s })}
+                      placeholder="z. B. 2026"
+                      ariaLabel="Veranlagungsjahr"
+                    />
                   </label>
                   <label>
                     <FieldLabel>Bruttolistenpreis (€) — wird auf volle 100 € abgerundet</FieldLabel>
-                    <NumInput value={v.blpInput} onChange={(s) => update(v.id, { blpInput: s })} placeholder="z. B. 50.000" />
+                    <NumInput
+                      value={v.blpInput}
+                      onChange={(s) => update(v.id, { blpInput: s })}
+                      placeholder="z. B. 50.000"
+                    />
                     {c.roundedListPrice != null && (
                       <span className="mt-1 block text-[11px] text-muted-foreground">
                         abgerundet: {fmtEUR(c.roundedListPrice)}
@@ -500,15 +415,27 @@ function Page() {
                   </label>
                   <label>
                     <FieldLabel>Anzahl Nutzungsmonate</FieldLabel>
-                    <NumInput value={v.monateInput} onChange={(s) => update(v.id, { monateInput: s })} placeholder="z. B. 12" />
+                    <NumInput
+                      value={v.monateInput}
+                      onChange={(s) => update(v.id, { monateInput: s })}
+                      placeholder="z. B. 12"
+                    />
                   </label>
                   <label>
                     <FieldLabel>Entfernung Wohnung–Betrieb (km, einfach)</FieldLabel>
-                    <NumInput value={v.distanceInput} onChange={(s) => update(v.id, { distanceInput: s })} placeholder="z. B. 20" />
+                    <NumInput
+                      value={v.distanceInput}
+                      onChange={(s) => update(v.id, { distanceInput: s })}
+                      placeholder="z. B. 20"
+                    />
                   </label>
                   <label>
                     <FieldLabel>Arbeitstage</FieldLabel>
-                    <NumInput value={v.workdaysInput} onChange={(s) => update(v.id, { workdaysInput: s })} placeholder="z. B. 230" />
+                    <NumInput
+                      value={v.workdaysInput}
+                      onChange={(s) => update(v.id, { workdaysInput: s })}
+                      placeholder="z. B. 230"
+                    />
                   </label>
                   <label className="sm:col-span-2">
                     <FieldLabel>Nachweis betriebliche Nutzung &gt; 50 %</FieldLabel>
@@ -533,10 +460,23 @@ function Page() {
                 <div className="mt-6">
                   <SectionTitle no="2">Privatfahrten — 1-%-Methode</SectionTitle>
                   <div className="rounded-lg border border-border/70 bg-background/40 p-3">
-                    <ResultRow label="1-%-Wert (BLP × 1 % × Monate)" value={fmtEUR(c.onePercentValue)} />
-                    <ResultRow label="20-%-Abschlag nicht vorsteuerbelastet" value={fmtEUR(c.nonVatDeduction20)} />
-                    <ResultRow label="BMG USt vor Kostendeckelung" value={fmtEUR(c.vatBaseBeforeCap)} strong />
-                    <ResultRow label="USt 19 % vor Kostendeckelung" value={fmtEUR(c.vatBeforeCap)} />
+                    <ResultRow
+                      label="1-%-Wert (BLP × 1 % × Monate)"
+                      value={fmtEUR(c.onePercentValue)}
+                    />
+                    <ResultRow
+                      label="20-%-Abschlag nicht vorsteuerbelastet"
+                      value={fmtEUR(c.nonVatDeduction20)}
+                    />
+                    <ResultRow
+                      label="BMG USt vor Kostendeckelung"
+                      value={fmtEUR(c.vatBaseBeforeCap)}
+                      strong
+                    />
+                    <ResultRow
+                      label="USt 19 % vor Kostendeckelung"
+                      value={fmtEUR(c.vatBeforeCap)}
+                    />
                   </div>
                 </div>
 
@@ -549,10 +489,14 @@ function Page() {
                       value={fmtEUR(c.commuteValue)}
                     />
                     <ResultRow
-                      label="./. Arbeitstage × Entfernung × 0,30 €"
+                      label={`./. Entfernungspauschale (${c.distanceAllowanceRateLabel})`}
                       value={fmtEUR(c.nonDeductibleCommuteExpense)}
                     />
-                    <ResultRow label="Korrektur Fahrten W/B" value={fmtEUR(c.commuteCorrection)} strong />
+                    <ResultRow
+                      label="Positive Korrektur Fahrten W/B"
+                      value={fmtEUR(c.commuteCorrection)}
+                      strong
+                    />
                   </div>
                 </div>
 
@@ -601,21 +545,78 @@ function Page() {
                     Parkgebühren nicht erfassen — gehören zu Reisekosten.
                   </p>
                   <div className="mt-3 rounded-lg border border-border/70 bg-background/40 p-3">
-                    <ResultRow label="Gesamtfahrzeugkosten netto" value={fmtEUR(c.totalVehicleCostsNet)} />
-                    <ResultRow label="Nicht mit Vorsteuer belastet" value={fmtEUR(c.nonVatVehicleCosts)} />
-                    <ResultRow label="Mit Vorsteuer belastet (netto)" value={fmtEUR(c.vatVehicleCostsNet)} strong />
+                    <ResultRow
+                      label="Gesamtfahrzeugkosten netto"
+                      value={fmtEUR(c.totalVehicleCostsNet)}
+                    />
+                    <ResultRow
+                      label="Nicht mit Vorsteuer belastet"
+                      value={fmtEUR(c.nonVatVehicleCosts)}
+                    />
+                    <ResultRow
+                      label="Mit Vorsteuer belastet (netto)"
+                      value={fmtEUR(c.vatVehicleCostsNet)}
+                      strong
+                    />
+                    <ResultRow
+                      label="Pauschale Wertansätze (1 % + 0,03 %)"
+                      value={fmtEUR(c.pauschalIncomeTaxValues)}
+                    />
+                    <ResultRow
+                      label="Wertansätze nach Kostendeckelung"
+                      value={fmtEUR(c.incomeTaxValuesAfterCap)}
+                    />
+                    <ResultRow
+                      label="Ertragsteuerliche Korrektur nach Entfernungspauschale"
+                      value={fmtEUR(c.incomeTaxCorrectionAfterCap)}
+                      strong
+                    />
                   </div>
                 </div>
 
                 {/* Abschnitt 5 */}
                 <div className="mt-6">
                   <SectionTitle no="5">Prüfung der Umsatzbesteuerung</SectionTitle>
+                  {c.costCapApplies === true && (
+                    <label className="mb-3 block">
+                      <FieldLabel>
+                        Geschätzter Privatanteil für die Umsatzsteuer (%) — grundsätzlich mindestens
+                        50 %
+                      </FieldLabel>
+                      <NumInput
+                        value={v.vatPrivateShareInput}
+                        onChange={(s) => update(v.id, { vatPrivateShareInput: s })}
+                        placeholder="50"
+                        ariaLabel="Geschätzter Privatanteil für die Umsatzsteuer"
+                      />
+                      <span className="mt-1 block text-[11px] text-muted-foreground">
+                        Bei Kostendeckelung ist die USt-Bemessungsgrundlage sachgerecht zu schätzen.
+                        Ohne geeignete Unterlagen werden mindestens 50 % angesetzt.
+                      </span>
+                    </label>
+                  )}
                   <div className="rounded-lg border border-border/70 bg-background/40 p-3">
-                    <ResultRow label="BMG nach 1-%-Methode" value={fmtEUR(c.vatBaseBeforeCap)} />
-                    <ResultRow label="50 % der mit VSt belasteten Kosten" value={fmtEUR(c.maxVatBaseByCostCap)} />
-                    <ResultRow label="Tatsächliche BMG ⇨ 8921 0" value={fmtEUR(c.vatBase8921)} strong />
+                    <ResultRow
+                      label="BMG nach 1-%-Methode (80 %)"
+                      value={fmtEUR(c.vatBaseBeforeCap)}
+                    />
+                    {c.costCapApplies === true && (
+                      <ResultRow
+                        label={`BMG aus USt-Schätzung (${fmtNum(c.vatPrivateSharePercent)} %)`}
+                        value={fmtEUR(c.vatBaseByEstimate)}
+                      />
+                    )}
+                    <ResultRow
+                      label="Tatsächliche BMG ⇨ 8921 0"
+                      value={fmtEUR(c.vatBase8921)}
+                      strong
+                    />
                     <ResultRow label="abzuführende USt 19 %" value={fmtEUR(c.vatDue)} />
-                    <ResultRow label="Anteil ohne USt ⇨ 8924 0" value={fmtEUR(c.amount8924)} strong />
+                    <ResultRow
+                      label="Anteil ohne USt ⇨ 8924 0"
+                      value={fmtEUR(c.amount8924)}
+                      strong
+                    />
                   </div>
                 </div>
 
@@ -627,13 +628,17 @@ function Page() {
                       <div className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
                         Gesamtwert vor Kostendeckelung
                       </div>
-                      <div className="text-lg font-semibold tabular-nums">{fmtEUR(c.totalBeforeCap)}</div>
+                      <div className="text-lg font-semibold tabular-nums">
+                        {fmtEUR(c.totalBeforeCap)}
+                      </div>
                     </div>
                     <div className="rounded-lg border border-border bg-foreground/[0.03] p-3">
                       <div className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
                         Gesamtwert nach Kostendeckelung
                       </div>
-                      <div className="text-lg font-semibold tabular-nums">{fmtEUR(c.totalAfterCap)}</div>
+                      <div className="text-lg font-semibold tabular-nums">
+                        {fmtEUR(c.totalAfterCap)}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -643,12 +648,16 @@ function Page() {
                   <SectionTitle no="7">DATEV-Buchungshinweise</SectionTitle>
                   <div className="space-y-2 text-sm">
                     <div className="rounded-lg border border-border/70 bg-background/40 p-3">
-                      <div className="font-medium">⇨ 8921 0 — Unentgeltliche Wertabgaben Kfz 19 % USt</div>
+                      <div className="font-medium">
+                        ⇨ 8921 0 — Unentgeltliche Wertabgaben Kfz 19 % USt
+                      </div>
                       <ResultRow label="BMG" value={fmtEUR(c.vatBase8921)} />
                       <ResultRow label="abzuführende USt 19 %" value={fmtEUR(c.vatDue)} />
                     </div>
                     <div className="rounded-lg border border-border/70 bg-background/40 p-3">
-                      <div className="font-medium">⇨ 8924 0 — Unentgeltliche Wertabgaben Kfz ohne USt</div>
+                      <div className="font-medium">
+                        ⇨ 8924 0 — Unentgeltliche Wertabgaben Kfz ohne USt
+                      </div>
                       <ResultRow label="Betrag" value={fmtEUR(c.amount8924)} />
                     </div>
                     <div className="rounded-lg border border-dashed border-border bg-background/40 p-3 text-xs text-muted-foreground">

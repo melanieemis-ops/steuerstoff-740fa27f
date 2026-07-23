@@ -1,16 +1,33 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Plus, Trash2, Copy, Download, AlertTriangle, Info, Car, FileText } from "lucide-react";
+import {
+  Plus,
+  Trash2,
+  Copy,
+  Download,
+  AlertTriangle,
+  Info,
+  Car,
+  FileText,
+  FileSpreadsheet,
+  CheckCircle2,
+  Loader2,
+} from "lucide-react";
 import {
   calculateKfz as calc,
   type CostRow,
   type Nachweis,
   type Vehicle,
 } from "@/lib/kfzWertabgabe";
+import {
+  createKfzWorkpaper,
+  deliverKfzWorkpaper,
+  getKfzWorkpaperErrors,
+} from "@/lib/kfzWertabgabeExcel";
 
 export const Route = createFileRoute("/kfz-wertabgabe")({
   component: Page,
@@ -256,6 +273,8 @@ function ResultRow({ label, value, strong }: { label: string; value: string; str
 // ---------- Page ----------
 function Page() {
   const [vehicles, setVehicles] = useState<Vehicle[]>([emptyVehicle()]);
+  const [excelStatus, setExcelStatus] = useState<"idle" | "creating" | "success" | "error">("idle");
+  const [excelMessage, setExcelMessage] = useState("");
 
   const update = (id: string, patch: Partial<Vehicle>) =>
     setVehicles((vs) => vs.map((v) => (v.id === id ? { ...v, ...patch } : v)));
@@ -287,6 +306,13 @@ function Page() {
     });
     return { b, vat, a8924, commute, tot };
   }, [vehicles]);
+  const workpaperErrors = useMemo(() => getKfzWorkpaperErrors(vehicles), [vehicles]);
+  const workpaperReady = workpaperErrors.length === 0;
+
+  useEffect(() => {
+    setExcelStatus("idle");
+    setExcelMessage("");
+  }, [vehicles]);
 
   const onCopy = async () => {
     try {
@@ -311,6 +337,32 @@ function Page() {
       /* ignore */
     }
     window.location.href = "/neue-anfrage";
+  };
+  const onDownloadExcel = async () => {
+    if (!workpaperReady) return;
+    setExcelStatus("creating");
+    setExcelMessage("");
+    try {
+      const workpaper = await createKfzWorkpaper(vehicles);
+      const delivery = await deliverKfzWorkpaper(workpaper.bytes, workpaper.fileName);
+      setExcelStatus("success");
+      setExcelMessage(
+        delivery.shared
+          ? "Excel-Arbeitspapier wurde zum Teilen geöffnet."
+          : "Excel-Arbeitspapier wurde heruntergeladen.",
+      );
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") {
+        setExcelStatus("idle");
+        return;
+      }
+      setExcelStatus("error");
+      setExcelMessage(
+        error instanceof Error
+          ? error.message
+          : "Das Excel-Arbeitspapier konnte nicht erstellt werden.",
+      );
+    }
   };
 
   return (
@@ -709,6 +761,63 @@ function Page() {
             <h2 className="mb-3 flex items-center gap-2 text-base font-semibold">
               <FileText className="h-4 w-4" /> Export
             </h2>
+            {workpaperReady ? (
+              <div className="mb-4 rounded-xl border border-emerald-200 bg-emerald-50 p-3 text-emerald-950">
+                <div className="mb-3 flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-700" />
+                  <div>
+                    <div className="font-medium">Berechnung vollständig</div>
+                    <p className="mt-0.5 text-xs text-emerald-800">
+                      Das Excel-Arbeitspapier enthält eine Übersicht und ein detailliertes
+                      Berechnungsblatt je Fahrzeug.
+                    </p>
+                  </div>
+                </div>
+                <Button
+                  onClick={onDownloadExcel}
+                  disabled={excelStatus === "creating"}
+                  className="w-full bg-emerald-700 text-white hover:bg-emerald-800 sm:w-auto"
+                >
+                  {excelStatus === "creating" ? (
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  ) : (
+                    <FileSpreadsheet className="h-4 w-4" />
+                  )}
+                  {excelStatus === "creating"
+                    ? "Excel wird erstellt …"
+                    : "Excel-Arbeitspapier herunterladen"}
+                </Button>
+                {excelMessage && (
+                  <p
+                    role="status"
+                    className={`mt-2 text-xs ${
+                      excelStatus === "error" ? "text-destructive" : "text-emerald-800"
+                    }`}
+                  >
+                    {excelMessage}
+                  </p>
+                )}
+              </div>
+            ) : (
+              <div className="mb-4 rounded-xl border border-amber-200 bg-amber-50 p-3 text-amber-950">
+                <div className="flex items-start gap-2">
+                  <FileSpreadsheet className="mt-0.5 h-4 w-4 shrink-0 text-amber-700" />
+                  <div>
+                    <div className="text-sm font-medium">
+                      Excel ist nach vollständiger Eingabe verfügbar
+                    </div>
+                    <ul className="mt-1 space-y-0.5 text-xs text-amber-800">
+                      {workpaperErrors.slice(0, 3).map((error) => (
+                        <li key={error}>{error}</li>
+                      ))}
+                      {workpaperErrors.length > 3 && (
+                        <li>Weitere {workpaperErrors.length - 3} Angaben fehlen.</li>
+                      )}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            )}
             <div className="flex flex-wrap gap-2">
               <Button onClick={onCopy} variant="outline">
                 <Copy className="h-4 w-4" /> Text kopieren

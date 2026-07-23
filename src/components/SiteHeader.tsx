@@ -241,10 +241,10 @@ export function SiteHeader() {
   return (
     <>
       <header className="sticky top-0 z-40 w-full border-b border-border/70 bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
-      <div className="mx-auto flex h-14 w-full max-w-6xl items-center gap-3 px-4 sm:h-16 sm:px-6">
+      <div className="mx-auto flex h-14 w-full max-w-6xl items-center gap-3 px-4 sm:h-16 sm:px-6 md:h-24 md:flex-wrap md:gap-y-0">
         <Link
           to="/"
-          className="flex min-w-0 shrink items-center gap-2"
+          className="flex min-w-0 shrink items-center gap-2 md:h-12 md:w-full md:shrink-0"
           style={{ isolation: 'isolate' }}
         >
           <span
@@ -282,7 +282,7 @@ export function SiteHeader() {
         </Link>
 
         <nav
-          className="ml-auto hidden min-w-0 items-center gap-1 overflow-x-auto md:flex"
+          className="hidden min-w-0 items-center gap-1 overflow-x-auto md:flex md:h-12 md:w-full md:shrink-0 md:border-t md:border-border/50"
           data-onboarding-target="menu"
           aria-label="Desktop Navigation"
         >
@@ -317,7 +317,7 @@ export function SiteHeader() {
           onClick={() =>
             setOpen((current) => !current)
           }
-          className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-foreground transition-colors hover:bg-accent md:hidden"
+          className="ml-auto inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-foreground transition-colors hover:bg-accent md:hidden"
         >
           {open ? (
             <X className="h-4 w-4" />

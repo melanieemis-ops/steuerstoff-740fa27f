@@ -1,13 +1,35 @@
-import { calculateKfz, parseDe, type Vehicle } from "./kfzWertabgabe.ts";
+import {
+  calculateKfz,
+  getKfzCalculationErrors,
+  getKfzCalculationErrorsForVehicles,
+  parseDe,
+  type ElectricBenefitType,
+  type Vehicle,
+  type VehicleType,
+} from "./kfzWertabgabe.ts";
 
 const EURO_FORMAT = "#,##0.00 [$€-407]";
 const INTEGER_FORMAT = "0";
+const NUMBER_FORMAT = "0.00";
 const PERCENT_FORMAT = "0.00%";
 const XLSX_MIME = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
 
 type XlsxModule = typeof import("xlsx");
 type Worksheet = import("xlsx").WorkSheet;
 type CellValue = string | number | boolean | Date | null;
+
+const VEHICLE_TYPE_LABELS: Record<VehicleType, string> = {
+  combustion: "Verbrenner / sonstiges Fahrzeug",
+  electric: "Reines Elektrofahrzeug",
+  "plugin-hybrid": "Extern aufladbares Hybridelektrofahrzeug",
+};
+
+const BENEFIT_LABELS: Record<ElectricBenefitType, string> = {
+  none: "100-%-Ansatz / keine Begünstigung",
+  half: "50-%-Ansatz",
+  quarter: "25-%-Ansatz",
+  "battery-deduction": "Pauschaler Batterieabschlag",
+};
 
 async function loadXlsx(): Promise<XlsxModule> {
   const module = await import("xlsx");
@@ -21,6 +43,34 @@ export interface KfzWorkpaperFile {
 
 export interface KfzWorkpaperDelivery {
   shared: boolean;
+}
+
+interface VehicleSheetRows {
+  firstCostRow: number;
+  lastCostRow: number;
+  totalCostRow: number;
+  capSectionRow: number;
+  pauschalRow: number;
+  actualCostRow: number;
+  capAppliesRow: number;
+  cappedValueRow: number;
+  incomeTaxCorrectionRow: number;
+  vatSectionRow: number;
+  vatListPriceRow: number;
+  vatOnePercentRow: number;
+  vatDeductionRow: number;
+  vatBeforeCapBaseRow: number;
+  vatBeforeCapRow: number;
+  vatEvidenceRow: number;
+  vatShareRow: number;
+  vatEstimateRow: number;
+  vatBaseRow: number;
+  vatDueRow: number;
+  amount8924Row: number;
+  commuteCorrectionRow: number;
+  totalBeforeRow: number;
+  totalAfterRow: number;
+  warningsSectionRow: number;
 }
 
 function safeNumber(value: number | null | undefined): number {
@@ -57,77 +107,157 @@ function addSectionMerges(XLSX: XlsxModule, sheet: Worksheet, rows: number[]) {
   ];
 }
 
-function getVehicleSheetRows(vehicle: Vehicle) {
-  const firstCostRow = 32;
+function getVehicleSheetRows(vehicle: Vehicle): VehicleSheetRows {
+  const firstCostRow = 43;
   const lastCostRow = firstCostRow + vehicle.costs.length - 1;
   const totalCostRow = lastCostRow + 1;
   const capSectionRow = totalCostRow + 2;
-  const vatSectionRow = capSectionRow + 6;
+  const vatSectionRow = capSectionRow + 7;
   return {
     firstCostRow,
     lastCostRow,
     totalCostRow,
     capSectionRow,
     pauschalRow: capSectionRow + 1,
-    capAppliesRow: capSectionRow + 2,
-    cappedValueRow: capSectionRow + 3,
-    incomeTaxCorrectionRow: capSectionRow + 4,
+    actualCostRow: capSectionRow + 2,
+    capAppliesRow: capSectionRow + 3,
+    cappedValueRow: capSectionRow + 4,
+    incomeTaxCorrectionRow: capSectionRow + 5,
     vatSectionRow,
-    vatShareRow: vatSectionRow + 1,
+    vatListPriceRow: vatSectionRow + 1,
     vatOnePercentRow: vatSectionRow + 2,
-    vatEstimateRow: vatSectionRow + 3,
-    vatBaseRow: vatSectionRow + 4,
-    vatDueRow: vatSectionRow + 5,
-    amount8924Row: vatSectionRow + 6,
-    totalBeforeRow: vatSectionRow + 7,
-    totalAfterRow: vatSectionRow + 8,
-    warningsSectionRow: vatSectionRow + 10,
+    vatDeductionRow: vatSectionRow + 3,
+    vatBeforeCapBaseRow: vatSectionRow + 4,
+    vatBeforeCapRow: vatSectionRow + 5,
+    vatEvidenceRow: vatSectionRow + 6,
+    vatShareRow: vatSectionRow + 7,
+    vatEstimateRow: vatSectionRow + 8,
+    vatBaseRow: vatSectionRow + 9,
+    vatDueRow: vatSectionRow + 10,
+    amount8924Row: vatSectionRow + 11,
+    commuteCorrectionRow: vatSectionRow + 12,
+    totalBeforeRow: vatSectionRow + 13,
+    totalAfterRow: vatSectionRow + 14,
+    warningsSectionRow: vatSectionRow + 16,
   };
 }
 
 function createVehicleSheet(XLSX: XlsxModule, vehicle: Vehicle, index: number): Worksheet {
   const result = calculateKfz(vehicle);
-  const enteredListPrice = safeNumber(parseDe(vehicle.blpInput));
-  const year = safeNumber(result.taxYear);
-  const months = safeNumber(result.months);
-  const distance = safeNumber(result.distanceKm);
-  const workdays = safeNumber(result.workdays);
-  const vatPrivateShare = result.vatPrivateSharePercent / 100;
+  const rowNumbers = getVehicleSheetRows(vehicle);
+  const {
+    firstCostRow,
+    lastCostRow,
+    totalCostRow,
+    capSectionRow,
+    pauschalRow,
+    actualCostRow,
+    capAppliesRow,
+    cappedValueRow,
+    incomeTaxCorrectionRow,
+    vatSectionRow,
+    vatListPriceRow,
+    vatOnePercentRow,
+    vatDeductionRow,
+    vatBeforeCapBaseRow,
+    vatBeforeCapRow,
+    vatEvidenceRow,
+    vatShareRow,
+    vatEstimateRow,
+    vatBaseRow,
+    vatDueRow,
+    amount8924Row,
+    commuteCorrectionRow,
+    totalBeforeRow,
+    totalAfterRow,
+    warningsSectionRow,
+  } = rowNumbers;
 
   const rows: CellValue[][] = [
     [`steuerstoff · Kfz-Wertabgabe · Fahrzeug ${index + 1}`, null, null, null],
     ["Erstellt am", new Date(), null, null],
     [
-      "Arbeitspapier zur 1-%-Methode, Entfernungspauschale, Kostendeckelung und USt-Aufteilung",
+      "Arbeitspapier nach Rechtsstand 2026 – Elektro-/Hybridprüfung, Ertragsteuer, Umsatzsteuer und DATEV",
       null,
       null,
       null,
     ],
     [null, null, null, null],
     ["1. Fahrzeugdaten", null, null, null],
+    ["Fahrzeugart", VEHICLE_TYPE_LABELS[result.vehicleType], null, null],
     ["Fahrzeug / Bezeichnung", vehicle.bez || "—", null, null],
     ["PKW-Kennzeichen", vehicle.kennz || "—", null, null],
     ["Fahrzeugführer", vehicle.fuehrer || "—", null, null],
-    ["Anschaffungsdatum", vehicle.anschaffung || "—", null, null],
-    ["Veranlagungsjahr", year, null, null],
-    ["Bruttolistenpreis eingegeben", enteredListPrice, null, null],
-    ["Bruttolistenpreis abgerundet", safeNumber(result.roundedListPrice), null, null],
-    ["Nutzungsmonate", months, null, null],
-    ["Entfernung Wohnung–Betrieb (volle km)", distance, null, null],
-    ["Arbeitstage", workdays, null, null],
+    ["Anschaffung / Übernahme", vehicle.anschaffung, null, null],
+    ["Erstzulassung", vehicle.firstRegistration || "—", null, null],
+    ["Veranlagungsjahr", safeNumber(result.taxYear), null, null],
+    [
+      "Ursprünglicher inländischer Bruttolistenpreis",
+      safeNumber(result.originalListPrice),
+      null,
+      null,
+    ],
+    [
+      "Ursprünglicher Bruttolistenpreis, auf volle 100 € abgerundet",
+      safeNumber(result.originalRoundedListPrice),
+      null,
+      null,
+    ],
+    [
+      "Ergebnis Elektro-/Hybridbegünstigung",
+      BENEFIT_LABELS[result.electricBenefit.benefitType],
+      null,
+      null,
+    ],
+    [
+      "Steuerpflichtiger Listenpreisfaktor",
+      safeNumber(result.electricBenefit.taxableListPriceFactor),
+      null,
+      null,
+    ],
+    ["Kürzung in Prozent", safeNumber(result.electricBenefit.reductionPercent) / 100, null, null],
+    [
+      "Pauschaler Batterieabschlag",
+      safeNumber(result.electricBenefit.batteryDeduction),
+      null,
+      null,
+    ],
+    [
+      "Ertragsteuerlicher maßgeblicher Bruttolistenpreis",
+      safeNumber(result.incomeTaxRelevantListPrice),
+      null,
+      null,
+    ],
+    [
+      "Umsatzsteuerlicher ungekürzter Bruttolistenpreis",
+      safeNumber(result.vatRelevantListPrice),
+      null,
+      null,
+    ],
+    ["Nutzungsmonate", safeNumber(result.months), null, null],
+    ["Entfernung Wohnung–Betrieb (volle km)", safeNumber(result.fullDistanceKm), null, null],
+    ["Tatsächliche Arbeitstage", safeNumber(result.workdays), null, null],
     ["Nachweis betriebliche Nutzung > 50 %", vehicle.nachweis, null, null],
+    ["CO₂-Ausstoß (g/km)", parseDe(vehicle.co2Input) ?? "—", null, null],
+    ["Elektrische Reichweite (km)", parseDe(vehicle.electricRangeInput) ?? "—", null, null],
+    ["Batteriekapazität (kWh)", parseDe(vehicle.batteryCapacityInput) ?? "—", null, null],
+    ["Fahrzeugcode Feld 10", vehicle.vehicleCode || "—", null, null],
+    ["Einordnungsnotiz", vehicle.classificationNote || "—", null, null],
     [null, null, null, null],
-    ["2. Privatfahrten — 1-%-Methode", null, null, null],
-    ["1-%-Wert", safeNumber(result.onePercentValue), null, null],
-    ["20-%-Abschlag nicht vorsteuerbelastet", safeNumber(result.nonVatDeduction20), null, null],
-    ["BMG USt vor Kostendeckelung", safeNumber(result.vatBaseBeforeCap), null, null],
-    ["USt 19 % vor Kostendeckelung", safeNumber(result.vatBeforeCap), null, null],
+    ["2. Privatfahrten — Ertragsteuer", null, null, null],
+    ["Monatlicher 1-%-Wert", safeNumber(result.monthlyPrivateUseIncomeTax), null, null],
+    ["Zeitraumwert Privatfahrten", safeNumber(result.privateUseIncomeTax), null, null],
     [null, null, null, null],
     ["3. Fahrten Wohnung / Betrieb", null, null, null],
     ["0,03-%-Wert", safeNumber(result.commuteValue), null, null],
-    [`Entfernungspauschale je Arbeitstag (${result.distanceAllowanceRateLabel})`, 0, null, null],
+    [
+      `Entfernungspauschale je Arbeitstag (${result.distanceAllowanceRateLabel})`,
+      safeNumber(result.distanceAllowancePerDayValue),
+      null,
+      null,
+    ],
     ["Entfernungspauschale gesamt", safeNumber(result.nonDeductibleCommuteExpense), null, null],
-    ["Positive Korrektur Fahrten W/B", safeNumber(result.commuteCorrection), null, null],
+    ["Positive außerbilanzielle Korrektur", safeNumber(result.commuteCorrection), null, null],
     [null, null, null, null],
     ["4. Fahrzeugkosten", null, null, null],
     ["Kostenart", "Gesamt netto", "Davon ohne VSt", "Mit VSt belastet"],
@@ -146,11 +276,12 @@ function createVehicleSheet(XLSX: XlsxModule, vehicle: Vehicle, index: number): 
     [null, null, null, null],
     ["5. Ertragsteuerliche Kostendeckelung", null, null, null],
     [
-      "Pauschale Wertansätze (1 % + 0,03 %)",
+      "Pauschale Wertansätze (Privat + 0,03 %)",
       safeNumber(result.pauschalIncomeTaxValues),
       null,
       null,
     ],
+    ["Tatsächliche Gesamtfahrzeugkosten", result.totalVehicleCostsNet, null, null],
     ["Kostendeckelung greift", result.costCapApplies === true, null, null],
     ["Wertansätze nach Kostendeckelung", safeNumber(result.incomeTaxValuesAfterCap), null, null],
     [
@@ -161,12 +292,28 @@ function createVehicleSheet(XLSX: XlsxModule, vehicle: Vehicle, index: number): 
     ],
     [null, null, null, null],
     ["6. Umsatzsteuer / DATEV", null, null, null],
-    ["Geschätzter USt-Privatanteil", vatPrivateShare, null, null],
-    ["BMG nach 1-%-Methode (80 %)", safeNumber(result.vatBaseBeforeCap), null, null],
-    ["BMG aus USt-Schätzung", safeNumber(result.vatBaseByEstimate), null, null],
-    ["Tatsächliche BMG ⇨ 8921 0", safeNumber(result.vatBase8921), null, null],
+    [
+      "Umsatzsteuerlicher ungekürzter Bruttolistenpreis",
+      safeNumber(result.vatRelevantListPrice),
+      null,
+      null,
+    ],
+    ["Umsatzsteuerlicher 1-%-Wert", safeNumber(result.vatOnePercentValue), null, null],
+    [
+      "20-%-Abschlag für nicht vorsteuerbelastete Kosten",
+      safeNumber(result.vatNonInputTaxDeduction),
+      null,
+      null,
+    ],
+    ["BMG vor Kostendeckelung", safeNumber(result.vatBaseBeforeCap), null, null],
+    ["USt 19 % vor Kostendeckelung", safeNumber(result.vatBeforeCap), null, null],
+    ["Geeignete Unterlagen vorhanden", result.vatEvidenceAvailable ? "ja" : "nein", null, null],
+    ["Geschätzter USt-Privatanteil", safeNumber(result.vatPrivateSharePercent) / 100, null, null],
+    ["BMG aus sachgerechter Schätzung", safeNumber(result.vatBaseByEstimate), null, null],
+    ["BMG ⇨ DATEV 8921 0", safeNumber(result.vatBase8921), null, null],
     ["Abzuführende USt 19 %", safeNumber(result.vatDue), null, null],
-    ["Anteil ohne USt ⇨ 8924 0", safeNumber(result.amount8924), null, null],
+    ["Anteil ohne USt ⇨ DATEV 8924 0", safeNumber(result.amount8924), null, null],
+    ["Korrektur Wohnung–Betriebsstätte", safeNumber(result.commuteCorrection), null, null],
     ["Gesamtwert vor Kostendeckelung", safeNumber(result.totalBeforeCap), null, null],
     ["Gesamtwert nach Kostendeckelung", safeNumber(result.totalAfterCap), null, null],
     [null, null, null, null],
@@ -177,69 +324,62 @@ function createVehicleSheet(XLSX: XlsxModule, vehicle: Vehicle, index: number): 
     [null, null, null, null],
     [
       "Review-Hinweis",
-      "Diese Berechnung ist eine Arbeitshilfe und ersetzt keine fachliche Prüfung.",
+      "Arbeitshilfe nach Rechtsstand 2026. Fahrzeugunterlagen, Begünstigung, Kosten, Vorsteueraufteilung und DATEV-Vorschläge fachlich prüfen.",
       null,
       null,
     ],
   ];
 
   const sheet = XLSX.utils.aoa_to_sheet(rows, { cellDates: true });
-  const {
-    firstCostRow,
-    lastCostRow,
-    totalCostRow,
-    capSectionRow,
-    pauschalRow,
-    capAppliesRow,
-    cappedValueRow,
-    incomeTaxCorrectionRow,
-    vatSectionRow,
-    vatShareRow,
-    vatOnePercentRow,
-    vatEstimateRow,
-    vatBaseRow,
-    vatDueRow,
-    amount8924Row,
-    totalBeforeRow,
-    totalAfterRow,
-    warningsSectionRow,
-  } = getVehicleSheetRows(vehicle);
-
   setFormula(
     sheet,
-    "B12",
-    "ROUNDDOWN(B11/100,0)*100",
-    safeNumber(result.roundedListPrice),
+    "B14",
+    "ROUNDDOWN(B13/100,0)*100",
+    safeNumber(result.originalRoundedListPrice),
     EURO_FORMAT,
   );
-  setFormula(sheet, "B19", "B12*1%*B13", safeNumber(result.onePercentValue), EURO_FORMAT);
-  setFormula(sheet, "B20", "B19*20%", safeNumber(result.nonVatDeduction20), EURO_FORMAT);
-  setFormula(sheet, "B21", "B19-B20", safeNumber(result.vatBaseBeforeCap), EURO_FORMAT);
-  setFormula(sheet, "B22", "B21*19%", safeNumber(result.vatBeforeCap), EURO_FORMAT);
+  const incomeListPriceFormula =
+    result.electricBenefit.benefitType === "battery-deduction"
+      ? "ROUNDDOWN(MAX(0,B13-B18)/100,0)*100"
+      : "ROUNDDOWN((B13*B16)/100,0)*100";
   setFormula(
     sheet,
-    "B25",
-    "B12*0.03%*ROUNDDOWN(B14,0)*B13",
+    "B19",
+    incomeListPriceFormula,
+    safeNumber(result.incomeTaxRelevantListPrice),
+    EURO_FORMAT,
+  );
+  setFormula(sheet, "B20", "B14", safeNumber(result.vatRelevantListPrice), EURO_FORMAT);
+  setFormula(sheet, "B32", "B19*1%", safeNumber(result.monthlyPrivateUseIncomeTax), EURO_FORMAT);
+  setFormula(sheet, "B33", "B32*B21", safeNumber(result.privateUseIncomeTax), EURO_FORMAT);
+  setFormula(
+    sheet,
+    "B36",
+    "B19*0.03%*ROUNDDOWN(B22,0)*B21",
     safeNumber(result.commuteValue),
     EURO_FORMAT,
   );
   setFormula(
     sheet,
-    "B26",
-    "IF(B10>=2026,ROUNDDOWN(B14,0)*0.38,IF(B10>=2024,MIN(ROUNDDOWN(B14,0),20)*0.3+MAX(0,ROUNDDOWN(B14,0)-20)*0.38,IF(B10>=2021,MIN(ROUNDDOWN(B14,0),20)*0.3+MAX(0,ROUNDDOWN(B14,0)-20)*0.35,ROUNDDOWN(B14,0)*0.3)))",
-    workdays > 0 ? safeNumber(result.nonDeductibleCommuteExpense) / workdays : 0,
+    "B37",
+    "IF(B12>=2026,ROUNDDOWN(B22,0)*0.38,IF(B12>=2024,MIN(ROUNDDOWN(B22,0),20)*0.3+MAX(0,ROUNDDOWN(B22,0)-20)*0.38,IF(B12>=2021,MIN(ROUNDDOWN(B22,0),20)*0.3+MAX(0,ROUNDDOWN(B22,0)-20)*0.35,ROUNDDOWN(B22,0)*0.3)))",
+    safeNumber(result.distanceAllowancePerDayValue),
     EURO_FORMAT,
   );
-  setFormula(sheet, "B27", "B15*B26", safeNumber(result.nonDeductibleCommuteExpense), EURO_FORMAT);
-  setFormula(sheet, "B28", "MAX(0,B25-B27)", safeNumber(result.commuteCorrection), EURO_FORMAT);
+  setFormula(sheet, "B38", "B23*B37", safeNumber(result.nonDeductibleCommuteExpense), EURO_FORMAT);
+  setFormula(sheet, "B39", "MAX(0,B36-B38)", safeNumber(result.commuteCorrection), EURO_FORMAT);
 
   for (let row = firstCostRow; row <= lastCostRow; row += 1) {
     const cost = vehicle.costs[row - firstCostRow];
-    const vatCost = Math.max(
-      0,
-      safeNumber(parseDe(cost.totalNet)) - safeNumber(parseDe(cost.withoutVat)),
+    const total = safeNumber(parseDe(cost.totalNet));
+    const withoutVat = safeNumber(parseDe(cost.withoutVat));
+    setFormula(
+      sheet,
+      `D${row}`,
+      `MAX(0,B${row}-C${row})`,
+      Math.max(0, total - withoutVat),
+      EURO_FORMAT,
     );
-    setFormula(sheet, `D${row}`, `MAX(0,B${row}-C${row})`, vatCost, EURO_FORMAT);
   }
   setFormula(
     sheet,
@@ -265,35 +405,70 @@ function createVehicleSheet(XLSX: XlsxModule, vehicle: Vehicle, index: number): 
   setFormula(
     sheet,
     `B${pauschalRow}`,
-    "B19+B25",
+    "B33+B36",
     safeNumber(result.pauschalIncomeTaxValues),
     EURO_FORMAT,
   );
   setFormula(
     sheet,
+    `B${actualCostRow}`,
+    `B${totalCostRow}`,
+    result.totalVehicleCostsNet,
+    EURO_FORMAT,
+  );
+  setFormula(
+    sheet,
     `B${capAppliesRow}`,
-    `B${pauschalRow}>B${totalCostRow}`,
+    `B${pauschalRow}>B${actualCostRow}`,
     result.costCapApplies === true,
   );
   setFormula(
     sheet,
     `B${cappedValueRow}`,
-    `IF(B${capAppliesRow},B${totalCostRow},B${pauschalRow})`,
+    `IF(B${capAppliesRow},B${actualCostRow},B${pauschalRow})`,
     safeNumber(result.incomeTaxValuesAfterCap),
     EURO_FORMAT,
   );
   setFormula(
     sheet,
     `B${incomeTaxCorrectionRow}`,
-    `IF(B${capAppliesRow},MAX(0,B${totalCostRow}-B27),B19+B28)`,
+    `IF(B${capAppliesRow},MAX(0,B${actualCostRow}-B38),B33+B39)`,
     safeNumber(result.incomeTaxCorrectionAfterCap),
     EURO_FORMAT,
   );
   setFormula(
     sheet,
+    `B${vatListPriceRow}`,
+    "B20",
+    safeNumber(result.vatRelevantListPrice),
+    EURO_FORMAT,
+  );
+  setFormula(
+    sheet,
     `B${vatOnePercentRow}`,
-    "B21",
+    `B${vatListPriceRow}*1%*B21`,
+    safeNumber(result.vatOnePercentValue),
+    EURO_FORMAT,
+  );
+  setFormula(
+    sheet,
+    `B${vatDeductionRow}`,
+    `B${vatOnePercentRow}*20%`,
+    safeNumber(result.vatNonInputTaxDeduction),
+    EURO_FORMAT,
+  );
+  setFormula(
+    sheet,
+    `B${vatBeforeCapBaseRow}`,
+    `B${vatOnePercentRow}-B${vatDeductionRow}`,
     safeNumber(result.vatBaseBeforeCap),
+    EURO_FORMAT,
+  );
+  setFormula(
+    sheet,
+    `B${vatBeforeCapRow}`,
+    `B${vatBeforeCapBaseRow}*19%`,
+    safeNumber(result.vatBeforeCap),
     EURO_FORMAT,
   );
   setFormula(
@@ -306,7 +481,7 @@ function createVehicleSheet(XLSX: XlsxModule, vehicle: Vehicle, index: number): 
   setFormula(
     sheet,
     `B${vatBaseRow}`,
-    `IF(B${capAppliesRow},B${vatEstimateRow},B${vatOnePercentRow})`,
+    `IF(B${capAppliesRow},B${vatEstimateRow},B${vatBeforeCapBaseRow})`,
     safeNumber(result.vatBase8921),
     EURO_FORMAT,
   );
@@ -314,14 +489,21 @@ function createVehicleSheet(XLSX: XlsxModule, vehicle: Vehicle, index: number): 
   setFormula(
     sheet,
     `B${amount8924Row}`,
-    `B${incomeTaxCorrectionRow}-B${vatBaseRow}`,
+    `MAX(0,B${incomeTaxCorrectionRow}-B${vatBaseRow})`,
     safeNumber(result.amount8924),
     EURO_FORMAT,
   );
   setFormula(
     sheet,
+    `B${commuteCorrectionRow}`,
+    "B39",
+    safeNumber(result.commuteCorrection),
+    EURO_FORMAT,
+  );
+  setFormula(
+    sheet,
     `B${totalBeforeRow}`,
-    "B19+B28+B22",
+    `B33+B39+B${vatBeforeCapRow}`,
     safeNumber(result.totalBeforeCap),
     EURO_FORMAT,
   );
@@ -334,20 +516,20 @@ function createVehicleSheet(XLSX: XlsxModule, vehicle: Vehicle, index: number): 
   );
 
   setNumberFormat(sheet, ["B2"], "dd.mm.yyyy hh:mm");
-  setNumberFormat(sheet, ["B10", "B13", "B14", "B15"], INTEGER_FORMAT);
-  setNumberFormat(sheet, ["B11", "B12"], EURO_FORMAT);
-  setNumberFormat(sheet, [`B${vatShareRow}`], PERCENT_FORMAT);
-  for (let row = 19; row <= totalAfterRow; row += 1) {
+  setNumberFormat(sheet, ["B12", "B21", "B22", "B23"], INTEGER_FORMAT);
+  setNumberFormat(sheet, ["B16", "B17", `B${vatShareRow}`], PERCENT_FORMAT);
+  setNumberFormat(sheet, ["B25", "B26", "B27"], NUMBER_FORMAT);
+  setNumberFormat(sheet, ["B13", "B14", "B18", "B19", "B20"], EURO_FORMAT);
+  for (let row = firstCostRow; row <= totalCostRow; row += 1)
+    setNumberFormat(sheet, [`B${row}`, `C${row}`, `D${row}`], EURO_FORMAT);
+  for (let row = 32; row <= totalAfterRow; row += 1) {
     if (sheet[`B${row}`]?.t === "n" && row !== vatShareRow) sheet[`B${row}`].z = EURO_FORMAT;
   }
-  for (let row = firstCostRow; row <= totalCostRow; row += 1) {
-    setNumberFormat(sheet, [`B${row}`, `C${row}`, `D${row}`], EURO_FORMAT);
-  }
 
-  addSectionMerges(XLSX, sheet, [5, 18, 24, 30, capSectionRow, vatSectionRow, warningsSectionRow]);
-  sheet["!cols"] = [{ wch: 58 }, { wch: 22 }, { wch: 22 }, { wch: 22 }];
+  addSectionMerges(XLSX, sheet, [5, 31, 35, 41, capSectionRow, vatSectionRow, warningsSectionRow]);
+  sheet["!cols"] = [{ wch: 63 }, { wch: 27 }, { wch: 22 }, { wch: 22 }];
   sheet["!rows"] = [{ hpt: 28 }, { hpt: 20 }, { hpt: 34 }];
-  sheet["!autofilter"] = { ref: `A31:D${lastCostRow}` };
+  sheet["!autofilter"] = { ref: `A42:D${lastCostRow}` };
   sheet["!margins"] = {
     left: 0.4,
     right: 0.4,
@@ -361,10 +543,11 @@ function createVehicleSheet(XLSX: XlsxModule, vehicle: Vehicle, index: number): 
 
 function createOverviewSheet(XLSX: XlsxModule, vehicles: Vehicle[]): Worksheet {
   const rows: CellValue[][] = [
-    ["steuerstoff · Kfz-Wertabgaben · Übersicht", null, null, null, null, null, null, null],
-    ["Erstellt am", new Date(), null, null, null, null, null, null],
     [
-      "Arbeitspapier – Detailberechnungen befinden sich in den folgenden Fahrzeugblättern.",
+      "steuerstoff · Kfz-Wertabgaben · Übersicht",
+      null,
+      null,
+      null,
       null,
       null,
       null,
@@ -373,32 +556,58 @@ function createOverviewSheet(XLSX: XlsxModule, vehicles: Vehicle[]): Worksheet {
       null,
       null,
     ],
-    [null, null, null, null, null, null, null, null],
+    ["Erstellt am", new Date(), null, null, null, null, null, null, null, null, null],
+    [
+      "Arbeitspapier nach Rechtsstand 2026 – Detailberechnungen befinden sich in den folgenden Fahrzeugblättern.",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+    ],
+    [null, null, null, null, null, null, null, null, null, null, null],
     [
       "Fahrzeug",
-      "Kennzeichen",
+      "Fahrzeugart",
       "Jahr",
+      "Begünstigung",
+      "BLP ESt",
+      "BLP USt",
       "BMG ⇨ 8921 0",
       "USt 19 %",
       "Betrag ⇨ 8924 0",
       "Korrektur W/B",
       "Gesamtwert",
     ],
-    ...vehicles.map((vehicle) => [
-      vehicle.bez || "Ohne Bezeichnung",
-      vehicle.kennz || "—",
-      safeNumber(calculateKfz(vehicle).taxYear),
-      0,
-      0,
-      0,
-      0,
-      0,
-    ]),
-    ["Gesamtsummen", null, null, 0, 0, 0, 0, 0],
-    [null, null, null, null, null, null, null, null],
+    ...vehicles.map((vehicle) => {
+      const result = calculateKfz(vehicle);
+      return [
+        vehicle.bez || "Ohne Bezeichnung",
+        VEHICLE_TYPE_LABELS[result.vehicleType],
+        safeNumber(result.taxYear),
+        BENEFIT_LABELS[result.electricBenefit.benefitType],
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+      ];
+    }),
+    ["Gesamtsummen", null, null, null, 0, 0, 0, 0, 0, 0, 0],
+    [null, null, null, null, null, null, null, null, null, null, null],
     [
       "Review-Hinweis",
-      "Diese Berechnung ist eine Arbeitshilfe und ersetzt keine fachliche Prüfung.",
+      "Arbeitshilfe nach Rechtsstand 2026. Fahrzeugunterlagen, Begünstigung, Kosten, Vorsteueraufteilung und DATEV-Vorschläge fachlich prüfen.",
+      null,
+      null,
+      null,
       null,
       null,
       null,
@@ -418,57 +627,36 @@ function createOverviewSheet(XLSX: XlsxModule, vehicles: Vehicle[]): Worksheet {
     const result = calculateKfz(vehicle);
     const sheetName = `Fahrzeug ${index + 1}`;
     const detailRows = getVehicleSheetRows(vehicle);
-    setFormula(
-      sheet,
-      `D${row}`,
-      `'${sheetName}'!B${detailRows.vatBaseRow}`,
-      safeNumber(result.vatBase8921),
-      EURO_FORMAT,
-    );
-    setFormula(
-      sheet,
-      `E${row}`,
-      `'${sheetName}'!B${detailRows.vatDueRow}`,
-      safeNumber(result.vatDue),
-      EURO_FORMAT,
-    );
-    setFormula(
-      sheet,
-      `F${row}`,
-      `'${sheetName}'!B${detailRows.amount8924Row}`,
-      safeNumber(result.amount8924),
-      EURO_FORMAT,
-    );
-    setFormula(
-      sheet,
-      `G${row}`,
-      `'${sheetName}'!B28`,
-      safeNumber(result.commuteCorrection),
-      EURO_FORMAT,
-    );
-    setFormula(
-      sheet,
-      `H${row}`,
-      `'${sheetName}'!B${detailRows.totalAfterRow}`,
-      safeNumber(result.totalAfterCap),
-      EURO_FORMAT,
-    );
+    const mappings = [
+      ["E", "B19", result.incomeTaxRelevantListPrice],
+      ["F", "B20", result.vatRelevantListPrice],
+      ["G", `B${detailRows.vatBaseRow}`, result.vatBase8921],
+      ["H", `B${detailRows.vatDueRow}`, result.vatDue],
+      ["I", `B${detailRows.amount8924Row}`, result.amount8924],
+      ["J", `B${detailRows.commuteCorrectionRow}`, result.commuteCorrection],
+      ["K", `B${detailRows.totalAfterRow}`, result.totalAfterCap],
+    ] as const;
+    for (const [column, detailAddress, value] of mappings)
+      setFormula(
+        sheet,
+        `${column}${row}`,
+        `'${sheetName}'!${detailAddress}`,
+        safeNumber(value),
+        EURO_FORMAT,
+      );
   });
-  for (const column of ["D", "E", "F", "G", "H"]) {
-    const total = vehicles.reduce((sum, vehicle) => {
-      const result = calculateKfz(vehicle);
-      const value =
-        column === "D"
-          ? result.vatBase8921
-          : column === "E"
-            ? result.vatDue
-            : column === "F"
-              ? result.amount8924
-              : column === "G"
-                ? result.commuteCorrection
-                : result.totalAfterCap;
-      return sum + safeNumber(value);
-    }, 0);
+
+  const totalsByColumn: Record<string, (vehicle: Vehicle) => number | null> = {
+    E: (vehicle) => calculateKfz(vehicle).incomeTaxRelevantListPrice,
+    F: (vehicle) => calculateKfz(vehicle).vatRelevantListPrice,
+    G: (vehicle) => calculateKfz(vehicle).vatBase8921,
+    H: (vehicle) => calculateKfz(vehicle).vatDue,
+    I: (vehicle) => calculateKfz(vehicle).amount8924,
+    J: (vehicle) => calculateKfz(vehicle).commuteCorrection,
+    K: (vehicle) => calculateKfz(vehicle).totalAfterCap,
+  };
+  for (const [column, selectValue] of Object.entries(totalsByColumn)) {
+    const total = vehicles.reduce((sum, vehicle) => sum + safeNumber(selectValue(vehicle)), 0);
     setFormula(
       sheet,
       `${column}${totalRow}`,
@@ -479,14 +667,17 @@ function createOverviewSheet(XLSX: XlsxModule, vehicles: Vehicle[]): Worksheet {
   }
 
   sheet["!merges"] = [
-    XLSX.utils.decode_range("A1:H1"),
-    XLSX.utils.decode_range("A3:H3"),
-    XLSX.utils.decode_range(`A${totalRow + 2}:H${totalRow + 2}`),
+    XLSX.utils.decode_range("A1:K1"),
+    XLSX.utils.decode_range("A3:K3"),
+    XLSX.utils.decode_range(`A${totalRow + 2}:K${totalRow + 2}`),
   ];
   sheet["!cols"] = [
     { wch: 28 },
-    { wch: 18 },
-    { wch: 10 },
+    { wch: 42 },
+    { wch: 9 },
+    { wch: 34 },
+    { wch: 16 },
+    { wch: 16 },
     { wch: 18 },
     { wch: 16 },
     { wch: 19 },
@@ -494,7 +685,7 @@ function createOverviewSheet(XLSX: XlsxModule, vehicles: Vehicle[]): Worksheet {
     { wch: 18 },
   ];
   sheet["!rows"] = [{ hpt: 30 }, { hpt: 20 }, { hpt: 32 }];
-  sheet["!autofilter"] = { ref: `A5:H${lastVehicleRow}` };
+  sheet["!autofilter"] = { ref: `A5:K${lastVehicleRow}` };
   setNumberFormat(sheet, ["B2"], "dd.mm.yyyy hh:mm");
   setNumberFormat(
     sheet,
@@ -505,45 +696,11 @@ function createOverviewSheet(XLSX: XlsxModule, vehicles: Vehicle[]): Worksheet {
 }
 
 export function getKfzWorkpaperValidationErrors(vehicle: Vehicle, index = 0): string[] {
-  const prefix = `Fahrzeug ${index + 1}`;
-  const result = calculateKfz(vehicle);
-  const errors: string[] = [];
-
-  if (result.taxYear == null) errors.push(`${prefix}: Veranlagungsjahr fehlt.`);
-  if (result.roundedListPrice == null || result.roundedListPrice <= 0)
-    errors.push(`${prefix}: Bruttolistenpreis fehlt.`);
-  if (
-    result.months == null ||
-    !Number.isInteger(result.months) ||
-    result.months < 1 ||
-    result.months > 12
-  )
-    errors.push(`${prefix}: Nutzungsmonate müssen zwischen 1 und 12 liegen.`);
-  if (result.distanceKm == null || result.distanceKm < 0)
-    errors.push(`${prefix}: Entfernung fehlt.`);
-  if (result.workdays == null || result.workdays < 0) errors.push(`${prefix}: Arbeitstage fehlen.`);
-  if (vehicle.nachweis !== "ja")
-    errors.push(`${prefix}: Nachweis der betrieblichen Nutzung über 50 % fehlt.`);
-  if (result.totalVehicleCostsNet <= 0)
-    errors.push(`${prefix}: Positive Gesamtfahrzeugkosten fehlen.`);
-  if (result.nonVatVehicleCosts > result.totalVehicleCostsNet)
-    errors.push(`${prefix}: Kosten ohne Vorsteuer übersteigen die Gesamtkosten.`);
-  if (
-    result.vatBase8921 == null ||
-    result.vatDue == null ||
-    result.amount8924 == null ||
-    result.totalAfterCap == null
-  )
-    errors.push(`${prefix}: Berechnung ist noch nicht vollständig.`);
-  if (result.amount8924 != null && result.amount8924 < 0)
-    errors.push(`${prefix}: Der Anteil ohne Umsatzsteuer ist negativ.`);
-
-  return errors;
+  return getKfzCalculationErrors(vehicle, index);
 }
 
 export function getKfzWorkpaperErrors(vehicles: Vehicle[]): string[] {
-  if (vehicles.length === 0) return ["Mindestens ein Fahrzeug ist erforderlich."];
-  return vehicles.flatMap((vehicle, index) => getKfzWorkpaperValidationErrors(vehicle, index));
+  return getKfzCalculationErrorsForVehicles(vehicles);
 }
 
 export async function createKfzWorkpaper(vehicles: Vehicle[]): Promise<KfzWorkpaperFile> {
@@ -562,7 +719,7 @@ export async function createKfzWorkpaper(vehicles: Vehicle[]): Promise<KfzWorkpa
   });
   workbook.Props = {
     Title: "Kfz-Wertabgaben-Arbeitspapier",
-    Subject: "1-%-Methode, Kostendeckelung und Umsatzsteuer",
+    Subject: "Elektro-/Hybridprüfung, 1-%-Methode, Kostendeckelung, Umsatzsteuer und DATEV",
     Author: "steuerstoff · by Melanie",
     Company: "steuerstoff",
     CreatedDate: new Date(),

@@ -244,7 +244,7 @@ export function SiteHeader() {
       <div className="mx-auto flex h-14 w-full max-w-6xl items-center gap-3 px-4 sm:h-16 sm:px-6 md:h-24 md:flex-wrap md:gap-y-0">
         <Link
           to="/"
-          className="flex min-w-0 shrink items-center gap-2 md:h-12 md:w-full md:shrink-0"
+          className="flex min-w-0 -translate-y-2 shrink items-center gap-2 md:h-12 md:w-full md:translate-y-0 md:shrink-0"
           style={{ isolation: 'isolate' }}
         >
           <span

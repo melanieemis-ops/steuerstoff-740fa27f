@@ -116,6 +116,44 @@ function articleMatchesCategory(a: Article, c: Category): boolean {
   return activeCategoryId === "all" || getCategoryId(a) === activeCategoryId;
 }
 
+function normalizeSearchText(value: unknown): string {
+  return String(value ?? "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/ß/g, "ss")
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function articleMatchesQuery(article: Article, query: string): boolean {
+  const terms = normalizeSearchText(query).split(" ").filter(Boolean);
+  if (terms.length === 0) return true;
+
+  const searchableText = normalizeSearchText([
+    article.id,
+    article.title,
+    article.short,
+    article.body,
+    article.category,
+    getCategoryLabel(article),
+    ...(article.tags ?? []),
+    article.keywords,
+    ...(article.references ?? []),
+    ...(article.checklist ?? []),
+    ...(article.commonMistakes ?? []),
+    ...(article.questions ?? []),
+    article.source,
+    article.caseText,
+    article.tasks,
+    article.solution,
+    article.result,
+    article.grading,
+  ].filter(Boolean).join(" "));
+
+  return terms.every((term) => searchableText.includes(term));
+}
+
 interface Article {
   id: string;
   title: string;
@@ -957,12 +995,14 @@ function Wissensdatenbank() {
 
   const activeCategoryId = CATEGORY_ID_BY_LABEL[cat];
 
-  // Einzige Quelle der Wahrheit: gleiche Liste für Count UND Karten.
+  // Einzige Quelle der Wahrheit: dieselbe kombinierte Filterung für Count und Karten.
   const finalVisibleItems = useMemo(() => {
-    return ALL_ARTICLES.filter((a) => {
-      return activeCategoryId === "all" || getCategoryId(a) === activeCategoryId;
+    return ALL_ARTICLES.filter((article) => {
+      const matchesCategory =
+        activeCategoryId === "all" || getCategoryId(article) === activeCategoryId;
+      return matchesCategory && articleMatchesQuery(article, query);
     });
-  }, [activeCategoryId]);
+  }, [activeCategoryId, query]);
 
   const counts = useMemo(() => {
     const m: Record<string, number> = {};
@@ -974,20 +1014,20 @@ function Wissensdatenbank() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    // Dev-Debug: aktiver Filter + tatsächlich angezeigte Kategorien.
-    if (import.meta.env.DEV) {
-      console.log("activeCategoryId", activeCategoryId);
-
-      console.log(
-        "finalVisibleItems",
-        finalVisibleItems.map((i) => ({ title: i.title, categoryId: getCategoryId(i) })),
-      );
-    }
     const el = document.getElementById("kb-list-anchor");
     if (!el) return;
     const y = el.getBoundingClientRect().top + window.scrollY - 80;
     window.scrollTo({ top: y, behavior: "smooth" });
-  }, [activeCategoryId, finalVisibleItems]);
+  }, [activeCategoryId]);
+
+  useEffect(() => {
+    if (!open && !inlineOpenId) return;
+    const visibleIds = new Set(finalVisibleItems.map((article) => article.id));
+    if ((open && !visibleIds.has(open.id)) || (inlineOpenId && !visibleIds.has(inlineOpenId))) {
+      setOpen(null);
+      setInlineOpenId(null);
+    }
+  }, [finalVisibleItems, inlineOpenId, open]);
 
   useEffect(() => {
     setCanUsePortal(typeof document !== "undefined" && !!document.body);
@@ -1115,8 +1155,19 @@ function Wissensdatenbank() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Suche nach Stichwort, Paragraf, Konto …"
-              className="pl-9"
+              aria-label="Wissensdatenbank durchsuchen"
+              className="pl-9 pr-10"
             />
+            {query && (
+              <button
+                type="button"
+                onClick={() => setQuery("")}
+                aria-label="Suche leeren"
+                className="absolute right-2 top-1/2 inline-flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            )}
           </div>
 
           <div className="mt-4 -mx-4 flex gap-1.5 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0">

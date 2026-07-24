@@ -5,6 +5,7 @@
 
 import "@/lib/knowledgeBaseExtensions/aufbewahrungspflichten-ao";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-aufmerksamkeiten";
+import "@/lib/knowledgeBaseExtensions/lohnsteuer-auslandsaufenthalt";
 import { KNOWLEDGE_BASE, kbKeywordsToRegExp, type KBEntry } from "@/lib/knowledgeBase";
 
 import { INTERNAL_KNOWLEDGE_BASE } from "@/lib/expertSystem/internalKnowledge";

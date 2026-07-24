@@ -1,0 +1,190 @@
+name: Fix knowledge base search once
+
+on:
+  push:
+    paths:
+      - .github/workflows/fix-kb-search-once.yml
+
+permissions:
+  contents: write
+
+jobs:
+  apply-fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Apply knowledge base search fix
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          path = Path('src/routes/wissensdatenbank.tsx')
+          text = path.read_text(encoding='utf-8')
+
+          old = '''function articleMatchesCategory(a: Article, c: Category): boolean {
+            const activeCategoryId = CATEGORY_ID_BY_LABEL[c];
+            return activeCategoryId === "all" || getCategoryId(a) === activeCategoryId;
+          }
+          '''
+          new = '''function articleMatchesCategory(a: Article, c: Category): boolean {
+            const activeCategoryId = CATEGORY_ID_BY_LABEL[c];
+            return activeCategoryId === "all" || getCategoryId(a) === activeCategoryId;
+          }
+
+          function normalizeSearchText(value: unknown): string {
+            return String(value ?? "")
+              .normalize("NFD")
+              .replace(/[\\u0300-\\u036f]/g, "")
+              .replace(/ß/g, "ss")
+              .toLowerCase()
+              .replace(/\\s+/g, " ")
+              .trim();
+          }
+
+          function articleMatchesQuery(article: Article, query: string): boolean {
+            const terms = normalizeSearchText(query).split(" ").filter(Boolean);
+            if (terms.length === 0) return true;
+
+            const searchableText = normalizeSearchText([
+              article.id,
+              article.title,
+              article.short,
+              article.body,
+              article.category,
+              getCategoryLabel(article),
+              ...(article.tags ?? []),
+              article.keywords,
+              ...(article.references ?? []),
+              ...(article.checklist ?? []),
+              ...(article.commonMistakes ?? []),
+              ...(article.questions ?? []),
+              article.source,
+              article.caseText,
+              article.tasks,
+              article.solution,
+              article.result,
+              article.grading,
+            ].filter(Boolean).join(" "));
+
+            return terms.every((term) => searchableText.includes(term));
+          }
+          '''
+          if old not in text:
+            raise SystemExit('Could not find category helper block')
+          text = text.replace(old, new, 1)
+
+          old = '''  // Einzige Quelle der Wahrheit: gleiche Liste für Count UND Karten.
+            const finalVisibleItems = useMemo(() => {
+              return ALL_ARTICLES.filter((a) => {
+                return activeCategoryId === "all" || getCategoryId(a) === activeCategoryId;
+              });
+            }, [activeCategoryId]);
+          '''
+          new = '''  // Einzige Quelle der Wahrheit: dieselbe kombinierte Filterung für Count und Karten.
+            const finalVisibleItems = useMemo(() => {
+              return ALL_ARTICLES.filter((article) => {
+                const matchesCategory =
+                  activeCategoryId === "all" || getCategoryId(article) === activeCategoryId;
+                return matchesCategory && articleMatchesQuery(article, query);
+              });
+            }, [activeCategoryId, query]);
+          '''
+          if old not in text:
+            raise SystemExit('Could not find visible items block')
+          text = text.replace(old, new, 1)
+
+          old = '''  useEffect(() => {
+              if (typeof window === "undefined") return;
+              // Dev-Debug: aktiver Filter + tatsächlich angezeigte Kategorien.
+              if (import.meta.env.DEV) {
+                console.log("activeCategoryId", activeCategoryId);
+
+                console.log(
+                  "finalVisibleItems",
+                  finalVisibleItems.map((i) => ({ title: i.title, categoryId: getCategoryId(i) })),
+                );
+              }
+              const el = document.getElementById("kb-list-anchor");
+              if (!el) return;
+              const y = el.getBoundingClientRect().top + window.scrollY - 80;
+              window.scrollTo({ top: y, behavior: "smooth" });
+            }, [activeCategoryId, finalVisibleItems]);
+          '''
+          new = '''  useEffect(() => {
+              if (typeof window === "undefined") return;
+              const el = document.getElementById("kb-list-anchor");
+              if (!el) return;
+              const y = el.getBoundingClientRect().top + window.scrollY - 80;
+              window.scrollTo({ top: y, behavior: "smooth" });
+            }, [activeCategoryId]);
+
+            useEffect(() => {
+              if (!open && !inlineOpenId) return;
+              const visibleIds = new Set(finalVisibleItems.map((article) => article.id));
+              if ((open && !visibleIds.has(open.id)) || (inlineOpenId && !visibleIds.has(inlineOpenId))) {
+                setOpen(null);
+                setInlineOpenId(null);
+              }
+            }, [finalVisibleItems, inlineOpenId, open]);
+          '''
+          if old not in text:
+            raise SystemExit('Could not find scrolling effect block')
+          text = text.replace(old, new, 1)
+
+          old = '''          <div className="relative mt-6">
+                      <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                      <Input
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)}
+                        placeholder="Suche nach Stichwort, Paragraf, Konto …"
+                        className="pl-9"
+                      />
+                    </div>
+          '''
+          new = '''          <div className="relative mt-6">
+                      <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                      <Input
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)}
+                        placeholder="Suche nach Stichwort, Paragraf, Konto …"
+                        aria-label="Wissensdatenbank durchsuchen"
+                        className="pl-9 pr-10"
+                      />
+                      {query && (
+                        <button
+                          type="button"
+                          onClick={() => setQuery("")}
+                          aria-label="Suche leeren"
+                          className="absolute right-2 top-1/2 inline-flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+                        >
+                          <X className="h-4 w-4" />
+                        </button>
+                      )}
+                    </div>
+          '''
+          if old not in text:
+            raise SystemExit('Could not find search input block')
+          text = text.replace(old, new, 1)
+
+          path.write_text(text, encoding='utf-8')
+          PY
+
+          git diff --check
+
+      - name: Commit fix
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git config user.name "steuerstoff-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add src/routes/wissensdatenbank.tsx
+          git commit -m "Repair knowledge base search and filtering"
+          git push origin main

@@ -23,6 +23,8 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
     "paths": {
+      "@/data/magazineArticles": ["./src/data/magazineArticlesIssue03.ts"],
+      "@/components/MagazineFlipbook": ["./src/components/MagazineFlipbookIssue03.tsx"],
       "@/*": ["./src/*"]
     }
   }

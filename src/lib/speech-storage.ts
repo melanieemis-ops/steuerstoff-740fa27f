@@ -1,5 +1,4 @@
 /**
- * speech-storage.ts
  * Persistenz für Vorlese-Einstellungen im lokalen Browser-Speicher.
  */
 
@@ -8,22 +7,39 @@ const RATE_KEY = "steuerstoff_tts_rate_v1";
 const VOICE_KEY = "steuerstoff_tts_voice_v1";
 const PROFILE_KEY = "steuerstoff_tts_profile_v1";
 const FALLBACK_KEY = "steuerstoff_tts_browser_fallback_v1";
+const PROVIDER_KEY = "steuerstoff_tts_provider_v1";
+const OPENAI_VOICE_KEY = "steuerstoff_tts_openai_voice_v1";
+
+export type TtsProvider = "openai" | "elevenlabs";
+export type OpenAiVoice = "coral" | "marin" | "nova" | "shimmer";
 
 export type SpeechSettings = {
   rate: number;
   voiceURI?: string;
   profileId?: string;
   allowBrowserFallback?: boolean;
+  provider?: TtsProvider;
+  openAiVoice?: OpenAiVoice;
 };
 
-const DEFAULTS: SpeechSettings = {
-  rate: 1.0,
+const DEFAULTS: Required<Pick<SpeechSettings, "rate" | "profileId" | "allowBrowserFallback" | "provider" | "openAiVoice">> = {
+  rate: 1,
   profileId: "steuerstoff-ki-stimme",
-  allowBrowserFallback: false,
+  allowBrowserFallback: true,
+  provider: "openai",
+  openAiVoice: "coral",
 };
 
 function cleanOptionalString(value: unknown): string | undefined {
   return typeof value === "string" && value.trim() ? value.trim() : undefined;
+}
+
+function cleanProvider(value: unknown): TtsProvider {
+  return value === "elevenlabs" ? "elevenlabs" : "openai";
+}
+
+function cleanOpenAiVoice(value: unknown): OpenAiVoice {
+  return value === "marin" || value === "nova" || value === "shimmer" ? value : "coral";
 }
 
 export function loadSpeechSettings(): SpeechSettings {
@@ -33,6 +49,8 @@ export function loadSpeechSettings(): SpeechSettings {
     const rawVoice = window.localStorage.getItem(VOICE_KEY);
     const rawProfile = window.localStorage.getItem(PROFILE_KEY);
     const rawFallback = window.localStorage.getItem(FALLBACK_KEY);
+    const rawProvider = window.localStorage.getItem(PROVIDER_KEY);
+    const rawOpenAiVoice = window.localStorage.getItem(OPENAI_VOICE_KEY);
     const raw = window.localStorage.getItem(STORAGE_KEY);
     const parsed = raw
       ? (JSON.parse(raw) as Partial<SpeechSettings> & Record<string, unknown>)
@@ -58,6 +76,8 @@ export function loadSpeechSettings(): SpeechSettings {
           : typeof parsed.allowBrowserFallback === "boolean"
             ? parsed.allowBrowserFallback
             : DEFAULTS.allowBrowserFallback,
+      provider: cleanProvider(rawProvider ?? parsed.provider),
+      openAiVoice: cleanOpenAiVoice(rawOpenAiVoice ?? parsed.openAiVoice),
     };
   } catch {
     return { ...DEFAULTS };
@@ -67,15 +87,23 @@ export function loadSpeechSettings(): SpeechSettings {
 export function saveSpeechSettings(settings: SpeechSettings): void {
   if (typeof window === "undefined") return;
   try {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
-    window.localStorage.setItem(RATE_KEY, String(settings.rate));
-    window.localStorage.setItem(PROFILE_KEY, settings.profileId ?? DEFAULTS.profileId ?? "");
-    window.localStorage.setItem(FALLBACK_KEY, settings.allowBrowserFallback ? "1" : "0");
-    if (settings.voiceURI) {
-      window.localStorage.setItem(VOICE_KEY, settings.voiceURI);
+    const normalized: SpeechSettings = {
+      ...settings,
+      provider: cleanProvider(settings.provider),
+      openAiVoice: cleanOpenAiVoice(settings.openAiVoice),
+    };
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(normalized));
+    window.localStorage.setItem(RATE_KEY, String(normalized.rate));
+    window.localStorage.setItem(PROFILE_KEY, normalized.profileId ?? DEFAULTS.profileId);
+    window.localStorage.setItem(FALLBACK_KEY, normalized.allowBrowserFallback === false ? "0" : "1");
+    window.localStorage.setItem(PROVIDER_KEY, normalized.provider ?? DEFAULTS.provider);
+    window.localStorage.setItem(OPENAI_VOICE_KEY, normalized.openAiVoice ?? DEFAULTS.openAiVoice);
+    if (normalized.voiceURI) {
+      window.localStorage.setItem(VOICE_KEY, normalized.voiceURI);
     } else {
       window.localStorage.removeItem(VOICE_KEY);
     }
+    window.dispatchEvent(new Event("steuerstoff:speech-settings"));
   } catch {
     // Quota / privacy mode ignorieren.
   }
@@ -83,7 +111,15 @@ export function saveSpeechSettings(settings: SpeechSettings): void {
 
 export function clearSpeechSettings(): void {
   if (typeof window === "undefined") return;
-  for (const key of [STORAGE_KEY, RATE_KEY, VOICE_KEY, PROFILE_KEY, FALLBACK_KEY]) {
+  for (const key of [
+    STORAGE_KEY,
+    RATE_KEY,
+    VOICE_KEY,
+    PROFILE_KEY,
+    FALLBACK_KEY,
+    PROVIDER_KEY,
+    OPENAI_VOICE_KEY,
+  ]) {
     window.localStorage.removeItem(key);
   }
 }

@@ -9,6 +9,7 @@ import "@/lib/knowledgeBaseExtensions/lohnsteuer-lohnsteuerbescheinigung-erstell
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-faelligkeit-lohnsteuer-sozialversicherungsbeitraege";
 import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-gesetzliche-erbfolge";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-gewerblicher-grundstueckshandel";
+import "@/lib/knowledgeBaseExtensions/jahresabschluss-hgb-ueberblick";
 
 const KEY = "steuerstoff:admin";
 

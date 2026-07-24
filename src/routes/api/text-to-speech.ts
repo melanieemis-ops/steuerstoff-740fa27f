@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { env as cloudflareEnv } from "cloudflare:workers";
 import { z } from "zod";
 
 import { prepareTextForSpeech } from "@/lib/prepareTextForSpeech";
@@ -42,14 +41,29 @@ type CloudflareRuntimeRequest = Request & {
   };
 };
 
-function readServerSecret(name: string, request?: Request): string | undefined {
+let cachedCloudflareEnv: Record<string, unknown> | null = null;
+
+async function getCloudflareEnv(): Promise<Record<string, unknown>> {
+  if (cachedCloudflareEnv !== null) {
+    return cachedCloudflareEnv;
+  }
+  try {
+    const mod = await import("cloudflare:workers");
+    cachedCloudflareEnv = (mod.env as unknown as Record<string, unknown>) ?? {};
+  } catch {
+    cachedCloudflareEnv = {};
+  }
+  return cachedCloudflareEnv;
+}
+
+async function readServerSecret(name: string, request?: Request): Promise<string | undefined> {
   const requestEnv = (request as CloudflareRuntimeRequest | undefined)?.runtime?.cloudflare?.env;
   const requestValue = requestEnv?.[name];
   if (typeof requestValue === "string" && requestValue.trim()) {
     return requestValue.trim();
   }
 
-  const directWorkerValue = (cloudflareEnv as unknown as Record<string, unknown>)[name];
+  const directWorkerValue = (await getCloudflareEnv())[name];
   if (typeof directWorkerValue === "string" && directWorkerValue.trim()) {
     return directWorkerValue.trim();
   }

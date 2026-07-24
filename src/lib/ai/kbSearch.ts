@@ -14,6 +14,7 @@ import "@/lib/knowledgeBaseExtensions/lohnsteuer-faelligkeit-lohnsteuer-sozialve
 import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-gesetzliche-erbfolge";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-gewerblicher-grundstueckshandel";
 import "@/lib/knowledgeBaseExtensions/jahresabschluss-hgb-ueberblick";
+import "@/lib/knowledgeBaseExtensions/lohnsteuer-lohn-und-gehaltsabrechnung";
 import { KNOWLEDGE_BASE, kbKeywordsToRegExp, type KBEntry } from "@/lib/knowledgeBase";
 
 import { INTERNAL_KNOWLEDGE_BASE } from "@/lib/expertSystem/internalKnowledge";

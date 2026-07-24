@@ -137,8 +137,8 @@ export const Route = createFileRoute("/api/text-to-speech")({
         return new Response(null, { status: 204, headers: CORS_HEADERS });
       },
       POST: async ({ request }) => {
-        const apiKey = readServerSecret("ELEVENLABS_API_KEY", request);
-        const expectedAccessCode = readServerSecret("TTS_ACCESS_CODE", request);
+        const apiKey = await readServerSecret("ELEVENLABS_API_KEY", request);
+        const expectedAccessCode = await readServerSecret("TTS_ACCESS_CODE", request);
 
         if (!apiKey || !expectedAccessCode) {
           return jsonError(

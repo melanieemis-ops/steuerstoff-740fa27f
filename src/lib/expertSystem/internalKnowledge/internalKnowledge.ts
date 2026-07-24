@@ -14,6 +14,7 @@
 
 import type { KBEntry } from "@/lib/knowledgeBase";
 import { anschaffungskostenHgbEstg } from "./practice/anschaffungskosten-hgb-estg";
+import { vermoegenswirksameLeistungenArbeitnehmerSparzulage } from "./practice/vermoegenswirksame-leistungen-arbeitnehmer-sparzulage";
 // GENERATED-IMPORTS-START
 import { estg001Steuerpflicht } from "./laws/estg/estg-001-steuerpflicht";
 import { estg002Einkunftsarten } from "./laws/estg/estg-002-einkunftsarten";
@@ -21,6 +22,7 @@ import { estg002Einkunftsarten } from "./laws/estg/estg-002-einkunftsarten";
 
 export const INTERNAL_KNOWLEDGE_BASE: KBEntry[] = [
   anschaffungskostenHgbEstg,
+  vermoegenswirksameLeistungenArbeitnehmerSparzulage,
   // GENERATED-ENTRIES-START
   estg001Steuerpflicht,
   estg002Einkunftsarten,

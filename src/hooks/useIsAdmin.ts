@@ -6,6 +6,7 @@ import "@/lib/knowledgeBaseExtensions/sozialversicherung-betriebspruefung";
 import "@/lib/knowledgeBaseExtensions/kfz-dienstwagen-1-prozent";
 import "@/lib/knowledgeBaseExtensions/eigenverbrauch-unentgeltliche-wertabgaben-lieferungen";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-lohnsteuerbescheinigung-erstellung-korrektur-inhalt";
+import "@/lib/knowledgeBaseExtensions/lohnsteuer-faelligkeit-lohnsteuer-sozialversicherungsbeitraege";
 
 const KEY = "steuerstoff:admin";
 

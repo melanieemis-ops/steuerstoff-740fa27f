@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "@/lib/knowledgeBaseExtensions/aufbewahrungspflichten-ao";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-aufmerksamkeiten";
+import "@/lib/knowledgeBaseExtensions/lohnsteuer-auslandsaufenthalt";
 
 const KEY = "steuerstoff:admin";
 

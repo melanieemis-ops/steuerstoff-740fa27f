@@ -28,7 +28,7 @@ export const TTS_INVALID_ACCESS_CODE_MESSAGE =
 export const TTS_RATE_LIMIT_MESSAGE =
   "Die Vorlesefunktion wird gerade sehr häufig verwendet. Bitte versuche es in Kürze erneut.";
 export const TTS_GENERIC_ERROR_MESSAGE =
-  "Die Audiodatei konnte gerade nicht erstellt werden. Die Browserstimme kann als Ersatz verwendet werden.";
+  "Die Audiodatei konnte gerade nicht erstellt werden. Bitte versuche es erneut oder nutze die Browserstimme.";
 
 export class TtsApiError extends Error {
   code: TtsApiErrorCode;
@@ -43,15 +43,10 @@ export class TtsApiError extends Error {
 
 function revokeCachedUrls() {
   for (const url of cache.values()) {
-    try {
-      URL.revokeObjectURL(url);
-    } catch {
-      // ignore
-    }
+    try { URL.revokeObjectURL(url); } catch { /* ignore */ }
   }
   cache.clear();
 }
-
 if (typeof window !== "undefined") window.addEventListener("pagehide", revokeCachedUrls);
 
 export type TtsRequestPayload = {
@@ -73,18 +68,10 @@ export function getAudioCacheKey(payload: TtsRequestPayload): string {
     profileId: payload.profileId ?? getVoiceProfile().id,
   });
 }
+export function getCachedAudioUrl(cacheKey: string): string | undefined { return cache.get(cacheKey); }
+export function storeCachedAudioUrl(cacheKey: string, url: string): void { cache.set(cacheKey, url); }
 
-export function getCachedAudioUrl(cacheKey: string): string | undefined {
-  return cache.get(cacheKey);
-}
-export function storeCachedAudioUrl(cacheKey: string, url: string): void {
-  cache.set(cacheKey, url);
-}
-
-export async function requestSpeechAudio(
-  payload: TtsRequestPayload,
-  signal: AbortSignal,
-): Promise<Blob> {
+export async function requestSpeechAudio(payload: TtsRequestPayload, signal: AbortSignal): Promise<Blob> {
   const settings = loadSpeechSettings();
   const provider = payload.provider ?? settings.provider ?? "openai";
   const voice = payload.voice ?? settings.openAiVoice ?? "coral";
@@ -92,9 +79,7 @@ export async function requestSpeechAudio(
 
   if (provider === "elevenlabs") {
     const accessCode = await getTtsAccessCode();
-    if (!accessCode) {
-      throw new TtsApiError("MISSING_TTS_ACCESS_CODE", TTS_MISSING_ACCESS_CODE_MESSAGE, 0);
-    }
+    if (!accessCode) throw new TtsApiError("MISSING_TTS_ACCESS_CODE", TTS_MISSING_ACCESS_CODE_MESSAGE, 0);
     headers["x-tts-access-code"] = accessCode;
   }
 
@@ -110,18 +95,12 @@ export async function requestSpeechAudio(
     try {
       const errorPayload = (await response.json()) as { error?: unknown };
       if (typeof errorPayload.error === "string") code = errorPayload.error as TtsApiErrorCode;
-    } catch {
-      // ignore
-    }
-    if (process.env.NODE_ENV === "development") {
-      console.warn(`[${FUNCTION_NAME}] status=${response.status} code=${code}`);
-    }
+    } catch { /* ignore */ }
+    if (process.env.NODE_ENV === "development") console.warn(`[${FUNCTION_NAME}] status=${response.status} code=${code}`);
     if (response.status === 401 || code === "INVALID_TTS_ACCESS_CODE") {
       throw new TtsApiError("INVALID_TTS_ACCESS_CODE", TTS_INVALID_ACCESS_CODE_MESSAGE, response.status);
     }
-    if (response.status === 429) {
-      throw new TtsApiError("RATE_LIMITED", TTS_RATE_LIMIT_MESSAGE, response.status);
-    }
+    if (response.status === 429) throw new TtsApiError("RATE_LIMITED", TTS_RATE_LIMIT_MESSAGE, response.status);
     throw new TtsApiError(code, TTS_GENERIC_ERROR_MESSAGE, response.status);
   }
 
@@ -130,8 +109,9 @@ export async function requestSpeechAudio(
   return blob;
 }
 
+// Bestehende Komponenten verwenden diesen Namen. Die Anfrage folgt trotzdem der Auswahl in den Einstellungen.
 export async function requestElevenLabsAudio(payload: TtsRequestPayload, signal: AbortSignal) {
-  return requestSpeechAudio({ ...payload, provider: "elevenlabs" }, signal);
+  return requestSpeechAudio(payload, signal);
 }
 export async function requestOpenAiAudio(payload: TtsRequestPayload, signal: AbortSignal) {
   return requestSpeechAudio({ ...payload, provider: "openai" }, signal);
@@ -148,6 +128,4 @@ export function ttsErrorNeedsSettings(error: unknown): boolean {
   return error instanceof TtsApiError &&
     (error.code === "MISSING_TTS_ACCESS_CODE" || error.code === "INVALID_TTS_ACCESS_CODE");
 }
-export function clearSpeechAudioCache(): void {
-  revokeCachedUrls();
-}
+export function clearSpeechAudioCache(): void { revokeCachedUrls(); }

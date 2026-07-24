@@ -1,0 +1,68 @@
+name: Fix Erfolge card
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/fix-erfolge-card.yml
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Enable achievements card
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('src/routes/lernen_.akademie.tsx')
+          text = path.read_text(encoding='utf-8')
+
+          old_status = '''  {
+    title: "Erfolge",
+    description: "Sammle Abzeichen, erreiche Lernziele und halte deine Serie.",
+    icon: Trophy,
+    status: "soon" as const,
+  },'''
+          new_status = '''  {
+    title: "Erfolge",
+    description: "Sammle Abzeichen, erreiche Lernziele und halte deine Serie.",
+    icon: Trophy,
+    status: "ready" as const,
+  },'''
+          if old_status not in text:
+              raise SystemExit('Erfolge status block not found')
+          text = text.replace(old_status, new_status, 1)
+
+          anchor = '''  if (title === "Fortschritt") {
+    targetPath = "/lernen/akademie/fortschritt";
+  }
+'''
+          addition = anchor + '''
+  if (title === "Erfolge") {
+    targetPath = "/erfolge";
+  }
+'''
+          if 'if (title === "Erfolge")' not in text:
+              if anchor not in text:
+                  raise SystemExit('Academy route anchor not found')
+              text = text.replace(anchor, addition, 1)
+
+          path.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Remove one-time workflow and commit
+        run: |
+          rm .github/workflows/fix-erfolge-card.yml
+          git config user.name "steuerstoff-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add src/routes/lernen_.akademie.tsx .github/workflows/fix-erfolge-card.yml
+          git commit -m "Enable achievements card in academy"
+          git push

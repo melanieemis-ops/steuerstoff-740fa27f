@@ -1,3 +1,4 @@
+import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-gesetzliche-erbfolge";
 import { KNOWLEDGE_BASE, type KBEntry } from "@/lib/knowledgeBase";
 
 export const aufbewahrungspflichtenAo: KBEntry = {

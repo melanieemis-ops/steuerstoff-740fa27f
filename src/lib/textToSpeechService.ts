@@ -2,6 +2,7 @@ import { buildSpeechCacheSignature } from "@/lib/prepareTextForSpeech";
 import { DEFAULT_TTS_MODEL_ID, getVoiceProfile } from "@/lib/ttsVoiceProfiles";
 import { apiUrl } from "@/lib/api";
 import { getTtsAccessCode } from "@/lib/ttsAccessCodeStorage";
+import { loadSpeechSettings, type OpenAiVoice, type TtsProvider } from "@/lib/speech-storage";
 
 const cache = new Map<string, string>();
 const FUNCTION_NAME = "api/text-to-speech";
@@ -15,26 +16,23 @@ export type TtsApiErrorCode =
   | "VOICE_NOT_FOUND"
   | "QUOTA_EXCEEDED"
   | "ELEVENLABS_ERROR"
+  | "OPENAI_ERROR"
   | "REQUEST_INVALID"
   | "TEXT_TOO_LONG"
   | "UNKNOWN_ERROR";
 
 export const TTS_MISSING_ACCESS_CODE_MESSAGE =
-  "Für die Vorlesefunktion benötigst du einen Freischaltcode. Du kannst ihn über Instagram bei @steuerstoff anfragen und anschließend in den Einstellungen eintragen.";
-
+  "Für die ElevenLabs-Stimme benötigst du einen Freischaltcode. Du kannst ihn in den Einstellungen eintragen oder OpenAI beziehungsweise die Browserstimme verwenden.";
 export const TTS_INVALID_ACCESS_CODE_MESSAGE =
-  "Der Freischaltcode ist ungültig oder nicht mehr gültig. Bitte prüfe den Code in den Einstellungen oder frage bei @steuerstoff einen neuen Zugang an.";
-
+  "Der ElevenLabs-Freischaltcode ist ungültig oder nicht mehr gültig.";
 export const TTS_RATE_LIMIT_MESSAGE =
   "Die Vorlesefunktion wird gerade sehr häufig verwendet. Bitte versuche es in Kürze erneut.";
-
 export const TTS_GENERIC_ERROR_MESSAGE =
-  "Die Audiodatei konnte gerade nicht erstellt werden. Bitte versuche es erneut.";
+  "Die Audiodatei konnte gerade nicht erstellt werden. Bitte versuche es erneut oder nutze die Browserstimme.";
 
 export class TtsApiError extends Error {
   code: TtsApiErrorCode;
   status: number;
-
   constructor(code: TtsApiErrorCode, message: string, status: number) {
     super(message);
     this.name = "TtsApiError";
@@ -45,120 +43,89 @@ export class TtsApiError extends Error {
 
 function revokeCachedUrls() {
   for (const url of cache.values()) {
-    try {
-      URL.revokeObjectURL(url);
-    } catch {
-      // ignore
-    }
+    try { URL.revokeObjectURL(url); } catch { /* ignore */ }
   }
   cache.clear();
 }
-
-if (typeof window !== "undefined") {
-  window.addEventListener("pagehide", revokeCachedUrls);
-}
+if (typeof window !== "undefined") window.addEventListener("pagehide", revokeCachedUrls);
 
 export type TtsRequestPayload = {
   text: string;
+  provider?: TtsProvider;
+  voice?: OpenAiVoice;
   modelId?: string;
   profileId?: string;
 };
 
 export function getAudioCacheKey(payload: TtsRequestPayload): string {
+  const settings = loadSpeechSettings();
+  const provider = payload.provider ?? settings.provider ?? "openai";
+  const voice = payload.voice ?? settings.openAiVoice ?? "coral";
   return buildSpeechCacheSignature({
     text: payload.text,
-    voiceId: "server-default",
+    voiceId: `${provider}:${voice}`,
     modelId: payload.modelId ?? DEFAULT_TTS_MODEL_ID,
     profileId: payload.profileId ?? getVoiceProfile().id,
   });
 }
+export function getCachedAudioUrl(cacheKey: string): string | undefined { return cache.get(cacheKey); }
+export function storeCachedAudioUrl(cacheKey: string, url: string): void { cache.set(cacheKey, url); }
 
-export function getCachedAudioUrl(cacheKey: string): string | undefined {
-  return cache.get(cacheKey);
-}
+export async function requestSpeechAudio(payload: TtsRequestPayload, signal: AbortSignal): Promise<Blob> {
+  const settings = loadSpeechSettings();
+  const provider = payload.provider ?? settings.provider ?? "openai";
+  const voice = payload.voice ?? settings.openAiVoice ?? "coral";
+  const headers: Record<string, string> = { "Content-Type": "application/json" };
 
-export function storeCachedAudioUrl(cacheKey: string, url: string): void {
-  cache.set(cacheKey, url);
-}
-
-export async function requestElevenLabsAudio(
-  payload: TtsRequestPayload,
-  signal: AbortSignal,
-): Promise<Blob> {
-  const accessCode = await getTtsAccessCode();
-  if (!accessCode) {
-    throw new TtsApiError("MISSING_TTS_ACCESS_CODE", TTS_MISSING_ACCESS_CODE_MESSAGE, 0);
+  if (provider === "elevenlabs") {
+    const accessCode = await getTtsAccessCode();
+    if (!accessCode) throw new TtsApiError("MISSING_TTS_ACCESS_CODE", TTS_MISSING_ACCESS_CODE_MESSAGE, 0);
+    headers["x-tts-access-code"] = accessCode;
   }
 
   const response = await fetch(apiUrl("/api/text-to-speech"), {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-tts-access-code": accessCode,
-    },
-    body: JSON.stringify(payload),
+    headers,
+    body: JSON.stringify({ ...payload, provider, voice }),
     signal,
   });
 
   if (!response.ok) {
     let code: TtsApiErrorCode = "UNKNOWN_ERROR";
-
     try {
-      const contentType = response.headers.get("content-type") ?? "";
-      if (contentType.toLowerCase().includes("application/json")) {
-        const errorPayload = (await response.json()) as { error?: unknown };
-        if (typeof errorPayload.error === "string") {
-          code = errorPayload.error as TtsApiErrorCode;
-        }
-      }
-    } catch {
-      // ignore parsing errors
-    }
-
-    if (process.env.NODE_ENV === "development") {
-      // Keep diagnostics terse and sanitized.
-      console.warn(`[${FUNCTION_NAME}] status=${response.status} code=${code}`);
-    }
-
+      const errorPayload = (await response.json()) as { error?: unknown };
+      if (typeof errorPayload.error === "string") code = errorPayload.error as TtsApiErrorCode;
+    } catch { /* ignore */ }
+    if (process.env.NODE_ENV === "development") console.warn(`[${FUNCTION_NAME}] status=${response.status} code=${code}`);
     if (response.status === 401 || code === "INVALID_TTS_ACCESS_CODE") {
-      throw new TtsApiError(
-        "INVALID_TTS_ACCESS_CODE",
-        TTS_INVALID_ACCESS_CODE_MESSAGE,
-        response.status,
-      );
+      throw new TtsApiError("INVALID_TTS_ACCESS_CODE", TTS_INVALID_ACCESS_CODE_MESSAGE, response.status);
     }
-
-    if (response.status === 429) {
-      throw new TtsApiError("RATE_LIMITED", TTS_RATE_LIMIT_MESSAGE, response.status);
-    }
-
+    if (response.status === 429) throw new TtsApiError("RATE_LIMITED", TTS_RATE_LIMIT_MESSAGE, response.status);
     throw new TtsApiError(code, TTS_GENERIC_ERROR_MESSAGE, response.status);
   }
 
   const blob = await response.blob();
-  if (!blob.size) {
-    throw new TtsApiError("ELEVENLABS_ERROR", TTS_GENERIC_ERROR_MESSAGE, 502);
-  }
-
+  if (!blob.size) throw new TtsApiError("UNKNOWN_ERROR", TTS_GENERIC_ERROR_MESSAGE, 502);
   return blob;
+}
+
+// Bestehende Komponenten verwenden diesen Namen. Die Anfrage folgt trotzdem der Auswahl in den Einstellungen.
+export async function requestElevenLabsAudio(payload: TtsRequestPayload, signal: AbortSignal) {
+  return requestSpeechAudio(payload, signal);
+}
+export async function requestOpenAiAudio(payload: TtsRequestPayload, signal: AbortSignal) {
+  return requestSpeechAudio({ ...payload, provider: "openai" }, signal);
 }
 
 export function isTtsAbortError(error: unknown): boolean {
   return error instanceof DOMException && error.name === "AbortError";
 }
-
 export function ttsErrorMessage(error: unknown): string {
   if (error instanceof TtsApiError) return error.message;
   return TTS_GENERIC_ERROR_MESSAGE;
 }
-
 export function ttsErrorNeedsSettings(error: unknown): boolean {
-  return (
-    error instanceof TtsApiError &&
-    (error.code === "MISSING_TTS_ACCESS_CODE" || error.code === "INVALID_TTS_ACCESS_CODE")
-  );
+  return error instanceof TtsApiError &&
+    (error.code === "MISSING_TTS_ACCESS_CODE" || error.code === "INVALID_TTS_ACCESS_CODE");
 }
-
-export function clearSpeechAudioCache(): void {
-  revokeCachedUrls();
-}
+export function clearSpeechAudioCache(): void { revokeCachedUrls(); }

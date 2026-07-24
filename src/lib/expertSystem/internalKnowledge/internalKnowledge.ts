@@ -13,12 +13,14 @@
 // ergänzt Imports und Einträge zwischen den GENERATED-Markern alphabetisch.
 
 import type { KBEntry } from "@/lib/knowledgeBase";
+import { anschaffungskostenHgbEstg } from "./practice/anschaffungskosten-hgb-estg";
 // GENERATED-IMPORTS-START
 import { estg001Steuerpflicht } from "./laws/estg/estg-001-steuerpflicht";
 import { estg002Einkunftsarten } from "./laws/estg/estg-002-einkunftsarten";
 // GENERATED-IMPORTS-END
 
 export const INTERNAL_KNOWLEDGE_BASE: KBEntry[] = [
+  anschaffungskostenHgbEstg,
   // GENERATED-ENTRIES-START
   estg001Steuerpflicht,
   estg002Einkunftsarten,

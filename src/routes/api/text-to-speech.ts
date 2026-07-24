@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { env as cloudflareEnv } from "cloudflare:workers";
 import { z } from "zod";
 
 import { prepareTextForSpeech } from "@/lib/prepareTextForSpeech";
@@ -42,14 +41,30 @@ type CloudflareRuntimeRequest = Request & {
   };
 };
 
-function readServerSecret(name: string, request?: Request): string | undefined {
+let cachedCloudflareEnv: Record<string, unknown> | null = null;
+
+async function getCloudflareEnv(): Promise<Record<string, unknown>> {
+  if (cachedCloudflareEnv !== null) {
+    return cachedCloudflareEnv;
+  }
+  try {
+    // @ts-ignore cloudflare:workers is only available in the Cloudflare Workers runtime
+    const mod = await import("cloudflare:workers");
+    cachedCloudflareEnv = (mod.env as unknown as Record<string, unknown>) ?? {};
+  } catch {
+    cachedCloudflareEnv = {};
+  }
+  return cachedCloudflareEnv;
+}
+
+async function readServerSecret(name: string, request?: Request): Promise<string | undefined> {
   const requestEnv = (request as CloudflareRuntimeRequest | undefined)?.runtime?.cloudflare?.env;
   const requestValue = requestEnv?.[name];
   if (typeof requestValue === "string" && requestValue.trim()) {
     return requestValue.trim();
   }
 
-  const directWorkerValue = (cloudflareEnv as unknown as Record<string, unknown>)[name];
+  const directWorkerValue = (await getCloudflareEnv())[name];
   if (typeof directWorkerValue === "string" && directWorkerValue.trim()) {
     return directWorkerValue.trim();
   }
@@ -122,8 +137,8 @@ export const Route = createFileRoute("/api/text-to-speech")({
         return new Response(null, { status: 204, headers: CORS_HEADERS });
       },
       POST: async ({ request }) => {
-        const apiKey = readServerSecret("ELEVENLABS_API_KEY", request);
-        const expectedAccessCode = readServerSecret("TTS_ACCESS_CODE", request);
+        const apiKey = await readServerSecret("ELEVENLABS_API_KEY", request);
+        const expectedAccessCode = await readServerSecret("TTS_ACCESS_CODE", request);
 
         if (!apiKey || !expectedAccessCode) {
           return jsonError(
@@ -171,7 +186,7 @@ export const Route = createFileRoute("/api/text-to-speech")({
           );
         }
 
-        const configuredModelId = readServerSecret("ELEVENLABS_MODEL_ID", request);
+        const configuredModelId = await readServerSecret("ELEVENLABS_MODEL_ID", request);
 
         const voiceId = DEFAULT_VOICE_ID;
         const modelId = parsed.data.modelId?.trim() || configuredModelId || DEFAULT_TTS_MODEL_ID;

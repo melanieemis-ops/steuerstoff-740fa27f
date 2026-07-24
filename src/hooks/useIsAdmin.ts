@@ -11,6 +11,7 @@ import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-gesetzliche-erbfolge";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-gewerblicher-grundstueckshandel";
 import "@/lib/knowledgeBaseExtensions/jahresabschluss-hgb-ueberblick";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-lohn-und-gehaltsabrechnung";
+import "@/lib/knowledgeBaseExtensions/lohnsteuer-aussenpruefung";
 
 const KEY = "steuerstoff:admin";
 

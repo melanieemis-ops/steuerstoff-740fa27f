@@ -14,7 +14,7 @@ import {
   speakWithBrowser,
   stopBrowserSpeech,
 } from "@/lib/browserSpeech";
-import { loadSpeechSettings } from "@/lib/speech-storage";
+import { loadSpeechSettings, saveSpeechSettings } from "@/lib/speech-storage";
 import {
   isTtsAbortError,
   requestSpeechAudio,
@@ -174,6 +174,11 @@ export function ChatMessageAudioButton({ messageId: _messageId, text, isStreamin
 
   const changeSpeed = useCallback((next: Speed) => {
     setSpeed(next);
+    saveSpeechSettings({
+      ...loadSpeechSettings(),
+      rate: next,
+    });
+
     const el = audioRef.current;
     if (el) el.playbackRate = next;
   }, []);
@@ -200,15 +205,29 @@ export function ChatMessageAudioButton({ messageId: _messageId, text, isStreamin
       </button>
 
       {hasPlayback && status !== "error" && (
-        <>
-          <button type="button" onClick={handleStop} aria-label="Wiedergabe beenden" className={`${idle} ml-0.5`} style={{ minHeight: 44, minWidth: 44 }}>
-            <Square className="h-3 w-3" aria-hidden="true" /><span>Beenden</span>
-          </button>
-          <div role="group" aria-label="Wiedergabegeschwindigkeit" className="ml-1 inline-flex items-center gap-0.5">
-            {SPEEDS.map((s) => <button key={s} type="button" onClick={() => changeSpeed(s)} aria-pressed={speed === s} className={`rounded-md px-1.5 py-1 text-[10px] font-medium transition-colors touch-manipulation ${speed === s ? "bg-foreground text-background" : "text-muted-foreground hover:bg-accent hover:text-foreground"}`} style={{ minHeight: 32 }}>{s.toString().replace(".", ",")}×</button>)}
-          </div>
-        </>
+        <button type="button" onClick={handleStop} aria-label="Wiedergabe beenden" className={`${idle} ml-0.5`} style={{ minHeight: 44, minWidth: 44 }}>
+          <Square className="h-3 w-3" aria-hidden="true" /><span>Beenden</span>
+        </button>
       )}
+
+      <div role="group" aria-label="Wiedergabegeschwindigkeit" className="ml-1 inline-flex items-center gap-0.5 rounded-lg border border-border/70 bg-background/40 p-0.5">
+        {SPEEDS.map((s) => (
+          <button
+            key={s}
+            type="button"
+            onClick={() => changeSpeed(s)}
+            aria-label={`Wiedergabegeschwindigkeit ${s.toString().replace(".", ",")} fach`}
+            aria-pressed={speed === s}
+            className={`min-h-8 rounded-md px-2 text-[10px] font-semibold transition-colors touch-manipulation ${
+              speed === s
+                ? "bg-foreground text-background shadow-sm"
+                : "text-muted-foreground hover:bg-accent hover:text-foreground"
+            }`}
+          >
+            {s.toString().replace(".", ",")}×
+          </button>
+        ))}
+      </div>
 
       {status === "error" && (
         <div className="flex flex-wrap items-center gap-1.5 pl-1 text-[11px] text-destructive">

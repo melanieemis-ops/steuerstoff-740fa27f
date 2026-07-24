@@ -877,76 +877,80 @@ function ChatPage() {
                 {chatAttachments.notice}
               </div>
             )}
-            <div className="flex items-end gap-2 rounded-3xl border border-border bg-card px-3 py-2 shadow-sm focus-within:border-foreground/30">
-              <ChatAttachmentButton
-                buttonRef={attachmentButtonRef}
-                disabled={busy}
-                onAction={handleAttachmentAction}
-              />
-              {voice.isSupported && (
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (voice.isTranscribing) return;
-                    if (voice.isRecording) voice.stopRecording();
-                    else void voice.startRecording();
-                  }}
-                  disabled={voice.isTranscribing}
-                  aria-label={
-                    voice.isTranscribing
-                      ? "Sprache wird transkribiert"
-                      : voice.isRecording
-                        ? "Sprachaufnahme beenden"
-                        : "Frage diktieren"
+            <div
+              className="relative flex items-end rounded-3xl p-[2px] transition-all duration-200 before:pointer-events-none before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-r before:from-cyan-400 before:via-fuchsia-500 before:to-cyan-400 before:opacity-0 before:transition-opacity before:duration-200 before:-z-10 focus-within:before:opacity-100 focus-within:shadow-[0_0_20px_-4px_rgba(34,211,238,0.45),0_0_20px_-4px_rgba(232,121,249,0.45)] motion-reduce:transition-none motion-reduce:before:transition-none"
+            >
+              <div className="flex flex-1 items-end gap-2 rounded-[22px] border border-border bg-card px-3 py-2 shadow-sm">
+                <ChatAttachmentButton
+                  buttonRef={attachmentButtonRef}
+                  disabled={busy}
+                  onAction={handleAttachmentAction}
+                />
+                {voice.isSupported && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (voice.isTranscribing) return;
+                      if (voice.isRecording) voice.stopRecording();
+                      else void voice.startRecording();
+                    }}
+                    disabled={voice.isTranscribing}
+                    aria-label={
+                      voice.isTranscribing
+                        ? "Sprache wird transkribiert"
+                        : voice.isRecording
+                          ? "Sprachaufnahme beenden"
+                          : "Frage diktieren"
+                    }
+                    aria-pressed={voice.isRecording}
+                    className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition-colors ${
+                      voice.isTranscribing
+                        ? "bg-muted text-muted-foreground"
+                        : voice.isRecording
+                          ? "animate-pulse bg-red-500 text-white hover:bg-red-600"
+                          : "bg-muted text-foreground hover:bg-muted/70"
+                    }`}
+                  >
+                    {voice.isTranscribing ? (
+                      <LoaderCircle className="h-4 w-4 animate-spin" />
+                    ) : voice.isRecording ? (
+                      <Square className="h-4 w-4" fill="currentColor" />
+                    ) : (
+                      <Mic className="h-4 w-4" />
+                    )}
+                  </button>
+                )}
+                <textarea
+                  ref={textareaRef}
+                  value={input}
+                  onChange={(event) => setInput(event.target.value)}
+                  onKeyDown={handleKeyDown}
+                  onPaste={(event) => void chatAttachments.handlePaste(event)}
+                  rows={1}
+                  placeholder={
+                    voice.isRecording
+                      ? "Sprich jetzt …"
+                      : voice.isTranscribing
+                        ? "Sprache wird in Text umgewandelt …"
+                        : "Stell eine steuerliche Frage …"
                   }
-                  aria-pressed={voice.isRecording}
+                  className="min-h-[44px] flex-1 resize-none border-0 bg-transparent px-1.5 py-2 text-[15px] leading-relaxed text-foreground outline-none placeholder:text-muted-foreground/80"
+                  style={{ maxHeight: 180 }}
+                  aria-label="Nachricht eingeben"
+                />
+                <button
+                  type="submit"
+                  disabled={!canSend}
+                  aria-label="Nachricht senden"
                   className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition-colors ${
-                    voice.isTranscribing
-                      ? "bg-muted text-muted-foreground"
-                      : voice.isRecording
-                        ? "animate-pulse bg-red-500 text-white hover:bg-red-600"
-                        : "bg-muted text-foreground hover:bg-muted/70"
+                    canSend
+                      ? "bg-foreground text-background hover:opacity-90"
+                      : "bg-muted text-muted-foreground"
                   }`}
                 >
-                  {voice.isTranscribing ? (
-                    <LoaderCircle className="h-4 w-4 animate-spin" />
-                  ) : voice.isRecording ? (
-                    <Square className="h-4 w-4" fill="currentColor" />
-                  ) : (
-                    <Mic className="h-4 w-4" />
-                  )}
+                  <ArrowUp className="h-4 w-4" />
                 </button>
-              )}
-              <textarea
-                ref={textareaRef}
-                value={input}
-                onChange={(event) => setInput(event.target.value)}
-                onKeyDown={handleKeyDown}
-                onPaste={(event) => void chatAttachments.handlePaste(event)}
-                rows={1}
-                placeholder={
-                  voice.isRecording
-                    ? "Sprich jetzt …"
-                    : voice.isTranscribing
-                      ? "Sprache wird in Text umgewandelt …"
-                      : "Stell eine steuerliche Frage …"
-                }
-                className="min-h-[44px] flex-1 resize-none border-0 bg-transparent px-1.5 py-2 text-[15px] leading-relaxed text-foreground outline-none placeholder:text-muted-foreground/80"
-                style={{ maxHeight: 180 }}
-                aria-label="Nachricht eingeben"
-              />
-              <button
-                type="submit"
-                disabled={!canSend}
-                aria-label="Nachricht senden"
-                className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition-colors ${
-                  canSend
-                    ? "bg-foreground text-background hover:opacity-90"
-                    : "bg-muted text-muted-foreground"
-                }`}
-              >
-                <ArrowUp className="h-4 w-4" />
-              </button>
+              </div>
             </div>
             {(voice.isRecording || voice.isTranscribing || voice.error) && (
               <div className="px-2 pt-1.5" aria-live="polite">

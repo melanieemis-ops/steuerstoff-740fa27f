@@ -1,7 +1,6 @@
 import type { LearningQuestion } from "@/data/types";
 import { useFavorites } from "@/hooks/useFavorites";
 import { FavoriteButton } from "@/components/FavoriteButton";
-import { SimpleReadAloudButton } from "@/components/tts/SimpleReadAloudButton";
 
 interface QuestionCardProps {
   question: LearningQuestion;
@@ -33,12 +32,6 @@ export function QuestionCard({ question }: QuestionCardProps) {
           <h2 className="mt-4 text-2xl font-semibold leading-relaxed text-foreground">
             {question.question}
           </h2>
-
-          <SimpleReadAloudButton
-            text={question.question}
-            label="Frage anhören"
-            className="mt-5"
-          />
         </div>
 
         <div className="shrink-0">

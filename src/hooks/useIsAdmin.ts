@@ -3,6 +3,7 @@ import "@/lib/knowledgeBaseExtensions/aufbewahrungspflichten-ao";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-aufmerksamkeiten";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-auslandsaufenthalt";
 import "@/lib/knowledgeBaseExtensions/sozialversicherung-betriebspruefung";
+import "@/lib/knowledgeBaseExtensions/kfz-dienstwagen-1-prozent";
 
 const KEY = "steuerstoff:admin";
 

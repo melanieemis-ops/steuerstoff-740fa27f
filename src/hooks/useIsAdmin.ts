@@ -7,6 +7,8 @@ import "@/lib/knowledgeBaseExtensions/kfz-dienstwagen-1-prozent";
 import "@/lib/knowledgeBaseExtensions/eigenverbrauch-unentgeltliche-wertabgaben-lieferungen";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-lohnsteuerbescheinigung-erstellung-korrektur-inhalt";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-faelligkeit-lohnsteuer-sozialversicherungsbeitraege";
+import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-gesetzliche-erbfolge";
+import "@/lib/knowledgeBaseExtensions/einkommensteuer-gewerblicher-grundstueckshandel";
 
 const KEY = "steuerstoff:admin";
 

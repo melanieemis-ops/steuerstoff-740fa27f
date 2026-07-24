@@ -1,9 +1,15 @@
 import { useEffect } from "react";
 
+import coverPart1 from "@/assets/magazineIssue03Cover/part1";
+import coverPart2 from "@/assets/magazineIssue03Cover/part2";
+import coverPart3 from "@/assets/magazineIssue03Cover/part3";
+import coverPart4 from "@/assets/magazineIssue03Cover/part4";
+import coverPart5 from "@/assets/magazineIssue03Cover/part5";
+import coverPart6 from "@/assets/magazineIssue03Cover/part6";
 import { MagazineFlipbook as OriginalMagazineFlipbook } from "./MagazineFlipbook";
 
 const OLD_COVER = "/magazin-cover-ausgabe-03-final.png";
-const NEW_COVER = "/magazin-cover-ausgabe-03-familienstiftung.svg";
+const NEW_COVER = `data:image/webp;base64,${coverPart1}${coverPart2}${coverPart3}${coverPart4}${coverPart5}${coverPart6}`;
 const NEW_ALT =
   "Cover des steuerstoff Magazins – Ausgabe 03/2026: Steuerfalle Familienstiftung";
 

@@ -5,6 +5,7 @@ import "@/lib/knowledgeBaseExtensions/lohnsteuer-auslandsaufenthalt";
 import "@/lib/knowledgeBaseExtensions/sozialversicherung-betriebspruefung";
 import "@/lib/knowledgeBaseExtensions/kfz-dienstwagen-1-prozent";
 import "@/lib/knowledgeBaseExtensions/eigenverbrauch-unentgeltliche-wertabgaben-lieferungen";
+import "@/lib/knowledgeBaseExtensions/lohnsteuer-lohnsteuerbescheinigung-erstellung-korrektur-inhalt";
 
 const KEY = "steuerstoff:admin";
 

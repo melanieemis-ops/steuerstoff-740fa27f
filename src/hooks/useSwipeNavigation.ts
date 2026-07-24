@@ -17,10 +17,29 @@ const FORM_TAGS = new Set([
   "LABEL",
 ]);
 
+function isHorizontalScroller(element: Element): boolean {
+  if (!(element instanceof HTMLElement)) return false;
+  const style = window.getComputedStyle(element);
+  const overflowX = style.overflowX;
+  const canScroll = element.scrollWidth > element.clientWidth + 2;
+  return canScroll && (overflowX === "auto" || overflowX === "scroll");
+}
+
+function isInsideHorizontalScroller(target: Element): boolean {
+  let current: Element | null = target;
+  while (current) {
+    if (current.hasAttribute("data-horizontal-scroll")) return true;
+    if (isHorizontalScroller(current)) return true;
+    current = current.parentElement;
+  }
+  return false;
+}
+
 function isFormTarget(t: EventTarget | null): boolean {
   if (!(t instanceof Element)) return false;
   if (FORM_TAGS.has(t.tagName)) return true;
   if (t.getAttribute("contenteditable") === "true") return true;
+  if (isInsideHorizontalScroller(t)) return true;
   const role = t.getAttribute("role");
   if (
     role &&
@@ -39,7 +58,7 @@ function isFormTarget(t: EventTarget | null): boolean {
   )
     return true;
   const closest = t.closest(
-    'input,textarea,select,button,[contenteditable="true"],[role="button"],[role="combobox"],[role="listbox"],[role="slider"],[role="textbox"],[role="menuitem"],[data-no-swipe="true"],[data-radix-scroll-area-viewport],[data-vaul-drawer]',
+    'input,textarea,select,button,[contenteditable="true"],[role="button"],[role="combobox"],[role="listbox"],[role="slider"],[role="textbox"],[role="menuitem"],[data-no-swipe="true"],[data-horizontal-scroll],[data-radix-scroll-area-viewport],[data-vaul-drawer]',
   );
   return Boolean(closest);
 }
@@ -53,7 +72,7 @@ const RATIO_LOCK = 1.5;
  * - Decides direction after ~12 px movement, then sticks with it.
  * - Vertical / diagonal gestures never trigger a swipe (they belong to scroll
  *   or pull-to-refresh).
- * - Suppressed inside form controls.
+ * - Suppressed inside form controls and horizontal scroll areas.
  * - Callbacks are read from a ref so re-renders don't tear down listeners
  *   mid-gesture.
  */
@@ -115,7 +134,6 @@ export function useSwipeNavigation<T extends HTMLElement = HTMLElement>(
       } else if (ay > ax * ratio) {
         direction = "vertical";
       } else {
-        // diagonal — neither; let the page scroll naturally
         direction = "blocked";
       }
     };

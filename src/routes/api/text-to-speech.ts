@@ -48,6 +48,7 @@ async function getCloudflareEnv(): Promise<Record<string, unknown>> {
     return cachedCloudflareEnv;
   }
   try {
+    // @ts-ignore cloudflare:workers is only available in the Cloudflare Workers runtime
     const mod = await import("cloudflare:workers");
     cachedCloudflareEnv = (mod.env as unknown as Record<string, unknown>) ?? {};
   } catch {

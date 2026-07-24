@@ -186,7 +186,7 @@ export const Route = createFileRoute("/api/text-to-speech")({
           );
         }
 
-        const configuredModelId = readServerSecret("ELEVENLABS_MODEL_ID", request);
+        const configuredModelId = await readServerSecret("ELEVENLABS_MODEL_ID", request);
 
         const voiceId = DEFAULT_VOICE_ID;
         const modelId = parsed.data.modelId?.trim() || configuredModelId || DEFAULT_TTS_MODEL_ID;

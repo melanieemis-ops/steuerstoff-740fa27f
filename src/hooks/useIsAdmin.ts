@@ -12,6 +12,7 @@ import "@/lib/knowledgeBaseExtensions/einkommensteuer-gewerblicher-grundstuecksh
 import "@/lib/knowledgeBaseExtensions/jahresabschluss-hgb-ueberblick";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-lohn-und-gehaltsabrechnung";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-aussenpruefung";
+import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-festsetzungsverjaehrung";
 
 const KEY = "steuerstoff:admin";
 

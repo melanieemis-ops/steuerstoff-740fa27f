@@ -1,3 +1,4 @@
+import "@/lib/knowledgeBaseExtensions/lohnsteuer-elektronische-lohnsteuerbescheinigung";
 import { KNOWLEDGE_BASE, type KBEntry } from "@/lib/knowledgeBase";
 
 export const eigenverbrauchUnentgeltlicheWertabgabenLieferungen: KBEntry = {

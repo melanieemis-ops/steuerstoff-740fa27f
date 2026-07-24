@@ -4,6 +4,7 @@
 // können. Es gibt bewusst KEINEN Vektorstore/API-Aufruf – alles lokal.
 
 import "@/lib/knowledgeBaseExtensions/aufbewahrungspflichten-ao";
+import "@/lib/knowledgeBaseExtensions/lohnsteuer-aufmerksamkeiten";
 import { KNOWLEDGE_BASE, kbKeywordsToRegExp, type KBEntry } from "@/lib/knowledgeBase";
 
 import { INTERNAL_KNOWLEDGE_BASE } from "@/lib/expertSystem/internalKnowledge";

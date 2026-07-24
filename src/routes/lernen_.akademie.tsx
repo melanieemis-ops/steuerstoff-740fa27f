@@ -74,50 +74,41 @@ const ACADEMY_FEATURES = [
     title: "Erfolge",
     description: "Sammle Abzeichen, erreiche Lernziele und halte deine Serie.",
     icon: Trophy,
-    status: "soon" as const,
+    status: "ready" as const,
   },
 ];
 
 function AkademiePage() {
   const [userName, setUserName] = useState(getUserName());
-
   const [inputName, setInputName] = useState("");
-
   const needsName = !hasUserName();
 
   function handleSaveName() {
     const trimmed = inputName.trim();
-
     if (!trimmed) return;
-
     saveUserName(trimmed);
-
     setUserName(trimmed);
   }
-  const progress = loadLearningProgress();
 
+  const progress = loadLearningProgress();
   const statistics = getLearningStatistics(
     learningQuestions.map((question) => question.id),
     progress,
   );
 
   const answeredToday = Math.min(statistics.totalAnswered, DAILY_GOAL);
-
   const dailyPercent = Math.round((answeredToday / DAILY_GOAL) * 100);
-
   const overallPercent =
     learningQuestions.length === 0
       ? 0
       : Math.round(
           ((learningQuestions.length - statistics.unseen) / learningQuestions.length) * 100,
         );
-
   const estimatedMinutes = Math.max(5, Math.ceil((DAILY_GOAL - answeredToday) * 1.5));
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <SiteHeader />
-
       <main className="flex-1">
         <section className="relative overflow-hidden border-b border-border/60">
           <div className="pointer-events-none absolute inset-0 opacity-60" aria-hidden="true">
@@ -132,7 +123,6 @@ function AkademiePage() {
                   <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-foreground text-background shadow-sm">
                     <GraduationCap className="h-6 w-6" />
                   </span>
-
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
                       steuerstoff
@@ -147,18 +137,13 @@ function AkademiePage() {
                   {needsName ? (
                     <div className="mt-2 max-w-sm">
                       <p className="text-sm font-medium text-muted-foreground">Willkommen 👋</p>
-
-                      <p className="mt-2 text-sm text-muted-foreground">
-                        Wie dürfen wir dich nennen?
-                      </p>
-
+                      <p className="mt-2 text-sm text-muted-foreground">Wie dürfen wir dich nennen?</p>
                       <input
                         value={inputName}
                         onChange={(e) => setInputName(e.target.value)}
                         placeholder="Dein Name"
                         className="mt-4 w-full rounded-2xl border border-border bg-background px-4 py-3 outline-none focus:ring-2 focus:ring-primary"
                       />
-
                       <button
                         onClick={handleSaveName}
                         className="mt-3 w-full rounded-2xl bg-foreground px-4 py-3 font-semibold text-background transition hover:opacity-90"
@@ -182,11 +167,7 @@ function AkademiePage() {
 
                 <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
                   <Metric icon={BookOpen} label="Fragen" value={learningQuestions.length} />
-                  <Metric
-                    icon={CheckCircle2}
-                    label="Beantwortet"
-                    value={statistics.totalAnswered}
-                  />
+                  <Metric icon={CheckCircle2} label="Beantwortet" value={statistics.totalAnswered} />
                   <Metric icon={Target} label="Genauigkeit" value={`${statistics.accuracy} %`} />
                   <Metric icon={Flame} label="Lernserie" value="1 Tag" />
                 </div>
@@ -227,14 +208,12 @@ function AkademiePage() {
                       {dailyPercent} %
                     </span>
                   </div>
-
                   <div className="mt-3 h-2.5 overflow-hidden rounded-full bg-muted">
                     <div
                       className="h-full rounded-full bg-foreground transition-[width] duration-500"
                       style={{ width: `${dailyPercent}%` }}
                     />
                   </div>
-
                   <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
                     Noch ungefähr {estimatedMinutes} Minuten bis zu deinem heutigen Ziel.
                   </p>
@@ -254,7 +233,6 @@ function AkademiePage() {
                 Lernen, prüfen und sicherer werden
               </h2>
             </div>
-
             <p className="max-w-xl text-sm leading-relaxed text-muted-foreground">
               Starte mit den Lernbereichen. Die weiteren Werkzeuge werden Schritt für Schritt
               freigeschaltet.
@@ -269,7 +247,6 @@ function AkademiePage() {
           </div>
         </section>
       </main>
-
       <SiteFooter />
     </div>
   );
@@ -329,7 +306,6 @@ function ProgressRing({ percent }: { percent: number }) {
           className="text-foreground transition-[stroke-dashoffset] duration-700"
         />
       </svg>
-
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         <span className="text-3xl font-semibold tabular-nums text-foreground">{safePercent}%</span>
         <span className="mt-0.5 text-[11px] font-medium text-muted-foreground">gelernt</span>
@@ -350,19 +326,19 @@ function AcademyCard({
   status: "ready" | "soon";
 }) {
   let targetPath = "/lerngebiete";
-  
+
   if (title === "Favoriten") {
     targetPath = "/lernen/akademie/favoriten";
   }
-  
   if (title === "Fehlertrainer") {
     targetPath = "/lernen/akademie/fehlertrainer";
   }
-
   if (title === "Fortschritt") {
     targetPath = "/lernen/akademie/fortschritt";
   }
-
+  if (title === "Erfolge") {
+    targetPath = "/erfolge";
+  }
   if (title === "Prüfungssimulation") {
     targetPath = "/lernen/pruefungssimulation";
   }
@@ -381,7 +357,6 @@ function AcademyCard({
             Verfügbar
           </span>
         </div>
-
         <h3 className="mt-5 text-xl font-semibold text-foreground">{title}</h3>
         <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{description}</p>
         <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground">
@@ -403,7 +378,6 @@ function AcademyCard({
           Bald
         </span>
       </div>
-
       <h3 className="mt-5 text-xl font-semibold text-foreground">{title}</h3>
       <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{description}</p>
       <span className="mt-5 text-xs font-medium text-muted-foreground">
@@ -428,7 +402,6 @@ function ExamTrainingCard() {
           1 Fall verfügbar
         </span>
       </div>
-
       <h3 className="mt-5 text-xl font-semibold text-foreground">Klausurtraining</h3>
       <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
         Echte Prüfungsfälle mit gestuften Lösungshinweisen und Musterlösungen.

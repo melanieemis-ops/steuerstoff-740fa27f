@@ -1,5 +1,11 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
+import {
+  pauseBrowserSpeech,
+  resumeBrowserSpeech,
+  speakWithBrowser,
+  stopBrowserSpeech,
+} from "@/lib/browserSpeech";
 import { prepareTextForSpeech } from "@/lib/prepareTextForSpeech";
 import { loadSpeechSettings, saveSpeechSettings } from "@/lib/speech-storage";
 import {
@@ -7,7 +13,7 @@ import {
   getAudioCacheKey,
   getCachedAudioUrl,
   isTtsAbortError,
-  requestElevenLabsAudio,
+  requestSpeechAudio,
   storeCachedAudioUrl,
   TtsApiError,
   TTS_GENERIC_ERROR_MESSAGE,
@@ -19,20 +25,10 @@ import { splitTextForSpeech } from "@/lib/splitTextForSpeech";
 import { DEFAULT_TTS_MODEL_ID, TTS_VOICE_PROFILES } from "@/lib/ttsVoiceProfiles";
 
 export type TtsStatus = "idle" | "loading" | "playing" | "paused" | "ended" | "error";
-
-export type TtsSection = {
-  id: string;
-  text: string;
-};
-
-type QueueItem = {
-  id: string;
-  text: string;
-  estimatedSeconds: number;
-};
+export type TtsSection = { id: string; text: string };
+type QueueItem = { id: string; text: string; estimatedSeconds: number };
 
 const RATE_OPTIONS = [0.75, 1, 1.15, 1.25, 1.5] as const;
-
 const CHUNK_MAX_LEN = 1150;
 
 function estimateSeconds(text: string): number {
@@ -41,24 +37,22 @@ function estimateSeconds(text: string): number {
 }
 
 export function useTextToSpeech() {
-  const isSupported =
-    typeof window !== "undefined" &&
-    "Audio" in window &&
-    typeof window.fetch === "function" &&
-    "AbortController" in window;
-
   const initialSettings = loadSpeechSettings();
+  const isSupported = typeof window !== "undefined" &&
+    (("Audio" in window && typeof window.fetch === "function") || "speechSynthesis" in window);
 
   const [status, setStatus] = useState<TtsStatus>("idle");
-  const [rate, setRateState] = useState<number>(initialSettings.rate ?? 1);
-  const [currentSectionIndex, setCurrentSectionIndex] = useState<number>(-1);
+  const [rate, setRateState] = useState(initialSettings.rate ?? 1);
+  const [currentSectionIndex, setCurrentSectionIndex] = useState(-1);
   const [currentSectionId, setCurrentSectionId] = useState<string | null>(null);
-  const [totalSections, setTotalSections] = useState<number>(0);
+  const [totalSections, setTotalSections] = useState(0);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [errorCode, setErrorCode] = useState<TtsApiErrorCode | null>(null);
   const [currentTime, setCurrentTime] = useState(0);
   const [totalDuration, setTotalDuration] = useState(0);
-  const [allowBrowserFallback, setAllowBrowserFallbackState] = useState(false);
+  const [allowBrowserFallback, setAllowBrowserFallbackState] = useState(
+    initialSettings.allowBrowserFallback !== false,
+  );
   const [voiceProfileId, setVoiceProfileIdState] = useState(
     initialSettings.profileId ?? TTS_VOICE_PROFILES[0].id,
   );
@@ -67,38 +61,31 @@ export function useTextToSpeech() {
   const sectionDurationsRef = useRef<number[]>([]);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const abortRef = useRef<AbortController | null>(null);
-  const requestTokenRef = useRef(0);
+  const tokenRef = useRef(0);
+  const browserActiveRef = useRef(false);
 
-  const persistSettings = useCallback(
-    (next: { rate?: number; profileId?: string; allowBrowserFallback?: boolean }) => {
-      const merged = {
-        ...loadSpeechSettings(),
-        rate,
-        profileId: voiceProfileId,
-        allowBrowserFallback: false,
-        ...next,
-      };
-      saveSpeechSettings(merged);
-    },
-    [rate, voiceProfileId],
-  );
+  const persistSettings = useCallback((next: { rate?: number; profileId?: string; allowBrowserFallback?: boolean }) => {
+    saveSpeechSettings({
+      ...loadSpeechSettings(),
+      rate,
+      profileId: voiceProfileId,
+      allowBrowserFallback,
+      ...next,
+    });
+  }, [allowBrowserFallback, rate, voiceProfileId]);
 
   const stopInternal = useCallback(() => {
-    requestTokenRef.current += 1;
+    tokenRef.current += 1;
     abortRef.current?.abort();
     abortRef.current = null;
-
     const audio = audioRef.current;
     if (audio) {
       audio.pause();
       audio.removeAttribute("src");
       audio.load();
     }
-
-    if (typeof window !== "undefined" && "speechSynthesis" in window) {
-      window.speechSynthesis.cancel();
-    }
-
+    stopBrowserSpeech();
+    browserActiveRef.current = false;
     setStatus("idle");
     setCurrentSectionIndex(-1);
     setCurrentSectionId(null);
@@ -108,155 +95,14 @@ export function useTextToSpeech() {
     setErrorCode(null);
   }, []);
 
-  const getElapsedBefore = useCallback((index: number) => {
-    let total = 0;
-    const durations = sectionDurationsRef.current;
-    const queue = queueRef.current;
-    for (let i = 0; i < index; i++) {
-      total += durations[i] ?? queue[i]?.estimatedSeconds ?? 0;
-    }
-    return total;
-  }, []);
-
-  const computeTotalDuration = useCallback(() => {
-    const durations = sectionDurationsRef.current;
-    const queue = queueRef.current;
-    let total = 0;
-    for (let i = 0; i < queue.length; i++) {
-      const duration = durations[i];
-      if (typeof duration !== "number" || !Number.isFinite(duration) || duration <= 0) {
-        return 0;
-      }
-      total += duration;
-    }
-    return total;
-  }, []);
-
-  const startFromIndex = useCallback(
-    async (index: number, startAtSeconds = 0, shouldPlay = true) => {
-      const token = requestTokenRef.current;
-      const queue = queueRef.current;
-      const item = queue[index];
-
-      if (!item) {
-        setStatus("ended");
-        setCurrentSectionIndex(-1);
-        setCurrentSectionId(null);
-        setCurrentTime(totalDuration);
-        return;
-      }
-
-      setCurrentSectionIndex(index);
-      setCurrentSectionId(item.id);
-      setErrorMessage(null);
-      setErrorCode(null);
-      setStatus("loading");
-
-      const payload: TtsRequestPayload = {
-        text: item.text,
-        profileId: voiceProfileId,
-        modelId: DEFAULT_TTS_MODEL_ID,
-      };
-
-      const cacheKey = getAudioCacheKey(payload);
-      let src = getCachedAudioUrl(cacheKey);
-
-      if (!src) {
-        const controller = new AbortController();
-        abortRef.current = controller;
-
-        try {
-          const blob = await requestElevenLabsAudio(payload, controller.signal);
-          if (token !== requestTokenRef.current) return;
-
-          src = URL.createObjectURL(blob);
-          storeCachedAudioUrl(cacheKey, src);
-        } catch (error) {
-          if (token !== requestTokenRef.current) return;
-          if (isTtsAbortError(error)) return;
-          setStatus("error");
-          setErrorCode(error instanceof TtsApiError ? error.code : "UNKNOWN_ERROR");
-          setErrorMessage(ttsErrorMessage(error));
-          setCurrentSectionIndex(-1);
-          setCurrentSectionId(null);
-          setCurrentTime(0);
-          setTotalDuration(0);
-          return;
-        } finally {
-          abortRef.current = null;
-        }
-      }
-
-      if (token !== requestTokenRef.current || !src) return;
-
-      if (!audioRef.current) {
-        audioRef.current = new Audio();
-      }
-
-      const audio = audioRef.current;
-      audio.pause();
-      audio.src = src;
-      audio.preload = "auto";
-      audio.playbackRate = rate;
-
-      audio.ontimeupdate = () => {
-        const elapsed = getElapsedBefore(index) + audio.currentTime;
-        setCurrentTime(elapsed);
-      };
-      audio.onended = () => {
-        if (token !== requestTokenRef.current) return;
-        const elapsed =
-          getElapsedBefore(index) + (sectionDurationsRef.current[index] ?? item.estimatedSeconds);
-        setCurrentTime(elapsed);
-        void startFromIndex(index + 1, 0, true);
-      };
-      audio.onerror = () => {
-        if (token !== requestTokenRef.current) return;
-        setStatus("error");
-        setErrorCode("UNKNOWN_ERROR");
-        setErrorMessage(TTS_GENERIC_ERROR_MESSAGE);
-        setCurrentTime(0);
-        setTotalDuration(0);
-      };
-      audio.onloadedmetadata = () => {
-        const duration = Number.isFinite(audio.duration) ? audio.duration : 0;
-        sectionDurationsRef.current[index] = duration;
-        setTotalDuration(computeTotalDuration());
-      };
-
-      if (startAtSeconds > 0) {
-        audio.currentTime = Math.max(0, startAtSeconds);
-      }
-
-      if (!shouldPlay) {
-        setStatus("paused");
-        return;
-      }
-
-      try {
-        await audio.play();
-        if (token !== requestTokenRef.current) return;
-        setStatus("playing");
-      } catch {
-        if (token !== requestTokenRef.current) return;
-        setStatus("error");
-        setErrorCode("UNKNOWN_ERROR");
-        setErrorMessage(TTS_GENERIC_ERROR_MESSAGE);
-      }
-    },
-    [computeTotalDuration, getElapsedBefore, rate, totalDuration, voiceProfileId],
-  );
-
   const buildQueue = useCallback((sections: TtsSection[]): QueueItem[] => {
     const queue: QueueItem[] = [];
     for (const section of sections) {
       const normalized = prepareTextForSpeech(section.text);
       if (!normalized) continue;
-
-      const chunks = splitTextForSpeech(normalized, CHUNK_MAX_LEN);
-      chunks.forEach((chunk, idx) => {
+      splitTextForSpeech(normalized, CHUNK_MAX_LEN).forEach((chunk, index) => {
         queue.push({
-          id: idx === 0 ? section.id : `${section.id}__chunk_${idx}`,
+          id: index === 0 ? section.id : `${section.id}__chunk_${index}`,
           text: chunk,
           estimatedSeconds: estimateSeconds(chunk),
         });
@@ -265,161 +111,225 @@ export function useTextToSpeech() {
     return queue;
   }, []);
 
-  const speakSections = useCallback(
-    (sections: TtsSection[]) => {
-      if (!isSupported) return;
-
-      stopInternal();
-
-      const queue = buildQueue(sections);
-      if (!queue.length) {
+  const startBrowserFallback = useCallback(() => {
+    const queue = queueRef.current;
+    if (!queue.length) return;
+    const settings = { ...loadSpeechSettings(), rate };
+    const text = queue.map((item) => item.text).join("\n\n");
+    browserActiveRef.current = true;
+    setErrorMessage(null);
+    setErrorCode(null);
+    setCurrentSectionIndex(0);
+    setCurrentSectionId(queue[0].id);
+    setTotalSections(queue.length);
+    setTotalDuration(queue.reduce((sum, item) => sum + item.estimatedSeconds, 0));
+    speakWithBrowser(text, settings, {
+      onStart: () => setStatus("playing"),
+      onEnd: () => {
+        browserActiveRef.current = false;
+        setStatus("ended");
+        setCurrentSectionIndex(-1);
+        setCurrentSectionId(null);
+      },
+      onError: (message) => {
+        browserActiveRef.current = false;
         setStatus("error");
         setErrorCode("UNKNOWN_ERROR");
-        setErrorMessage(TTS_GENERIC_ERROR_MESSAGE);
+        setErrorMessage(message);
+      },
+    });
+  }, [rate]);
+
+  const startFromIndex = useCallback(async function playIndex(index: number, startAtSeconds = 0, shouldPlay = true): Promise<void> {
+    const token = tokenRef.current;
+    const queue = queueRef.current;
+    const item = queue[index];
+    if (!item) {
+      setStatus("ended");
+      setCurrentSectionIndex(-1);
+      setCurrentSectionId(null);
+      setCurrentTime(totalDuration);
+      return;
+    }
+
+    setCurrentSectionIndex(index);
+    setCurrentSectionId(item.id);
+    setStatus("loading");
+    setErrorMessage(null);
+    setErrorCode(null);
+
+    const payload: TtsRequestPayload = {
+      text: item.text,
+      profileId: voiceProfileId,
+      modelId: DEFAULT_TTS_MODEL_ID,
+    };
+    const cacheKey = getAudioCacheKey(payload);
+    let src = getCachedAudioUrl(cacheKey);
+
+    if (!src) {
+      const controller = new AbortController();
+      abortRef.current = controller;
+      try {
+        const blob = await requestSpeechAudio(payload, controller.signal);
+        if (token !== tokenRef.current) return;
+        src = URL.createObjectURL(blob);
+        storeCachedAudioUrl(cacheKey, src);
+      } catch (error) {
+        if (token !== tokenRef.current || isTtsAbortError(error)) return;
+        const settings = loadSpeechSettings();
+        if (settings.allowBrowserFallback !== false) {
+          startBrowserFallback();
+          return;
+        }
+        setStatus("error");
+        setErrorCode(error instanceof TtsApiError ? error.code : "UNKNOWN_ERROR");
+        setErrorMessage(ttsErrorMessage(error));
         return;
+      } finally {
+        abortRef.current = null;
       }
+    }
 
-      queueRef.current = queue;
-      sectionDurationsRef.current = queue.map(() => 0);
-      setTotalSections(queue.length);
-      setTotalDuration(0);
-      setCurrentTime(0);
+    if (!src || token !== tokenRef.current) return;
+    const audio = audioRef.current ?? new Audio();
+    audioRef.current = audio;
+    audio.pause();
+    audio.src = src;
+    audio.preload = "auto";
+    audio.playbackRate = rate;
+    audio.ontimeupdate = () => {
+      const before = sectionDurationsRef.current.slice(0, index).reduce((sum, value, i) => sum + (value || queue[i].estimatedSeconds), 0);
+      setCurrentTime(before + audio.currentTime);
+    };
+    audio.onloadedmetadata = () => {
+      sectionDurationsRef.current[index] = Number.isFinite(audio.duration) ? audio.duration : item.estimatedSeconds;
+      const complete = sectionDurationsRef.current.every((value) => value > 0);
+      if (complete) setTotalDuration(sectionDurationsRef.current.reduce((sum, value) => sum + value, 0));
+    };
+    audio.onended = () => {
+      if (token === tokenRef.current) void playIndex(index + 1, 0, true);
+    };
+    audio.onerror = () => {
+      setStatus("error");
+      setErrorCode("UNKNOWN_ERROR");
+      setErrorMessage(TTS_GENERIC_ERROR_MESSAGE);
+    };
+    if (startAtSeconds > 0) audio.currentTime = startAtSeconds;
+    if (!shouldPlay) {
+      setStatus("paused");
+      return;
+    }
+    try {
+      await audio.play();
+      if (token === tokenRef.current) setStatus("playing");
+    } catch {
+      setStatus("error");
+      setErrorCode("UNKNOWN_ERROR");
+      setErrorMessage(TTS_GENERIC_ERROR_MESSAGE);
+    }
+  }, [rate, startBrowserFallback, totalDuration, voiceProfileId]);
 
-      requestTokenRef.current += 1;
-      void startFromIndex(0, 0, true);
-    },
-    [buildQueue, isSupported, startFromIndex, stopInternal],
-  );
+  const speakSections = useCallback((sections: TtsSection[]) => {
+    if (!isSupported) return;
+    stopInternal();
+    const queue = buildQueue(sections);
+    if (!queue.length) {
+      setStatus("error");
+      setErrorCode("UNKNOWN_ERROR");
+      setErrorMessage(TTS_GENERIC_ERROR_MESSAGE);
+      return;
+    }
+    queueRef.current = queue;
+    sectionDurationsRef.current = queue.map(() => 0);
+    setTotalSections(queue.length);
+    setTotalDuration(queue.reduce((sum, item) => sum + item.estimatedSeconds, 0));
+    tokenRef.current += 1;
+    void startFromIndex(0, 0, true);
+  }, [buildQueue, isSupported, startFromIndex, stopInternal]);
 
   const pause = useCallback(() => {
-    const audio = audioRef.current;
-    if (audio && status === "playing") {
-      audio.pause();
-      setStatus("paused");
-      return;
-    }
-
-    if (typeof window !== "undefined" && "speechSynthesis" in window) {
-      window.speechSynthesis.pause();
-      setStatus("paused");
-    }
-  }, [status]);
+    if (browserActiveRef.current) pauseBrowserSpeech();
+    else audioRef.current?.pause();
+    setStatus("paused");
+  }, []);
 
   const resume = useCallback(() => {
-    const audio = audioRef.current;
-    if (audio && status === "paused") {
-      void audio.play();
-      setStatus("playing");
-      return;
-    }
-
-    if (typeof window !== "undefined" && "speechSynthesis" in window) {
-      window.speechSynthesis.resume();
-      setStatus("playing");
-    }
-  }, [status]);
-
-  const stop = useCallback(() => {
-    stopInternal();
-  }, [stopInternal]);
+    if (browserActiveRef.current) resumeBrowserSpeech();
+    else if (audioRef.current) void audioRef.current.play();
+    setStatus("playing");
+  }, []);
 
   const restart = useCallback(() => {
     if (!queueRef.current.length) return;
-    requestTokenRef.current += 1;
+    if (browserActiveRef.current) {
+      stopBrowserSpeech();
+      startBrowserFallback();
+      return;
+    }
+    tokenRef.current += 1;
     void startFromIndex(0, 0, true);
-  }, [startFromIndex]);
+  }, [startBrowserFallback, startFromIndex]);
 
-  const seekBy = useCallback(
-    (seconds: number) => {
-      const audio = audioRef.current;
-      if (!audio || currentSectionIndex < 0 || totalDuration <= 0) return;
-      const nextTime = Math.max(0, audio.currentTime + seconds);
-      audio.currentTime = nextTime;
-      setCurrentTime(getElapsedBefore(currentSectionIndex) + nextTime);
-    },
-    [currentSectionIndex, getElapsedBefore, totalDuration],
-  );
-
-  const seekToProgress = useCallback(
-    (fraction: number) => {
-      if (totalDuration <= 0) return;
-      const clamped = Math.min(1, Math.max(0, fraction));
-      const target = totalDuration * clamped;
-      const durations = sectionDurationsRef.current;
-      const queue = queueRef.current;
-      if (!queue.length) return;
-
-      let acc = 0;
-      for (let i = 0; i < queue.length; i++) {
-        const d = durations[i] ?? queue[i].estimatedSeconds;
-        if (target <= acc + d || i === queue.length - 1) {
-          const sectionOffset = Math.max(0, target - acc);
-          requestTokenRef.current += 1;
-          void startFromIndex(i, sectionOffset, status !== "paused");
-          return;
-        }
-        acc += d;
-      }
-    },
-    [startFromIndex, status, totalDuration],
-  );
-
-  const setRate = useCallback(
-    (nextRate: number) => {
-      const safeRate = RATE_OPTIONS.includes(nextRate as (typeof RATE_OPTIONS)[number])
-        ? nextRate
-        : 1;
-      setRateState(safeRate);
-      persistSettings({ rate: safeRate });
-      if (audioRef.current) {
-        audioRef.current.playbackRate = safeRate;
-      }
-    },
-    [persistSettings],
-  );
-
-  const setVoiceProfileId = useCallback(
-    (profileId: string) => {
-      setVoiceProfileIdState(profileId);
-      persistSettings({ profileId });
-    },
-    [persistSettings],
-  );
-
-  const setAllowBrowserFallback = useCallback(
-    (_enabled: boolean) => {
-      setAllowBrowserFallbackState(false);
-      persistSettings({ allowBrowserFallback: false });
-    },
-    [persistSettings],
-  );
-
-  const startBrowserFallback = useCallback(() => {
-    setAllowBrowserFallbackState(false);
-    setErrorMessage("Nur KI-Stimme (ElevenLabs) ist aktiviert.");
+  const seekBy = useCallback((seconds: number) => {
+    const audio = audioRef.current;
+    if (!audio || browserActiveRef.current) return;
+    audio.currentTime = Math.max(0, audio.currentTime + seconds);
   }, []);
 
+  const seekToProgress = useCallback((fraction: number) => {
+    const audio = audioRef.current;
+    if (!audio || browserActiveRef.current || totalDuration <= 0) return;
+    const target = Math.min(1, Math.max(0, fraction)) * totalDuration;
+    let elapsed = 0;
+    for (let index = 0; index < queueRef.current.length; index += 1) {
+      const duration = sectionDurationsRef.current[index] || queueRef.current[index].estimatedSeconds;
+      if (target <= elapsed + duration) {
+        tokenRef.current += 1;
+        void startFromIndex(index, target - elapsed, status !== "paused");
+        return;
+      }
+      elapsed += duration;
+    }
+  }, [startFromIndex, status, totalDuration]);
+
+  const setRate = useCallback((nextRate: number) => {
+    const safeRate = RATE_OPTIONS.includes(nextRate as (typeof RATE_OPTIONS)[number]) ? nextRate : 1;
+    setRateState(safeRate);
+    persistSettings({ rate: safeRate });
+    if (audioRef.current) audioRef.current.playbackRate = safeRate;
+  }, [persistSettings]);
+
+  const setVoiceProfileId = useCallback((profileId: string) => {
+    setVoiceProfileIdState(profileId);
+    persistSettings({ profileId });
+  }, [persistSettings]);
+
+  const setAllowBrowserFallback = useCallback((enabled: boolean) => {
+    setAllowBrowserFallbackState(enabled);
+    persistSettings({ allowBrowserFallback: enabled });
+  }, [persistSettings]);
+
   useEffect(() => {
-    const onPageHide = () => {
+    const sync = () => {
+      const settings = loadSpeechSettings();
+      setAllowBrowserFallbackState(settings.allowBrowserFallback !== false);
+      setRateState(settings.rate ?? 1);
+    };
+    window.addEventListener("steuerstoff:speech-settings", sync);
+    window.addEventListener("pagehide", stopInternal);
+    return () => {
+      window.removeEventListener("steuerstoff:speech-settings", sync);
+      window.removeEventListener("pagehide", stopInternal);
       stopInternal();
       clearSpeechAudioCache();
-    };
-    window.addEventListener("pagehide", onPageHide);
-    return () => {
-      window.removeEventListener("pagehide", onPageHide);
-      stopInternal();
     };
   }, [stopInternal]);
 
   const hasSession = queueRef.current.length > 0;
   const progress = totalDuration > 0 ? Math.min(1, currentTime / totalDuration) : 0;
   const canStop = status === "loading" || status === "playing" || status === "paused";
-  const canSeek = totalDuration > 0 && hasSession;
-
-  const voiceProfiles = useMemo(
-    () => TTS_VOICE_PROFILES.map((profile) => ({ id: profile.id, label: profile.label })),
-    [],
-  );
+  const canSeek = !browserActiveRef.current && totalDuration > 0 && hasSession;
+  const voiceProfiles = useMemo(() => TTS_VOICE_PROFILES.map((profile) => ({ id: profile.id, label: profile.label })), []);
 
   return {
     isSupported,
@@ -435,8 +345,7 @@ export function useTextToSpeech() {
     allowBrowserFallback,
     errorMessage,
     errorCode,
-    errorNeedsSettings:
-      errorCode === "MISSING_TTS_ACCESS_CODE" || errorCode === "INVALID_TTS_ACCESS_CODE",
+    errorNeedsSettings: errorCode === "MISSING_TTS_ACCESS_CODE" || errorCode === "INVALID_TTS_ACCESS_CODE",
     currentTime,
     totalDuration,
     progress,
@@ -448,7 +357,7 @@ export function useTextToSpeech() {
     speakSections,
     pause,
     resume,
-    stop,
+    stop: stopInternal,
     restart,
     seekBy,
     seekToProgress,

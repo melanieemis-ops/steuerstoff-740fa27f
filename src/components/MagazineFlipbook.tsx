@@ -67,7 +67,7 @@ const magazineIssues: MagazineIssue[] = [
     id: "03",
     label: "Ausgabe 03",
     cover: {
-      src: "/magazin-cover-ausgabe-03-familienstiftung.webp",
+      src: "/magazin-cover-ausgabe-03-hd.svg",
       alt: "Cover des steuerstoff Magazins – Ausgabe 03/2026: Steuerfalle Familienstiftung",
     },
     coverBackgroundColor: "#f6f0e7",

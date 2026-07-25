@@ -400,7 +400,7 @@ function createVehicleSheet(XLSX: XlsxModule, vehicle: Vehicle, index: number): 
     sheet,
     `D${totalCostRow}`,
     `SUM(D${firstCostRow}:D${lastCostRow})`,
-    result.vatVehicleCostsNet,
+    safeNumber(result.vatVehicleCostsNet),
     EURO_FORMAT,
   );
   setFormula(

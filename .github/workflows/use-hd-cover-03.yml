@@ -1,4 +1,4 @@
-name: Use HD magazine cover 03
+name: Use uploaded magazine cover 03
 
 on:
   push:
@@ -16,14 +16,14 @@ jobs:
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Point issue 03 to HD cover
+      - name: Point issue 03 to uploaded PNG cover
         run: |
           python - <<'PY'
           from pathlib import Path
           path = Path('src/components/MagazineFlipbook.tsx')
           text = path.read_text(encoding='utf-8')
-          old = '/magazin-cover-ausgabe-03-familienstiftung.webp'
-          new = '/magazin-cover-ausgabe-03-hd.svg'
+          old = '/magazin-cover-ausgabe-03-hd.svg'
+          new = '/737730FA-7DD4-4988-99E1-AB74F22B6479.png'
           if old not in text and new not in text:
               raise SystemExit('Cover path not found')
           path.write_text(text.replace(old, new), encoding='utf-8')
@@ -36,6 +36,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "Already updated"
           else
-            git commit -m "fix(magazine): use high-resolution cover for issue 03"
+            git commit -m "fix(magazine): use uploaded cover for issue 03"
             git push
           fi

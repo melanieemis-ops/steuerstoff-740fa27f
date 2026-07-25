@@ -33,8 +33,8 @@ const BENEFIT_LABELS: Record<ElectricBenefitType, string> = {
 };
 
 async function loadXlsx(): Promise<XlsxModule> {
-  const module = await import("xlsx");
-  return ("utils" in module ? module : module.default) as XlsxModule;
+  const mod = (await import("xlsx")) as unknown as XlsxModule & { default?: XlsxModule };
+  return "utils" in mod ? mod : (mod.default as XlsxModule);
 }
 
 export interface KfzWorkpaperFile {

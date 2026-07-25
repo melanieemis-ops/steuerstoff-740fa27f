@@ -11,6 +11,7 @@ export type LearningCategory =
   | "Umsatzsteuer"
   | "Abgabenordnung"
   | "Einkommensteuer"
+  | "Lohnsteuer"
   | "Gewerbesteuer"
   | "Erbschaftsteuer"
   | "NPO und Gemeinnützigkeit";

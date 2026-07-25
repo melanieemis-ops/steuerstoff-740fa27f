@@ -3,6 +3,7 @@ import "@/lib/knowledgeBaseExtensions/aufbewahrungspflichten-ao";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-aufmerksamkeiten";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-auslandsaufenthalt";
 import "@/lib/knowledgeBaseExtensions/sozialversicherung-betriebspruefung";
+import "@/lib/knowledgeBaseExtensions/sozialversicherungspflicht-lehrkraefte-uebergangsregelung-2027";
 import "@/lib/knowledgeBaseExtensions/kfz-dienstwagen-1-prozent";
 import "@/lib/knowledgeBaseExtensions/eigenverbrauch-unentgeltliche-wertabgaben-lieferungen";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-lohnsteuerbescheinigung-erstellung-korrektur-inhalt";

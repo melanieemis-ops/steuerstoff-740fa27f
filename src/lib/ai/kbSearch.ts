@@ -21,6 +21,7 @@ import "@/lib/knowledgeBaseExtensions/eigenverbrauch-unentgeltliche-wertabgaben-
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-lohnsteuerbescheinigung-erstellung-korrektur-inhalt";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-faelligkeit-lohnsteuer-sozialversicherungsbeitraege";
 import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-gesetzliche-erbfolge";
+import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-familienheim-eigennutzung-rueckforderungsrechte";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-gewerblicher-grundstueckshandel";
 import "@/lib/knowledgeBaseExtensions/jahresabschluss-hgb-ueberblick";
 import "@/lib/knowledgeBaseExtensions/jahresabschluss-geleistete-erhaltene-anzahlungen";

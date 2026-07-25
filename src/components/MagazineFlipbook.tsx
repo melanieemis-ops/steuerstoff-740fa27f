@@ -67,11 +67,11 @@ const magazineIssues: MagazineIssue[] = [
     id: "03",
     label: "Ausgabe 03",
     cover: {
-      src: "/magazin-cover-ausgabe-03-final.png",
-      alt: "Cover des steuerstoff Magazins – Ausgabe 03/2026",
+      src: "/magazin-cover-ausgabe-03-familienstiftung.webp",
+      alt: "Cover des steuerstoff Magazins – Ausgabe 03/2026: Steuerfalle Familienstiftung",
     },
-    coverBackgroundColor: "#f6f0e7",
-    articleIds: ["e-rechnung-fehler-bmf-2025"],
+    coverBackgroundColor: "#000000",
+    articleIds: ["familienstiftung-destinataere-besteuerung-2026"],
   },
 ];
 

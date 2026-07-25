@@ -70,7 +70,7 @@ const magazineIssues: MagazineIssue[] = [
       src: "/magazin-cover-ausgabe-03-familienstiftung.webp",
       alt: "Cover des steuerstoff Magazins – Ausgabe 03/2026: Steuerfalle Familienstiftung",
     },
-    coverBackgroundColor: "#000000",
+    coverBackgroundColor: "#f6f0e7",
     articleIds: ["familienstiftung-destinataere-besteuerung-2026"],
   },
 ];

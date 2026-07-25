@@ -1,0 +1,47 @@
+name: Add teacher social insurance KB imports
+
+on:
+  push:
+    paths:
+      - '.github/workflows/add-lehrkraefte-kb-imports-once.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  register-kb-entry:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Add imports
+        shell: python
+        run: |
+          from pathlib import Path
+
+          import_line = 'import "@/lib/knowledgeBaseExtensions/sozialversicherungspflicht-lehrkraefte-uebergangsregelung-2027";\n'
+          anchor = 'import "@/lib/knowledgeBaseExtensions/sozialversicherung-betriebspruefung";\n'
+
+          for filename in ["src/hooks/useIsAdmin.ts", "src/lib/ai/kbSearch.ts"]:
+              path = Path(filename)
+              text = path.read_text(encoding="utf-8")
+              if import_line not in text:
+                  if anchor not in text:
+                      raise SystemExit(f"Anchor missing in {filename}")
+                  text = text.replace(anchor, anchor + import_line, 1)
+                  path.write_text(text, encoding="utf-8")
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/hooks/useIsAdmin.ts src/lib/ai/kbSearch.ts
+          if git diff --cached --quiet; then
+            echo "No changes required"
+          else
+            git commit -m "Register teacher social insurance KB article"
+            git push
+          fi

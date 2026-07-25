@@ -26,6 +26,7 @@ export default defineConfig({
         manifest: false,
         workbox: {
           cacheId: "steuerstoff-2026-07-22-tts-access-code",
+          maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
           cleanupOutdatedCaches: true,
           clientsClaim: true,
           skipWaiting: true,

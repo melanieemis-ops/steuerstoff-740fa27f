@@ -1,4 +1,4 @@
-name: Use uploaded magazine cover 03
+name: Fix TTS highlight contrast
 
 on:
   push:
@@ -10,32 +10,44 @@ permissions:
   contents: write
 
 jobs:
-  switch-cover:
+  fix-highlight:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Point issue 03 to uploaded PNG cover
+      - name: Use dark text on light-blue TTS highlights
         run: |
           python - <<'PY'
           from pathlib import Path
-          path = Path('src/components/MagazineFlipbook.tsx')
-          text = path.read_text(encoding='utf-8')
-          old = '/magazin-cover-ausgabe-03-hd.svg'
-          new = '/737730FA-7DD4-4988-99E1-AB74F22B6479.png'
-          if old not in text and new not in text:
-              raise SystemExit('Cover path not found')
-          path.write_text(text.replace(old, new), encoding='utf-8')
+
+          paths = [
+              Path('src/routes/lernen_.akademie_.klausuren_.$slug.tsx'),
+              Path('src/routes/fall.$caseId.tsx'),
+          ]
+
+          old = 'bg-sky-100 ring-1 ring-sky-300'
+          new = 'bg-sky-100 text-slate-950 ring-1 ring-sky-300'
+
+          changed = False
+          for path in paths:
+              text = path.read_text(encoding='utf-8')
+              updated = text.replace(old, new)
+              if updated != text:
+                  path.write_text(updated, encoding='utf-8')
+                  changed = True
+
+          if not changed:
+              print('Highlight contrast already fixed')
           PY
       - name: Commit change
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/components/MagazineFlipbook.tsx
+          git add 'src/routes/lernen_.akademie_.klausuren_.$slug.tsx' 'src/routes/fall.$caseId.tsx'
           if git diff --cached --quiet; then
             echo "Already updated"
           else
-            git commit -m "fix(magazine): use uploaded cover for issue 03"
+            git commit -m "fix(tts): use dark text on light-blue highlights"
             git push
           fi

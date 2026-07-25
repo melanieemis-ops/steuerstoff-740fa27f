@@ -1,4 +1,5 @@
 import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-gesetzliche-erbfolge";
+import "@/lib/knowledgeBaseExtensions/npo-gemeinnuetzigkeit-grundlagen-rechtsprechung-gesetzgebung-2026";
 import { KNOWLEDGE_BASE, type KBEntry } from "@/lib/knowledgeBase";
 
 export const aufbewahrungspflichtenAo: KBEntry = {

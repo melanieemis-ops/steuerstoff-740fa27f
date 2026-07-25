@@ -25,7 +25,7 @@ export default defineConfig({
         devOptions: { enabled: false },
         manifest: false,
         workbox: {
-          cacheId: "steuerstoff-2026-07-22-tts-access-code",
+          cacheId: "steuerstoff-2026-07-25-issue03-familienstiftung",
           maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
           cleanupOutdatedCaches: true,
           clientsClaim: true,

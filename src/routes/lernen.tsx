@@ -11,6 +11,7 @@ const LEARNING_CATEGORIES: LearningCategory[] = [
   "Umsatzsteuer",
   "Abgabenordnung",
   "Einkommensteuer",
+  "Lohnsteuer",
   "Gewerbesteuer",
   "Erbschaftsteuer",
   "NPO und Gemeinnützigkeit",

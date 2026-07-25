@@ -6,7 +6,7 @@ export const anschaffungskostenHgbEstg: KBEntry = {
   short:
     "Anschaffungskosten bilden in Handels- und Steuerbilanz die Ausgangsgröße für die Bewertung erworbener Vermögensgegenstände und Wirtschaftsgüter. Maßgeblich sind der konkrete Erwerb, die Herstellung der Betriebsbereitschaft, einzeln zurechenbare Nebenkosten und abzuziehende Preisnachlässe.",
   category: "Bilanzierung",
-  taxType: "sonstiges",
+  taxType: "sonstige",
   type: "praxis",
   importance: 4,
   source: "steuerstoff Fachbeitrag — Anschaffungskosten nach HGB und EStG",

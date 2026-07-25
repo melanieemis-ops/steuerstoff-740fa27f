@@ -20,6 +20,7 @@ import "@/lib/knowledgeBaseExtensions/lohnsteuer-faelligkeit-lohnsteuer-sozialve
 import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-gesetzliche-erbfolge";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-gewerblicher-grundstueckshandel";
 import "@/lib/knowledgeBaseExtensions/jahresabschluss-hgb-ueberblick";
+import "@/lib/knowledgeBaseExtensions/jahresabschluss-geleistete-erhaltene-anzahlungen";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-lohn-und-gehaltsabrechnung";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-aussenpruefung";
 import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-festsetzungsverjaehrung";

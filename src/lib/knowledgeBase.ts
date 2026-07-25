@@ -4179,7 +4179,7 @@ Im Anwendungsbereich des § 1a Abs. 1 Nr. 2 EStG sind die Einkünfte beider Eheg
     "§ 46 FGO – Untätigkeitsklage",
     "§ 115 FGO – Zulassung der Revision"
   ],
-  content: `
+  body: `
 ## 1. Begriff des Rechtsbehelfsverfahrens
 
 Das Rechtsbehelfsverfahren ermöglicht es einem Steuerpflichtigen, eine Entscheidung der Finanzbehörde überprüfen zu lassen.

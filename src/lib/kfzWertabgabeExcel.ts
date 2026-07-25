@@ -33,8 +33,8 @@ const BENEFIT_LABELS: Record<ElectricBenefitType, string> = {
 };
 
 async function loadXlsx(): Promise<XlsxModule> {
-  const module = await import("xlsx");
-  return ("utils" in module ? module : module.default) as XlsxModule;
+  const mod: any = await import("xlsx");
+  return ("utils" in mod ? mod : mod.default) as XlsxModule;
 }
 
 export interface KfzWorkpaperFile {
@@ -400,7 +400,7 @@ function createVehicleSheet(XLSX: XlsxModule, vehicle: Vehicle, index: number): 
     sheet,
     `D${totalCostRow}`,
     `SUM(D${firstCostRow}:D${lastCostRow})`,
-    result.vatVehicleCostsNet,
+    safeNumber(result.vatVehicleCostsNet),
     EURO_FORMAT,
   );
   setFormula(

@@ -266,7 +266,7 @@ function FallPage() {
                       className={[
                         "rounded-xl px-2 py-1.5 text-sm leading-relaxed text-foreground transition-colors",
                         highlightedId === `facts-${index + 1}`
-                          ? "bg-sky-100 ring-1 ring-sky-300"
+                          ? "bg-sky-100 text-slate-950 ring-1 ring-sky-300"
                           : "",
                       ].join(" ")}
                     >
@@ -295,7 +295,7 @@ function FallPage() {
                         className={[
                           "rounded-xl px-2 py-1.5 text-sm leading-relaxed text-foreground transition-colors",
                           highlightedId === `task-${index + 1}`
-                            ? "bg-sky-100 ring-1 ring-sky-300"
+                            ? "bg-sky-100 text-slate-950 ring-1 ring-sky-300"
                             : "",
                         ].join(" ")}
                       >
@@ -309,7 +309,7 @@ function FallPage() {
                     id="task-1"
                     className={[
                       "mt-2 rounded-xl px-2 py-1.5 text-sm leading-relaxed text-foreground transition-colors",
-                      highlightedId === "task-1" ? "bg-sky-100 ring-1 ring-sky-300" : "",
+                      highlightedId === "task-1" ? "bg-sky-100 text-slate-950 ring-1 ring-sky-300" : "",
                     ].join(" ")}
                   >
                     {a.recommendation || a.summary}

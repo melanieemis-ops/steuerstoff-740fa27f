@@ -271,7 +271,7 @@ function KlausurDetailPage() {
                     id="case-title"
                     className={[
                       "rounded-xl px-2 py-1 text-2xl font-semibold leading-tight tracking-tight text-foreground transition-colors sm:text-3xl",
-                      highlightedId === "case-title" ? "bg-sky-100 ring-1 ring-sky-300" : "",
+                      highlightedId === "case-title" ? "bg-sky-100 text-slate-950 ring-1 ring-sky-300" : "",
                     ].join(" ")}
                   >
                     {examCase.title}
@@ -363,7 +363,7 @@ function KlausurDetailPage() {
                   id={`facts-${i + 1}`}
                   className={[
                     "mb-3 rounded-xl px-2 py-1.5 text-sm leading-relaxed text-foreground transition-colors last:mb-0",
-                    highlightedId === `facts-${i + 1}` ? "bg-sky-100 ring-1 ring-sky-300" : "",
+                    highlightedId === `facts-${i + 1}` ? "bg-sky-100 text-slate-950 ring-1 ring-sky-300" : "",
                   ].join(" ")}
                 >
                   {paragraph}
@@ -397,7 +397,7 @@ function KlausurDetailPage() {
                   <p
                     className={[
                       "mt-2 rounded-xl px-2 py-1.5 text-sm leading-relaxed text-foreground transition-colors",
-                      highlightedId === `task-${index + 1}` ? "bg-sky-100 ring-1 ring-sky-300" : "",
+                      highlightedId === `task-${index + 1}` ? "bg-sky-100 text-slate-950 ring-1 ring-sky-300" : "",
                     ].join(" ")}
                   >
                     {task.text}

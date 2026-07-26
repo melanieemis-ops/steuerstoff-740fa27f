@@ -7,7 +7,7 @@ export const einkommensteuerHaeuslichesArbeitszimmerBetriebsvermoegen: KBEntry =
     "Folgen eines zum notwendigen Betriebsvermögen gehörenden häuslichen Arbeitszimmers bei Betriebsaufgabe, Wohnsitzverlegung, Grundstücksverkauf und Anwendung des § 8 EStDV.",
   category: "Einkommensteuer",
   type: "praxis",
-  taxType: "Einkommensteuer",
+  taxType: "einkommensteuer",
   subCase: "haeusliches-arbeitszimmer-betriebsvermoegen",
   source:
     "Praxisübersicht nach § 4 Abs. 5 Nr. 6b, § 6b, § 7, § 16 und § 23 EStG sowie § 8 EStDV; ergänzend BFH vom 16.06.2020 – VIII R 15/17 und BFH vom 01.03.2021 – IX R 27/19. Hinweise zur geplanten Neufassung des § 8 EStDV sind als Gesetzgebungsvorhaben gekennzeichnet.",

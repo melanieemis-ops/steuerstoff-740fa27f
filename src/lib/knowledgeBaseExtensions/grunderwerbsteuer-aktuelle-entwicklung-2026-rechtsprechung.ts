@@ -7,7 +7,7 @@ export const grunderwerbsteuerAktuelleEntwicklung2026Rechtsprechung: KBEntry = {
     "Überblick über aktuelle Rechtsprechung zu Behaltensfristen, Konzernklausel, einheitlichem Erwerbsgegenstand, Nutzungsrechten und Rückabwicklung nach § 16 GrEStG.",
   category: "Grunderwerbsteuer",
   type: "praxis",
-  taxType: "Grunderwerbsteuer",
+  taxType: "grunderwerbsteuer",
   subCase: "aktuelle-rechtsprechung-2026",
   source:
     "Praxiszusammenfassung des Beitrags ‚Aktuelle Entwicklung in der Grunderwerbsteuer 2026 – Teil 2‘ von Alexander Keßeler und Dr. Tobias Schütz auf Grundlage der dort ausgewerteten Rechtsprechung.",

@@ -6,6 +6,7 @@ import type {
 import { umsatzsteuerQuestions } from "./umsatzsteuer";
 import { umsatzsteuerErweiterungQuestions } from "./umsatzsteuerErweiterung";
 import { abgabenordnungQuestions } from "./abgabenordnung";
+import { abgabenordnungVerfahrensrechtQuestions } from "./abgabenordnungVerfahrensrecht";
 import { einkommensteuerQuestions } from "./einkommensteuer";
 import { einkommensteuerErweiterungQuestions } from "./einkommensteuerErweiterung";
 import { lohnsteuerQuestions } from "./lohnsteuer";
@@ -17,6 +18,7 @@ export const learningQuestions: LearningQuestion[] = [
   ...umsatzsteuerQuestions,
   ...umsatzsteuerErweiterungQuestions,
   ...abgabenordnungQuestions,
+  ...abgabenordnungVerfahrensrechtQuestions,
   ...einkommensteuerQuestions,
   ...einkommensteuerErweiterungQuestions,
   ...lohnsteuerQuestions,

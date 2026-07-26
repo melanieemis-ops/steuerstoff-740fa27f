@@ -13,8 +13,10 @@ import "@/lib/knowledgeBaseExtensions/ao-schaetzungsbefugnis-betriebspruefung-ka
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-aufmerksamkeiten";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-auslandsaufenthalt";
 import "@/lib/knowledgeBaseExtensions/sozialversicherung-betriebspruefung";
+import "@/lib/knowledgeBaseExtensions/sozialversicherung-kuenstlersozialabgabe-2027";
 import "@/lib/knowledgeBaseExtensions/sozialversicherungspflicht-lehrkraefte-uebergangsregelung-2027";
 import "@/lib/knowledgeBaseExtensions/sozialversicherung-minijob-widerruf-rentenversicherungsbefreiung-ab-juli-2026";
+import "@/lib/knowledgeBaseExtensions/sozialversicherung-unfallversicherung-homeoffice-mobiles-arbeiten-mittagspause-2026";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-entfernungspauschale-2026";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-kinderbetreuungskosten-getrennte-eltern-haushaltszugehoerigkeit";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-vorsorgepauschale-ab-2026";

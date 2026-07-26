@@ -3,6 +3,7 @@
 // damit sie serverseitig als Kontext an das KI-Modell übergeben werden
 // können. Es gibt bewusst KEINEN Vektorstore/API-Aufruf – alles lokal.
 
+import "@/lib/knowledgeBaseExtensions/abschreibung-afa-wertminderungen-hgb-estg-ifrs";
 import "@/lib/knowledgeBaseExtensions/aufbewahrungspflichten-ao";
 import "@/lib/knowledgeBaseExtensions/ao-schaetzung-besteuerungsgrundlagen-verfahrensrecht";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-aufmerksamkeiten";

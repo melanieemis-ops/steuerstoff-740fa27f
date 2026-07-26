@@ -1,0 +1,33 @@
+// Sammel-Import aller KB-Erweiterungen. Jede Datei registriert ihren Eintrag
+// per KNOWLEDGE_BASE.push(...) als Seiteneffekt. Diese Datei muss überall
+// importiert werden, wo die Wissensdatenbank sichtbar genutzt wird.
+import "@/lib/knowledgeBaseExtensions/ao-schaetzung-besteuerungsgrundlagen-verfahrensrecht";
+import "@/lib/knowledgeBaseExtensions/aufbewahrungspflichten-ao";
+import "@/lib/knowledgeBaseExtensions/eigenverbrauch-unentgeltliche-wertabgaben-lieferungen";
+import "@/lib/knowledgeBaseExtensions/einkommensteuer-entfernungspauschale-2026";
+import "@/lib/knowledgeBaseExtensions/einkommensteuer-gewerblicher-grundstueckshandel";
+import "@/lib/knowledgeBaseExtensions/einkommensteuer-haeusliches-arbeitszimmer-betriebsvermoegen-taetigkeitsaufgabe-grundstuecksveraeusserung";
+import "@/lib/knowledgeBaseExtensions/einkommensteuer-kinderbetreuungskosten-getrennte-eltern-haushaltszugehoerigkeit";
+import "@/lib/knowledgeBaseExtensions/einkommensteuer-vorsorgepauschale-ab-2026";
+import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-familienheim-eigennutzung-rueckforderungsrechte";
+import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-festsetzungsverjaehrung";
+import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-gesetzliche-erbfolge";
+import "@/lib/knowledgeBaseExtensions/grunderwerbsteuer-aktuelle-entwicklung-2026-rechtsprechung";
+import "@/lib/knowledgeBaseExtensions/jahresabschluss-geleistete-erhaltene-anzahlungen";
+import "@/lib/knowledgeBaseExtensions/jahresabschluss-hgb-ueberblick";
+import "@/lib/knowledgeBaseExtensions/jahresabschluss-immaterielle-vermoegensgegenstaende-auftragsforschung";
+import "@/lib/knowledgeBaseExtensions/kfz-dienstwagen-1-prozent";
+import "@/lib/knowledgeBaseExtensions/lohnsteuer-aufmerksamkeiten";
+import "@/lib/knowledgeBaseExtensions/lohnsteuer-auslandsaufenthalt";
+import "@/lib/knowledgeBaseExtensions/lohnsteuer-aussenpruefung";
+import "@/lib/knowledgeBaseExtensions/lohnsteuer-elektronische-lohnsteuerbescheinigung";
+import "@/lib/knowledgeBaseExtensions/lohnsteuer-faelligkeit-lohnsteuer-sozialversicherungsbeitraege";
+import "@/lib/knowledgeBaseExtensions/lohnsteuer-lohn-und-gehaltsabrechnung";
+import "@/lib/knowledgeBaseExtensions/lohnsteuer-lohnsteuerbescheinigung-erstellung-korrektur-inhalt";
+import "@/lib/knowledgeBaseExtensions/npo-gemeinnuetzigkeit-grundlagen-rechtsprechung-gesetzgebung-2026";
+import "@/lib/knowledgeBaseExtensions/personengesellschaften-sonderbetriebsvermoegen-beispiele";
+import "@/lib/knowledgeBaseExtensions/sozialversicherung-betriebspruefung";
+import "@/lib/knowledgeBaseExtensions/sozialversicherung-minijob-widerruf-rentenversicherungsbefreiung-ab-juli-2026";
+import "@/lib/knowledgeBaseExtensions/sozialversicherungspflicht-lehrkraefte-uebergangsregelung-2027";
+import "@/lib/knowledgeBaseExtensions/umsatzsteuer-anzahlungen-vorauszahlungen";
+import "@/lib/knowledgeBaseExtensions/umsatzsteuer-vorsteuerabzug-verspaetete-rechnung-eug-2026";

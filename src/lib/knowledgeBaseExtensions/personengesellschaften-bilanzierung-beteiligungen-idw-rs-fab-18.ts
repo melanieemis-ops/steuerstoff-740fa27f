@@ -10,17 +10,27 @@ export const personengesellschaftenBilanzierungBeteiligungen: KBEntry = {
   taxType: "personengesellschaften",
   subCase: "bilanzierung-beteiligungen",
   source:
-    "Eigenständig zusammengefasste Darstellung auf Grundlage von HGB, MoPeG, KöMoG, § 1a KStG und IDW RS FAB 18; Rechtsstand 2026.",
+    "Eigenständig zusammengefasste Darstellung nach BBK 2026, S. 623–635, NWB KAAAK-19623, HGB, MoPeG, KöMoG, § 1a KStG und IDW RS FAB 18; Rechtsstand 2026.",
   keywords:
-    "beteiligung personengesellschaft|bilanzierung personengesellschaft|idw rs fab 18|gewinnvereinnahmung|phasengleiche gewinnvereinnahmung|phasenverschobene gewinnvereinnahmung|vermögensauskehrung|kapitalrückzahlung|latente steuern|§ 274 hgb|§ 1a kstg|optierte gesellschaft|mopeg|kömog|beteiligungsbuchwert|außerplanmäßige abschreibung",
+    "beteiligung personengesellschaft|bilanzierung personengesellschaft|idw rs fab 18|gewinnvereinnahmung|phasengleiche gewinnvereinnahmung|phasenverschobene gewinnvereinnahmung|vermögensauskehrung|kapitalrückzahlung|latente steuern|§ 274 hgb|§ 1a kstg|optierte gesellschaft|mopeg|kömog|beteiligungsbuchwert|außerplanmäßige abschreibung|bbk 2026 623|nwb kaaak-19623",
   references: [
+    "BBK 2026, S. 623–635",
+    "NWB KAAAK-19623",
+    "IDW RS FAB 18, verabschiedet am 23.02.2026",
     "§§ 253, 255, 266, 271, 274 und 275 HGB",
     "§§ 705 ff. BGB",
     "§§ 105, 121, 122 und 161 HGB",
     "§ 1a KStG",
     "§ 15a EStG",
     "§§ 8 Nr. 8 und 9 Nr. 2 GewStG",
-    "IDW RS FAB 18, verabschiedet am 23.02.2026",
+    "BGH, Urteil vom 29.01.2001 – II ZR 331/00, NWB UAAAB-98014",
+    "BMF, Schreiben vom 10.11.2021 – IV C 2 – S 2707/21/10001 :004, BStBl 2021 I S. 2212",
+    "Zwirner/Busch, StuB 11/2026, S. 417 ff., NWB WAAAK-16998",
+    "Scholz, StuB 3/2025, S. 87 ff., NWB OAAAJ-83924",
+    "Eggert, WP Praxis 6/2025, S. 206 ff., NWB MAAAJ-91802",
+    "Stephan/Hoffmann, BBK 6/2024, S. 251 ff., NWB AAAAJ-61304",
+    "Rätke, BBK 19/2021, S. 915 ff., NWB EAAAH-89661",
+    "Währisch, BBK 6/2022, S. 270 ff., NWB PAAAI-05710",
   ],
   importance: 5,
   body: `Beteiligungen an Personengesellschaften sind im handelsrechtlichen Einzelabschluss eigenständige Vermögensgegenstände. Bei ihrer Bilanzierung bestehen gegenüber Beteiligungen an Kapitalgesellschaften besondere Fragen, vor allem bei der Gewinnvereinnahmung, bei Vermögensauskehrungen und bei latenten Steuern. Maßgeblich ist seit 2026 insbesondere IDW RS FAB 18.
@@ -177,6 +187,15 @@ Bei der Bilanzierung sollte geprüft werden:
 
 Merksatz:
 Bei Beteiligungen an Personengesellschaften entscheidet nicht allein der Zahlungsfluss. Maßgeblich sind die wirtschaftliche Herkunft der Auszahlung, der Zeitpunkt des Gewinnanspruchs und die steuerliche Einordnung der Gesellschaft.
+
+Fundstellen und vertiefende Nachweise:
+- Hauptfundstelle: BBK 2026, S. 623–635; NWB KAAAK-19623.
+- Grundlegende Literatur: Baetge/Kirsch/Thiele, Bilanzen, 16. Aufl. 2021; Coenenberg/Haller/Schultze, Jahresabschluss und Jahresabschlussanalyse, 27. Aufl. 2024; Breidenbach/Währisch, Buchhaltung und Jahresabschluss, 5. Aufl. 2021.
+- Beteiligungsbilanzierung: Zwirner/Busch, StuB 11/2026, S. 417 ff., NWB WAAAK-16998; Scholz, StuB 3/2025, S. 87 ff., NWB OAAAJ-83924; Eggert, WP Praxis 6/2025, S. 206 ff., NWB MAAAJ-91802.
+- MoPeG und KöMoG: Stephan/Hoffmann, BBK 6/2024, S. 251 ff., NWB AAAAJ-61304; Rätke, BBK 19/2021, S. 915 ff., NWB EAAAH-89661; Brauer/Schmalhofer, WPg 2024, S. 291 ff.; Schäfer, WPg 2021, S. 921 ff.
+- Rechtsprechung und Verwaltung: BGH, Urteil vom 29.01.2001 – II ZR 331/00, NWB UAAAB-98014; BMF, Schreiben vom 10.11.2021 – IV C 2 – S 2707/21/10001 :004, BStBl 2021 I S. 2212, NWB IAAAH-90311.
+- Latente Steuern: Grottel/Larenz, Beck’scher Bilanz-Kommentar, 15. Aufl. 2026, § 274; Reiner, Münchener Kommentar zum HGB, 5. Aufl. 2024, § 274; Hoffmann/Lüdenbach, NWB Kommentar Bilanzierung, 17. Aufl. 2025, § 274.
+- Ergänzend: IDW RS FAB 7, Stand 02.12.2024; IDW RS HFA 43; Währisch, BBK 6/2022, S. 270 ff., NWB PAAAI-05710.
 
 Rechtsstand: 2026. IDW RS FAB 18 ist für Geschäftsjahre anzuwenden, die nach dem 31.03.2026 beginnen.`,
 };

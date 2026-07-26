@@ -1,6 +1,7 @@
 // Sammel-Import aller KB-Erweiterungen. Jede Datei registriert ihren Eintrag
 // per KNOWLEDGE_BASE.push(...) als Seiteneffekt. Diese Datei muss überall
 // importiert werden, wo die Wissensdatenbank sichtbar genutzt wird.
+import "@/lib/knowledgeBaseExtensions/abschreibung-afa-wertminderungen-hgb-estg-ifrs";
 import "@/lib/knowledgeBaseExtensions/ao-schaetzung-besteuerungsgrundlagen-verfahrensrecht";
 import "@/lib/knowledgeBaseExtensions/aufbewahrungspflichten-ao";
 import "@/lib/knowledgeBaseExtensions/eigenverbrauch-unentgeltliche-wertabgaben-lieferungen";

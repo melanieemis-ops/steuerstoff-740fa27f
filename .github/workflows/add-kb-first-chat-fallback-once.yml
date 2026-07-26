@@ -1,0 +1,29 @@
+name: Add KB-first chat fallback once
+
+on:
+  push:
+    paths:
+      - ".github/workflows/add-kb-first-chat-fallback-once.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Update chat fallback
+        run: python scripts/add-kb-first-chat-fallback.py
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "fix(chat): prefer knowledge base before heuristic fallback" || exit 0
+          git push origin main

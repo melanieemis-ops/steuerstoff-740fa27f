@@ -31,6 +31,7 @@ import "@/lib/knowledgeBaseExtensions/lohnsteuer-faelligkeit-lohnsteuer-sozialve
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-lohn-und-gehaltsabrechnung";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-lohnsteuerbescheinigung-erstellung-korrektur-inhalt";
 import "@/lib/knowledgeBaseExtensions/npo-gemeinnuetzigkeit-grundlagen-rechtsprechung-gesetzgebung-2026";
+import "@/lib/knowledgeBaseExtensions/personengesellschaften-bilanzierung-beteiligungen-idw-rs-fab-18";
 import "@/lib/knowledgeBaseExtensions/personengesellschaften-sonderbetriebsvermoegen-beispiele";
 import "@/lib/knowledgeBaseExtensions/sozialversicherung-betriebspruefung";
 import "@/lib/knowledgeBaseExtensions/sozialversicherung-kuenstlersozialabgabe-2027";

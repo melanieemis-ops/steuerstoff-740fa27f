@@ -2,123 +2,98 @@ import { KNOWLEDGE_BASE, type KBEntry } from "@/lib/knowledgeBase";
 
 export const erbschaftsteuerFestsetzungsverjaehrung: KBEntry = {
   id: "erbschaftsteuer-festsetzungsverjaehrung",
-  title: "Wann tritt bei der Erbschaftsteuer die Festsetzungsverjährung ein?",
+  title: "Beginn der Festsetzungsfrist beim später aufgefundenen Testament",
   short:
-    "Beginn, Dauer und Ende der Festsetzungsfrist bei Erwerben von Todes wegen – einschließlich Anzeigepflicht, später Kenntnis, Ablaufhemmungen und Rechtsfolgen.",
+    "Wann beginnt die Festsetzungsfrist für die Erbschaftsteuer, wenn ein Testament erst später gefunden oder seine Wirksamkeit im Erbscheinverfahren bestritten wird?",
   category: "Erbschaftsteuer",
   type: "praxis",
   source:
-    "Zusammenfassung nach §§ 169–171 AO sowie §§ 9, 30, 31 und 35 ErbStG unter Berücksichtigung der BFH-Urteile vom 27.4.2022, II R 17/20, und vom 4.6.2025, II R 28/22; Rechtsstand Juli 2026.",
+    "Zusammenfassung nach NWB-EV 2/2026, S. 41, NWB QAAAK-08916 sowie BFH, Urteil vom 4.6.2025 – II R 28/22; Rechtsstand Juli 2026.",
   keywords:
-    "festsetzungsverjährung erbschaftsteuer|festsetzungsfrist erbschaftsteuer|§ 169 ao|§ 170 ao|§ 171 ao|§ 170 abs. 5 nr. 1 ao|anzeigepflicht § 30 erbstg|erbschaftsteuererklärung § 31 erbstg|kenntnis vom erwerb|testament später gefunden|II R 28/22|II R 17/20|ablaufhemmung erbschaftsteuer|vier jahre festsetzungsfrist|steuerhinterziehung zehn jahre|leichtfertige steuerverkürzung fünf jahre|grundlagenbescheid § 171 abs. 10 ao",
+    "festsetzungsverjährung erbschaftsteuer|festsetzungsfrist erbschaftsteuer|§ 169 ao|§ 170 abs. 5 nr. 1 ao|kenntnis vom erwerb|testament später gefunden|erbscheinverfahren|nachlassgericht|II R 28/22|II R 17/20|anlaufhemmung erbschaftsteuer|mehrere testamente|rechtsgrund erwerb",
   references: [
-    "§ 169 AO",
-    "§ 170 AO",
-    "§ 171 AO",
-    "§ 9 ErbStG",
-    "§ 30 ErbStG",
-    "§ 31 ErbStG",
-    "§ 35 ErbStG",
-    "BFH, Urteil vom 27.4.2022 – II R 17/20",
+    "§ 169 Abs. 2 Satz 1 Nr. 2 AO",
+    "§ 170 Abs. 1 und Abs. 5 Nr. 1 AO",
+    "§ 9 Abs. 1 Nr. 1 ErbStG",
     "BFH, Urteil vom 4.6.2025 – II R 28/22",
+    "BFH, Urteil vom 27.4.2022 – II R 17/20",
+    "NWB-EV 2/2026, S. 41",
+    "NWB QAAAK-08916",
   ],
   importance: 5,
-  body: `Mit Eintritt der Festsetzungsverjährung darf das Finanzamt eine Erbschaftsteuer grundsätzlich nicht mehr festsetzen, aufheben oder ändern. Für die Berechnung sind drei Schritte nötig: Beginn, Dauer und mögliches Hinausschieben des Fristendes.
+  body: `Bei Erwerben von Todes wegen entsteht die Erbschaftsteuer grundsätzlich mit dem Tod des Erblassers, § 9 Abs. 1 Nr. 1 ErbStG. Die regelmäßige Festsetzungsfrist beträgt vier Jahre, § 169 Abs. 2 Satz 1 Nr. 2 AO.
 
-1. Grundregel: Entstehung der Steuer
-Bei einem Erwerb von Todes wegen entsteht die Erbschaftsteuer grundsätzlich mit dem Tod des Erblassers, § 9 Abs. 1 Nr. 1 ErbStG. Ohne Besonderheiten würde die Festsetzungsfrist daher mit Ablauf des Todesjahres beginnen, § 170 Abs. 1 AO.
+Für den Beginn gilt jedoch eine wichtige Sonderregel: Nach § 170 Abs. 5 Nr. 1 AO beginnt die Festsetzungsfrist nicht vor Ablauf des Kalenderjahres, in dem der Erwerber Kenntnis von seinem Erwerb erlangt hat.
 
-In der Praxis greifen jedoch regelmäßig besondere Anlaufhemmungen.
+1. Welche Kenntnis ist erforderlich?
 
-2. Anzeigepflicht und angeforderte Steuererklärung
-Erwerber müssen einen erbschaftsteuerpflichtigen Erwerb grundsätzlich innerhalb von drei Monaten nach Kenntnis schriftlich beim zuständigen Erbschaftsteuerfinanzamt anzeigen, § 30 ErbStG. Ausnahmen bestehen insbesondere, wenn der Erwerb bereits durch ein deutsches Gericht, einen deutschen Notar oder eine andere deutsche Behörde eröffnet bzw. beurkundet wurde und kein bestimmtes relevantes Vermögen betroffen ist.
+Maßgeblich ist nicht nur das Wissen, dass Vermögen aus einem Nachlass zufließt. Der Erwerber muss sichere Kenntnis von dem rechtsgültigen Erwerb und dessen konkretem Rechtsgrund haben.
 
-Eine allgemeine Pflicht, ohne Aufforderung eine Erbschaftsteuererklärung einzureichen, besteht dagegen nicht. Die Erklärung ist abzugeben, wenn das Finanzamt sie nach § 31 ErbStG anfordert.
+Die Anlaufhemmung ist deshalb erwerbs- und rechtsgrundbezogen. Gesetzliche Erbfolge und testamentarische Erbeinsetzung können unterschiedliche Erwerbsgründe darstellen.
 
-Ist eine Anzeige zu erstatten oder eine Erklärung einzureichen, beginnt die Festsetzungsfrist nach § 170 Abs. 2 Satz 1 Nr. 1 AO mit Ablauf des Kalenderjahres, in dem die Anzeige oder Erklärung eingereicht wird. Spätestens beginnt sie mit Ablauf des dritten Kalenderjahres nach dem Jahr der Steuerentstehung.
+2. Später aufgefundenes Testament
 
-Wichtig:
-Bestehen sowohl eine Anzeigepflicht als auch später eine Erklärungspflicht, ist für den Fristbeginn grundsätzlich die zuerst erfüllte maßgebliche Pflicht entscheidend. Eine später eingereichte angeforderte Erklärung verschiebt den bereits durch die Anzeige ausgelösten Fristbeginn nicht erneut.
+Wird zunächst von gesetzlicher Erbfolge ausgegangen und später ein Testament gefunden, das den Erwerber etwa zum Alleinerben bestimmt, kann für diesen testamentarischen Erwerb ein neuer Kenntniszeitpunkt maßgeblich sein.
 
-Beispiel 1:
-Der Erblasser verstirbt 2024. Der Erbe zeigt den Erwerb 2025 an. Eine angeforderte Erbschaftsteuererklärung reicht er 2026 ein.
+Eine frühere Kenntnis von der gesetzlichen Erbfolge verbraucht die Anlaufhemmung nicht für einen später festgestellten, rechtlich abweichenden Erwerb aufgrund eines Testaments.
 
-Die Festsetzungsfrist beginnt grundsätzlich mit Ablauf des 31.12.2025. Die spätere Erklärung verschiebt den Beginn nicht auf Ende 2026.
+3. Streit über die Wirksamkeit des Testaments
 
-Beispiel 2:
-Der Erblasser verstirbt 2024. Der Erbe erstattet keine erforderliche Anzeige und das Finanzamt fordert keine Erklärung an.
+Ist die Wirksamkeit des Testaments ernsthaft streitig und tritt ein anderer möglicher Erbe der Erteilung des Erbscheins entgegen, besitzt der testamentarisch eingesetzte Erbe regelmäßig noch keine sichere Kenntnis von seiner Erbenstellung.
 
-Die Festsetzungsfrist beginnt spätestens mit Ablauf des 31.12.2027, also am Ende des dritten Kalenderjahres nach dem Todesjahr.
+Nach dem BFH ist in diesem Fall die Entscheidung des Nachlassgerichts über die Wirksamkeit des Testaments im Erbscheinverfahren maßgeblich. Mit dieser Entscheidung erlangt der Erwerber sichere Kenntnis von seinem rechtsgültigen Erwerb. [1]
 
-3. Späte Kenntnis vom Erwerb
-Nach § 170 Abs. 5 Nr. 1 AO beginnt die Festsetzungsfrist bei einem Erwerb von Todes wegen nicht vor Ablauf des Kalenderjahres, in dem der Erwerber Kenntnis von seinem Erwerb erlangt hat.
+4. Rechtsmittel sind unerheblich
 
-Kenntnis liegt vor, wenn der Erwerber zuverlässig weiß, dass und aufgrund welchen Rechtsgrunds er erworben hat. Bei einer eindeutigen testamentarischen Einsetzung ist dies regelmäßig spätestens mit der Testamentseröffnung der Fall.
+Für den Kenntniszeitpunkt ist es nicht entscheidend, ob die Entscheidung des Nachlassgerichts noch mit Rechtsmitteln angefochten werden kann oder tatsächlich angefochten wird.
 
-Ist die Wirksamkeit des Testaments oder die Erbenstellung ernsthaft streitig und widerspricht ein anderer möglicher Erbe im Erbscheinverfahren, kann die sichere Kenntnis erst mit der Entscheidung des Nachlassgerichts eintreten. Nach dem BFH-Urteil vom 4.6.2025, II R 28/22, ist nicht entscheidend, ob diese Entscheidung noch angefochten werden kann oder tatsächlich angefochten wird.
+Die sichere Kenntnis entsteht bereits mit der gerichtlichen Entscheidung. Der spätere Eintritt der Rechtskraft oder die spätere Erteilung des Erbscheins verschieben den Fristbeginn nicht. [2]
 
-Die Kenntnis ist erwerbs- und rechtsgrundbezogen. Wird später ein weiteres Testament gefunden, das zu einer anderen Erbquote oder Alleinerbenstellung führt, kann für diesen neuen rechtsgültigen Erwerb ein eigener Kenntniszeitpunkt maßgeblich sein.
+5. Der entschiedene Fall
 
-4. Dauer der Festsetzungsfrist
-Die reguläre Festsetzungsfrist beträgt vier Jahre, § 169 Abs. 2 Satz 1 Nr. 2 AO.
+Die Erblasserin verstarb 1988. Zunächst wurde ein Erbschein erteilt, der den Kläger und seine Schwester aufgrund gesetzlicher Erbfolge jeweils zur Hälfte als Erben auswies.
 
-Sie beträgt:
-- fünf Jahre, soweit eine leichtfertige Steuerverkürzung vorliegt,
-- zehn Jahre, soweit Erbschaftsteuer hinterzogen wurde.
+Später wurde ein weiteres Testament gefunden, das den Kläger zum Alleinerben bestimmte. Die Schwester bestritt die Testierfähigkeit der Erblasserin. Im Jahr 2007 kündigte das Nachlassgericht durch Vorbescheid an, den Kläger als Alleinerben auszuweisen.
 
-Es gilt der Grundsatz der Teilverjährung. Eine verlängerte Frist erfasst nur den Teil der Steuer, der leichtfertig verkürzt oder hinterzogen wurde. Für den übrigen Teil bleibt es grundsätzlich bei vier Jahren.
+Der BFH sah diesen Vorbescheid als maßgeblichen Kenntniszeitpunkt an. Die Festsetzungsfrist begann daher mit Ablauf des Jahres 2007 und endete grundsätzlich mit Ablauf des Jahres 2011. Der Änderungsbescheid aus dem Jahr 2010 war noch rechtzeitig.
 
-5. Berechnung des regulären Fristendes
-Beginnt die vierjährige Frist mit Ablauf des 31.12.2025, endet sie grundsätzlich mit Ablauf des 31.12.2029.
+6. Mehrere Testamente
 
-Fällt das Fristende auf einen Samstag, Sonntag oder gesetzlichen Feiertag, endet die Frist nach § 108 Abs. 3 AO erst mit Ablauf des nächsten Werktags.
+Bei mehreren Testamenten ist zu prüfen, welches Testament tatsächlich den gültigen Rechtsgrund des Erwerbs bildet.
 
-6. Rechtzeitiger Erlass des Steuerbescheids
-Für die Wahrung der Festsetzungsfrist muss der Bescheid nicht zwingend bereits beim Erben eingegangen sein. Die Frist ist insbesondere gewahrt, wenn der Steuerbescheid vor ihrem Ablauf den Bereich der zuständigen Finanzbehörde verlassen hat oder bei elektronischer Bekanntgabe rechtzeitig zum Abruf bereitgestellt wurde, § 169 Abs. 1 AO.
+- Ist das später aufgefundene Testament der wirksame Erwerbsgrund, beginnt die Anlaufhemmung grundsätzlich erst mit sicherer Kenntnis dieses Erwerbs.
+- Ist bereits das zuerst bekannte Testament wirksamer Rechtsgrund, löst ein später aufgefundenes unwirksames oder nicht maßgebliches Testament keinen neuen Fristbeginn aus.
 
-Beispiel:
-Die Frist endet am 31.12.2029. Das Finanzamt gibt den Bescheid am 30.12.2029 zur Post. Er geht erst Anfang Januar 2030 zu. Die Festsetzungsfrist kann dennoch gewahrt sein.
+Entscheidend ist somit nicht das bloße Auffinden eines Schriftstücks, sondern die sichere Kenntnis des rechtsgültigen Erwerbs.
 
-7. Wichtige Ablaufhemmungen
-Selbst wenn das rechnerische Fristende erreicht ist, kann § 171 AO den Ablauf hinausschieben.
+7. Verhältnis zur früheren BFH-Rechtsprechung
 
-Einspruch oder Klage, § 171 Abs. 3a AO:
-Wird ein Erbschaftsteuerbescheid angefochten, läuft die Festsetzungsfrist insoweit nicht ab, bevor über den Rechtsbehelf unanfechtbar entschieden wurde.
+Der BFH knüpft an seine Entscheidung vom 27.4.2022 an. Danach tritt sichere Kenntnis spätestens mit der gerichtlichen Feststellung der Wirksamkeit einer letztwilligen Verfügung ein – auch dann, wenn die Entscheidung noch angefochten werden kann. [3]
 
-Außenprüfung, § 171 Abs. 4 AO:
-Beginnt vor Fristablauf eine Außenprüfung oder wird ihr Beginn auf Antrag verschoben, bleibt die Festsetzung für die von der Prüfung erfassten Sachverhalte unter den gesetzlichen Voraussetzungen weiter möglich.
+Mit einmal erlangter sicherer Kenntnis ist die Wirkung der Anlaufhemmung für diesen konkreten Erwerb und Rechtsgrund verbraucht. Sie kann sich grundsätzlich nicht nachträglich erneut verlängern.
 
-Grundlagenbescheid, § 171 Abs. 10 AO:
-Ist für die Erbschaftsteuer ein gesonderter Feststellungsbescheid bindend, endet die Festsetzungsfrist grundsätzlich nicht vor Ablauf von zwei Jahren nach Bekanntgabe des Grundlagenbescheids. Das ist besonders wichtig bei Feststellungen nach § 151 BewG, etwa für Grundbesitz, Betriebsvermögen oder nicht börsennotierte Anteile.
+Praxis-Checkliste
 
-Weitere Ablaufhemmungen können sich unter anderem aus Anträgen, Ermittlungen, Steuerfahndungsmaßnahmen oder vorläufigen Festsetzungen ergeben. Deshalb darf das Fristende nie nur durch Addition von vier Jahren bestimmt werden.
+1. Wann ist der Erblasser verstorben?
+2. Auf welchem Rechtsgrund beruhte die zunächst angenommene Erbenstellung?
+3. Wurde später ein weiteres Testament gefunden?
+4. Führt dieses Testament zu einem rechtlich anderen Erwerb?
+5. Ist die Wirksamkeit des Testaments zwischen möglichen Erben streitig?
+6. Wann hat das Nachlassgericht erstmals über die Wirksamkeit entschieden?
+7. In welchem Kalenderjahr lag diese Entscheidung?
+8. Wann endet ausgehend hiervon die vierjährige Festsetzungsfrist?
 
-8. Folgen der Festsetzungsverjährung
-Nach Ablauf der Festsetzungsfrist sind Festsetzung, Aufhebung und Änderung grundsätzlich unzulässig. Das gilt auch für eine Berichtigung wegen offenbarer Unrichtigkeit nach § 129 AO. Der Steueranspruch erlischt durch Verjährung, § 47 AO.
+Merksatz:
+Bei einem streitigen Testament beginnt die Festsetzungsfrist nicht erst mit Rechtskraft oder Erteilung des Erbscheins. Entscheidend ist grundsätzlich die erste gerichtliche Entscheidung, durch die der Erwerber sichere Kenntnis von seinem rechtsgültigen Erwerb erhält.
 
-Ein trotzdem erlassener oder geänderter Bescheid ist regelmäßig nicht automatisch nichtig. Er muss innerhalb der Rechtsbehelfsfrist mit Einspruch angefochten werden. Bleibt der Einspruch aus, kann der rechtswidrige Bescheid bestandskräftig und vollziehbar werden.
+Quellenhinweise:
+[1] BFH, Urteil vom 4.6.2025 – II R 28/22, NWB YAAAK-03047.
+[2] Anschluss an BFH, Urteil vom 27.4.2022 – II R 17/20, NWB WAAAJ-16975, BFH/NV 2022, S. 901.
+[3] BFH, Urteil vom 27.4.2022 – II R 17/20, NWB WAAAJ-16975, BFH/NV 2022, S. 901.
 
-Praxischeck
-- Todesdatum und Zeitpunkt der Steuerentstehung festgestellt?
-- Bestand eine Anzeige nach § 30 ErbStG?
-- Wann wurde die Anzeige tatsächlich eingereicht?
-- Hat das Finanzamt eine Erklärung nach § 31 ErbStG angefordert?
-- Wann erlangte der Erwerber sichere Kenntnis von Erwerb und Rechtsgrund?
-- Gab es Erbstreit, Erbscheinverfahren oder ein später aufgefundenes Testament?
-- Gilt die vier-, fünf- oder zehnjährige Frist?
-- Liegt möglicherweise nur eine Teilverjährung vor?
-- Gibt es Einspruch, Klage, Außenprüfung oder Grundlagenbescheide?
-- Hat der Bescheid die Finanzbehörde noch vor Fristablauf verlassen?
-
-Typische Fehler
-- Fristbeginn pauschal auf das Ende des Todesjahres gelegt.
-- Die dreimonatige Anzeigepflicht nach § 30 ErbStG übersehen.
-- Eine spätere Erbschaftsteuererklärung als erneuten Fristbeginn behandelt, obwohl bereits eine Anzeige eingereicht war.
-- Die besondere Kenntnisregel des § 170 Abs. 5 Nr. 1 AO nicht geprüft.
-- Bei einem Erbscheinstreit schon die Testamentseröffnung als sichere Kenntnis angesetzt.
-- Die Frist stets mit vier Jahren berechnet, ohne Steuerhinterziehung oder leichtfertige Verkürzung zu prüfen.
-- Ablaufhemmungen nach § 171 AO und Feststellungsbescheide nach dem BewG übersehen.
-- Einen nach Fristablauf erlassenen Bescheid nicht angefochten, weil er irrtümlich für automatisch nichtig gehalten wurde.`,
+Fundstellen:
+NWB-EV 2/2026, S. 41.
+NWB QAAAK-08916.`,
 };
 
 if (!KNOWLEDGE_BASE.some((entry) => entry.id === erbschaftsteuerFestsetzungsverjaehrung.id)) {

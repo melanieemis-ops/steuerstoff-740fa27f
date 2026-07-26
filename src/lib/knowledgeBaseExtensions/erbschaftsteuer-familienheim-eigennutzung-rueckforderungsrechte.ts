@@ -7,7 +7,7 @@ export const erbschaftsteuerFamilienheimEigennutzungRueckforderungsrechte: KBEnt
     "Steuerbefreiung des Familienheims beim Erwerb von Todes wegen, zehnjährige Selbstnutzung, Nachversteuerung und Gestaltung durch lebzeitige Übertragung mit Rückforderungsrechten.",
   category: "Erbschaftsteuer",
   type: "praxis",
-  taxType: "Erbschaftsteuer",
+  taxType: "erbschaftsteuer",
   subCase: "familienheim-eigennutzung-rueckforderungsrechte",
   source:
     "Praxisübersicht nach § 13 Abs. 1 Nr. 4a bis 4c, § 29 Abs. 1 Nr. 1 und Abs. 2 ErbStG, § 15 Abs. 2 BewG sowie R E 13.4 Abs. 6 ErbStR 2019; ergänzend FG Baden-Württemberg vom 11.05.2022 – 7 K 1550/20.",

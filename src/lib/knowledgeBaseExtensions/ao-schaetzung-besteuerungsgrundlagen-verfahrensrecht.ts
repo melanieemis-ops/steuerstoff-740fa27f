@@ -7,7 +7,7 @@ export const aoSchaetzungBesteuerungsgrundlagenVerfahrensrecht: KBEntry = {
     "Praxisbeitrag zur Schätzungsbefugnis des Finanzamts, zu Schätzungsmethoden, Einspruch, Aussetzung der Vollziehung, Ausschlussfristen, Bestandskraft und Nichtigkeit von Schätzungsbescheiden.",
   category: "AO",
   type: "praxis",
-  taxType: "Abgabenordnung",
+  taxType: "abgabenordnung",
   subCase: "schaetzung-besteuerungsgrundlagen",
   source:
     "Praxisübersicht nach §§ 88, 125, 149, 162, 164, 173, 222, 361 und 364b AO sowie §§ 79b und 96 FGO; unter Einbeziehung der Rechtsprechung des BFH und des FG Köln.",

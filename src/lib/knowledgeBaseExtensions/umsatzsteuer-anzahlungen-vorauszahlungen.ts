@@ -7,7 +7,7 @@ export const umsatzsteuerAnzahlungenVorauszahlungen: KBEntry = {
     "Vorsteuerabzug aus geleisteten Anzahlungen, Steuerentstehung bei erhaltenen Anzahlungen und Anforderungen an Anzahlungsrechnungen.",
   category: "Umsatzsteuer",
   type: "praxis",
-  taxType: "Umsatzsteuer",
+  taxType: "umsatzsteuer",
   subCase: "anzahlungen-vorauszahlungen",
   source:
     "Praxisübersicht nach §§ 13, 14, 14a und 15 UStG sowie Abschnitt 14.8 UStAE; ergänzend handelsrechtliche Schnittstellen nach §§ 266 und 268 HGB.",

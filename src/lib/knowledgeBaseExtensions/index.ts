@@ -20,6 +20,7 @@ import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-familienheim-eigennutzung-
 import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-festsetzungsverjaehrung";
 import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-gesetzliche-erbfolge";
 import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-steuerstrafrechtliche-risiken-ehegatten";
+import "@/lib/knowledgeBaseExtensions/gewerbesteuer-berechnung-rueckstellung";
 import "@/lib/knowledgeBaseExtensions/grunderwerbsteuer-aktuelle-entwicklung-2026-rechtsprechung";
 import "@/lib/knowledgeBaseExtensions/jahresabschluss-geleistete-erhaltene-anzahlungen";
 import "@/lib/knowledgeBaseExtensions/jahresabschluss-hgb-ueberblick";

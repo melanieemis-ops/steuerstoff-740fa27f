@@ -1,183 +1,333 @@
 import type { LearningQuestion } from "./types";
 
-export const erbschaftsteuerQuestions: LearningQuestion[] = [ {
-  id: "erbst-001",
-
-  category: "Erbschaftsteuer",
-
-  topic: "Grundlagen",
-
-  type: "single-choice",
-
-  difficulty: "leicht",
-
-  question:
-    "Welches Gesetz regelt die Erbschaft- und Schenkungsteuer?",
-
-  options: [
-    "Erbschaftsteuer- und Schenkungsteuergesetz (ErbStG)",
-    "Bewertungsgesetz (BewG)",
-    "Abgabenordnung (AO)",
-    "Einkommensteuergesetz (EStG)",
-  ],
-
-  correctAnswer: 0,
-
-  explanation:
-    "Die Erbschaftsteuer und die Schenkungsteuer werden im Erbschaftsteuer- und Schenkungsteuergesetz geregelt.",
-
-  reference: "§ 1 ErbStG",
-
-  hint:
-    "Der Name des Gesetzes verrät bereits den Inhalt.",
-
-  tags: [
-    "ErbStG",
-    "Grundlagen",
-    "Gesetz"
-  ],
-},
-{
-  id: "erbst-002",
-
-  category: "Erbschaftsteuer",
-
-  topic: "Grundlagen",
-
-  type: "true-false",
-
-  difficulty: "leicht",
-
-  question:
-    "Die Schenkungsteuer und die Erbschaftsteuer werden im selben Gesetz geregelt.",
-
-  options: [
-    "Richtig",
-    "Falsch"
-  ],
-
-  correctAnswer: 0,
-
-  explanation:
-    "Beide Steuerarten werden gemeinsam im Erbschaftsteuer- und Schenkungsteuergesetz geregelt.",
-
-  reference: "§ 1 ErbStG",
-
-  tags: [
-    "Grundlagen",
-    "ErbStG"
-  ],
-},
-{
-  id: "erbst-003",
-
-  category: "Erbschaftsteuer",
-
-  topic: "Grundlagen",
-
-  type: "single-choice",
-
-  difficulty: "leicht",
-
-  question:
-    "Was ist ein Erwerb von Todes wegen?",
-
-  options: [
-    "Der Vermögensübergang aufgrund des Todes einer Person",
-    "Der Verkauf eines Hauses",
-    "Eine Schenkung unter Lebenden",
-    "Eine Auszahlung eines Gehalts",
-  ],
-
-  correctAnswer: 0,
-
-  explanation:
-    "Ein Erwerb von Todes wegen liegt vor, wenn Vermögen aufgrund des Todes einer Person auf einen Erwerber übergeht.",
-
-  reference: "§ 3 ErbStG",
-
-  hint:
-    "Entscheidend ist der Tod des Erblassers.",
-
-  tags: [
-    "Erwerb von Todes wegen",
-    "Erbschaft"
-  ],
-},
-{
-  id: "erbst-004",
-
-  category: "Erbschaftsteuer",
-
-  topic: "Grundlagen",
-
-  type: "single-choice",
-
-  difficulty: "leicht",
-
-  question:
-    "Welche Aussage beschreibt eine Schenkung unter Lebenden am besten?",
-
-  options: [
-    "Eine unentgeltliche Vermögensübertragung zwischen lebenden Personen",
-    "Ein Kaufvertrag",
-    "Ein Erbfall",
-    "Ein Arbeitsvertrag",
-  ],
-
-  correctAnswer: 0,
-
-  explanation:
-    "Eine Schenkung unter Lebenden ist eine unentgeltliche Vermögensübertragung zwischen lebenden Personen.",
-
-  reference: "§ 7 ErbStG",
-
-  hint:
-    "Niemand muss dafür sterben.",
-
-  tags: [
-    "Schenkung",
-    "Unentgeltlich"
-  ],
-},
-{
-  id: "erbst-005",
-
-  category: "Erbschaftsteuer",
-
-  topic: "Grundlagen",
-
-  type: "true-false",
-
-  difficulty: "leicht",
-
-  question:
-    "Eine Erbschaft setzt grundsätzlich den Tod des Erblassers voraus.",
-
-  options: [
-    "Richtig",
-    "Falsch"
-  ],
-
-  correctAnswer: 0,
-
-  explanation:
-    "Erst mit dem Tod des Erblassers kann ein Erwerb von Todes wegen entstehen.",
-
-  reference: "§ 3 ErbStG",
-
-  tags: [
-    "Erbfall",
-    "Grundlagen"
-  ],
-},
-
-
-
-
-
-
-
-
-
+export const erbschaftsteuerQuestions: LearningQuestion[] = [
+  {
+    id: "erbst-001",
+    category: "Erbschaftsteuer",
+    topic: "Grundlagen",
+    type: "single-choice",
+    difficulty: "leicht",
+    question: "Welches Gesetz regelt die Erbschaft- und Schenkungsteuer?",
+    options: ["Erbschaftsteuer- und Schenkungsteuergesetz (ErbStG)", "Bewertungsgesetz (BewG)", "Abgabenordnung (AO)", "Einkommensteuergesetz (EStG)"],
+    correctAnswer: 0,
+    explanation: "Die Erbschaftsteuer und die Schenkungsteuer werden im Erbschaftsteuer- und Schenkungsteuergesetz geregelt.",
+    reference: "§ 1 ErbStG",
+    hint: "Der Name des Gesetzes verrät bereits den Inhalt.",
+    tags: ["ErbStG", "Grundlagen", "Gesetz"],
+  },
+  {
+    id: "erbst-002",
+    category: "Erbschaftsteuer",
+    topic: "Grundlagen",
+    type: "true-false",
+    difficulty: "leicht",
+    question: "Die Schenkungsteuer und die Erbschaftsteuer werden im selben Gesetz geregelt.",
+    options: ["Richtig", "Falsch"],
+    correctAnswer: 0,
+    explanation: "Beide Steuerarten werden gemeinsam im Erbschaftsteuer- und Schenkungsteuergesetz geregelt.",
+    reference: "§ 1 ErbStG",
+    tags: ["Grundlagen", "ErbStG"],
+  },
+  {
+    id: "erbst-003",
+    category: "Erbschaftsteuer",
+    topic: "Grundlagen",
+    type: "single-choice",
+    difficulty: "leicht",
+    question: "Was ist ein Erwerb von Todes wegen?",
+    options: ["Der Vermögensübergang aufgrund des Todes einer Person", "Der Verkauf eines Hauses", "Eine Schenkung unter Lebenden", "Eine Auszahlung eines Gehalts"],
+    correctAnswer: 0,
+    explanation: "Ein Erwerb von Todes wegen liegt vor, wenn Vermögen aufgrund des Todes einer Person auf einen Erwerber übergeht.",
+    reference: "§ 3 ErbStG",
+    hint: "Entscheidend ist der Tod des Erblassers.",
+    tags: ["Erwerb von Todes wegen", "Erbschaft"],
+  },
+  {
+    id: "erbst-004",
+    category: "Erbschaftsteuer",
+    topic: "Grundlagen",
+    type: "single-choice",
+    difficulty: "leicht",
+    question: "Welche Aussage beschreibt eine Schenkung unter Lebenden am besten?",
+    options: ["Eine unentgeltliche Vermögensübertragung zwischen lebenden Personen", "Ein Kaufvertrag", "Ein Erbfall", "Ein Arbeitsvertrag"],
+    correctAnswer: 0,
+    explanation: "Eine Schenkung unter Lebenden ist eine unentgeltliche Vermögensübertragung zwischen lebenden Personen.",
+    reference: "§ 7 ErbStG",
+    hint: "Niemand muss dafür sterben.",
+    tags: ["Schenkung", "Unentgeltlich"],
+  },
+  {
+    id: "erbst-005",
+    category: "Erbschaftsteuer",
+    topic: "Grundlagen",
+    type: "true-false",
+    difficulty: "leicht",
+    question: "Eine Erbschaft setzt grundsätzlich den Tod des Erblassers voraus.",
+    options: ["Richtig", "Falsch"],
+    correctAnswer: 0,
+    explanation: "Erst mit dem Tod des Erblassers kann ein Erwerb von Todes wegen entstehen.",
+    reference: "§ 3 ErbStG",
+    tags: ["Erbfall", "Grundlagen"],
+  },
+  {
+    id: "erbst-006",
+    category: "Erbschaftsteuer",
+    topic: "Freibeträge",
+    type: "single-choice",
+    difficulty: "leicht",
+    question: "Wie hoch ist der persönliche Freibetrag für Ehegatten?",
+    options: ["100.000 €", "200.000 €", "400.000 €", "500.000 €"],
+    correctAnswer: 3,
+    explanation: "Ehegatten und eingetragene Lebenspartner haben einen persönlichen Freibetrag von 500.000 €.",
+    reference: "§ 16 Abs. 1 Nr. 1 ErbStG",
+    tags: ["Ehegatten", "Freibetrag", "500.000 €"],
+  },
+  {
+    id: "erbst-007",
+    category: "Erbschaftsteuer",
+    topic: "Freibeträge",
+    type: "single-choice",
+    difficulty: "leicht",
+    question: "Wie hoch ist der persönliche Freibetrag eines Kindes gegenüber einem Elternteil?",
+    options: ["20.000 €", "100.000 €", "400.000 €", "500.000 €"],
+    correctAnswer: 2,
+    explanation: "Kinder haben gegenüber jedem Elternteil einen persönlichen Freibetrag von 400.000 €.",
+    reference: "§ 16 Abs. 1 Nr. 2 ErbStG",
+    tags: ["Kinder", "Freibetrag", "400.000 €"],
+  },
+  {
+    id: "erbst-008",
+    category: "Erbschaftsteuer",
+    topic: "Vorerwerbe",
+    type: "single-choice",
+    difficulty: "mittel",
+    question: "Innerhalb welchen Zeitraums werden mehrere Erwerbe von derselben Person grundsätzlich zusammengerechnet?",
+    options: ["Drei Jahre", "Fünf Jahre", "Zehn Jahre", "Zwanzig Jahre"],
+    correctAnswer: 2,
+    explanation: "Mehrere Erwerbe von derselben Person innerhalb von zehn Jahren werden für die Steuerberechnung zusammengerechnet.",
+    reference: "§ 14 ErbStG",
+    hint: "Dieser Zeitraum bestimmt auch, wann der persönliche Freibetrag erneut vollständig genutzt werden kann.",
+    tags: ["Vorerwerbe", "Zehnjahreszeitraum", "Zusammenrechnung"],
+  },
+  {
+    id: "erbst-009",
+    category: "Erbschaftsteuer",
+    topic: "Gesetzliche Erbfolge",
+    type: "single-choice",
+    difficulty: "mittel",
+    question: "Wer gehört zur ersten Ordnung der gesetzlichen Erben?",
+    options: ["Die Eltern des Erblassers", "Die Abkömmlinge des Erblassers", "Die Großeltern des Erblassers", "Nur der Ehegatte"],
+    correctAnswer: 1,
+    explanation: "Zur ersten Ordnung gehören die Abkömmlinge des Erblassers, insbesondere Kinder, Enkel und Urenkel.",
+    reference: "§ 1924 BGB",
+    tags: ["gesetzliche Erbfolge", "erste Ordnung", "Abkömmlinge"],
+  },
+  {
+    id: "erbst-010",
+    category: "Erbschaftsteuer",
+    topic: "Gesetzliche Erbfolge",
+    type: "true-false",
+    difficulty: "mittel",
+    question: "Lebt ein Kind des Erblassers noch, schließen dessen eigene Kinder es grundsätzlich von der gesetzlichen Erbfolge aus.",
+    options: ["Richtig", "Falsch"],
+    correctAnswer: 0,
+    explanation: "Nach dem Repräsentationsprinzip schließt ein lebender Abkömmling seine eigenen Abkömmlinge grundsätzlich von der Erbfolge aus.",
+    reference: "§ 1924 Abs. 2 BGB",
+    tags: ["Repräsentationsprinzip", "gesetzliche Erbfolge"],
+  },
+  {
+    id: "erbst-011",
+    category: "Erbschaftsteuer",
+    topic: "Familienheim",
+    type: "single-choice",
+    difficulty: "mittel",
+    question: "Welche Voraussetzung ist für die Steuerbefreiung des von Todes wegen auf den Ehegatten übergehenden Familienheims besonders wichtig?",
+    options: ["Der Ehegatte muss das Familienheim unverzüglich selbst nutzen", "Das Haus muss vermietet werden", "Das Gebäude muss mindestens 20 Jahre alt sein", "Der Erwerber muss es sofort verkaufen"],
+    correctAnswer: 0,
+    explanation: "Der überlebende Ehegatte muss das Familienheim grundsätzlich unverzüglich zur Selbstnutzung zu eigenen Wohnzwecken bestimmen.",
+    reference: "§ 13 Abs. 1 Nr. 4b ErbStG",
+    tags: ["Familienheim", "Ehegatte", "Selbstnutzung"],
+  },
+  {
+    id: "erbst-012",
+    category: "Erbschaftsteuer",
+    topic: "Familienheim",
+    type: "single-choice",
+    difficulty: "mittel",
+    question: "Wie lange muss ein steuerfrei geerbtes Familienheim grundsätzlich weiter selbst genutzt werden?",
+    options: ["Drei Jahre", "Fünf Jahre", "Zehn Jahre", "Lebenslang"],
+    correctAnswer: 2,
+    explanation: "Die Steuerbefreiung fällt grundsätzlich rückwirkend weg, wenn die Selbstnutzung innerhalb von zehn Jahren aufgegeben wird, sofern kein zwingender Grund vorliegt.",
+    reference: "§ 13 Abs. 1 Nr. 4b und 4c ErbStG",
+    tags: ["Familienheim", "Zehnjahresfrist", "Nachversteuerung"],
+  },
+  {
+    id: "erbst-013",
+    category: "Erbschaftsteuer",
+    topic: "Familienheim",
+    type: "single-choice",
+    difficulty: "schwer",
+    question: "Welche zusätzliche Begrenzung gilt bei der Familienheimbefreiung für Kinder?",
+    options: ["Die Wohnfläche darf 100 m² nicht überschreiten", "Die Wohnfläche ist nur bis 200 m² begünstigt", "Das Grundstück darf höchstens 500 m² groß sein", "Es gilt keine Flächenbegrenzung"],
+    correctAnswer: 1,
+    explanation: "Bei Kindern und Kindern verstorbener Kinder ist die Befreiung auf eine Wohnfläche von 200 m² begrenzt. Ein übersteigender Anteil ist grundsätzlich steuerpflichtig.",
+    reference: "§ 13 Abs. 1 Nr. 4c ErbStG",
+    tags: ["Familienheim", "Kinder", "200 m²"],
+  },
+  {
+    id: "erbst-014",
+    category: "Erbschaftsteuer",
+    topic: "Familienheim",
+    type: "true-false",
+    difficulty: "mittel",
+    question: "Die lebzeitige Übertragung eines Familienheims zwischen Ehegatten kann schenkungsteuerfrei sein.",
+    options: ["Richtig", "Falsch"],
+    correctAnswer: 0,
+    explanation: "Die lebzeitige Zuwendung des Familienheims zwischen Ehegatten oder Lebenspartnern kann nach § 13 Abs. 1 Nr. 4a ErbStG steuerfrei sein.",
+    reference: "§ 13 Abs. 1 Nr. 4a ErbStG",
+    tags: ["Familienheim", "Schenkung", "Ehegatten"],
+  },
+  {
+    id: "erbst-015",
+    category: "Erbschaftsteuer",
+    topic: "Ehegattenschenkungen",
+    type: "single-choice",
+    difficulty: "mittel",
+    question: "Warum können ehebedingte Zuwendungen schenkungsteuerlich relevant sein, obwohl sie zivilrechtlich nicht immer als Schenkung gelten?",
+    options: ["Weil das ErbStG auf die objektive Bereicherung und Freigebigkeit abstellt", "Weil jede Zahlung zwischen Ehegatten automatisch steuerpflichtig ist", "Weil Ehegatten keinen Freibetrag haben", "Weil das BGB im Steuerrecht nie gilt"],
+    correctAnswer: 0,
+    explanation: "Das Schenkungsteuerrecht folgt nicht zwingend der zivilrechtlichen Einordnung. Entscheidend ist insbesondere, ob der andere Ehegatte auf Kosten des Zuwendenden objektiv bereichert wird.",
+    reference: "§ 7 Abs. 1 Nr. 1 ErbStG",
+    tags: ["ehebedingte Zuwendung", "Freigebigkeit", "Ehegatten"],
+  },
+  {
+    id: "erbst-016",
+    category: "Erbschaftsteuer",
+    topic: "Gemeinschaftskonto",
+    type: "single-choice",
+    difficulty: "schwer",
+    question: "Wann kann die Einzahlung auf ein Oder-Konto zwischen Ehegatten schenkungsteuerlich problematisch werden?",
+    options: ["Wenn der andere Ehegatte tatsächlich und rechtlich frei über das zugewandte Guthaben verfügen kann", "Nur wenn die Bank das Konto kündigt", "Nur bei einer Scheidung", "Nie, weil Gemeinschaftskonten steuerlich unbeachtlich sind"],
+    correctAnswer: 0,
+    explanation: "Entscheidend ist die tatsächliche und rechtliche Verfügungsmacht. Fehlt eine abweichende Vereinbarung, kann eine freigebige Zuwendung vorliegen.",
+    reference: "§ 7 Abs. 1 Nr. 1 ErbStG; §§ 428, 430 BGB",
+    tags: ["Oder-Konto", "Ehegatten", "Verfügungsmacht"],
+  },
+  {
+    id: "erbst-017",
+    category: "Erbschaftsteuer",
+    topic: "Anzeigepflicht",
+    type: "single-choice",
+    difficulty: "mittel",
+    question: "Innerhalb welcher Frist ist ein schenkungsteuerpflichtiger Erwerb grundsätzlich beim Finanzamt anzuzeigen?",
+    options: ["Innerhalb eines Monats", "Innerhalb von drei Monaten", "Innerhalb von sechs Monaten", "Erst mit der nächsten Einkommensteuererklärung"],
+    correctAnswer: 1,
+    explanation: "Erwerber und bei Schenkungen grundsätzlich auch der Schenker müssen den Erwerb innerhalb von drei Monaten anzeigen, soweit keine Ausnahme greift.",
+    reference: "§ 30 Abs. 1 und 2 ErbStG",
+    tags: ["Anzeigepflicht", "Dreimonatsfrist", "Schenkung"],
+  },
+  {
+    id: "erbst-018",
+    category: "Erbschaftsteuer",
+    topic: "Steuerstrafrecht",
+    type: "single-choice",
+    difficulty: "schwer",
+    question: "Welcher Tatbestand kommt bei vorsätzlicher Nichtanzeige einer steuerpflichtigen Schenkung in Betracht?",
+    options: ["Steuerhinterziehung nach § 370 AO", "Nur eine zivilrechtliche Vertragsstrafe", "Gewerbesteuerverkürzung", "Untreue nach dem HGB"],
+    correctAnswer: 0,
+    explanation: "Wer die Finanzbehörde vorsätzlich pflichtwidrig über eine steuerlich erhebliche Schenkung in Unkenntnis lässt und dadurch Steuer verkürzt, kann den Tatbestand des § 370 AO erfüllen.",
+    reference: "§ 370 AO; § 30 ErbStG",
+    tags: ["Steuerhinterziehung", "Nichtanzeige", "Schenkungsteuer"],
+  },
+  {
+    id: "erbst-019",
+    category: "Erbschaftsteuer",
+    topic: "Steuerstrafrecht",
+    type: "single-choice",
+    difficulty: "schwer",
+    question: "Welche Vorschrift kann einschlägig sein, wenn eine Steuerverkürzung nicht vorsätzlich, aber leichtfertig verursacht wird?",
+    options: ["§ 378 AO", "§ 15 EStG", "§ 13b UStG", "§ 253 HGB"],
+    correctAnswer: 0,
+    explanation: "Eine leichtfertige Steuerverkürzung ist eine Ordnungswidrigkeit nach § 378 AO. Sie setzt besonders schwerwiegende Fahrlässigkeit voraus.",
+    reference: "§ 378 AO",
+    tags: ["leichtfertige Steuerverkürzung", "AO", "Ordnungswidrigkeit"],
+  },
+  {
+    id: "erbst-020",
+    category: "Erbschaftsteuer",
+    topic: "Festsetzungsverjährung",
+    type: "single-choice",
+    difficulty: "schwer",
+    question: "Welche Besonderheit kann bei einer nicht ordnungsgemäß angezeigten Schenkung für den Beginn der Festsetzungsfrist gelten?",
+    options: ["Die Frist beginnt stets am Tag der Überweisung", "Die Frist beginnt frühestens mit Kenntnis des Finanzamts oder dem Tod des Schenkers", "Es gibt niemals eine Festsetzungsverjährung", "Die Frist beginnt erst nach einer Betriebsprüfung"],
+    correctAnswer: 1,
+    explanation: "Bei Schenkungen kann der Beginn der Festsetzungsfrist besonders hinausgeschoben sein. Maßgeblich ist insbesondere § 170 Abs. 5 Nr. 2 AO.",
+    reference: "§ 170 Abs. 5 Nr. 2 AO",
+    tags: ["Festsetzungsverjährung", "Kenntnis Finanzamt", "Schenkung"],
+  },
+  {
+    id: "erbst-021",
+    category: "Erbschaftsteuer",
+    topic: "Güterstandsschaukel",
+    type: "single-choice",
+    difficulty: "schwer",
+    question: "Warum kann eine Güterstandsschaukel schenkungsteuerlich genutzt werden?",
+    options: ["Weil ein tatsächlich durchgeführter Zugewinnausgleich grundsätzlich nicht als Schenkung gilt", "Weil dadurch jede frühere Steuerhinterziehung automatisch entfällt", "Weil Ehegatten dadurch unbegrenzt steuerfrei schenken können", "Weil die Gütertrennung einen zusätzlichen Freibetrag schafft"],
+    correctAnswer: 0,
+    explanation: "Ein realer Zugewinnausgleich bei Beendigung der Zugewinngemeinschaft ist im Umfang des gesetzlichen Anspruchs grundsätzlich nicht steuerbar beziehungsweise nach § 5 Abs. 2 ErbStG begünstigt. Eine rein formale Gestaltung reicht nicht.",
+    reference: "§ 5 Abs. 2 ErbStG; §§ 1373 ff. BGB",
+    tags: ["Güterstandsschaukel", "Zugewinnausgleich", "Ehegatten"],
+  },
+  {
+    id: "erbst-022",
+    category: "Erbschaftsteuer",
+    topic: "Güterstandsschaukel",
+    type: "true-false",
+    difficulty: "schwer",
+    question: "Es ist höchstrichterlich abschließend geklärt, dass eine spätere Anrechnung früherer Schenkungen auf den Zugewinnausgleich jeden steuerstrafrechtlichen Vorwurf beseitigt.",
+    options: ["Richtig", "Falsch"],
+    correctAnswer: 1,
+    explanation: "Diese strafrechtliche Folge ist nicht abschließend höchstrichterlich geklärt. Deshalb bleiben sorgfältige Anzeige, Nacherklärung und Beratung besonders wichtig.",
+    reference: "§ 29 Abs. 1 Nr. 3 ErbStG; § 1380 BGB",
+    tags: ["Güterstandsschaukel", "Steuerstrafrecht", "ungeklärte Rechtsfrage"],
+  },
+  {
+    id: "erbst-023",
+    category: "Erbschaftsteuer",
+    topic: "Rückforderung und Steuererlass",
+    type: "single-choice",
+    difficulty: "schwer",
+    question: "Welche steuerliche Folge kann eintreten, wenn ein Geschenk wegen eines wirksamen Rückforderungsrechts tatsächlich zurückgegeben wird?",
+    options: ["Die Steuer kann unter den Voraussetzungen des § 29 ErbStG rückwirkend erlöschen", "Die Steuer verdoppelt sich automatisch", "Es entsteht stets Einkommensteuer", "Die Rückgabe ist steuerlich immer unbeachtlich"],
+    correctAnswer: 0,
+    explanation: "Wird das Geschenk aufgrund eines Rückforderungsrechts herausgegeben, kann die Schenkungsteuer nach Maßgabe des § 29 ErbStG rückwirkend entfallen. Die Voraussetzungen und die tatsächliche Rückabwicklung müssen nachgewiesen werden.",
+    reference: "§ 29 ErbStG",
+    tags: ["Rückforderungsrecht", "Steuererlass", "Rückabwicklung"],
+  },
+  {
+    id: "erbst-024",
+    category: "Erbschaftsteuer",
+    topic: "Steuerklassen",
+    type: "single-choice",
+    difficulty: "mittel",
+    question: "Zu welcher Steuerklasse gehören Ehegatten und Kinder grundsätzlich?",
+    options: ["Steuerklasse I", "Steuerklasse II", "Steuerklasse III", "Keine Steuerklasse"],
+    correctAnswer: 0,
+    explanation: "Ehegatten, Lebenspartner und Kinder gehören grundsätzlich zur Steuerklasse I und profitieren damit von den günstigsten Tarifen und hohen Freibeträgen.",
+    reference: "§ 15 Abs. 1 ErbStG",
+    tags: ["Steuerklasse I", "Ehegatten", "Kinder"],
+  },
+  {
+    id: "erbst-025",
+    category: "Erbschaftsteuer",
+    topic: "Praxis und Dokumentation",
+    type: "single-choice",
+    difficulty: "mittel",
+    question: "Welche Maßnahme reduziert bei größeren Vermögensübertragungen zwischen Ehegatten das schenkungsteuerliche Risiko am wirksamsten?",
+    options: ["Zweck, Rechtsgrund und Rückzahlungsabreden schriftlich dokumentieren und die Anzeigepflicht prüfen", "Überweisungen nur am Wochenende ausführen", "Mehrere Konten verwenden", "Auf Verwendungszwecke vollständig verzichten"],
+    correctAnswer: 0,
+    explanation: "Eine klare schriftliche Dokumentation hilft, Darlehen, Unterhalt, Kostenbeteiligungen und freigebige Zuwendungen voneinander abzugrenzen. Zusätzlich muss stets geprüft werden, ob eine Anzeige nach § 30 ErbStG erforderlich ist.",
+    reference: "§ 7 ErbStG; § 30 ErbStG",
+    tags: ["Dokumentation", "Compliance", "Ehegattenschenkung"],
+  },
 ];

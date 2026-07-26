@@ -7,6 +7,7 @@ import "@/lib/knowledgeBaseExtensions/abschreibung-afa-wertminderungen-hgb-estg-
 import "@/lib/knowledgeBaseExtensions/abschreibung-sonderabschreibungen-7a-7b-7g-estg";
 import "@/lib/knowledgeBaseExtensions/abschreibung-umlaufvermoegen-niederstwertprinzip";
 import "@/lib/knowledgeBaseExtensions/aufbewahrungspflichten-ao";
+import "@/lib/knowledgeBaseExtensions/ao-betriebspruefung-mitwirkungspflichten-rechte-pruefer";
 import "@/lib/knowledgeBaseExtensions/ao-schaetzung-besteuerungsgrundlagen-verfahrensrecht";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-aufmerksamkeiten";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-auslandsaufenthalt";
@@ -88,14 +89,12 @@ function scoreEntry(e: KBEntry, tokens: string[], rawLower: string): number {
   const hay = `${e.title} ${e.short ?? ""} ${e.body ?? ""} ${e.category ?? ""} ${e.id}`.toLowerCase();
   const titleHay = `${e.title} ${e.id}`.toLowerCase();
 
-  // Keyword-Regex Treffer haben höchstes Gewicht.
   if (e.keywords) {
     try {
       if (kbKeywordsToRegExp(e.keywords).test(rawLower)) score += 8;
     } catch { /* noop */ }
   }
 
-  // Tokenweise Trefferzahl (mit Title-Bonus).
   let hits = 0;
   for (const t of tokens) {
     if (hay.includes(t)) {
@@ -104,10 +103,8 @@ function scoreEntry(e: KBEntry, tokens: string[], rawLower: string): number {
       else score += 1;
     }
   }
-  // Deckungsgrad-Bonus
   score += Math.min(3, Math.round((hits / tokens.length) * 3));
 
-  // Paragraphen-Erkennung: "§ 15", "13b", "1 abs. 1"
   const paras = rawLower.match(/§\s*\d+[a-z]?/g) ?? [];
   for (const p of paras) {
     if (hay.includes(p.replace(/\s+/g, " "))) score += 4;
@@ -115,7 +112,6 @@ function scoreEntry(e: KBEntry, tokens: string[], rawLower: string): number {
   return score;
 }
 
-/** Findet 6–10 relevante KB-Einträge für die Anfrage. */
 export function searchKb(query: string, min = 6, max = 10): KbHit[] {
   const rawLower = query.toLowerCase();
   const tokens = Array.from(new Set(tokenize(query)));
@@ -133,7 +129,6 @@ export function searchKb(query: string, min = 6, max = 10): KbHit[] {
   const cutoff = Math.max(min, Math.min(max, scored.length));
   const top = scored.slice(0, cutoff);
 
-  // Wenn zu wenige echte Treffer, mit besten (auch schwachen) auffüllen bis min – aber niemals unter Score 0.
   return top.map(({ entry, score }) => ({
     id: entry.id,
     title: entry.title,
@@ -143,7 +138,6 @@ export function searchKb(query: string, min = 6, max = 10): KbHit[] {
   }));
 }
 
-/** Formatiert die Treffer als kompakten, modellfreundlichen Kontextblock. */
 export function formatKbContext(hits: KbHit[]): string {
   if (hits.length === 0) return "";
   const parts = hits.map((h, i) => {

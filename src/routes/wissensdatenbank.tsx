@@ -6,6 +6,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { BookOpen, Search, X, Copy, Check, ClipboardList, FileText, Upload } from "lucide-react";
+import "@/lib/knowledgeBaseExtensions";
 import { KNOWLEDGE_BASE } from "@/lib/knowledgeBase";
 import { HandoutsManager } from "@/components/HandoutsManager";
 import KnowledgeBaseReader from "@/components/KnowledgeBaseReader";

@@ -2,6 +2,7 @@
 // per KNOWLEDGE_BASE.push(...) als Seiteneffekt. Diese Datei muss überall
 // importiert werden, wo die Wissensdatenbank sichtbar genutzt wird.
 import "@/lib/knowledgeBaseExtensions/abschreibung-afa-wertminderungen-hgb-estg-ifrs";
+import "@/lib/knowledgeBaseExtensions/abschreibung-ausserplanmaessige-wertminderung-afaa";
 import "@/lib/knowledgeBaseExtensions/abschreibung-sonderabschreibungen-7a-7b-7g-estg";
 import "@/lib/knowledgeBaseExtensions/abschreibung-umlaufvermoegen-niederstwertprinzip";
 import "@/lib/knowledgeBaseExtensions/ao-betriebspruefung-mitwirkungspflichten-rechte-pruefer";

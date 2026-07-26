@@ -22,6 +22,7 @@ import "@/lib/knowledgeBaseExtensions/einkommensteuer-kinderbetreuungskosten-get
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-vorsorgepauschale-ab-2026";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-grundstueckseigentuemer-update-2025-2026-paragraf-21";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-haeusliches-arbeitszimmer-betriebsvermoegen-taetigkeitsaufgabe-grundstuecksveraeusserung";
+import "@/lib/knowledgeBaseExtensions/personengesellschaften-bilanzierung-beteiligungen-idw-rs-fab-18";
 import "@/lib/knowledgeBaseExtensions/personengesellschaften-sonderbetriebsvermoegen-beispiele";
 import "@/lib/knowledgeBaseExtensions/umsatzsteuer-vorsteuerabzug-verspaetete-rechnung-eug-2026";
 import "@/lib/knowledgeBaseExtensions/umsatzsteuer-anzahlungen-vorauszahlungen";

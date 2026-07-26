@@ -1,176 +1,268 @@
 import type { LearningQuestion } from "./types";
 
-export const npoQuestions: LearningQuestion[] = [   
-{
-  id: "npo-001",
-
-  category: "NPO und Gemeinnützigkeit",
-
-  topic: "Grundlagen",
-
-  type: "single-choice",
-
-  difficulty: "leicht",
-
-  question:
-    "Welches Gesetz enthält die steuerlichen Voraussetzungen der Gemeinnützigkeit?",
-
-  options: [
-    "Die Abgabenordnung (AO)",
-    "Das Einkommensteuergesetz (EStG)",
-    "Das Umsatzsteuergesetz (UStG)",
-    "Das Gewerbesteuergesetz (GewStG)",
-  ],
-
-  correctAnswer: 0,
-
-  explanation:
-    "Die Voraussetzungen für die steuerliche Gemeinnützigkeit sind in den §§ 51 bis 68 AO geregelt.",
-
-  reference: "§§ 51–68 AO",
-
-  hint:
-    "Die Gemeinnützigkeit ist Teil der Abgabenordnung.",
-
-  tags: [
-    "Gemeinnützigkeit",
-    "AO",
-    "Grundlagen",
-  ],
-},
-{
-  id: "npo-002",
-
-  category: "NPO und Gemeinnützigkeit",
-
-  topic: "Grundlagen",
-
-  type: "true-false",
-
-  difficulty: "leicht",
-
-  question:
-    "Die Voraussetzungen der Gemeinnützigkeit sind in der Abgabenordnung geregelt.",
-
-  options: [
-    "Richtig",
-    "Falsch",
-  ],
-
-  correctAnswer: 0,
-
-  explanation:
-    "Die steuerlichen Voraussetzungen für gemeinnützige Körperschaften ergeben sich aus den §§ 51 bis 68 AO.",
-
-  reference: "§§ 51–68 AO",
-
-  tags: [
-    "AO",
-    "Gemeinnützigkeit",
-  ],
-},
-{
-  id: "npo-003",
-
-  category: "NPO und Gemeinnützigkeit",
-
-  topic: "Grundlagen",
-
-  type: "single-choice",
-
-  difficulty: "leicht",
-
-  question:
-    "Welches Ziel verfolgt eine gemeinnützige Körperschaft?",
-
-  options: [
-    "Die Förderung der Allgemeinheit auf materiellem, geistigem oder sittlichem Gebiet",
-    "Die Gewinnerzielung für ihre Mitglieder",
-    "Die Ausschüttung von Gewinnen",
-    "Den Handel mit Wertpapieren",
-  ],
-
-  correctAnswer: 0,
-
-  explanation:
-    "Gemeinnützig ist eine Körperschaft, wenn ihre Tätigkeit darauf gerichtet ist, die Allgemeinheit selbstlos zu fördern.",
-
-  reference: "§ 52 AO",
-
-  hint:
-    "Im Mittelpunkt steht die Allgemeinheit.",
-
-  tags: [
-    "Gemeinnützigkeit",
-    "Allgemeinheit",
-  ],
-},
-{
-  id: "npo-004",
-
-  category: "NPO und Gemeinnützigkeit",
-
-  topic: "Grundlagen",
-
-  type: "single-choice",
-
-  difficulty: "mittel",
-
-  question:
-    "Welche Aussage beschreibt den Grundsatz der Selbstlosigkeit am besten?",
-
-  options: [
-    "Die Körperschaft verfolgt nicht in erster Linie eigenwirtschaftliche Zwecke.",
-    "Die Körperschaft erzielt niemals Einnahmen.",
-    "Die Körperschaft darf keine Arbeitnehmer beschäftigen.",
-    "Die Körperschaft darf keine Rücklagen bilden.",
-  ],
-
-  correctAnswer: 0,
-
-  explanation:
-    "Eine Körperschaft handelt selbstlos, wenn sie nicht in erster Linie eigenwirtschaftliche Zwecke verfolgt.",
-
-  reference: "§ 55 AO",
-
-  hint:
-    "Einnahmen sind erlaubt – entscheidend ist der Zweck.",
-
-  tags: [
-    "Selbstlosigkeit",
-    "§55 AO",
-  ],
-},
-{
-  id: "npo-005",
-
-  category: "NPO und Gemeinnützigkeit",
-
-  topic: "Grundlagen",
-
-  type: "true-false",
-
-  difficulty: "mittel",
-
-  question:
-    "Eine gemeinnützige Körperschaft darf grundsätzlich Gewinne an ihre Mitglieder ausschütten.",
-
-  options: [
-    "Richtig",
-    "Falsch",
-  ],
-
-  correctAnswer: 1,
-
-  explanation:
-    "Mittel einer gemeinnützigen Körperschaft dürfen grundsätzlich nicht an Mitglieder ausgeschüttet werden.",
-
-  reference: "§ 55 AO",
-
-  tags: [
-    "Selbstlosigkeit",
-    "Mitglieder",
-    "Gemeinnützigkeit",
-  ],
-},
+export const npoQuestions: LearningQuestion[] = [
+  {
+    id: "npo-001",
+    category: "NPO und Gemeinnützigkeit",
+    topic: "Grundlagen",
+    type: "single-choice",
+    difficulty: "leicht",
+    question: "Welches Gesetz enthält die steuerlichen Voraussetzungen der Gemeinnützigkeit?",
+    options: ["Die Abgabenordnung (AO)", "Das Einkommensteuergesetz (EStG)", "Das Umsatzsteuergesetz (UStG)", "Das Gewerbesteuergesetz (GewStG)"],
+    correctAnswer: 0,
+    explanation: "Die Voraussetzungen für die steuerliche Gemeinnützigkeit sind in den §§ 51 bis 68 AO geregelt.",
+    reference: "§§ 51–68 AO",
+    hint: "Die Gemeinnützigkeit ist Teil der Abgabenordnung.",
+    tags: ["Gemeinnützigkeit", "AO", "Grundlagen"],
+  },
+  {
+    id: "npo-002",
+    category: "NPO und Gemeinnützigkeit",
+    topic: "Grundlagen",
+    type: "true-false",
+    difficulty: "leicht",
+    question: "Die Voraussetzungen der Gemeinnützigkeit sind in der Abgabenordnung geregelt.",
+    options: ["Richtig", "Falsch"],
+    correctAnswer: 0,
+    explanation: "Die steuerlichen Voraussetzungen für gemeinnützige Körperschaften ergeben sich aus den §§ 51 bis 68 AO.",
+    reference: "§§ 51–68 AO",
+    tags: ["AO", "Gemeinnützigkeit"],
+  },
+  {
+    id: "npo-003",
+    category: "NPO und Gemeinnützigkeit",
+    topic: "Grundlagen",
+    type: "single-choice",
+    difficulty: "leicht",
+    question: "Welches Ziel verfolgt eine gemeinnützige Körperschaft?",
+    options: ["Die Förderung der Allgemeinheit auf materiellem, geistigem oder sittlichem Gebiet", "Die Gewinnerzielung für ihre Mitglieder", "Die Ausschüttung von Gewinnen", "Den Handel mit Wertpapieren"],
+    correctAnswer: 0,
+    explanation: "Gemeinnützig ist eine Körperschaft, wenn ihre Tätigkeit darauf gerichtet ist, die Allgemeinheit selbstlos zu fördern.",
+    reference: "§ 52 AO",
+    hint: "Im Mittelpunkt steht die Allgemeinheit.",
+    tags: ["Gemeinnützigkeit", "Allgemeinheit"],
+  },
+  {
+    id: "npo-004",
+    category: "NPO und Gemeinnützigkeit",
+    topic: "Grundlagen",
+    type: "single-choice",
+    difficulty: "mittel",
+    question: "Welche Aussage beschreibt den Grundsatz der Selbstlosigkeit am besten?",
+    options: ["Die Körperschaft verfolgt nicht in erster Linie eigenwirtschaftliche Zwecke.", "Die Körperschaft erzielt niemals Einnahmen.", "Die Körperschaft darf keine Arbeitnehmer beschäftigen.", "Die Körperschaft darf keine Rücklagen bilden."],
+    correctAnswer: 0,
+    explanation: "Eine Körperschaft handelt selbstlos, wenn sie nicht in erster Linie eigenwirtschaftliche Zwecke verfolgt.",
+    reference: "§ 55 AO",
+    hint: "Einnahmen sind erlaubt – entscheidend ist der Zweck.",
+    tags: ["Selbstlosigkeit", "§55 AO"],
+  },
+  {
+    id: "npo-005",
+    category: "NPO und Gemeinnützigkeit",
+    topic: "Grundlagen",
+    type: "true-false",
+    difficulty: "mittel",
+    question: "Eine gemeinnützige Körperschaft darf grundsätzlich Gewinne an ihre Mitglieder ausschütten.",
+    options: ["Richtig", "Falsch"],
+    correctAnswer: 1,
+    explanation: "Mittel einer gemeinnützigen Körperschaft dürfen grundsätzlich nicht an Mitglieder ausgeschüttet werden.",
+    reference: "§ 55 AO",
+    tags: ["Selbstlosigkeit", "Mitglieder", "Gemeinnützigkeit"],
+  },
+  {
+    id: "npo-006",
+    category: "NPO und Gemeinnützigkeit",
+    topic: "Steuerliche Vorteile",
+    type: "single-choice",
+    difficulty: "mittel",
+    question: "Welche Bereiche sind grundsätzlich von Körperschaft- und Gewerbesteuer befreit?",
+    options: ["Ideeller Bereich, Vermögensverwaltung und Zweckbetrieb", "Nur der ideelle Bereich", "Nur der Zweckbetrieb", "Jeder wirtschaftliche Geschäftsbetrieb"],
+    correctAnswer: 0,
+    explanation: "Die Befreiung erfasst grundsätzlich den ideellen Bereich, die Vermögensverwaltung und Zweckbetriebe. Der steuerpflichtige wirtschaftliche Geschäftsbetrieb bleibt grundsätzlich steuerpflichtig.",
+    reference: "§ 5 Abs. 1 Nr. 9 KStG; § 3 Nr. 6 GewStG",
+    tags: ["Steuerbefreiung", "KStG", "GewStG"],
+  },
+  {
+    id: "npo-007",
+    category: "NPO und Gemeinnützigkeit",
+    topic: "Wirtschaftlicher Geschäftsbetrieb",
+    type: "single-choice",
+    difficulty: "mittel",
+    question: "Bis zu welcher Einnahmengrenze bleiben steuerpflichtige wirtschaftliche Geschäftsbetriebe ab 2026 nach dem Rechtsstand der Wissensdatenbank von Körperschaft- und Gewerbesteuer verschont?",
+    options: ["35.000 €", "45.000 €", "50.000 €", "100.000 €"],
+    correctAnswer: 2,
+    explanation: "Ab 2026 gilt nach dem in der Wissensdatenbank zugrunde gelegten Rechtsstand eine Einnahmengrenze von 50.000 € einschließlich Umsatzsteuer.",
+    reference: "§ 64 Abs. 3 AO",
+    tags: ["wirtschaftlicher Geschäftsbetrieb", "Freigrenze", "50.000 €"],
+  },
+  {
+    id: "npo-008",
+    category: "NPO und Gemeinnützigkeit",
+    topic: "Umsatzsteuer",
+    type: "true-false",
+    difficulty: "mittel",
+    question: "Gemeinnützige Körperschaften sind generell von der Umsatzsteuer befreit.",
+    options: ["Richtig", "Falsch"],
+    correctAnswer: 1,
+    explanation: "Eine allgemeine Umsatzsteuerbefreiung gibt es nicht. Je nach Leistung kommen eine Steuerbefreiung, der ermäßigte Steuersatz oder der Regelsteuersatz in Betracht.",
+    reference: "§ 4 UStG; § 12 Abs. 2 Nr. 8 UStG",
+    tags: ["Umsatzsteuer", "Steuerbefreiung"],
+  },
+  {
+    id: "npo-009",
+    category: "NPO und Gemeinnützigkeit",
+    topic: "Satzung",
+    type: "single-choice",
+    difficulty: "mittel",
+    question: "Was muss sich nach § 59 AO aus der Satzung ergeben?",
+    options: ["Nur der Name", "Der steuerbegünstigte Zweck und die Art seiner Verwirklichung", "Nur die Mitgliedsbeiträge", "Nur die Vorstandsbesetzung"],
+    correctAnswer: 1,
+    explanation: "Der steuerbegünstigte Zweck und die Art seiner Verwirklichung müssen aus der Satzung hervorgehen. Auch die tatsächliche Geschäftsführung muss diesen Vorgaben entsprechen.",
+    reference: "§ 59 AO",
+    tags: ["Satzung", "Zweckverwirklichung", "§59 AO"],
+  },
+  {
+    id: "npo-010",
+    category: "NPO und Gemeinnützigkeit",
+    topic: "Grundprinzipien",
+    type: "single-choice",
+    difficulty: "mittel",
+    question: "Welcher Grundsatz verlangt, dass eine Körperschaft grundsätzlich nur ihre steuerbegünstigten Satzungszwecke verfolgt?",
+    options: ["Selbstlosigkeit", "Ausschließlichkeit", "Unmittelbarkeit", "Vermögensbindung"],
+    correctAnswer: 1,
+    explanation: "Die Ausschließlichkeit verlangt, dass die Körperschaft nur ihre steuerbegünstigten Satzungszwecke verfolgt.",
+    reference: "§ 56 AO",
+    tags: ["Ausschließlichkeit", "§56 AO"],
+  },
+  {
+    id: "npo-011",
+    category: "NPO und Gemeinnützigkeit",
+    topic: "Grundprinzipien",
+    type: "single-choice",
+    difficulty: "mittel",
+    question: "Was bedeutet Unmittelbarkeit grundsätzlich?",
+    options: ["Die Körperschaft verwirklicht ihre Zwecke grundsätzlich selbst", "Jede Tätigkeit muss kostenlos sein", "Hilfspersonen sind verboten", "Die Tätigkeit ist nur im Inland erlaubt"],
+    correctAnswer: 0,
+    explanation: "Die Körperschaft verwirklicht ihre Zwecke grundsätzlich selbst. Hilfspersonen können eingesetzt werden, wenn ihre Tätigkeit gesteuert, überwacht und dokumentiert wird.",
+    reference: "§ 57 AO",
+    tags: ["Unmittelbarkeit", "Hilfsperson", "§57 AO"],
+  },
+  {
+    id: "npo-012",
+    category: "NPO und Gemeinnützigkeit",
+    topic: "Mildtätigkeit",
+    type: "single-choice",
+    difficulty: "mittel",
+    question: "Welche Besonderheit gilt bei mildtätigen Zwecken?",
+    options: ["Es muss stets die Allgemeinheit gefördert werden", "Auch individuell hilfebedürftige Personen können unterstützt werden", "Nur juristische Personen dürfen gefördert werden", "Mildtätigkeit ist nur für Kirchen möglich"],
+    correctAnswer: 1,
+    explanation: "Mildtätige Zwecke unterstützen persönlich, wirtschaftlich oder aufgrund besonderer Ereignisse hilfebedürftige Personen. Die Förderung der Allgemeinheit ist nicht erforderlich.",
+    reference: "§ 53 AO",
+    tags: ["Mildtätigkeit", "Hilfebedürftigkeit", "§53 AO"],
+  },
+  {
+    id: "npo-013",
+    category: "NPO und Gemeinnützigkeit",
+    topic: "Vermögensbindung",
+    type: "true-false",
+    difficulty: "mittel",
+    question: "Das Vermögen muss bei Auflösung oder Zweckwegfall steuerbegünstigt gebunden sein.",
+    options: ["Richtig", "Falsch"],
+    correctAnswer: 0,
+    explanation: "Die Vermögensbindung muss eindeutig in der Satzung geregelt sein. Das Vermögen darf nicht frei an Mitglieder verteilt werden.",
+    reference: "§ 55 AO; Anlage 1 zu § 60 AO",
+    tags: ["Vermögensbindung", "Auflösung", "Satzung"],
+  },
+  {
+    id: "npo-014",
+    category: "NPO und Gemeinnützigkeit",
+    topic: "Mittelverwendung",
+    type: "single-choice",
+    difficulty: "mittel",
+    question: "Bis wann müssen zeitnah zu verwendende Mittel grundsätzlich eingesetzt werden?",
+    options: ["Noch im Zuflussjahr", "Bis Ende des Folgejahres", "Spätestens in den beiden auf den Zufluss folgenden Kalender- oder Wirtschaftsjahren", "Innerhalb von fünf Jahren"],
+    correctAnswer: 2,
+    explanation: "Zeitnah zu verwendende Mittel sind grundsätzlich spätestens in den beiden auf den Zufluss folgenden Kalender- oder Wirtschaftsjahren einzusetzen.",
+    reference: "§ 55 Abs. 1 Nr. 5 AO",
+    tags: ["Mittelverwendung", "Zwei-Jahres-Frist", "§55 AO"],
+  },
+  {
+    id: "npo-015",
+    category: "NPO und Gemeinnützigkeit",
+    topic: "Mittelverwendung",
+    type: "single-choice",
+    difficulty: "mittel",
+    question: "Für welche Körperschaften entfällt nach dem Rechtsstand 2026 die Pflicht zur zeitnahen Mittelverwendung?",
+    options: ["Für alle", "Für Körperschaften mit jährlichen Einnahmen von höchstens 100.000 €", "Nur für Stiftungen", "Nur ohne Arbeitnehmer"],
+    correctAnswer: 1,
+    explanation: "Nach dem in der Wissensdatenbank zugrunde gelegten Rechtsstand gilt die Pflicht ab 2026 nicht für Körperschaften mit jährlichen Einnahmen von höchstens 100.000 €.",
+    reference: "§ 55 Abs. 1 Nr. 5 AO",
+    tags: ["100.000 €", "Mittelverwendung", "2026"],
+  },
+  {
+    id: "npo-016",
+    category: "NPO und Gemeinnützigkeit",
+    topic: "Rücklagen",
+    type: "single-choice",
+    difficulty: "mittel",
+    question: "Welche Rücklage ist grundsätzlich zulässig?",
+    options: ["Rücklage ohne Zweck und Dokumentation", "Zweckgebundene Rücklage für ein konkretes Vorhaben", "Rücklage zur Ausschüttung an Mitglieder", "Rücklage für private Vorstandsausgaben"],
+    correctAnswer: 1,
+    explanation: "§ 62 AO erlaubt unter anderem zweckgebundene Rücklagen, Wiederbeschaffungsrücklagen und freie Rücklagen. Die Voraussetzungen müssen dokumentiert werden.",
+    reference: "§ 62 AO",
+    tags: ["Rücklagen", "zweckgebundene Rücklage", "§62 AO"],
+  },
+  {
+    id: "npo-017",
+    category: "NPO und Gemeinnützigkeit",
+    topic: "Tätigkeitsbereiche",
+    type: "single-choice",
+    difficulty: "leicht",
+    question: "Welcher Bereich umfasst typischerweise Spenden, echte Mitgliedsbeiträge und Zuschüsse ohne Leistungsaustausch?",
+    options: ["Ideeller Bereich", "Vermögensverwaltung", "Zweckbetrieb", "Wirtschaftlicher Geschäftsbetrieb"],
+    correctAnswer: 0,
+    explanation: "Diese Einnahmen gehören typischerweise zum ideellen Bereich.",
+    reference: "§§ 51 ff. AO",
+    tags: ["ideeller Bereich", "Spenden", "Mitgliedsbeiträge"],
+  },
+  {
+    id: "npo-018",
+    category: "NPO und Gemeinnützigkeit",
+    topic: "Tätigkeitsbereiche",
+    type: "single-choice",
+    difficulty: "leicht",
+    question: "Welcher Bereich umfasst typischerweise die langfristige Vermietung eigenen Vermögens und verzinsliche Kapitalanlagen?",
+    options: ["Ideeller Bereich", "Vermögensverwaltung", "Zweckbetrieb", "Wirtschaftlicher Geschäftsbetrieb"],
+    correctAnswer: 1,
+    explanation: "Die langfristige Vermietung oder Verpachtung eigenen Vermögens und verzinsliche Kapitalanlagen gehören typischerweise zur Vermögensverwaltung.",
+    reference: "§ 14 AO",
+    tags: ["Vermögensverwaltung", "Vermietung", "Kapitalanlage"],
+  },
+  {
+    id: "npo-019",
+    category: "NPO und Gemeinnützigkeit",
+    topic: "Zweckbetrieb",
+    type: "single-choice",
+    difficulty: "schwer",
+    question: "Welche Voraussetzung gehört zu einem Zweckbetrieb nach § 65 AO?",
+    options: ["Die Tätigkeit dient unmittelbar der Verwirklichung der Satzungszwecke", "Sie muss stets Verluste erzielen", "Sie darf keine Einnahmen erzielen", "Sie muss nur Mitgliedern offenstehen"],
+    correctAnswer: 0,
+    explanation: "Ein Zweckbetrieb dient der unmittelbaren Zweckverwirklichung, muss hierfür erforderlich sein und darf nur unvermeidbar mit nicht begünstigten Unternehmen konkurrieren.",
+    reference: "§ 65 AO",
+    tags: ["Zweckbetrieb", "§65 AO", "Wettbewerb"],
+  },
+  {
+    id: "npo-020",
+    category: "NPO und Gemeinnützigkeit",
+    topic: "Spenden und Sponsoring",
+    type: "single-choice",
+    difficulty: "mittel",
+    question: "Ein Unternehmen zahlt einem Verein 10.000 € und erhält dafür eine aktive Logo-Werbung mit Link. Welche Einordnung liegt am nächsten?",
+    options: ["Reine Spende", "Sponsoring mit Leistungsaustausch", "Echter Mitgliedsbeitrag", "Steuerfreie Vermögenszuführung"],
+    correctAnswer: 1,
+    explanation: "Die konkrete Werbeleistung ist eine Gegenleistung. Deshalb liegt regelmäßig Sponsoring mit steuerlich zu prüfendem Leistungsaustausch vor.",
+    reference: "§ 1 Abs. 1 Nr. 1 UStG; § 10b EStG",
+    hint: "Eine Spende setzt Unentgeltlichkeit voraus.",
+    tags: ["Sponsoring", "Logo", "Leistungsaustausch", "Spende"],
+  },
 ];

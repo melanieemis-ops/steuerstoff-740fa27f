@@ -41,6 +41,11 @@ function AdminImporterBanner() {
 const CATEGORIES = [
   "Alle",
   "Umsatzsteuer",
+  "Einkommensteuer",
+  "Lohnsteuer",
+  "Sozialversicherung",
+  "Erbschaftsteuer",
+  "Grunderwerbsteuer",
   "NPO / Gemeinnützigkeit",
   "SKR03",
   "SKR42",
@@ -50,7 +55,7 @@ const CATEGORIES = [
   "Buchhaltung",
   "Kfz",
   "AO / Verfahrensrecht",
-  "Erbschaftsteuer",
+  "Personengesellschaften",
   "Umwandlungsteuer",
   "Bilanzierung",
 ] as const;
@@ -59,6 +64,11 @@ type Category = (typeof CATEGORIES)[number];
 type CategoryId =
   | "all"
   | "umsatzsteuer"
+  | "einkommensteuer"
+  | "lohnsteuer"
+  | "sozialversicherung"
+  | "grunderwerbsteuer"
+  | "personengesellschaften"
   | "npo"
   | "skr03"
   | "skr42"
@@ -76,6 +86,10 @@ type CategoryId =
 const CATEGORY_ID_BY_LABEL: Record<Category, CategoryId> = {
   Alle: "all",
   Umsatzsteuer: "umsatzsteuer",
+  Einkommensteuer: "einkommensteuer",
+  Lohnsteuer: "lohnsteuer",
+  Sozialversicherung: "sozialversicherung",
+  Grunderwerbsteuer: "grunderwerbsteuer",
   "NPO / Gemeinnützigkeit": "npo",
   SKR03: "skr03",
   SKR42: "skr42",
@@ -85,6 +99,7 @@ const CATEGORY_ID_BY_LABEL: Record<Category, CategoryId> = {
   Buchhaltung: "buchhaltung",
   Kfz: "kfz",
   "AO / Verfahrensrecht": "ao",
+  Personengesellschaften: "personengesellschaften",
   Erbschaftsteuer: "erbschaftsteuer",
   Umwandlungsteuer: "umwandlungsteuer",
   Bilanzierung: "bilanzierung",
@@ -93,6 +108,17 @@ const CATEGORY_ID_BY_LABEL: Record<Category, CategoryId> = {
 const CATEGORY_LABEL_BY_ID = Object.fromEntries(
   Object.entries(CATEGORY_ID_BY_LABEL).map(([label, id]) => [id, label]),
 ) as Partial<Record<CategoryId, Category>>;
+
+// Rohkategorien aus der Knowledge Base, die abweichend geschrieben sind.
+const RAW_CATEGORY_ALIAS: Record<string, CategoryId> = {
+  AO: "ao",
+  Abgabenordnung: "ao",
+  "AO / Verfahrensrecht": "ao",
+  Verfahrensrecht: "ao",
+  Eigenverbrauch: "umsatzsteuer",
+  Schenkungsteuer: "erbschaftsteuer",
+  Bilanzsteuerrecht: "bilanzierung",
+};
 
 const CATEGORY_ID_OVERRIDE: Record<string, CategoryId> = {
   "kb-erbschaftsteuer-grundlagen": "erbschaftsteuer",
@@ -105,7 +131,12 @@ const CATEGORY_ID_OVERRIDE: Record<string, CategoryId> = {
 };
 
 function getCategoryId(a: Article): CategoryId {
-  return a.categoryId ?? CATEGORY_ID_OVERRIDE[a.id] ?? CATEGORY_ID_BY_LABEL[a.category];
+  return (
+    a.categoryId ??
+    CATEGORY_ID_OVERRIDE[a.id] ??
+    CATEGORY_ID_BY_LABEL[a.category] ??
+    RAW_CATEGORY_ALIAS[String(a.category)]
+  );
 }
 
 function getCategoryLabel(a: Article): Category {

@@ -103,7 +103,17 @@ async function openAiSpeech(request: Request, text: string, voice: string): Prom
   }).catch(() => null);
 
   if (!upstream?.ok) {
-    if (upstream?.status === 429) return jsonError(429, "RATE_LIMITED", "Die OpenAI-Stimme ist gerade ausgelastet.");
+    if (upstream?.status === 429) {
+      const detail = await upstream.clone().text().catch(() => "");
+      if (detail.includes("insufficient_quota")) {
+        return jsonError(
+          402,
+          "OPENAI_ERROR",
+          "Das OpenAI-Guthaben für die Vorlesefunktion ist aufgebraucht. Bitte Abrechnung im OpenAI-Konto prüfen.",
+        );
+      }
+      return jsonError(429, "RATE_LIMITED", "Die OpenAI-Stimme ist gerade ausgelastet.");
+    }
     return jsonError(502, "OPENAI_ERROR", "Die OpenAI-Stimme konnte gerade nicht erstellt werden.");
   }
   return new Response(await upstream.arrayBuffer(), {

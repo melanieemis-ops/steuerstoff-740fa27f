@@ -9,6 +9,7 @@ import "@/lib/knowledgeBaseExtensions/ao-betriebspruefung-mitwirkungspflichten-r
 import "@/lib/knowledgeBaseExtensions/ao-schaetzung-besteuerungsgrundlagen-verfahrensrecht";
 import "@/lib/knowledgeBaseExtensions/ao-schaetzungsbefugnis-betriebspruefung-kasse-methoden";
 import "@/lib/knowledgeBaseExtensions/aufbewahrungspflichten-ao";
+import "@/lib/knowledgeBaseExtensions/bilanzierung-grundlagen-steuerlicher-bilanzenzusammenhang";
 import "@/lib/knowledgeBaseExtensions/eigenverbrauch-unentgeltliche-wertabgaben-lieferungen";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-entfernungspauschale-2026";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-gewerblicher-grundstueckshandel";

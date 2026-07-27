@@ -7,7 +7,7 @@ export const grundstueckseigentuemerUpdate20252026Paragraf21: KBEntry = {
     "Aktuelle Rechtsprechung zu Vermietung und Verpachtung: § 7b EStG, Ferienwohnungen, BHKW, Zinsswaps, Vorfälligkeitsentschädigungen und unentgeltliche Teilübertragungen.",
   category: "Einkommensteuer",
   type: "praxis",
-  taxType: "Einkommensteuer",
+  taxType: "einkommensteuer",
   subCase: "vermietung-verpachtung-rechtsprechung-2025-2026",
   source:
     "Praxiszusammenfassung aktueller BFH- und FG-Rechtsprechung zu § 21 EStG für 2025/2026.",

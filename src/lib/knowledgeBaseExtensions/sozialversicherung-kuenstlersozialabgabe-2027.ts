@@ -6,8 +6,8 @@ export const sozialversicherungKuenstlersozialabgabe2027: KBEntry = {
   short:
     "Aktueller Überblick zur geplanten Erhöhung der Künstlersozialabgabe von 4,9 % auf 5,0 % im Jahr 2027, zur Finanzierung der Künstlersozialversicherung und zur Bemessungsgrundlage.",
   category: "Sozialversicherung",
-  type: "aktuell",
-  taxType: "sozialversicherung",
+  type: "praxis",
+  taxType: "sonstige",
   subCase: "kuenstlersozialabgabe-2027",
   source:
     "Eigenständig überarbeitete Zusammenfassung der BMAS-Pressemitteilung vom 3. Juli 2026 zur Künstlersozialabgabe-Verordnung 2027; Rechtsstand Juli 2026.",

@@ -7,7 +7,7 @@ export const abschreibungSonderabschreibungen: KBEntry = {
     "Steuerliche Sonderabschreibungen neben der normalen AfA: gemeinsame Regeln nach § 7a EStG, Förderung für KMU nach § 7g EStG und Mietwohnungsneubau nach § 7b EStG.",
   category: "Abschreibung",
   type: "praxis",
-  taxType: "Abschreibung",
+  taxType: "bilanzsteuerrecht",
   subCase: "sonderabschreibungen",
   source:
     "Praxisübersicht zu §§ 7a, 7b und 7g EStG sowie § 5 Abs. 1 EStG und § 163 AO.",

@@ -7,7 +7,7 @@ export const abschreibungAfaWertminderungen: KBEntry = {
     "Praxisüberblick zur planmäßigen und außerplanmäßigen Abschreibung nach HGB, zur AfA nach EStG sowie zu Wertminderungen nach IFRS – mit Methoden, Nutzungsdauer, GWG, Zuschreibung und Rechenbeispielen.",
   category: "Abschreibung",
   type: "praxis",
-  taxType: "Abschreibung",
+  taxType: "bilanzsteuerrecht",
   subCase: "abschreibungen-afa-wertminderungen",
   source:
     "Praxisübersicht zu § 253 HGB, §§ 6 und 7 EStG sowie IAS 36 und IFRS 3.",

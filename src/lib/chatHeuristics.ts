@@ -96,13 +96,22 @@ const BROAD_KB_STOPWORDS = new Set([
   "welcher", "welches", "werden", "wie", "wird", "zur", "zum",
 ]);
 
-function normalizeKbSearch(value: string): string {
-  return value
+function kbSearchText(value: unknown): string {
+  if (value == null) return "";
+  if (typeof value === "string") return value;
+  if (value instanceof RegExp) return value.source;
+  if (Array.isArray(value)) return value.map((item) => kbSearchText(item)).join(" ");
+  return String(value);
+}
+
+function normalizeKbSearch(value: unknown): string {
+  return kbSearchText(value)
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/ß/g, "ss")
     .toLowerCase();
 }
+
 
 function broadKbTokens(query: string): string[] {
   const normalized = normalizeKbSearch(query);

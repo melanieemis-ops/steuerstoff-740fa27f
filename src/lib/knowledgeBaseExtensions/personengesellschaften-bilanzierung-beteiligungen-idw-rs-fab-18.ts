@@ -7,7 +7,7 @@ export const personengesellschaftenBilanzierungBeteiligungen: KBEntry = {
     "Kompakter Praxisüberblick zu Ansatz, Bewertung, Gewinnvereinnahmung, Vermögensauskehrungen und latenten Steuern nach HGB sowie IDW RS FAB 18.",
   category: "Personengesellschaften",
   type: "praxis",
-  taxType: "personengesellschaften",
+  taxType: "einkommensteuer",
   subCase: "bilanzierung-beteiligungen",
   source:
     "Eigenständig zusammengefasste Darstellung nach BBK 2026, S. 623–635, NWB KAAAK-19623, HGB, MoPeG, KöMoG, § 1a KStG und IDW RS FAB 18; Rechtsstand 2026.",

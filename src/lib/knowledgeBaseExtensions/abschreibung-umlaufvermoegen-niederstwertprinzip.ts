@@ -7,7 +7,7 @@ export const abschreibungUmlaufvermoegenNiederstwertprinzip: KBEntry = {
     "Bewertung des Umlaufvermögens nach § 253 Abs. 4 HGB, Börsen- und Marktpreis, beizulegender Wert sowie retrograde und verlustfreie Bewertung.",
   category: "Abschreibung",
   type: "praxis",
-  taxType: "Abschreibung",
+  taxType: "bilanzsteuerrecht",
   subCase: "umlaufvermoegen-niederstwertprinzip",
   source:
     "Praxisübersicht zu § 253 Abs. 4 HGB, § 252 Abs. 1 Nr. 4 HGB, § 5 Abs. 1 EStG und § 6 Abs. 1 Nr. 2 EStG.",

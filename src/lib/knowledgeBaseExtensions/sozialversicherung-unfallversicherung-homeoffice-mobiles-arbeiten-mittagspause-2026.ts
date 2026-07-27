@@ -7,7 +7,7 @@ export const sozialversicherungUnfallversicherungHomeoffice2026: KBEntry = {
     "Wann Wege zum Essen in der Mittagspause bei Homeoffice oder mobilem Arbeiten gesetzlich unfallversichert sind – mit den aktuellen Entscheidungen des Hessischen LSG aus 2026.",
   category: "Sozialversicherung",
   type: "rechtsprechung",
-  taxType: "sozialversicherung",
+  taxType: "sonstige",
   subCase: "unfallversicherung-homeoffice-mittagspause",
   source:
     "Eigenständig überarbeitete Zusammenfassung der Urteile des Hessischen LSG vom 28.04.2026 – L 3 U 189/24 und vom 19.05.2026 – L 3 U 176/25; Revisionen beim BSG anhängig.",

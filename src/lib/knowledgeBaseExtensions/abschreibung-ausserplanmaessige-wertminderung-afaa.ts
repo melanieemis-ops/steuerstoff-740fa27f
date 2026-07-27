@@ -7,7 +7,7 @@ export const abschreibungAusserplanmaessigeWertminderungAfaa: KBEntry = {
     "Kompakter Praxisüberblick zu niedrigerem beizulegendem Wert, Teilwertabschreibung, dauernder Wertminderung und Abgrenzung zur AfaA.",
   category: "Abschreibung",
   type: "praxis",
-  taxType: "abschreibung",
+  taxType: "bilanzsteuerrecht",
   subCase: "ausserplanmaessige-wertminderung-afaa",
   source:
     "Eigenständig zusammengefasste Darstellung auf Grundlage von BBK 2026 und NWB TAAAK-19312; Rechtsstand 2026.",

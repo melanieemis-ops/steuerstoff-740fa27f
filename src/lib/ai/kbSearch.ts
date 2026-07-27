@@ -39,6 +39,7 @@ import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-familienheim-eigennutzung-
 import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-steuerstrafrechtliche-risiken-ehegatten";
 import "@/lib/knowledgeBaseExtensions/gewerbesteuer-anrechnung-steuerermaessigung-35-estg";
 import "@/lib/knowledgeBaseExtensions/gewerbesteuer-berechnung-rueckstellung";
+import "@/lib/knowledgeBaseExtensions/gewerbesteuer-einheitlicher-gewerbebetrieb-hinzuerwerb-bfh-x-r-8-23";
 import "@/lib/knowledgeBaseExtensions/grunderwerbsteuer-aktuelle-entwicklung-2026-rechtsprechung";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-gewerblicher-grundstueckshandel";
 import "@/lib/knowledgeBaseExtensions/jahresabschluss-hgb-ueberblick";

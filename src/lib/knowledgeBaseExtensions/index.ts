@@ -50,6 +50,7 @@ import "@/lib/knowledgeBaseExtensions/personengesellschaften-sonderbetriebsvermo
 import "@/lib/knowledgeBaseExtensions/sozialversicherung-betriebspruefung";
 import "@/lib/knowledgeBaseExtensions/sozialversicherung-kuenstlersozialabgabe-2027";
 import "@/lib/knowledgeBaseExtensions/sozialversicherung-minijob-widerruf-rentenversicherungsbefreiung-ab-juli-2026";
+import "@/lib/knowledgeBaseExtensions/sozialversicherung-pruefpflichten-steuerberater-geschaeftsfuehrer-status";
 import "@/lib/knowledgeBaseExtensions/sozialversicherung-unfallversicherung-homeoffice-mobiles-arbeiten-mittagspause-2026";
 import "@/lib/knowledgeBaseExtensions/sozialversicherungspflicht-lehrkraefte-uebergangsregelung-2027";
 import "@/lib/knowledgeBaseExtensions/umsatzsteuer-anzahlungen-vorauszahlungen";

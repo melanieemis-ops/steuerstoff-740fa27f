@@ -29,6 +29,7 @@ import "@/lib/knowledgeBaseExtensions/gewerbesteuer-anrechnung-steuerermaessigun
 import "@/lib/knowledgeBaseExtensions/gewerbesteuer-berechnung-rueckstellung";
 import "@/lib/knowledgeBaseExtensions/gewerbesteuer-einheitlicher-gewerbebetrieb-hinzuerwerb-bfh-x-r-8-23";
 import "@/lib/knowledgeBaseExtensions/grunderwerbsteuer-aktuelle-entwicklung-2026-rechtsprechung";
+import "@/lib/knowledgeBaseExtensions/grunderwerbsteuer-nahe-angehoerige-sperrfrist-personengesellschaft";
 import "@/lib/knowledgeBaseExtensions/jahresabschluss-geleistete-erhaltene-anzahlungen";
 import "@/lib/knowledgeBaseExtensions/jahresabschluss-hgb-ueberblick";
 import "@/lib/knowledgeBaseExtensions/jahresabschluss-immaterielle-vermoegensgegenstaende-auftragsforschung";

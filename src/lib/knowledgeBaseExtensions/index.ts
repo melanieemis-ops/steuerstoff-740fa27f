@@ -1,6 +1,7 @@
 // Sammel-Import aller KB-Erweiterungen. Jede Datei registriert ihren Eintrag
 // per KNOWLEDGE_BASE.push(...) als Seiteneffekt. Diese Datei muss überall
 // importiert werden, wo die Wissensdatenbank sichtbar genutzt wird.
+import { KNOWLEDGE_BASE } from "@/lib/knowledgeBase";
 import "@/lib/knowledgeBaseExtensions/abschreibung-afa-wertminderungen-hgb-estg-ifrs";
 import "@/lib/knowledgeBaseExtensions/abschreibung-ausserplanmaessige-wertminderung-afaa";
 import "@/lib/knowledgeBaseExtensions/abschreibung-sonderabschreibungen-7a-7b-7g-estg";
@@ -47,3 +48,23 @@ import "@/lib/knowledgeBaseExtensions/sozialversicherung-unfallversicherung-home
 import "@/lib/knowledgeBaseExtensions/sozialversicherungspflicht-lehrkraefte-uebergangsregelung-2027";
 import "@/lib/knowledgeBaseExtensions/umsatzsteuer-anzahlungen-vorauszahlungen";
 import "@/lib/knowledgeBaseExtensions/umsatzsteuer-vorsteuerabzug-verspaetete-rechnung-eug-2026";
+
+// Die lokale breite Chat-Suche normalisiert Keywords als Text. KB-Einträge dürfen
+// jedoch auch RegExp oder Arrays enthalten. Durch die einmalige Umwandlung nach
+// der Registrierung bleiben alle Suchbegriffe erhalten, ohne dass RegExp.normalize
+// bzw. Array.normalize den kompletten Offline-Fallback zum Absturz bringen.
+for (const entry of KNOWLEDGE_BASE) {
+  const keywords = entry.keywords;
+
+  if (keywords instanceof RegExp) {
+    entry.keywords = keywords.source;
+    continue;
+  }
+
+  if (Array.isArray(keywords)) {
+    entry.keywords = keywords
+      .map((keyword) => (keyword instanceof RegExp ? keyword.source : String(keyword)))
+      .filter(Boolean)
+      .join("|");
+  }
+}

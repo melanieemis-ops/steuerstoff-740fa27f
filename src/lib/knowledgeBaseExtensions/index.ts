@@ -27,6 +27,7 @@ import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-steuerstrafrechtliche-risi
 import "@/lib/knowledgeBaseExtensions/ertragsteuer-anschaffungsnaher-aufwand-6-abs-1-nr-1a-estg";
 import "@/lib/knowledgeBaseExtensions/gewerbesteuer-anrechnung-steuerermaessigung-35-estg";
 import "@/lib/knowledgeBaseExtensions/gewerbesteuer-berechnung-rueckstellung";
+import "@/lib/knowledgeBaseExtensions/gewerbesteuer-einheitlicher-gewerbebetrieb-hinzuerwerb-bfh-x-r-8-23";
 import "@/lib/knowledgeBaseExtensions/grunderwerbsteuer-aktuelle-entwicklung-2026-rechtsprechung";
 import "@/lib/knowledgeBaseExtensions/jahresabschluss-geleistete-erhaltene-anzahlungen";
 import "@/lib/knowledgeBaseExtensions/jahresabschluss-hgb-ueberblick";

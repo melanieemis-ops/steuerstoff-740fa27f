@@ -20,6 +20,7 @@ import "@/lib/knowledgeBaseExtensions/sozialversicherung-minijob-widerruf-renten
 import "@/lib/knowledgeBaseExtensions/sozialversicherung-unfallversicherung-homeoffice-mobiles-arbeiten-mittagspause-2026";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-entfernungspauschale-2026";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-kinderbetreuungskosten-getrennte-eltern-haushaltszugehoerigkeit";
+import "@/lib/knowledgeBaseExtensions/einkommensteuer-teilentgeltliche-grundstuecksuebertragung-23-estg";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-vorsorgepauschale-ab-2026";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-grundstueckseigentuemer-update-2025-2026-paragraf-21";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-haeusliches-arbeitszimmer-betriebsvermoegen-taetigkeitsaufgabe-grundstuecksveraeusserung";

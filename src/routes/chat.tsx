@@ -1439,6 +1439,22 @@ function AssistantCard({
         </p>
       )}
 
+      {import.meta.env.DEV && a.trace && a.trace.length > 0 && (
+        <Accordion title={`Debug-Trace (${a.trace.length} Schritte)`}>
+          <ul className="space-y-2 text-[11px] leading-snug text-muted-foreground">
+            {a.trace.map((t, i) => (
+              <li key={i}>
+                <span className="font-semibold text-foreground">{t.step}</span>
+                {t.detail ? (
+                  <span className="mt-0.5 block whitespace-pre-wrap break-words">{t.detail}</span>
+                ) : null}
+              </li>
+            ))}
+          </ul>
+        </Accordion>
+      )}
+
+
       <p className="border-t border-border/60 pt-2 text-[10px] leading-snug text-muted-foreground">
         {REVIEW_HINT}
       </p>

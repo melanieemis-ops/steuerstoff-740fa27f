@@ -7,7 +7,7 @@ export const npoGemeinnuetzigkeitBfhDemokratieVerfassungsschutzZweckbetrieb: KBE
     "Kompakter Überblick zur Förderung des demokratischen Staatswesens, zu verfassungsfeindlichen Bestrebungen, Krankenhaus-Zweckbetrieben, Dauerverlusten und Konkurrentenklagen.",
   category: "NPO / Gemeinnützigkeit",
   type: "rechtsprechung",
-  taxType: "ao",
+  taxType: "gemeinnuetzigkeit",
   subCase: "gemeinnuetzigkeit-zweckbetrieb-bfh",
   source:
     "Zusammengefasste Darstellung der BFH-Verfahren VR 28/23, V R 36/21, V R 15/22, V R 28/21, V R 2/21 und V S 15/22.",

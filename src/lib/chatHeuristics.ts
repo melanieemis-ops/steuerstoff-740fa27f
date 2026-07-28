@@ -193,7 +193,7 @@ function scoreBroadKbMatches(query: string, limit = 4): KbScoreDetail[] {
   return scored.slice(0, limit);
 }
 
-function findBroadKbMatches(query: string, limit = 4): KBEntry[] {
+export function findBroadKbMatches(query: string, limit = 4): KBEntry[] {
   return scoreBroadKbMatches(query, limit).map((x) => x.entry);
 }
 

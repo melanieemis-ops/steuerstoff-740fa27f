@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { registerSteuerstoffSW } from "@/lib/pwa/registerSW";
+
+const OFFLINE_NOTICE_DELAY_MS = 150_000;
 
 /**
  * Zeigt:
- *  - Offline-Hinweis, wenn keine Verbindung besteht
+ *  - Offline-Hinweis erst nach 2,5 Minuten durchgehender Verbindungslosigkeit
  *  - Update-Hinweis, wenn eine neue SW-Version wartet
  * Registriert außerdem einmalig den Service Worker (nur in Prod, außerhalb Preview/iframe).
  */
@@ -11,12 +13,41 @@ export function PwaStatus() {
   const [online, setOnline] = useState(
     typeof navigator !== "undefined" ? navigator.onLine : true,
   );
+  const [showOfflineNotice, setShowOfflineNotice] = useState(false);
   const [updateActivate, setUpdateActivate] = useState<null | (() => void)>(null);
+  const offlineTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     void registerSteuerstoffSW();
-    const on = () => setOnline(true);
-    const off = () => setOnline(false);
+
+    const clearOfflineTimer = () => {
+      if (offlineTimerRef.current) {
+        clearTimeout(offlineTimerRef.current);
+        offlineTimerRef.current = null;
+      }
+    };
+
+    const scheduleOfflineNotice = () => {
+      clearOfflineTimer();
+      setShowOfflineNotice(false);
+      offlineTimerRef.current = setTimeout(() => {
+        if (!navigator.onLine) setShowOfflineNotice(true);
+      }, OFFLINE_NOTICE_DELAY_MS);
+    };
+
+    const on = () => {
+      setOnline(true);
+      setShowOfflineNotice(false);
+      clearOfflineTimer();
+    };
+
+    const off = () => {
+      setOnline(false);
+      scheduleOfflineNotice();
+    };
+
+    if (!navigator.onLine) scheduleOfflineNotice();
+
     window.addEventListener("online", on);
     window.addEventListener("offline", off);
     const onUpdate = (e: Event) => {
@@ -24,7 +55,9 @@ export function PwaStatus() {
       if (detail?.activate) setUpdateActivate(() => detail.activate);
     };
     window.addEventListener("steuerstoff:sw-update", onUpdate as EventListener);
+
     return () => {
+      clearOfflineTimer();
       window.removeEventListener("online", on);
       window.removeEventListener("offline", off);
       window.removeEventListener("steuerstoff:sw-update", onUpdate as EventListener);
@@ -33,7 +66,7 @@ export function PwaStatus() {
 
   return (
     <>
-      {!online && (
+      {!online && showOfflineNotice && (
         <div
           role="status"
           className="fixed left-1/2 top-3 z-[9998] -translate-x-1/2 rounded-full border border-border bg-card px-4 py-2 text-xs font-medium text-foreground shadow-card-soft"

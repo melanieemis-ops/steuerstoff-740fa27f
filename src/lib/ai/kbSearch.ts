@@ -47,6 +47,7 @@ import "@/lib/knowledgeBaseExtensions/einkommensteuer-gewerblicher-grundstuecksh
 import "@/lib/knowledgeBaseExtensions/jahresabschluss-hgb-ueberblick";
 import "@/lib/knowledgeBaseExtensions/jahresabschluss-geleistete-erhaltene-anzahlungen";
 import "@/lib/knowledgeBaseExtensions/jahresabschluss-immaterielle-vermoegensgegenstaende-auftragsforschung";
+import "@/lib/knowledgeBaseExtensions/koerperschaftsteuer-darlehen-betriebspruefung-8b-abs-3-kstg";
 import "@/lib/knowledgeBaseExtensions/koerperschaftsteuer-gmbh-grundlagen-steuerliche-besonderheiten";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-lohn-und-gehaltsabrechnung";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-aussenpruefung";

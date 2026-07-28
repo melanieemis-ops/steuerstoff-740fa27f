@@ -48,6 +48,7 @@ import "@/lib/knowledgeBaseExtensions/npo-gemeinnuetzigkeit-grundlagen-rechtspre
 import "@/lib/knowledgeBaseExtensions/personengesellschaften-bilanzierung-beteiligungen-idw-rs-fab-18";
 import "@/lib/knowledgeBaseExtensions/personengesellschaften-grundlagen-steuerliche-besonderheiten";
 import "@/lib/knowledgeBaseExtensions/personengesellschaften-sonderbetriebsvermoegen-beispiele";
+import "@/lib/knowledgeBaseExtensions/rechtsformen-vergleich-gmbh-personengesellschaft";
 import "@/lib/knowledgeBaseExtensions/sozialversicherung-betriebspruefung";
 import "@/lib/knowledgeBaseExtensions/sozialversicherung-kuenstlersozialabgabe-2027";
 import "@/lib/knowledgeBaseExtensions/sozialversicherung-minijob-widerruf-rentenversicherungsbefreiung-ab-juli-2026";

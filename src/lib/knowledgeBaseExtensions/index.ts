@@ -34,6 +34,7 @@ import "@/lib/knowledgeBaseExtensions/jahresabschluss-geleistete-erhaltene-anzah
 import "@/lib/knowledgeBaseExtensions/jahresabschluss-hgb-ueberblick";
 import "@/lib/knowledgeBaseExtensions/jahresabschluss-immaterielle-vermoegensgegenstaende-auftragsforschung";
 import "@/lib/knowledgeBaseExtensions/kfz-dienstwagen-1-prozent";
+import "@/lib/knowledgeBaseExtensions/koerperschaftsteuer-darlehen-betriebspruefung-8b-abs-3-kstg";
 import "@/lib/knowledgeBaseExtensions/koerperschaftsteuer-gmbh-grundlagen-steuerliche-besonderheiten";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-aufmerksamkeiten";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-auslandsaufenthalt";

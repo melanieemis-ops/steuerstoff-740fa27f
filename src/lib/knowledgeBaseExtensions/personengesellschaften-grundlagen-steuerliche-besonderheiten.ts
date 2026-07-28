@@ -6,7 +6,7 @@ export const personengesellschaftenGrundlagen: KBEntry = {
   short:
     "Bei Personengesellschaften sind insbesondere Mitunternehmerschaft, Gewinnzurechnung, Sondervergütungen, Sonderbetriebsvermögen, Gewerbesteuer und die gesonderte und einheitliche Feststellung zu beachten.",
   category: "Personengesellschaften",
-  type: "grundlagen",
+  type: "praxis",
   taxType: "einkommensteuer",
   subCase: "personengesellschaft-grundlagen",
   source:

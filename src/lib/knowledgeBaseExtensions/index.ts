@@ -46,6 +46,7 @@ import "@/lib/knowledgeBaseExtensions/lohnsteuer-lohn-und-gehaltsabrechnung";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-lohnsteuerbescheinigung-erstellung-korrektur-inhalt";
 import "@/lib/knowledgeBaseExtensions/npo-gemeinnuetzigkeit-bfh-demokratie-verfassungsschutz-zweckbetrieb-krankenhaus";
 import "@/lib/knowledgeBaseExtensions/npo-gemeinnuetzigkeit-grundlagen-rechtsprechung-gesetzgebung-2026";
+import "@/lib/knowledgeBaseExtensions/npo-gemeinnuetzigkeit-unternehmensverbundene-stiftung-bfh-v-r-11-24";
 import "@/lib/knowledgeBaseExtensions/personengesellschaften-bilanzierung-beteiligungen-idw-rs-fab-18";
 import "@/lib/knowledgeBaseExtensions/personengesellschaften-gmbh-und-co-kg-grundlagen";
 import "@/lib/knowledgeBaseExtensions/personengesellschaften-grundlagen-steuerliche-besonderheiten";

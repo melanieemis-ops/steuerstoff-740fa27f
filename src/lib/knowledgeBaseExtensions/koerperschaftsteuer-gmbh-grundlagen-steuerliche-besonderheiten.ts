@@ -2,9 +2,9 @@ import { KNOWLEDGE_BASE, type KBEntry } from "@/lib/knowledgeBase";
 
 export const koerperschaftsteuerGmbhGrundlagen: KBEntry = {
   id: "koerperschaftsteuer-gmbh-grundlagen-steuerliche-besonderheiten",
-  title: "GmbH: Was ist steuerrechtlich zu beachten?",
+  title: "GmbH und GmbHs: Was ist steuerrechtlich zu beachten?",
   short:
-    "Bei einer GmbH sind insbesondere Körperschaftsteuer, Gewerbesteuer, Umsatzsteuer, Geschäftsführervergütung, verdeckte Gewinnausschüttungen, Ausschüttungen, Verlustnutzung sowie Buchführungs-, Erklärungs- und Offenlegungspflichten zu beachten.",
+    "Bei einer GmbH sind insbesondere Körperschaftsteuer, Gewerbesteuer, Umsatzsteuer, Geschäftsführervergütung, verdeckte Gewinnausschüttungen, Ausschüttungen, Verlustnutzung, Jahresabschluss und steuerliche Erklärungspflichten zu beachten.",
   category: "Körperschaftsteuer",
   type: "praxis",
   taxType: "koerperschaftsteuer",
@@ -12,7 +12,7 @@ export const koerperschaftsteuerGmbhGrundlagen: KBEntry = {
   source:
     "Eigenständig zusammengefasste Darstellung auf Grundlage von KStG, GewStG, EStG, UStG, AO und HGB; Rechtsstand 2026.",
   keywords:
-    "gmbh|gmbhs|gesellschaft mit beschränkter haftung|gesellschaft mit beschraenkter haftung|was ist bei einer gmbh zu beachten|was ist steuerrechtlich bei gmbhs zu beachten|steuerrecht bei gmbh|steuerrechtlich gmbh|steuerliche besonderheiten gmbh|steuerliche grundlagen gmbh|gmbh steuerrechtlich beachten|gmbh steuerliche grundlagen|gmbh steuern|besteuerung einer gmbh|kapitalgesellschaft steuer|körperschaftsteuer gmbh|koerperschaftsteuer gmbh|gewerbesteuer gmbh|umsatzsteuer gmbh|verdeckte gewinnausschüttung|verdeckte gewinnausschuettung|vga|geschäftsführer gehalt|geschaeftsfuehrer gehalt|gesellschafter geschäftsführer|gesellschafter geschaeftsfuehrer|ausschüttung gmbh|ausschuettung gmbh|kapitalertragsteuer ausschüttung|verlustvortrag gmbh|organschaft|gmbh jahresabschluss|gmbh pflichten|gmbh steuererklärung|gmbh steuererklaerung",
+    "gmbh|gmbhs|gmbh steuerrechtlich beachten|gmbhs steuerrechtlich beachten|was ist bei gmbhs steuerlich zu beachten|was ist bei einer gmbh steuerlich zu beachten|was müssen gmbhs steuerlich beachten|gmbh steuerlich beachten|gmbhs steuerlich beachten|steuerliche behandlung gmbh|besteuerung einer gmbh|besteuerung von gmbhs|steuerliche besonderheiten gmbh|steuerpflichten gmbh|gmbh pflichten finanzamt|gmbh steuererklärung|gmbh steuerliche grundlagen|gmbh steuern|kapitalgesellschaft steuer|körperschaftsteuer gmbh|gewerbesteuer gmbh|verdeckte gewinnausschüttung|vga|geschäftsführer gehalt|gesellschafter geschäftsführer|ausschüttung gmbh|kapitalertragsteuer ausschüttung|verlustvortrag gmbh|organschaft|gmbh jahresabschluss",
   references: [
     "§§ 1, 7, 8, 8b, 23, 27 und 31 KStG",
     "§§ 2, 7 bis 11 und 16 GewStG",

@@ -46,6 +46,7 @@ import "@/lib/knowledgeBaseExtensions/lohnsteuer-lohnsteuerbescheinigung-erstell
 import "@/lib/knowledgeBaseExtensions/npo-gemeinnuetzigkeit-bfh-demokratie-verfassungsschutz-zweckbetrieb-krankenhaus";
 import "@/lib/knowledgeBaseExtensions/npo-gemeinnuetzigkeit-grundlagen-rechtsprechung-gesetzgebung-2026";
 import "@/lib/knowledgeBaseExtensions/personengesellschaften-bilanzierung-beteiligungen-idw-rs-fab-18";
+import "@/lib/knowledgeBaseExtensions/personengesellschaften-gmbh-und-co-kg-grundlagen";
 import "@/lib/knowledgeBaseExtensions/personengesellschaften-grundlagen-steuerliche-besonderheiten";
 import "@/lib/knowledgeBaseExtensions/personengesellschaften-sonderbetriebsvermoegen-beispiele";
 import "@/lib/knowledgeBaseExtensions/rechtsformen-vergleich-gmbh-personengesellschaft";
@@ -58,18 +59,12 @@ import "@/lib/knowledgeBaseExtensions/sozialversicherungspflicht-lehrkraefte-ueb
 import "@/lib/knowledgeBaseExtensions/umsatzsteuer-anzahlungen-vorauszahlungen";
 import "@/lib/knowledgeBaseExtensions/umsatzsteuer-vorsteuerabzug-verspaetete-rechnung-eug-2026";
 
-// Die lokale breite Chat-Suche normalisiert Keywords als Text. KB-Einträge dürfen
-// jedoch auch RegExp oder Arrays enthalten. Durch die einmalige Umwandlung nach
-// der Registrierung bleiben alle Suchbegriffe erhalten, ohne dass RegExp.normalize
-// bzw. Array.normalize den kompletten Offline-Fallback zum Absturz bringen.
 for (const entry of KNOWLEDGE_BASE) {
   const keywords = entry.keywords;
-
   if (keywords instanceof RegExp) {
     entry.keywords = keywords.source;
     continue;
   }
-
   if (Array.isArray(keywords)) {
     entry.keywords = keywords
       .map((keyword) => (keyword instanceof RegExp ? keyword.source : String(keyword)))

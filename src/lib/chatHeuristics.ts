@@ -130,12 +130,20 @@ function broadKbTokens(query: string): string[] {
   return Array.from(new Set(tokens));
 }
 
-function findBroadKbMatches(query: string, limit = 4): KBEntry[] {
+export interface KbScoreDetail {
+  entry: KBEntry;
+  score: number;
+  hits: number;
+  /** Angewandter Tie-Breaker gegenüber dem direkt davor platzierten Treffer. */
+  tieBreaker?: string;
+}
+
+function scoreBroadKbMatches(query: string, limit = 4): KbScoreDetail[] {
   const tokens = broadKbTokens(query);
   if (tokens.length === 0) return [];
 
   const entries = [...KNOWLEDGE_BASE, ...INTERNAL_KNOWLEDGE_BASE];
-  return entries
+  const scored = entries
     .map((entry) => {
       const title = normalizeKbSearch(entry.title ?? "");
       const category = normalizeKbSearch(String(entry.category ?? ""));
@@ -159,13 +167,36 @@ function findBroadKbMatches(query: string, limit = 4): KBEntry[] {
       }
 
       if (hits === tokens.length) score += 3;
-      return { entry, score, hits };
+      return { entry, score, hits } as KbScoreDetail;
     })
-    .filter(({ score, hits }) => score >= 3 && hits > 0)
-    .sort((a, b) => b.score - a.score)
-    .slice(0, limit)
-    .map(({ entry }) => entry);
+    .filter(({ score, hits }) => score >= 3 && hits > 0);
+
+  scored.sort((a, b) => {
+    if (b.score !== a.score) return b.score - a.score;
+    if (b.hits !== a.hits) return b.hits - a.hits;
+    const aShort = a.entry.short ? 1 : 0;
+    const bShort = b.entry.short ? 1 : 0;
+    if (bShort !== aShort) return bShort - aShort;
+    return (a.entry.title?.length ?? 0) - (b.entry.title?.length ?? 0);
+  });
+
+  // Tie-Breaker dokumentieren (nur bei Punktgleichstand relevant).
+  for (let i = 1; i < scored.length; i++) {
+    const prev = scored[i - 1];
+    const cur = scored[i];
+    if (prev.score !== cur.score) continue;
+    if (prev.hits !== cur.hits) prev.tieBreaker = "mehr Token-Treffer";
+    else if (!!prev.entry.short !== !!cur.entry.short) prev.tieBreaker = "kuratierter Kurztext";
+    else prev.tieBreaker = "kürzerer Titel";
+  }
+
+  return scored.slice(0, limit);
 }
+
+function findBroadKbMatches(query: string, limit = 4): KBEntry[] {
+  return scoreBroadKbMatches(query, limit).map((x) => x.entry);
+}
+
 
 
 function kbSections(entries: KBEntry[]): { title: string; body: string }[] {

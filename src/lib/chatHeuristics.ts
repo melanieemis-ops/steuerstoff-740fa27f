@@ -1845,7 +1845,8 @@ function _generateAnswerImpl(rawQuestion: string, router: RouterResult): ChatAns
   // Wenn die Spezialheuristik keine eindeutige Route findet, wird zuerst die
   // vollständige Wissensdatenbank durchsucht. Erst ohne brauchbaren Treffer
   // wird um eine Präzisierung gebeten.
-  const broadKbMatches = findBroadKbMatches(q, 4);
+  const broadScored = scoreBroadKbMatches(q, 4);
+  const broadKbMatches = broadScored.map((x) => x.entry);
   if (broadKbMatches.length > 0) {
     const primary = broadKbMatches[0];
     return {
@@ -1864,8 +1865,26 @@ function _generateAnswerImpl(rawQuestion: string, router: RouterResult): ChatAns
         excerpt: entry.short ?? null,
       })),
       confidence: broadKbMatches.length >= 2 ? "high" : "medium",
+      trace: [
+        { step: "KB-Ranking", detail: "Broad-Match über öffentliche + interne Wissensdatenbank" },
+        {
+          step: "Score-Vergleich",
+          detail: broadScored
+            .map((x, i) => `${i + 1}. ${x.entry.title} — Score ${x.score} (Treffer ${x.hits})`)
+            .join("\n"),
+        },
+        {
+          step: "Tie-Breaker",
+          detail:
+            broadScored
+              .filter((x) => x.tieBreaker)
+              .map((x) => `${x.entry.title}: ${x.tieBreaker}`)
+              .join("\n") || "keine Punktgleichstände",
+        },
+      ],
     };
   }
+
 
   // --- Letzter Fallback: wirklich keine passende KB-Grundlage ---
   return {

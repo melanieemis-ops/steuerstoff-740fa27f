@@ -55,6 +55,7 @@ import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-festsetzungsverjaehrung";
 import "@/lib/knowledgeBaseExtensions/ertragsteuer-anschaffungsnaher-aufwand-6-abs-1-nr-1a-estg";
 import "@/lib/knowledgeBaseExtensions/bilanzierung-grundlagen-steuerlicher-bilanzenzusammenhang";
 import "@/lib/knowledgeBaseExtensions/npo-gemeinnuetzigkeit-bfh-demokratie-verfassungsschutz-zweckbetrieb-krankenhaus";
+import "@/lib/knowledgeBaseExtensions/npo-gemeinnuetzigkeit-unternehmensverbundene-stiftung-bfh-v-r-11-24";
 import { KNOWLEDGE_BASE, kbKeywordsToRegExp, type KBEntry } from "@/lib/knowledgeBase";
 import { INTERNAL_KNOWLEDGE_BASE } from "@/lib/expertSystem/internalKnowledge";
 
@@ -77,9 +78,6 @@ const STOPWORDS = new Set([
   "steuerlich", "steuerliche", "steuerlicher", "steuerlichen", "behandelt", "behandlung", "gilt",
 ]);
 
-// Kleine, bewusst kuratierte steuerliche Begriffswelt. Jede Gruppe wird
-// bidirektional erweitert: Eine Frage mit „Kredit“ findet damit auch einen
-// KB-Eintrag, der nur „Darlehen“ oder „Forderung“ enthält.
 const SYNONYM_GROUPS: readonly (readonly string[])[] = [
   ["darlehen", "kredit", "forderung", "gesellschafterdarlehen", "finanzierung"],
   ["abschreiben", "abschreibung", "wertminderung", "teilwertabschreibung", "ausfall", "verlust"],
@@ -234,7 +232,6 @@ function scoreEntry(entry: KBEntry, tokens: string[], rawQuery: string): number 
     }
   }
 
-  // Mehrwortphrasen aus der Frage sind besonders aussagekräftig.
   const important = baseTokens(rawQuery);
   for (let i = 0; i < important.length - 1; i += 1) {
     const phrase = `${important[i]} ${important[i + 1]}`;
@@ -256,8 +253,6 @@ function scoreEntry(entry: KBEntry, tokens: string[], rawQuery: string): number 
   else if (coverage >= 0.4) score += 4;
   else if (coverage < 0.15) score -= 3;
 
-  // Ein einzelner sehr allgemeiner Treffer im langen Body soll keinen falschen
-  // KB-Kontext erzeugen. Mindestens ein starker Treffer oder mehrere Treffer.
   const strongMatch = score >= 8 || matchedTokens >= 2 || queryReferences.length > 0;
   return strongMatch ? Math.max(0, score) : 0;
 }
@@ -278,8 +273,6 @@ export function searchKb(query: string, min = 6, max = 10): KbHit[] {
   const confidenceFloor = Math.max(6, Math.floor(bestScore * 0.42));
   const confident = scored.filter(({ score }) => score >= confidenceFloor);
 
-  // Bei schwacher/mehrdeutiger Suche lieber wenige belastbare Treffer liefern,
-  // statt die Liste künstlich mit unpassenden Artikeln aufzufüllen.
   const desired = bestScore >= 20 ? Math.max(min, Math.min(max, confident.length)) : Math.min(4, confident.length);
   const top = confident.slice(0, Math.max(1, desired));
 

@@ -24,6 +24,7 @@ import "@/lib/knowledgeBaseExtensions/sozialversicherung-unfallversicherung-home
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-entfernungspauschale-2026";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-kinderbetreuungskosten-getrennte-eltern-haushaltszugehoerigkeit";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-paragraf-3-estg-steuerfreie-einnahmen";
+import "@/lib/knowledgeBaseExtensions/einkommensteuer-paragraf-5-estg-gewinn-bei-kaufleuten";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-teilentgeltliche-grundstuecksuebertragung-23-estg";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-vorsorgepauschale-ab-2026";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-grundstueckseigentuemer-update-2025-2026-paragraf-21";
@@ -298,7 +299,8 @@ export function formatKbContext(hits: KbHit[]): string {
   return hits
     .map((hit, index) => {
       const head = `[${index + 1}] ${hit.title}${hit.reference ? ` — ${hit.reference}` : ""} (id: ${hit.id}, Relevanz: ${hit.score})`;
-      return `${head}\n${hit.excerpt}`;
+      return `${head}
+${hit.excerpt}`;
     })
     .join("\n\n---\n\n");
 }

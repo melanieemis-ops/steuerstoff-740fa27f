@@ -37,6 +37,7 @@ import "@/lib/knowledgeBaseExtensions/kfz-dienstwagen-1-prozent";
 import "@/lib/knowledgeBaseExtensions/eigenverbrauch-unentgeltliche-wertabgaben-lieferungen";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-lohnsteuerbescheinigung-erstellung-korrektur-inhalt";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-faelligkeit-lohnsteuer-sozialversicherungsbeitraege";
+import "@/lib/knowledgeBaseExtensions/lohnsteuer-minijob-pauschalbeitraege";
 import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-gesetzliche-erbfolge";
 import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-familienheim-eigennutzung-rueckforderungsrechte";
 import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-bewertung-mitunternehmeranteile-97-bewg";
@@ -96,6 +97,7 @@ const SYNONYM_GROUPS: readonly (readonly string[])[] = [
   ["erbschaftsteuer", "schenkungsteuer", "erbst", "erbstg", "schenkung"],
   ["lohnsteuer", "lohnabrechnung", "gehaltsabrechnung", "abrechnung"],
   ["sozialversicherung", "sv", "beiträge", "beitraege", "rentenversicherung", "krankenversicherung"],
+  ["minijob", "geringfügige beschäftigung", "geringfuegige beschaeftigung", "pauschalbeitrag", "minijob-zentrale"],
   ["dienstwagen", "firmenwagen", "geschäftswagen", "geschaeftswagen", "kfz", "auto"],
   ["eigenverbrauch", "privatentnahme", "unentgeltliche wertabgabe", "wertabgabe"],
   ["anzahlung", "vorauszahlung", "abschlag", "abschlagszahlung"],

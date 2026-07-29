@@ -1,4 +1,5 @@
 import { KNOWLEDGE_BASE, type KBEntry } from "@/lib/knowledgeBase";
+import "@/lib/knowledgeBaseExtensions/abschreibung-gebaeude-aussergewoehnliche-abnutzung-afaa";
 
 export const abschreibungAusserplanmaessigeWertminderungAfaa: KBEntry = {
   id: "abschreibung-ausserplanmaessige-wertminderung-afaa",

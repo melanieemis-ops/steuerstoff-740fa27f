@@ -25,6 +25,7 @@ import "@/lib/knowledgeBaseExtensions/einkommensteuer-kinderbetreuungskosten-get
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-paragraf-2-estg-grundlagen-besteuerung";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-paragraf-3-estg-steuerfreie-einnahmen";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-paragraf-3b-estg-sonntags-feiertags-nachtzuschlaege";
+import "@/lib/knowledgeBaseExtensions/einkommensteuer-paragraf-3c-estg-anteilige-abzuege";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-teilentgeltliche-grundstuecksuebertragung-23-estg";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-vorsorgepauschale-ab-2026";
 import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-bewertung-betriebsvermoegen-vereinfachtes-ertragswertverfahren";

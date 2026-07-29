@@ -30,6 +30,7 @@ import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-festsetzungsverjaehrung";
 import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-gesetzliche-erbfolge";
 import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-steuerstrafrechtliche-risiken-ehegatten";
 import "@/lib/knowledgeBaseExtensions/ertragsteuer-anschaffungsnaher-aufwand-6-abs-1-nr-1a-estg";
+import "@/lib/knowledgeBaseExtensions/ertragsteuer-betriebsaufspaltung-sachliche-personelle-verflechtung";
 import "@/lib/knowledgeBaseExtensions/gewerbesteuer-anrechnung-steuerermaessigung-35-estg";
 import "@/lib/knowledgeBaseExtensions/gewerbesteuer-berechnung-rueckstellung";
 import "@/lib/knowledgeBaseExtensions/gewerbesteuer-einheitlicher-gewerbebetrieb-hinzuerwerb-bfh-x-r-8-23";

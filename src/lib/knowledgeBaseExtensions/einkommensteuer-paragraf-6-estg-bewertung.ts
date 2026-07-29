@@ -1,4 +1,5 @@
 import { KNOWLEDGE_BASE, type KBEntry } from "@/lib/knowledgeBase";
+import "@/lib/knowledgeBaseExtensions/einkommensteuer-paragraf-7-estg-afa";
 
 export const einkommensteuerParagraf6EstgBewertung: KBEntry = {
   id: "einkommensteuer-paragraf-6-estg-bewertung",

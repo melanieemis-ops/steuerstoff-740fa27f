@@ -1,3 +1,4 @@
+import "@/lib/knowledgeBaseExtensions/lohnsteuer-arbeitnehmersparzulage";
 import { KNOWLEDGE_BASE } from "@/lib/knowledgeBase";
 import { lohnsteuerAufmerksamkeiten } from "@/lib/knowledgeBaseAdditions/lohnsteuer-aufmerksamkeiten";
 

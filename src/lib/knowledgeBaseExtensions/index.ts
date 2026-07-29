@@ -39,6 +39,7 @@ import "@/lib/knowledgeBaseExtensions/jahresabschluss-immaterielle-vermoegensgeg
 import "@/lib/knowledgeBaseExtensions/kfz-dienstwagen-1-prozent";
 import "@/lib/knowledgeBaseExtensions/koerperschaftsteuer-darlehen-betriebspruefung-8b-abs-3-kstg";
 import "@/lib/knowledgeBaseExtensions/koerperschaftsteuer-gmbh-grundlagen-steuerliche-besonderheiten";
+import "@/lib/knowledgeBaseExtensions/lohnsteuer-arbeitnehmersparzulage";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-aufmerksamkeiten";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-auslandsaufenthalt";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-aussenpruefung";

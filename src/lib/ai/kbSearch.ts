@@ -40,6 +40,7 @@ import "@/lib/knowledgeBaseExtensions/lohnsteuer-faelligkeit-lohnsteuer-sozialve
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-minijob-pauschalbeitraege";
 import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-gesetzliche-erbfolge";
 import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-familienheim-eigennutzung-rueckforderungsrechte";
+import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-bewertung-betriebsvermoegen-vereinfachtes-ertragswertverfahren";
 import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-bewertung-mitunternehmeranteile-97-bewg";
 import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-steuerstrafrechtliche-risiken-ehegatten";
 import "@/lib/knowledgeBaseExtensions/gewerbesteuer-anrechnung-steuerermaessigung-35-estg";

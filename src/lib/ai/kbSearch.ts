@@ -57,6 +57,7 @@ import "@/lib/knowledgeBaseExtensions/lohnsteuer-lohn-und-gehaltsabrechnung";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-aussenpruefung";
 import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-festsetzungsverjaehrung";
 import "@/lib/knowledgeBaseExtensions/ertragsteuer-anschaffungsnaher-aufwand-6-abs-1-nr-1a-estg";
+import "@/lib/knowledgeBaseExtensions/ertragsteuer-betriebsaufspaltung-sachliche-personelle-verflechtung";
 import "@/lib/knowledgeBaseExtensions/bilanzierung-grundlagen-steuerlicher-bilanzenzusammenhang";
 import "@/lib/knowledgeBaseExtensions/npo-gemeinnuetzigkeit-bfh-demokratie-verfassungsschutz-zweckbetrieb-krankenhaus";
 import "@/lib/knowledgeBaseExtensions/npo-gemeinnuetzigkeit-unternehmensverbundene-stiftung-bfh-v-r-11-24";

@@ -4,6 +4,7 @@
 import { KNOWLEDGE_BASE } from "@/lib/knowledgeBase";
 import "@/lib/knowledgeBaseExtensions/abschreibung-afa-wertminderungen-hgb-estg-ifrs";
 import "@/lib/knowledgeBaseExtensions/abschreibung-ausserplanmaessige-wertminderung-afaa";
+import "@/lib/knowledgeBaseExtensions/abschreibung-gemischt-genutzte-gebaeude-afa";
 import "@/lib/knowledgeBaseExtensions/abschreibung-sonderabschreibungen-7a-7b-7g-estg";
 import "@/lib/knowledgeBaseExtensions/abschreibung-umlaufvermoegen-niederstwertprinzip";
 import "@/lib/knowledgeBaseExtensions/aktuell-jahressteuergesetz-2026-referentenentwurf";

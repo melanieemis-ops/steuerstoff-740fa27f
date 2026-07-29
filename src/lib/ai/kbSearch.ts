@@ -39,6 +39,7 @@ import "@/lib/knowledgeBaseExtensions/lohnsteuer-lohnsteuerbescheinigung-erstell
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-faelligkeit-lohnsteuer-sozialversicherungsbeitraege";
 import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-gesetzliche-erbfolge";
 import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-familienheim-eigennutzung-rueckforderungsrechte";
+import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-bewertung-mitunternehmeranteile-97-bewg";
 import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-steuerstrafrechtliche-risiken-ehegatten";
 import "@/lib/knowledgeBaseExtensions/gewerbesteuer-anrechnung-steuerermaessigung-35-estg";
 import "@/lib/knowledgeBaseExtensions/gewerbesteuer-berechnung-rueckstellung";

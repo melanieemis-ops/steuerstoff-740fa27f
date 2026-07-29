@@ -27,6 +27,7 @@ import "@/lib/knowledgeBaseExtensions/einkommensteuer-paragraf-3-estg-steuerfrei
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-paragraf-3b-estg-sonntags-feiertags-nachtzuschlaege";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-paragraf-3c-estg-anteilige-abzuege";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-paragraf-4a-estg-gewinnermittlungszeitraum-wirtschaftsjahr";
+import "@/lib/knowledgeBaseExtensions/einkommensteuer-paragraf-5-estg-gewinn-bei-kaufleuten";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-teilentgeltliche-grundstuecksuebertragung-23-estg";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-vorsorgepauschale-ab-2026";
 import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-bewertung-betriebsvermoegen-vereinfachtes-ertragswertverfahren";

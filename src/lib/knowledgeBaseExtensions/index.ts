@@ -8,6 +8,7 @@ import "@/lib/knowledgeBaseExtensions/abschreibung-sonderabschreibungen-7a-7b-7g
 import "@/lib/knowledgeBaseExtensions/abschreibung-umlaufvermoegen-niederstwertprinzip";
 import "@/lib/knowledgeBaseExtensions/aktuell-jahressteuergesetz-2026-referentenentwurf";
 import "@/lib/knowledgeBaseExtensions/aktuell-steuerberater-haftung-ki-einsatz";
+import "@/lib/knowledgeBaseExtensions/ao-berichtigung-aenderung-steuerbescheide-129-176";
 import "@/lib/knowledgeBaseExtensions/ao-betriebspruefung-mitwirkungspflichten-rechte-pruefer";
 import "@/lib/knowledgeBaseExtensions/ao-schaetzung-besteuerungsgrundlagen-verfahrensrecht";
 import "@/lib/knowledgeBaseExtensions/ao-schaetzungsbefugnis-betriebspruefung-kasse-methoden";

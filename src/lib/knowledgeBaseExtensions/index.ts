@@ -23,6 +23,7 @@ import "@/lib/knowledgeBaseExtensions/einkommensteuer-grundstueckseigentuemer-up
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-haeusliches-arbeitszimmer-betriebsvermoegen-taetigkeitsaufgabe-grundstuecksveraeusserung";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-kinderbetreuungskosten-getrennte-eltern-haushaltszugehoerigkeit";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-paragraf-2-estg-grundlagen-besteuerung";
+import "@/lib/knowledgeBaseExtensions/einkommensteuer-paragraf-3-estg-steuerfreie-einnahmen";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-teilentgeltliche-grundstuecksuebertragung-23-estg";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-vorsorgepauschale-ab-2026";
 import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-bewertung-betriebsvermoegen-vereinfachtes-ertragswertverfahren";

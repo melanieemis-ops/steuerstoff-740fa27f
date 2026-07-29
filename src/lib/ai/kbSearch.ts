@@ -32,6 +32,7 @@ import "@/lib/knowledgeBaseExtensions/personengesellschaften-grundlagen-steuerli
 import "@/lib/knowledgeBaseExtensions/personengesellschaften-sonderbetriebsvermoegen-beispiele";
 import "@/lib/knowledgeBaseExtensions/umsatzsteuer-vorsteuerabzug-verspaetete-rechnung-eug-2026";
 import "@/lib/knowledgeBaseExtensions/umsatzsteuer-anzahlungen-vorauszahlungen";
+import "@/lib/knowledgeBaseExtensions/umsatzsteuer-reverse-charge-vida-ab-1-juli-2028";
 import "@/lib/knowledgeBaseExtensions/kfz-dienstwagen-1-prozent";
 import "@/lib/knowledgeBaseExtensions/eigenverbrauch-unentgeltliche-wertabgaben-lieferungen";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-lohnsteuerbescheinigung-erstellung-korrektur-inhalt";

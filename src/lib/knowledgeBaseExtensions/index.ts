@@ -49,6 +49,7 @@ import "@/lib/knowledgeBaseExtensions/lohnsteuer-elektronische-lohnsteuerbeschei
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-faelligkeit-lohnsteuer-sozialversicherungsbeitraege";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-lohn-und-gehaltsabrechnung";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-lohnsteuerbescheinigung-erstellung-korrektur-inhalt";
+import "@/lib/knowledgeBaseExtensions/lohnsteuer-minijob-arbeitsrechtliche-aspekte";
 import "@/lib/knowledgeBaseExtensions/lohnsteuer-minijob-pauschalbeitraege";
 import "@/lib/knowledgeBaseExtensions/npo-gemeinnuetzigkeit-bfh-demokratie-verfassungsschutz-zweckbetrieb-krankenhaus";
 import "@/lib/knowledgeBaseExtensions/npo-gemeinnuetzigkeit-grundlagen-rechtsprechung-gesetzgebung-2026";

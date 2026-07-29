@@ -24,6 +24,7 @@ import "@/lib/knowledgeBaseExtensions/einkommensteuer-haeusliches-arbeitszimmer-
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-kinderbetreuungskosten-getrennte-eltern-haushaltszugehoerigkeit";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-teilentgeltliche-grundstuecksuebertragung-23-estg";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-vorsorgepauschale-ab-2026";
+import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-bewertung-betriebsvermoegen-vereinfachtes-ertragswertverfahren";
 import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-bewertung-mitunternehmeranteile-97-bewg";
 import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-familienheim-eigennutzung-rueckforderungsrechte";
 import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-festsetzungsverjaehrung";

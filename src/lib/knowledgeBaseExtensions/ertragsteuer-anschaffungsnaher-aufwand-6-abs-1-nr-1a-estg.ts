@@ -2,132 +2,130 @@ import { KNOWLEDGE_BASE, type KBEntry } from "@/lib/knowledgeBase";
 
 export const ertragsteuerAnschaffungsnaherAufwand: KBEntry = {
   id: "ertragsteuer-anschaffungsnaher-aufwand-6-abs-1-nr-1a-estg",
-  title: "Anschaffungsnaher Aufwand nach § 6 Abs. 1 Nr. 1a EStG",
+  title: "Gebäudeaufwendungen: Erhaltungsaufwand, AK, HK oder anschaffungsnahe HK?",
   short:
-    "Wann Renovierungs- und Modernisierungskosten innerhalb von drei Jahren nach dem Gebäudeerwerb zu Herstellungskosten werden – mit aktuellen Abgrenzungsfragen aus der Rechtsprechung.",
+    "Kompakter Überblick zum BMF-Schreiben vom 26.01.2026 über die Abgrenzung von sofort abziehbarem Erhaltungsaufwand, Anschaffungs- und Herstellungskosten sowie anschaffungsnahen Herstellungskosten nach § 6 Abs. 1 Nr. 1a EStG.",
   category: "Ertragsteuer",
   type: "praxis",
   source:
-    "Zusammenfassung nach EStB 2024, 327–329, zur aktuellen Rechtsprechung über anschaffungsnahe Herstellungskosten nach § 6 Abs. 1 Nr. 1a EStG.",
+    "Zusammenfassung des BMF-Schreibens vom 26.01.2026 – IV C 1 - S 2253/00082/001/064 – zur steuerlichen Behandlung von Aufwendungen für Gebäude, die der Einkünfteerzielung dienen.",
   keywords:
-    "anschaffungsnaher aufwand|anschaffungsnahe herstellungskosten|§ 6 abs. 1 nr. 1a estg|15 prozent grenze|dreijahreszeitraum|renovierung nach gebäudekauf|modernisierung vermietete immobilie|erhaltungsaufwand|sofort abziehbare werbungskosten|schönheitsreparaturen|verdeckte mängel|brandschaden|mieterabfindung|entnahme betriebsvermögen|gebäude anschaffungskosten",
+    "gebäudeaufwendungen|erhaltungsaufwand|anschaffungskosten|herstellungskosten|anschaffungsnahe herstellungskosten|§ 6 abs. 1 nr. 1a estg|15 prozent grenze|dreijahreszeitraum|standardhebung|betriebsbereitschaft|modernisierung|renovierung|vermietung und verpachtung|werbungskosten|afa|bauftechnisches ineinandergreifen|sanierung in raten|bmf 26.01.2026",
   references: [
     "§ 6 Abs. 1 Nr. 1a EStG",
-    "§ 255 Abs. 2 Satz 1 HGB",
-    "EStB 2024, 327–329",
-    "FG Düsseldorf, Urteil vom 28.11.2023 – 10 K 2184/20 E",
-    "FG Düsseldorf, Urteil vom 16.8.2023 – 2 K 2449/18 E",
+    "§ 7 EStG",
+    "§ 82b EStDV",
+    "§ 255 Abs. 1 und 2 HGB",
+    "§ 90 Abs. 1 Satz 3 AO",
+    "BMF-Schreiben vom 26.01.2026 – IV C 1 - S 2253/00082/001/064",
   ],
   importance: 5,
-  body: `§ 6 Abs. 1 Nr. 1a EStG kann eigentlich sofort abziehbare Renovierungs- und Modernisierungskosten in Herstellungskosten umqualifizieren. Die Folge: Die Kosten wirken sich nicht sofort, sondern nur über die Gebäude-AfA aus.
+  body: `Das BMF-Schreiben vom 26.01.2026 konkretisiert die Abgrenzung zwischen sofort abziehbarem Erhaltungsaufwand, Anschaffungskosten (AK), Herstellungskosten (HK) und anschaffungsnahen Herstellungskosten nach § 6 Abs. 1 Nr. 1a EStG.
+
+Die Einordnung entscheidet darüber, ob Aufwendungen sofort als Betriebsausgaben oder Werbungskosten abziehbar sind oder nur über die Gebäude-AfA berücksichtigt werden.
 
 1. Grundregel
-Aufwendungen für Instandsetzungs- und Modernisierungsmaßnahmen werden zu anschaffungsnahen Herstellungskosten, wenn
-- sie innerhalb von drei Jahren nach der Anschaffung des Gebäudes durchgeführt werden und
-- die Nettoaufwendungen insgesamt mehr als 15 % der Anschaffungskosten des Gebäudes betragen.
+- Erhaltungsaufwand ist grundsätzlich sofort abzugsfähig oder kann unter den Voraussetzungen des § 82b EStDV verteilt werden.
+- AK, HK und anschaffungsnahe HK erhöhen dagegen die AfA-Bemessungsgrundlage.
 
-Maßgeblich sind nur die Anschaffungskosten des Gebäudes, nicht der Anteil für Grund und Boden. Die Umsatzsteuer bleibt bei der 15-%-Prüfung außer Ansatz.
+2. Anschaffungskosten und Betriebsbereitschaft
+AK liegen vor, wenn Aufwendungen dazu dienen, ein erworbenes Gebäude in einen betriebsbereiten Zustand zu versetzen.
 
-Nicht in die Prüfung einzubeziehen sind grundsätzlich
-- Aufwendungen für Erweiterungen i. S. des § 255 Abs. 2 Satz 1 HGB, da diese bereits nach den allgemeinen Regeln Herstellungskosten sind, und
-- isolierte Erhaltungsarbeiten, die jährlich üblicherweise anfallen.
+Das Gebäude muss
+- objektiv funktionstüchtig und
+- für die konkrete Zweckbestimmung des Erwerbers subjektiv funktionstüchtig
+sein.
 
-2. Aufwendungen vor der Anschaffung
-Kosten, die bereits vor der Anschaffung des Grundstücks getragen werden, fallen nicht unter § 6 Abs. 1 Nr. 1a EStG. Sie sind nach den allgemeinen Abgrenzungsgrundsätzen als Anschaffungs-, Herstellungs- oder Erhaltungsaufwand zu beurteilen.
+Fehlt etwa eine funktionsfähige Heizung oder soll ein bisher zu Wohnzwecken genutztes Gebäude erst für eine Büronutzung hergerichtet werden, können die entsprechenden Aufwendungen AK sein.
 
-Praxisfolge:
-Bei Übertragungen im familiären Bereich kann der Zeitpunkt geplanter Maßnahmen steuerlich bedeutsam sein. Eine Durchführung vor dem Eigentumsübergang unterliegt nicht der besonderen 15-%-Regel.
+3. Standardhebung bei Wohngebäuden
+Für die Beurteilung des Wohnstandards sind ausschließlich vier zentrale Ausstattungsbereiche maßgeblich:
+- Heizung,
+- Sanitär,
+- Elektroinstallation und
+- Fenster.
 
-3. Entnahme ist keine Anschaffung
-Wird eine Immobilie aus dem Betriebsvermögen entnommen, anschließend saniert und privat vermietet, liegt durch die Entnahme keine Anschaffung i. S. des § 6 Abs. 1 Nr. 1a EStG vor.
+Eine Standardhebung liegt regelmäßig vor, wenn ein Bündel von Maßnahmen in mindestens drei der vier Bereiche zu einer deutlichen Erhöhung des Gebrauchswerts führt.
 
-Es fehlen sowohl
-- eine Gegenleistung als auch
-- ein Rechtsträgerwechsel.
+Unterschieden werden
+- sehr einfacher Standard,
+- mittlerer Standard und
+- sehr anspruchsvoller Standard.
 
-Die Überführung in das Privatvermögen desselben Steuerpflichtigen wird gesetzlich auch nicht als Anschaffung fingiert.
+Die bloße Anpassung an den technischen Fortschritt führt nicht automatisch zu einer Standardhebung. So bewirkt etwa der Austausch einer durchschnittlichen Heizung gegen eine Wärmepumpe oder der Austausch zweifach gegen dreifach verglaste Fenster allein regelmäßig noch keinen sehr anspruchsvollen Standard.
 
-4. Was bleibt sofort abziehbar?
-Nicht jede Ausgabe im Zusammenhang mit einer Renovierung ist eine bauliche Maßnahme.
+4. Herstellungskosten
+HK liegen insbesondere vor bei
+- Herstellung eines neuen oder in seinem Wesen anderen Gebäudes,
+- Erweiterung der Nutzfläche,
+- Substanzvermehrung mit zusätzlicher Nutzungsmöglichkeit oder
+- einer über den ursprünglichen Zustand hinausgehenden wesentlichen Verbesserung.
 
-Regelmäßig sofort abziehbar sind insbesondere
-- laufende Heizungs- oder Aufzugswartungen,
-- die Beseitigung von Rohrverstopfungen oder Verkalkungen,
-- Ablesekosten und
-- vergleichbare jährlich übliche Erhaltungsarbeiten.
+Typische Erweiterungen sind etwa
+- erstmaliger Dachgeschossausbau,
+- Einbau einer neuen Dachgaube,
+- Anbau eines Balkons oder einer Terrasse.
 
-Auch eine Abfindung an einen Mieter für die vorzeitige Räumung bleibt grundsätzlich sofort als Werbungskosten abziehbar. Sie ermöglicht zwar die Renovierung, ist aber selbst keine bauliche Maßnahme am Gebäude.
+Eine bloße Erneuerung in zeitgemäßer Form ist dagegen nicht automatisch eine Erweiterung, wenn der neue Bestandteil lediglich die bisherige Funktion ersetzt.
 
-Merksatz:
-Nur Kosten für Maßnahmen am Gebäude oder an seinen Einrichtungen fallen in den typischen Anwendungsbereich des § 6 Abs. 1 Nr. 1a EStG. Bloß mitveranlasste Nebenkosten gehören nicht automatisch dazu.
+5. Wesentliche Verbesserung
+Eine wesentliche Verbesserung liegt erst vor, wenn die Maßnahmen den Gebrauchswert des Gebäudes gegenüber dem ursprünglichen Zustand insgesamt deutlich erhöhen.
 
-5. Schäden und Brandschäden
-Bei Schäden ist genau zu unterscheiden:
+Bei Wohngebäuden ist hierzu der damalige Standard im Zeitpunkt der Herstellung oder Anschaffung mit dem Standard nach Durchführung der Maßnahmen zu vergleichen. Eine bloße Herstellung heutigen Wohnkomforts kann deshalb trotz umfassender Modernisierung Erhaltungsaufwand bleiben.
 
-Sofort abziehbar können reine Aufräum- und Beseitigungskosten sein, wenn sie kein konstruktives oder bauliches Element enthalten. Dazu können etwa die Entfernung zerstörter Gebäudeteile oder die Entsorgung beschädigten Inventars gehören.
+Auch eine deutliche Verlängerung der tatsächlichen Gesamtnutzungsdauer kann zu HK führen, wenn hierfür wesentliche tragende Gebäudeteile verändert werden.
 
-Kosten für die anschließende bauliche Wiederherstellung oder Renovierung können dagegen in die 15-%-Prüfung einzubeziehen sein.
+6. Sanierung in Raten
+Eine wesentliche Verbesserung kann auch durch mehrere planmäßig zusammenhängende Maßnahmen entstehen.
 
-Bei einem Brandschaden entschied das FG Düsseldorf, dass unmittelbare Aufräum- und Beseitigungskosten sofort abzugsfähig sein können. Sonstige Renovierungskosten wurden dagegen als anschaffungsnah behandelt, weil nicht ausgeschlossen werden konnte, dass bereits beim Erwerb ein verdeckter Mangel angelegt war.
+Nach der neuen Verwaltungsauffassung ist regelmäßig ein Zeitraum von drei Jahren zu betrachten. Maßnahmen an einzelnen Wohnungen führen nur insoweit zu HK, wie deren Gebrauchswert tatsächlich deutlich erhöht wird.
 
-Ob Schäden durch eindeutig nach dem Erwerb eingetretene höhere Gewalt eine einschränkende Auslegung rechtfertigen, ist nicht abschließend geklärt.
+7. Anschaffungsnahe Herstellungskosten
+Bei entgeltlichem Erwerb sind Instandsetzungs- und Modernisierungsmaßnahmen innerhalb der ersten drei Jahre besonders zu prüfen.
 
-6. Verdeckte Mängel
-Aufwendungen zur Beseitigung verdeckter Mängel sind grundsätzlich in die 15-%-Grenze einzubeziehen. Das gilt unabhängig davon, ob der Mangel beim Erwerb bereits erkennbar war oder erst später hervortritt.
+Übersteigen die Nettoaufwendungen insgesamt 15 % der Gebäudeanschaffungskosten, werden die einbezogenen Aufwendungen insgesamt zu anschaffungsnahen HK. Die Umsatzsteuer und der Anteil für Grund und Boden bleiben bei der Grenze außer Ansatz.
 
-Entscheidend ist, dass innerhalb des Dreijahreszeitraums durch eine Baumaßnahme ein Mangel beseitigt oder das Gebäude in einen zeitgemäßen Zustand versetzt wird.
+Nicht unter § 6 Abs. 1 Nr. 1a EStG fallen insbesondere
+- bereits nach allgemeinen Grundsätzen als Erweiterung einzuordnende HK und
+- isolierte, jährlich übliche Erhaltungsarbeiten.
 
-7. Schönheitsreparaturen
-Auch typische Schönheitsreparaturen können anschaffungsnahe Herstellungskosten sein, etwa
-- Tapezieren oder Streichen von Wänden und Decken,
-- Streichen von Fußböden, Heizkörpern, Türen und Fenstern,
-- Erneuerung von Bodenbelägen,
-- Arbeiten an Sanitär-, Elektro- oder Heizungsanlagen sowie
-- Erneuerung von Fenstern oder Dacheindeckungen.
+8. Unentgeltlicher und teilentgeltlicher Erwerb
+Bei einem unentgeltlichen Erwerb fehlen AK und anschaffungsnahe HK mangels Anschaffungsvorgangs. Die Maßnahmen sind daher als Erhaltungsaufwand oder HK einzuordnen.
 
-Solche Maßnahmen wären ohne § 6 Abs. 1 Nr. 1a EStG häufig sofort abzugsfähiger Erhaltungsaufwand. Überschreiten sie im Gesamtpaket die 15-%-Grenze, werden sie jedoch zu Herstellungskosten.
+Bei einem teilentgeltlichen Erwerb können AK und anschaffungsnahe HK nur anteilig im Verhältnis des entgeltlichen Erwerbsteils vorliegen.
 
-8. Jährlich übliche Arbeiten
-Jährlich übliche Erhaltungsarbeiten sind nur dann ausgenommen, wenn sie eigenständig zu beurteilen sind.
+9. Zusammentreffen verschiedener Maßnahmen
+Werden AK/HK-Maßnahmen und Erhaltungsarbeiten gemeinsam durchgeführt, sind die Kosten grundsätzlich aufzuteilen.
 
-Sind sie Bestandteil einer einheitlichen Instandsetzungs- oder Modernisierungsmaßnahme, können auch solche Arbeiten in die 15-%-Prüfung einzubeziehen sein.
+Eine Gesamtbehandlung als AK/HK kommt jedoch in Betracht, wenn die Arbeiten bautechnisch ineinandergreifen, also wenn die Erhaltungsarbeiten
+- Vorbedingung der Herstellungsmaßnahme sind oder
+- durch die Herstellungsmaßnahme veranlasst oder verursacht werden.
 
-Eine pauschale Kürzung um einen erfahrungsgemäß jährlich anfallenden Erhaltungsbetrag ist nicht zulässig.
+Allein die gleichzeitige Durchführung oder eine wirtschaftlich sinnvolle Reihenfolge genügt nicht.
 
-9. Tatsächlich gezahlte Beträge
-Für die Höhe der Aufwendungen kommt es grundsätzlich auf die tatsächlich gezahlten Handwerkerrechnungen an.
+10. Feststellungslast und Mitwirkung
+Die Feststellungslast für Tatsachen, die AK oder HK begründen, trägt grundsätzlich das Finanzamt.
 
-Im Rahmen der typisierenden 15-%-Regel soll nicht jede einzelne Rechnungsposition nochmals nach ihrer wirtschaftlichen Werthaltigkeit oder zivilrechtlichen Angemessenheit untersucht werden. Eine pauschale Schätzung anstelle der tatsächlich entstandenen Kosten ist jedoch ebenfalls nicht vorgesehen.
+Kann der ursprüngliche Gebäudezustand nicht mehr festgestellt werden, trifft die steuerpflichtige Person jedoch eine erhöhte Mitwirkungspflicht nach § 90 Abs. 1 Satz 3 AO. Unterbleibt die Mitwirkung, darf das Finanzamt aus Indizien auf eine Standardhebung schließen.
 
-10. Keine Anpassung wegen höherer Mieten
-Die 15-%-Grenze wird nicht deshalb anders berechnet, weil die Renovierung künftig höhere Mieteinnahmen ermöglicht. Auch eine nachträgliche Veränderung der Kaufpreisaufteilung zwischen Gebäude und Grund und Boden allein wegen des gestiegenen Ertragspotenzials kommt nicht in Betracht.
+11. Nichtprüfung bis zur 15-%-Grenze
+Innerhalb der ersten drei Jahre nach Anschaffung prüft die Finanzverwaltung eine mögliche Standardhebung grundsätzlich nicht, wenn die Nettoaufwendungen die 15-%-Grenze nicht überschreiten.
 
-11. Rechtsfolge
-Wird die Netto-Grenze von 15 % überschritten, werden die erfassten Maßnahmen insgesamt als Herstellungskosten behandelt. Es wird nicht nur der übersteigende Teil aktiviert.
+Diese Vereinfachung gilt jedoch nicht uneingeschränkt, insbesondere nicht
+- bei einer Standardhebung nur einzelner Wohnungen oder
+- wenn die Maßnahmen Teil einer Sanierung in Raten sein können.
 
-Beispiel:
-Gebäudeanschaffungskosten: 300.000 €
-15-%-Grenze: 45.000 €
-Nettoaufwendungen innerhalb von drei Jahren: 48.000 €
+Prüfungsschema
+1. Liegt sofort abziehbarer Erhaltungsaufwand vor?
+2. Wird das Gebäude erst in einen betriebsbereiten Zustand versetzt?
+3. Liegt eine Erweiterung oder Substanzvermehrung vor?
+4. Wird der Gebrauchswert gegenüber dem ursprünglichen Zustand wesentlich erhöht?
+5. Liegt eine Standardhebung in mindestens drei der vier zentralen Bereiche vor?
+6. Greift § 6 Abs. 1 Nr. 1a EStG innerhalb des Dreijahreszeitraums?
+7. Besteht ein bautechnischer Zusammenhang mit anderen AK/HK-Maßnahmen?
 
-Ergebnis:
-Die einbezogenen 48.000 € sind insgesamt anschaffungsnahe Herstellungskosten und nur über die Gebäude-AfA abziehbar.
-
-Praxischeck
-- Exaktes Anschaffungsdatum des Gebäudes festgestellt?
-- Dreijahreszeitraum richtig berechnet?
-- Kaufpreis korrekt auf Gebäude und Grund und Boden aufgeteilt?
-- Nettoaufwendungen ohne Umsatzsteuer ermittelt?
-- Sämtliche baulichen Maßnahmen zusammengerechnet?
-- Erweiterungen gesondert als Herstellungskosten behandelt?
-- Laufende, isolierte Wartungsarbeiten abgegrenzt?
-- Mieterabfindungen und andere bloße Nebenkosten herausgerechnet?
-- Verdeckte Mängel und Schönheitsreparaturen einbezogen?
-- Bei Schäden zwischen reiner Beseitigung und baulicher Wiederherstellung unterschieden?
-- Tatsächlich gezahlte Beträge zugrunde gelegt?
-
-Fazit
-§ 6 Abs. 1 Nr. 1a EStG ist eine typisierende Vereinfachungsregel. Innerhalb der ersten drei Jahre nach einem Gebäudeerwerb sollte deshalb jede Renovierungsmaßnahme fortlaufend netto dokumentiert und gemeinsam mit allen weiteren Maßnahmen überwacht werden. Schon ein geringfügiges Überschreiten der 15-%-Grenze kann den sofortigen Werbungskostenabzug für das gesamte Maßnahmenpaket verhindern.`
+Merksatz
+Sofort abzugsfähig ist nur echter Erhaltungsaufwand. Dienen Maßnahmen der Betriebsbereitschaft, Erweiterung oder wesentlichen Verbesserung oder greift § 6 Abs. 1 Nr. 1a EStG, werden die Kosten regelmäßig nur über die Gebäude-AfA berücksichtigt.`
 };
 
 if (!KNOWLEDGE_BASE.some((entry) => entry.id === ertragsteuerAnschaffungsnaherAufwand.id)) {

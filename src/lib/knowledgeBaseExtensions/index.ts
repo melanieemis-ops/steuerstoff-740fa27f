@@ -60,6 +60,7 @@ import "@/lib/knowledgeBaseExtensions/sozialversicherung-pruefpflichten-steuerbe
 import "@/lib/knowledgeBaseExtensions/sozialversicherung-unfallversicherung-homeoffice-mobiles-arbeiten-mittagspause-2026";
 import "@/lib/knowledgeBaseExtensions/sozialversicherungspflicht-lehrkraefte-uebergangsregelung-2027";
 import "@/lib/knowledgeBaseExtensions/umsatzsteuer-anzahlungen-vorauszahlungen";
+import "@/lib/knowledgeBaseExtensions/umsatzsteuer-reverse-charge-vida-ab-1-juli-2028";
 import "@/lib/knowledgeBaseExtensions/umsatzsteuer-vorsteuerabzug-verspaetete-rechnung-eug-2026";
 
 for (const entry of KNOWLEDGE_BASE) {

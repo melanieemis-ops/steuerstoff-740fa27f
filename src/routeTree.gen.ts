@@ -31,6 +31,7 @@ import { Route as LernenPruefungssimulationRouteImport } from './routes/lernen_.
 import { Route as LernenAkademieRouteImport } from './routes/lernen_.akademie'
 import { Route as FallCaseIdRouteImport } from './routes/fall.$caseId'
 import { Route as ApiUploadRouteImport } from './routes/api/upload'
+import { Route as ApiTtsProxyDebugRouteImport } from './routes/api/tts-proxy-debug'
 import { Route as ApiTtsRouteImport } from './routes/api/tts'
 import { Route as ApiTranscribeRouteImport } from './routes/api/transcribe'
 import { Route as ApiTextToSpeechRouteImport } from './routes/api/text-to-speech'
@@ -155,6 +156,11 @@ const ApiUploadRoute = ApiUploadRouteImport.update({
   path: '/api/upload',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiTtsProxyDebugRoute = ApiTtsProxyDebugRouteImport.update({
+  id: '/api/tts-proxy-debug',
+  path: '/api/tts-proxy-debug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiTtsRoute = ApiTtsRouteImport.update({
   id: '/api/tts',
   path: '/api/tts',
@@ -238,6 +244,7 @@ export interface FileRoutesByFullPath {
   '/api/text-to-speech': typeof ApiTextToSpeechRoute
   '/api/transcribe': typeof ApiTranscribeRoute
   '/api/tts': typeof ApiTtsRoute
+  '/api/tts-proxy-debug': typeof ApiTtsProxyDebugRoute
   '/api/upload': typeof ApiUploadRouteWithChildren
   '/fall/$caseId': typeof FallCaseIdRoute
   '/lernen/akademie': typeof LernenAkademieRoute
@@ -273,6 +280,7 @@ export interface FileRoutesByTo {
   '/api/text-to-speech': typeof ApiTextToSpeechRoute
   '/api/transcribe': typeof ApiTranscribeRoute
   '/api/tts': typeof ApiTtsRoute
+  '/api/tts-proxy-debug': typeof ApiTtsProxyDebugRoute
   '/api/upload': typeof ApiUploadRouteWithChildren
   '/fall/$caseId': typeof FallCaseIdRoute
   '/lernen/akademie': typeof LernenAkademieRoute
@@ -309,6 +317,7 @@ export interface FileRoutesById {
   '/api/text-to-speech': typeof ApiTextToSpeechRoute
   '/api/transcribe': typeof ApiTranscribeRoute
   '/api/tts': typeof ApiTtsRoute
+  '/api/tts-proxy-debug': typeof ApiTtsProxyDebugRoute
   '/api/upload': typeof ApiUploadRouteWithChildren
   '/fall/$caseId': typeof FallCaseIdRoute
   '/lernen_/akademie': typeof LernenAkademieRoute
@@ -346,6 +355,7 @@ export interface FileRouteTypes {
     | '/api/text-to-speech'
     | '/api/transcribe'
     | '/api/tts'
+    | '/api/tts-proxy-debug'
     | '/api/upload'
     | '/fall/$caseId'
     | '/lernen/akademie'
@@ -381,6 +391,7 @@ export interface FileRouteTypes {
     | '/api/text-to-speech'
     | '/api/transcribe'
     | '/api/tts'
+    | '/api/tts-proxy-debug'
     | '/api/upload'
     | '/fall/$caseId'
     | '/lernen/akademie'
@@ -416,6 +427,7 @@ export interface FileRouteTypes {
     | '/api/text-to-speech'
     | '/api/transcribe'
     | '/api/tts'
+    | '/api/tts-proxy-debug'
     | '/api/upload'
     | '/fall/$caseId'
     | '/lernen_/akademie'
@@ -452,6 +464,7 @@ export interface RootRouteChildren {
   ApiTextToSpeechRoute: typeof ApiTextToSpeechRoute
   ApiTranscribeRoute: typeof ApiTranscribeRoute
   ApiTtsRoute: typeof ApiTtsRoute
+  ApiTtsProxyDebugRoute: typeof ApiTtsProxyDebugRoute
   ApiUploadRoute: typeof ApiUploadRouteWithChildren
   FallCaseIdRoute: typeof FallCaseIdRoute
   LernenAkademieRoute: typeof LernenAkademieRoute
@@ -620,6 +633,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiUploadRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/tts-proxy-debug': {
+      id: '/api/tts-proxy-debug'
+      path: '/api/tts-proxy-debug'
+      fullPath: '/api/tts-proxy-debug'
+      preLoaderRoute: typeof ApiTtsProxyDebugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/tts': {
       id: '/api/tts'
       path: '/api/tts'
@@ -735,6 +755,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiTextToSpeechRoute: ApiTextToSpeechRoute,
   ApiTranscribeRoute: ApiTranscribeRoute,
   ApiTtsRoute: ApiTtsRoute,
+  ApiTtsProxyDebugRoute: ApiTtsProxyDebugRoute,
   ApiUploadRoute: ApiUploadRouteWithChildren,
   FallCaseIdRoute: FallCaseIdRoute,
   LernenAkademieRoute: LernenAkademieRoute,
@@ -750,13 +771,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

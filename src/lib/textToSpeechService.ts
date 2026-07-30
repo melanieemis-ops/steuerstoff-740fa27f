@@ -6,7 +6,7 @@ import { loadSpeechSettings, type OpenAiVoice, type TtsProvider } from "@/lib/sp
 
 const cache = new Map<string, string>();
 const FUNCTION_NAME = "api/text-to-speech";
-const TTS_API_ORIGIN = "https://api.steuerstoff.com";
+const TTS_API_ORIGIN = "https://steuerstoff-740fa27f.melanieemis.workers.dev";
 
 function getTtsApiUrl(path: string): string {
   if (import.meta.env.DEV) return apiUrl(path);

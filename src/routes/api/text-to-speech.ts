@@ -21,6 +21,7 @@ const CORS_HEADERS = {
 
 type TtsErrorCode =
   | "CONFIGURATION_ERROR"
+  | "MISSING_TTS_ACCESS_CODE"
   | "INVALID_TTS_ACCESS_CODE"
   | "RATE_LIMITED"
   | "ELEVENLABS_ERROR"
@@ -79,8 +80,7 @@ async function readGeminiApiKey(request: Request): Promise<string | undefined> {
   return (
     (await readServerSecret("GEMINIAI_API_KEY", request)) ??
     (await readServerSecret("GEMINI_API_KEY", request)) ??
-    (await readServerSecret("GOOGLE_API_KEY", request)) ??
-    (await readServerSecret("GEMINI_TTS", request))
+    (await readServerSecret("GOOGLE_API_KEY", request))
   );
 }
 
@@ -139,7 +139,25 @@ function pcmToWav(pcm: Uint8Array, sampleRate = 24000, channels = 1, bitsPerSamp
   return buffer;
 }
 
+async function validateGeminiAccess(request: Request): Promise<Response | null> {
+  const expectedCode = await readServerSecret("GEMINI_TTS", request);
+  if (!expectedCode) {
+    return jsonError(500, "CONFIGURATION_ERROR", "Der Gemini-Freischaltcode ist serverseitig nicht konfiguriert.");
+  }
+  const submittedCode = request.headers.get("x-tts-access-code")?.trim();
+  if (!submittedCode) {
+    return jsonError(401, "MISSING_TTS_ACCESS_CODE", "Für die Vorlesefunktion ist ein Freischaltcode erforderlich.");
+  }
+  if (submittedCode !== expectedCode) {
+    return jsonError(401, "INVALID_TTS_ACCESS_CODE", "Der Freischaltcode ist ungültig.");
+  }
+  return null;
+}
+
 async function geminiSpeech(request: Request, text: string): Promise<Response> {
+  const accessError = await validateGeminiAccess(request);
+  if (accessError) return accessError;
+
   const apiKey = await readGeminiApiKey(request);
   if (!apiKey) return jsonError(500, "CONFIGURATION_ERROR", "Die Gemini-Stimme ist nicht konfiguriert.");
 
@@ -166,11 +184,7 @@ async function geminiSpeech(request: Request, text: string): Promise<Response> {
       },
     ).catch(() => null);
 
-    if (!upstream?.ok) {
-      if (upstream?.status === 429) continue;
-      if (upstream?.status === 404) continue;
-      continue;
-    }
+    if (!upstream?.ok) continue;
 
     const payload = (await upstream.json().catch(() => null)) as {
       candidates?: Array<{ content?: { parts?: Array<{ inlineData?: { data?: string; mimeType?: string } }> } }>;

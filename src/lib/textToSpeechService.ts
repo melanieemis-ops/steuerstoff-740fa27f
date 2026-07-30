@@ -2,15 +2,15 @@ import { buildSpeechCacheSignature } from "@/lib/prepareTextForSpeech";
 import { DEFAULT_TTS_MODEL_ID, getVoiceProfile } from "@/lib/ttsVoiceProfiles";
 import { getTtsAccessCode } from "@/lib/ttsAccessCodeStorage";
 import { loadSpeechSettings, type OpenAiVoice, type TtsProvider } from "@/lib/speech-storage";
+import { apiUrl } from "@/lib/api";
 
 const cache = new Map<string, string>();
 const FUNCTION_NAME = "api/text-to-speech";
-const TTS_API_ORIGIN = "https://steuerstoff-740fa27f.melanieemis.workers.dev";
 
 function getTtsApiUrl(path: string): string {
-  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
-  return `${TTS_API_ORIGIN}${normalizedPath}`;
+  return apiUrl(path);
 }
+
 
 export type TtsApiErrorCode =
   | "CONFIGURATION_ERROR"

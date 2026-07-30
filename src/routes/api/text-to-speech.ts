@@ -43,8 +43,15 @@ const requestSchema = z.object({
 }).strict();
 
 function readServerSecret(name: string): string | undefined {
-  const value = (env as unknown as Record<string, unknown>)[name];
-  return typeof value === "string" && value.trim() ? value.trim() : undefined;
+  const runtimeEnv = (globalThis as { __env__?: Record<string, unknown> }).__env__;
+  const runtimeValue = runtimeEnv?.[name];
+  if (typeof runtimeValue === "string" && runtimeValue.trim()) return runtimeValue.trim();
+
+  const importedValue = (env as unknown as Record<string, unknown>)[name];
+  if (typeof importedValue === "string" && importedValue.trim()) return importedValue.trim();
+
+  const nodeValue = process.env[name];
+  return typeof nodeValue === "string" && nodeValue.trim() ? nodeValue.trim() : undefined;
 }
 
 function readGeminiApiKey(): string | undefined {

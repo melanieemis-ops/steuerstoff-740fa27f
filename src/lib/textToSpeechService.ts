@@ -6,6 +6,13 @@ import { loadSpeechSettings, type OpenAiVoice, type TtsProvider } from "@/lib/sp
 
 const cache = new Map<string, string>();
 const FUNCTION_NAME = "api/text-to-speech";
+const TTS_API_ORIGIN = "https://api.steuerstoff.com";
+
+function getTtsApiUrl(path: string): string {
+  if (import.meta.env.DEV) return apiUrl(path);
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  return `${TTS_API_ORIGIN}${normalizedPath}`;
+}
 
 export type TtsApiErrorCode =
   | "CONFIGURATION_ERROR"
@@ -81,7 +88,7 @@ export async function requestSpeechAudio(payload: TtsRequestPayload, signal: Abo
   const accessCode = await getTtsAccessCode();
   if (accessCode) headers["x-tts-access-code"] = accessCode;
 
-  const response = await fetch(apiUrl("/api/text-to-speech"), {
+  const response = await fetch(getTtsApiUrl("/api/text-to-speech"), {
     method: "POST",
     headers,
     body: JSON.stringify({ ...payload, provider, voice }),

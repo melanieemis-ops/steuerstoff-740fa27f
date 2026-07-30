@@ -1,3 +1,4 @@
+import { env } from "cloudflare:workers";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 
@@ -41,47 +42,16 @@ const requestSchema = z.object({
   profileId: z.string().trim().min(1).max(80).optional(),
 }).strict();
 
-type CloudflareRuntimeRequest = Request & {
-  runtime?: { cloudflare?: { env?: Record<string, unknown> } };
-};
-
-let cachedCloudflareEnv: Record<string, unknown> | null = null;
-
-async function getCloudflareEnv(): Promise<Record<string, unknown>> {
-  if (cachedCloudflareEnv !== null) return cachedCloudflareEnv;
-  try {
-    // @ts-ignore cloudflare:workers is only available in Cloudflare Workers
-    const mod = await import("cloudflare:workers");
-    cachedCloudflareEnv = (mod.env as unknown as Record<string, unknown>) ?? {};
-  } catch {
-    cachedCloudflareEnv = {};
-  }
-  return cachedCloudflareEnv;
+function readServerSecret(name: string): string | undefined {
+  const value = (env as unknown as Record<string, unknown>)[name];
+  return typeof value === "string" && value.trim() ? value.trim() : undefined;
 }
 
-async function readServerSecret(name: string, request?: Request): Promise<string | undefined> {
-  const requestEnv = (request as CloudflareRuntimeRequest | undefined)?.runtime?.cloudflare?.env;
-  const requestValue = requestEnv?.[name];
-  if (typeof requestValue === "string" && requestValue.trim()) return requestValue.trim();
-
-  const directValue = (await getCloudflareEnv())[name];
-  if (typeof directValue === "string" && directValue.trim()) return directValue.trim();
-
-  const workerValue = (globalThis as { __env__?: Record<string, unknown> }).__env__?.[name];
-  if (typeof workerValue === "string" && workerValue.trim()) return workerValue.trim();
-
-  const denoValue = (globalThis as { Deno?: { env?: { get: (key: string) => string | undefined } } }).Deno?.env?.get(name);
-  if (typeof denoValue === "string" && denoValue.trim()) return denoValue.trim();
-
-  const nodeValue = process.env[name];
-  return typeof nodeValue === "string" && nodeValue.trim() ? nodeValue.trim() : undefined;
-}
-
-async function readGeminiApiKey(request: Request): Promise<string | undefined> {
+function readGeminiApiKey(): string | undefined {
   return (
-    (await readServerSecret("GEMINIAI_API_KEY", request)) ??
-    (await readServerSecret("GEMINI_API_KEY", request)) ??
-    (await readServerSecret("GOOGLE_API_KEY", request))
+    readServerSecret("GEMINIAI_API_KEY") ??
+    readServerSecret("GEMINI_API_KEY") ??
+    readServerSecret("GOOGLE_API_KEY")
   );
 }
 
@@ -140,8 +110,8 @@ function pcmToWav(pcm: Uint8Array, sampleRate = 24000, channels = 1, bitsPerSamp
   return buffer;
 }
 
-async function validateGeminiAccess(request: Request): Promise<Response | null> {
-  const expectedCode = await readServerSecret("GEMINI_TTS", request);
+function validateGeminiAccess(request: Request): Response | null {
+  const expectedCode = readServerSecret("GEMINI_TTS");
   if (!expectedCode) return jsonError(500, "CONFIGURATION_ERROR", "Der Gemini-Freischaltcode ist serverseitig nicht konfiguriert.");
   const submittedCode = request.headers.get("x-tts-access-code")?.trim();
   if (!submittedCode) return jsonError(401, "MISSING_TTS_ACCESS_CODE", "Für die Vorlesefunktion ist ein Freischaltcode erforderlich.");
@@ -155,10 +125,10 @@ function safeUpstreamMessage(value: string): string {
 }
 
 async function geminiSpeech(request: Request, text: string): Promise<Response> {
-  const accessError = await validateGeminiAccess(request);
+  const accessError = validateGeminiAccess(request);
   if (accessError) return accessError;
 
-  const apiKey = await readGeminiApiKey(request);
+  const apiKey = readGeminiApiKey();
   if (!apiKey) return jsonError(500, "CONFIGURATION_ERROR", "Der Gemini-API-Key GEMINIAI_API_KEY ist serverseitig nicht konfiguriert.");
 
   const prompt = `Erzeuge eine deutsche Sprachausgabe. Lies ausschließlich den Text nach TRANSKRIPT vollständig, natürlich, klar und in ruhigem professionellem Tempo vor.\n\nTRANSKRIPT:\n${text}`;
@@ -223,7 +193,7 @@ async function geminiSpeech(request: Request, text: string): Promise<Response> {
 }
 
 async function openAiSpeech(request: Request, text: string, voice: string): Promise<Response> {
-  const apiKey = await readServerSecret("OPENAI_API_KEY", request);
+  const apiKey = readServerSecret("OPENAI_API_KEY");
   if (!apiKey) return geminiSpeech(request, text);
 
   const upstream = await fetch("https://api.openai.com/v1/audio/speech", {
@@ -240,14 +210,14 @@ async function openAiSpeech(request: Request, text: string, voice: string): Prom
 }
 
 async function elevenLabsSpeech(request: Request, text: string, modelId?: string, profileId?: string): Promise<Response> {
-  const apiKey = await readServerSecret("ELEVENLABS_API_KEY", request);
-  const expectedCode = (await readServerSecret("STEUERSTOFF_TTS", request)) ?? (await readServerSecret("TTS_ACCESS_CODE", request));
+  const apiKey = readServerSecret("ELEVENLABS_API_KEY");
+  const expectedCode = readServerSecret("STEUERSTOFF_TTS") ?? readServerSecret("TTS_ACCESS_CODE");
   if (!apiKey || !expectedCode) return geminiSpeech(request, text);
 
   const submittedCode = request.headers.get("x-tts-access-code")?.trim();
   if (!submittedCode || submittedCode !== expectedCode) return geminiSpeech(request, text);
 
-  const configuredModelId = await readServerSecret("ELEVENLABS_MODEL_ID", request);
+  const configuredModelId = readServerSecret("ELEVENLABS_MODEL_ID");
   const selectedModel = modelId?.trim() || configuredModelId || DEFAULT_TTS_MODEL_ID;
   const profile = getVoiceProfile(profileId);
   const upstream = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${encodeURIComponent(DEFAULT_VOICE_ID)}`, {

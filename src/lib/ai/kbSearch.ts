@@ -28,6 +28,7 @@ import "@/lib/knowledgeBaseExtensions/einkommensteuer-paragraf-5-estg-gewinn-bei
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-paragraf-6-estg-bewertung";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-paragraf-7b-estg-sonderabschreibung-mietwohnungsneubau";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-paragraf-7g-estg-investitionsabzugsbetrag-sonderabschreibung";
+import "@/lib/knowledgeBaseExtensions/einkommensteuer-paragraf-8-estg-einnahmen-sachbezuege";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-teilentgeltliche-grundstuecksuebertragung-23-estg";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-vorsorgepauschale-ab-2026";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-grundstueckseigentuemer-update-2025-2026-paragraf-21";
@@ -302,8 +303,7 @@ export function formatKbContext(hits: KbHit[]): string {
   return hits
     .map((hit, index) => {
       const head = `[${index + 1}] ${hit.title}${hit.reference ? ` — ${hit.reference}` : ""} (id: ${hit.id}, Relevanz: ${hit.score})`;
-      return `${head}
-${hit.excerpt}`;
+      return `${head}\n${hit.excerpt}`;
     })
     .join("\n\n---\n\n");
 }

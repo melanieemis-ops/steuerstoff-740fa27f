@@ -369,7 +369,7 @@ export const Route = createFileRoute("/api/text-to-speech")({
         } catch (error) {
           if (error instanceof DOMException && error.name === "AbortError") {
             console.warn("[tts] request aborted by client");
-            return jsonError(499 as number as 400, "REQUEST_INVALID", "Die Anfrage wurde abgebrochen.");
+            return jsonError(400, "REQUEST_INVALID", "Die Anfrage wurde abgebrochen.");
           }
           const detail = error instanceof Error ? safeUpstreamMessage(error.message) : "unbekannter Fehler";
           console.error("[tts] unhandled error", detail);

@@ -165,7 +165,7 @@ async function validateGeminiAccess(request: Request): Promise<Response | null> 
 
 function safeUpstreamMessage(value: string): string {
   const compact = value.replace(/\s+/g, " ").trim();
-  return compact.length > 240 ? `${compact.slice(0, 240)}…` : compact;
+  return compact.length > 4000 ? `${compact.slice(0, 4000)}…` : compact;
 }
 
 const UPSTREAM_TTS_URL = "https://steuerstoff-740fa27f.melanieemis.workers.dev/api/text-to-speech";
@@ -212,6 +212,20 @@ async function proxyToUpstream(request: Request, payload: Record<string, unknown
   }
   responseHeaders.set("cache-control", "private, no-store");
 
+  if (!upstream.ok) {
+    const upstreamBody = await upstream.text().catch(() => "");
+    const detail = upstreamBody.trim() || "Leerer Fehlerbody";
+    console.error("[tts-proxy] upstream error", {
+      status: upstream.status,
+      body: detail,
+    });
+    return jsonError(
+      upstream.status,
+      "GEMINI_ERROR",
+      `TTS-Worker HTTP ${upstream.status}: ${safeUpstreamMessage(detail)}`,
+    );
+  }
+
   return new Response(upstream.body, { status: upstream.status, headers: responseHeaders });
 }
 
@@ -226,9 +240,14 @@ function isUpstreamWorkerHost(request: Request): boolean {
 }
 
 async function geminiSpeech(request: Request, text: string, payload: Record<string, unknown>): Promise<Response> {
-  if (!isUpstreamWorkerHost(request)) {
+  const arrivedThroughProxy = request.headers.get(PROXY_MARKER_HEADER) === "1";
+  if (!isUpstreamWorkerHost(request) && !arrivedThroughProxy) {
     console.log("[tts] gemini: forwarding to upstream worker (non-workers.dev host)");
     return proxyToUpstream(request, { ...payload, text });
+  }
+
+  if (arrivedThroughProxy && !isUpstreamWorkerHost(request)) {
+    console.warn("[tts] proxied Worker request retained the custom-domain URL; processing locally to prevent a Worker loop");
   }
 
   const apiKey = await readGeminiApiKey();
@@ -243,11 +262,13 @@ async function geminiSpeech(request: Request, text: string, payload: Record<stri
 
   const prompt = `Erzeuge eine deutsche Sprachausgabe. Lies ausschließlich den Text nach TRANSKRIPT vollständig, natürlich, klar und in ruhigem professionellem Tempo vor.\n\nTRANSKRIPT:\n${text}`;
   let lastFailure = "";
+  let lastStatus = 502;
 
   for (const model of GEMINI_TTS_MODELS) {
     for (let attempt = 1; attempt <= 2; attempt += 1) {
+      const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`;
       const upstream = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`,
+        endpoint,
         {
           method: "POST",
           headers: { "content-type": "application/json", "x-goog-api-key": apiKey },
@@ -264,13 +285,21 @@ async function geminiSpeech(request: Request, text: string, payload: Record<stri
 
       if (!upstream) {
         lastFailure = `${model}: Netzwerkfehler`;
+        lastStatus = 502;
+        console.error("[gemini-tts] network error", { model, endpoint });
         continue;
       }
 
       if (!upstream.ok) {
-        const body = safeUpstreamMessage(await upstream.text().catch(() => ""));
-        lastFailure = `${model}: HTTP ${upstream.status}${body ? ` – ${body}` : ""}`;
-        console.error("[gemini-tts]", lastFailure);
+        const body = await upstream.text().catch(() => "");
+        lastStatus = upstream.status;
+        lastFailure = `${model}: Gemini HTTP ${upstream.status}${body ? ` – ${safeUpstreamMessage(body)}` : " – Leerer Response-Body"}`;
+        console.error("[gemini-tts] Gemini API error", {
+          model,
+          endpoint,
+          status: upstream.status,
+          body,
+        });
         if (upstream.status === 401 || upstream.status === 403) break;
         continue;
       }
@@ -280,14 +309,30 @@ async function geminiSpeech(request: Request, text: string, payload: Record<stri
       } | null;
       const inlineData = geminiPayload?.candidates?.[0]?.content?.parts?.find((part) => part.inlineData?.data)?.inlineData;
       if (!inlineData?.data) {
-        lastFailure = `${model}: Die Antwort enthielt keine Audiodaten.`;
-        console.error("[gemini-tts]", lastFailure);
+        lastStatus = 502;
+        const responseBody = JSON.stringify(geminiPayload);
+        lastFailure = `${model}: Gemini HTTP ${upstream.status}, aber die Antwort enthielt keine Audiodaten – ${safeUpstreamMessage(responseBody)}`;
+        console.error("[gemini-tts] Gemini response without audio", {
+          model,
+          status: upstream.status,
+          body: responseBody,
+        });
         continue;
       }
 
-      const pcm = decodeBase64(inlineData.data);
-      const wav = pcmToWav(pcm);
-      return new Response(wav, {
+      const audioBytes = decodeBase64(inlineData.data);
+      const mimeType = inlineData.mimeType?.toLowerCase() ?? "audio/l16;rate=24000";
+      const sampleRateMatch = mimeType.match(/rate=(\d+)/);
+      const sampleRate = sampleRateMatch ? Number(sampleRateMatch[1]) : 24000;
+      const isWav = mimeType.includes("audio/wav") || mimeType.includes("audio/x-wav");
+      const audio = isWav ? new Uint8Array(audioBytes) : pcmToWav(audioBytes, sampleRate);
+      console.log("[gemini-tts] audio received", {
+        model,
+        status: upstream.status,
+        sourceMimeType: mimeType,
+        bytes: audioBytes.byteLength,
+      });
+      return new Response(audio, {
         headers: {
           ...CORS_HEADERS,
           "content-type": "audio/wav",
@@ -299,7 +344,7 @@ async function geminiSpeech(request: Request, text: string, payload: Record<stri
     }
   }
 
-  return jsonError(502, "GEMINI_ERROR", lastFailure || "Die Gemini-Stimme konnte gerade nicht erstellt werden.");
+  return jsonError(lastStatus, "GEMINI_ERROR", lastFailure || "Gemini lieferte keine verwertbare Antwort.");
 }
 
 async function openAiSpeech(request: Request, text: string, voice: string, payload: Record<string, unknown>): Promise<Response> {

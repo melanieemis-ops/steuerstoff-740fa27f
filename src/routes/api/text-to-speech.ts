@@ -177,6 +177,7 @@ const PROXY_MARKER_HEADER = "x-tts-proxy-hop";
  */
 async function proxyToUpstream(request: Request, payload: Record<string, unknown>): Promise<Response> {
   if (request.headers.get(PROXY_MARKER_HEADER)) {
+    console.warn("[tts-proxy] Proxy-Hop erkannt – Abbruch, kein lokaler Gemini-Key");
     return jsonError(500, "CONFIGURATION_ERROR", "Der Gemini-API-Key GEMINIAI_API_KEY ist serverseitig nicht konfiguriert.");
   }
 
@@ -188,16 +189,19 @@ async function proxyToUpstream(request: Request, payload: Record<string, unknown
   if (accessCode) headers["x-tts-access-code"] = accessCode;
 
   let upstream: Response;
+  const startedAt = Date.now();
   try {
+    console.log("[tts-proxy] proxy start", { host: new URL(UPSTREAM_TTS_URL).host, hasAccessCode: Boolean(accessCode) });
     upstream = await fetch(UPSTREAM_TTS_URL, {
       method: "POST",
       headers,
       body: JSON.stringify({ ...payload, provider: "gemini" }),
       signal: request.signal,
     });
+    console.log("[tts-proxy] proxy response status", upstream.status, `${Date.now() - startedAt}ms`);
   } catch (error) {
     const detail = error instanceof Error ? safeUpstreamMessage(error.message) : "unbekannter Netzwerkfehler";
-    console.error("[tts-proxy] Upstream nicht erreichbar", error);
+    console.error("[tts-proxy] Upstream nicht erreichbar", detail);
     return jsonError(502, "GEMINI_ERROR", `Der Sprachdienst ist nicht erreichbar (${detail}).`);
   }
 
@@ -210,6 +214,7 @@ async function proxyToUpstream(request: Request, payload: Record<string, unknown
 
   return new Response(upstream.body, { status: upstream.status, headers: responseHeaders });
 }
+
 
 async function geminiSpeech(request: Request, text: string, payload: Record<string, unknown>): Promise<Response> {
   const apiKey = await readGeminiApiKey();

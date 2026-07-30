@@ -216,12 +216,29 @@ async function proxyToUpstream(request: Request, payload: Record<string, unknown
 }
 
 
+/** Läuft der Request bereits auf der Worker-Domain? Dann lokal erzeugen, sonst weiterleiten. */
+function isUpstreamWorkerHost(request: Request): boolean {
+  try {
+    return new URL(request.url).hostname.endsWith(".workers.dev");
+  } catch {
+    return false;
+  }
+}
+
 async function geminiSpeech(request: Request, text: string, payload: Record<string, unknown>): Promise<Response> {
+  if (!isUpstreamWorkerHost(request)) {
+    console.log("[tts] gemini: forwarding to upstream worker (non-workers.dev host)");
+    return proxyToUpstream(request, { ...payload, text });
+  }
+
   const apiKey = await readGeminiApiKey();
-  if (!apiKey) return proxyToUpstream(request, { ...payload, text });
+  if (!apiKey) {
+    return jsonError(500, "CONFIGURATION_ERROR", "Der Gemini-API-Key ist serverseitig nicht konfiguriert.");
+  }
 
   const accessError = await validateGeminiAccess(request);
   if (accessError) return accessError;
+
 
 
   const prompt = `Erzeuge eine deutsche Sprachausgabe. Lies ausschließlich den Text nach TRANSKRIPT vollständig, natürlich, klar und in ruhigem professionellem Tempo vor.\n\nTRANSKRIPT:\n${text}`;

@@ -8,6 +8,9 @@ const MAX_TEXT_LENGTH = 12000;
 const RATE_WINDOW_MS = 10 * 60 * 1000;
 const RATE_LIMIT = 24;
 const DEFAULT_VOICE_ID = "g1jpii0iyvtRs8fqXsd1";
+const GEMINI_TTS_MODEL = "gemini-2.5-flash-preview-tts";
+const GEMINI_TTS_FALLBACK_MODEL = "gemini-2.5-pro-preview-tts";
+const GEMINI_TTS_VOICE = "Kore";
 
 const CORS_HEADERS = {
   "access-control-allow-origin": "*",
@@ -18,17 +21,19 @@ const CORS_HEADERS = {
 
 type TtsErrorCode =
   | "CONFIGURATION_ERROR"
+  | "MISSING_TTS_ACCESS_CODE"
   | "INVALID_TTS_ACCESS_CODE"
   | "RATE_LIMITED"
   | "ELEVENLABS_ERROR"
   | "OPENAI_ERROR"
+  | "GEMINI_ERROR"
   | "REQUEST_INVALID"
   | "TEXT_TOO_LONG";
 
 const requestSchema = z
   .object({
     text: z.string().min(1).max(MAX_TEXT_LENGTH),
-    provider: z.enum(["openai", "elevenlabs"]).default("openai"),
+    provider: z.enum(["openai", "elevenlabs", "gemini"]).default("openai"),
     voice: z.enum(["coral", "marin", "nova", "shimmer"]).optional(),
     modelId: z.string().trim().min(1).max(100).optional(),
     profileId: z.string().trim().min(1).max(80).optional(),
@@ -71,6 +76,14 @@ async function readServerSecret(name: string, request?: Request): Promise<string
   return typeof nodeValue === "string" && nodeValue.trim() ? nodeValue.trim() : undefined;
 }
 
+async function readGeminiApiKey(request: Request): Promise<string | undefined> {
+  return (
+    (await readServerSecret("GEMINIAI_API_KEY", request)) ??
+    (await readServerSecret("GEMINI_API_KEY", request)) ??
+    (await readServerSecret("GOOGLE_API_KEY", request))
+  );
+}
+
 const buckets = new Map<string, number[]>();
 function getIp(request: Request): string {
   const h = request.headers;
@@ -91,9 +104,113 @@ function jsonError(status: number, code: TtsErrorCode, message: string) {
   });
 }
 
+function decodeBase64(value: string): Uint8Array {
+  const binary = atob(value);
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i += 1) bytes[i] = binary.charCodeAt(i);
+  return bytes;
+}
+
+function pcmToWav(pcm: Uint8Array, sampleRate = 24000, channels = 1, bitsPerSample = 16): ArrayBuffer {
+  const headerSize = 44;
+  const buffer = new ArrayBuffer(headerSize + pcm.byteLength);
+  const view = new DataView(buffer);
+  const bytes = new Uint8Array(buffer);
+  const writeAscii = (offset: number, value: string) => {
+    for (let i = 0; i < value.length; i += 1) bytes[offset + i] = value.charCodeAt(i);
+  };
+  const blockAlign = channels * (bitsPerSample / 8);
+  const byteRate = sampleRate * blockAlign;
+
+  writeAscii(0, "RIFF");
+  view.setUint32(4, 36 + pcm.byteLength, true);
+  writeAscii(8, "WAVE");
+  writeAscii(12, "fmt ");
+  view.setUint32(16, 16, true);
+  view.setUint16(20, 1, true);
+  view.setUint16(22, channels, true);
+  view.setUint32(24, sampleRate, true);
+  view.setUint32(28, byteRate, true);
+  view.setUint16(32, blockAlign, true);
+  view.setUint16(34, bitsPerSample, true);
+  writeAscii(36, "data");
+  view.setUint32(40, pcm.byteLength, true);
+  bytes.set(pcm, headerSize);
+  return buffer;
+}
+
+async function validateGeminiAccess(request: Request): Promise<Response | null> {
+  const expectedCode = await readServerSecret("GEMINI_TTS", request);
+  if (!expectedCode) {
+    return jsonError(500, "CONFIGURATION_ERROR", "Der Gemini-Freischaltcode ist serverseitig nicht konfiguriert.");
+  }
+  const submittedCode = request.headers.get("x-tts-access-code")?.trim();
+  if (!submittedCode) {
+    return jsonError(401, "MISSING_TTS_ACCESS_CODE", "Für die Vorlesefunktion ist ein Freischaltcode erforderlich.");
+  }
+  if (submittedCode !== expectedCode) {
+    return jsonError(401, "INVALID_TTS_ACCESS_CODE", "Der Freischaltcode ist ungültig.");
+  }
+  return null;
+}
+
+async function geminiSpeech(request: Request, text: string): Promise<Response> {
+  const accessError = await validateGeminiAccess(request);
+  if (accessError) return accessError;
+
+  const apiKey = await readGeminiApiKey(request);
+  if (!apiKey) return jsonError(500, "CONFIGURATION_ERROR", "Die Gemini-Stimme ist nicht konfiguriert.");
+
+  const prompt = `Lies den folgenden deutschen Text vollständig, natürlich, klar und in ruhigem professionellem Tempo vor. Sprich nur den eigentlichen Text und keine Anweisungen.\n\nTEXT:\n${text}`;
+
+  for (const model of [GEMINI_TTS_MODEL, GEMINI_TTS_FALLBACK_MODEL]) {
+    const upstream = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`,
+      {
+        method: "POST",
+        headers: { "content-type": "application/json", "x-goog-api-key": apiKey },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: {
+            responseModalities: ["AUDIO"],
+            speechConfig: {
+              voiceConfig: {
+                prebuiltVoiceConfig: { voiceName: GEMINI_TTS_VOICE },
+              },
+            },
+          },
+        }),
+        signal: request.signal,
+      },
+    ).catch(() => null);
+
+    if (!upstream?.ok) continue;
+
+    const payload = (await upstream.json().catch(() => null)) as {
+      candidates?: Array<{ content?: { parts?: Array<{ inlineData?: { data?: string; mimeType?: string } }> } }>;
+    } | null;
+    const inlineData = payload?.candidates?.[0]?.content?.parts?.find((part) => part.inlineData?.data)?.inlineData;
+    if (!inlineData?.data) continue;
+
+    const pcm = decodeBase64(inlineData.data);
+    const wav = pcmToWav(pcm);
+    return new Response(wav, {
+      headers: {
+        ...CORS_HEADERS,
+        "content-type": "audio/wav",
+        "cache-control": "private, max-age=3600",
+        "x-tts-provider": "gemini",
+        "x-tts-model": model,
+      },
+    });
+  }
+
+  return jsonError(502, "GEMINI_ERROR", "Die Gemini-Stimme konnte gerade nicht erstellt werden.");
+}
+
 async function openAiSpeech(request: Request, text: string, voice: string): Promise<Response> {
   const apiKey = await readServerSecret("OPENAI_API_KEY", request);
-  if (!apiKey) return jsonError(500, "CONFIGURATION_ERROR", "Die OpenAI-Stimme ist nicht konfiguriert.");
+  if (!apiKey) return geminiSpeech(request, text);
 
   const upstream = await fetch("https://api.openai.com/v1/audio/speech", {
     method: "POST",
@@ -102,20 +219,7 @@ async function openAiSpeech(request: Request, text: string, voice: string): Prom
     signal: request.signal,
   }).catch(() => null);
 
-  if (!upstream?.ok) {
-    if (upstream?.status === 429) {
-      const detail = await upstream.clone().text().catch(() => "");
-      if (detail.includes("insufficient_quota")) {
-        return jsonError(
-          402,
-          "OPENAI_ERROR",
-          "Das OpenAI-Guthaben für die Vorlesefunktion ist aufgebraucht. Bitte Abrechnung im OpenAI-Konto prüfen.",
-        );
-      }
-      return jsonError(429, "RATE_LIMITED", "Die OpenAI-Stimme ist gerade ausgelastet.");
-    }
-    return jsonError(502, "OPENAI_ERROR", "Die OpenAI-Stimme konnte gerade nicht erstellt werden.");
-  }
+  if (!upstream?.ok) return geminiSpeech(request, text);
   return new Response(await upstream.arrayBuffer(), {
     headers: { ...CORS_HEADERS, "content-type": "audio/mpeg", "cache-control": "private, max-age=3600", "x-tts-provider": "openai" },
   });
@@ -124,10 +228,10 @@ async function openAiSpeech(request: Request, text: string, voice: string): Prom
 async function elevenLabsSpeech(request: Request, text: string, modelId?: string, profileId?: string): Promise<Response> {
   const apiKey = await readServerSecret("ELEVENLABS_API_KEY", request);
   const expectedCode = (await readServerSecret("STEUERSTOFF_TTS", request)) ?? (await readServerSecret("TTS_ACCESS_CODE", request));
-  if (!apiKey || !expectedCode) return jsonError(500, "CONFIGURATION_ERROR", "Die ElevenLabs-Stimme ist nicht konfiguriert.");
+  if (!apiKey || !expectedCode) return geminiSpeech(request, text);
 
   const submittedCode = request.headers.get("x-tts-access-code")?.trim();
-  if (!submittedCode || submittedCode !== expectedCode) return jsonError(401, "INVALID_TTS_ACCESS_CODE", "Der Freischaltcode ist ungültig.");
+  if (!submittedCode || submittedCode !== expectedCode) return geminiSpeech(request, text);
 
   const configuredModelId = await readServerSecret("ELEVENLABS_MODEL_ID", request);
   const selectedModel = modelId?.trim() || configuredModelId || DEFAULT_TTS_MODEL_ID;
@@ -148,10 +252,7 @@ async function elevenLabsSpeech(request: Request, text: string, modelId?: string
     signal: request.signal,
   }).catch(() => null);
 
-  if (!upstream?.ok) {
-    if (upstream?.status === 429) return jsonError(429, "RATE_LIMITED", "ElevenLabs ist gerade ausgelastet.");
-    return jsonError(502, "ELEVENLABS_ERROR", "Die ElevenLabs-Stimme konnte gerade nicht erstellt werden.");
-  }
+  if (!upstream?.ok) return geminiSpeech(request, text);
   return new Response(await upstream.arrayBuffer(), {
     headers: { ...CORS_HEADERS, "content-type": "audio/mpeg", "cache-control": "private, max-age=3600", "x-tts-provider": "elevenlabs" },
   });
@@ -172,9 +273,11 @@ export const Route = createFileRoute("/api/text-to-speech")({
         if (!text) return jsonError(400, "REQUEST_INVALID", "Der Text ist leer oder ungültig.");
         if (text.length > MAX_TEXT_LENGTH) return jsonError(413, "TEXT_TOO_LONG", "Der Text ist zu lang.");
 
-        return parsed.data.provider === "elevenlabs"
-          ? elevenLabsSpeech(request, text, parsed.data.modelId, parsed.data.profileId)
-          : openAiSpeech(request, text, parsed.data.voice ?? "coral");
+        if (parsed.data.provider === "gemini") return geminiSpeech(request, text);
+        if (parsed.data.provider === "elevenlabs") {
+          return elevenLabsSpeech(request, text, parsed.data.modelId, parsed.data.profileId);
+        }
+        return openAiSpeech(request, text, parsed.data.voice ?? "coral");
       },
     },
   },

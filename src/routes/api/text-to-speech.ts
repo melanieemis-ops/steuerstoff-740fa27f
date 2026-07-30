@@ -1,4 +1,3 @@
-import { env } from "cloudflare:workers";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 
@@ -72,12 +71,21 @@ async function readBindingValue(binding: unknown): Promise<string | undefined> {
   }
 }
 
+async function readCloudflareEnv(): Promise<Record<string, unknown>> {
+  try {
+    const mod = (await import("cloudflare:workers")) as { env?: unknown };
+    return (mod.env as Record<string, unknown>) ?? {};
+  } catch {
+    return {};
+  }
+}
+
 async function readServerSecret(name: string): Promise<string | undefined> {
   const runtimeEnv = (globalThis as { __env__?: Record<string, unknown> }).__env__;
   const runtimeValue = await readBindingValue(runtimeEnv?.[name]);
   if (runtimeValue) return runtimeValue;
 
-  const importedValue = await readBindingValue((env as unknown as Record<string, unknown>)[name]);
+  const importedValue = await readBindingValue((await readCloudflareEnv())[name]);
   if (importedValue) return importedValue;
 
   return normalizeSecret(process.env[name]);
@@ -160,12 +168,56 @@ function safeUpstreamMessage(value: string): string {
   return compact.length > 240 ? `${compact.slice(0, 240)}…` : compact;
 }
 
-async function geminiSpeech(request: Request, text: string): Promise<Response> {
+const UPSTREAM_TTS_URL = "https://steuerstoff-740fa27f.melanieemis.workers.dev/api/text-to-speech";
+const PROXY_MARKER_HEADER = "x-tts-proxy-hop";
+
+/**
+ * Reicht die Anfrage an den Cloudflare-Worker weiter, wenn lokal kein Gemini-Key vorhanden ist.
+ * Der Marker-Header verhindert eine Endlosschleife, falls derselbe Code upstream läuft.
+ */
+async function proxyToUpstream(request: Request, payload: Record<string, unknown>): Promise<Response> {
+  if (request.headers.get(PROXY_MARKER_HEADER)) {
+    return jsonError(500, "CONFIGURATION_ERROR", "Der Gemini-API-Key GEMINIAI_API_KEY ist serverseitig nicht konfiguriert.");
+  }
+
+  const accessCode = request.headers.get("x-tts-access-code");
+  const headers: Record<string, string> = {
+    "content-type": "application/json",
+    [PROXY_MARKER_HEADER]: "1",
+  };
+  if (accessCode) headers["x-tts-access-code"] = accessCode;
+
+  let upstream: Response;
+  try {
+    upstream = await fetch(UPSTREAM_TTS_URL, {
+      method: "POST",
+      headers,
+      body: JSON.stringify({ ...payload, provider: "gemini" }),
+      signal: request.signal,
+    });
+  } catch (error) {
+    const detail = error instanceof Error ? safeUpstreamMessage(error.message) : "unbekannter Netzwerkfehler";
+    console.error("[tts-proxy] Upstream nicht erreichbar", error);
+    return jsonError(502, "GEMINI_ERROR", `Der Sprachdienst ist nicht erreichbar (${detail}).`);
+  }
+
+  const responseHeaders = new Headers(CORS_HEADERS);
+  for (const name of ["content-type", "x-tts-provider", "x-tts-model"]) {
+    const value = upstream.headers.get(name);
+    if (value) responseHeaders.set(name, value);
+  }
+  responseHeaders.set("cache-control", "private, no-store");
+
+  return new Response(upstream.body, { status: upstream.status, headers: responseHeaders });
+}
+
+async function geminiSpeech(request: Request, text: string, payload: Record<string, unknown>): Promise<Response> {
+  const apiKey = await readGeminiApiKey();
+  if (!apiKey) return proxyToUpstream(request, { ...payload, text });
+
   const accessError = await validateGeminiAccess(request);
   if (accessError) return accessError;
 
-  const apiKey = await readGeminiApiKey();
-  if (!apiKey) return jsonError(500, "CONFIGURATION_ERROR", "Der Gemini-API-Key GEMINIAI_API_KEY ist serverseitig nicht konfiguriert.");
 
   const prompt = `Erzeuge eine deutsche Sprachausgabe. Lies ausschließlich den Text nach TRANSKRIPT vollständig, natürlich, klar und in ruhigem professionellem Tempo vor.\n\nTRANSKRIPT:\n${text}`;
   let lastFailure = "";
@@ -201,10 +253,10 @@ async function geminiSpeech(request: Request, text: string): Promise<Response> {
         continue;
       }
 
-      const payload = (await upstream.json().catch(() => null)) as {
+      const geminiPayload = (await upstream.json().catch(() => null)) as {
         candidates?: Array<{ content?: { parts?: Array<{ inlineData?: { data?: string; mimeType?: string } }> } }>;
       } | null;
-      const inlineData = payload?.candidates?.[0]?.content?.parts?.find((part) => part.inlineData?.data)?.inlineData;
+      const inlineData = geminiPayload?.candidates?.[0]?.content?.parts?.find((part) => part.inlineData?.data)?.inlineData;
       if (!inlineData?.data) {
         lastFailure = `${model}: Die Antwort enthielt keine Audiodaten.`;
         console.error("[gemini-tts]", lastFailure);
@@ -228,9 +280,9 @@ async function geminiSpeech(request: Request, text: string): Promise<Response> {
   return jsonError(502, "GEMINI_ERROR", lastFailure || "Die Gemini-Stimme konnte gerade nicht erstellt werden.");
 }
 
-async function openAiSpeech(request: Request, text: string, voice: string): Promise<Response> {
+async function openAiSpeech(request: Request, text: string, voice: string, payload: Record<string, unknown>): Promise<Response> {
   const apiKey = await readServerSecret("OPENAI_API_KEY");
-  if (!apiKey) return geminiSpeech(request, text);
+  if (!apiKey) return geminiSpeech(request, text, payload);
 
   const upstream = await fetch("https://api.openai.com/v1/audio/speech", {
     method: "POST",
@@ -239,19 +291,19 @@ async function openAiSpeech(request: Request, text: string, voice: string): Prom
     signal: request.signal,
   }).catch(() => null);
 
-  if (!upstream?.ok) return geminiSpeech(request, text);
+  if (!upstream?.ok) return geminiSpeech(request, text, payload);
   return new Response(await upstream.arrayBuffer(), {
     headers: { ...CORS_HEADERS, "content-type": "audio/mpeg", "cache-control": "private, max-age=3600", "x-tts-provider": "openai" },
   });
 }
 
-async function elevenLabsSpeech(request: Request, text: string, modelId?: string, profileId?: string): Promise<Response> {
+async function elevenLabsSpeech(request: Request, text: string, payload: Record<string, unknown>, modelId?: string, profileId?: string): Promise<Response> {
   const apiKey = await readServerSecret("ELEVENLABS_API_KEY");
   const expectedCode = (await readServerSecret("STEUERSTOFF_TTS")) ?? (await readServerSecret("TTS_ACCESS_CODE"));
-  if (!apiKey || !expectedCode) return geminiSpeech(request, text);
+  if (!apiKey || !expectedCode) return geminiSpeech(request, text, payload);
 
   const submittedCode = request.headers.get("x-tts-access-code")?.trim();
-  if (!submittedCode || submittedCode !== expectedCode) return geminiSpeech(request, text);
+  if (!submittedCode || submittedCode !== expectedCode) return geminiSpeech(request, text, payload);
 
   const configuredModelId = await readServerSecret("ELEVENLABS_MODEL_ID");
   const selectedModel = modelId?.trim() || configuredModelId || DEFAULT_TTS_MODEL_ID;
@@ -272,7 +324,7 @@ async function elevenLabsSpeech(request: Request, text: string, modelId?: string
     signal: request.signal,
   }).catch(() => null);
 
-  if (!upstream?.ok) return geminiSpeech(request, text);
+  if (!upstream?.ok) return geminiSpeech(request, text, payload);
   return new Response(await upstream.arrayBuffer(), {
     headers: { ...CORS_HEADERS, "content-type": "audio/mpeg", "cache-control": "private, max-age=3600", "x-tts-provider": "elevenlabs" },
   });
@@ -293,9 +345,15 @@ export const Route = createFileRoute("/api/text-to-speech")({
         if (!text) return jsonError(400, "REQUEST_INVALID", "Der Text ist leer oder ungültig.");
         if (text.length > MAX_TEXT_LENGTH) return jsonError(413, "TEXT_TOO_LONG", "Der Text ist zu lang.");
 
-        if (parsed.data.provider === "gemini") return geminiSpeech(request, text);
-        if (parsed.data.provider === "elevenlabs") return elevenLabsSpeech(request, text, parsed.data.modelId, parsed.data.profileId);
-        return openAiSpeech(request, text, parsed.data.voice ?? "coral");
+        const payload: Record<string, unknown> = {
+          modelId: parsed.data.modelId,
+          profileId: parsed.data.profileId,
+          voice: parsed.data.voice,
+        };
+
+        if (parsed.data.provider === "gemini") return geminiSpeech(request, text, payload);
+        if (parsed.data.provider === "elevenlabs") return elevenLabsSpeech(request, text, payload, parsed.data.modelId, parsed.data.profileId);
+        return openAiSpeech(request, text, parsed.data.voice ?? "coral", payload);
       },
     },
   },

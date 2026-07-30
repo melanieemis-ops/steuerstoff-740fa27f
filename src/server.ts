@@ -7,6 +7,10 @@ type ServerEntry = {
   fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
 };
 
+type SecretStoreBinding = {
+  get: () => Promise<unknown> | unknown;
+};
+
 let serverEntryPromise: Promise<ServerEntry> | undefined;
 
 async function getServerEntry(): Promise<ServerEntry> {
@@ -72,8 +76,8 @@ function exposeWorkerEnv(env: unknown): void {
   const runtimeEnv = env as Record<string, unknown>;
   (globalThis as { __env__?: Record<string, unknown> }).__env__ = runtimeEnv;
 
-  // TanStack server routes can run in a separate module context. Mirroring string
-  // bindings into process.env gives the TTS route a reliable second access path.
+  // Normal string bindings remain available through process.env for local/server fallbacks.
+  // Secrets Store bindings stay as objects and are read asynchronously with binding.get().
   for (const [name, value] of Object.entries(runtimeEnv)) {
     if (typeof value === "string" && value.trim()) {
       process.env[name] = value;
@@ -81,7 +85,29 @@ function exposeWorkerEnv(env: unknown): void {
   }
 }
 
-function ttsBindingDiagnostics(env: unknown): Response {
+function isSecretStoreBinding(value: unknown): value is SecretStoreBinding {
+  return Boolean(
+    value &&
+      typeof value === "object" &&
+      "get" in value &&
+      typeof (value as { get?: unknown }).get === "function",
+  );
+}
+
+async function bindingIsConfigured(binding: unknown): Promise<boolean> {
+  if (typeof binding === "string") return binding.trim().length > 0;
+  if (!isSecretStoreBinding(binding)) return false;
+
+  try {
+    const value = await binding.get();
+    return typeof value === "string" && value.trim().length > 0;
+  } catch (error) {
+    console.error("[tts-env-debug] Secrets-Store-Binding konnte nicht gelesen werden", error);
+    return false;
+  }
+}
+
+async function ttsBindingDiagnostics(env: unknown): Promise<Response> {
   const runtimeEnv = env && typeof env === "object" ? (env as Record<string, unknown>) : {};
   const names = [
     "GEMINI_TTS",
@@ -93,7 +119,7 @@ function ttsBindingDiagnostics(env: unknown): Response {
     "ELEVENLABS_VOICE_ID",
   ];
   const bindings = Object.fromEntries(
-    names.map((name) => [name, typeof runtimeEnv[name] === "string" && String(runtimeEnv[name]).trim().length > 0]),
+    await Promise.all(names.map(async (name) => [name, await bindingIsConfigured(runtimeEnv[name])] as const)),
   );
 
   return new Response(JSON.stringify({ ok: true, bindings }, null, 2), {
@@ -111,7 +137,7 @@ export default {
       exposeWorkerEnv(env);
       const url = new URL(request.url);
       if (url.pathname === "/api/tts-env-debug") {
-        return ttsBindingDiagnostics(env);
+        return await ttsBindingDiagnostics(env);
       }
 
       const handler = await getServerEntry();

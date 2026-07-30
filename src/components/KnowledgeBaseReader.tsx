@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { loadSpeechSettings, saveSpeechSettings } from "@/lib/speech-storage";
+
+import { loadSpeechSettings, saveSpeechSettings, type TtsProvider } from "@/lib/speech-storage";
 import {
   isTtsAbortError,
-  requestElevenLabsAudio,
+  requestSpeechAudio,
   ttsErrorMessage,
   ttsErrorNeedsSettings,
 } from "@/lib/textToSpeechService";
@@ -62,8 +63,8 @@ function splitTextIntoChunks(text: string, maxLength = 1800): string[] {
   return chunks;
 }
 
-function splitBrowserSpeech(text: string, maxLength = 260): string[] {
-  return splitTextIntoChunks(text, maxLength);
+function splitBrowserSpeech(text: string): string[] {
+  return splitTextIntoChunks(text, 260);
 }
 
 function selectGermanVoice(voices: SpeechSynthesisVoice[]): SpeechSynthesisVoice | undefined {
@@ -92,6 +93,12 @@ async function loadBrowserVoices(): Promise<SpeechSynthesisVoice[]> {
     synthesis.addEventListener("voiceschanged", done, { once: true });
     window.setTimeout(done, 800);
   });
+}
+
+function providerLabel(provider: TtsProvider): string {
+  if (provider === "gemini") return "Gemini AI";
+  if (provider === "elevenlabs") return "ElevenLabs";
+  return "OpenAI";
 }
 
 export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseReaderProps) {
@@ -131,9 +138,7 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
     abortControllerRef.current?.abort();
     abortControllerRef.current = null;
     releaseAudio();
-    if (typeof window !== "undefined" && "speechSynthesis" in window) {
-      window.speechSynthesis.cancel();
-    }
+    if (typeof window !== "undefined" && "speechSynthesis" in window) window.speechSynthesis.cancel();
     modeRef.current = null;
     setIsPreparing(false);
     setIsPlaying(false);
@@ -171,7 +176,7 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
       audio.play().catch(reject);
     });
 
-  const speakWithBrowser = async (text: string, sessionId: number) => {
+  const speakWithBrowser = async (text: string, sessionId: number, failedProvider: TtsProvider) => {
     if (!("speechSynthesis" in window) || typeof SpeechSynthesisUtterance === "undefined") {
       throw new Error("Auf diesem Gerät ist keine Browserstimme verfügbar.");
     }
@@ -182,7 +187,7 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
     const chunks = splitBrowserSpeech(text);
     modeRef.current = "browser";
     setTotalParts(chunks.length);
-    setNotice("ElevenLabs ist gerade nicht verfügbar. Der Beitrag wird kostenlos mit der Gerätestimme vorgelesen.");
+    setNotice(`${providerLabel(failedProvider)} konnte nicht gestartet werden. Die Gerätestimme wird als Rückfallebene verwendet.`);
 
     for (let index = 0; index < chunks.length; index += 1) {
       if (sessionId !== sessionRef.current) return;
@@ -209,12 +214,15 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
     setError(null);
     setNotice(null);
     setErrorNeedsSettings(false);
+
     const prepared = prepareTextForSpeech([title, content].filter(Boolean).join("\n\n"));
     if (!prepared) {
       setError("Für diesen Beitrag wurde kein vorlesbarer Text gefunden.");
       return;
     }
 
+    const settings = loadSpeechSettings();
+    const provider = settings.provider ?? "gemini";
     const sessionId = sessionRef.current;
     setIsPreparing(true);
 
@@ -230,19 +238,25 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
         setCurrentPart(index + 1);
         const controller = new AbortController();
         abortControllerRef.current = controller;
-        const blob = await requestElevenLabsAudio({ text: chunks[index] }, controller.signal);
+        const blob = await requestSpeechAudio({ text: chunks[index], provider }, controller.signal);
         abortControllerRef.current = null;
         await playAudioBlob(blob, sessionId);
       }
     } catch (ttsError) {
       if (sessionId !== sessionRef.current || isTtsAbortError(ttsError)) return;
       releaseAudio();
+
+      const message = ttsErrorMessage(ttsError);
+      setErrorNeedsSettings(ttsErrorNeedsSettings(ttsError));
+      setError(`${providerLabel(provider)}: ${message}`);
+
+      if (settings.allowBrowserFallback === false) return;
+
       try {
-        await speakWithBrowser(prepared, sessionId);
+        await speakWithBrowser(prepared, sessionId, provider);
       } catch (browserError) {
-        setErrorNeedsSettings(ttsErrorNeedsSettings(ttsError));
         setError(
-          `${ttsErrorMessage(ttsError)} Auch die Browserstimme konnte nicht gestartet werden: ${
+          `${providerLabel(provider)}: ${message} Auch die Browserstimme konnte nicht gestartet werden: ${
             browserError instanceof Error ? browserError.message : "Unbekannter Fehler"
           }`,
         );
@@ -337,7 +351,11 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
       {error && (
         <div role="alert" className="mt-3 rounded-xl bg-red-50 px-3 py-2 text-sm text-red-700">
           <p>{error}</p>
-          {errorNeedsSettings && <Link to="/einstellungen" className="mt-2 inline-flex min-h-9 items-center rounded-lg border border-red-200 bg-white px-3 py-1.5 font-medium text-red-800">Zu den Einstellungen</Link>}
+          {errorNeedsSettings && (
+            <Link to="/einstellungen" className="mt-2 inline-flex min-h-9 items-center rounded-lg border border-red-200 bg-white px-3 py-1.5 font-medium text-red-800">
+              Zu den Einstellungen
+            </Link>
+          )}
         </div>
       )}
     </div>

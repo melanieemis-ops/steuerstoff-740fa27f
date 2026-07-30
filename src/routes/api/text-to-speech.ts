@@ -320,7 +320,7 @@ async function geminiSpeech(request: Request, text: string, payload: Record<stri
       const sampleRateMatch = mimeType.match(/rate=(\d+)/);
       const sampleRate = sampleRateMatch ? Number(sampleRateMatch[1]) : 24000;
       const isWav = mimeType.includes("audio/wav") || mimeType.includes("audio/x-wav");
-      const audio = isWav ? audioBytes.buffer.slice(audioBytes.byteOffset, audioBytes.byteOffset + audioBytes.byteLength) : pcmToWav(audioBytes, sampleRate);
+      const audio = isWav ? new Uint8Array(audioBytes) : pcmToWav(audioBytes, sampleRate);
       console.log("[gemini-tts] audio received", {
         model,
         status: upstream.status,

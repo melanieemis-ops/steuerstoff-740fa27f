@@ -1,5 +1,6 @@
 import "./lib/error-capture";
 
+import { env as cloudflareEnv } from "cloudflare:workers";
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
 
@@ -50,15 +51,11 @@ function isCatastrophicSsrErrorBody(body: string, responseStatus: number): boole
     return false;
   }
 
-  if (!payload || Array.isArray(payload) || typeof payload !== "object") {
-    return false;
-  }
+  if (!payload || Array.isArray(payload) || typeof payload !== "object") return false;
 
   const fields = payload as Record<string, unknown>;
   const expectedKeys = new Set(["message", "status", "unhandled"]);
-  if (!Object.keys(fields).every((key) => expectedKeys.has(key))) {
-    return false;
-  }
+  if (!Object.keys(fields).every((key) => expectedKeys.has(key))) return false;
 
   return (
     fields.unhandled === true &&
@@ -67,34 +64,31 @@ function isCatastrophicSsrErrorBody(body: string, responseStatus: number): boole
   );
 }
 
-// h3 swallows in-handler throws into a normal 500 Response with body
-// {"unhandled":true,"message":"HTTPError"} — try/catch alone never fires for those.
 async function normalizeCatastrophicSsrResponse(response: Response): Promise<Response> {
   if (response.status < 500) return response;
   const contentType = response.headers.get("content-type") ?? "";
   if (!contentType.includes("application/json")) return response;
 
   const body = await response.clone().text();
-  if (!isCatastrophicSsrErrorBody(body, response.status)) {
-    return response;
-  }
+  if (!isCatastrophicSsrErrorBody(body, response.status)) return response;
 
   console.error(consumeLastCapturedError() ?? new Error(`h3 swallowed SSR error: ${body}`));
   return brandedErrorResponse();
 }
 
-function exposeWorkerEnv(env: unknown): void {
-  if (!env || typeof env !== "object") return;
+function asRuntimeEnv(value: unknown): Record<string, unknown> | undefined {
+  return value && typeof value === "object" ? (value as Record<string, unknown>) : undefined;
+}
 
-  const runtimeEnv = env as Record<string, unknown>;
-  (globalThis as { __env__?: Record<string, unknown> }).__env__ = runtimeEnv;
+function resolveRuntimeEnv(passedEnv: unknown): Record<string, unknown> {
+  return asRuntimeEnv(passedEnv) ?? (cloudflareEnv as unknown as Record<string, unknown>);
+}
 
-  // Normal string bindings remain available through process.env for local/server fallbacks.
-  // Secrets Store bindings stay as objects and are read asynchronously with binding.get().
-  for (const [name, value] of Object.entries(runtimeEnv)) {
-    if (typeof value === "string" && value.trim()) {
-      process.env[name] = value;
-    }
+function exposeWorkerEnv(env: Record<string, unknown>): void {
+  (globalThis as { __env__?: Record<string, unknown> }).__env__ = env;
+
+  for (const [name, value] of Object.entries(env)) {
+    if (typeof value === "string" && value.trim()) process.env[name] = value;
   }
 }
 
@@ -109,16 +103,9 @@ function isSecretStoreBinding(value: unknown): value is SecretStoreBinding {
 
 function safeErrorDetails(error: unknown): Pick<BindingDiagnostic, "errorName" | "errorMessage"> {
   if (error instanceof Error) {
-    return {
-      errorName: error.name,
-      errorMessage: error.message.slice(0, 500),
-    };
+    return { errorName: error.name, errorMessage: error.message.slice(0, 500) };
   }
-
-  return {
-    errorName: typeof error,
-    errorMessage: String(error).slice(0, 500),
-  };
+  return { errorName: typeof error, errorMessage: String(error).slice(0, 500) };
 }
 
 async function diagnoseBinding(binding: unknown): Promise<BindingDiagnostic> {
@@ -126,17 +113,11 @@ async function diagnoseBinding(binding: unknown): Promise<BindingDiagnostic> {
   const bindingType = binding === null ? "null" : typeof binding;
 
   if (!bindingPresent) {
-    return {
-      bindingPresent: false,
-      bindingType,
-      hasGetMethod: false,
-      getSucceeded: null,
-    };
+    return { bindingPresent: false, bindingType, hasGetMethod: false, getSucceeded: null };
   }
 
   const constructorName =
     (typeof binding === "object" || typeof binding === "function") &&
-    (binding as { constructor?: { name?: unknown } }).constructor &&
     typeof (binding as { constructor?: { name?: unknown } }).constructor?.name === "string"
       ? String((binding as { constructor?: { name?: unknown } }).constructor?.name)
       : undefined;
@@ -161,8 +142,7 @@ async function diagnoseBinding(binding: unknown): Promise<BindingDiagnostic> {
     };
   }
 
-  const hasGetMethod = isSecretStoreBinding(binding);
-  if (!hasGetMethod) {
+  if (!isSecretStoreBinding(binding)) {
     return {
       bindingPresent: true,
       bindingType,
@@ -175,7 +155,6 @@ async function diagnoseBinding(binding: unknown): Promise<BindingDiagnostic> {
 
   try {
     const value = await binding.get();
-    const returnedType = value === null ? "null" : typeof value;
     return {
       bindingPresent: true,
       bindingType,
@@ -183,7 +162,7 @@ async function diagnoseBinding(binding: unknown): Promise<BindingDiagnostic> {
       ownKeys,
       hasGetMethod: true,
       getSucceeded: true,
-      returnedType,
+      returnedType: value === null ? "null" : typeof value,
       valueConfigured: typeof value === "string" ? value.trim().length > 0 : value != null,
     };
   } catch (error) {
@@ -200,8 +179,7 @@ async function diagnoseBinding(binding: unknown): Promise<BindingDiagnostic> {
   }
 }
 
-async function ttsBindingDiagnostics(env: unknown): Promise<Response> {
-  const runtimeEnv = env && typeof env === "object" ? (env as Record<string, unknown>) : {};
+async function ttsBindingDiagnostics(runtimeEnv: Record<string, unknown>): Promise<Response> {
   const names = [
     "GEMINI_TTS",
     "GEMINIAI_API_KEY",
@@ -220,7 +198,7 @@ async function ttsBindingDiagnostics(env: unknown): Promise<Response> {
     JSON.stringify(
       {
         ok: true,
-        runtimeEnvType: env === null ? "null" : typeof env,
+        runtimeEnvType: typeof runtimeEnv,
         runtimeBindingNames: Object.keys(runtimeEnv).sort(),
         bindings,
       },
@@ -238,16 +216,18 @@ async function ttsBindingDiagnostics(env: unknown): Promise<Response> {
 }
 
 export default {
-  async fetch(request: Request, env: unknown, ctx: unknown) {
+  async fetch(request: Request, passedEnv: unknown, ctx: unknown) {
     try {
-      exposeWorkerEnv(env);
+      const runtimeEnv = resolveRuntimeEnv(passedEnv);
+      exposeWorkerEnv(runtimeEnv);
+
       const url = new URL(request.url);
       if (url.pathname === "/api/tts-env-debug") {
-        return await ttsBindingDiagnostics(env);
+        return await ttsBindingDiagnostics(runtimeEnv);
       }
 
       const handler = await getServerEntry();
-      const response = await handler.fetch(request, env, ctx);
+      const response = await handler.fetch(request, runtimeEnv, ctx);
       return await normalizeCatastrophicSsrResponse(response);
     } catch (error) {
       console.error(error);

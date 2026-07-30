@@ -11,6 +11,19 @@ type SecretStoreBinding = {
   get: () => Promise<unknown> | unknown;
 };
 
+type BindingDiagnostic = {
+  bindingPresent: boolean;
+  bindingType: string;
+  constructorName?: string;
+  ownKeys?: string[];
+  hasGetMethod: boolean;
+  getSucceeded: boolean | null;
+  returnedType?: string;
+  valueConfigured?: boolean;
+  errorName?: string;
+  errorMessage?: string;
+};
+
 let serverEntryPromise: Promise<ServerEntry> | undefined;
 
 async function getServerEntry(): Promise<ServerEntry> {
@@ -88,22 +101,102 @@ function exposeWorkerEnv(env: unknown): void {
 function isSecretStoreBinding(value: unknown): value is SecretStoreBinding {
   return Boolean(
     value &&
-      typeof value === "object" &&
+      (typeof value === "object" || typeof value === "function") &&
       "get" in value &&
       typeof (value as { get?: unknown }).get === "function",
   );
 }
 
-async function bindingIsConfigured(binding: unknown): Promise<boolean> {
-  if (typeof binding === "string") return binding.trim().length > 0;
-  if (!isSecretStoreBinding(binding)) return false;
+function safeErrorDetails(error: unknown): Pick<BindingDiagnostic, "errorName" | "errorMessage"> {
+  if (error instanceof Error) {
+    return {
+      errorName: error.name,
+      errorMessage: error.message.slice(0, 500),
+    };
+  }
+
+  return {
+    errorName: typeof error,
+    errorMessage: String(error).slice(0, 500),
+  };
+}
+
+async function diagnoseBinding(binding: unknown): Promise<BindingDiagnostic> {
+  const bindingPresent = binding !== undefined && binding !== null;
+  const bindingType = binding === null ? "null" : typeof binding;
+
+  if (!bindingPresent) {
+    return {
+      bindingPresent: false,
+      bindingType,
+      hasGetMethod: false,
+      getSucceeded: null,
+    };
+  }
+
+  const constructorName =
+    (typeof binding === "object" || typeof binding === "function") &&
+    (binding as { constructor?: { name?: unknown } }).constructor &&
+    typeof (binding as { constructor?: { name?: unknown } }).constructor?.name === "string"
+      ? String((binding as { constructor?: { name?: unknown } }).constructor?.name)
+      : undefined;
+
+  let ownKeys: string[] | undefined;
+  try {
+    ownKeys = Object.keys(binding as object).slice(0, 20);
+  } catch {
+    ownKeys = undefined;
+  }
+
+  if (typeof binding === "string") {
+    return {
+      bindingPresent: true,
+      bindingType,
+      constructorName,
+      ownKeys,
+      hasGetMethod: false,
+      getSucceeded: null,
+      returnedType: "string",
+      valueConfigured: binding.trim().length > 0,
+    };
+  }
+
+  const hasGetMethod = isSecretStoreBinding(binding);
+  if (!hasGetMethod) {
+    return {
+      bindingPresent: true,
+      bindingType,
+      constructorName,
+      ownKeys,
+      hasGetMethod: false,
+      getSucceeded: null,
+    };
+  }
 
   try {
     const value = await binding.get();
-    return typeof value === "string" && value.trim().length > 0;
+    const returnedType = value === null ? "null" : typeof value;
+    return {
+      bindingPresent: true,
+      bindingType,
+      constructorName,
+      ownKeys,
+      hasGetMethod: true,
+      getSucceeded: true,
+      returnedType,
+      valueConfigured: typeof value === "string" ? value.trim().length > 0 : value != null,
+    };
   } catch (error) {
     console.error("[tts-env-debug] Secrets-Store-Binding konnte nicht gelesen werden", error);
-    return false;
+    return {
+      bindingPresent: true,
+      bindingType,
+      constructorName,
+      ownKeys,
+      hasGetMethod: true,
+      getSucceeded: false,
+      ...safeErrorDetails(error),
+    };
   }
 }
 
@@ -118,17 +211,30 @@ async function ttsBindingDiagnostics(env: unknown): Promise<Response> {
     "ELEVENLABS_API_KEY",
     "ELEVENLABS_VOICE_ID",
   ];
+
   const bindings = Object.fromEntries(
-    await Promise.all(names.map(async (name) => [name, await bindingIsConfigured(runtimeEnv[name])] as const)),
+    await Promise.all(names.map(async (name) => [name, await diagnoseBinding(runtimeEnv[name])] as const)),
   );
 
-  return new Response(JSON.stringify({ ok: true, bindings }, null, 2), {
-    status: 200,
-    headers: {
-      "content-type": "application/json; charset=utf-8",
-      "cache-control": "no-store",
+  return new Response(
+    JSON.stringify(
+      {
+        ok: true,
+        runtimeEnvType: env === null ? "null" : typeof env,
+        runtimeBindingNames: Object.keys(runtimeEnv).sort(),
+        bindings,
+      },
+      null,
+      2,
+    ),
+    {
+      status: 200,
+      headers: {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+      },
     },
-  });
+  );
 }
 
 export default {

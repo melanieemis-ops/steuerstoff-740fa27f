@@ -66,15 +66,25 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
   return brandedErrorResponse();
 }
 
+function exposeWorkerEnv(env: unknown): void {
+  if (!env || typeof env !== "object") return;
+
+  const runtimeEnv = env as Record<string, unknown>;
+  (globalThis as { __env__?: Record<string, unknown> }).__env__ = runtimeEnv;
+
+  // TanStack server routes can run in a separate module context. Mirroring string
+  // bindings into process.env gives the TTS route a reliable second access path.
+  for (const [name, value] of Object.entries(runtimeEnv)) {
+    if (typeof value === "string" && value.trim()) {
+      process.env[name] = value;
+    }
+  }
+}
+
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
-      if (env && typeof env === "object") {
-        (globalThis as { __env__?: Record<string, unknown> }).__env__ = env as Record<
-          string,
-          unknown
-        >;
-      }
+      exposeWorkerEnv(env);
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
       return await normalizeCatastrophicSsrResponse(response);

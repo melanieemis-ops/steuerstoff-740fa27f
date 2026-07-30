@@ -23,9 +23,9 @@ export type TtsApiErrorCode =
   | "UNKNOWN_ERROR";
 
 export const TTS_MISSING_ACCESS_CODE_MESSAGE =
-  "Für die ElevenLabs-Stimme benötigst du einen Freischaltcode. Ohne verfügbares ElevenLabs-Kontingent wird automatisch die Gemini-Stimme verwendet.";
+  "Für die Vorlesefunktion benötigst du den Freischaltcode aus den Einstellungen.";
 export const TTS_INVALID_ACCESS_CODE_MESSAGE =
-  "Der ElevenLabs-Freischaltcode ist ungültig. Die Vorlesefunktion versucht automatisch die Gemini-Stimme zu verwenden.";
+  "Der Freischaltcode für die Vorlesefunktion ist ungültig oder nicht mehr gültig.";
 export const TTS_RATE_LIMIT_MESSAGE =
   "Die Vorlesefunktion wird gerade sehr häufig verwendet. Bitte versuche es in Kürze erneut.";
 export const TTS_GENERIC_ERROR_MESSAGE =
@@ -78,12 +78,10 @@ export async function requestSpeechAudio(payload: TtsRequestPayload, signal: Abo
   const voice = payload.voice ?? settings.openAiVoice ?? "coral";
   const headers: Record<string, string> = { "Content-Type": "application/json" };
 
-  // Ein vorhandener Freischaltcode wird weiterhin an ElevenLabs übergeben.
-  // Fehlt er oder funktioniert ElevenLabs nicht, darf das Backend nun automatisch Gemini verwenden.
-  if (provider === "elevenlabs") {
-    const accessCode = await getTtsAccessCode();
-    if (accessCode) headers["x-tts-access-code"] = accessCode;
-  }
+  // Derselbe in Steuerstoff gespeicherte Freischaltcode gilt für die Gemini-Sprachausgabe
+  // und wird auch bei automatischem Fallback von OpenAI oder ElevenLabs mitgesendet.
+  const accessCode = await getTtsAccessCode();
+  if (accessCode) headers["x-tts-access-code"] = accessCode;
 
   const response = await fetch(apiUrl("/api/text-to-speech"), {
     method: "POST",
@@ -101,6 +99,9 @@ export async function requestSpeechAudio(payload: TtsRequestPayload, signal: Abo
     if (process.env.NODE_ENV === "development") console.warn(`[${FUNCTION_NAME}] status=${response.status} code=${code}`);
     if (response.status === 401 || code === "INVALID_TTS_ACCESS_CODE") {
       throw new TtsApiError("INVALID_TTS_ACCESS_CODE", TTS_INVALID_ACCESS_CODE_MESSAGE, response.status);
+    }
+    if (code === "MISSING_TTS_ACCESS_CODE") {
+      throw new TtsApiError("MISSING_TTS_ACCESS_CODE", TTS_MISSING_ACCESS_CODE_MESSAGE, response.status);
     }
     if (response.status === 429) throw new TtsApiError("RATE_LIMITED", TTS_RATE_LIMIT_MESSAGE, response.status);
     throw new TtsApiError(code, TTS_GENERIC_ERROR_MESSAGE, response.status);

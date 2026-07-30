@@ -100,7 +100,7 @@ async function buildReport(request: Request) {
       matchesGeminiCode: Boolean(submittedCode && expectedGeminiCode && submittedCode === expectedGeminiCode),
     },
     proxy: {
-      willProxyGemini: !(secrets.GEMINIAI_API_KEY || secrets.GEMINI_API_KEY || secrets.GOOGLE_API_KEY),
+      willProxyGemini: !new URL(request.url).hostname.endsWith(".workers.dev"),
       upstreamHost: new URL(UPSTREAM_TTS_URL).host,
       upstream,
     },

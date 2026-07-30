@@ -41,8 +41,8 @@ const THEME_OPTIONS: { value: ThemeMode; label: string; description: string; ico
   { value: "system", label: "System", description: "Die Einstellung deines Geräts übernehmen.", icon: Monitor },
 ];
 const PROVIDERS: { value: TtsProvider; label: string; description: string }[] = [
-  { value: "openai", label: "OpenAI-Stimme", description: "Hochwertige KI-Stimme ohne persönlichen Freischaltcode." },
-  { value: "elevenlabs", label: "ElevenLabs", description: "Professionelle Stimme mit Steuerstoff-Freischaltcode." },
+  { value: "openai", label: "OpenAI-Stimme", description: "Hochwertige KI-Stimme; bei Ausfall wird automatisch Gemini verwendet." },
+  { value: "elevenlabs", label: "ElevenLabs", description: "Professionelle Stimme; bei Ausfall wird automatisch Gemini verwendet." },
 ];
 const OPENAI_VOICES: { value: OpenAiVoice; label: string }[] = [
   { value: "coral", label: "Coral" },
@@ -104,7 +104,7 @@ function Einstellungen() {
     event.preventDefault();
     const code = ttsAccessCode.trim();
     if (!code) {
-      setTtsFeedback({ type: "error", message: "Bitte trage einen Freischaltcode ein." });
+      setTtsFeedback({ type: "error", message: "Bitte trage den Gemini-TTS-Freischaltcode ein." });
       return;
     }
     setIsSavingTtsAccessCode(true);
@@ -114,9 +114,9 @@ function Einstellungen() {
       setTtsAccessCode("");
       setShowTtsAccessCode(false);
       setHasStoredTtsAccessCode(true);
-      setTtsFeedback({ type: "success", message: "Freischaltcode erfolgreich gespeichert." });
+      setTtsFeedback({ type: "success", message: "Gemini-TTS-Freischaltcode erfolgreich gespeichert." });
     } catch {
-      setTtsFeedback({ type: "error", message: "Der Freischaltcode konnte nicht gespeichert werden." });
+      setTtsFeedback({ type: "error", message: "Der Gemini-TTS-Freischaltcode konnte nicht gespeichert werden." });
     } finally {
       setIsSavingTtsAccessCode(false);
     }
@@ -125,7 +125,7 @@ function Einstellungen() {
   async function removeAccessCode() {
     await removeTtsAccessCode();
     setHasStoredTtsAccessCode(false);
-    setTtsFeedback({ type: "success", message: "Freischaltcode entfernt." });
+    setTtsFeedback({ type: "success", message: "Gemini-TTS-Freischaltcode entfernt." });
   }
 
   async function resetData() {
@@ -190,12 +190,20 @@ function Einstellungen() {
               {PROVIDERS.map((option) => <button key={option.value} type="button" onClick={() => { setProvider(option.value); saveSpeechChoice(option.value); }} className={`rounded-2xl border p-4 text-left ${provider === option.value ? "border-cyan-400 bg-cyan-50/50 dark:bg-cyan-950/20" : "border-border"}`}><p className="font-semibold">{option.label}</p><p className="mt-1 text-sm text-muted-foreground">{option.description}</p></button>)}
             </div>
             {provider === "openai" && <div><label className="text-sm font-medium">OpenAI-Stimme</label><div className="mt-2 flex flex-wrap gap-2">{OPENAI_VOICES.map((voice) => <button key={voice.value} type="button" onClick={() => { setOpenAiVoice(voice.value); saveSpeechChoice(provider, voice.value); }} className={`rounded-full border px-3 py-1.5 text-sm ${openAiVoice === voice.value ? "bg-foreground text-background" : "text-muted-foreground"}`}>{voice.label}</button>)}</div></div>}
-            <label className="flex items-start gap-3 rounded-xl border border-border p-4"><input type="checkbox" checked={browserFallback} onChange={(e) => { setBrowserFallback(e.target.checked); saveSpeechChoice(provider, openAiVoice, e.target.checked); }} className="mt-1" /><span><span className="block text-sm font-semibold">Browserstimme als kostenlose Rückfallebene</span><span className="mt-1 block text-sm text-muted-foreground">Wird verwendet, wenn die gewählte KI-Stimme nicht verfügbar ist.</span></span></label>
+            <label className="flex items-start gap-3 rounded-xl border border-border p-4"><input type="checkbox" checked={browserFallback} onChange={(e) => { setBrowserFallback(e.target.checked); saveSpeechChoice(provider, openAiVoice, e.target.checked); }} className="mt-1" /><span><span className="block text-sm font-semibold">Browserstimme als kostenlose Rückfallebene</span><span className="mt-1 block text-sm text-muted-foreground">Wird verwendet, wenn auch die Gemini-Stimme nicht verfügbar ist.</span></span></label>
 
             <form onSubmit={saveAccessCode} className="space-y-4 rounded-xl border border-border bg-background/40 p-4">
-              <div><label htmlFor="tts-access-code" className="text-sm font-medium">ElevenLabs-Freischaltcode</label><p className="mt-1 text-sm text-muted-foreground">Nur nötig, wenn ElevenLabs ausgewählt wird.</p><div className="relative mt-3"><Input id="tts-access-code" type={showTtsAccessCode ? "text" : "password"} value={ttsAccessCode} onChange={(e) => { setTtsAccessCode(e.target.value); setTtsFeedback(null); }} placeholder={hasStoredTtsAccessCode ? "Gespeicherter Code ••••••••" : "Freischaltcode"} className="pr-12" /><button type="button" onClick={() => setShowTtsAccessCode((v) => !v)} className="absolute inset-y-0 right-0 inline-flex w-11 items-center justify-center text-muted-foreground">{showTtsAccessCode ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}</button></div></div>
+              <div>
+                <label htmlFor="tts-access-code" className="text-sm font-medium">Gemini-TTS-Freischaltcode</label>
+                <p className="mt-1 text-sm text-muted-foreground">Trage hier den Code ein, den du vom Steuerstoff-Team erhalten hast. Der echte Gemini-API-Key bleibt sicher auf dem Server.</p>
+                <div className="relative mt-3">
+                  <Input id="tts-access-code" type={showTtsAccessCode ? "text" : "password"} value={ttsAccessCode} onChange={(e) => { setTtsAccessCode(e.target.value); setTtsFeedback(null); }} placeholder={hasStoredTtsAccessCode ? "Gemini-TTS-Code gespeichert ••••••••" : "Gemini-TTS-Code eingeben"} autoComplete="off" className="pr-12" />
+                  <button type="button" aria-label={showTtsAccessCode ? "Freischaltcode ausblenden" : "Freischaltcode anzeigen"} onClick={() => setShowTtsAccessCode((v) => !v)} className="absolute inset-y-0 right-0 inline-flex w-11 items-center justify-center text-muted-foreground">{showTtsAccessCode ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}</button>
+                </div>
+              </div>
+              {hasStoredTtsAccessCode && !ttsFeedback && <p className="text-sm text-emerald-700">Ein Gemini-TTS-Freischaltcode ist auf diesem Gerät gespeichert.</p>}
               {ttsFeedback && <p className={ttsFeedback.type === "error" ? "text-sm text-destructive" : "text-sm text-emerald-700"}>{ttsFeedback.message}</p>}
-              <div className="flex flex-col gap-2 sm:flex-row"><Button type="submit" disabled={isSavingTtsAccessCode}>{isSavingTtsAccessCode ? "Wird gespeichert …" : "Speichern"}</Button><Button type="button" variant="outline" disabled={!hasStoredTtsAccessCode} onClick={() => void removeAccessCode()}>Freischaltcode entfernen</Button></div>
+              <div className="flex flex-col gap-2 sm:flex-row"><Button type="submit" disabled={isSavingTtsAccessCode}>{isSavingTtsAccessCode ? "Wird gespeichert …" : "Gemini-TTS-Code speichern"}</Button><Button type="button" variant="outline" disabled={!hasStoredTtsAccessCode} onClick={() => void removeAccessCode()}>Code entfernen</Button></div>
             </form>
           </section>
         </div>

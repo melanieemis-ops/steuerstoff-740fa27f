@@ -30,6 +30,7 @@ import "@/lib/knowledgeBaseExtensions/einkommensteuer-paragraf-4a-estg-gewinnerm
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-paragraf-5-estg-gewinn-bei-kaufleuten";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-paragraf-6-estg-bewertung";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-paragraf-6b-estg-uebertragung-stiller-reserven";
+import "@/lib/knowledgeBaseExtensions/einkommensteuer-paragraf-7a-estg-erhoehte-absetzungen-sonderabschreibungen";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-teilentgeltliche-grundstuecksuebertragung-23-estg";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-vorsorgepauschale-ab-2026";
 import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-bewertung-betriebsvermoegen-vereinfachtes-ertragswertverfahren";

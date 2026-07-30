@@ -160,12 +160,56 @@ function safeUpstreamMessage(value: string): string {
   return compact.length > 240 ? `${compact.slice(0, 240)}…` : compact;
 }
 
-async function geminiSpeech(request: Request, text: string): Promise<Response> {
+const UPSTREAM_TTS_URL = "https://steuerstoff-740fa27f.melanieemis.workers.dev/api/text-to-speech";
+const PROXY_MARKER_HEADER = "x-tts-proxy-hop";
+
+/**
+ * Reicht die Anfrage an den Cloudflare-Worker weiter, wenn lokal kein Gemini-Key vorhanden ist.
+ * Der Marker-Header verhindert eine Endlosschleife, falls derselbe Code upstream läuft.
+ */
+async function proxyToUpstream(request: Request, payload: Record<string, unknown>): Promise<Response> {
+  if (request.headers.get(PROXY_MARKER_HEADER)) {
+    return jsonError(500, "CONFIGURATION_ERROR", "Der Gemini-API-Key GEMINIAI_API_KEY ist serverseitig nicht konfiguriert.");
+  }
+
+  const accessCode = request.headers.get("x-tts-access-code");
+  const headers: Record<string, string> = {
+    "content-type": "application/json",
+    [PROXY_MARKER_HEADER]: "1",
+  };
+  if (accessCode) headers["x-tts-access-code"] = accessCode;
+
+  let upstream: Response;
+  try {
+    upstream = await fetch(UPSTREAM_TTS_URL, {
+      method: "POST",
+      headers,
+      body: JSON.stringify({ ...payload, provider: "gemini" }),
+      signal: request.signal,
+    });
+  } catch (error) {
+    const detail = error instanceof Error ? safeUpstreamMessage(error.message) : "unbekannter Netzwerkfehler";
+    console.error("[tts-proxy] Upstream nicht erreichbar", error);
+    return jsonError(502, "GEMINI_ERROR", `Der Sprachdienst ist nicht erreichbar (${detail}).`);
+  }
+
+  const responseHeaders = new Headers(CORS_HEADERS);
+  for (const name of ["content-type", "x-tts-provider", "x-tts-model"]) {
+    const value = upstream.headers.get(name);
+    if (value) responseHeaders.set(name, value);
+  }
+  responseHeaders.set("cache-control", "private, no-store");
+
+  return new Response(upstream.body, { status: upstream.status, headers: responseHeaders });
+}
+
+async function geminiSpeech(request: Request, text: string, payload: Record<string, unknown>): Promise<Response> {
+  const apiKey = await readGeminiApiKey();
+  if (!apiKey) return proxyToUpstream(request, { ...payload, text });
+
   const accessError = await validateGeminiAccess(request);
   if (accessError) return accessError;
 
-  const apiKey = await readGeminiApiKey();
-  if (!apiKey) return jsonError(500, "CONFIGURATION_ERROR", "Der Gemini-API-Key GEMINIAI_API_KEY ist serverseitig nicht konfiguriert.");
 
   const prompt = `Erzeuge eine deutsche Sprachausgabe. Lies ausschließlich den Text nach TRANSKRIPT vollständig, natürlich, klar und in ruhigem professionellem Tempo vor.\n\nTRANSKRIPT:\n${text}`;
   let lastFailure = "";

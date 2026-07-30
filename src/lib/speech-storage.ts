@@ -10,7 +10,7 @@ const FALLBACK_KEY = "steuerstoff_tts_browser_fallback_v1";
 const PROVIDER_KEY = "steuerstoff_tts_provider_v1";
 const OPENAI_VOICE_KEY = "steuerstoff_tts_openai_voice_v1";
 
-export type TtsProvider = "openai" | "elevenlabs";
+export type TtsProvider = "openai" | "elevenlabs" | "gemini";
 export type OpenAiVoice = "coral" | "marin" | "nova" | "shimmer";
 
 export type SpeechSettings = {
@@ -35,7 +35,8 @@ function cleanOptionalString(value: unknown): string | undefined {
 }
 
 function cleanProvider(value: unknown): TtsProvider {
-  return value === "elevenlabs" ? "elevenlabs" : "openai";
+  if (value === "elevenlabs" || value === "gemini") return value;
+  return "openai";
 }
 
 function cleanOpenAiVoice(value: unknown): OpenAiVoice {

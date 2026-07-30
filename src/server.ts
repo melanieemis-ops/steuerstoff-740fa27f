@@ -84,14 +84,6 @@ function resolveRuntimeEnv(passedEnv: unknown): Record<string, unknown> {
   return asRuntimeEnv(passedEnv) ?? (cloudflareEnv as unknown as Record<string, unknown>);
 }
 
-function exposeWorkerEnv(env: Record<string, unknown>): void {
-  (globalThis as { __env__?: Record<string, unknown> }).__env__ = env;
-
-  for (const [name, value] of Object.entries(env)) {
-    if (typeof value === "string" && value.trim()) process.env[name] = value;
-  }
-}
-
 function isSecretStoreBinding(value: unknown): value is SecretStoreBinding {
   return Boolean(
     value &&
@@ -99,6 +91,34 @@ function isSecretStoreBinding(value: unknown): value is SecretStoreBinding {
       "get" in value &&
       typeof (value as { get?: unknown }).get === "function",
   );
+}
+
+async function materializeWorkerEnv(env: Record<string, unknown>): Promise<Record<string, unknown>> {
+  const resolvedEnv: Record<string, unknown> = { ...env };
+
+  await Promise.all(
+    Object.entries(env).map(async ([name, value]) => {
+      if (typeof value === "string") {
+        if (value.trim()) process.env[name] = value;
+        return;
+      }
+
+      if (!isSecretStoreBinding(value)) return;
+
+      try {
+        const resolvedValue = await value.get();
+        if (typeof resolvedValue === "string" && resolvedValue.trim()) {
+          resolvedEnv[name] = resolvedValue;
+          process.env[name] = resolvedValue;
+        }
+      } catch (error) {
+        console.error(`[worker-env] Secrets-Store-Binding ${name} konnte nicht gelesen werden`, error);
+      }
+    }),
+  );
+
+  (globalThis as { __env__?: Record<string, unknown> }).__env__ = resolvedEnv;
+  return resolvedEnv;
 }
 
 function safeErrorDetails(error: unknown): Pick<BindingDiagnostic, "errorName" | "errorMessage"> {
@@ -218,8 +238,7 @@ async function ttsBindingDiagnostics(runtimeEnv: Record<string, unknown>): Promi
 export default {
   async fetch(request: Request, passedEnv: unknown, ctx: unknown) {
     try {
-      const runtimeEnv = resolveRuntimeEnv(passedEnv);
-      exposeWorkerEnv(runtimeEnv);
+      const runtimeEnv = await materializeWorkerEnv(resolveRuntimeEnv(passedEnv));
 
       const url = new URL(request.url);
       if (url.pathname === "/api/tts-env-debug") {

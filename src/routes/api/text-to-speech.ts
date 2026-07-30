@@ -34,6 +34,10 @@ type TtsErrorCode =
   | "REQUEST_INVALID"
   | "TEXT_TOO_LONG";
 
+type SecretStoreBinding = {
+  get: () => Promise<unknown> | unknown;
+};
+
 const requestSchema = z.object({
   text: z.string().min(1).max(MAX_TEXT_LENGTH),
   provider: z.enum(["openai", "elevenlabs", "gemini"]).default("openai"),
@@ -42,23 +46,48 @@ const requestSchema = z.object({
   profileId: z.string().trim().min(1).max(80).optional(),
 }).strict();
 
-function readServerSecret(name: string): string | undefined {
-  const runtimeEnv = (globalThis as { __env__?: Record<string, unknown> }).__env__;
-  const runtimeValue = runtimeEnv?.[name];
-  if (typeof runtimeValue === "string" && runtimeValue.trim()) return runtimeValue.trim();
-
-  const importedValue = (env as unknown as Record<string, unknown>)[name];
-  if (typeof importedValue === "string" && importedValue.trim()) return importedValue.trim();
-
-  const nodeValue = process.env[name];
-  return typeof nodeValue === "string" && nodeValue.trim() ? nodeValue.trim() : undefined;
+function normalizeSecret(value: unknown): string | undefined {
+  return typeof value === "string" && value.trim() ? value.trim() : undefined;
 }
 
-function readGeminiApiKey(): string | undefined {
+function isSecretStoreBinding(value: unknown): value is SecretStoreBinding {
+  return Boolean(
+    value &&
+      typeof value === "object" &&
+      "get" in value &&
+      typeof (value as { get?: unknown }).get === "function",
+  );
+}
+
+async function readBindingValue(binding: unknown): Promise<string | undefined> {
+  const direct = normalizeSecret(binding);
+  if (direct) return direct;
+  if (!isSecretStoreBinding(binding)) return undefined;
+
+  try {
+    return normalizeSecret(await binding.get());
+  } catch (error) {
+    console.error("[tts-secret-store] Secret konnte nicht gelesen werden", error);
+    return undefined;
+  }
+}
+
+async function readServerSecret(name: string): Promise<string | undefined> {
+  const runtimeEnv = (globalThis as { __env__?: Record<string, unknown> }).__env__;
+  const runtimeValue = await readBindingValue(runtimeEnv?.[name]);
+  if (runtimeValue) return runtimeValue;
+
+  const importedValue = await readBindingValue((env as unknown as Record<string, unknown>)[name]);
+  if (importedValue) return importedValue;
+
+  return normalizeSecret(process.env[name]);
+}
+
+async function readGeminiApiKey(): Promise<string | undefined> {
   return (
-    readServerSecret("GEMINIAI_API_KEY") ??
-    readServerSecret("GEMINI_API_KEY") ??
-    readServerSecret("GOOGLE_API_KEY")
+    (await readServerSecret("GEMINIAI_API_KEY")) ??
+    (await readServerSecret("GEMINI_API_KEY")) ??
+    (await readServerSecret("GOOGLE_API_KEY"))
   );
 }
 
@@ -117,8 +146,8 @@ function pcmToWav(pcm: Uint8Array, sampleRate = 24000, channels = 1, bitsPerSamp
   return buffer;
 }
 
-function validateGeminiAccess(request: Request): Response | null {
-  const expectedCode = readServerSecret("GEMINI_TTS");
+async function validateGeminiAccess(request: Request): Promise<Response | null> {
+  const expectedCode = await readServerSecret("GEMINI_TTS");
   if (!expectedCode) return jsonError(500, "CONFIGURATION_ERROR", "Der Gemini-Freischaltcode ist serverseitig nicht konfiguriert.");
   const submittedCode = request.headers.get("x-tts-access-code")?.trim();
   if (!submittedCode) return jsonError(401, "MISSING_TTS_ACCESS_CODE", "Für die Vorlesefunktion ist ein Freischaltcode erforderlich.");
@@ -132,10 +161,10 @@ function safeUpstreamMessage(value: string): string {
 }
 
 async function geminiSpeech(request: Request, text: string): Promise<Response> {
-  const accessError = validateGeminiAccess(request);
+  const accessError = await validateGeminiAccess(request);
   if (accessError) return accessError;
 
-  const apiKey = readGeminiApiKey();
+  const apiKey = await readGeminiApiKey();
   if (!apiKey) return jsonError(500, "CONFIGURATION_ERROR", "Der Gemini-API-Key GEMINIAI_API_KEY ist serverseitig nicht konfiguriert.");
 
   const prompt = `Erzeuge eine deutsche Sprachausgabe. Lies ausschließlich den Text nach TRANSKRIPT vollständig, natürlich, klar und in ruhigem professionellem Tempo vor.\n\nTRANSKRIPT:\n${text}`;
@@ -200,7 +229,7 @@ async function geminiSpeech(request: Request, text: string): Promise<Response> {
 }
 
 async function openAiSpeech(request: Request, text: string, voice: string): Promise<Response> {
-  const apiKey = readServerSecret("OPENAI_API_KEY");
+  const apiKey = await readServerSecret("OPENAI_API_KEY");
   if (!apiKey) return geminiSpeech(request, text);
 
   const upstream = await fetch("https://api.openai.com/v1/audio/speech", {
@@ -217,14 +246,14 @@ async function openAiSpeech(request: Request, text: string, voice: string): Prom
 }
 
 async function elevenLabsSpeech(request: Request, text: string, modelId?: string, profileId?: string): Promise<Response> {
-  const apiKey = readServerSecret("ELEVENLABS_API_KEY");
-  const expectedCode = readServerSecret("STEUERSTOFF_TTS") ?? readServerSecret("TTS_ACCESS_CODE");
+  const apiKey = await readServerSecret("ELEVENLABS_API_KEY");
+  const expectedCode = (await readServerSecret("STEUERSTOFF_TTS")) ?? (await readServerSecret("TTS_ACCESS_CODE"));
   if (!apiKey || !expectedCode) return geminiSpeech(request, text);
 
   const submittedCode = request.headers.get("x-tts-access-code")?.trim();
   if (!submittedCode || submittedCode !== expectedCode) return geminiSpeech(request, text);
 
-  const configuredModelId = readServerSecret("ELEVENLABS_MODEL_ID");
+  const configuredModelId = await readServerSecret("ELEVENLABS_MODEL_ID");
   const selectedModel = modelId?.trim() || configuredModelId || DEFAULT_TTS_MODEL_ID;
   const profile = getVoiceProfile(profileId);
   const upstream = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${encodeURIComponent(DEFAULT_VOICE_ID)}`, {

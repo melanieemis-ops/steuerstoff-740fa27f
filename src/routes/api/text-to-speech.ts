@@ -245,10 +245,10 @@ async function geminiSpeech(request: Request, text: string, payload: Record<stri
         continue;
       }
 
-      const payload = (await upstream.json().catch(() => null)) as {
+      const geminiPayload = (await upstream.json().catch(() => null)) as {
         candidates?: Array<{ content?: { parts?: Array<{ inlineData?: { data?: string; mimeType?: string } }> } }>;
       } | null;
-      const inlineData = payload?.candidates?.[0]?.content?.parts?.find((part) => part.inlineData?.data)?.inlineData;
+      const inlineData = geminiPayload?.candidates?.[0]?.content?.parts?.find((part) => part.inlineData?.data)?.inlineData;
       if (!inlineData?.data) {
         lastFailure = `${model}: Die Antwort enthielt keine Audiodaten.`;
         console.error("[gemini-tts]", lastFailure);

@@ -17,14 +17,15 @@ export type TtsApiErrorCode =
   | "QUOTA_EXCEEDED"
   | "ELEVENLABS_ERROR"
   | "OPENAI_ERROR"
+  | "GEMINI_ERROR"
   | "REQUEST_INVALID"
   | "TEXT_TOO_LONG"
   | "UNKNOWN_ERROR";
 
 export const TTS_MISSING_ACCESS_CODE_MESSAGE =
-  "Für die ElevenLabs-Stimme benötigst du einen Freischaltcode. Du kannst ihn in den Einstellungen eintragen oder OpenAI beziehungsweise die Browserstimme verwenden.";
+  "Für die ElevenLabs-Stimme benötigst du einen Freischaltcode. Ohne verfügbares ElevenLabs-Kontingent wird automatisch die Gemini-Stimme verwendet.";
 export const TTS_INVALID_ACCESS_CODE_MESSAGE =
-  "Der ElevenLabs-Freischaltcode ist ungültig oder nicht mehr gültig.";
+  "Der ElevenLabs-Freischaltcode ist ungültig. Die Vorlesefunktion versucht automatisch die Gemini-Stimme zu verwenden.";
 export const TTS_RATE_LIMIT_MESSAGE =
   "Die Vorlesefunktion wird gerade sehr häufig verwendet. Bitte versuche es in Kürze erneut.";
 export const TTS_GENERIC_ERROR_MESSAGE =
@@ -77,10 +78,11 @@ export async function requestSpeechAudio(payload: TtsRequestPayload, signal: Abo
   const voice = payload.voice ?? settings.openAiVoice ?? "coral";
   const headers: Record<string, string> = { "Content-Type": "application/json" };
 
+  // Ein vorhandener Freischaltcode wird weiterhin an ElevenLabs übergeben.
+  // Fehlt er oder funktioniert ElevenLabs nicht, darf das Backend nun automatisch Gemini verwenden.
   if (provider === "elevenlabs") {
     const accessCode = await getTtsAccessCode();
-    if (!accessCode) throw new TtsApiError("MISSING_TTS_ACCESS_CODE", TTS_MISSING_ACCESS_CODE_MESSAGE, 0);
-    headers["x-tts-access-code"] = accessCode;
+    if (accessCode) headers["x-tts-access-code"] = accessCode;
   }
 
   const response = await fetch(apiUrl("/api/text-to-speech"), {

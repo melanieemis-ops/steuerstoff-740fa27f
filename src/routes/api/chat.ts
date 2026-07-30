@@ -1,12 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import OpenAI from "openai";
 import { z } from "zod";
 import { searchKb, formatKbContext, type KbHit } from "@/lib/ai/kbSearch";
 import { getAttachmentRule } from "@/lib/attachment-validation";
 import { readUpload } from "@/lib/upload-store";
 
-const PRIMARY_MODEL = "gpt-5-mini";
-const FALLBACK_MODEL = "gpt-4.1-mini";
+const PRIMARY_MODEL = "gemini-2.5-flash";
+const FALLBACK_MODEL = "gemini-2.5-flash-lite";
 const MAX_OUTPUT_TOKENS = 1400;
 const MAX_HISTORY = 8;
 
@@ -25,100 +24,45 @@ Absolute Regeln:
 
 type IncomingMsg = { role: "user" | "assistant"; content: string };
 
-type ResponseInputContent =
-  | { type: "input_text"; text: string }
-  | { type: "input_file"; file_id: string; filename?: string; detail?: "auto" | "low" | "high" }
-  | { type: "input_image"; file_id: string; detail?: "auto" | "low" | "high" };
+type GeminiPart =
+  | { text: string }
+  | { inlineData: { mimeType: string; data: string } };
+
+type GeminiContent = {
+  role: "user" | "model";
+  parts: GeminiPart[];
+};
 
 const IncomingAttachmentSchema = z.object({
   id: z.string().min(1).max(200),
   name: z.string().min(1).max(240),
   mimeType: z.string().min(1).max(200),
-  size: z
-    .number()
-    .int()
-    .positive()
-    .max(15 * 1024 * 1024),
+  size: z.number().int().positive().max(15 * 1024 * 1024),
   kind: z.enum(["image", "pdf", "text", "spreadsheet", "document"]),
   uploadedFileId: z.string().uuid(),
 });
 
 type IncomingAttachment = z.infer<typeof IncomingAttachmentSchema>;
 
-function safeJson<T = unknown>(v: unknown): T | null {
+function safeJson<T = unknown>(value: unknown): T | null {
   try {
-    return JSON.parse(String(v)) as T;
+    return JSON.parse(String(value)) as T;
   } catch {
     return null;
   }
 }
 
-async function streamOpenAI(opts: {
-  apiKey: string;
-  model: string;
-  input: Array<{ role: "system" | "user" | "assistant"; content: string | ResponseInputContent[] }>;
-  signal: AbortSignal;
-}): Promise<Response> {
-  return fetch("https://api.openai.com/v1/responses", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + opts.apiKey,
-    },
-    signal: opts.signal,
-    body: JSON.stringify({
-      model: opts.model,
-      input: opts.input,
-      stream: true,
-      store: false,
-      max_output_tokens: MAX_OUTPUT_TOKENS,
-      ...(opts.model.startsWith("gpt-5") ? { reasoning: { effort: "minimal" } } : {}),
-    }),
-  });
-}
-
-async function* parseSseTextDeltas(resp: Response): AsyncGenerator<string> {
-  const reader = resp.body?.getReader();
-  if (!reader) return;
-  const decoder = new TextDecoder();
-  let buf = "";
-  for (;;) {
-    const { value, done } = await reader.read();
-    if (done) break;
-    buf += decoder.decode(value, { stream: true });
-    let idx: number;
-    while ((idx = buf.indexOf("\n\n")) !== -1) {
-      const event = buf.slice(0, idx);
-      buf = buf.slice(idx + 2);
-      const lines = event.split("\n");
-      let dataLine = "";
-      for (const line of lines) {
-        if (line.startsWith("data:")) dataLine += line.slice(5).trim();
-      }
-      if (!dataLine || dataLine === "[DONE]") continue;
-      const parsed = safeJson<{ type?: string; delta?: string }>(dataLine);
-      if (parsed?.type === "response.output_text.delta" && typeof parsed.delta === "string") {
-        yield parsed.delta;
-      }
-    }
+function bytesToBase64(bytes: Uint8Array): string {
+  let binary = "";
+  const chunkSize = 0x8000;
+  for (let offset = 0; offset < bytes.length; offset += chunkSize) {
+    binary += String.fromCharCode(...bytes.subarray(offset, offset + chunkSize));
   }
+  return btoa(binary);
 }
 
-async function cleanupUploadedFiles(client: OpenAI, ids: string[]) {
-  await Promise.all(
-    ids.map(async (id) => {
-      try {
-        await client.files.delete(id);
-      } catch {
-        // noop
-      }
-    }),
-  );
-}
-
-async function prepareAttachmentInputs(client: OpenAI, attachments: IncomingAttachment[]) {
-  const content: ResponseInputContent[] = [];
-  const uploadedFileIds: string[] = [];
+function prepareAttachmentParts(attachments: IncomingAttachment[]) {
+  const parts: GeminiPart[] = [];
   const failedAttachmentNames: string[] = [];
 
   for (const attachment of attachments) {
@@ -127,6 +71,7 @@ async function prepareAttachmentInputs(client: OpenAI, attachments: IncomingAtta
       failedAttachmentNames.push(`${attachment.name} (Dateireferenz abgelaufen)`);
       continue;
     }
+
     if (
       stored.name !== attachment.name ||
       stored.size !== attachment.size ||
@@ -136,6 +81,7 @@ async function prepareAttachmentInputs(client: OpenAI, attachments: IncomingAtta
       failedAttachmentNames.push(`${attachment.name} (Metadaten stimmen nicht mehr überein)`);
       continue;
     }
+
     const rule = getAttachmentRule(stored.name, stored.mimeType);
     if (!rule || rule.kind !== stored.kind) {
       failedAttachmentNames.push(
@@ -145,27 +91,15 @@ async function prepareAttachmentInputs(client: OpenAI, attachments: IncomingAtta
     }
 
     try {
-      const file = new File([new Uint8Array(stored.bytes)], stored.name, {
-        type: stored.mimeType,
+      parts.push({
+        inlineData: {
+          mimeType: stored.mimeType,
+          data: bytesToBase64(new Uint8Array(stored.bytes)),
+        },
       });
-      const uploaded = await client.files.create({
-        file,
-        purpose: stored.kind === "image" ? "vision" : "user_data",
-      });
-      uploadedFileIds.push(uploaded.id);
-      if (stored.kind === "image") {
-        content.push({ type: "input_image", file_id: uploaded.id, detail: "low" });
-      } else {
-        content.push({
-          type: "input_file",
-          file_id: uploaded.id,
-          filename: stored.name,
-          detail: "low",
-        });
-      }
     } catch (error) {
       console.error(
-        "[steuerstoff-chat] attachment handoff failed",
+        "[steuerstoff-chat] attachment conversion failed",
         attachment.name,
         error instanceof Error ? error.message : "unknown",
       );
@@ -175,14 +109,91 @@ async function prepareAttachmentInputs(client: OpenAI, attachments: IncomingAtta
     }
   }
 
-  return { content, uploadedFileIds, failedAttachmentNames };
+  return { parts, failedAttachmentNames };
+}
+
+async function streamGemini(opts: {
+  apiKey: string;
+  model: string;
+  contents: GeminiContent[];
+  signal: AbortSignal;
+}): Promise<Response> {
+  const endpoint =
+    `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(opts.model)}` +
+    ":streamGenerateContent?alt=sse";
+
+  return fetch(endpoint, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "x-goog-api-key": opts.apiKey,
+    },
+    signal: opts.signal,
+    body: JSON.stringify({
+      systemInstruction: {
+        parts: [{ text: SYSTEM_PROMPT }],
+      },
+      contents: opts.contents,
+      generationConfig: {
+        maxOutputTokens: MAX_OUTPUT_TOKENS,
+        temperature: 0.2,
+      },
+    }),
+  });
+}
+
+async function* parseGeminiSseTextDeltas(resp: Response): AsyncGenerator<string> {
+  const reader = resp.body?.getReader();
+  if (!reader) return;
+
+  const decoder = new TextDecoder();
+  let buffer = "";
+
+  for (;;) {
+    const { value, done } = await reader.read();
+    if (done) break;
+
+    buffer += decoder.decode(value, { stream: true });
+    const events = buffer.split("\n\n");
+    buffer = events.pop() ?? "";
+
+    for (const event of events) {
+      const data = event
+        .split("\n")
+        .filter((line) => line.startsWith("data:"))
+        .map((line) => line.slice(5).trim())
+        .join("");
+
+      if (!data || data === "[DONE]") continue;
+
+      const parsed = safeJson<{
+        candidates?: Array<{
+          content?: { parts?: Array<{ text?: string }> };
+        }>;
+      }>(data);
+
+      for (const part of parsed?.candidates?.[0]?.content?.parts ?? []) {
+        if (typeof part.text === "string" && part.text) {
+          yield part.text;
+        }
+      }
+    }
+  }
+}
+
+function getGeminiApiKey(): string | undefined {
+  return (
+    process.env.GEMINIAI_API_KEY ||
+    process.env.GEMINI_API_KEY ||
+    process.env.GOOGLE_API_KEY
+  );
 }
 
 export const Route = createFileRoute("/api/chat")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const apiKey = process.env.OPENAI_API_KEY;
+        const apiKey = getGeminiApiKey();
         if (!apiKey) {
           return new Response("KI-Funktion ist derzeit serverseitig nicht konfiguriert.", {
             status: 503,
@@ -207,6 +218,7 @@ export const Route = createFileRoute("/api/chat")({
         if (!parsedAttachments.success) {
           return new Response("Ungültige Anhänge.", { status: 400 });
         }
+
         const attachments = parsedAttachments.data;
         if (!message && attachments.length === 0) {
           return new Response("Ungültige Nachricht.", { status: 400 });
@@ -232,12 +244,8 @@ export const Route = createFileRoute("/api/chat")({
           10,
         );
         const kbBlock = formatKbContext(hits);
-        const client = new OpenAI({ apiKey });
-        const {
-          content: attachmentContent,
-          uploadedFileIds,
-          failedAttachmentNames,
-        } = await prepareAttachmentInputs(client, attachments);
+        const { parts: attachmentParts, failedAttachmentNames } =
+          prepareAttachmentParts(attachments);
 
         const attachmentSummary = attachments.length
           ? [
@@ -257,57 +265,64 @@ export const Route = createFileRoute("/api/chat")({
           ? `Wissenskontext (nur diese Fundstellen sind belegt; nichts anderes zitieren):\n\n${kbBlock}\n\n---\n\n${attachmentSummary ? `${attachmentSummary}\n\n` : ""}${failedAttachmentSummary ? `${failedAttachmentSummary}\n\n` : ""}Frage oder Arbeitsauftrag:\n${message || "Bitte werte die angehängten Dateien transparent aus."}`
           : `Wissenskontext: (keine passenden internen Fundstellen)\n\n${attachmentSummary ? `${attachmentSummary}\n\n` : ""}${failedAttachmentSummary ? `${failedAttachmentSummary}\n\n` : ""}Frage oder Arbeitsauftrag:\n${message || "Bitte werte die angehängten Dateien transparent aus."}\n\nHinweis: Es gibt keine belegte Grundlage im internen Wissen. Kennzeichne das offen und erfinde keine Quellen.`;
 
-        const latestUserContent: ResponseInputContent[] = [
-          { type: "input_text", text: promptText },
-          ...attachmentContent,
-        ];
-        const input: Array<{
-          role: "system" | "user" | "assistant";
-          content: string | ResponseInputContent[];
-        }> = [
-          { role: "system", content: SYSTEM_PROMPT },
-          ...history,
-          { role: "user", content: latestUserContent },
+        const contents: GeminiContent[] = [
+          ...history.map<GeminiContent>((item) => ({
+            role: item.role === "assistant" ? "model" : "user",
+            parts: [{ text: item.content }],
+          })),
+          {
+            role: "user",
+            parts: [{ text: promptText }, ...attachmentParts],
+          },
         ];
 
         const controller = new AbortController();
         request.signal?.addEventListener("abort", () => controller.abort());
 
         let modelUsed = PRIMARY_MODEL;
-        let upstream = await streamOpenAI({
+        let upstream = await streamGemini({
           apiKey,
           model: PRIMARY_MODEL,
-          input,
+          contents,
           signal: controller.signal,
         });
+
         if (!upstream.ok) {
-          const errTxt = await upstream.text().catch(() => "");
+          const errorText = await upstream.text().catch(() => "");
           const isModelMissing =
-            upstream.status === 404 || /model_not_found|does not exist|invalid_model/i.test(errTxt);
+            upstream.status === 404 ||
+            /not found|not supported|invalid model|model.*does not exist/i.test(errorText);
+
           if (isModelMissing) {
             modelUsed = FALLBACK_MODEL;
-            upstream = await streamOpenAI({
+            upstream = await streamGemini({
               apiKey,
               model: FALLBACK_MODEL,
-              input,
+              contents,
               signal: controller.signal,
             });
           }
+
           if (!upstream.ok) {
-            await cleanupUploadedFiles(client, uploadedFileIds);
+            const finalErrorText = await upstream.text().catch(() => errorText);
             const status = upstream.status;
-            const msg =
+            const responseMessage =
               status === 429
-                ? "Modell ausgelastet oder Kontingent erschöpft. Bitte kurz warten."
-                : status === 401
-                  ? "KI-Service ist derzeit nicht verfügbar."
-                  : status === 402
-                    ? "KI-Kontingent aufgebraucht."
-                    : attachments.length > 0
-                      ? "Backend unterstützt diese Dateien derzeit noch nicht zuverlässig. Bitte versuche es erneut oder reduziere die Anhänge."
-                      : "KI-Modell konnte keine Antwort liefern.";
-            console.error("[steuerstoff-chat] upstream error", status, errTxt.slice(0, 400));
-            return new Response(msg, { status: 502 });
+                ? "Modell ausgelastet oder kostenloses Kontingent erschöpft. Bitte kurz warten."
+                : status === 400
+                  ? attachments.length > 0
+                    ? "Mindestens ein Anhang wird von Gemini nicht unterstützt. Bitte versuche es ohne diesen Anhang erneut."
+                    : "Die Anfrage konnte vom KI-Modell nicht verarbeitet werden."
+                  : status === 401 || status === 403
+                    ? "Gemini API-Schlüssel ist ungültig oder nicht freigeschaltet."
+                    : "KI-Modell konnte keine Antwort liefern.";
+
+            console.error(
+              "[steuerstoff-chat] Gemini upstream error",
+              status,
+              finalErrorText.slice(0, 500),
+            );
+            return new Response(responseMessage, { status: 502 });
           }
         }
 
@@ -322,9 +337,10 @@ export const Route = createFileRoute("/api/chat")({
         const stream = new ReadableStream<Uint8Array>({
           async start(ctrl) {
             try {
-              for await (const delta of parseSseTextDeltas(upstream)) {
+              for await (const delta of parseGeminiSseTextDeltas(upstream)) {
                 ctrl.enqueue(encoder.encode(delta));
               }
+
               const meta = JSON.stringify({
                 sources,
                 model: modelUsed,
@@ -334,20 +350,17 @@ export const Route = createFileRoute("/api/chat")({
               ctrl.close();
             } catch (error) {
               const messageText = error instanceof Error ? error.message : "Streamfehler";
-              console.error("[steuerstoff-chat] stream error", messageText);
+              console.error("[steuerstoff-chat] Gemini stream error", messageText);
               try {
                 ctrl.enqueue(encoder.encode(`\n\n<<STEUERSTOFF_ERROR>>${messageText}`));
               } catch {
                 // noop
               }
               ctrl.close();
-            } finally {
-              await cleanupUploadedFiles(client, uploadedFileIds);
             }
           },
-          async cancel() {
+          cancel() {
             controller.abort();
-            await cleanupUploadedFiles(client, uploadedFileIds);
           },
         });
 

@@ -240,9 +240,14 @@ function isUpstreamWorkerHost(request: Request): boolean {
 }
 
 async function geminiSpeech(request: Request, text: string, payload: Record<string, unknown>): Promise<Response> {
-  if (!isUpstreamWorkerHost(request)) {
+  const arrivedThroughProxy = request.headers.get(PROXY_MARKER_HEADER) === "1";
+  if (!isUpstreamWorkerHost(request) && !arrivedThroughProxy) {
     console.log("[tts] gemini: forwarding to upstream worker (non-workers.dev host)");
     return proxyToUpstream(request, { ...payload, text });
+  }
+
+  if (arrivedThroughProxy && !isUpstreamWorkerHost(request)) {
+    console.warn("[tts] proxied Worker request retained the custom-domain URL; processing locally to prevent a Worker loop");
   }
 
   const apiKey = await readGeminiApiKey();

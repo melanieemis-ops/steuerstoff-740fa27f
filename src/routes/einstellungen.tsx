@@ -41,6 +41,7 @@ const THEME_OPTIONS: { value: ThemeMode; label: string; description: string; ico
   { value: "system", label: "System", description: "Die Einstellung deines Geräts übernehmen.", icon: Monitor },
 ];
 const PROVIDERS: { value: TtsProvider; label: string; description: string }[] = [
+  { value: "gemini", label: "Gemini-AI-Stimme", description: "Gemini direkt für die Vorlesefunktion verwenden." },
   { value: "openai", label: "OpenAI-Stimme", description: "Hochwertige KI-Stimme; bei Ausfall wird automatisch Gemini verwendet." },
   { value: "elevenlabs", label: "ElevenLabs", description: "Professionelle Stimme; bei Ausfall wird automatisch Gemini verwendet." },
 ];
@@ -186,10 +187,11 @@ function Einstellungen() {
 
           <section className="mt-6 space-y-5 rounded-2xl border border-border bg-card p-5 shadow-card-soft sm:p-6">
             <div className="flex items-start gap-3"><Volume2 className="mt-0.5 h-5 w-5 text-muted-foreground" /><div><h2 className="text-base font-semibold">Vorlesefunktion</h2><p className="mt-1 text-sm text-muted-foreground">Wähle die Stimme, die überall bei Anhören und Vorlesen verwendet wird.</p></div></div>
-            <div className="grid gap-3 sm:grid-cols-2">
+            <div className="grid gap-3 sm:grid-cols-3">
               {PROVIDERS.map((option) => <button key={option.value} type="button" onClick={() => { setProvider(option.value); saveSpeechChoice(option.value); }} className={`rounded-2xl border p-4 text-left ${provider === option.value ? "border-cyan-400 bg-cyan-50/50 dark:bg-cyan-950/20" : "border-border"}`}><p className="font-semibold">{option.label}</p><p className="mt-1 text-sm text-muted-foreground">{option.description}</p></button>)}
             </div>
             {provider === "openai" && <div><label className="text-sm font-medium">OpenAI-Stimme</label><div className="mt-2 flex flex-wrap gap-2">{OPENAI_VOICES.map((voice) => <button key={voice.value} type="button" onClick={() => { setOpenAiVoice(voice.value); saveSpeechChoice(provider, voice.value); }} className={`rounded-full border px-3 py-1.5 text-sm ${openAiVoice === voice.value ? "bg-foreground text-background" : "text-muted-foreground"}`}>{voice.label}</button>)}</div></div>}
+            {provider === "gemini" && <p className="rounded-xl border border-border bg-background/40 p-4 text-sm text-muted-foreground">Für Gemini wird die natürliche Steuerstoff-Stimme verwendet. Dafür muss unten ein gültiger Gemini-TTS-Freischaltcode gespeichert sein.</p>}
             <label className="flex items-start gap-3 rounded-xl border border-border p-4"><input type="checkbox" checked={browserFallback} onChange={(e) => { setBrowserFallback(e.target.checked); saveSpeechChoice(provider, openAiVoice, e.target.checked); }} className="mt-1" /><span><span className="block text-sm font-semibold">Browserstimme als kostenlose Rückfallebene</span><span className="mt-1 block text-sm text-muted-foreground">Wird verwendet, wenn auch die Gemini-Stimme nicht verfügbar ist.</span></span></label>
 
             <form onSubmit={saveAccessCode} className="space-y-4 rounded-xl border border-border bg-background/40 p-4">

@@ -1,6 +1,5 @@
 import "./lib/error-capture";
 
-import { env as cloudflareEnv } from "cloudflare:workers";
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
 
@@ -76,12 +75,21 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
   return brandedErrorResponse();
 }
 
+async function importCloudflareEnv(): Promise<Record<string, unknown>> {
+  try {
+    const mod = (await import("cloudflare:workers")) as { env?: unknown };
+    return (mod.env as Record<string, unknown>) ?? {};
+  } catch {
+    return {};
+  }
+}
+
 function asRuntimeEnv(value: unknown): Record<string, unknown> | undefined {
   return value && typeof value === "object" ? (value as Record<string, unknown>) : undefined;
 }
 
-function resolveRuntimeEnv(passedEnv: unknown): Record<string, unknown> {
-  return asRuntimeEnv(passedEnv) ?? (cloudflareEnv as unknown as Record<string, unknown>);
+async function resolveRuntimeEnv(passedEnv: unknown): Promise<Record<string, unknown>> {
+  return asRuntimeEnv(passedEnv) ?? (await importCloudflareEnv());
 }
 
 function isSecretStoreBinding(value: unknown): value is SecretStoreBinding {
@@ -238,7 +246,7 @@ async function ttsBindingDiagnostics(runtimeEnv: Record<string, unknown>): Promi
 export default {
   async fetch(request: Request, passedEnv: unknown, ctx: unknown) {
     try {
-      const runtimeEnv = await materializeWorkerEnv(resolveRuntimeEnv(passedEnv));
+      const runtimeEnv = await materializeWorkerEnv(await resolveRuntimeEnv(passedEnv));
 
       const url = new URL(request.url);
       if (url.pathname === "/api/tts-env-debug") {

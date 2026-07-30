@@ -1,4 +1,3 @@
-import { env } from "cloudflare:workers";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 
@@ -72,12 +71,21 @@ async function readBindingValue(binding: unknown): Promise<string | undefined> {
   }
 }
 
+async function readCloudflareEnv(): Promise<Record<string, unknown>> {
+  try {
+    const mod = (await import("cloudflare:workers")) as { env?: unknown };
+    return (mod.env as Record<string, unknown>) ?? {};
+  } catch {
+    return {};
+  }
+}
+
 async function readServerSecret(name: string): Promise<string | undefined> {
   const runtimeEnv = (globalThis as { __env__?: Record<string, unknown> }).__env__;
   const runtimeValue = await readBindingValue(runtimeEnv?.[name]);
   if (runtimeValue) return runtimeValue;
 
-  const importedValue = await readBindingValue((env as unknown as Record<string, unknown>)[name]);
+  const importedValue = await readBindingValue((await readCloudflareEnv())[name]);
   if (importedValue) return importedValue;
 
   return normalizeSecret(process.env[name]);

@@ -34,6 +34,7 @@ import "@/lib/knowledgeBaseExtensions/einkommensteuer-paragraf-7a-estg-erhoehte-
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-paragraf-7b-estg-sonderabschreibung-mietwohnungsneubau";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-paragraf-7g-estg-investitionsabzugsbetrag-sonderabschreibung";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-paragraf-8-estg-einnahmen-sachbezuege";
+import "@/lib/knowledgeBaseExtensions/einkommensteuer-paragraf-9-estg-werbungskosten";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-teilentgeltliche-grundstuecksuebertragung-23-estg";
 import "@/lib/knowledgeBaseExtensions/einkommensteuer-vorsorgepauschale-ab-2026";
 import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-bewertung-betriebsvermoegen-vereinfachtes-ertragswertverfahren";

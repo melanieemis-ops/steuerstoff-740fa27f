@@ -5,4 +5,16 @@
   "compatibility_flags": ["nodejs_compat"],
   "keep_vars": true,
   "main": "src/server.ts",
+  "secrets_store_secrets": [
+    {
+      "binding": "GEMINIAI_API_KEY",
+      "store_id": "1f1fda8548744604861aba2537d90185",
+      "secret_name": "GEMINIAI_API_KEY"
+    },
+    {
+      "binding": "GEMINI_TTS",
+      "store_id": "1f1fda8548744604861aba2537d90185",
+      "secret_name": "GEMINI_TTS"
+    }
+  ]
 }

@@ -97,25 +97,33 @@ export async function requestSpeechAudio(payload: TtsRequestPayload, signal: Abo
     let code: TtsApiErrorCode = "UNKNOWN_ERROR";
     let backendMessage = "";
     try {
-      const errorPayload = (await response.json()) as { error?: unknown; message?: unknown };
-      if (typeof errorPayload.error === "string") code = errorPayload.error as TtsApiErrorCode;
-      if (typeof errorPayload.message === "string") backendMessage = errorPayload.message.trim();
+      const responseBody = await response.text();
+      try {
+        const errorPayload = JSON.parse(responseBody) as { error?: unknown; message?: unknown };
+        if (typeof errorPayload.error === "string") code = errorPayload.error as TtsApiErrorCode;
+        if (typeof errorPayload.message === "string") backendMessage = errorPayload.message.trim();
+      } catch {
+        backendMessage = responseBody.replace(/\s+/g, " ").trim();
+      }
     } catch { /* ignore */ }
+
+    const statusMessage = `HTTP ${response.status}${response.statusText ? ` ${response.statusText}` : ""}`;
+    const concreteMessage = backendMessage ? `${statusMessage}: ${backendMessage}` : statusMessage;
 
     if (process.env.NODE_ENV === "development") {
       console.warn(`[${FUNCTION_NAME}] status=${response.status} code=${code} message=${backendMessage}`);
     }
 
     if (response.status === 401 || code === "INVALID_TTS_ACCESS_CODE") {
-      throw new TtsApiError("INVALID_TTS_ACCESS_CODE", backendMessage || TTS_INVALID_ACCESS_CODE_MESSAGE, response.status);
+      throw new TtsApiError("INVALID_TTS_ACCESS_CODE", concreteMessage || TTS_INVALID_ACCESS_CODE_MESSAGE, response.status);
     }
     if (code === "MISSING_TTS_ACCESS_CODE") {
-      throw new TtsApiError("MISSING_TTS_ACCESS_CODE", backendMessage || TTS_MISSING_ACCESS_CODE_MESSAGE, response.status);
+      throw new TtsApiError("MISSING_TTS_ACCESS_CODE", concreteMessage || TTS_MISSING_ACCESS_CODE_MESSAGE, response.status);
     }
     if (response.status === 429) {
-      throw new TtsApiError("RATE_LIMITED", backendMessage || TTS_RATE_LIMIT_MESSAGE, response.status);
+      throw new TtsApiError("RATE_LIMITED", concreteMessage || TTS_RATE_LIMIT_MESSAGE, response.status);
     }
-    throw new TtsApiError(code, backendMessage || TTS_GENERIC_ERROR_MESSAGE, response.status);
+    throw new TtsApiError(code, concreteMessage, response.status);
   }
 
   const blob = await response.blob();

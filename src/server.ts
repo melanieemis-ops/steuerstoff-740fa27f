@@ -81,10 +81,39 @@ function exposeWorkerEnv(env: unknown): void {
   }
 }
 
+function ttsBindingDiagnostics(env: unknown): Response {
+  const runtimeEnv = env && typeof env === "object" ? (env as Record<string, unknown>) : {};
+  const names = [
+    "GEMINI_TTS",
+    "GEMINIAI_API_KEY",
+    "GEMINI_API_KEY",
+    "GOOGLE_API_KEY",
+    "OPENAI_API_KEY",
+    "ELEVENLABS_API_KEY",
+    "ELEVENLABS_VOICE_ID",
+  ];
+  const bindings = Object.fromEntries(
+    names.map((name) => [name, typeof runtimeEnv[name] === "string" && String(runtimeEnv[name]).trim().length > 0]),
+  );
+
+  return new Response(JSON.stringify({ ok: true, bindings }, null, 2), {
+    status: 200,
+    headers: {
+      "content-type": "application/json; charset=utf-8",
+      "cache-control": "no-store",
+    },
+  });
+}
+
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
       exposeWorkerEnv(env);
+      const url = new URL(request.url);
+      if (url.pathname === "/api/tts-env-debug") {
+        return ttsBindingDiagnostics(env);
+      }
+
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
       return await normalizeCatastrophicSsrResponse(response);

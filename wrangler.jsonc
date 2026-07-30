@@ -5,6 +5,12 @@
   "compatibility_flags": ["nodejs_compat"],
   "keep_vars": true,
   "main": "src/server.ts",
+  "routes": [
+    {
+      "pattern": "steuerstoff.com",
+      "custom_domain": true
+    }
+  ],
   "secrets_store_secrets": [
     {
       "binding": "GEMINIAI_API_KEY",

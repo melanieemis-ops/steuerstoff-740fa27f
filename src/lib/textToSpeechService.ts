@@ -78,8 +78,6 @@ export async function requestSpeechAudio(payload: TtsRequestPayload, signal: Abo
   const voice = payload.voice ?? settings.openAiVoice ?? "coral";
   const headers: Record<string, string> = { "Content-Type": "application/json" };
 
-  // Derselbe in Steuerstoff gespeicherte Freischaltcode gilt für die Gemini-Sprachausgabe
-  // und wird auch bei automatischem Fallback von OpenAI oder ElevenLabs mitgesendet.
   const accessCode = await getTtsAccessCode();
   if (accessCode) headers["x-tts-access-code"] = accessCode;
 
@@ -92,19 +90,27 @@ export async function requestSpeechAudio(payload: TtsRequestPayload, signal: Abo
 
   if (!response.ok) {
     let code: TtsApiErrorCode = "UNKNOWN_ERROR";
+    let backendMessage = "";
     try {
-      const errorPayload = (await response.json()) as { error?: unknown };
+      const errorPayload = (await response.json()) as { error?: unknown; message?: unknown };
       if (typeof errorPayload.error === "string") code = errorPayload.error as TtsApiErrorCode;
+      if (typeof errorPayload.message === "string") backendMessage = errorPayload.message.trim();
     } catch { /* ignore */ }
-    if (process.env.NODE_ENV === "development") console.warn(`[${FUNCTION_NAME}] status=${response.status} code=${code}`);
+
+    if (process.env.NODE_ENV === "development") {
+      console.warn(`[${FUNCTION_NAME}] status=${response.status} code=${code} message=${backendMessage}`);
+    }
+
     if (response.status === 401 || code === "INVALID_TTS_ACCESS_CODE") {
-      throw new TtsApiError("INVALID_TTS_ACCESS_CODE", TTS_INVALID_ACCESS_CODE_MESSAGE, response.status);
+      throw new TtsApiError("INVALID_TTS_ACCESS_CODE", backendMessage || TTS_INVALID_ACCESS_CODE_MESSAGE, response.status);
     }
     if (code === "MISSING_TTS_ACCESS_CODE") {
-      throw new TtsApiError("MISSING_TTS_ACCESS_CODE", TTS_MISSING_ACCESS_CODE_MESSAGE, response.status);
+      throw new TtsApiError("MISSING_TTS_ACCESS_CODE", backendMessage || TTS_MISSING_ACCESS_CODE_MESSAGE, response.status);
     }
-    if (response.status === 429) throw new TtsApiError("RATE_LIMITED", TTS_RATE_LIMIT_MESSAGE, response.status);
-    throw new TtsApiError(code, TTS_GENERIC_ERROR_MESSAGE, response.status);
+    if (response.status === 429) {
+      throw new TtsApiError("RATE_LIMITED", backendMessage || TTS_RATE_LIMIT_MESSAGE, response.status);
+    }
+    throw new TtsApiError(code, backendMessage || TTS_GENERIC_ERROR_MESSAGE, response.status);
   }
 
   const blob = await response.blob();
@@ -112,7 +118,6 @@ export async function requestSpeechAudio(payload: TtsRequestPayload, signal: Abo
   return blob;
 }
 
-// Bestehende Komponenten verwenden diesen Namen. Die Anfrage folgt trotzdem der Auswahl in den Einstellungen.
 export async function requestElevenLabsAudio(payload: TtsRequestPayload, signal: AbortSignal) {
   return requestSpeechAudio(payload, signal);
 }

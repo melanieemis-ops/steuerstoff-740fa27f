@@ -35,6 +35,13 @@ function allowRequest(ip: string): boolean {
   return true;
 }
 
+const CORS_HEADERS: Record<string, string> = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+  "Access-Control-Max-Age": "86400",
+};
+
 /** Fehlerantworten immer als JSON, ohne Secrets und ohne vollständigen Upstream-Body. */
 function jsonError(status: number, code: string, message: string, reason?: string) {
   return new Response(
@@ -44,6 +51,7 @@ function jsonError(status: number, code: string, message: string, reason?: strin
       headers: {
         "content-type": "application/json; charset=utf-8",
         "cache-control": "no-store",
+        ...CORS_HEADERS,
       },
     },
   );

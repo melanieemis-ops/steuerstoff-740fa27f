@@ -6,7 +6,7 @@ import { DEFAULT_TTS_MODEL_ID, getVoiceProfile } from "@/lib/ttsVoiceProfiles";
 
 const MAX_TEXT_LENGTH = 12000;
 const RATE_WINDOW_MS = 10 * 60 * 1000;
-const RATE_LIMIT = 24;
+const RATE_LIMIT = 60;
 const DEFAULT_VOICE_ID = "g1jpii0iyvtRs8fqXsd1";
 const GEMINI_TTS_MODELS = [
   "gemini-3.1-flash-tts-preview",

@@ -307,6 +307,8 @@ async function geminiSpeech(request: Request, text: string, payload: Record<stri
     }
   }
 
+  const gatewayFallback = await gatewaySpeech(request, text, fallbackVoice);
+  if (gatewayFallback) return gatewayFallback;
   return jsonError(lastStatus, "GEMINI_ERROR", lastFailure || "Gemini lieferte keine verwertbare Antwort.");
 }
 

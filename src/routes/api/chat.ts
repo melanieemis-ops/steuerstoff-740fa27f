@@ -489,7 +489,9 @@ export const Route = createFileRoute("/api/chat")({
         const stream = new ReadableStream<Uint8Array>({
           async start(ctrl) {
             try {
-              for await (const delta of parseGeminiSseTextDeltas(upstream)) {
+              const parser = useGateway ? parseOpenAiSseTextDeltas : parseGeminiSseTextDeltas;
+              for await (const delta of parser(upstream)) {
+
                 ctrl.enqueue(encoder.encode(delta));
               }
 

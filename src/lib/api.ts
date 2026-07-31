@@ -24,15 +24,16 @@ export function apiUrl(path: string): string {
   return `${withoutTrailingSlash(base)}${normalizedPath}`;
 }
 
+const DEFAULT_CHAT_API_BASE_URL = "https://api.steuerstoff.com";
+
 /**
- * Chat-Endpunkt. Optional kann per VITE_CHAT_API_BASE_URL der eigene
- * Cloudflare-Worker adressiert werden, der GEMINIAI_API_KEY direkt liest.
- * Ohne Angabe bleibt es same-origin.
+ * Chat-Endpunkt. Läuft immer über den eigenen Cloudflare-Worker
+ * (Standard: https://api.steuerstoff.com), optional überschreibbar per
+ * VITE_CHAT_API_BASE_URL. Kein same-origin-Fallback.
  */
 export function chatApiUrl(path = "/api/chat"): string {
-  const chatBase = import.meta.env.VITE_CHAT_API_BASE_URL?.trim();
-  if (chatBase && chatBase.length > 0) {
-    return `${withoutTrailingSlash(chatBase)}${withLeadingSlash(path)}`;
-  }
-  return apiUrl(path);
+  const configuredBase = import.meta.env.VITE_CHAT_API_BASE_URL?.trim();
+  const base =
+    configuredBase && configuredBase.length > 0 ? configuredBase : DEFAULT_CHAT_API_BASE_URL;
+  return `${withoutTrailingSlash(base)}${withLeadingSlash(path)}`;
 }

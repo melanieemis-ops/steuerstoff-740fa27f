@@ -25,6 +25,7 @@ type BindingDiagnostic = {
   errorMessage?: string;
 };
 
+// Never probe ASSETS: it is a service binding, not a Secrets Store secret.
 const SECRET_STORE_BINDING_NAMES = new Set(["GEMINIAI_API_KEY", "GEMINI_TTS"]);
 
 let serverEntryPromise: Promise<ServerEntry> | undefined;
@@ -114,8 +115,6 @@ async function materializeWorkerEnv(env: Record<string, unknown>): Promise<Recor
         return;
       }
 
-      // Service bindings such as ASSETS may also expose a get() method. Only the
-      // explicitly configured Secrets Store bindings must be materialized here.
       if (!SECRET_STORE_BINDING_NAMES.has(name) || !isSecretStoreBinding(value)) return;
 
       try {

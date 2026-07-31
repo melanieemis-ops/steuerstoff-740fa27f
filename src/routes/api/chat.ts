@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { searchKb, formatKbContext, type KbHit } from "@/lib/ai/kbSearch";
 import { readGeminiApiKey, readServerBinding } from "@/lib/ai/serverEnv";
+// Kein Lovable-Gateway, kein OpenAI: ausschließlich direkte Google-Gemini-API.
 import { getAttachmentRule } from "@/lib/attachment-validation";
 import { readUpload } from "@/lib/upload-store";
 

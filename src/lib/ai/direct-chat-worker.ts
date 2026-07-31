@@ -5,8 +5,8 @@ const CORS_HEADERS: Record<string, string> = {
   "Access-Control-Max-Age": "86400",
 };
 
-const DEFAULT_MODEL = "gemini-2.5-flash";
-const FALLBACK_MODELS = ["gemini-2.5-flash-lite", "gemini-2.0-flash"];
+const DEFAULT_MODEL = "gemini-3.6-flash";
+const FALLBACK_MODELS = ["gemini-3.5-flash-lite", "gemini-flash-latest"];
 const MAX_MESSAGE_LENGTH = 4000;
 const MAX_HISTORY = 8;
 

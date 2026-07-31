@@ -22,7 +22,8 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "deploy:clean": "rm -rf .output dist .wrangler/deploy",
-    "deploy": "npm run deploy:clean && vite build && npx wrangler deploy --config dist/server/wrangler.json"
+    "patch:worker-domain": "node scripts/patch-cloudflare-worker-domain.mjs",
+    "deploy": "npm run deploy:clean && vite build && npm run patch:worker-domain && if [ -f .output/server/wrangler.json ]; then npx wrangler deploy --config .output/server/wrangler.json; else npx wrangler deploy --config dist/server/wrangler.json; fi"
   },
   "dependencies": {
     "@capacitor/cli": "^8.4.2",

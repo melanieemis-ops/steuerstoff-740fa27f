@@ -326,9 +326,17 @@ function ChatPage() {
         }),
       });
       if (!resp.ok || !resp.body) {
-        const messageText = await resp.text().catch(() => "");
+        const raw = await resp.text().catch(() => "");
+        let messageText = raw;
+        try {
+          const parsed = JSON.parse(raw) as { message?: string; error?: string };
+          messageText = parsed.message || parsed.error || raw;
+        } catch {
+          // Kein JSON – Rohtext verwenden.
+        }
         throw new Error(messageText || `HTTP ${resp.status}`);
       }
+
       const reader = resp.body.getReader();
       const decoder = new TextDecoder();
       let buf = "";

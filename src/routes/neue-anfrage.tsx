@@ -12,7 +12,7 @@ import {
   findCuratedExample,
   type CuratedExample,
 } from "@/lib/curatedExamples";
-import { apiUrl, chatApiUrl } from "@/lib/api";
+import { chatApiUrl } from "@/lib/api";
 import { ArrowRight, Sparkles } from "lucide-react";
 
 export const Route = createFileRoute("/neue-anfrage")({

@@ -24,7 +24,7 @@ import {
   type ChatMessageAttachment,
 } from "@/lib/attachment-types";
 import { generateAnswer, REVIEW_HINT, type ChatAnswer } from "@/lib/chatHeuristics";
-import { apiUrl, chatApiUrl } from "@/lib/api";
+import { chatApiUrl } from "@/lib/api";
 import {
   AlertCircle,
   ArrowRight,

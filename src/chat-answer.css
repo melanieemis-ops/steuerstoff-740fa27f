@@ -1,0 +1,16 @@
+/* Chat-Antworten: lange KI-Texte ruhig und gut lesbar darstellen. */
+.chat-page [data-msg] p.font-semibold.leading-snug {
+  white-space: pre-wrap;
+  font-size: 1rem;
+  font-weight: 400 !important;
+  line-height: 1.68 !important;
+  letter-spacing: 0;
+  text-wrap: pretty;
+}
+
+@media (max-width: 640px) {
+  .chat-page [data-msg] p.font-semibold.leading-snug {
+    font-size: 0.98rem;
+    line-height: 1.65 !important;
+  }
+}

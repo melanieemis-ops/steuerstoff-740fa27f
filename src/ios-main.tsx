@@ -4,6 +4,7 @@ import { QueryClient } from "@tanstack/react-query";
 import { RouterProvider, createRouter } from "@tanstack/react-router";
 import { routeTreeIos } from "./routeTree.ios";
 import "./styles.css";
+import "./chat-answer.css";
 
 (
   window as Window & { __IOS_MAIN_STARTED?: boolean; __IOS_MAIN_RENDERED?: boolean }

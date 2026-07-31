@@ -24,22 +24,21 @@ export function apiUrl(path: string): string {
   return `${withoutTrailingSlash(base)}${normalizedPath}`;
 }
 
-const DEFAULT_CHAT_API_BASE_URL =
-  "https://steuerstoff-740fa27f.melanieemis.workers.dev";
+const DEFAULT_CHAT_API_BASE_URL = "https://steuerstoff.com";
 
 /**
- * Chat-Endpunkt. Läuft immer über den eigenen Cloudflare-Worker
- * (Standard: https://steuerstoff-740fa27f.melanieemis.workers.dev),
- * optional überschreibbar per VITE_CHAT_API_BASE_URL. Kein same-origin-Fallback.
+ * Chat-Endpunkt. Läuft immer über https://steuerstoff.com/api/chat,
+ * optional überschreibbar per VITE_CHAT_API_BASE_URL. Keine workers.dev-Route
+ * und kein api.steuerstoff.com (DNS nicht auflösbar).
  */
 export function chatApiUrl(path = "/api/chat"): string {
   const configuredBase = import.meta.env.VITE_CHAT_API_BASE_URL?.trim();
-  // api.steuerstoff.com ist im öffentlichen DNS noch nicht auflösbar und wird
-  // daher bewusst ignoriert.
-  const usableBase =
-    configuredBase && configuredBase.length > 0 && !configuredBase.includes("api.steuerstoff.com")
-      ? configuredBase
-      : DEFAULT_CHAT_API_BASE_URL;
+  const isUnusable =
+    !configuredBase ||
+    configuredBase.length === 0 ||
+    configuredBase.includes("api.steuerstoff.com") ||
+    configuredBase.includes(".workers.dev");
+  const usableBase = isUnusable ? DEFAULT_CHAT_API_BASE_URL : configuredBase;
   return `${withoutTrailingSlash(usableBase)}${withLeadingSlash(path)}`;
 }
 

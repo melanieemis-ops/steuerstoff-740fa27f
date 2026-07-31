@@ -18,6 +18,7 @@ import {
 
 
 import appCss from "../styles.css?url";
+import chatAnswerCss from "../chat-answer.css?url";
 
 import {
   GlobalSwipeArea,
@@ -181,7 +182,7 @@ export const Route =
         },
         {
           name: "theme-color",
-          content: "⇨0F172A",
+          content: "#0F172A",
         },
         {
           name: "application-name",
@@ -254,6 +255,10 @@ export const Route =
         {
           rel: "stylesheet",
           href: appCss,
+        },
+        {
+          rel: "stylesheet",
+          href: chatAnswerCss,
         },
         {
           rel: "manifest",

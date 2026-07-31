@@ -321,7 +321,8 @@ export const Route = createFileRoute("/api/chat")({
         }
 
         const apiKey = await readGeminiApiKey();
-        if (!apiKey) {
+        const gatewayKey = apiKey ? undefined : await readServerBinding("LOVABLE_API_KEY");
+        if (!apiKey && !gatewayKey) {
           return jsonError(
             503,
             "missing_gemini_binding",
@@ -330,6 +331,7 @@ export const Route = createFileRoute("/api/chat")({
           );
         }
         const configuredModel = (await readServerBinding("GEMINI_CHAT_MODEL")) ?? DEFAULT_MODEL;
+
 
         const body = (await request.json().catch(() => null)) as {
           message?: unknown;

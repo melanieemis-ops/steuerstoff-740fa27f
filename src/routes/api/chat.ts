@@ -221,24 +221,29 @@ async function* parseGeminiSseTextDeltas(resp: Response): AsyncGenerator<string>
   }
 }
 
-function getGeminiApiKey(): string | undefined {
-  return (
-    process.env.GEMINIAI_API_KEY ||
-    process.env.GEMINI_API_KEY ||
-    process.env.GOOGLE_API_KEY
-  );
-}
-
 export const Route = createFileRoute("/api/chat")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const apiKey = getGeminiApiKey();
-        if (!apiKey) {
-          return new Response("KI-Funktion ist derzeit serverseitig nicht konfiguriert.", {
-            status: 503,
-          });
+        const ip = clientIp(request);
+        if (!allowRequest(ip)) {
+          return jsonError(
+            429,
+            "rate_limited",
+            "Zu viele Anfragen. Bitte kurz warten und erneut versuchen.",
+          );
         }
+
+        const apiKey = await readGeminiApiKey();
+        if (!apiKey) {
+          return jsonError(
+            503,
+            "missing_gemini_binding",
+            "KI-Funktion ist derzeit serverseitig nicht konfiguriert.",
+            "GEMINIAI_API_KEY binding not available",
+          );
+        }
+        const configuredModel = (await readServerBinding("GEMINI_CHAT_MODEL")) ?? DEFAULT_MODEL;
 
         const body = (await request.json().catch(() => null)) as {
           message?: unknown;
@@ -247,9 +252,10 @@ export const Route = createFileRoute("/api/chat")({
         } | null;
 
         const message = typeof body?.message === "string" ? body.message.trim() : "";
-        if (message && message.length > 4000) {
-          return new Response("Ungültige Nachricht.", { status: 400 });
+        if (message.length > MAX_MESSAGE_LENGTH) {
+          return jsonError(400, "invalid_message", "Ungültige Nachricht.");
         }
+
 
         const parsedAttachments = z
           .array(IncomingAttachmentSchema)

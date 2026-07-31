@@ -1,7 +1,12 @@
 import { buildSpeechCacheSignature } from "@/lib/prepareTextForSpeech";
 import { DEFAULT_TTS_MODEL_ID, getVoiceProfile } from "@/lib/ttsVoiceProfiles";
 import { getTtsAccessCode } from "@/lib/ttsAccessCodeStorage";
-import { loadSpeechSettings, type OpenAiVoice, type TtsProvider } from "@/lib/speech-storage";
+import {
+  loadSpeechSettings,
+  type GeminiVoice,
+  type OpenAiVoice,
+  type TtsProvider,
+} from "@/lib/speech-storage";
 import { apiUrl } from "@/lib/api";
 
 const cache = new Map<string, string>();
@@ -10,7 +15,6 @@ const FUNCTION_NAME = "api/text-to-speech";
 function getTtsApiUrl(path: string): string {
   return apiUrl(path);
 }
-
 
 export type TtsApiErrorCode =
   | "CONFIGURATION_ERROR"
@@ -59,6 +63,7 @@ export type TtsRequestPayload = {
   text: string;
   provider?: TtsProvider;
   voice?: OpenAiVoice;
+  geminiVoice?: GeminiVoice;
   modelId?: string;
   profileId?: string;
 };
@@ -66,10 +71,13 @@ export type TtsRequestPayload = {
 export function getAudioCacheKey(payload: TtsRequestPayload): string {
   const settings = loadSpeechSettings();
   const provider = payload.provider ?? settings.provider ?? "openai";
-  const voice = payload.voice ?? settings.openAiVoice ?? "coral";
+  const selectedVoice =
+    provider === "gemini"
+      ? payload.geminiVoice ?? settings.geminiVoice ?? "Kore"
+      : payload.voice ?? settings.openAiVoice ?? "coral";
   return buildSpeechCacheSignature({
     text: payload.text,
-    voiceId: `${provider}:${voice}`,
+    voiceId: `${provider}:${selectedVoice}`,
     modelId: payload.modelId ?? DEFAULT_TTS_MODEL_ID,
     profileId: payload.profileId ?? getVoiceProfile().id,
   });
@@ -81,6 +89,7 @@ export async function requestSpeechAudio(payload: TtsRequestPayload, signal: Abo
   const settings = loadSpeechSettings();
   const provider = payload.provider ?? settings.provider ?? "openai";
   const voice = payload.voice ?? settings.openAiVoice ?? "coral";
+  const geminiVoice = payload.geminiVoice ?? settings.geminiVoice ?? "Kore";
   const headers: Record<string, string> = { "Content-Type": "application/json" };
 
   const accessCode = await getTtsAccessCode();
@@ -89,7 +98,7 @@ export async function requestSpeechAudio(payload: TtsRequestPayload, signal: Abo
   const response = await fetch(getTtsApiUrl("/api/text-to-speech"), {
     method: "POST",
     headers,
-    body: JSON.stringify({ ...payload, provider, voice }),
+    body: JSON.stringify({ ...payload, provider, voice, geminiVoice }),
     signal,
   });
 

@@ -262,13 +262,14 @@ export const Route = createFileRoute("/api/chat")({
           .max(5)
           .safeParse(body?.attachments ?? []);
         if (!parsedAttachments.success) {
-          return new Response("Ungültige Anhänge.", { status: 400 });
+          return jsonError(400, "invalid_attachments", "Ungültige Anhänge.");
         }
 
         const attachments = parsedAttachments.data;
         if (!message && attachments.length === 0) {
-          return new Response("Ungültige Nachricht.", { status: 400 });
+          return jsonError(400, "invalid_message", "Ungültige Nachricht.");
         }
+
 
         const rawHistory = Array.isArray(body?.history) ? body.history : [];
         const history: IncomingMsg[] = rawHistory

@@ -11,7 +11,7 @@
 
   "routes": [
     {
-      "pattern": "steuerstoff.com",
+      "pattern": "api.steuerstoff.com",
       "custom_domain": true
     }
   ],

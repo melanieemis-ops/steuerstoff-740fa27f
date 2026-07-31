@@ -400,7 +400,7 @@ export const Route = createFileRoute("/api/chat")({
                     : "gemini_upstream_error";
             const responseMessage =
               status === 429
-                ? "Modell ausgelastet oder kostenloses Kontingent erschöpft. Bitte kurz warten."
+                ? "Das kostenlose KI-Kontingent ist momentan ausgeschöpft. Bitte versuchen Sie es später erneut."
                 : status === 400
                   ? attachments.length > 0
                     ? "Mindestens ein Anhang wird von Gemini nicht unterstützt. Bitte versuche es ohne diesen Anhang erneut."

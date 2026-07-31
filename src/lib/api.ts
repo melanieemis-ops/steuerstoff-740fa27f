@@ -29,8 +29,8 @@ const DEFAULT_CHAT_API_BASE_URL =
 
 /**
  * Chat-Endpunkt. Läuft immer über den eigenen Cloudflare-Worker
- * (Standard: https://api.steuerstoff.com), optional überschreibbar per
- * VITE_CHAT_API_BASE_URL. Kein same-origin-Fallback.
+ * (Standard: https://steuerstoff-740fa27f.melanieemis.workers.dev),
+ * optional überschreibbar per VITE_CHAT_API_BASE_URL. Kein same-origin-Fallback.
  */
 export function chatApiUrl(path = "/api/chat"): string {
   const configuredBase = import.meta.env.VITE_CHAT_API_BASE_URL?.trim();

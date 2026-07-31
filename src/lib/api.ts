@@ -24,7 +24,8 @@ export function apiUrl(path: string): string {
   return `${withoutTrailingSlash(base)}${normalizedPath}`;
 }
 
-const DEFAULT_CHAT_API_BASE_URL = "https://api.steuerstoff.com";
+const DEFAULT_CHAT_API_BASE_URL =
+  "https://steuerstoff-740fa27f.melanieemis.workers.dev";
 
 /**
  * Chat-Endpunkt. Läuft immer über den eigenen Cloudflare-Worker

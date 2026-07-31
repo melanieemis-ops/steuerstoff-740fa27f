@@ -270,7 +270,10 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
       }
     } catch (ttsError) {
       if (sessionId !== sessionRef.current || isTtsAbortError(ttsError)) return;
+      console.error("[tts] Vorlesen fehlgeschlagen", ttsError);
       releaseAudio();
+
+
 
       const message = ttsErrorMessage(ttsError);
       setErrorNeedsSettings(ttsErrorNeedsSettings(ttsError));

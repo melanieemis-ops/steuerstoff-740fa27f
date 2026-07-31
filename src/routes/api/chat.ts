@@ -7,7 +7,11 @@ import { getAttachmentRule } from "@/lib/attachment-validation";
 import { readUpload } from "@/lib/upload-store";
 
 const DEFAULT_MODEL = "gemini-2.5-flash";
-const FALLBACK_MODEL = "gemini-2.5-flash-lite";
+const FALLBACK_MODELS = [
+  "gemini-2.5-flash-lite",
+  "gemini-1.5-flash",
+  "gemini-1.5-pro",
+];
 const MAX_OUTPUT_TOKENS = 1400;
 const MAX_HISTORY = 8;
 const MAX_MESSAGE_LENGTH = 4000;

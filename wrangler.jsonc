@@ -5,6 +5,10 @@
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "keep_vars": true,
   "main": "src/server.ts",
+  "vars": {
+    "GEMINI_CHAT_MODEL": "gemini-2.5-flash"
+  },
+
   "routes": [
     {
       "pattern": "steuerstoff.com",

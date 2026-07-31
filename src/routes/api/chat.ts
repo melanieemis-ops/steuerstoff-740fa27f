@@ -1,13 +1,53 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { searchKb, formatKbContext, type KbHit } from "@/lib/ai/kbSearch";
+import { readGeminiApiKey, readServerBinding } from "@/lib/ai/serverEnv";
 import { getAttachmentRule } from "@/lib/attachment-validation";
 import { readUpload } from "@/lib/upload-store";
 
-const PRIMARY_MODEL = "gemini-2.5-flash";
+const DEFAULT_MODEL = "gemini-2.5-flash";
 const FALLBACK_MODEL = "gemini-2.5-flash-lite";
 const MAX_OUTPUT_TOKENS = 1400;
 const MAX_HISTORY = 8;
+const MAX_MESSAGE_LENGTH = 4000;
+const RATE_LIMIT = 30;
+const RATE_WINDOW_MS = 60_000;
+
+const rateBuckets = new Map<string, number[]>();
+
+function clientIp(request: Request): string {
+  const h = request.headers;
+  return (
+    h.get("cf-connecting-ip") ??
+    h.get("x-real-ip") ??
+    (h.get("x-forwarded-for") ?? "").split(",")[0].trim() ??
+    "unknown"
+  );
+}
+
+function allowRequest(ip: string): boolean {
+  const now = Date.now();
+  const active = (rateBuckets.get(ip) ?? []).filter((ts) => now - ts < RATE_WINDOW_MS);
+  if (active.length >= RATE_LIMIT) return false;
+  active.push(now);
+  rateBuckets.set(ip, active);
+  return true;
+}
+
+/** Fehlerantworten immer als JSON, ohne Secrets und ohne vollständigen Upstream-Body. */
+function jsonError(status: number, code: string, message: string, reason?: string) {
+  return new Response(
+    JSON.stringify({ error: code, status, message, reason: reason?.slice(0, 200) }),
+    {
+      status,
+      headers: {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+      },
+    },
+  );
+}
+
 
 const SYSTEM_PROMPT = `Du bist "steuerstoff", ein deutschsprachiger steuerlicher Arbeitsassistent für Steuerkanzleien in Deutschland.
 

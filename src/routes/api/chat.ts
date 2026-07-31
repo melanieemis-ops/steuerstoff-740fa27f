@@ -414,13 +414,20 @@ export const Route = createFileRoute("/api/chat")({
         const controller = new AbortController();
         request.signal?.addEventListener("abort", () => controller.abort());
 
-        let modelUsed = configuredModel;
-        let upstream = await streamGemini({
-          apiKey,
-          model: configuredModel,
-          contents,
-          signal: controller.signal,
-        });
+        const useGateway = !apiKey;
+        let modelUsed = useGateway ? GATEWAY_MODEL : configuredModel;
+        let upstream = useGateway
+          ? await streamGatewayGemini({
+              apiKey: gatewayKey as string,
+              contents,
+              signal: controller.signal,
+            })
+          : await streamGemini({
+              apiKey: apiKey as string,
+              model: configuredModel,
+              contents,
+              signal: controller.signal,
+            });
 
         if (!upstream.ok) {
           const errorText = await upstream.text().catch(() => "");
@@ -428,10 +435,10 @@ export const Route = createFileRoute("/api/chat")({
             upstream.status === 404 ||
             /not found|not supported|invalid model|model.*does not exist/i.test(errorText);
 
-          if (isModelMissing && configuredModel !== FALLBACK_MODEL) {
+          if (!useGateway && isModelMissing && configuredModel !== FALLBACK_MODEL) {
             modelUsed = FALLBACK_MODEL;
             upstream = await streamGemini({
-              apiKey,
+              apiKey: apiKey as string,
               model: FALLBACK_MODEL,
               contents,
               signal: controller.signal,
@@ -468,6 +475,7 @@ export const Route = createFileRoute("/api/chat")({
             return jsonError(502, code, responseMessage, `Gemini HTTP ${status}`);
           }
         }
+
 
 
         const sources = hits.map((hit) => ({

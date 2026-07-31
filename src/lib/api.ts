@@ -34,7 +34,12 @@ const DEFAULT_CHAT_API_BASE_URL =
  */
 export function chatApiUrl(path = "/api/chat"): string {
   const configuredBase = import.meta.env.VITE_CHAT_API_BASE_URL?.trim();
-  const base =
-    configuredBase && configuredBase.length > 0 ? configuredBase : DEFAULT_CHAT_API_BASE_URL;
-  return `${withoutTrailingSlash(base)}${withLeadingSlash(path)}`;
+  // api.steuerstoff.com ist im öffentlichen DNS noch nicht auflösbar und wird
+  // daher bewusst ignoriert.
+  const usableBase =
+    configuredBase && configuredBase.length > 0 && !configuredBase.includes("api.steuerstoff.com")
+      ? configuredBase
+      : DEFAULT_CHAT_API_BASE_URL;
+  return `${withoutTrailingSlash(usableBase)}${withLeadingSlash(path)}`;
 }
+

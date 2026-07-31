@@ -32,6 +32,22 @@ type ChatBody = {
   attachments?: unknown;
 };
 
+type GeminiSsePayload = {
+  candidates?: Array<{
+    content?: {
+      parts?: Array<{ text?: string }>;
+    };
+  }>;
+};
+
+function safeJson<T>(value: string): T | null {
+  try {
+    return JSON.parse(value) as T;
+  } catch {
+    return null;
+  }
+}
+
 function validHistory(value: unknown): IncomingMessage[] {
   if (!Array.isArray(value)) return [];
 
@@ -91,6 +107,83 @@ async function callGemini(opts: {
   });
 }
 
+function extractTextFromSseEvent(event: string): string {
+  const data = event
+    .split(/\r?\n/)
+    .filter((line) => line.startsWith("data:"))
+    .map((line) => line.slice(5).trim())
+    .join("");
+
+  if (!data || data === "[DONE]") return "";
+
+  const payload = safeJson<GeminiSsePayload>(data);
+  return (payload?.candidates?.[0]?.content?.parts ?? [])
+    .map((part) => (typeof part.text === "string" ? part.text : ""))
+    .join("");
+}
+
+function createPlainTextStream(
+  upstream: Response,
+  model: string,
+  controller: AbortController,
+): ReadableStream<Uint8Array> {
+  const encoder = new TextEncoder();
+
+  return new ReadableStream<Uint8Array>({
+    async start(streamController) {
+      const reader = upstream.body?.getReader();
+      if (!reader) {
+        streamController.error(new Error("Gemini-Antwort enthält keinen Stream."));
+        return;
+      }
+
+      const decoder = new TextDecoder();
+      let buffer = "";
+
+      try {
+        while (true) {
+          const { value, done } = await reader.read();
+          if (done) break;
+
+          buffer += decoder.decode(value, { stream: true });
+          const events = buffer.split(/\r?\n\r?\n/);
+          buffer = events.pop() ?? "";
+
+          for (const event of events) {
+            const text = extractTextFromSseEvent(event);
+            if (text) streamController.enqueue(encoder.encode(text));
+          }
+        }
+
+        buffer += decoder.decode();
+        if (buffer.trim()) {
+          const text = extractTextFromSseEvent(buffer);
+          if (text) streamController.enqueue(encoder.encode(text));
+        }
+
+        streamController.enqueue(
+          encoder.encode(`\n\n<<STEUERSTOFF_META>>${JSON.stringify({ model })}`),
+        );
+        streamController.close();
+      } catch (error) {
+        const message = error instanceof Error ? error.message : "Gemini-Streamfehler";
+        console.error("[gemini-upstream] stream failed", { model, message });
+        try {
+          streamController.enqueue(
+            encoder.encode(`\n\n<<STEUERSTOFF_ERROR>>${message}`),
+          );
+          streamController.close();
+        } catch {
+          streamController.error(error);
+        }
+      }
+    },
+    cancel() {
+      controller.abort();
+    },
+  });
+}
+
 export async function handleDirectChatRequest(
   request: Request,
   runtimeEnv: Record<string, unknown>,
@@ -147,13 +240,17 @@ export async function handleDirectChatRequest(
     });
 
     if (upstream.ok && upstream.body) {
-      const headers = new Headers(upstream.headers);
-      headers.set("content-type", "text/event-stream; charset=utf-8");
-      headers.set("cache-control", "no-store");
-      headers.set("x-chat-provider", "google-gemini-direct");
-      headers.set("x-chat-model", model);
-      Object.entries(CORS_HEADERS).forEach(([name, value]) => headers.set(name, value));
-      return new Response(upstream.body, { status: 200, headers });
+      return new Response(createPlainTextStream(upstream, model, controller), {
+        status: 200,
+        headers: {
+          "content-type": "text/plain; charset=utf-8",
+          "cache-control": "no-store",
+          "x-accel-buffering": "no",
+          "x-chat-provider": "google-gemini-direct",
+          "x-chat-model": model,
+          ...CORS_HEADERS,
+        },
+      });
     }
 
     lastStatus = upstream.status || 502;

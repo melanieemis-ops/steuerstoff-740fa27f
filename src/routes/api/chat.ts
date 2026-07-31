@@ -385,23 +385,42 @@ export const Route = createFileRoute("/api/chat")({
         });
 
         if (!upstream.ok) {
-          const errorText = await upstream.text().catch(() => "");
+          const firstErrorText = await upstream.text().catch(() => "");
+          const firstStatus = upstream.status;
           const isModelMissing =
-            upstream.status === 404 ||
-            /not found|not supported|invalid model|model.*does not exist/i.test(errorText);
+            firstStatus === 404 ||
+            /not found|not supported|invalid model|model.*does not exist/i.test(firstErrorText);
 
-          if (isModelMissing && configuredModel !== FALLBACK_MODEL) {
-            modelUsed = FALLBACK_MODEL;
+          console.error(
+            `[steuerstoff-chat] Gemini upstream error for model "${configuredModel}"`,
+            firstStatus,
+            firstErrorText.slice(0, 500),
+          );
+
+          // Versuche bekannte Fallback-Modelle, falls das konfigurierte Modell nicht erreichbar ist.
+          const fallbackChain = isModelMissing
+            ? FALLBACK_MODELS.filter((m) => m !== configuredModel)
+            : [];
+
+          for (const fallbackModel of fallbackChain) {
+            modelUsed = fallbackModel;
             upstream = await streamGemini({
               apiKey: apiKey as string,
-              model: FALLBACK_MODEL,
+              model: fallbackModel,
               contents,
               signal: controller.signal,
             });
+            if (upstream.ok) break;
+            const fallbackError = await upstream.text().catch(() => "");
+            console.error(
+              `[steuerstoff-chat] Gemini upstream error for fallback model "${fallbackModel}"`,
+              upstream.status,
+              fallbackError.slice(0, 500),
+            );
           }
 
           if (!upstream.ok) {
-            const finalErrorText = await upstream.text().catch(() => errorText);
+            const finalErrorText = await upstream.text().catch(() => firstErrorText);
             const status = upstream.status;
             const code =
               status === 429
@@ -423,7 +442,7 @@ export const Route = createFileRoute("/api/chat")({
                     : "KI-Modell konnte keine Antwort liefern.";
 
             console.error(
-              "[steuerstoff-chat] Gemini upstream error",
+              `[steuerstoff-chat] Gemini upstream error (final, model "${modelUsed}")`,
               status,
               finalErrorText.slice(0, 500),
             );

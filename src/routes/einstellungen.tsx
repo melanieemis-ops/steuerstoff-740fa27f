@@ -10,6 +10,7 @@ import {
   clearSpeechSettings,
   loadSpeechSettings,
   saveSpeechSettings,
+  type GeminiVoice,
   type OpenAiVoice,
   type TtsProvider,
 } from "@/lib/speech-storage";
@@ -51,6 +52,14 @@ const OPENAI_VOICES: { value: OpenAiVoice; label: string }[] = [
   { value: "nova", label: "Nova" },
   { value: "shimmer", label: "Shimmer" },
 ];
+const GEMINI_VOICES: { value: GeminiVoice; label: string; description: string }[] = [
+  { value: "Kore", label: "Kore", description: "Ruhig und professionell" },
+  { value: "Aoede", label: "Aoede", description: "Warm und freundlich" },
+  { value: "Zephyr", label: "Zephyr", description: "Klar und leicht" },
+  { value: "Puck", label: "Puck", description: "Lebendig und direkt" },
+  { value: "Charon", label: "Charon", description: "Tiefer und sachlich" },
+  { value: "Fenrir", label: "Fenrir", description: "Kräftig und bestimmt" },
+];
 
 function Einstellungen() {
   const navigate = useNavigate();
@@ -59,6 +68,7 @@ function Einstellungen() {
   const [generalSaved, setGeneralSaved] = useState(false);
   const [provider, setProvider] = useState<TtsProvider>("openai");
   const [openAiVoice, setOpenAiVoice] = useState<OpenAiVoice>("coral");
+  const [geminiVoice, setGeminiVoice] = useState<GeminiVoice>("Kore");
   const [browserFallback, setBrowserFallback] = useState(true);
   const [ttsAccessCode, setTtsAccessCode] = useState("");
   const [showTtsAccessCode, setShowTtsAccessCode] = useState(false);
@@ -74,6 +84,7 @@ function Einstellungen() {
     const speech = loadSpeechSettings();
     setProvider(speech.provider ?? "openai");
     setOpenAiVoice(speech.openAiVoice ?? "coral");
+    setGeminiVoice(speech.geminiVoice ?? "Kore");
     setBrowserFallback(speech.allowBrowserFallback !== false);
 
     let active = true;
@@ -92,11 +103,17 @@ function Einstellungen() {
     window.setTimeout(() => setGeneralSaved(false), 1500);
   }
 
-  function saveSpeechChoice(nextProvider = provider, nextVoice = openAiVoice, nextFallback = browserFallback) {
+  function saveSpeechChoice(
+    nextProvider = provider,
+    nextVoice = openAiVoice,
+    nextFallback = browserFallback,
+    nextGeminiVoice = geminiVoice,
+  ) {
     saveSpeechSettings({
       ...loadSpeechSettings(),
       provider: nextProvider,
       openAiVoice: nextVoice,
+      geminiVoice: nextGeminiVoice,
       allowBrowserFallback: nextFallback,
     });
   }
@@ -138,6 +155,7 @@ function Einstellungen() {
     setSettings(DEFAULTS);
     setProvider("openai");
     setOpenAiVoice("coral");
+    setGeminiVoice("Kore");
     setBrowserFallback(true);
     setHasStoredTtsAccessCode(false);
     setTtsFeedback(null);
@@ -190,9 +208,39 @@ function Einstellungen() {
             <div className="grid gap-3 sm:grid-cols-3">
               {PROVIDERS.map((option) => <button key={option.value} type="button" onClick={() => { setProvider(option.value); saveSpeechChoice(option.value); }} className={`rounded-2xl border p-4 text-left ${provider === option.value ? "border-cyan-400 bg-cyan-50/50 dark:bg-cyan-950/20" : "border-border"}`}><p className="font-semibold">{option.label}</p><p className="mt-1 text-sm text-muted-foreground">{option.description}</p></button>)}
             </div>
+
             {provider === "openai" && <div><label className="text-sm font-medium">OpenAI-Stimme</label><div className="mt-2 flex flex-wrap gap-2">{OPENAI_VOICES.map((voice) => <button key={voice.value} type="button" onClick={() => { setOpenAiVoice(voice.value); saveSpeechChoice(provider, voice.value); }} className={`rounded-full border px-3 py-1.5 text-sm ${openAiVoice === voice.value ? "bg-foreground text-background" : "text-muted-foreground"}`}>{voice.label}</button>)}</div></div>}
-            {provider === "gemini" && <p className="rounded-xl border border-border bg-background/40 p-4 text-sm text-muted-foreground">Für Gemini wird die natürliche Steuerstoff-Stimme verwendet. Dafür muss unten ein gültiger Gemini-TTS-Freischaltcode gespeichert sein.</p>}
-            <label className="flex items-start gap-3 rounded-xl border border-border p-4"><input type="checkbox" checked={browserFallback} onChange={(e) => { setBrowserFallback(e.target.checked); saveSpeechChoice(provider, openAiVoice, e.target.checked); }} className="mt-1" /><span><span className="block text-sm font-semibold">Browserstimme als kostenlose Rückfallebene</span><span className="mt-1 block text-sm text-muted-foreground">Wird verwendet, wenn auch die Gemini-Stimme nicht verfügbar ist.</span></span></label>
+
+            {provider === "gemini" && (
+              <div className="space-y-3">
+                <div>
+                  <label className="text-sm font-medium">Gemini-Stimme</label>
+                  <p className="mt-1 text-sm text-muted-foreground">Die Auswahl wird auf diesem Gerät gespeichert und für alle Vorlesefunktionen verwendet.</p>
+                </div>
+                <div className="grid gap-2 sm:grid-cols-2">
+                  {GEMINI_VOICES.map((voice) => {
+                    const selected = geminiVoice === voice.value;
+                    return (
+                      <button
+                        key={voice.value}
+                        type="button"
+                        onClick={() => {
+                          setGeminiVoice(voice.value);
+                          saveSpeechChoice(provider, openAiVoice, browserFallback, voice.value);
+                        }}
+                        className={`rounded-xl border p-3 text-left transition-colors ${selected ? "border-cyan-400 bg-cyan-50/60 dark:bg-cyan-950/20" : "border-border bg-background/40"}`}
+                      >
+                        <span className="block text-sm font-semibold text-foreground">{voice.label}</span>
+                        <span className="mt-0.5 block text-xs text-muted-foreground">{voice.description}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+                <p className="rounded-xl border border-border bg-background/40 p-4 text-sm text-muted-foreground">Dafür muss unten ein gültiger Gemini-TTS-Freischaltcode gespeichert sein.</p>
+              </div>
+            )}
+
+            <label className="flex items-start gap-3 rounded-xl border border-border p-4"><input type="checkbox" checked={browserFallback} onChange={(e) => { setBrowserFallback(e.target.checked); saveSpeechChoice(provider, openAiVoice, e.target.checked, geminiVoice); }} className="mt-1" /><span><span className="block text-sm font-semibold">Browserstimme als kostenlose Rückfallebene</span><span className="mt-1 block text-sm text-muted-foreground">Wird verwendet, wenn auch die Gemini-Stimme nicht verfügbar ist.</span></span></label>
 
             <form onSubmit={saveAccessCode} className="space-y-4 rounded-xl border border-border bg-background/40 p-4">
               <div>

@@ -2,6 +2,7 @@ import "./lib/error-capture";
 
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
+import { handleDirectChatRequest } from "./lib/ai/direct-chat-worker";
 
 type ServerEntry = {
   fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
@@ -249,6 +250,9 @@ export default {
       const runtimeEnv = await materializeWorkerEnv(await resolveRuntimeEnv(passedEnv));
 
       const url = new URL(request.url);
+      if (url.pathname === "/api/chat") {
+        return await handleDirectChatRequest(request, runtimeEnv);
+      }
       if (url.pathname === "/api/tts-env-debug") {
         return await ttsBindingDiagnostics(runtimeEnv);
       }

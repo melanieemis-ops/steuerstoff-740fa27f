@@ -119,13 +119,17 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
   const [errorNeedsSettings, setErrorNeedsSettings] = useState(false);
   const [playbackRate, setPlaybackRate] = useState<PlaybackRate>(1);
 
+  // Wichtig für iOS/Safari: das <audio>-Element wird EINMAL im Klick-Handler
+  // erzeugt und "entsperrt". Es darf danach nicht mehr verworfen werden, sonst
+  // lehnt Safari play() nach einem await mit NotAllowedError ab.
   const releaseAudio = useCallback(() => {
     const audio = audioRef.current;
     if (audio) {
       audio.pause();
-      audio.removeAttribute("src");
-      audio.load();
-      audioRef.current = null;
+      audio.onplay = null;
+      audio.onpause = null;
+      audio.onended = null;
+      audio.onerror = null;
     }
     if (objectUrlRef.current) {
       URL.revokeObjectURL(objectUrlRef.current);
@@ -133,11 +137,21 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
     }
   }, []);
 
+  const destroyAudio = useCallback(() => {
+    releaseAudio();
+    const audio = audioRef.current;
+    if (audio) {
+      audio.removeAttribute("src");
+      audio.load();
+      audioRef.current = null;
+    }
+  }, [releaseAudio]);
+
   const stopReading = useCallback(() => {
     sessionRef.current += 1;
     abortControllerRef.current?.abort();
     abortControllerRef.current = null;
-    releaseAudio();
+    destroyAudio();
     if (typeof window !== "undefined" && "speechSynthesis" in window) window.speechSynthesis.cancel();
     modeRef.current = null;
     setIsPreparing(false);
@@ -145,16 +159,17 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
     setIsPaused(false);
     setCurrentPart(0);
     setTotalParts(0);
-  }, [releaseAudio]);
+  }, [destroyAudio]);
 
   const playAudioBlob = (blob: Blob, sessionId: number) =>
     new Promise<void>((resolve, reject) => {
       if (sessionId !== sessionRef.current) return resolve();
       releaseAudio();
       const url = URL.createObjectURL(blob);
-      const audio = new Audio(url);
-      objectUrlRef.current = url;
+      const audio = audioRef.current ?? new Audio();
       audioRef.current = audio;
+      audio.src = url;
+      objectUrlRef.current = url;
       modeRef.current = "audio";
       audio.playbackRate = playbackRateRef.current;
       audio.onplay = () => {
@@ -172,8 +187,19 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
         releaseAudio();
         resolve();
       };
-      audio.onerror = () => reject(new Error("Die Audiodatei konnte nicht abgespielt werden."));
-      audio.play().catch(reject);
+      audio.onerror = () =>
+        reject(
+          new Error(
+            `Audio-Wiedergabe fehlgeschlagen (MediaError ${audio.error?.code ?? "?"}: ${
+              audio.error?.message || "unbekannt"
+            }).`,
+          ),
+        );
+      audio.play().catch((playError: unknown) => {
+        const name = playError instanceof Error ? playError.name : "Error";
+        const detail = playError instanceof Error ? playError.message : String(playError);
+        reject(new Error(`Audio-Wiedergabe blockiert (${name}): ${detail}`));
+      });
     });
 
   const speakWithBrowser = async (text: string, sessionId: number, failedProvider: TtsProvider) => {

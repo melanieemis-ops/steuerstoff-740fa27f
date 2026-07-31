@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { searchKb, formatKbContext, type KbHit } from "@/lib/ai/kbSearch";
 import { readGeminiApiKey, readServerBinding } from "@/lib/ai/serverEnv";
+// Kein Lovable-Gateway, kein OpenAI: ausschließlich direkte Google-Gemini-API.
 import { getAttachmentRule } from "@/lib/attachment-validation";
 import { readUpload } from "@/lib/upload-store";
 
@@ -34,6 +35,13 @@ function allowRequest(ip: string): boolean {
   return true;
 }
 
+const CORS_HEADERS: Record<string, string> = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+  "Access-Control-Max-Age": "86400",
+};
+
 /** Fehlerantworten immer als JSON, ohne Secrets und ohne vollständigen Upstream-Body. */
 function jsonError(status: number, code: string, message: string, reason?: string) {
   return new Response(
@@ -43,6 +51,7 @@ function jsonError(status: number, code: string, message: string, reason?: strin
       headers: {
         "content-type": "application/json; charset=utf-8",
         "cache-control": "no-store",
+        ...CORS_HEADERS,
       },
     },
   );
@@ -182,89 +191,23 @@ async function streamGemini(opts: {
   });
 }
 
-const GATEWAY_MODEL = "google/gemini-3.6-flash";
-
 /**
- * Fallback: Gemini über das Lovable-AI-Gateway (nutzt LOVABLE_API_KEY,
- * das in der veröffentlichten Runtime vorhanden ist). Kein zweiter Secret nötig.
+ * Optionale Weiterleitung an den eigenen Cloudflare-Worker, falls die
+ * ausführende Runtime kein GEMINIAI_API_KEY-Binding besitzt. Der Worker nutzt
+ * denselben direkten Gemini-Pfad; es wird niemals ein Gateway aufgerufen.
  */
-async function streamGatewayGemini(opts: {
-  apiKey: string;
-  contents: GeminiContent[];
+async function forwardToOwnWorker(opts: {
+  baseUrl: string;
+  payload: unknown;
   signal: AbortSignal;
 }): Promise<Response> {
-  const messages = [
-    { role: "system", content: SYSTEM_PROMPT },
-    ...opts.contents.map((entry) => {
-      const parts = entry.parts
-        .map((part) =>
-          "text" in part
-            ? { type: "text" as const, text: part.text }
-            : part.inlineData.mimeType.startsWith("image/")
-              ? {
-                  type: "image_url" as const,
-                  image_url: {
-                    url: `data:${part.inlineData.mimeType};base64,${part.inlineData.data}`,
-                  },
-                }
-              : null,
-        )
-        .filter((part): part is NonNullable<typeof part> => part !== null);
-      return {
-        role: entry.role === "model" ? ("assistant" as const) : ("user" as const),
-        content: parts,
-      };
-    }),
-  ];
-
-  return fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+  const url = `${opts.baseUrl.replace(/\/+$/, "")}/api/chat`;
+  return fetch(url, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Lovable-API-Key": opts.apiKey,
-    },
+    headers: { "Content-Type": "application/json", "x-chat-forwarded": "1" },
     signal: opts.signal,
-    body: JSON.stringify({
-      model: GATEWAY_MODEL,
-      stream: true,
-      messages,
-      max_completion_tokens: MAX_OUTPUT_TOKENS,
-    }),
+    body: JSON.stringify(opts.payload),
   });
-}
-
-async function* parseOpenAiSseTextDeltas(resp: Response): AsyncGenerator<string> {
-  const reader = resp.body?.getReader();
-  if (!reader) return;
-
-  const decoder = new TextDecoder();
-  let buffer = "";
-
-  for (;;) {
-    const { value, done } = await reader.read();
-    if (done) break;
-
-    buffer += decoder.decode(value, { stream: true });
-    const events = buffer.split("\n\n");
-    buffer = events.pop() ?? "";
-
-    for (const event of events) {
-      const data = event
-        .split("\n")
-        .filter((line) => line.startsWith("data:"))
-        .map((line) => line.slice(5).trim())
-        .join("");
-
-      if (!data || data === "[DONE]") continue;
-
-      const parsed = safeJson<{
-        choices?: Array<{ delta?: { content?: string } }>;
-      }>(data);
-
-      const delta = parsed?.choices?.[0]?.delta?.content;
-      if (typeof delta === "string" && delta) yield delta;
-    }
-  }
 }
 
 async function* parseGeminiSseTextDeltas(resp: Response): AsyncGenerator<string> {
@@ -310,6 +253,7 @@ async function* parseGeminiSseTextDeltas(resp: Response): AsyncGenerator<string>
 export const Route = createFileRoute("/api/chat")({
   server: {
     handlers: {
+      OPTIONS: async () => new Response(null, { status: 204, headers: CORS_HEADERS }),
       POST: async ({ request }) => {
         const ip = clientIp(request);
         if (!allowRequest(ip)) {
@@ -321,8 +265,10 @@ export const Route = createFileRoute("/api/chat")({
         }
 
         const apiKey = await readGeminiApiKey();
-        const gatewayKey = apiKey ? undefined : await readServerBinding("LOVABLE_API_KEY");
-        if (!apiKey && !gatewayKey) {
+        // Kein Gateway-/OpenAI-Fallback. Ohne eigenen Key nur optionale
+        // Weiterleitung an den eigenen Cloudflare-Worker.
+        const workerUrl = apiKey ? undefined : await readServerBinding("CHAT_WORKER_URL");
+        if (!apiKey && !workerUrl) {
           return jsonError(
             503,
             "missing_gemini_binding",
@@ -414,20 +360,25 @@ export const Route = createFileRoute("/api/chat")({
         const controller = new AbortController();
         request.signal?.addEventListener("abort", () => controller.abort());
 
-        const useGateway = !apiKey;
-        let modelUsed = useGateway ? GATEWAY_MODEL : configuredModel;
-        let upstream = useGateway
-          ? await streamGatewayGemini({
-              apiKey: gatewayKey as string,
-              contents,
-              signal: controller.signal,
-            })
-          : await streamGemini({
-              apiKey: apiKey as string,
-              model: configuredModel,
-              contents,
-              signal: controller.signal,
-            });
+        if (!apiKey && workerUrl) {
+          const forwarded = await forwardToOwnWorker({
+            baseUrl: workerUrl,
+            payload: { message, history, attachments },
+            signal: controller.signal,
+          });
+          const headers = new Headers(forwarded.headers);
+          headers.set("x-chat-provider", "google-gemini-direct");
+          headers.set("cache-control", "no-store");
+          return new Response(forwarded.body, { status: forwarded.status, headers });
+        }
+
+        let modelUsed = configuredModel;
+        let upstream = await streamGemini({
+          apiKey: apiKey as string,
+          model: configuredModel,
+          contents,
+          signal: controller.signal,
+        });
 
         if (!upstream.ok) {
           const errorText = await upstream.text().catch(() => "");
@@ -435,7 +386,7 @@ export const Route = createFileRoute("/api/chat")({
             upstream.status === 404 ||
             /not found|not supported|invalid model|model.*does not exist/i.test(errorText);
 
-          if (!useGateway && isModelMissing && configuredModel !== FALLBACK_MODEL) {
+          if (isModelMissing && configuredModel !== FALLBACK_MODEL) {
             modelUsed = FALLBACK_MODEL;
             upstream = await streamGemini({
               apiKey: apiKey as string,
@@ -458,7 +409,7 @@ export const Route = createFileRoute("/api/chat")({
                     : "gemini_upstream_error";
             const responseMessage =
               status === 429
-                ? "Modell ausgelastet oder kostenloses Kontingent erschöpft. Bitte kurz warten."
+                ? "Das kostenlose KI-Kontingent ist momentan ausgeschöpft. Bitte versuchen Sie es später erneut."
                 : status === 400
                   ? attachments.length > 0
                     ? "Mindestens ein Anhang wird von Gemini nicht unterstützt. Bitte versuche es ohne diesen Anhang erneut."
@@ -489,8 +440,7 @@ export const Route = createFileRoute("/api/chat")({
         const stream = new ReadableStream<Uint8Array>({
           async start(ctrl) {
             try {
-              const parser = useGateway ? parseOpenAiSseTextDeltas : parseGeminiSseTextDeltas;
-              for await (const delta of parser(upstream)) {
+              for await (const delta of parseGeminiSseTextDeltas(upstream)) {
 
                 ctrl.enqueue(encoder.encode(delta));
               }
@@ -524,6 +474,9 @@ export const Route = createFileRoute("/api/chat")({
             "content-type": "text/plain; charset=utf-8",
             "cache-control": "no-store",
             "x-accel-buffering": "no",
+            "x-chat-provider": "google-gemini-direct",
+            "x-chat-model": modelUsed,
+            ...CORS_HEADERS,
           },
         });
       },

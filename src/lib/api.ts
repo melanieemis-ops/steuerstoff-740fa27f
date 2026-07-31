@@ -23,3 +23,16 @@ export function apiUrl(path: string): string {
 
   return `${withoutTrailingSlash(base)}${normalizedPath}`;
 }
+
+/**
+ * Chat-Endpunkt. Optional kann per VITE_CHAT_API_BASE_URL der eigene
+ * Cloudflare-Worker adressiert werden, der GEMINIAI_API_KEY direkt liest.
+ * Ohne Angabe bleibt es same-origin.
+ */
+export function chatApiUrl(path = "/api/chat"): string {
+  const chatBase = import.meta.env.VITE_CHAT_API_BASE_URL?.trim();
+  if (chatBase && chatBase.length > 0) {
+    return `${withoutTrailingSlash(chatBase)}${withLeadingSlash(path)}`;
+  }
+  return apiUrl(path);
+}

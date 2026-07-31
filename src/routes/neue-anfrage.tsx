@@ -12,7 +12,7 @@ import {
   findCuratedExample,
   type CuratedExample,
 } from "@/lib/curatedExamples";
-import { apiUrl } from "@/lib/api";
+import { chatApiUrl } from "@/lib/api";
 import { ArrowRight, Sparkles } from "lucide-react";
 
 export const Route = createFileRoute("/neue-anfrage")({
@@ -36,7 +36,7 @@ async function fetchAiAnswer(prompt: string): Promise<{
   explanation: string;
   references: string[];
 } | null> {
-  const resp = await fetch(apiUrl("/api/chat"), {
+  const resp = await fetch(chatApiUrl("/api/chat"), {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ message: prompt, history: [] }),

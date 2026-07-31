@@ -20,7 +20,9 @@
     "preview": "vite preview",
     "test:kfz": "node --experimental-strip-types --test tests/kfzWertabgabe*.test.ts",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "deploy:clean": "rm -rf .output dist .wrangler/deploy",
+    "deploy": "npm run deploy:clean && vite build && npx wrangler deploy --config dist/server/wrangler.json"
   },
   "dependencies": {
     "@capacitor/cli": "^8.4.2",

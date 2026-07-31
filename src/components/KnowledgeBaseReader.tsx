@@ -17,6 +17,7 @@ interface KnowledgeBaseReaderProps {
 const SILENT_AUDIO_DATA_URL =
   "data:audio/wav;base64,UklGRiUAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQEAAACA";
 const PLAYBACK_RATES = [1, 1.25, 1.5] as const;
+const AUDIO_CHUNK_LENGTH = 500;
 type PlaybackRate = (typeof PLAYBACK_RATES)[number];
 type SpeechMode = "audio" | "browser" | null;
 
@@ -38,29 +39,50 @@ function prepareTextForSpeech(value: string): string {
     .trim();
 }
 
-function splitTextIntoChunks(text: string, maxLength = 1800): string[] {
-  const sentences = text.match(/[^.!?]+[.!?]+|[^.!?]+$/g)?.map((part) => part.trim()) ?? [text];
-  const chunks: string[] = [];
+function splitLongSentence(sentence: string, maxLength: number): string[] {
+  if (sentence.length <= maxLength) return [sentence];
+  const parts = sentence.split(/(?<=[,;:])\s+/);
+  const result: string[] = [];
   let current = "";
 
-  for (const sentence of sentences) {
-    const next = current ? `${current} ${sentence}` : sentence;
+  for (const part of parts) {
+    const next = current ? `${current} ${part}` : part;
     if (next.length <= maxLength) {
       current = next;
       continue;
     }
-    if (current) chunks.push(current);
-    if (sentence.length <= maxLength) {
-      current = sentence;
+    if (current) result.push(current);
+    if (part.length <= maxLength) {
+      current = part;
     } else {
-      for (let index = 0; index < sentence.length; index += maxLength) {
-        chunks.push(sentence.slice(index, index + maxLength));
+      for (let index = 0; index < part.length; index += maxLength) {
+        result.push(part.slice(index, index + maxLength));
       }
       current = "";
     }
   }
+  if (current) result.push(current);
+  return result;
+}
+
+function splitTextIntoChunks(text: string, maxLength = AUDIO_CHUNK_LENGTH): string[] {
+  const sentences = text.match(/[^.!?]+[.!?]+|[^.!?]+$/g)?.map((part) => part.trim()).filter(Boolean) ?? [text];
+  const chunks: string[] = [];
+  let current = "";
+
+  for (const sentence of sentences) {
+    for (const part of splitLongSentence(sentence, maxLength)) {
+      const next = current ? `${current} ${part}` : part;
+      if (next.length <= maxLength) {
+        current = next;
+      } else {
+        if (current) chunks.push(current);
+        current = part;
+      }
+    }
+  }
   if (current) chunks.push(current);
-  return chunks;
+  return chunks.filter(Boolean);
 }
 
 function splitBrowserSpeech(text: string): string[] {
@@ -81,7 +103,6 @@ async function loadBrowserVoices(): Promise<SpeechSynthesisVoice[]> {
   const synthesis = window.speechSynthesis;
   const existing = synthesis.getVoices();
   if (existing.length) return existing;
-
   return new Promise((resolve) => {
     let finished = false;
     const done = () => {
@@ -104,7 +125,7 @@ function providerLabel(provider: TtsProvider): string {
 export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseReaderProps) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const objectUrlRef = useRef<string | null>(null);
-  const abortControllerRef = useRef<AbortController | null>(null);
+  const controllersRef = useRef(new Set<AbortController>());
   const sessionRef = useRef(0);
   const playbackRateRef = useRef<PlaybackRate>(1);
   const modeRef = useRef<SpeechMode>(null);
@@ -114,14 +135,12 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
   const [isPaused, setIsPaused] = useState(false);
   const [currentPart, setCurrentPart] = useState(0);
   const [totalParts, setTotalParts] = useState(0);
+  const [statusText, setStatusText] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const [errorNeedsSettings, setErrorNeedsSettings] = useState(false);
   const [playbackRate, setPlaybackRate] = useState<PlaybackRate>(1);
 
-  // Wichtig für iOS/Safari: das <audio>-Element wird EINMAL im Klick-Handler
-  // erzeugt und "entsperrt". Es darf danach nicht mehr verworfen werden, sonst
-  // lehnt Safari play() nach einem await mit NotAllowedError ab.
   const releaseAudio = useCallback(() => {
     const audio = audioRef.current;
     if (audio) {
@@ -149,8 +168,8 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
 
   const stopReading = useCallback(() => {
     sessionRef.current += 1;
-    abortControllerRef.current?.abort();
-    abortControllerRef.current = null;
+    for (const controller of controllersRef.current) controller.abort();
+    controllersRef.current.clear();
     destroyAudio();
     if (typeof window !== "undefined" && "speechSynthesis" in window) window.speechSynthesis.cancel();
     modeRef.current = null;
@@ -159,9 +178,28 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
     setIsPaused(false);
     setCurrentPart(0);
     setTotalParts(0);
+    setStatusText(null);
   }, [destroyAudio]);
 
-  const playAudioBlob = (blob: Blob, sessionId: number) =>
+  const requestChunk = useCallback(async (text: string, provider: TtsProvider, sessionId: number): Promise<Blob> => {
+    let lastError: unknown;
+    for (let attempt = 0; attempt < 2; attempt += 1) {
+      if (sessionId !== sessionRef.current) throw new DOMException("Abgebrochen", "AbortError");
+      const controller = new AbortController();
+      controllersRef.current.add(controller);
+      try {
+        return await requestSpeechAudio({ text, provider }, controller.signal);
+      } catch (error) {
+        lastError = error;
+        if (isTtsAbortError(error) || attempt === 1) throw error;
+      } finally {
+        controllersRef.current.delete(controller);
+      }
+    }
+    throw lastError;
+  }, []);
+
+  const playAudioBlob = useCallback((blob: Blob, sessionId: number) =>
     new Promise<void>((resolve, reject) => {
       if (sessionId !== sessionRef.current) return resolve();
       releaseAudio();
@@ -174,6 +212,7 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
       audio.playbackRate = playbackRateRef.current;
       audio.onplay = () => {
         setIsPreparing(false);
+        setStatusText(null);
         setIsPlaying(true);
         setIsPaused(false);
       };
@@ -187,26 +226,17 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
         releaseAudio();
         resolve();
       };
-      audio.onerror = () =>
-        reject(
-          new Error(
-            `Audio-Wiedergabe fehlgeschlagen (MediaError ${audio.error?.code ?? "?"}: ${
-              audio.error?.message || "unbekannt"
-            }).`,
-          ),
-        );
+      audio.onerror = () => reject(new Error(`Audio-Wiedergabe fehlgeschlagen (MediaError ${audio.error?.code ?? "?"}).`));
       audio.play().catch((playError: unknown) => {
-        const name = playError instanceof Error ? playError.name : "Error";
-        const detail = playError instanceof Error ? playError.message : String(playError);
-        reject(new Error(`Audio-Wiedergabe blockiert (${name}): ${detail}`));
+        const detail = playError instanceof Error ? `${playError.name}: ${playError.message}` : String(playError);
+        reject(new Error(`Audio-Wiedergabe blockiert (${detail})`));
       });
-    });
+    }), [releaseAudio]);
 
   const speakWithBrowser = async (text: string, sessionId: number, failedProvider: TtsProvider) => {
     if (!("speechSynthesis" in window) || typeof SpeechSynthesisUtterance === "undefined") {
       throw new Error("Auf diesem Gerät ist keine Browserstimme verfügbar.");
     }
-
     const synthesis = window.speechSynthesis;
     synthesis.cancel();
     const voice = selectGermanVoice(await loadBrowserVoices());
@@ -256,47 +286,55 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
       const primedAudio = new Audio(SILENT_AUDIO_DATA_URL);
       audioRef.current = primedAudio;
       void primedAudio.play().catch(() => undefined);
+
       const chunks = splitTextIntoChunks(prepared);
       setTotalParts(chunks.length);
+      const pending = new Map<number, Promise<Blob>>();
+      const preload = (index: number) => {
+        if (index >= chunks.length || pending.has(index)) return;
+        pending.set(index, requestChunk(chunks[index], provider, sessionId));
+      };
+
+      preload(0);
+      preload(1);
 
       for (let index = 0; index < chunks.length; index += 1) {
         if (sessionId !== sessionRef.current) return;
         setCurrentPart(index + 1);
-        const controller = new AbortController();
-        abortControllerRef.current = controller;
-        const blob = await requestSpeechAudio({ text: chunks[index], provider }, controller.signal);
-        abortControllerRef.current = null;
+        setIsPreparing(true);
+        setStatusText(index === 0 ? "Abschnitt 1 wird vorbereitet …" : "Der nächste Abschnitt wird vorbereitet …");
+
+        preload(index);
+        preload(index + 1);
+        const blob = await pending.get(index)!;
+        pending.delete(index);
+        preload(index + 2);
         await playAudioBlob(blob, sessionId);
       }
     } catch (ttsError) {
       if (sessionId !== sessionRef.current || isTtsAbortError(ttsError)) return;
       console.error("[tts] Vorlesen fehlgeschlagen", ttsError);
       releaseAudio();
-
-
-
       const message = ttsErrorMessage(ttsError);
       setErrorNeedsSettings(ttsErrorNeedsSettings(ttsError));
       setError(`${providerLabel(provider)}: ${message}`);
 
       if (settings.allowBrowserFallback === false) return;
-
       try {
         await speakWithBrowser(prepared, sessionId, provider);
       } catch (browserError) {
-        setError(
-          `${providerLabel(provider)}: ${message} Auch die Browserstimme konnte nicht gestartet werden: ${
-            browserError instanceof Error ? browserError.message : "Unbekannter Fehler"
-          }`,
-        );
+        setError(`${providerLabel(provider)}: ${message} Auch die Browserstimme konnte nicht gestartet werden: ${browserError instanceof Error ? browserError.message : "Unbekannter Fehler"}`);
       }
     } finally {
       if (sessionId === sessionRef.current) {
+        for (const controller of controllersRef.current) controller.abort();
+        controllersRef.current.clear();
         setIsPreparing(false);
         setIsPlaying(false);
         setIsPaused(false);
         setCurrentPart(0);
         setTotalParts(0);
+        setStatusText(null);
         modeRef.current = null;
       }
     }
@@ -316,7 +354,6 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
       }
       return;
     }
-
     const audio = audioRef.current;
     if (!audio) return;
     if (audio.paused) await audio.play();
@@ -361,7 +398,7 @@ export default function KnowledgeBaseReader({ title, content }: KnowledgeBaseRea
             ⏹ Beenden
           </button>
         )}
-        {isPreparing && <span className="text-sm text-slate-500">Stimme wird vorbereitet …</span>}
+        {isPreparing && <span className="text-sm text-slate-500">{statusText ?? "Stimme wird vorbereitet …"}</span>}
         {totalParts > 1 && currentPart > 0 && <span className="text-sm text-slate-500">Abschnitt {currentPart} von {totalParts}</span>}
         <div className="inline-flex items-center gap-1 rounded-xl border border-slate-200 bg-slate-50 p-1" role="group" aria-label="Wiedergabegeschwindigkeit">
           <span className="px-1.5 text-xs font-medium text-slate-500">Tempo</span>

@@ -87,8 +87,16 @@ async function callGemini(opts: {
       systemInstruction: {
         parts: [
           {
-            text:
-              'Du bist "steuerstoff", ein deutschsprachiger steuerlicher Arbeitsassistent. Antworte klar, praxisorientiert und ausschließlich auf Deutsch. Erfinde keine Fundstellen. Füge am Ende hinzu: *Hinweis: Steuerliche Arbeitshilfe, keine verbindliche Beratung.*',
+            text: [
+              'Du bist "steuerstoff", ein deutschsprachiger steuerlicher Arbeitsassistent.',
+              "Antworte ausschließlich auf Deutsch, fachlich korrekt, klar und praxisorientiert.",
+              "Beginne direkt mit der Antwort und schreibe in ruhigem, flüssigem Fließtext mit kurzen Absätzen.",
+              "Verwende reinen Klartext ohne Markdown: keine Sternchen, keine Rautezeichen, keine Backticks und keine Markdown-Überschriften.",
+              "Verwende Aufzählungen nur, wenn sie die Verständlichkeit wirklich verbessern. Nutze dann normale Nummerierungen wie 1., 2., 3. oder einen einfachen Gedankenstrich.",
+              "Vermeide unnötige Wiederholungen, überlange Einleitungen und abgehackte Stichwortketten.",
+              "Erfinde keine Fundstellen, Paragraphen, Urteile oder Verwaltungsanweisungen.",
+              "Füge am Ende in einer eigenen Zeile genau diesen Klartext-Hinweis ein: Hinweis: Steuerliche Arbeitshilfe, keine verbindliche Beratung.",
+            ].join("\n"),
           },
         ],
       },
@@ -107,6 +115,17 @@ async function callGemini(opts: {
   });
 }
 
+function cleanPlainText(text: string): string {
+  return text
+    .replace(/\r\n/g, "\n")
+    .replace(/`{1,3}/g, "")
+    .replace(/#/g, "")
+    .replace(/\*\*/g, "")
+    .replace(/(^|\n)\s*\*\s+/g, "$1– ")
+    .replace(/\*/g, "")
+    .replace(/[ \t]+\n/g, "\n");
+}
+
 function extractTextFromSseEvent(event: string): string {
   const data = event
     .split(/\r?\n/)
@@ -117,9 +136,11 @@ function extractTextFromSseEvent(event: string): string {
   if (!data || data === "[DONE]") return "";
 
   const payload = safeJson<GeminiSsePayload>(data);
-  return (payload?.candidates?.[0]?.content?.parts ?? [])
+  const text = (payload?.candidates?.[0]?.content?.parts ?? [])
     .map((part) => (typeof part.text === "string" ? part.text : ""))
     .join("");
+
+  return cleanPlainText(text);
 }
 
 function createPlainTextStream(

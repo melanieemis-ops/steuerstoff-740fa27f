@@ -325,10 +325,10 @@ export const Route = createFileRoute("/api/chat")({
         const controller = new AbortController();
         request.signal?.addEventListener("abort", () => controller.abort());
 
-        let modelUsed = PRIMARY_MODEL;
+        let modelUsed = configuredModel;
         let upstream = await streamGemini({
           apiKey,
-          model: PRIMARY_MODEL,
+          model: configuredModel,
           contents,
           signal: controller.signal,
         });
@@ -339,7 +339,7 @@ export const Route = createFileRoute("/api/chat")({
             upstream.status === 404 ||
             /not found|not supported|invalid model|model.*does not exist/i.test(errorText);
 
-          if (isModelMissing) {
+          if (isModelMissing && configuredModel !== FALLBACK_MODEL) {
             modelUsed = FALLBACK_MODEL;
             upstream = await streamGemini({
               apiKey,
@@ -352,6 +352,14 @@ export const Route = createFileRoute("/api/chat")({
           if (!upstream.ok) {
             const finalErrorText = await upstream.text().catch(() => errorText);
             const status = upstream.status;
+            const code =
+              status === 429
+                ? "gemini_rate_limited"
+                : status === 400
+                  ? "gemini_bad_request"
+                  : status === 401 || status === 403
+                    ? "gemini_unauthorized"
+                    : "gemini_upstream_error";
             const responseMessage =
               status === 429
                 ? "Modell ausgelastet oder kostenloses Kontingent erschöpft. Bitte kurz warten."
@@ -368,9 +376,10 @@ export const Route = createFileRoute("/api/chat")({
               status,
               finalErrorText.slice(0, 500),
             );
-            return new Response(responseMessage, { status: 502 });
+            return jsonError(502, code, responseMessage, `Gemini HTTP ${status}`);
           }
         }
+
 
         const sources = hits.map((hit) => ({
           id: hit.id,

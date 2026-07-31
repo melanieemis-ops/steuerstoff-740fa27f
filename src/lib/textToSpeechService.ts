@@ -143,6 +143,7 @@ export function isTtsAbortError(error: unknown): boolean {
 }
 export function ttsErrorMessage(error: unknown): string {
   if (error instanceof TtsApiError) return error.message;
+  if (error instanceof Error && error.message.trim()) return error.message.trim();
   return TTS_GENERIC_ERROR_MESSAGE;
 }
 export function ttsErrorNeedsSettings(error: unknown): boolean {

@@ -253,6 +253,7 @@ async function* parseGeminiSseTextDeltas(resp: Response): AsyncGenerator<string>
 export const Route = createFileRoute("/api/chat")({
   server: {
     handlers: {
+      OPTIONS: async () => new Response(null, { status: 204, headers: CORS_HEADERS }),
       POST: async ({ request }) => {
         const ip = clientIp(request);
         if (!allowRequest(ip)) {

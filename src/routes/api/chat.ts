@@ -182,7 +182,93 @@ async function streamGemini(opts: {
   });
 }
 
+const GATEWAY_MODEL = "google/gemini-3.6-flash";
+
+/**
+ * Fallback: Gemini über das Lovable-AI-Gateway (nutzt LOVABLE_API_KEY,
+ * das in der veröffentlichten Runtime vorhanden ist). Kein zweiter Secret nötig.
+ */
+async function streamGatewayGemini(opts: {
+  apiKey: string;
+  contents: GeminiContent[];
+  signal: AbortSignal;
+}): Promise<Response> {
+  const messages = [
+    { role: "system", content: SYSTEM_PROMPT },
+    ...opts.contents.map((entry) => {
+      const parts = entry.parts
+        .map((part) =>
+          "text" in part
+            ? { type: "text" as const, text: part.text }
+            : part.inlineData.mimeType.startsWith("image/")
+              ? {
+                  type: "image_url" as const,
+                  image_url: {
+                    url: `data:${part.inlineData.mimeType};base64,${part.inlineData.data}`,
+                  },
+                }
+              : null,
+        )
+        .filter((part): part is NonNullable<typeof part> => part !== null);
+      return {
+        role: entry.role === "model" ? ("assistant" as const) : ("user" as const),
+        content: parts,
+      };
+    }),
+  ];
+
+  return fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Lovable-API-Key": opts.apiKey,
+    },
+    signal: opts.signal,
+    body: JSON.stringify({
+      model: GATEWAY_MODEL,
+      stream: true,
+      messages,
+      max_completion_tokens: MAX_OUTPUT_TOKENS,
+    }),
+  });
+}
+
+async function* parseOpenAiSseTextDeltas(resp: Response): AsyncGenerator<string> {
+  const reader = resp.body?.getReader();
+  if (!reader) return;
+
+  const decoder = new TextDecoder();
+  let buffer = "";
+
+  for (;;) {
+    const { value, done } = await reader.read();
+    if (done) break;
+
+    buffer += decoder.decode(value, { stream: true });
+    const events = buffer.split("\n\n");
+    buffer = events.pop() ?? "";
+
+    for (const event of events) {
+      const data = event
+        .split("\n")
+        .filter((line) => line.startsWith("data:"))
+        .map((line) => line.slice(5).trim())
+        .join("");
+
+      if (!data || data === "[DONE]") continue;
+
+      const parsed = safeJson<{
+        choices?: Array<{ delta?: { content?: string } }>;
+      }>(data);
+
+      const delta = parsed?.choices?.[0]?.delta?.content;
+      if (typeof delta === "string" && delta) yield delta;
+    }
+  }
+}
+
 async function* parseGeminiSseTextDeltas(resp: Response): AsyncGenerator<string> {
+
   const reader = resp.body?.getReader();
   if (!reader) return;
 
@@ -235,7 +321,8 @@ export const Route = createFileRoute("/api/chat")({
         }
 
         const apiKey = await readGeminiApiKey();
-        if (!apiKey) {
+        const gatewayKey = apiKey ? undefined : await readServerBinding("LOVABLE_API_KEY");
+        if (!apiKey && !gatewayKey) {
           return jsonError(
             503,
             "missing_gemini_binding",
@@ -244,6 +331,7 @@ export const Route = createFileRoute("/api/chat")({
           );
         }
         const configuredModel = (await readServerBinding("GEMINI_CHAT_MODEL")) ?? DEFAULT_MODEL;
+
 
         const body = (await request.json().catch(() => null)) as {
           message?: unknown;
@@ -326,13 +414,20 @@ export const Route = createFileRoute("/api/chat")({
         const controller = new AbortController();
         request.signal?.addEventListener("abort", () => controller.abort());
 
-        let modelUsed = configuredModel;
-        let upstream = await streamGemini({
-          apiKey,
-          model: configuredModel,
-          contents,
-          signal: controller.signal,
-        });
+        const useGateway = !apiKey;
+        let modelUsed = useGateway ? GATEWAY_MODEL : configuredModel;
+        let upstream = useGateway
+          ? await streamGatewayGemini({
+              apiKey: gatewayKey as string,
+              contents,
+              signal: controller.signal,
+            })
+          : await streamGemini({
+              apiKey: apiKey as string,
+              model: configuredModel,
+              contents,
+              signal: controller.signal,
+            });
 
         if (!upstream.ok) {
           const errorText = await upstream.text().catch(() => "");
@@ -340,10 +435,10 @@ export const Route = createFileRoute("/api/chat")({
             upstream.status === 404 ||
             /not found|not supported|invalid model|model.*does not exist/i.test(errorText);
 
-          if (isModelMissing && configuredModel !== FALLBACK_MODEL) {
+          if (!useGateway && isModelMissing && configuredModel !== FALLBACK_MODEL) {
             modelUsed = FALLBACK_MODEL;
             upstream = await streamGemini({
-              apiKey,
+              apiKey: apiKey as string,
               model: FALLBACK_MODEL,
               contents,
               signal: controller.signal,
@@ -382,6 +477,7 @@ export const Route = createFileRoute("/api/chat")({
         }
 
 
+
         const sources = hits.map((hit) => ({
           id: hit.id,
           title: hit.title,
@@ -393,7 +489,9 @@ export const Route = createFileRoute("/api/chat")({
         const stream = new ReadableStream<Uint8Array>({
           async start(ctrl) {
             try {
-              for await (const delta of parseGeminiSseTextDeltas(upstream)) {
+              const parser = useGateway ? parseOpenAiSseTextDeltas : parseGeminiSseTextDeltas;
+              for await (const delta of parser(upstream)) {
+
                 ctrl.enqueue(encoder.encode(delta));
               }
 

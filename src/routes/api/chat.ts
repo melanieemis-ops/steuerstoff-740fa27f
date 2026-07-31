@@ -351,20 +351,25 @@ export const Route = createFileRoute("/api/chat")({
         const controller = new AbortController();
         request.signal?.addEventListener("abort", () => controller.abort());
 
-        const useGateway = !apiKey;
-        let modelUsed = useGateway ? GATEWAY_MODEL : configuredModel;
-        let upstream = useGateway
-          ? await streamGatewayGemini({
-              apiKey: gatewayKey as string,
-              contents,
-              signal: controller.signal,
-            })
-          : await streamGemini({
-              apiKey: apiKey as string,
-              model: configuredModel,
-              contents,
-              signal: controller.signal,
-            });
+        if (!apiKey && workerUrl) {
+          const forwarded = await forwardToOwnWorker({
+            baseUrl: workerUrl,
+            payload: { message, history, attachments },
+            signal: controller.signal,
+          });
+          const headers = new Headers(forwarded.headers);
+          headers.set("x-chat-provider", "google-gemini-direct");
+          headers.set("cache-control", "no-store");
+          return new Response(forwarded.body, { status: forwarded.status, headers });
+        }
+
+        let modelUsed = configuredModel;
+        let upstream = await streamGemini({
+          apiKey: apiKey as string,
+          model: configuredModel,
+          contents,
+          signal: controller.signal,
+        });
 
         if (!upstream.ok) {
           const errorText = await upstream.text().catch(() => "");

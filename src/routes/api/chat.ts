@@ -256,8 +256,10 @@ export const Route = createFileRoute("/api/chat")({
         }
 
         const apiKey = await readGeminiApiKey();
-        const gatewayKey = apiKey ? undefined : await readServerBinding("LOVABLE_API_KEY");
-        if (!apiKey && !gatewayKey) {
+        // Kein Gateway-/OpenAI-Fallback. Ohne eigenen Key nur optionale
+        // Weiterleitung an den eigenen Cloudflare-Worker.
+        const workerUrl = apiKey ? undefined : await readServerBinding("CHAT_WORKER_URL");
+        if (!apiKey && !workerUrl) {
           return jsonError(
             503,
             "missing_gemini_binding",

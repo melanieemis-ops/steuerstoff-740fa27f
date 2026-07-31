@@ -465,6 +465,8 @@ export const Route = createFileRoute("/api/chat")({
             "content-type": "text/plain; charset=utf-8",
             "cache-control": "no-store",
             "x-accel-buffering": "no",
+            "x-chat-provider": "google-gemini-direct",
+            "x-chat-model": modelUsed,
           },
         });
       },

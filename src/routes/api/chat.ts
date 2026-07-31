@@ -377,7 +377,7 @@ export const Route = createFileRoute("/api/chat")({
             upstream.status === 404 ||
             /not found|not supported|invalid model|model.*does not exist/i.test(errorText);
 
-          if (!useGateway && isModelMissing && configuredModel !== FALLBACK_MODEL) {
+          if (isModelMissing && configuredModel !== FALLBACK_MODEL) {
             modelUsed = FALLBACK_MODEL;
             upstream = await streamGemini({
               apiKey: apiKey as string,

@@ -24,21 +24,19 @@ export function apiUrl(path: string): string {
   return `${withoutTrailingSlash(base)}${normalizedPath}`;
 }
 
-const DEFAULT_CHAT_API_BASE_URL = "https://steuerstoff.com";
+const DEFAULT_CHAT_API_BASE_URL =
+  "https://steuerstoff-740fa27f.melanieemis.workers.dev";
 
 /**
- * Chat-Endpunkt. Läuft immer über https://steuerstoff.com/api/chat,
- * optional überschreibbar per VITE_CHAT_API_BASE_URL. Keine workers.dev-Route
- * und kein api.steuerstoff.com (DNS nicht auflösbar).
+ * Chat endpoint served by the dedicated Cloudflare Worker.
+ * Can be overridden with VITE_CHAT_API_BASE_URL.
  */
 export function chatApiUrl(path = "/api/chat"): string {
   const configuredBase = import.meta.env.VITE_CHAT_API_BASE_URL?.trim();
-  const isUnusable =
-    !configuredBase ||
-    configuredBase.length === 0 ||
-    configuredBase.includes("api.steuerstoff.com") ||
-    configuredBase.includes(".workers.dev");
-  const usableBase = isUnusable ? DEFAULT_CHAT_API_BASE_URL : configuredBase;
-  return `${withoutTrailingSlash(usableBase)}${withLeadingSlash(path)}`;
-}
+  const base =
+    configuredBase && configuredBase.length > 0
+      ? configuredBase
+      : DEFAULT_CHAT_API_BASE_URL;
 
+  return `${withoutTrailingSlash(base)}${withLeadingSlash(path)}`;
+}

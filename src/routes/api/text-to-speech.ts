@@ -169,6 +169,37 @@ function safeUpstreamMessage(value: string): string {
 }
 
 const PROXY_MARKER_HEADER = "x-tts-proxy-hop";
+const LOVABLE_TTS_URL = "https://ai.gateway.lovable.dev/v1/audio/speech";
+const LOVABLE_TTS_MODEL = "openai/gpt-4o-mini-tts";
+
+/** Fallback über das Lovable-Sprach-Gateway, wenn kein eigener Gemini-/OpenAI-Key vorhanden ist. */
+async function gatewaySpeech(request: Request, text: string, voice: string): Promise<Response | null> {
+  const apiKey = await readServerSecret("LOVABLE_API_KEY");
+  if (!apiKey) return null;
+
+  const upstream = await fetch(LOVABLE_TTS_URL, {
+    method: "POST",
+    headers: { authorization: `Bearer ${apiKey}`, "content-type": "application/json" },
+    body: JSON.stringify({ model: LOVABLE_TTS_MODEL, voice, input: text }),
+    signal: request.signal,
+  }).catch(() => null);
+
+  if (!upstream?.ok) {
+    const detail = upstream ? safeUpstreamMessage(await upstream.text().catch(() => "")) : "Netzwerkfehler";
+    console.error("[tts-gateway] error", { status: upstream?.status ?? 0, body: detail });
+    return null;
+  }
+
+  return new Response(await upstream.arrayBuffer(), {
+    headers: {
+      ...CORS_HEADERS,
+      "content-type": upstream.headers.get("content-type") ?? "audio/mpeg",
+      "cache-control": "private, max-age=3600",
+      "x-tts-provider": "lovable",
+      "x-tts-model": LOVABLE_TTS_MODEL,
+    },
+  });
+}
 
 /**
  * Gemini-Audio wird immer direkt in dieser Runtime erzeugt.
@@ -176,14 +207,18 @@ const PROXY_MARKER_HEADER = "x-tts-proxy-hop";
  * (Cloudflare antwortet dort auf jede Route mit HTTP 404 "error code: 1042"),
  * wodurch jede Vorleseanfrage als 404 beim Frontend ankam.
  */
-async function geminiSpeech(request: Request, text: string, _payload: Record<string, unknown>): Promise<Response> {
+async function geminiSpeech(request: Request, text: string, payload: Record<string, unknown>): Promise<Response> {
+  const fallbackVoice = typeof payload.voice === "string" ? payload.voice : "coral";
   const apiKey = await readGeminiApiKey();
   if (!apiKey) {
+    const gateway = await gatewaySpeech(request, text, fallbackVoice);
+    if (gateway) return gateway;
     return jsonError(500, "CONFIGURATION_ERROR", "Der Gemini-API-Key ist serverseitig nicht konfiguriert.");
   }
 
   const accessError = await validateGeminiAccess(request);
   if (accessError) return accessError;
+
 
 
 

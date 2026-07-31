@@ -168,88 +168,15 @@ function safeUpstreamMessage(value: string): string {
   return compact.length > 4000 ? `${compact.slice(0, 4000)}…` : compact;
 }
 
-const UPSTREAM_TTS_URL = "https://steuerstoff-740fa27f.melanieemis.workers.dev/api/text-to-speech";
 const PROXY_MARKER_HEADER = "x-tts-proxy-hop";
 
 /**
- * Reicht die Anfrage an den Cloudflare-Worker weiter, wenn lokal kein Gemini-Key vorhanden ist.
- * Der Marker-Header verhindert eine Endlosschleife, falls derselbe Code upstream läuft.
+ * Gemini-Audio wird immer direkt in dieser Runtime erzeugt.
+ * Die frühere Weiterleitung an *.workers.dev entfiel: diese Subdomain existiert nicht
+ * (Cloudflare antwortet dort auf jede Route mit HTTP 404 "error code: 1042"),
+ * wodurch jede Vorleseanfrage als 404 beim Frontend ankam.
  */
-async function proxyToUpstream(request: Request, payload: Record<string, unknown>): Promise<Response> {
-  if (request.headers.get(PROXY_MARKER_HEADER)) {
-    console.warn("[tts-proxy] Proxy-Hop erkannt – Abbruch, kein lokaler Gemini-Key");
-    return jsonError(500, "CONFIGURATION_ERROR", "Der Gemini-API-Key GEMINIAI_API_KEY ist serverseitig nicht konfiguriert.");
-  }
-
-  const accessCode = request.headers.get("x-tts-access-code");
-  const headers: Record<string, string> = {
-    "content-type": "application/json",
-    [PROXY_MARKER_HEADER]: "1",
-  };
-  if (accessCode) headers["x-tts-access-code"] = accessCode;
-
-  let upstream: Response;
-  const startedAt = Date.now();
-  try {
-    console.log("[tts-proxy] proxy start", { host: new URL(UPSTREAM_TTS_URL).host, hasAccessCode: Boolean(accessCode) });
-    upstream = await fetch(UPSTREAM_TTS_URL, {
-      method: "POST",
-      headers,
-      body: JSON.stringify({ ...payload, provider: "gemini" }),
-      signal: request.signal,
-    });
-    console.log("[tts-proxy] proxy response status", upstream.status, `${Date.now() - startedAt}ms`);
-  } catch (error) {
-    const detail = error instanceof Error ? safeUpstreamMessage(error.message) : "unbekannter Netzwerkfehler";
-    console.error("[tts-proxy] Upstream nicht erreichbar", detail);
-    return jsonError(502, "GEMINI_ERROR", `Der Sprachdienst ist nicht erreichbar (${detail}).`);
-  }
-
-  const responseHeaders = new Headers(CORS_HEADERS);
-  for (const name of ["content-type", "x-tts-provider", "x-tts-model"]) {
-    const value = upstream.headers.get(name);
-    if (value) responseHeaders.set(name, value);
-  }
-  responseHeaders.set("cache-control", "private, no-store");
-
-  if (!upstream.ok) {
-    const upstreamBody = await upstream.text().catch(() => "");
-    const detail = upstreamBody.trim() || "Leerer Fehlerbody";
-    console.error("[tts-proxy] upstream error", {
-      status: upstream.status,
-      body: detail,
-    });
-    return jsonError(
-      upstream.status,
-      "GEMINI_ERROR",
-      `TTS-Worker HTTP ${upstream.status}: ${safeUpstreamMessage(detail)}`,
-    );
-  }
-
-  return new Response(upstream.body, { status: upstream.status, headers: responseHeaders });
-}
-
-
-/** Läuft der Request bereits auf der Worker-Domain? Dann lokal erzeugen, sonst weiterleiten. */
-function isUpstreamWorkerHost(request: Request): boolean {
-  try {
-    return new URL(request.url).hostname.endsWith(".workers.dev");
-  } catch {
-    return false;
-  }
-}
-
-async function geminiSpeech(request: Request, text: string, payload: Record<string, unknown>): Promise<Response> {
-  const arrivedThroughProxy = request.headers.get(PROXY_MARKER_HEADER) === "1";
-  if (!isUpstreamWorkerHost(request) && !arrivedThroughProxy) {
-    console.log("[tts] gemini: forwarding to upstream worker (non-workers.dev host)");
-    return proxyToUpstream(request, { ...payload, text });
-  }
-
-  if (arrivedThroughProxy && !isUpstreamWorkerHost(request)) {
-    console.warn("[tts] proxied Worker request retained the custom-domain URL; processing locally to prevent a Worker loop");
-  }
-
+async function geminiSpeech(request: Request, text: string, _payload: Record<string, unknown>): Promise<Response> {
   const apiKey = await readGeminiApiKey();
   if (!apiKey) {
     return jsonError(500, "CONFIGURATION_ERROR", "Der Gemini-API-Key ist serverseitig nicht konfiguriert.");
@@ -257,6 +184,7 @@ async function geminiSpeech(request: Request, text: string, payload: Record<stri
 
   const accessError = await validateGeminiAccess(request);
   if (accessError) return accessError;
+
 
 
 

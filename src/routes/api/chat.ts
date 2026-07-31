@@ -1,13 +1,53 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { searchKb, formatKbContext, type KbHit } from "@/lib/ai/kbSearch";
+import { readGeminiApiKey, readServerBinding } from "@/lib/ai/serverEnv";
 import { getAttachmentRule } from "@/lib/attachment-validation";
 import { readUpload } from "@/lib/upload-store";
 
-const PRIMARY_MODEL = "gemini-2.5-flash";
+const DEFAULT_MODEL = "gemini-2.5-flash";
 const FALLBACK_MODEL = "gemini-2.5-flash-lite";
 const MAX_OUTPUT_TOKENS = 1400;
 const MAX_HISTORY = 8;
+const MAX_MESSAGE_LENGTH = 4000;
+const RATE_LIMIT = 30;
+const RATE_WINDOW_MS = 60_000;
+
+const rateBuckets = new Map<string, number[]>();
+
+function clientIp(request: Request): string {
+  const h = request.headers;
+  return (
+    h.get("cf-connecting-ip") ??
+    h.get("x-real-ip") ??
+    (h.get("x-forwarded-for") ?? "").split(",")[0].trim() ??
+    "unknown"
+  );
+}
+
+function allowRequest(ip: string): boolean {
+  const now = Date.now();
+  const active = (rateBuckets.get(ip) ?? []).filter((ts) => now - ts < RATE_WINDOW_MS);
+  if (active.length >= RATE_LIMIT) return false;
+  active.push(now);
+  rateBuckets.set(ip, active);
+  return true;
+}
+
+/** Fehlerantworten immer als JSON, ohne Secrets und ohne vollständigen Upstream-Body. */
+function jsonError(status: number, code: string, message: string, reason?: string) {
+  return new Response(
+    JSON.stringify({ error: code, status, message, reason: reason?.slice(0, 200) }),
+    {
+      status,
+      headers: {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+      },
+    },
+  );
+}
+
 
 const SYSTEM_PROMPT = `Du bist "steuerstoff", ein deutschsprachiger steuerlicher Arbeitsassistent für Steuerkanzleien in Deutschland.
 
@@ -181,24 +221,29 @@ async function* parseGeminiSseTextDeltas(resp: Response): AsyncGenerator<string>
   }
 }
 
-function getGeminiApiKey(): string | undefined {
-  return (
-    process.env.GEMINIAI_API_KEY ||
-    process.env.GEMINI_API_KEY ||
-    process.env.GOOGLE_API_KEY
-  );
-}
-
 export const Route = createFileRoute("/api/chat")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const apiKey = getGeminiApiKey();
-        if (!apiKey) {
-          return new Response("KI-Funktion ist derzeit serverseitig nicht konfiguriert.", {
-            status: 503,
-          });
+        const ip = clientIp(request);
+        if (!allowRequest(ip)) {
+          return jsonError(
+            429,
+            "rate_limited",
+            "Zu viele Anfragen. Bitte kurz warten und erneut versuchen.",
+          );
         }
+
+        const apiKey = await readGeminiApiKey();
+        if (!apiKey) {
+          return jsonError(
+            503,
+            "missing_gemini_binding",
+            "KI-Funktion ist derzeit serverseitig nicht konfiguriert.",
+            "GEMINIAI_API_KEY binding not available",
+          );
+        }
+        const configuredModel = (await readServerBinding("GEMINI_CHAT_MODEL")) ?? DEFAULT_MODEL;
 
         const body = (await request.json().catch(() => null)) as {
           message?: unknown;
@@ -207,22 +252,24 @@ export const Route = createFileRoute("/api/chat")({
         } | null;
 
         const message = typeof body?.message === "string" ? body.message.trim() : "";
-        if (message && message.length > 4000) {
-          return new Response("Ungültige Nachricht.", { status: 400 });
+        if (message.length > MAX_MESSAGE_LENGTH) {
+          return jsonError(400, "invalid_message", "Ungültige Nachricht.");
         }
+
 
         const parsedAttachments = z
           .array(IncomingAttachmentSchema)
           .max(5)
           .safeParse(body?.attachments ?? []);
         if (!parsedAttachments.success) {
-          return new Response("Ungültige Anhänge.", { status: 400 });
+          return jsonError(400, "invalid_attachments", "Ungültige Anhänge.");
         }
 
         const attachments = parsedAttachments.data;
         if (!message && attachments.length === 0) {
-          return new Response("Ungültige Nachricht.", { status: 400 });
+          return jsonError(400, "invalid_message", "Ungültige Nachricht.");
         }
+
 
         const rawHistory = Array.isArray(body?.history) ? body.history : [];
         const history: IncomingMsg[] = rawHistory
@@ -279,10 +326,10 @@ export const Route = createFileRoute("/api/chat")({
         const controller = new AbortController();
         request.signal?.addEventListener("abort", () => controller.abort());
 
-        let modelUsed = PRIMARY_MODEL;
+        let modelUsed = configuredModel;
         let upstream = await streamGemini({
           apiKey,
-          model: PRIMARY_MODEL,
+          model: configuredModel,
           contents,
           signal: controller.signal,
         });
@@ -293,7 +340,7 @@ export const Route = createFileRoute("/api/chat")({
             upstream.status === 404 ||
             /not found|not supported|invalid model|model.*does not exist/i.test(errorText);
 
-          if (isModelMissing) {
+          if (isModelMissing && configuredModel !== FALLBACK_MODEL) {
             modelUsed = FALLBACK_MODEL;
             upstream = await streamGemini({
               apiKey,
@@ -306,6 +353,14 @@ export const Route = createFileRoute("/api/chat")({
           if (!upstream.ok) {
             const finalErrorText = await upstream.text().catch(() => errorText);
             const status = upstream.status;
+            const code =
+              status === 429
+                ? "gemini_rate_limited"
+                : status === 400
+                  ? "gemini_bad_request"
+                  : status === 401 || status === 403
+                    ? "gemini_unauthorized"
+                    : "gemini_upstream_error";
             const responseMessage =
               status === 429
                 ? "Modell ausgelastet oder kostenloses Kontingent erschöpft. Bitte kurz warten."
@@ -322,9 +377,10 @@ export const Route = createFileRoute("/api/chat")({
               status,
               finalErrorText.slice(0, 500),
             );
-            return new Response(responseMessage, { status: 502 });
+            return jsonError(502, code, responseMessage, `Gemini HTTP ${status}`);
           }
         }
+
 
         const sources = hits.map((hit) => ({
           id: hit.id,

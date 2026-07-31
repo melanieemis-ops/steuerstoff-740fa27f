@@ -158,13 +158,20 @@ export async function handleDirectChatRequest(
 
     lastStatus = upstream.status || 502;
     const upstreamText = await upstream.text().catch(() => "");
-    lastReason = upstreamText.slice(0, 300) || `Gemini HTTP ${lastStatus}`;
+    lastReason = upstreamText.slice(0, 1000) || `Gemini HTTP ${lastStatus}`;
+
+    console.warn("[gemini-upstream] request failed", {
+      model,
+      status: lastStatus,
+      reason: lastReason,
+    });
 
     const modelUnavailable =
       lastStatus === 404 ||
       /not found|not supported|invalid model|does not exist/i.test(lastReason);
+    const retryWithFallbackModel = modelUnavailable || lastStatus === 429;
 
-    if (!modelUnavailable) break;
+    if (!retryWithFallbackModel) break;
   }
 
   return jsonError(

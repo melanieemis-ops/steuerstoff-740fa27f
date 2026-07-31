@@ -14,6 +14,7 @@ if (generatedConfigs.length === 0) {
 for (const path of generatedConfigs) {
   const config = JSON.parse(fs.readFileSync(path, "utf8"));
 
+  config.workers_dev = true;
   config.routes = [
     {
       pattern: "api.steuerstoff.com",
@@ -41,5 +42,5 @@ for (const path of generatedConfigs) {
   }
 
   fs.writeFileSync(path, `${JSON.stringify(config, null, 2)}\n`);
-  console.log(`${path}: Worker domain patched to api.steuerstoff.com`);
+  console.log(`${path}: Worker domain patched to api.steuerstoff.com and workers.dev enabled`);
 }

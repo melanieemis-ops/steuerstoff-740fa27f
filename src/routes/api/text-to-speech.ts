@@ -13,7 +13,8 @@ const GEMINI_TTS_MODELS = [
   "gemini-2.5-flash-preview-tts",
   "gemini-2.5-pro-preview-tts",
 ] as const;
-const GEMINI_TTS_VOICE = "Kore";
+const GEMINI_TTS_VOICES = ["Kore", "Aoede", "Puck", "Charon", "Fenrir", "Zephyr"] as const;
+type GeminiTtsVoice = (typeof GEMINI_TTS_VOICES)[number];
 
 const CORS_HEADERS = {
   "access-control-allow-origin": "*",
@@ -33,70 +34,51 @@ type TtsErrorCode =
   | "REQUEST_INVALID"
   | "TEXT_TOO_LONG";
 
-type SecretStoreBinding = {
-  get: () => Promise<unknown> | unknown;
-};
+type SecretStoreBinding = { get: () => Promise<unknown> | unknown };
 
-const requestSchema = z.object({
-  text: z.string().min(1).max(MAX_TEXT_LENGTH),
-  provider: z.enum(["openai", "elevenlabs", "gemini"]).default("openai"),
-  voice: z.enum(["coral", "marin", "nova", "shimmer"]).optional(),
-  modelId: z.string().trim().min(1).max(100).optional(),
-  profileId: z.string().trim().min(1).max(80).optional(),
-}).strict();
+const requestSchema = z
+  .object({
+    text: z.string().min(1).max(MAX_TEXT_LENGTH),
+    provider: z.enum(["openai", "elevenlabs", "gemini"]).default("openai"),
+    voice: z.enum(["coral", "marin", "nova", "shimmer"]).optional(),
+    geminiVoice: z.enum(GEMINI_TTS_VOICES).optional(),
+    modelId: z.string().trim().min(1).max(100).optional(),
+    profileId: z.string().trim().min(1).max(80).optional(),
+  })
+  .strict();
 
 function normalizeSecret(value: unknown): string | undefined {
   return typeof value === "string" && value.trim() ? value.trim() : undefined;
 }
-
 function isSecretStoreBinding(value: unknown): value is SecretStoreBinding {
-  return Boolean(
-    value &&
-      typeof value === "object" &&
-      "get" in value &&
-      typeof (value as { get?: unknown }).get === "function",
-  );
+  return Boolean(value && typeof value === "object" && "get" in value && typeof (value as { get?: unknown }).get === "function");
 }
-
 async function readBindingValue(binding: unknown): Promise<string | undefined> {
   const direct = normalizeSecret(binding);
   if (direct) return direct;
   if (!isSecretStoreBinding(binding)) return undefined;
-
-  try {
-    return normalizeSecret(await binding.get());
-  } catch (error) {
+  try { return normalizeSecret(await binding.get()); }
+  catch (error) {
     console.error("[tts-secret-store] Secret konnte nicht gelesen werden", error);
     return undefined;
   }
 }
-
 async function readCloudflareEnv(): Promise<Record<string, unknown>> {
   try {
     const mod = (await import("cloudflare:workers")) as { env?: unknown };
     return (mod.env as Record<string, unknown>) ?? {};
-  } catch {
-    return {};
-  }
+  } catch { return {}; }
 }
-
 async function readServerSecret(name: string): Promise<string | undefined> {
   const runtimeEnv = (globalThis as { __env__?: Record<string, unknown> }).__env__;
   const runtimeValue = await readBindingValue(runtimeEnv?.[name]);
   if (runtimeValue) return runtimeValue;
-
   const importedValue = await readBindingValue((await readCloudflareEnv())[name]);
   if (importedValue) return importedValue;
-
   return normalizeSecret(process.env[name]);
 }
-
 async function readGeminiApiKey(): Promise<string | undefined> {
-  return (
-    (await readServerSecret("GEMINIAI_API_KEY")) ??
-    (await readServerSecret("GEMINI_API_KEY")) ??
-    (await readServerSecret("GOOGLE_API_KEY"))
-  );
+  return (await readServerSecret("GEMINIAI_API_KEY")) ?? (await readServerSecret("GEMINI_API_KEY")) ?? (await readServerSecret("GOOGLE_API_KEY"));
 }
 
 const buckets = new Map<string, number[]>();
@@ -118,14 +100,12 @@ function jsonError(status: number, code: TtsErrorCode, message: string) {
     headers: { ...CORS_HEADERS, "content-type": "application/json; charset=utf-8", "cache-control": "private, no-store" },
   });
 }
-
 function decodeBase64(value: string): Uint8Array {
   const binary = atob(value);
   const bytes = new Uint8Array(binary.length);
   for (let i = 0; i < binary.length; i += 1) bytes[i] = binary.charCodeAt(i);
   return bytes;
 }
-
 function pcmToWav(pcm: Uint8Array, sampleRate = 24000, channels = 1, bitsPerSample = 16): ArrayBuffer {
   const headerSize = 44;
   const buffer = new ArrayBuffer(headerSize + pcm.byteLength);
@@ -136,7 +116,6 @@ function pcmToWav(pcm: Uint8Array, sampleRate = 24000, channels = 1, bitsPerSamp
   };
   const blockAlign = channels * (bitsPerSample / 8);
   const byteRate = sampleRate * blockAlign;
-
   writeAscii(0, "RIFF");
   view.setUint32(4, 36 + pcm.byteLength, true);
   writeAscii(8, "WAVE");
@@ -153,7 +132,6 @@ function pcmToWav(pcm: Uint8Array, sampleRate = 24000, channels = 1, bitsPerSamp
   bytes.set(pcm, headerSize);
   return buffer;
 }
-
 async function validateGeminiAccess(request: Request): Promise<Response | null> {
   const expectedCode = await readServerSecret("GEMINI_TTS");
   if (!expectedCode) return jsonError(500, "CONFIGURATION_ERROR", "Der Gemini-Freischaltcode ist serverseitig nicht konfiguriert.");
@@ -162,66 +140,49 @@ async function validateGeminiAccess(request: Request): Promise<Response | null> 
   if (submittedCode !== expectedCode) return jsonError(401, "INVALID_TTS_ACCESS_CODE", "Der Freischaltcode ist ungültig.");
   return null;
 }
-
 function safeUpstreamMessage(value: string): string {
   const compact = value.replace(/\s+/g, " ").trim();
   return compact.length > 4000 ? `${compact.slice(0, 4000)}…` : compact;
+}
+function normalizeGeminiVoice(value: unknown): GeminiTtsVoice {
+  return typeof value === "string" && (GEMINI_TTS_VOICES as readonly string[]).includes(value)
+    ? (value as GeminiTtsVoice)
+    : "Kore";
 }
 
 const PROXY_MARKER_HEADER = "x-tts-proxy-hop";
 const LOVABLE_TTS_URL = "https://ai.gateway.lovable.dev/v1/audio/speech";
 const LOVABLE_TTS_MODEL = "openai/gpt-4o-mini-tts";
-
-/** Fallback über das Lovable-Sprach-Gateway, wenn kein eigener Gemini-/OpenAI-Key vorhanden ist. */
 async function gatewaySpeech(request: Request, text: string, voice: string): Promise<Response | null> {
   const apiKey = await readServerSecret("LOVABLE_API_KEY");
   if (!apiKey) return null;
-
   const upstream = await fetch(LOVABLE_TTS_URL, {
     method: "POST",
     headers: { authorization: `Bearer ${apiKey}`, "content-type": "application/json" },
     body: JSON.stringify({ model: LOVABLE_TTS_MODEL, voice, input: text }),
     signal: request.signal,
   }).catch(() => null);
-
   if (!upstream?.ok) {
     const detail = upstream ? safeUpstreamMessage(await upstream.text().catch(() => "")) : "Netzwerkfehler";
     console.error("[tts-gateway] error", { status: upstream?.status ?? 0, body: detail });
     return null;
   }
-
   return new Response(await upstream.arrayBuffer(), {
-    headers: {
-      ...CORS_HEADERS,
-      "content-type": upstream.headers.get("content-type") ?? "audio/mpeg",
-      "cache-control": "private, max-age=3600",
-      "x-tts-provider": "lovable",
-      "x-tts-model": LOVABLE_TTS_MODEL,
-    },
+    headers: { ...CORS_HEADERS, "content-type": upstream.headers.get("content-type") ?? "audio/mpeg", "cache-control": "private, max-age=3600", "x-tts-provider": "lovable", "x-tts-model": LOVABLE_TTS_MODEL },
   });
 }
 
-/**
- * Gemini-Audio wird immer direkt in dieser Runtime erzeugt.
- * Die frühere Weiterleitung an *.workers.dev entfiel: diese Subdomain existiert nicht
- * (Cloudflare antwortet dort auf jede Route mit HTTP 404 "error code: 1042"),
- * wodurch jede Vorleseanfrage als 404 beim Frontend ankam.
- */
 async function geminiSpeech(request: Request, text: string, payload: Record<string, unknown>): Promise<Response> {
   const fallbackVoice = typeof payload.voice === "string" ? payload.voice : "coral";
+  const selectedVoice = normalizeGeminiVoice(payload.geminiVoice);
   const apiKey = await readGeminiApiKey();
   if (!apiKey) {
     const gateway = await gatewaySpeech(request, text, fallbackVoice);
     if (gateway) return gateway;
     return jsonError(500, "CONFIGURATION_ERROR", "Der Gemini-API-Key ist serverseitig nicht konfiguriert.");
   }
-
   const accessError = await validateGeminiAccess(request);
   if (accessError) return accessError;
-
-
-
-
 
   const prompt = `Erzeuge eine deutsche Sprachausgabe. Lies ausschließlich den Text nach TRANSKRIPT vollständig, natürlich, klar und in ruhigem professionellem Tempo vor.\n\nTRANSKRIPT:\n${text}`;
   let lastFailure = "";
@@ -230,39 +191,30 @@ async function geminiSpeech(request: Request, text: string, payload: Record<stri
   for (const model of GEMINI_TTS_MODELS) {
     for (let attempt = 1; attempt <= 2; attempt += 1) {
       const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`;
-      const upstream = await fetch(
-        endpoint,
-        {
-          method: "POST",
-          headers: { "content-type": "application/json", "x-goog-api-key": apiKey },
-          body: JSON.stringify({
-            contents: [{ parts: [{ text: prompt }] }],
-            generationConfig: {
-              responseModalities: ["AUDIO"],
-              speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: GEMINI_TTS_VOICE } } },
-            },
-          }),
-          signal: request.signal,
-        },
-      ).catch(() => null);
+      const upstream = await fetch(endpoint, {
+        method: "POST",
+        headers: { "content-type": "application/json", "x-goog-api-key": apiKey },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: {
+            responseModalities: ["AUDIO"],
+            speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: selectedVoice } } },
+          },
+        }),
+        signal: request.signal,
+      }).catch(() => null);
 
       if (!upstream) {
         lastFailure = `${model}: Netzwerkfehler`;
         lastStatus = 502;
-        console.error("[gemini-tts] network error", { model, endpoint });
+        console.error("[gemini-tts] network error", { model, endpoint, voice: selectedVoice });
         continue;
       }
-
       if (!upstream.ok) {
         const body = await upstream.text().catch(() => "");
         lastStatus = upstream.status;
         lastFailure = `${model}: Gemini HTTP ${upstream.status}${body ? ` – ${safeUpstreamMessage(body)}` : " – Leerer Response-Body"}`;
-        console.error("[gemini-tts] Gemini API error", {
-          model,
-          endpoint,
-          status: upstream.status,
-          body,
-        });
+        console.error("[gemini-tts] Gemini API error", { model, endpoint, voice: selectedVoice, status: upstream.status, body });
         if (upstream.status === 401 || upstream.status === 403) break;
         continue;
       }
@@ -275,11 +227,7 @@ async function geminiSpeech(request: Request, text: string, payload: Record<stri
         lastStatus = 502;
         const responseBody = JSON.stringify(geminiPayload);
         lastFailure = `${model}: Gemini HTTP ${upstream.status}, aber die Antwort enthielt keine Audiodaten – ${safeUpstreamMessage(responseBody)}`;
-        console.error("[gemini-tts] Gemini response without audio", {
-          model,
-          status: upstream.status,
-          body: responseBody,
-        });
+        console.error("[gemini-tts] Gemini response without audio", { model, voice: selectedVoice, status: upstream.status, body: responseBody });
         continue;
       }
 
@@ -289,20 +237,9 @@ async function geminiSpeech(request: Request, text: string, payload: Record<stri
       const sampleRate = sampleRateMatch ? Number(sampleRateMatch[1]) : 24000;
       const isWav = mimeType.includes("audio/wav") || mimeType.includes("audio/x-wav");
       const audio = isWav ? new Uint8Array(audioBytes) : pcmToWav(audioBytes, sampleRate);
-      console.log("[gemini-tts] audio received", {
-        model,
-        status: upstream.status,
-        sourceMimeType: mimeType,
-        bytes: audioBytes.byteLength,
-      });
+      console.log("[gemini-tts] audio received", { model, voice: selectedVoice, status: upstream.status, sourceMimeType: mimeType, bytes: audioBytes.byteLength });
       return new Response(audio, {
-        headers: {
-          ...CORS_HEADERS,
-          "content-type": "audio/wav",
-          "cache-control": "private, max-age=3600",
-          "x-tts-provider": "gemini",
-          "x-tts-model": model,
-        },
+        headers: { ...CORS_HEADERS, "content-type": "audio/wav", "cache-control": "private, max-age=3600", "x-tts-provider": "gemini", "x-tts-model": model, "x-tts-voice": selectedVoice },
       });
     }
   }
@@ -315,14 +252,12 @@ async function geminiSpeech(request: Request, text: string, payload: Record<stri
 async function openAiSpeech(request: Request, text: string, voice: string, payload: Record<string, unknown>): Promise<Response> {
   const apiKey = await readServerSecret("OPENAI_API_KEY");
   if (!apiKey) return geminiSpeech(request, text, payload);
-
   const upstream = await fetch("https://api.openai.com/v1/audio/speech", {
     method: "POST",
     headers: { authorization: `Bearer ${apiKey}`, "content-type": "application/json" },
     body: JSON.stringify({ model: "gpt-4o-mini-tts", voice, input: text, response_format: "mp3" }),
     signal: request.signal,
   }).catch(() => null);
-
   if (!upstream?.ok) return geminiSpeech(request, text, payload);
   return new Response(await upstream.arrayBuffer(), {
     headers: { ...CORS_HEADERS, "content-type": "audio/mpeg", "cache-control": "private, max-age=3600", "x-tts-provider": "openai" },
@@ -333,10 +268,8 @@ async function elevenLabsSpeech(request: Request, text: string, payload: Record<
   const apiKey = await readServerSecret("ELEVENLABS_API_KEY");
   const expectedCode = (await readServerSecret("STEUERSTOFF_TTS")) ?? (await readServerSecret("TTS_ACCESS_CODE"));
   if (!apiKey || !expectedCode) return geminiSpeech(request, text, payload);
-
   const submittedCode = request.headers.get("x-tts-access-code")?.trim();
   if (!submittedCode || submittedCode !== expectedCode) return geminiSpeech(request, text, payload);
-
   const configuredModelId = await readServerSecret("ELEVENLABS_MODEL_ID");
   const selectedModel = modelId?.trim() || configuredModelId || DEFAULT_TTS_MODEL_ID;
   const profile = getVoiceProfile(profileId);
@@ -346,16 +279,10 @@ async function elevenLabsSpeech(request: Request, text: string, payload: Record<
     body: JSON.stringify({
       text,
       model_id: selectedModel,
-      voice_settings: {
-        stability: profile.stability,
-        similarity_boost: profile.similarityBoost,
-        style: profile.style,
-        use_speaker_boost: profile.useSpeakerBoost,
-      },
+      voice_settings: { stability: profile.stability, similarity_boost: profile.similarityBoost, style: profile.style, use_speaker_boost: profile.useSpeakerBoost },
     }),
     signal: request.signal,
   }).catch(() => null);
-
   if (!upstream?.ok) return geminiSpeech(request, text, payload);
   return new Response(await upstream.arrayBuffer(), {
     headers: { ...CORS_HEADERS, "content-type": "audio/mpeg", "cache-control": "private, max-age=3600", "x-tts-provider": "elevenlabs" },
@@ -369,10 +296,7 @@ export const Route = createFileRoute("/api/text-to-speech")({
       POST: async ({ request }) => {
         try {
           const contentType = request.headers.get("content-type") ?? "";
-          console.log("[tts] request received", {
-            hasAccessCode: Boolean(request.headers.get("x-tts-access-code")),
-            proxyHop: Boolean(request.headers.get(PROXY_MARKER_HEADER)),
-          });
+          console.log("[tts] request received", { hasAccessCode: Boolean(request.headers.get("x-tts-access-code")), proxyHop: Boolean(request.headers.get(PROXY_MARKER_HEADER)) });
           if (!contentType.toLowerCase().includes("application/json")) return jsonError(415, "REQUEST_INVALID", "Ungültiger Content-Type.");
           if (!rateLimit(getIp(request))) return jsonError(429, "RATE_LIMITED", "Die Vorlesefunktion wird gerade sehr häufig verwendet.");
 
@@ -386,9 +310,9 @@ export const Route = createFileRoute("/api/text-to-speech")({
             modelId: parsed.data.modelId,
             profileId: parsed.data.profileId,
             voice: parsed.data.voice,
+            geminiVoice: parsed.data.geminiVoice,
           };
-
-          console.log("[tts] provider", parsed.data.provider, "textLength", text.length);
+          console.log("[tts] provider", parsed.data.provider, "voice", parsed.data.geminiVoice ?? parsed.data.voice, "textLength", text.length);
 
           if (parsed.data.provider === "gemini") return await geminiSpeech(request, text, payload);
           if (parsed.data.provider === "elevenlabs") return await elevenLabsSpeech(request, text, payload, parsed.data.modelId, parsed.data.profileId);
@@ -403,7 +327,6 @@ export const Route = createFileRoute("/api/text-to-speech")({
           return jsonError(500, "CONFIGURATION_ERROR", `Interner Fehler in der Vorlesefunktion: ${detail}`);
         }
       },
-
     },
   },
 });

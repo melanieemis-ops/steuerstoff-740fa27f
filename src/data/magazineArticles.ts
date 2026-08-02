@@ -126,14 +126,20 @@ export const magazineArticles: MagazineArticle[] = [
     slug: "jstg-2026-einkommensteuer",
     category: "Gesetzgebung",
     issueLabel: "Spezial · Gesetzgebung",
+    issueLabelEn: "Special · Legislation",
     issue: "01",
     title: "Jahressteuergesetz 2026: Diese Änderungen plant das BMF",
+    titleEn: "Annual Tax Act 2026: These changes are planned by the BMF",
     subtitle:
       "Neue Regeln für Grundstückskaufpreise, Lohnsteuer, Quellensteuerentlastung und erste Tätigkeitsstätten",
+    subtitleEn:
+      "New rules for real estate purchase price allocations, wage tax, withholding tax relief, and primary workplaces",
     format: "special",
     status: "referentenentwurf",
     statusLabel: "Referentenentwurf",
+    statusLabelEn: "Draft bill",
     specialtyLabel: "steuerstoff SPEZIAL",
+    specialtyLabelEn: "steuerstoff SPECIAL",
     pinned: true,
     legalStatusDate: "2026-05-19",
     publishedAt: "2026-07-17",
@@ -149,11 +155,19 @@ export const magazineArticles: MagazineArticle[] = [
     ],
     lead:
       "Das BMF hat den Referentenentwurf des Jahressteuergesetzes 2026 veröffentlicht. Geplant sind unter anderem eine gesetzliche Kaufpreisaufteilung für bebaute Grundstücke, neue Meldepflichten bei der Lohnsteuer, höhere Freigrenzen bei § 50a und § 50c EStG sowie eine Verkürzung des Zuordnungszeitraums bei inländischen ersten Tätigkeitsstätten.",
+    leadEn:
+      "The BMF has published the draft bill for the Annual Tax Act 2026. Planned measures include a statutory allocation of purchase prices for developed real estate, new wage tax reporting obligations, higher exemption thresholds under § 50a and § 50c EStG, and a shorter assignment period for domestic primary workplaces.",
     highlights: [
       { label: "Erste Tätigkeitsstätte", value: "48 → 24 Monate" },
       { label: "§ 50a Freigrenze", value: "250 → 500 €" },
       { label: "§ 50c antragslos", value: "10.000 → 100.000 €" },
       { label: "Kaufpreisaufteilung", value: "Neuer § 6f EStG" },
+    ],
+    highlightsEn: [
+      { label: "Primary workplace", value: "48 → 24 months" },
+      { label: "§ 50a threshold", value: "€250 → €500" },
+      { label: "§ 50c without application", value: "€10,000 → €100,000" },
+      { label: "Purchase price allocation", value: "new § 6f EStG" },
     ],
     blocks: [
       {
@@ -403,21 +417,275 @@ export const magazineArticles: MagazineArticle[] = [
         note: "steuerstoff fasst den Inhalt redaktionell zusammen; maßgeblich bleibt die amtliche Quelle.",
       },
     ],
+    blocksEn: [
+      {
+        type: "legalStatus",
+        label: "Legal status",
+        text: "This article addresses the draft bill issued by the Federal Ministry of Finance on 19 May 2026. The legislative process has not yet been completed. Individual contents, effective dates, and wording may still change during the further procedure.",
+      },
+      {
+        type: "keyNumbers",
+        title: "Key figures",
+        items: [
+          {
+            big: "48 → 24 months",
+            label: "Permanent assignment to a domestic primary workplace",
+          },
+          {
+            big: "€250 → €500",
+            label: "Exemption threshold for small fees under § 50a EStG",
+          },
+          {
+            big: "€10,000 → €100,000",
+            label: "Withholding tax relief without application under § 50c EStG",
+          },
+          {
+            big: "new § 6f EStG",
+            label: "Statutory allocation of real estate purchase prices",
+          },
+        ],
+      },
+      { type: "heading", text: "Introduction" },
+      {
+        type: "paragraph",
+        text: "The Federal Ministry of Finance has published the draft bill for an Annual Tax Act 2026. The draft bundles numerous individual measures from different areas of tax law.",
+      },
+      {
+        type: "paragraph",
+        text: "According to the ministry, adjustments are required in particular in response to European Union law, case law of the European Court of Justice, and decisions of the Bundesfinanzhof and the Bundesverfassungsgericht.",
+      },
+      {
+        type: "paragraph",
+        text: "In addition, the draft contains measures on digitalisation, cutting red tape, preventing tax-driven structuring, and changing procedural and competence rules.",
+      },
+      {
+        type: "paragraph",
+        text: "Of particular practical relevance are the planned reform of VAT groups, the simplification of withholding tax relief under § 50c EStG, the adjustment of the interest rate for full interest assessment, and the statutory rule on allocating an overall purchase price for developed real estate.",
+      },
+      {
+        type: "paragraph",
+        text: "This first part of the steuerstoff special focuses on the planned changes to the Einkommensteuergesetz.",
+      },
+      { type: "heading", text: "Planned changes in the Einkommensteuergesetz" },
+      {
+        type: "change",
+        number: 1,
+        title: "Base wage for Sunday, public holiday, and night bonuses",
+        lawRef: "§ 3b Abs. 2 Satz 1 EStG",
+        paragraphs: [
+          "In response to the BFH judgment of 10 August 2023, VI R 11/21, the current administrative practice for determining the base wage is to be codified.",
+          "In future, the calculation of tax-free Sunday, public holiday, and night bonuses is generally to be based on regular taxable wages and not on ongoing wages taxed at a flat rate under § 40 EStG.",
+          "Ongoing tax-free employer payments under § 3 Nr. 56 or Nr. 63 EStG are also to be included. Other tax-free, non-taxable, or flat-rate taxed remuneration is not to form part of the relevant base wage.",
+        ],
+        practice:
+          "This will make payroll treatment clearer as to which ongoing remuneration components are relevant for calculating tax-free bonuses.",
+        effective: "From 1 January 2027",
+      },
+      {
+        type: "change",
+        number: 2,
+        title: "Purchase price allocation for developed real estate",
+        lawRef: "§ 6f EStG – new",
+        paragraphs: [
+          "The new § 6f EStG is intended to regulate for the first time by statute how an overall purchase price for developed real estate is to be allocated between land and building.",
+          "An allocation made in the purchase agreement is generally to be recognised if it does not fundamentally miss the actual value ratios and appears economically supportable.",
+          "If no suitable contractual allocation can be used, the land value and building value are to be determined separately first. The total purchase price is then to be allocated between land and building in proportion to those values.",
+          "The Immobilienwertermittlungsverordnung is to be used for the valuation. As a rule, the building value portion is to be derived from the market-adjusted provisional procedure value of the developed property less the land value.",
+          "The BMF is to provide an official working aid for simplified purchase price allocations. A different value can be demonstrated by a qualified valuation expert report.",
+        ],
+        practice:
+          "This allocation is particularly relevant for rented properties because it determines the amount of depreciable building acquisition costs. The portion attributable to land is not depreciable.",
+        effective:
+          "For acquisitions based on contracts that become legally effective after promulgation.",
+      },
+      {
+        type: "change",
+        number: 3,
+        title: "Primary workplace",
+        lawRef: "§ 9 Abs. 4 Satz 3 EStG",
+        paragraphs: [
+          "The period after which an assignment to a domestic workplace can be regarded as permanent is to be reduced from more than 48 months to more than 24 months.",
+          "For workplaces abroad, the period is to remain more than 48 months.",
+        ],
+        practice:
+          "The change may affect the distinction between a primary workplace and business travel. This can influence travel expenses, meal allowances, and accommodation costs.",
+        effective: "From 1 January 2027",
+      },
+      {
+        type: "change",
+        number: 4,
+        title: "Child allowance and education allowance for EU/EEA residence",
+        lawRef: "§ 32 Abs. 6 Satz 4 und § 33a Abs. 2 Satz 2 EStG",
+        paragraphs: [
+          "In future, child allowances and the education allowance are to be granted in full if the child is resident in a Member State of the European Union or in a state of the European Economic Area.",
+          "A reduction based on the living conditions of the state of residence is then only to remain possible for children resident outside the EU and the EEA.",
+        ],
+        practice:
+          "The planned change may also affect assessment and appeal procedures that are still open.",
+        effective: "In all open cases",
+      },
+      {
+        type: "change",
+        number: 5,
+        title: "Reduced tax rate for extraordinary income",
+        lawRef: "§ 34 Abs. 2 Nr. 1 EStG",
+        paragraphs: [
+          "The reduced tax rate under § 34 EStG is to be restricted further for certain capital gains.",
+          "Such capital gains are already excluded today where their taxable portion is subject to the partial-income method.",
+          "This exclusion is to be extended to gains that arise wholly or partly from the sale of investment fund or special investment fund units and for which an exemption or partial exemption under the Investment Tax Act applies.",
+          "The intention is to avoid double tax relief.",
+        ],
+        effective: "From 1 January 2027",
+      },
+      {
+        type: "change",
+        number: 6,
+        title: "Corrections to the wage tax certificate",
+        lawRef: "§ 41b Abs. 1 EStG",
+        paragraphs: [
+          "Employers are to be obliged in future to correct inaccurate or incomplete information in the electronic wage tax certificate within the statutory correction period.",
+          "As a rule, the correction is to be made no later than the last day of February. Other statutory correction obligations remain unaffected.",
+        ],
+        practice:
+          "Employers and payroll departments should organise their year-end processes and controls so that incorrect or incomplete reporting data is identified in good time.",
+        effective: "From 1 January 2028",
+      },
+      {
+        type: "change",
+        number: 7,
+        title: "Expanded information in the wage tax certificate",
+        lawRef: "§ 41b Abs. 1 Satz 2 EStG",
+        paragraphs: [
+          "The scope of data in the electronic wage tax certificate is to be expanded considerably and broken down in greater detail.",
+          "Additional information is planned in particular on:",
+        ],
+        list: [
+          "short-time work benefits, maternity allowance top-ups, Infection Protection Act compensation, top-up amounts during partial retirement, and training allowance – in each case by benefit period and amount,",
+          "tax-free travel cost reimbursements, broken down into travel, meal allowances, accommodation, and incidental travel costs,",
+          "tax-free reimbursements in cases of double household maintenance, divided into family home trips, meals, accommodation, and other additional expenses,",
+          "tax-free employer benefits for the care of children not yet of school age,",
+          "untaxed benefits from the transfer of employee shareholdings under § 19a EStG,",
+          "the provision of a company motor vehicle identified by the new code “D”,",
+          "income exempt under § 3 Nr. 21 EStG.",
+        ],
+        practice:
+          "These changes will likely require substantial adjustments to payroll software, interfaces, and internal data collection processes.",
+        effective: "From 1 January 2028",
+      },
+      {
+        type: "change",
+        number: 8,
+        title: "Expanded data access in wage tax spot checks",
+        lawRef: "§ 42g Abs. 3 EStG",
+        paragraphs: [
+          "In the context of a wage tax spot check, tax officials are to be expressly permitted in future to access electronically stored data relating to the matters subject to review.",
+          "Where necessary, they may also use the company’s data processing system for this purpose.",
+          "The right of access is expressly intended to include electronic invoices within the meaning of § 14 Abs. 1 Satz 3 UStG as well as other invoices in electronic formats.",
+        ],
+        practice:
+          "Companies should organise their payroll, travel expense, invoicing, and settlement systems so that relevant data can be provided in a traceable, complete, and auditable form.",
+        effective: "From 1 January 2027",
+      },
+      {
+        type: "change",
+        number: 9,
+        title: "Higher exemption threshold for small fees",
+        lawRef: "§ 50a Abs. 2 Satz 3 EStG",
+        paragraphs: [
+          "The exemption threshold for small individual fees for which no withholding under § 50a EStG is required is to be increased from €250 to €500.",
+          "The threshold, unchanged for a long time, is thus to be adjusted to higher remuneration levels.",
+        ],
+        practice:
+          "Please note that this is an exemption threshold and not an allowance.",
+        effective: "From 1 January 2027",
+      },
+      {
+        type: "change",
+        number: 10,
+        title: "Withholding tax relief without application",
+        lawRef: "§ 50c Abs. 2 Satz 1 Nr. 2 EStG",
+        paragraphs: [
+          "The exemption threshold for the simplified withholding tax relief procedure without application is to increase significantly.",
+          "Subject to the statutory conditions, debtors of remuneration are in future to be allowed to refrain from withholding tax under § 50a EStG without a prior exemption certificate for payments totalling up to €100,000 within a calendar year.",
+          "The current threshold is €10,000.",
+          "The increase is intended in particular to reduce the burden on debtors of remuneration dealing with changing foreign rights holders or other remuneration creditors subject to limited tax liability, for example publishers or broadcasters licensing image rights.",
+        ],
+        practice:
+          "The tenfold increase in the threshold can significantly reduce administrative effort in suitable cases. However, the other statutory requirements of § 50c EStG must still be fully met and documented.",
+        effective: "For income accruing after 31 December 2026.",
+      },
+      {
+        type: "change",
+        number: 11,
+        title: "No exemption procedure for certain share income",
+        lawRef: "§ 50c Abs. 2 Satz 6 EStG – new",
+        paragraphs: [
+          "The exemption procedure is to be excluded for investment income from shares held in collective or special custody within the meaning of § 43 Abs. 1 Satz 1 Nr. 1a EStG.",
+          "This particularly affects cases in which shareholders subject to limited tax liability and holding a qualifying participation have so far been able to use an exemption certificate for dividend income.",
+          "In future, capital gains tax is first to be withheld. Relief would then only be available afterwards by way of the refund procedure under § 50c Abs. 3 EStG.",
+          "The draft justifies this amendment by pointing to the susceptibility of the existing exemption procedure to abuse.",
+        ],
+        practice:
+          "For affected major shareholders, relief thus shifts from the exemption procedure to the downstream refund procedure. This can have significant effects on liquidity and procedural duration.",
+        effective: "For investment income accruing after 31 December 2026.",
+      },
+      {
+        type: "editorial",
+        title: "steuerstoff assessment",
+        paragraphs: [
+          "The draft bill does not contain one uniform major tax reform but numerous individual amendments of a technical and subject-specific nature.",
+          "In day-to-day practice, four topics in the area of income tax stand out in particular:",
+          "1. The new purchase price allocation under § 6f EStG may become highly relevant for real estate acquisitions and depreciation volume.",
+          "2. The reduction from 48 to 24 months for domestic workplaces may change travel expense treatment earlier than before.",
+          "3. The expanded information in the wage tax certificate creates new data and documentation requirements for employers and payroll offices.",
+          "4. Raising the § 50c threshold to €100,000 can significantly simplify procedures for certain cross-border licence and rights payments.",
+          "As the project is still only at the draft bill stage, existing processes should not yet be changed solely on the basis of the draft. However, affected areas should be identified early and monitored during the further legislative process.",
+        ],
+      },
+      {
+        type: "checklist",
+        title: "What should practice monitor now?",
+        storageKey: "steuerstoff-magazin-checklist-jstg-2026-v1",
+        items: [
+          "Review purchase agreements for developed real estate and existing purchase price allocations",
+          "Identify domestic workplace assignments planned for more than 24 months",
+          "Prepare payroll software for the planned expanded certificate data",
+          "Document processes for electronic records in wage tax spot checks",
+          "Evaluate payments under § 50a EStG and their annual totals",
+          "Review existing exemption certificates for dividend income",
+          "Monitor the legislative process and possible changes to the draft",
+        ],
+      },
+      {
+        type: "sourceLink",
+        title: "Official source",
+        text: "Federal Ministry of Finance, draft bill for an Annual Tax Act 2026, working version dated 19 May 2026.",
+        buttonLabel: "Open the draft bill at the BMF",
+        url: "https://www.bundesfinanzministerium.de/Content/DE/Gesetzestexte/Gesetze_Gesetzesvorhaben/Abteilungen/Abteilung_IV/21_Legislaturperiode/2026-05-19-JStG2026/1-Referentenentwurf.pdf?__blob=publicationFile&v=2",
+        note: "steuerstoff provides an editorial summary; the official source remains authoritative.",
+      },
+    ],
   },
   {
     id: "mitunternehmeranteil-fehlbuchung-bfh-2026",
     slug: "mitunternehmeranteil-fehlbuchung-bfh-2026",
     category: "Einkommensteuer",
     issueLabel: "Ausgabe 02 · Einkommensteuer",
+    issueLabelEn: "Issue 02 · Income tax",
     issue: "02",
     title: "Übertragung eines Mitunternehmeranteils: Fehlbuchung reicht für „Entgeltlichkeit“ nicht",
+    titleEn: "Transfer of a partnership interest: incorrect bookkeeping entry is not enough to make it “onerous”",
     subtitle:
       "Eine Buchung auf dem Kapitalkonto begründet für sich allein keine Verbindlichkeit",
+    subtitleEn:
+      "An entry in the capital account does not in itself create a liability",
     status: "bfh-urteil",
     statusLabel: "BFH-Urteil",
+    statusLabelEn: "BFH judgment",
     legalStatusDate: "2026-01-15",
     publishedAt: "2026-07-18",
     author: "steuerstoff Redaktion",
+    authorEn: "steuerstoff Editorial Team",
     readingTime: 5,
     tags: [
       "Mitunternehmeranteil",
@@ -429,11 +697,19 @@ export const magazineArticles: MagazineArticle[] = [
     ],
     lead:
       "Eine Buchung auf dem Kapitalkonto begründet für sich allein keine Verbindlichkeit. Deshalb wird die Übernahme eines negativen Kontos nicht automatisch zur entgeltlichen Anteilsübertragung. Das hat der BFH klargestellt.",
+    leadEn:
+      "An entry in the capital account does not in itself create a liability. Therefore, taking over a negative account balance does not automatically turn a transfer of a partnership interest into an onerous transfer. The BFH has clarified this point.",
     highlights: [
       { label: "Kernfrage", value: "entgeltlich oder unentgeltlich?" },
       { label: "Buchwertfortführung", value: "§ 6 Abs. 3 EStG" },
       { label: "BFH-Urteil", value: "IV R 25/23" },
       { label: "Rechtsstand", value: "15.01.2026" },
+    ],
+    highlightsEn: [
+      { label: "Core issue", value: "onerous or gratuitous?" },
+      { label: "Carry-over basis", value: "§ 6 Abs. 3 EStG" },
+      { label: "BFH judgment", value: "IV R 25/23" },
+      { label: "Legal status", value: "15 January 2026" },
     ],
     blocks: [
       {
@@ -506,6 +782,77 @@ export const magazineArticles: MagazineArticle[] = [
       "",
       "Das Finanzgericht muss nun prüfen, ob tatsächlich eine Rückzahlungspflicht bestand. Für die Praxis gilt: Nicht der Kontenname entscheidet, sondern eine rechtlich durchsetzbare Verbindlichkeit.",
     ].join("\n"),
+    curatedSpeechTextEn: [
+      "Transfer of a partnership interest: an incorrect bookkeeping entry is not enough to make the transfer onerous.",
+      "",
+      "An entry in a capital account alone does not create a liability. For that reason, taking over a negative account balance does not automatically turn the transfer of a partnership interest into an onerous transfer.",
+      "",
+      "Why does the distinction matter? In the case of a gratuitous transfer, the carrying values continue under § 6 Abs. 3 EStG. In the case of an onerous transfer, a taxable disposal gain may arise.",
+      "",
+      "In the case at issue, a limited partner transferred his partnership interest in a limited partnership to a family foundation. So-called loan accounts showed negative balances of around €535,000. The tax office regarded this as an assumed liability and determined a disposal gain of €440,000.",
+      "",
+      "The Bundesfinanzhof made clear that the decisive factor is not how an amount was booked or how an account was labelled. The decisive factor is whether the partnership could legally demand repayment from the partner. An entry in a clearing account or capital account does not in itself create a legal obligation.",
+      "",
+      "The tax court must now determine whether there was in fact an obligation to repay. For practice, the key point is this: not the account name but an enforceable legal liability is decisive.",
+    ].join("\n"),
+    blocksEn: [
+      {
+        type: "summary",
+        title: "At a glance",
+        items: [
+          "In a gratuitous transfer, the carrying values continue (§ 6 Abs. 3 EStG).",
+          "In an onerous transfer, a taxable disposal gain may arise.",
+          "An entry in a clearing or capital account does not in itself create a liability.",
+          "The decisive question is whether the partnership could legally demand repayment from the partner.",
+        ],
+      },
+      { type: "heading", text: "Why the distinction matters" },
+      {
+        type: "paragraph",
+        text: "Whether a partnership interest is transferred onerously or gratuitously has significant tax consequences. In a gratuitous transfer, the carrying values continue under § 6 Abs. 3 EStG. In an onerous transfer, a taxable disposal gain may arise.",
+      },
+      {
+        type: "paragraph",
+        text: "As a rule, a transfer is gratuitous if the acquirer provides no consideration and the parties intend a transfer by way of gift. In transfers between relatives, there is a rebuttable presumption to that effect. Even the assumption of a negative capital account may be gratuitous if the proportionate hidden reserves, including goodwill, exceed the negative capital account.",
+      },
+      { type: "heading", text: "The facts of the case" },
+      {
+        type: "paragraph",
+        text: "A limited partner transferred his partnership interest in a KG to a family foundation that was not tax exempt. All parties intended the transfer to be gratuitous. Because of earlier withdrawals, however, so-called loan accounts showed negative balances of around €535,000, which the foundation took over together with the interest.",
+      },
+      {
+        type: "paragraph",
+        text: "The tax office treated the accounts as debt capital and regarded the assumption as releasing the limited partner from a liability. It therefore treated the transaction as if it were a purchase price payment and determined a disposal gain of €440,000. The FG Rheinland-Pfalz initially agreed with that view.",
+      },
+      { type: "heading", text: "The BFH decision" },
+      {
+        type: "paragraph",
+        text: "The BFH took a different view and remitted the case to the tax court (BFH dated 15 January 2026, IV R 25/23). A partly onerous transfer may indeed exist if the acquirer assumes a liability of the transferor. However, this requires an actual and legally enforceable repayment obligation.",
+      },
+      {
+        type: "paragraph",
+        text: "The decisive factor is therefore not how an amount was booked or how an account was labelled, but whether the partnership could legally demand repayment from the partner. An entry in a clearing account or capital account does not in itself have constitutive legal effect. If all partners consented to the withdrawals and they were permissible under the partnership agreement, they may merely reduce the capital accounts without creating a loan debt.",
+      },
+      {
+        type: "notice",
+        variant: "merke",
+        text: "It is not the account name that matters, but whether there is an actually enforceable legal liability.",
+      },
+      { type: "heading", text: "Practical consequence" },
+      {
+        type: "paragraph",
+        text: "The tax court must now clarify whether the limited partner was in fact obliged to repay. Factors supporting tax-recognised loan receivables of a partnership against a partner include, in particular, an express loan agreement, a business purpose, and an enforceable repayment claim.",
+      },
+      {
+        type: "summary",
+        title: "Legal basis and sources",
+        items: [
+          "§ 6 Abs. 3 EStG",
+          "BFH, judgment of 15 January 2026 – IV R 25/23",
+          "FG Rheinland-Pfalz, judgment of 28 September 2023 – 6 K 1796/21",
+        ],
+      },
+    ],
   },
   {
     id: "haeusliches-arbeitszimmer-aufzeichnung-bfh-2026",

@@ -25579,8 +25579,11 @@ Vor jeder steuerlichen Beratung den neuesten Gesetzesstand prüfen.
 {
   id: "familienstiftung-freibetrag-24-kstg",
   title: "Familienstiftung und Freibetrag nach § 24 KStG",
+  titleEn: "Family foundation and the allowance under § 24 KStG",
   short:
     "Voraussetzungen und Ausschluss des Freibetrags nach § 24 KStG bei Familienstiftungen sowie Abgrenzung zu § 20 Abs. 1 Nr. 1 und 2 EStG.",
+  shortEn:
+    "Requirements for, and exclusion of, the allowance under § 24 KStG for family foundations, including the distinction from § 20 Abs. 1 Nr. 1 and 2 EStG.",
   category: "Körperschaftsteuer",
   source: "Interne Steuerstoff-Prüfungsvorbereitung",
   keywords:
@@ -25739,6 +25742,155 @@ Merksatz:
 Möglichkeit der Ausschüttung genügt.
 
 Die tatsächliche Ausschüttung ist nicht erforderlich.
+`,
+bodyEn: `
+⇨ Allowance under § 24 KStG for family foundations
+
+► Principle
+
+Corporations may receive an allowance under § 24 KStG if the statutory requirements are met.
+
+However, an important exception applies to family foundations.
+
+The allowance is not granted
+
+if the foundation’s benefits are of a type that could give rise to income under § 20 Abs. 1 Nr. 1 or Nr. 2 EStG at the level of the recipient.
+
+It is irrelevant
+
+whether any distributions were actually made.
+
+The only decisive factor is
+
+that, under its articles or by its legal nature, the foundation is in principle capable of making such benefits.
+
+► Exclusion of the allowance
+
+The allowance is excluded
+
+if the foundation can make benefits
+
+that would be treated as income from capital assets at the level of the recipient.
+
+It is not necessary
+
+for actual distributions to be made in the relevant financial year.
+
+Even a distribution ban in the articles or mere non-distribution generally does not change this.
+
+► Review structure
+
+1. Is there a corporation?
+
+2. Is it a family foundation?
+
+3. Can benefits be made to beneficiaries?
+
+4. Would those benefits fall under § 20 Abs. 1 Nr. 1 or Nr. 2 EStG at the level of the recipient?
+
+5. If yes:
+
+=> the allowance under § 24 KStG is excluded.
+
+► Income under § 20 Abs. 1 Nr. 1 EStG
+
+This includes in particular:
+
+- dividends from a GmbH
+- dividends from an AG
+- distributions by cooperatives
+- hidden profit distributions (vGA)
+- economically comparable distributions
+
+► Income under § 20 Abs. 1 Nr. 2 EStG
+
+This includes in particular:
+
+- liquidation gains following the liquidation of a corporation
+- benefits in connection with capital reductions
+
+to the extent that there is no repayment of
+
+- nominal capital or
+- tax contribution account (§ 27 KStG)
+
+involved.
+
+► Not covered by § 20 Abs. 1 Nr. 1 or Nr. 2 EStG
+
+- repayment of share capital of a GmbH
+- repayment of share capital of an AG
+- repayment from the tax contribution account (§ 27 KStG)
+- benefits without an equity interest
+- benefits of certain tax-exempt entities without any distribution possibility
+
+► Prevailing view
+
+Tax administration,
+
+literature,
+
+and
+
+case law
+
+consistently take the view
+
+that § 24 Satz 2 KStG must be interpreted in a generalising manner.
+
+The decisive point is not
+
+whether a distribution is actually made,
+
+but rather
+
+whether distributions are in principle capable of giving rise to income under § 20 EStG.
+
+► Legal consequence
+
+If benefits are in principle suitable
+
+to trigger income under § 20 Abs. 1 Nr. 1 or Nr. 2 EStG,
+
+the allowance under § 24 KStG is not available.
+
+This also applies
+
+if
+
+- no distributions are made,
+- distributions are permanently omitted,
+- the foundation carries on asset management only.
+
+► Review takeaway
+
+What matters is not the actual distribution.
+
+What matters is the fundamental possibility of a distribution.
+
+§ 24 KStG refers to the nature of the possible benefits.
+
+► Exam tip
+
+Typical trap:
+
+Many only check
+
+whether distributions were actually made.
+
+That is not enough.
+
+In an exam you must always check
+
+whether, by its legal form and articles, the foundation is capable at all of making benefits
+
+that would fall under § 20 Abs. 1 Nr. 1 or Nr. 2 EStG at the level of the recipient.
+
+Key point:
+
+The mere possibility of a distribution is sufficient.
+
+An actual distribution is not required.
 `
 },
 {
@@ -25965,8 +26117,11 @@ regelmäßig kein Werbungskosten- oder Betriebsausgabenabzug.
 {
   id: "erwachsenenadoption-erbschaftsteuer",
   title: "Erwachsenenadoption und Erbschaftsteuer",
+  titleEn: "Adult adoption and inheritance tax",
   short:
     "Steuerliche Folgen der schwachen Erwachsenenadoption bei der Erbschaft- und Schenkungsteuer.",
+  shortEn:
+    "Tax consequences of simple adult adoption for inheritance tax and gift tax.",
   category: "Erbschaftsteuer",
   source: "Interne Steuerstoff-Prüfungsvorbereitung",
   keywords:
@@ -26025,6 +26180,55 @@ Erwachsenenadoption:
 Erbschaftsteuerlich Kind.
 
 Ertragsteuerlich grundsätzlich ohne Bedeutung.
+`,
+bodyEn: `
+⇨ Simple adult adoption
+
+► Principle
+
+In a simple adult adoption, the family relationship to the biological parents remains in place.
+
+For tax purposes, however, the adopted person is still treated vis-à-vis the adoptive parent like a biological child.
+
+► Inheritance tax
+
+Vis-à-vis the adoptive parent, the adopted person belongs to tax class I.
+
+This also applies in the case of adult adoption.
+
+Consequences:
+
+- tax class I
+- child allowance equivalent to that of a child
+- more favourable tax rates
+
+► Biological parents
+
+Tax class I also remains in place vis-à-vis the biological parents.
+
+To that extent, the adoption does not lead to a loss of tax privileges.
+
+► Income tax
+
+As a rule, adult adoption has no direct effect on income tax.
+
+► Review structure
+
+1. Is there an adult adoption?
+
+2. Simple or full adoption?
+
+3. Inheritance case or gift case?
+
+4. Determine the tax class under § 15 ErbStG.
+
+► Review takeaway
+
+Adult adoption:
+
+For inheritance tax purposes, treated as a child.
+
+For income tax purposes, generally irrelevant.
 `
 },
 {
@@ -26890,8 +27094,11 @@ Bloße Belegsammlung genügt nicht.
 {
   id: "sachbezug-gutscheinkarten-50-euro-freigrenze",
   title: "Sachbezüge: Gutscheinkarten bis 50 €",
+  titleEn: "Benefits in kind: gift cards up to €50",
   short:
     "Steuerfreie Gutscheinkarten nach § 8 Abs. 2 Satz 11 EStG: Voraussetzungen, 50-Euro-Freigrenze und ZAG-Kriterien.",
+  shortEn:
+    "Tax-free gift cards under § 8 Abs. 2 Satz 11 EStG: requirements, the €50 exemption threshold, and ZAG criteria.",
   category: "Lohnsteuer",
   source: "Interne Steuerstoff-Prüfungsvorbereitung",
   keywords:
@@ -27062,6 +27269,167 @@ Bei Gutscheinen immer folgende Reihenfolge prüfen:
 Merksatz:
 
 "50 Euro + Sachbezug + zusätzlich zum Lohn + keine Geldfunktion = steuerfrei."
+`,
+bodyEn: `
+⇨ Gift cards as benefits in kind
+
+► Principle
+
+Gift cards can be granted tax-free to employees if they meet the requirements of a privileged benefit in kind.
+
+The tax exemption is based on § 8 Abs. 2 Satz 11 EStG.
+
+Typical occasions:
+- birthday
+- anniversary
+- recognition of special performance
+
+► Privileged gift cards
+
+In principle, the following may qualify:
+
+- DM
+- Ikea
+- Netflix
+- Amazon (only under specific conditions)
+
+The prerequisite is that the gift card only entitles the holder to obtain goods or services.
+
+► Requirements
+
+The gift card must satisfy the requirements of § 2 Abs. 1 Nr. 10 ZAG.
+
+In particular, the following qualify:
+
+⇶ Closed-loop cards
+
+Redeemable only with one retailer.
+
+Examples:
+- DM
+- Ikea
+
+These are generally privileged.
+
+⇶ Controlled-loop cards
+
+Redeemable with a limited network of acceptance points within Germany.
+
+These may also qualify for favourable tax treatment.
+
+⇶ Amazon
+
+Amazon vouchers qualify only if they can be used exclusively for Amazon’s own products.
+
+If they can also be used for marketplace sellers or third-party vendors, there is regularly no privileged benefit in kind.
+
+⇶ Netflix
+
+Netflix vouchers are generally privileged if they can be used exclusively for Netflix streaming services.
+
+► Further requirements
+
+The gift card must:
+
+- be granted in addition to the salary already owed,
+- be provided directly as a benefit in kind,
+- not represent a salary conversion.
+
+The following are not permitted in particular:
+
+- cash payout
+- payout to an account
+- transfer function
+- IBAN
+- purchase of cryptocurrencies
+- foreign exchange transactions
+- general payment function
+
+► €50 exemption threshold
+
+The exemption threshold is:
+
+€50 per calendar month.
+
+All benefits in kind in one month are added together.
+
+Important:
+
+If the threshold is exceeded,
+
+not only the excess amount
+
+but the entire benefit in kind becomes taxable.
+
+It is an exemption threshold, not an allowance.
+
+► Deductible employee expense or wages?
+
+The gift card does not constitute taxable wages
+
+if
+
+- all requirements are met,
+- the exemption threshold is observed,
+- the additionality requirement is met.
+
+► Review structure
+
+1. Is there a gift card or payment card?
+
+2. Does it meet § 2 Abs. 1 Nr. 10 ZAG?
+
+3. Goods or services only?
+
+4. Closed loop or controlled loop?
+
+5. No money substitute function?
+
+6. Granted in addition to salary already owed?
+
+7. €50 exemption threshold observed?
+
+► Amazon vouchers
+
+Special caution:
+
+Privileged:
+- Amazon own products only
+
+Not privileged:
+- Marketplace
+- third-party vendors
+- general payment function
+
+► Review takeaways
+
+€50 is an exemption threshold.
+
+If exceeded, the entire benefit in kind becomes taxable.
+
+No salary conversion.
+
+No cash payout.
+
+No money substitute function.
+
+Closed-loop and controlled-loop cards can be privileged.
+
+Always review Amazon vouchers particularly carefully.
+
+► Exam tip
+
+For vouchers, always check in this order:
+
+1. additionality requirement
+2. § 2 Abs. 1 Nr. 10 ZAG
+3. cash payment or benefit in kind?
+4. €50 exemption threshold
+5. legal consequence (tax-free or taxable)
+
+Key point:
+
+"€50 + benefit in kind + in addition to salary + no money function = tax-free."
 `
 },
 {

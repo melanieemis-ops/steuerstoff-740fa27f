@@ -3386,8 +3386,14 @@ Im Anwendungsbereich des § 1a Abs. 1 Nr. 2 EStG sind die Einkünfte beider Eheg
   title:
     "Reverse Charge, Steuersatz, Bemessungsgrundlage und Vorsteuerabzug",
 
+  titleEn:
+    "Reverse Charge, Tax Rate, Taxable Amount, and Input VAT Deduction",
+
   short:
     "Umsatzsteuerliche Prüfung von § 13b UStG, Steuersätzen, Bemessungsgrundlage, Unternehmenszuordnung, Vorsteuerabzug, Ausschlussumsätzen und Vorsteueraufteilung.",
+
+  shortEn:
+    "VAT examination of § 13b UStG, tax rates, taxable amount, allocation to the enterprise, input VAT deduction, exclusion supplies, and input VAT apportionment.",
 
   category: "Umsatzsteuer",
 
@@ -3396,6 +3402,9 @@ Im Anwendungsbereich des § 1a Abs. 1 Nr. 2 EStG sind die Einkünfte beider Eheg
 
   keywords:
     "§ 13b ustg|reverse charge|steuerschuldnerschaft leistungsempfänger|ausländischer unternehmer|bauleistung|gebäudereinigung|grundstücksumsatz|sicherungsübereignung|schrott|gold|mobilfunkgeräte|tablet computer|spielekonsole|metalle|telekommunikation|steuersatz|19 prozent|7 prozent|restaurant|verpflegungsdienstleistung|speisen|getränke|anlage 2 ustg|personenbeförderung|beherbergung|bemessungsgrundlage|§ 10 ustg|entgelt|brutto netto|durchlaufender posten|entgelt von dritter seite|tausch|tauschähnlicher umsatz|baraufgabe|vorsteuerabzug|§ 15 ustg|unternehmereigenschaft|gesetzlich geschuldete steuer|leistungsbezug für das unternehmen|ordnungsgemäße rechnung|zuordnung unternehmensvermögen|10 prozent grenze|gemischte nutzung|ausschlussumsätze|rückausschluss|vorsteueraufteilung|umsatzschlüssel|flächenschlüssel|einfuhrumsatzsteuer|innergemeinschaftlicher erwerb",
+
+  keywordsEn:
+    "§ 13b ustg|reverse charge|tax liability of the recipient|foreign entrepreneur|construction service|building cleaning|real property transaction|security transfer|scrap|gold|mobile phones|tablet computer|gaming console|metals|telecommunications|tax rate|19 percent|7 percent|restaurant|catering service|food|beverages|anlage 2 ustg|passenger transport|accommodation|taxable amount|§ 10 ustg|consideration|gross net|pass-through item|consideration from a third party|barter|barter-like transaction|cash balancing payment|input vat deduction|§ 15 ustg|entrepreneur status|legally owed tax|supply for the enterprise|proper invoice|allocation to enterprise assets|10 percent threshold|mixed use|exclusion supplies|reverse exclusion|input vat apportionment|turnover key|area-based key|import vat|intra-community acquisition",
 
   references: [
     "§ 1 Abs. 1 Nr. 1 UStG",
@@ -5143,7 +5152,1395 @@ Die Vorsteuer ist abzugsfähig, aber nicht abziehbar.
 - Vorsteuerbeträge sind zuerst direkt zuzuordnen.
 - Nur wenn keine direkte Zuordnung möglich ist, erfolgt eine Aufteilung nach § 15 Abs. 4 UStG.
 - Ein präziser wirtschaftlicher Aufteilungsschlüssel geht dem Umsatzschlüssel vor.
-`
+`,
+
+  bodyEn: `
+⇨ Reverse Charge, Tax Rate, Assessment Basis, and Input Tax Deduction
+
+⇨ Part A: Taxpayer Liability of Service Recipient under § 13b UStG
+
+► 1. Basic Principle
+
+Basically, the performing entrepreneur owes the VAT.
+
+§ 13b UStG breaks this principle for certain taxable transactions.
+
+In these cases, not the performing entrepreneur, but the service recipient owes the VAT.
+
+This procedure is referred to as:
+
+- Reverse charge,
+- Reversal of taxpayer liability,
+- Taxpayer liability of the service recipient.
+
+► Legal Consequences
+
+The performing entrepreneur
+
+- generally issues a net invoice,
+- does not separately indicate VAT,
+- includes the note "Taxpayer liability of the service recipient."
+
+The service recipient
+
+- calculates the VAT themselves,
+- reports it in their VAT return,
+- may simultaneously deduct it as input VAT if the requirements are met.
+
+► Key Point
+
+§ 13b UStG does not result in a tax exemption.
+
+It continues to be a taxable transaction.
+
+Only the identity of the taxpayer changes.
+
+---
+
+⇨ 2. Basic Examination of § 13b UStG
+
+Before applying the reverse charge procedure, the following must be examined:
+
+1. Is there a supply or other service?
+2. Is the transaction taxable within the territory?
+3. Is the transaction subject to tax?
+4. Is the transaction listed in § 13b Abs. 1 or para. 2 UStG?
+5. Does the service recipient fulfill the requirements of § 13b Abs. 5 UStG?
+6. Is there a statutory exception?
+7. When does the tax arise?
+8. Is there input VAT deduction for the service recipient?
+
+► Important
+
+§ 13b UStG generally only applies to taxable transactions within the territory.
+
+⇨ 3. Supplies of Services from Other EU Member States
+
+Pursuant to § 13b Abs. 1 UStG, the recipient of supplies owes the tax for a supply of services, if
+
+1. the performing entrepreneur is established in another EU Member State,
+2. the place of supply pursuant to § 3a Abs. 2 UStG is located domestically, and
+3. the supply is subject to tax domestically.
+
+► Typical Cases
+
+- Consulting services,
+- Advertising services,
+- Programming services,
+- Software services,
+- License services,
+- Translation services,
+- Legal and tax consulting,
+- Digital B2B services.
+
+► Example
+
+A French entrepreneur provides consulting services to a German entrepreneur.
+
+The German entrepreneur acquires the service for its business operations.
+
+The place of supply is located in Germany pursuant to § 3a Abs. 2 UStG.
+
+The supply is subject to tax in Germany.
+
+The German recipient owes the VAT pursuant to § 13b Abs. 1 and para. 5 UStG.
+
+---
+
+⇨ 4. Tax Accrual under § 13b Abs. 1 UStG
+
+In the case of supplies pursuant to § 13b Abs. 1 UStG, tax accrues upon expiration of the tax return period in which the supply was performed.
+
+The timing of invoice issuance is generally immaterial.
+
+► Example
+
+The consulting service is provided on March 15.
+
+The invoice is issued only on April 10.
+
+The VAT accrues upon expiration of the tax return period March.
+
+► Key Point
+
+§ 13b Abs. 1 UStG:
+
+Performance of the supply determines the tax return period.
+
+---
+
+⇨ 5. Supplies under § 13b Abs. 2 Nr. 1 UStG
+
+§ 13b Abs. 2 Nr. 1 UStG captures in particular
+
+- Work and supply contracts, and
+- supplies of services,
+
+that are provided by an entrepreneur established abroad domestically and not already covered by § 13b Abs. 1 UStG.
+
+Generally not captured is a pure supply of an item, insofar as no other provision of § 13b UStG applies.
+
+► Typical Cases
+
+- Installation of equipment by a foreign entrepreneur,
+- Construction of an exhibition stand,
+- Repair work on domestic real estate,
+- Work on an item located domestically,
+- Real estate service by a foreign entrepreneur.
+
+---
+
+⇨ 6. Entrepreneur Established Abroad
+
+An entrepreneur is generally established abroad if it has neither
+
+- its registered office,
+- its management,
+- a place of business involved in the supply,
+- its permanent residence, nor
+- its ordinary place of residence
+
+domestically.
+
+A domestic place of business prevents the application of § 13b UStG only if this place of business is involved in the concrete supply.
+
+► Special Rule: Real Estate Rental
+
+If a foreign entrepreneur possesses only real estate located domestically and rents it subject to tax, it is generally not deemed to be an entrepreneur established domestically by virtue of such real estate ownership alone.
+
+---
+
+⇨ 7. Security Transfer of Items
+
+§ 13b Abs. 2 Nr. 2 UStG captures the supply of an item transferred as security
+
+- by the grantor of security
+- to the beneficiary of security
+- outside an insolvency proceeding.
+
+► Important
+
+The mere transfer of an item as security is generally not yet a supply.
+
+The supply can arise in particular upon realization of the secured item.
+
+If the secured item is resold by the beneficiary of security to a third party, a double supply may occur:
+
+1. Supply by the grantor to the beneficiary of security,
+2. Supply by the beneficiary of security to the third party.
+
+For the first supply, § 13b Abs. 2 Nr. 2 UStG may apply.
+
+---
+
+⇨ 8. Real Estate Transactions
+
+§ 13b Abs. 2 Nr. 3 UStG captures taxable supplies that fall under the Real Estate Acquisition Tax Act.
+
+Transfers of real estate are generally exempt from tax pursuant to § 4 Nr. 9 Buchst. a UStG.
+
+Only when a valid election to be subject to tax is made pursuant to § 9 Abs. 1 and para. 3 UStG, can § 13b Abs. 2 Nr. 3 UStG apply.
+
+► Legal Consequence
+
+Upon valid election, generally the acquirer owes the VAT.
+
+The seller generally issues a net invoice.
+
+► Key Point
+
+Real estate sale:
+
+§ 4 Nr. 9 Buchst. a → examine § 9 → upon election examine § 13b.
+
+---
+
+⇨ 9. Construction Services
+
+§ 13b Abs. 2 Nr. 4 UStG captures construction services.
+
+Construction services are in particular work contracts and supplies of services that directly affect the substance of a building.
+
+These include in particular services for
+
+- construction,
+- repair,
+- maintenance,
+- alteration, or
+- demolition
+
+of a building.
+
+► Generally Not Construction Services
+
+In particular, pure services are not captured:
+
+- design services,
+- architectural services,
+- engineering services,
+- construction supervision services,
+- expert assessment services.
+
+► Recipient of Supplies
+
+The recipient owes tax only if it itself engages in construction services on an ongoing basis.
+
+As evidence, generally a valid certificate from the tax office according to Form USt 1 TG is required.
+
+► Important
+
+The particular construction service received need not necessarily be used further for the recipient's own construction contract.
+
+Generally decisive is the ongoing activity of the recipient as a provider of construction services.
+
+---
+
+⇨ 10. Building Cleaning Services
+
+§ 13b Abs. 2 Nr. 8 UStG captures the cleaning of buildings and parts of buildings.
+
+This may include:
+
+- Facade cleaning,
+- Window cleaning,
+- Cleaning of office spaces,
+- Cleaning of stairwells,
+- Building cleaning including the appurtenant inventory.
+
+The recipient owes tax only if it itself engages in building cleaning services on an ongoing basis.
+
+As evidence, a corresponding certificate from the tax office may be used.
+
+---
+
+⇨ 11. Other Supplies under § 13b Abs. 2 UStG
+
+§ 13b Abs. 2 UStG captures in addition in particular:
+
+► Nr. 5
+
+Certain supplies of
+
+- Gas,
+- Electricity,
+- Heat, or
+- Cold.
+
+The exact requirements depend in particular on the establishment of the parties and the reseller status.
+
+► Nr. 6
+
+Transfer of certain emission allowances and emission certificates.
+
+► Nr. 7
+
+Supplies of items designated in Anlage 3 UStG.
+
+This includes in particular certain
+
+- Waste,
+- Scrap,
+- Metal waste,
+- Plastic waste,
+- Glass waste.
+
+► Nr. 8
+
+Building cleaning services to an entrepreneur engaged in building cleaning on an ongoing basis.
+
+► Nr. 9
+
+Certain supplies of gold.
+
+► Nr. 10
+
+Supplies of
+
+- Mobile phones,
+- Tablet computers,
+- Gaming consoles,
+- Certain integrated circuits,
+
+if the statutory consideration threshold of at least 5,000 euros is reached within a single transaction.
+
+Subsequent reductions in consideration are generally not taken into account in examining the threshold.
+
+► Nr. 11
+
+Supplies of metals designated in Anlage 4 UStG, if the statutory consideration threshold of at least 5,000 euros is reached.
+
+► Nr. 12
+
+Certain telecommunications services, in particular if the recipient is deemed a reseller of telecommunications services.
+
+---
+
+⇨ 12. Tax Accrual under § 13b Abs. 2 UStG
+
+In the cases of § 13b Abs. 2 UStG, tax accrues generally
+
+1. upon issuance of the invoice,
+2. but in any event upon expiration of the calendar month following the performance of the supply.
+
+► Example
+
+A construction service is provided on March 18.
+
+► Invoice on March 25
+
+Tax accrues in March.
+
+► Invoice on April 15
+
+Tax accrues in April.
+
+► Invoice not until June
+
+Tax accrues at the latest upon expiration of April.
+
+► Key Point
+
+§ 13b Abs. 2 UStG:
+
+Invoice, at the latest the following month.
+
+---
+
+⇨ 13. Partial Supplies and Advance Payments
+
+Partial supplies are also possible under § 13b UStG.
+
+A partial supply generally requires:
+
+- Economic divisibility of the total supply,
+- Separate agreement,
+- Separate billing,
+- Separate performance.
+
+In the case of advance payments, tax may accrue upon collection or payment of the consideration.
+
+A mere advance invoice without payment generally does not yet trigger advance payment taxation.
+
+---
+
+⇨ 14. Invoice under Reverse Charge
+
+The invoice must generally contain the standard particulars required under §§ 14 and 14a UStG.
+
+In place of a separate indication of VAT, the following statement must be included:
+
+Tax Liability of the Recipient of Supplies
+
+Alternatively, in international business transactions, for example, the following may be stated:
+
+Reverse Charge
+
+► Important
+
+The statement is a required invoice particular.
+
+However, the absence of the statement does not generally prevent the statutory tax liability of the recipient from arising.
+
+---
+
+⇨ 15. Incorrect Sales Tax Indication
+
+If the performing entrepreneur nonetheless indicates VAT separately despite application of § 13b UStG, he may owe such tax pursuant to § 14c UStG.
+
+The recipient of supplies concurrently continues to owe tax pursuant to § 13b UStG.
+
+The openly indicated tax is generally not tax owed by operation of law to the recipient and therefore not deductible as input VAT.
+
+► Required Correction
+
+- Correct the invoice by the issuer,
+- Refund the VAT incorrectly charged,
+- Report the § 13b transaction correctly.
+
+---
+
+⇨ 16. Small Businesses and § 13b UStG
+
+A small business may also become liable for tax as a recipient of supplies under § 13b UStG.
+
+The small business exemption does not protect against tax liability arising from reverse charge supplies received.
+
+The small business must report and remit the VAT.
+
+Due to the absence of general input VAT deduction rights, it can generally not simultaneously deduct the tax as input VAT.
+
+► Performing Small Business
+
+If the supply is performed tax-free by the performing entrepreneur under the small business exemption, generally no reverse charge mechanism under § 13b UStG applies.
+
+---
+
+⇨ 17. Acquisition for the Non-Business Sphere
+
+Tax liability may arise under the statutory conditions even if the entrepreneur acquires the supply for its non-business or private sphere.
+
+► Example
+
+A German sole proprietor has his private family home renovated by a foreign entrepreneur.
+
+The construction service is subject to tax in Germany.
+
+The German entrepreneur may become liable for tax under § 13b UStG even though the supply concerns his private building.
+
+However, no input VAT deduction exists due to the private use.
+
+► Special Rule
+
+For certain supplies and for supplies to public law entities, special statutory provisions and exceptions exist.
+
+---
+
+⇨ 18. Input Tax Deduction from Reverse Charge Supplies
+
+The recipient of supplies may deduct the tax owed by it pursuant to § 13b UStG as input VAT pursuant to § 15 Abs. 1 sentence 1 Nr. 4 UStG if
+
+- the supply was performed for its business,
+- no exclusion under § 15 Abs. 2 UStG applies,
+- no other deduction prohibition applies.
+
+An invoice with a separate indication of VAT is not required for such input VAT deduction.
+
+► Important
+
+Tax liability and input VAT deduction must be examined separately.
+
+An entrepreneur may therefore
+
+- owe tax pursuant to § 13b UStG,
+- but not be entitled to input VAT deduction.
+
+---
+
+⇨ 19. Example: Physician Acquires Consulting Services
+
+A physician operating in Germany acquires consulting services from a French entrepreneur.
+
+The physician is an entrepreneur and the place of supply is located in Germany pursuant to § 3a Abs. 2 UStG.
+
+The physician owes VAT pursuant to § 13b Abs. 1 and para. 5 UStG.
+
+If the physician uses the consulting service exclusively for tax-exempt medical treatment, the tax is generally not deductible as input VAT pursuant to § 15 Abs. 2 UStG.
+
+---
+
+⇨ 20. Examination Order
+
+► Step 1
+
+Examine whether a reduced tax rate under § 12 Abs. 2 or a special provision applies.
+
+► Step 2
+
+If no exemption applies, the standard tax rate under § 12 Abs. 1 UStG applies.
+
+► Key Point
+
+Examine 7 percent first, otherwise 19 percent.
+
+---
+
+⇨ 21. Standard Tax Rate
+
+The standard tax rate is 19 percent of the tax base.
+
+It applies to all taxable supplies for which no special tax reduction is provided.
+
+Typical examples:
+
+- Consulting services,
+- Attorney services,
+- Tax advisory services,
+- Rental of business equipment,
+- Beverages in food service,
+- Supply of technical equipment,
+- Services without special benefits.
+
+---
+
+⇨ 22. Reduced Tax Rate
+
+The reduced tax rate is generally 7 percent.
+
+It applies only to supplies expressly named in the statute.
+
+The benefits are generally to be interpreted narrowly.
+
+---
+
+⇨ 23. Items Listed in Anlage 2 UStG
+
+§ 12 Abs. 2 Nr. 1 UStG captures in particular supplies of items named in Anlage 2 UStG.
+
+Typical examples are:
+
+- Certain live animals,
+- Agricultural livestock,
+- Guide dogs,
+- Milk,
+- Certain milk products,
+- Plants and flowers,
+- Certain foodstuffs,
+- Coffee and tea in the form designated by statute,
+- Spices,
+- Tap water,
+- Firewood,
+- Books and certain printed materials.
+
+► Caution
+
+Not automatically favored are for example:
+
+- Bottled water,
+- Lemonade,
+- Cola,
+- Alcoholic beverages,
+- Prepared beverages,
+- Ready-to-drink coffee or tea.
+
+The precise designation of goods in Anlage 2 UStG is determinative.
+
+---
+
+⇨ 24. Rental of Favored Items
+
+The rental of certain items named in Anlage 2 UStG may also be subject to the reduced tax rate.
+
+It must always be examined, however, whether the particular rental is expressly captured by § 12 Abs. 2 UStG.
+
+---
+
+⇨ 25. Passenger Transportation
+
+The reduced tax rate applies to certain passenger transportation services.
+
+► Rail Transportation
+
+Passenger transportation by rail may be subject to the reduced tax rate regardless of the length of the transportation route.
+
+► Other Means of Transportation
+
+In the case of transportation in particular by
+
+- Motor vehicles,
+- Taxis,
+- Ships,
+- Cable cars,
+
+the reduced tax rate generally applies if
+
+- the transportation takes place within a municipality, or
+- the transportation route is no longer than 50 kilometers.
+
+One-way and return trips are generally to be assessed separately in each case.
+
+---
+
+⇨ 26. Short-Term Accommodation
+
+The short-term rental of residential and sleeping spaces for the accommodation of guests is generally subject to the reduced tax rate.
+
+This affects in particular:
+
+- Hotels,
+- Guest houses,
+- Holiday apartments,
+- Short-term room rentals.
+
+Short-term rental of camping grounds may also be favored.
+
+► Important
+
+Ancillary services must be assessed separately.
+
+Not every incidental service of a hotel is automatically subject to the reduced tax rate.
+
+---
+
+⇨ 27. Restaurant and Food Service Activities as of 2026
+
+As of January 1, 2026, restaurant and food service activities regarding the provision of food are generally subject to the reduced tax rate of 7 percent.
+
+This affects in particular:
+
+- Restaurants,
+- Cafés,
+- Catering businesses,
+- Bakeries with dining service,
+- Butchers with snack service,
+- Day care and school food service,
+- Hospital food service.
+
+► Beverages
+
+The provision of beverages is generally excluded from the reduced tax rate and is regularly subject to 19 percent.
+
+► Combination Offers
+
+If a total price includes both
+
+- favored food items and
+- standard-rated beverages,
+
+the consideration must be apportioned.
+
+For certain lump-sum and combination offers, tax authorities permit simplification rules for apportionment.
+
+---
+
+⇨ 28. Example: Tax Rate
+
+A restaurant charges:
+
+- Food: 50 euros,
+- Beverages: 20 euros.
+
+As of January 1, 2026, generally the following apply:
+
+- Food: 7 percent,
+- Beverages: 19 percent.
+
+Supplies must be recorded and billed separately by tax rate.
+
+---
+
+⇨ 29. Principle
+
+VAT on supplies and services is generally calculated based on the consideration.
+
+Consideration is everything that constitutes the value of the return performance that the performing entrepreneur receives or is to receive.
+
+The VAT owed by operation of law itself does not form part of the consideration.
+
+► Formula
+
+Gross return performance
+./. contained VAT
+= Consideration or tax base
+
+---
+
+⇨ 30. Calculation from a Gross Price
+
+► 19 Percent Tax Rate
+
+Gross amount / 1.19 = Tax base.
+
+Gross amount - Tax base = VAT.
+
+► 7 Percent Tax Rate
+
+Gross amount / 1.07 = Tax base.
+
+Gross amount - Tax base = VAT.
+
+► Tax-Exempt or Non-Taxable Supply
+
+No VAT is calculated backwards.
+
+The divisor arithmetically equals 1.
+
+---
+
+⇨ 31. Example
+
+Agreed gross price:
+
+23,800 euros.
+
+Tax rate:
+
+19 percent.
+
+Calculation:
+
+23,800 euros / 1.19 = 20,000 euros tax base.
+
+20,000 euros × 19 percent = 3,800 euros VAT.
+
+---
+
+⇨ 32. Significance of the Invoice
+
+For determining the correct tax base under law, the designation in the invoice is not alone determinative.
+
+Even if the invoice does not indicate or incorrectly indicates VAT, the following must be determined:
+
+- which price was actually agreed,
+- whether the price was agreed as a gross or net amount,
+- which tax rate applies under law.
+
+---
+
+⇨ 33. Components of Consideration
+
+Consideration generally includes:
+
+- Purchase price,
+- Rent,
+- Fee,
+- Work charge,
+- Processing fees,
+- Booking fees,
+- Offset amounts,
+- Assumed liabilities,
+- Compensation for ancillary services,
+- Packaging costs,
+- Transportation costs,
+- Insurance costs,
+- Reimbursed expenses of the recipient,
+- Consideration from third parties,
+- Voluntary payments to the entrepreneur with connection to the supply.
+
+---
+
+⇨ 34. Ancillary Services
+
+Compensation for non-independent ancillary services generally shares the tax status of the principal supply.
+
+Typical ancillary services:
+
+- Transportation,
+- Packaging,
+- Insurance,
+- Shipping,
+- Installation,
+- Usual incidental costs.
+
+Compensation for ancillary services generally forms part of the tax base of the principal supply.
+
+---
+
+⇨ 35. Reimbursement of Expenses
+
+Expenses incurred by the entrepreneur in its own name and passed on to its customer generally form part of consideration.
+
+This applies for example to:
+
+- Postage,
+- Telephone costs,
+- Stationery expenses,
+- Copying costs,
+- Travel costs,
+- Vacation costs,
+- Heating cost allocations,
+- Waste collection.
+
+A mere designation as "expense reimbursement" does not change this.
+
+---
+
+⇨ 36. Pass-Through Items
+
+Pass-through items do not form part of consideration.
+
+A pass-through item exists if the entrepreneur collects or disburses an amount
+
+- in the name of and
+- for the account of
+
+another.
+
+Typical cases may be:
+
+- Certain court fees,
+- Certain administrative fees,
+- Registration fees,
+- Land registry costs,
+- Fees for which the customer is itself the direct obligor.
+
+► Key Point
+
+Own name or own obligation:
+
+Consideration.
+
+Third-party name and third-party account:
+
+Possible pass-through item.
+
+---
+
+⇨ 37. Gratuity
+
+► Gratuity to the Entrepreneur
+
+A voluntary gratuity to the entrepreneur may form part of consideration if it is in direct connection with the supply.
+
+► Gratuity to an Employee
+
+A voluntary gratuity given directly to an employee generally does not form part of the entrepreneur's consideration.
+
+---
+
+⇨ 38. Consideration from Third Parties
+
+The return performance need not necessarily be paid by the recipient of supplies itself.
+
+Payment by a third party may also constitute consideration if
+
+- it is paid for the particular supply, and
+- it serves to subsidize or compensate the recipient of supplies.
+
+► Example
+
+Entrepreneur A supplies a machine to B.
+
+B pays 2,000 euros.
+
+A grant provider additionally pays 1,000 euros directly to A to subsidize B's acquisition of the machine.
+
+The tax base may total 3,000 euros.
+
+---
+
+⇨ 39. Payments Without Consideration Character
+
+The tax base generally does not include in particular:
+
+- True price reductions,
+- Cash discounts,
+- Rebates,
+- Subsequent reductions in consideration,
+- True damages claims,
+- Pass-through items,
+- Voluntary gratuities to employees.
+
+► Caution: Damages
+
+Only true damages claims are non-consideration.
+
+If there is a direct connection between payment and supply, so-called quasi-contractual damages and thus consideration may exist.
+
+---
+
+⇨ 40. Exchange
+
+In an exchange, the return performance consists not of money but of a supply.
+
+Each party provides its own supply.
+
+The value of the respective other supply generally forms the consideration for one's own supply.
+
+VAT does not form part of consideration.
+
+► Examination
+
+For both supplies, examine separately:
+
+1. Type of supply,
+2. Place,
+3. Time,
+4. Taxability,
+5. Tax exemption,
+6. Tax rate,
+7. Tax base,
+8. Tax obligor.
+
+---
+
+⇨ 41. Exchange-Like Supply
+
+An exchange-like supply exists if at least one of the exchanged supplies is a service.
+
+Examples:
+
+- Architectural services in exchange for supply of firewood,
+- Repair services in exchange for provision of an item,
+- Consulting services in exchange for advertising services.
+
+Each supply must be assessed separately here as well.
+
+---
+
+⇨ 42. Exchange with Cash Adjustment
+
+If a cash payment occurs in addition to a goods or service supply, an exchange or exchange-like supply with cash adjustment exists.
+
+► Party Receiving the Cash Adjustment
+
+Value of the other supply
++ cash adjustment received
+= Gross return performance
+./. VAT
+= Tax base
+
+► Party Paying the Cash Adjustment
+
+Value of the other supply
+./. cash adjustment paid
+= Gross return performance
+./. VAT
+= Tax base
+
+⇨ Part D: Supplies for the Enterprise and Allocation
+
+⇨ 60. Input VAT Deduction for Advance Payments
+
+Before performance of the supply, input VAT deduction from an advance payment may be possible if
+
+1. a proper advance-payment invoice is available,
+2. the payment has actually been made, and
+3. the subsequent supply is sufficiently determined.
+
+► Key Principle
+
+Advance payment:
+
+Invoice + Payment.
+
+The supply has not yet been performed.
+
+---
+
+61. Further Deductible Input Tax Amounts
+
+In addition to the normal input invoice under § 15 Abs. 1 Satz 1 Nr. 1 UStG, the following in particular can be deductible:
+
+Import VAT
+
+§ 15 Abs. 1 Satz 1 Nr. 2 UStG.
+
+Tax on Intra-Community Acquisition
+
+§ 15 Abs. 1 Satz 1 Nr. 3 UStG.
+
+Tax Under § 13b UStG
+
+§ 15 Abs. 1 Satz 1 Nr. 4 UStG.
+
+In these cases, an invoice with a separate VAT statement is basically not a condition of input VAT deduction.
+
+However, the other conditions, in particular the benefit for the enterprise and the absence of excluded supplies, remain to be examined.
+
+---
+
+⇨ Part F: Exclusion from Input VAT Deduction
+
+62. Deductibility and Actual Deduction
+
+Two examination levels must be distinguished:
+
+Deductible in principle
+
+The conditions of § 15 Abs. 1 UStG are met.
+
+Actually deductible
+
+No exclusion under § 15 Abs. 1a, Abs. 1b, or Abs. 2 UStG applies, or an exclusion is lifted by § 15 Abs. 3 UStG.
+
+Key principle
+
+First:
+
+Is the tax input VAT?
+
+Then:
+
+Can this input VAT actually be deducted?
+
+---
+
+63. Exclusion Under § 15 Abs. 2 UStG
+
+Input VAT deduction is basically excluded if the input service is used for supplies that exclude input VAT deduction.
+
+This includes in particular:
+
+1. Tax-exempt output supplies,
+2. Certain supplies made abroad that would be tax-exempt if made in Germany.
+
+The intended use at the time of receiving the service is basically decisive.
+
+---
+
+64. Taxable Output Supplies
+
+If the input service is used for taxable output supplies, there is basically no exclusion under § 15 Abs. 2 UStG.
+
+This applies even if an originally tax-exempt supply becomes subject to tax due to a valid option under § 9 UStG.
+
+Example
+
+A landlord validly opts for VAT taxation.
+
+The renovation costs stand in direct connection with the taxable rental.
+
+The input VAT can basically be deductible.
+
+---
+
+65. Tax-Exempt Output Supplies
+
+If the input service is used for tax-exempt supplies, the input VAT is basically not deductible.
+
+Typical excluded supplies are:
+
+- Tax-exempt medical treatments,
+- Tax-exempt residential property rental,
+- Certain bank supplies,
+- Certain insurance supplies,
+- Certain real property sales without option.
+
+---
+
+66. Reverse Exclusion Under § 15 Abs. 3 UStG
+
+§ 15 Abs. 3 UStG lifts the exclusion of § 15 Abs. 2 UStG for certain tax-exempt supplies.
+
+These supplies are tax-exempt but nonetheless entitle input VAT deduction.
+
+Typical cases are in particular:
+
+- Export supplies,
+- Intra-community supplies,
+- Certain cross-border supplies,
+- Certain supplies for sea and air transport,
+- Certain financial supplies with connection to third-country territory.
+
+Key principle
+
+Tax-exempt does not automatically mean:
+
+No input VAT deduction.
+
+§ 15 Abs. 3 UStG must always be examined.
+
+---
+
+67. Tax-Exempt Supplies Under § 4 Nr. 1 to 7 UStG
+
+For many tax exemptions under § 4 Nr. 1 to 7 UStG, input VAT deduction is retained.
+
+This includes in particular typical cross-border exemption provisions.
+
+The input VAT is thus
+
+- deductible in principle and
+- actually deductible despite the tax exemption of the output supply.
+
+---
+
+68. Other Tax Exemptions
+
+For numerous tax exemptions under § 4 Nr. 8 to 29 UStG, input VAT deduction is basically excluded.
+
+This includes for example:
+
+- Bank and financial supplies,
+- Insurance supplies,
+- Real property rentals,
+- Medical treatments,
+- Educational and social services.
+
+However, there are individual statutory exceptions and reverse exclusion provisions.
+
+The specific tax exemption must therefore always be examined individually.
+
+---
+
+69. Supplies Made Abroad
+
+An output supply made abroad is not taxable in Germany.
+
+For input VAT deduction, it must be examined how the supply would be treated if hypothetically made in Germany.
+
+Hypothetically taxable
+
+Input VAT can basically be deductible.
+
+Hypothetically tax-exempt and input-tax-reducing
+
+Input VAT is basically excluded.
+
+Hypothetically tax-exempt with reverse exclusion
+
+Input VAT can nonetheless be deductible.
+
+---
+
+70. Non-Taxable Activities
+
+For a non-taxable activity, a distinction must be made:
+
+Economic Activity with Foreign Place of Service
+
+Input VAT deduction can be possible if the supply would entitle input VAT deduction upon performance in Germany.
+
+Non-Economic Activity
+
+For an activity outside the VAT enterprise, the benefit for the enterprise is basically lacking.
+
+The input service is not deductible to that extent.
+
+---
+
+⇨ Part G: Apportionment of Input VAT Amounts
+
+71. Direct Allocation
+
+Input VAT amounts are first directly allocated to output supplies.
+
+Exclusively deduction supplies
+
+The input VAT is fully deductible.
+
+Exclusively excluded supplies
+
+The input VAT is not deductible.
+
+Mixed connection
+
+If no direct allocation is possible, apportionment under § 15 Abs. 4 UStG must be performed.
+
+---
+
+72. Requirement for Input Tax Apportionment
+
+Apportionment is required when an input service is used simultaneously for
+
+- Supplies that entitle input VAT deduction, and
+- Supplies that exclude input VAT deduction.
+
+Example
+
+A tax advisor achieves
+
+- Taxable consulting supplies and
+- Tax-exempt real property rental supplies.
+
+The costs of the entire administrative office can serve both areas.
+
+The input VAT must be apportioned according to a reasonable basis.
+
+---
+
+73. Reasonable Estimation
+
+Apportionment is made on the basis of reasonable estimation.
+
+Suitable apportionment bases can be:
+
+- Floor areas,
+- Residential areas,
+- Time portions,
+- Piece counts,
+- Personnel counts,
+- Actual use,
+- Technical consumption values,
+- Turnover relationships.
+
+The chosen key must reflect the economic connection as accurately as possible.
+
+---
+
+74. Turnover Key
+
+Apportionment based on the ratio of supplies is basically permissible only if no other economically more precise allocation is possible.
+
+The turnover key is therefore regularly subsidiary.
+
+Key principle
+
+Direct allocation before apportionment.
+
+More precise economic key before turnover key.
+
+---
+
+75. Buildings
+
+For buildings, a distinction must particularly be made:
+
+Direct Allocation Possible
+
+If an input service concerns exclusively a specific building part, no apportionment occurs.
+
+Examples:
+
+- Renovation of exclusively the medical practice,
+- Windows exclusively in a taxably-rented unit,
+- Floor covering exclusively in a tax-exempt dwelling.
+
+No Direct Allocation Possible
+
+For general building expenses, a reasonable apportionment key is regularly to be used.
+
+The ratio of floor areas frequently comes into consideration.
+
+---
+
+76. Acquisition and Construction Costs of a Building
+
+Input VAT from acquisition and construction costs of a mixed-use building must be apportioned according to a reasonable basis.
+
+The appropriate basis depends on the circumstances of the individual case.
+
+Once chosen, a reasonable apportionment basis can bind the entrepreneur for subsequent correction periods.
+
+If use changes, § 15a UStG must be examined.
+
+---
+
+⇨ Part H: Examination Schemes
+
+77. Examination Schema – Reverse Charge
+
+1. Determine type of input service.
+2. Determine place of service.
+3. Examine German taxability.
+4. Examine tax exemption.
+5. Determine the provision of § 13b Abs. 1 or Abs. 2.
+6. Examine residency of the service provider.
+7. Examine conditions of the recipient under § 13b Abs. 5.
+8. Determine timing of tax arising.
+9. Determine tax base.
+10. Determine tax rate.
+11. Calculate VAT.
+12. Examine invoice without separate tax statement.
+13. Examine input VAT deduction under § 15 Abs. 1 Satz 1 Nr. 4 UStG separately.
+
+---
+
+78. Examination Schema – Tax Rate
+
+1. Is there a taxable supply?
+2. Is the supply covered by § 12 Abs. 2 UStG?
+3. Is Anlage 2 UStG applicable?
+4. Is there a benefited passenger transport?
+5. Is there short-term accommodation?
+6. Is there a restaurant or catering service?
+7. Are these food or beverages?
+8. If no reduction applies: 19 percent.
+
+---
+
+79. Examination Schema – Tax Base
+
+1. Determine return performance.
+2. Determine gross or net price.
+3. Include payments by third parties.
+4. Include ancillary services.
+5. Deduct price discounts.
+6. Exclude pass-through items.
+7. Exclude genuine damages.
+8. Examine barter or cash contribution.
+9. Determine tax rate.
+10. Extract VAT.
+
+---
+
+80. Examination Schema – Input Tax Deduction
+
+Level 1: Deductibility in Principle
+
+1. Entrepreneur status of the recipient.
+2. Legally owed VAT.
+3. Entrepreneur status of the service provider.
+4. Benefit for the enterprise.
+5. Properly issued invoice.
+
+Level 2: Actual Deductibility
+
+6. Examine exclusion under § 15 Abs. 1a.
+7. Examine special rule for real property under § 15 Abs. 1b.
+8. Examine excluded supplies under § 15 Abs. 2.
+9. Examine reverse exclusion under § 15 Abs. 3.
+10. If applicable, perform apportionment under § 15 Abs. 4.
+
+Result
+
+Determine:
+
+- Input VAT deductible or not deductible,
+- Amount of deductible input VAT,
+- Applicable reporting period.
+
+---
+
+81. Drafting Aid § 13b UStG
+
+The service is taxable and subject to tax in Germany.
+
+It falls under § 13b Abs. ... UStG.
+
+Since the recipient meets the conditions of § 13b Abs. 5 UStG, he bears the VAT liability.
+
+The tax base is ... euro.
+
+At a tax rate of ... percent, VAT arises in the amount of ... euro.
+
+The service provider must not separately state the VAT and must note the tax liability of the recipient.
+
+The recipient's input VAT deduction must be examined separately under § 15 UStG.
+
+---
+
+82. Drafting Aid – Input Tax Deduction Possible
+
+The recipient is an entrepreneur within the meaning of § 2 UStG.
+
+The input service was performed by another entrepreneur for his enterprise.
+
+The VAT is legally owed and is stated in a properly issued invoice under §§ 14 and 14a UStG.
+
+The conditions of § 15 Abs. 1 Satz 1 Nr. 1 UStG are met.
+
+Since the input service is used for taxable output supplies, no exclusion under § 15 Abs. 2 UStG applies.
+
+The input VAT is deductible in principle and actually deductible.
+
+---
+
+83. Drafting Aid – Input Tax Deduction Excluded
+
+The conditions of § 15 Abs. 1 UStG are met in principle.
+
+However, the input service is used for tax-exempt output supplies that exclude input VAT deduction.
+
+Therefore, input VAT deduction is excluded under § 15 Abs. 2 Satz 1 Nr. 1 UStG.
+
+A reverse exclusion under § 15 Abs. 3 UStG does not apply.
+
+The input VAT is deductible in principle but not actually deductible.
+
+---
+
+84. Central Key Principles
+
+- § 13b UStG changes the tax liable party, not the taxability of the supply.
+- Place, taxability, and tax liability must first be examined.
+- For § 13b Abs. 1, tax basically arises in the period of service performance.
+- For § 13b Abs. 2, tax arises with invoice, at the latest in the following month.
+- The service provider does not separately state VAT in reverse charge.
+- Incorrect tax statement can result in additional tax liability under § 14c UStG.
+- Even small entrepreneurs can owe tax under § 13b UStG as recipients.
+- Tax liability and input VAT deduction must always be examined separately.
+- The standard rate is 19 percent.
+- The reduced rate is 7 percent.
+- From 2026, restaurant food is basically subject to 7 percent, beverages regularly to 19 percent.
+- VAT does not belong to the tax base.
+- Pass-through items require action in another's name and for another's account.
+- With barter, each supply must be examined separately.
+- For input VAT deduction, the intended use at the time of receiving the service is decisive.
+- With less than 10 percent business use, allocation to the enterprise is basically excluded.
+- Deductible input VAT is not automatically actually deductible.
+- Tax-exempt output supplies can exclude input VAT deduction.
+- For export supplies and similar supplies, input VAT deduction is frequently retained.
+- Input VAT amounts are first directly allocated.
+- Only if no direct allocation is possible is apportionment under § 15 Abs. 4 UStG performed.
+- A more precise economic apportionment key takes precedence over a turnover key.
+
+---
+
+END OF TRANSLATION
+
+This is the complete, patch-ready English translation of all required fields (titleEn, shortEn, keywordsEn, and the full bodyEn from sections 1-84).
+  `
 },
 {
   id: "ertragswertverfahren-fallbeispiele-rohertrag-bewirtschaftungskosten",
@@ -7089,8 +8486,14 @@ Mögliche Bezugseinheiten sind beispielsweise:
   title:
     "Reverse Charge, Steuersatz, Bemessungsgrundlage und Vorsteuerabzug",
 
+  titleEn:
+    "Reverse Charge, Tax Rate, Taxable Amount, and Input VAT Deduction",
+
   short:
     "Umsatzsteuerliche Prüfung von § 13b UStG, Steuersätzen, Bemessungsgrundlage, Unternehmenszuordnung, Vorsteuerabzug, Ausschlussumsätzen und Vorsteueraufteilung.",
+
+  shortEn:
+    "VAT examination of § 13b UStG, tax rates, taxable amount, allocation to the enterprise, input VAT deduction, exclusion supplies, and input VAT apportionment.",
 
   category: "Umsatzsteuer",
 
@@ -7099,6 +8502,9 @@ Mögliche Bezugseinheiten sind beispielsweise:
 
   keywords:
     "§ 13b ustg|reverse charge|steuerschuldnerschaft leistungsempfänger|ausländischer unternehmer|bauleistung|gebäudereinigung|grundstücksumsatz|sicherungsübereignung|schrott|gold|mobilfunkgeräte|tablet computer|spielekonsole|metalle|telekommunikation|steuersatz|19 prozent|7 prozent|restaurant|verpflegungsdienstleistung|speisen|getränke|anlage 2 ustg|personenbeförderung|beherbergung|bemessungsgrundlage|§ 10 ustg|entgelt|brutto netto|durchlaufender posten|entgelt von dritter seite|tausch|tauschähnlicher umsatz|baraufgabe|vorsteuerabzug|§ 15 ustg|unternehmereigenschaft|gesetzlich geschuldete steuer|leistungsbezug für das unternehmen|ordnungsgemäße rechnung|zuordnung unternehmensvermögen|10 prozent grenze|gemischte nutzung|ausschlussumsätze|rückausschluss|vorsteueraufteilung|umsatzschlüssel|flächenschlüssel|einfuhrumsatzsteuer|innergemeinschaftlicher erwerb",
+
+  keywordsEn:
+    "§ 13b ustg|reverse charge|tax liability of the recipient|foreign entrepreneur|construction service|building cleaning|real property transaction|security transfer|scrap|gold|mobile phones|tablet computer|gaming console|metals|telecommunications|tax rate|19 percent|7 percent|restaurant|catering service|food|beverages|anlage 2 ustg|passenger transport|accommodation|taxable amount|§ 10 ustg|consideration|gross net|pass-through item|consideration from a third party|barter|barter-like transaction|cash balancing payment|input vat deduction|§ 15 ustg|entrepreneur status|legally owed tax|supply for the enterprise|proper invoice|allocation to enterprise assets|10 percent threshold|mixed use|exclusion supplies|reverse exclusion|input vat apportionment|turnover key|area-based key|import vat|intra-community acquisition",
 
   references: [
     "§ 1 Abs. 1 Nr. 1 UStG",
@@ -8846,7 +10252,1395 @@ Die Vorsteuer ist abzugsfähig, aber nicht abziehbar.
 - Vorsteuerbeträge sind zuerst direkt zuzuordnen.
 - Nur wenn keine direkte Zuordnung möglich ist, erfolgt eine Aufteilung nach § 15 Abs. 4 UStG.
 - Ein präziser wirtschaftlicher Aufteilungsschlüssel geht dem Umsatzschlüssel vor.
-`
+`,
+
+  bodyEn: `
+⇨ Reverse Charge, Tax Rate, Assessment Basis, and Input Tax Deduction
+
+⇨ Part A: Taxpayer Liability of Service Recipient under § 13b UStG
+
+► 1. Basic Principle
+
+Basically, the performing entrepreneur owes the VAT.
+
+§ 13b UStG breaks this principle for certain taxable transactions.
+
+In these cases, not the performing entrepreneur, but the service recipient owes the VAT.
+
+This procedure is referred to as:
+
+- Reverse charge,
+- Reversal of taxpayer liability,
+- Taxpayer liability of the service recipient.
+
+► Legal Consequences
+
+The performing entrepreneur
+
+- generally issues a net invoice,
+- does not separately indicate VAT,
+- includes the note "Taxpayer liability of the service recipient."
+
+The service recipient
+
+- calculates the VAT themselves,
+- reports it in their VAT return,
+- may simultaneously deduct it as input VAT if the requirements are met.
+
+► Key Point
+
+§ 13b UStG does not result in a tax exemption.
+
+It continues to be a taxable transaction.
+
+Only the identity of the taxpayer changes.
+
+---
+
+⇨ 2. Basic Examination of § 13b UStG
+
+Before applying the reverse charge procedure, the following must be examined:
+
+1. Is there a supply or other service?
+2. Is the transaction taxable within the territory?
+3. Is the transaction subject to tax?
+4. Is the transaction listed in § 13b Abs. 1 or para. 2 UStG?
+5. Does the service recipient fulfill the requirements of § 13b Abs. 5 UStG?
+6. Is there a statutory exception?
+7. When does the tax arise?
+8. Is there input VAT deduction for the service recipient?
+
+► Important
+
+§ 13b UStG generally only applies to taxable transactions within the territory.
+
+⇨ 3. Supplies of Services from Other EU Member States
+
+Pursuant to § 13b Abs. 1 UStG, the recipient of supplies owes the tax for a supply of services, if
+
+1. the performing entrepreneur is established in another EU Member State,
+2. the place of supply pursuant to § 3a Abs. 2 UStG is located domestically, and
+3. the supply is subject to tax domestically.
+
+► Typical Cases
+
+- Consulting services,
+- Advertising services,
+- Programming services,
+- Software services,
+- License services,
+- Translation services,
+- Legal and tax consulting,
+- Digital B2B services.
+
+► Example
+
+A French entrepreneur provides consulting services to a German entrepreneur.
+
+The German entrepreneur acquires the service for its business operations.
+
+The place of supply is located in Germany pursuant to § 3a Abs. 2 UStG.
+
+The supply is subject to tax in Germany.
+
+The German recipient owes the VAT pursuant to § 13b Abs. 1 and para. 5 UStG.
+
+---
+
+⇨ 4. Tax Accrual under § 13b Abs. 1 UStG
+
+In the case of supplies pursuant to § 13b Abs. 1 UStG, tax accrues upon expiration of the tax return period in which the supply was performed.
+
+The timing of invoice issuance is generally immaterial.
+
+► Example
+
+The consulting service is provided on March 15.
+
+The invoice is issued only on April 10.
+
+The VAT accrues upon expiration of the tax return period March.
+
+► Key Point
+
+§ 13b Abs. 1 UStG:
+
+Performance of the supply determines the tax return period.
+
+---
+
+⇨ 5. Supplies under § 13b Abs. 2 Nr. 1 UStG
+
+§ 13b Abs. 2 Nr. 1 UStG captures in particular
+
+- Work and supply contracts, and
+- supplies of services,
+
+that are provided by an entrepreneur established abroad domestically and not already covered by § 13b Abs. 1 UStG.
+
+Generally not captured is a pure supply of an item, insofar as no other provision of § 13b UStG applies.
+
+► Typical Cases
+
+- Installation of equipment by a foreign entrepreneur,
+- Construction of an exhibition stand,
+- Repair work on domestic real estate,
+- Work on an item located domestically,
+- Real estate service by a foreign entrepreneur.
+
+---
+
+⇨ 6. Entrepreneur Established Abroad
+
+An entrepreneur is generally established abroad if it has neither
+
+- its registered office,
+- its management,
+- a place of business involved in the supply,
+- its permanent residence, nor
+- its ordinary place of residence
+
+domestically.
+
+A domestic place of business prevents the application of § 13b UStG only if this place of business is involved in the concrete supply.
+
+► Special Rule: Real Estate Rental
+
+If a foreign entrepreneur possesses only real estate located domestically and rents it subject to tax, it is generally not deemed to be an entrepreneur established domestically by virtue of such real estate ownership alone.
+
+---
+
+⇨ 7. Security Transfer of Items
+
+§ 13b Abs. 2 Nr. 2 UStG captures the supply of an item transferred as security
+
+- by the grantor of security
+- to the beneficiary of security
+- outside an insolvency proceeding.
+
+► Important
+
+The mere transfer of an item as security is generally not yet a supply.
+
+The supply can arise in particular upon realization of the secured item.
+
+If the secured item is resold by the beneficiary of security to a third party, a double supply may occur:
+
+1. Supply by the grantor to the beneficiary of security,
+2. Supply by the beneficiary of security to the third party.
+
+For the first supply, § 13b Abs. 2 Nr. 2 UStG may apply.
+
+---
+
+⇨ 8. Real Estate Transactions
+
+§ 13b Abs. 2 Nr. 3 UStG captures taxable supplies that fall under the Real Estate Acquisition Tax Act.
+
+Transfers of real estate are generally exempt from tax pursuant to § 4 Nr. 9 Buchst. a UStG.
+
+Only when a valid election to be subject to tax is made pursuant to § 9 Abs. 1 and para. 3 UStG, can § 13b Abs. 2 Nr. 3 UStG apply.
+
+► Legal Consequence
+
+Upon valid election, generally the acquirer owes the VAT.
+
+The seller generally issues a net invoice.
+
+► Key Point
+
+Real estate sale:
+
+§ 4 Nr. 9 Buchst. a → examine § 9 → upon election examine § 13b.
+
+---
+
+⇨ 9. Construction Services
+
+§ 13b Abs. 2 Nr. 4 UStG captures construction services.
+
+Construction services are in particular work contracts and supplies of services that directly affect the substance of a building.
+
+These include in particular services for
+
+- construction,
+- repair,
+- maintenance,
+- alteration, or
+- demolition
+
+of a building.
+
+► Generally Not Construction Services
+
+In particular, pure services are not captured:
+
+- design services,
+- architectural services,
+- engineering services,
+- construction supervision services,
+- expert assessment services.
+
+► Recipient of Supplies
+
+The recipient owes tax only if it itself engages in construction services on an ongoing basis.
+
+As evidence, generally a valid certificate from the tax office according to Form USt 1 TG is required.
+
+► Important
+
+The particular construction service received need not necessarily be used further for the recipient's own construction contract.
+
+Generally decisive is the ongoing activity of the recipient as a provider of construction services.
+
+---
+
+⇨ 10. Building Cleaning Services
+
+§ 13b Abs. 2 Nr. 8 UStG captures the cleaning of buildings and parts of buildings.
+
+This may include:
+
+- Facade cleaning,
+- Window cleaning,
+- Cleaning of office spaces,
+- Cleaning of stairwells,
+- Building cleaning including the appurtenant inventory.
+
+The recipient owes tax only if it itself engages in building cleaning services on an ongoing basis.
+
+As evidence, a corresponding certificate from the tax office may be used.
+
+---
+
+⇨ 11. Other Supplies under § 13b Abs. 2 UStG
+
+§ 13b Abs. 2 UStG captures in addition in particular:
+
+► Nr. 5
+
+Certain supplies of
+
+- Gas,
+- Electricity,
+- Heat, or
+- Cold.
+
+The exact requirements depend in particular on the establishment of the parties and the reseller status.
+
+► Nr. 6
+
+Transfer of certain emission allowances and emission certificates.
+
+► Nr. 7
+
+Supplies of items designated in Anlage 3 UStG.
+
+This includes in particular certain
+
+- Waste,
+- Scrap,
+- Metal waste,
+- Plastic waste,
+- Glass waste.
+
+► Nr. 8
+
+Building cleaning services to an entrepreneur engaged in building cleaning on an ongoing basis.
+
+► Nr. 9
+
+Certain supplies of gold.
+
+► Nr. 10
+
+Supplies of
+
+- Mobile phones,
+- Tablet computers,
+- Gaming consoles,
+- Certain integrated circuits,
+
+if the statutory consideration threshold of at least 5,000 euros is reached within a single transaction.
+
+Subsequent reductions in consideration are generally not taken into account in examining the threshold.
+
+► Nr. 11
+
+Supplies of metals designated in Anlage 4 UStG, if the statutory consideration threshold of at least 5,000 euros is reached.
+
+► Nr. 12
+
+Certain telecommunications services, in particular if the recipient is deemed a reseller of telecommunications services.
+
+---
+
+⇨ 12. Tax Accrual under § 13b Abs. 2 UStG
+
+In the cases of § 13b Abs. 2 UStG, tax accrues generally
+
+1. upon issuance of the invoice,
+2. but in any event upon expiration of the calendar month following the performance of the supply.
+
+► Example
+
+A construction service is provided on March 18.
+
+► Invoice on March 25
+
+Tax accrues in March.
+
+► Invoice on April 15
+
+Tax accrues in April.
+
+► Invoice not until June
+
+Tax accrues at the latest upon expiration of April.
+
+► Key Point
+
+§ 13b Abs. 2 UStG:
+
+Invoice, at the latest the following month.
+
+---
+
+⇨ 13. Partial Supplies and Advance Payments
+
+Partial supplies are also possible under § 13b UStG.
+
+A partial supply generally requires:
+
+- Economic divisibility of the total supply,
+- Separate agreement,
+- Separate billing,
+- Separate performance.
+
+In the case of advance payments, tax may accrue upon collection or payment of the consideration.
+
+A mere advance invoice without payment generally does not yet trigger advance payment taxation.
+
+---
+
+⇨ 14. Invoice under Reverse Charge
+
+The invoice must generally contain the standard particulars required under §§ 14 and 14a UStG.
+
+In place of a separate indication of VAT, the following statement must be included:
+
+Tax Liability of the Recipient of Supplies
+
+Alternatively, in international business transactions, for example, the following may be stated:
+
+Reverse Charge
+
+► Important
+
+The statement is a required invoice particular.
+
+However, the absence of the statement does not generally prevent the statutory tax liability of the recipient from arising.
+
+---
+
+⇨ 15. Incorrect Sales Tax Indication
+
+If the performing entrepreneur nonetheless indicates VAT separately despite application of § 13b UStG, he may owe such tax pursuant to § 14c UStG.
+
+The recipient of supplies concurrently continues to owe tax pursuant to § 13b UStG.
+
+The openly indicated tax is generally not tax owed by operation of law to the recipient and therefore not deductible as input VAT.
+
+► Required Correction
+
+- Correct the invoice by the issuer,
+- Refund the VAT incorrectly charged,
+- Report the § 13b transaction correctly.
+
+---
+
+⇨ 16. Small Businesses and § 13b UStG
+
+A small business may also become liable for tax as a recipient of supplies under § 13b UStG.
+
+The small business exemption does not protect against tax liability arising from reverse charge supplies received.
+
+The small business must report and remit the VAT.
+
+Due to the absence of general input VAT deduction rights, it can generally not simultaneously deduct the tax as input VAT.
+
+► Performing Small Business
+
+If the supply is performed tax-free by the performing entrepreneur under the small business exemption, generally no reverse charge mechanism under § 13b UStG applies.
+
+---
+
+⇨ 17. Acquisition for the Non-Business Sphere
+
+Tax liability may arise under the statutory conditions even if the entrepreneur acquires the supply for its non-business or private sphere.
+
+► Example
+
+A German sole proprietor has his private family home renovated by a foreign entrepreneur.
+
+The construction service is subject to tax in Germany.
+
+The German entrepreneur may become liable for tax under § 13b UStG even though the supply concerns his private building.
+
+However, no input VAT deduction exists due to the private use.
+
+► Special Rule
+
+For certain supplies and for supplies to public law entities, special statutory provisions and exceptions exist.
+
+---
+
+⇨ 18. Input Tax Deduction from Reverse Charge Supplies
+
+The recipient of supplies may deduct the tax owed by it pursuant to § 13b UStG as input VAT pursuant to § 15 Abs. 1 sentence 1 Nr. 4 UStG if
+
+- the supply was performed for its business,
+- no exclusion under § 15 Abs. 2 UStG applies,
+- no other deduction prohibition applies.
+
+An invoice with a separate indication of VAT is not required for such input VAT deduction.
+
+► Important
+
+Tax liability and input VAT deduction must be examined separately.
+
+An entrepreneur may therefore
+
+- owe tax pursuant to § 13b UStG,
+- but not be entitled to input VAT deduction.
+
+---
+
+⇨ 19. Example: Physician Acquires Consulting Services
+
+A physician operating in Germany acquires consulting services from a French entrepreneur.
+
+The physician is an entrepreneur and the place of supply is located in Germany pursuant to § 3a Abs. 2 UStG.
+
+The physician owes VAT pursuant to § 13b Abs. 1 and para. 5 UStG.
+
+If the physician uses the consulting service exclusively for tax-exempt medical treatment, the tax is generally not deductible as input VAT pursuant to § 15 Abs. 2 UStG.
+
+---
+
+⇨ 20. Examination Order
+
+► Step 1
+
+Examine whether a reduced tax rate under § 12 Abs. 2 or a special provision applies.
+
+► Step 2
+
+If no exemption applies, the standard tax rate under § 12 Abs. 1 UStG applies.
+
+► Key Point
+
+Examine 7 percent first, otherwise 19 percent.
+
+---
+
+⇨ 21. Standard Tax Rate
+
+The standard tax rate is 19 percent of the tax base.
+
+It applies to all taxable supplies for which no special tax reduction is provided.
+
+Typical examples:
+
+- Consulting services,
+- Attorney services,
+- Tax advisory services,
+- Rental of business equipment,
+- Beverages in food service,
+- Supply of technical equipment,
+- Services without special benefits.
+
+---
+
+⇨ 22. Reduced Tax Rate
+
+The reduced tax rate is generally 7 percent.
+
+It applies only to supplies expressly named in the statute.
+
+The benefits are generally to be interpreted narrowly.
+
+---
+
+⇨ 23. Items Listed in Anlage 2 UStG
+
+§ 12 Abs. 2 Nr. 1 UStG captures in particular supplies of items named in Anlage 2 UStG.
+
+Typical examples are:
+
+- Certain live animals,
+- Agricultural livestock,
+- Guide dogs,
+- Milk,
+- Certain milk products,
+- Plants and flowers,
+- Certain foodstuffs,
+- Coffee and tea in the form designated by statute,
+- Spices,
+- Tap water,
+- Firewood,
+- Books and certain printed materials.
+
+► Caution
+
+Not automatically favored are for example:
+
+- Bottled water,
+- Lemonade,
+- Cola,
+- Alcoholic beverages,
+- Prepared beverages,
+- Ready-to-drink coffee or tea.
+
+The precise designation of goods in Anlage 2 UStG is determinative.
+
+---
+
+⇨ 24. Rental of Favored Items
+
+The rental of certain items named in Anlage 2 UStG may also be subject to the reduced tax rate.
+
+It must always be examined, however, whether the particular rental is expressly captured by § 12 Abs. 2 UStG.
+
+---
+
+⇨ 25. Passenger Transportation
+
+The reduced tax rate applies to certain passenger transportation services.
+
+► Rail Transportation
+
+Passenger transportation by rail may be subject to the reduced tax rate regardless of the length of the transportation route.
+
+► Other Means of Transportation
+
+In the case of transportation in particular by
+
+- Motor vehicles,
+- Taxis,
+- Ships,
+- Cable cars,
+
+the reduced tax rate generally applies if
+
+- the transportation takes place within a municipality, or
+- the transportation route is no longer than 50 kilometers.
+
+One-way and return trips are generally to be assessed separately in each case.
+
+---
+
+⇨ 26. Short-Term Accommodation
+
+The short-term rental of residential and sleeping spaces for the accommodation of guests is generally subject to the reduced tax rate.
+
+This affects in particular:
+
+- Hotels,
+- Guest houses,
+- Holiday apartments,
+- Short-term room rentals.
+
+Short-term rental of camping grounds may also be favored.
+
+► Important
+
+Ancillary services must be assessed separately.
+
+Not every incidental service of a hotel is automatically subject to the reduced tax rate.
+
+---
+
+⇨ 27. Restaurant and Food Service Activities as of 2026
+
+As of January 1, 2026, restaurant and food service activities regarding the provision of food are generally subject to the reduced tax rate of 7 percent.
+
+This affects in particular:
+
+- Restaurants,
+- Cafés,
+- Catering businesses,
+- Bakeries with dining service,
+- Butchers with snack service,
+- Day care and school food service,
+- Hospital food service.
+
+► Beverages
+
+The provision of beverages is generally excluded from the reduced tax rate and is regularly subject to 19 percent.
+
+► Combination Offers
+
+If a total price includes both
+
+- favored food items and
+- standard-rated beverages,
+
+the consideration must be apportioned.
+
+For certain lump-sum and combination offers, tax authorities permit simplification rules for apportionment.
+
+---
+
+⇨ 28. Example: Tax Rate
+
+A restaurant charges:
+
+- Food: 50 euros,
+- Beverages: 20 euros.
+
+As of January 1, 2026, generally the following apply:
+
+- Food: 7 percent,
+- Beverages: 19 percent.
+
+Supplies must be recorded and billed separately by tax rate.
+
+---
+
+⇨ 29. Principle
+
+VAT on supplies and services is generally calculated based on the consideration.
+
+Consideration is everything that constitutes the value of the return performance that the performing entrepreneur receives or is to receive.
+
+The VAT owed by operation of law itself does not form part of the consideration.
+
+► Formula
+
+Gross return performance
+./. contained VAT
+= Consideration or tax base
+
+---
+
+⇨ 30. Calculation from a Gross Price
+
+► 19 Percent Tax Rate
+
+Gross amount / 1.19 = Tax base.
+
+Gross amount - Tax base = VAT.
+
+► 7 Percent Tax Rate
+
+Gross amount / 1.07 = Tax base.
+
+Gross amount - Tax base = VAT.
+
+► Tax-Exempt or Non-Taxable Supply
+
+No VAT is calculated backwards.
+
+The divisor arithmetically equals 1.
+
+---
+
+⇨ 31. Example
+
+Agreed gross price:
+
+23,800 euros.
+
+Tax rate:
+
+19 percent.
+
+Calculation:
+
+23,800 euros / 1.19 = 20,000 euros tax base.
+
+20,000 euros × 19 percent = 3,800 euros VAT.
+
+---
+
+⇨ 32. Significance of the Invoice
+
+For determining the correct tax base under law, the designation in the invoice is not alone determinative.
+
+Even if the invoice does not indicate or incorrectly indicates VAT, the following must be determined:
+
+- which price was actually agreed,
+- whether the price was agreed as a gross or net amount,
+- which tax rate applies under law.
+
+---
+
+⇨ 33. Components of Consideration
+
+Consideration generally includes:
+
+- Purchase price,
+- Rent,
+- Fee,
+- Work charge,
+- Processing fees,
+- Booking fees,
+- Offset amounts,
+- Assumed liabilities,
+- Compensation for ancillary services,
+- Packaging costs,
+- Transportation costs,
+- Insurance costs,
+- Reimbursed expenses of the recipient,
+- Consideration from third parties,
+- Voluntary payments to the entrepreneur with connection to the supply.
+
+---
+
+⇨ 34. Ancillary Services
+
+Compensation for non-independent ancillary services generally shares the tax status of the principal supply.
+
+Typical ancillary services:
+
+- Transportation,
+- Packaging,
+- Insurance,
+- Shipping,
+- Installation,
+- Usual incidental costs.
+
+Compensation for ancillary services generally forms part of the tax base of the principal supply.
+
+---
+
+⇨ 35. Reimbursement of Expenses
+
+Expenses incurred by the entrepreneur in its own name and passed on to its customer generally form part of consideration.
+
+This applies for example to:
+
+- Postage,
+- Telephone costs,
+- Stationery expenses,
+- Copying costs,
+- Travel costs,
+- Vacation costs,
+- Heating cost allocations,
+- Waste collection.
+
+A mere designation as "expense reimbursement" does not change this.
+
+---
+
+⇨ 36. Pass-Through Items
+
+Pass-through items do not form part of consideration.
+
+A pass-through item exists if the entrepreneur collects or disburses an amount
+
+- in the name of and
+- for the account of
+
+another.
+
+Typical cases may be:
+
+- Certain court fees,
+- Certain administrative fees,
+- Registration fees,
+- Land registry costs,
+- Fees for which the customer is itself the direct obligor.
+
+► Key Point
+
+Own name or own obligation:
+
+Consideration.
+
+Third-party name and third-party account:
+
+Possible pass-through item.
+
+---
+
+⇨ 37. Gratuity
+
+► Gratuity to the Entrepreneur
+
+A voluntary gratuity to the entrepreneur may form part of consideration if it is in direct connection with the supply.
+
+► Gratuity to an Employee
+
+A voluntary gratuity given directly to an employee generally does not form part of the entrepreneur's consideration.
+
+---
+
+⇨ 38. Consideration from Third Parties
+
+The return performance need not necessarily be paid by the recipient of supplies itself.
+
+Payment by a third party may also constitute consideration if
+
+- it is paid for the particular supply, and
+- it serves to subsidize or compensate the recipient of supplies.
+
+► Example
+
+Entrepreneur A supplies a machine to B.
+
+B pays 2,000 euros.
+
+A grant provider additionally pays 1,000 euros directly to A to subsidize B's acquisition of the machine.
+
+The tax base may total 3,000 euros.
+
+---
+
+⇨ 39. Payments Without Consideration Character
+
+The tax base generally does not include in particular:
+
+- True price reductions,
+- Cash discounts,
+- Rebates,
+- Subsequent reductions in consideration,
+- True damages claims,
+- Pass-through items,
+- Voluntary gratuities to employees.
+
+► Caution: Damages
+
+Only true damages claims are non-consideration.
+
+If there is a direct connection between payment and supply, so-called quasi-contractual damages and thus consideration may exist.
+
+---
+
+⇨ 40. Exchange
+
+In an exchange, the return performance consists not of money but of a supply.
+
+Each party provides its own supply.
+
+The value of the respective other supply generally forms the consideration for one's own supply.
+
+VAT does not form part of consideration.
+
+► Examination
+
+For both supplies, examine separately:
+
+1. Type of supply,
+2. Place,
+3. Time,
+4. Taxability,
+5. Tax exemption,
+6. Tax rate,
+7. Tax base,
+8. Tax obligor.
+
+---
+
+⇨ 41. Exchange-Like Supply
+
+An exchange-like supply exists if at least one of the exchanged supplies is a service.
+
+Examples:
+
+- Architectural services in exchange for supply of firewood,
+- Repair services in exchange for provision of an item,
+- Consulting services in exchange for advertising services.
+
+Each supply must be assessed separately here as well.
+
+---
+
+⇨ 42. Exchange with Cash Adjustment
+
+If a cash payment occurs in addition to a goods or service supply, an exchange or exchange-like supply with cash adjustment exists.
+
+► Party Receiving the Cash Adjustment
+
+Value of the other supply
++ cash adjustment received
+= Gross return performance
+./. VAT
+= Tax base
+
+► Party Paying the Cash Adjustment
+
+Value of the other supply
+./. cash adjustment paid
+= Gross return performance
+./. VAT
+= Tax base
+
+⇨ Part D: Supplies for the Enterprise and Allocation
+
+⇨ 60. Input VAT Deduction for Advance Payments
+
+Before performance of the supply, input VAT deduction from an advance payment may be possible if
+
+1. a proper advance-payment invoice is available,
+2. the payment has actually been made, and
+3. the subsequent supply is sufficiently determined.
+
+► Key Principle
+
+Advance payment:
+
+Invoice + Payment.
+
+The supply has not yet been performed.
+
+---
+
+61. Further Deductible Input Tax Amounts
+
+In addition to the normal input invoice under § 15 Abs. 1 Satz 1 Nr. 1 UStG, the following in particular can be deductible:
+
+Import VAT
+
+§ 15 Abs. 1 Satz 1 Nr. 2 UStG.
+
+Tax on Intra-Community Acquisition
+
+§ 15 Abs. 1 Satz 1 Nr. 3 UStG.
+
+Tax Under § 13b UStG
+
+§ 15 Abs. 1 Satz 1 Nr. 4 UStG.
+
+In these cases, an invoice with a separate VAT statement is basically not a condition of input VAT deduction.
+
+However, the other conditions, in particular the benefit for the enterprise and the absence of excluded supplies, remain to be examined.
+
+---
+
+⇨ Part F: Exclusion from Input VAT Deduction
+
+62. Deductibility and Actual Deduction
+
+Two examination levels must be distinguished:
+
+Deductible in principle
+
+The conditions of § 15 Abs. 1 UStG are met.
+
+Actually deductible
+
+No exclusion under § 15 Abs. 1a, Abs. 1b, or Abs. 2 UStG applies, or an exclusion is lifted by § 15 Abs. 3 UStG.
+
+Key principle
+
+First:
+
+Is the tax input VAT?
+
+Then:
+
+Can this input VAT actually be deducted?
+
+---
+
+63. Exclusion Under § 15 Abs. 2 UStG
+
+Input VAT deduction is basically excluded if the input service is used for supplies that exclude input VAT deduction.
+
+This includes in particular:
+
+1. Tax-exempt output supplies,
+2. Certain supplies made abroad that would be tax-exempt if made in Germany.
+
+The intended use at the time of receiving the service is basically decisive.
+
+---
+
+64. Taxable Output Supplies
+
+If the input service is used for taxable output supplies, there is basically no exclusion under § 15 Abs. 2 UStG.
+
+This applies even if an originally tax-exempt supply becomes subject to tax due to a valid option under § 9 UStG.
+
+Example
+
+A landlord validly opts for VAT taxation.
+
+The renovation costs stand in direct connection with the taxable rental.
+
+The input VAT can basically be deductible.
+
+---
+
+65. Tax-Exempt Output Supplies
+
+If the input service is used for tax-exempt supplies, the input VAT is basically not deductible.
+
+Typical excluded supplies are:
+
+- Tax-exempt medical treatments,
+- Tax-exempt residential property rental,
+- Certain bank supplies,
+- Certain insurance supplies,
+- Certain real property sales without option.
+
+---
+
+66. Reverse Exclusion Under § 15 Abs. 3 UStG
+
+§ 15 Abs. 3 UStG lifts the exclusion of § 15 Abs. 2 UStG for certain tax-exempt supplies.
+
+These supplies are tax-exempt but nonetheless entitle input VAT deduction.
+
+Typical cases are in particular:
+
+- Export supplies,
+- Intra-community supplies,
+- Certain cross-border supplies,
+- Certain supplies for sea and air transport,
+- Certain financial supplies with connection to third-country territory.
+
+Key principle
+
+Tax-exempt does not automatically mean:
+
+No input VAT deduction.
+
+§ 15 Abs. 3 UStG must always be examined.
+
+---
+
+67. Tax-Exempt Supplies Under § 4 Nr. 1 to 7 UStG
+
+For many tax exemptions under § 4 Nr. 1 to 7 UStG, input VAT deduction is retained.
+
+This includes in particular typical cross-border exemption provisions.
+
+The input VAT is thus
+
+- deductible in principle and
+- actually deductible despite the tax exemption of the output supply.
+
+---
+
+68. Other Tax Exemptions
+
+For numerous tax exemptions under § 4 Nr. 8 to 29 UStG, input VAT deduction is basically excluded.
+
+This includes for example:
+
+- Bank and financial supplies,
+- Insurance supplies,
+- Real property rentals,
+- Medical treatments,
+- Educational and social services.
+
+However, there are individual statutory exceptions and reverse exclusion provisions.
+
+The specific tax exemption must therefore always be examined individually.
+
+---
+
+69. Supplies Made Abroad
+
+An output supply made abroad is not taxable in Germany.
+
+For input VAT deduction, it must be examined how the supply would be treated if hypothetically made in Germany.
+
+Hypothetically taxable
+
+Input VAT can basically be deductible.
+
+Hypothetically tax-exempt and input-tax-reducing
+
+Input VAT is basically excluded.
+
+Hypothetically tax-exempt with reverse exclusion
+
+Input VAT can nonetheless be deductible.
+
+---
+
+70. Non-Taxable Activities
+
+For a non-taxable activity, a distinction must be made:
+
+Economic Activity with Foreign Place of Service
+
+Input VAT deduction can be possible if the supply would entitle input VAT deduction upon performance in Germany.
+
+Non-Economic Activity
+
+For an activity outside the VAT enterprise, the benefit for the enterprise is basically lacking.
+
+The input service is not deductible to that extent.
+
+---
+
+⇨ Part G: Apportionment of Input VAT Amounts
+
+71. Direct Allocation
+
+Input VAT amounts are first directly allocated to output supplies.
+
+Exclusively deduction supplies
+
+The input VAT is fully deductible.
+
+Exclusively excluded supplies
+
+The input VAT is not deductible.
+
+Mixed connection
+
+If no direct allocation is possible, apportionment under § 15 Abs. 4 UStG must be performed.
+
+---
+
+72. Requirement for Input Tax Apportionment
+
+Apportionment is required when an input service is used simultaneously for
+
+- Supplies that entitle input VAT deduction, and
+- Supplies that exclude input VAT deduction.
+
+Example
+
+A tax advisor achieves
+
+- Taxable consulting supplies and
+- Tax-exempt real property rental supplies.
+
+The costs of the entire administrative office can serve both areas.
+
+The input VAT must be apportioned according to a reasonable basis.
+
+---
+
+73. Reasonable Estimation
+
+Apportionment is made on the basis of reasonable estimation.
+
+Suitable apportionment bases can be:
+
+- Floor areas,
+- Residential areas,
+- Time portions,
+- Piece counts,
+- Personnel counts,
+- Actual use,
+- Technical consumption values,
+- Turnover relationships.
+
+The chosen key must reflect the economic connection as accurately as possible.
+
+---
+
+74. Turnover Key
+
+Apportionment based on the ratio of supplies is basically permissible only if no other economically more precise allocation is possible.
+
+The turnover key is therefore regularly subsidiary.
+
+Key principle
+
+Direct allocation before apportionment.
+
+More precise economic key before turnover key.
+
+---
+
+75. Buildings
+
+For buildings, a distinction must particularly be made:
+
+Direct Allocation Possible
+
+If an input service concerns exclusively a specific building part, no apportionment occurs.
+
+Examples:
+
+- Renovation of exclusively the medical practice,
+- Windows exclusively in a taxably-rented unit,
+- Floor covering exclusively in a tax-exempt dwelling.
+
+No Direct Allocation Possible
+
+For general building expenses, a reasonable apportionment key is regularly to be used.
+
+The ratio of floor areas frequently comes into consideration.
+
+---
+
+76. Acquisition and Construction Costs of a Building
+
+Input VAT from acquisition and construction costs of a mixed-use building must be apportioned according to a reasonable basis.
+
+The appropriate basis depends on the circumstances of the individual case.
+
+Once chosen, a reasonable apportionment basis can bind the entrepreneur for subsequent correction periods.
+
+If use changes, § 15a UStG must be examined.
+
+---
+
+⇨ Part H: Examination Schemes
+
+77. Examination Schema – Reverse Charge
+
+1. Determine type of input service.
+2. Determine place of service.
+3. Examine German taxability.
+4. Examine tax exemption.
+5. Determine the provision of § 13b Abs. 1 or Abs. 2.
+6. Examine residency of the service provider.
+7. Examine conditions of the recipient under § 13b Abs. 5.
+8. Determine timing of tax arising.
+9. Determine tax base.
+10. Determine tax rate.
+11. Calculate VAT.
+12. Examine invoice without separate tax statement.
+13. Examine input VAT deduction under § 15 Abs. 1 Satz 1 Nr. 4 UStG separately.
+
+---
+
+78. Examination Schema – Tax Rate
+
+1. Is there a taxable supply?
+2. Is the supply covered by § 12 Abs. 2 UStG?
+3. Is Anlage 2 UStG applicable?
+4. Is there a benefited passenger transport?
+5. Is there short-term accommodation?
+6. Is there a restaurant or catering service?
+7. Are these food or beverages?
+8. If no reduction applies: 19 percent.
+
+---
+
+79. Examination Schema – Tax Base
+
+1. Determine return performance.
+2. Determine gross or net price.
+3. Include payments by third parties.
+4. Include ancillary services.
+5. Deduct price discounts.
+6. Exclude pass-through items.
+7. Exclude genuine damages.
+8. Examine barter or cash contribution.
+9. Determine tax rate.
+10. Extract VAT.
+
+---
+
+80. Examination Schema – Input Tax Deduction
+
+Level 1: Deductibility in Principle
+
+1. Entrepreneur status of the recipient.
+2. Legally owed VAT.
+3. Entrepreneur status of the service provider.
+4. Benefit for the enterprise.
+5. Properly issued invoice.
+
+Level 2: Actual Deductibility
+
+6. Examine exclusion under § 15 Abs. 1a.
+7. Examine special rule for real property under § 15 Abs. 1b.
+8. Examine excluded supplies under § 15 Abs. 2.
+9. Examine reverse exclusion under § 15 Abs. 3.
+10. If applicable, perform apportionment under § 15 Abs. 4.
+
+Result
+
+Determine:
+
+- Input VAT deductible or not deductible,
+- Amount of deductible input VAT,
+- Applicable reporting period.
+
+---
+
+81. Drafting Aid § 13b UStG
+
+The service is taxable and subject to tax in Germany.
+
+It falls under § 13b Abs. ... UStG.
+
+Since the recipient meets the conditions of § 13b Abs. 5 UStG, he bears the VAT liability.
+
+The tax base is ... euro.
+
+At a tax rate of ... percent, VAT arises in the amount of ... euro.
+
+The service provider must not separately state the VAT and must note the tax liability of the recipient.
+
+The recipient's input VAT deduction must be examined separately under § 15 UStG.
+
+---
+
+82. Drafting Aid – Input Tax Deduction Possible
+
+The recipient is an entrepreneur within the meaning of § 2 UStG.
+
+The input service was performed by another entrepreneur for his enterprise.
+
+The VAT is legally owed and is stated in a properly issued invoice under §§ 14 and 14a UStG.
+
+The conditions of § 15 Abs. 1 Satz 1 Nr. 1 UStG are met.
+
+Since the input service is used for taxable output supplies, no exclusion under § 15 Abs. 2 UStG applies.
+
+The input VAT is deductible in principle and actually deductible.
+
+---
+
+83. Drafting Aid – Input Tax Deduction Excluded
+
+The conditions of § 15 Abs. 1 UStG are met in principle.
+
+However, the input service is used for tax-exempt output supplies that exclude input VAT deduction.
+
+Therefore, input VAT deduction is excluded under § 15 Abs. 2 Satz 1 Nr. 1 UStG.
+
+A reverse exclusion under § 15 Abs. 3 UStG does not apply.
+
+The input VAT is deductible in principle but not actually deductible.
+
+---
+
+84. Central Key Principles
+
+- § 13b UStG changes the tax liable party, not the taxability of the supply.
+- Place, taxability, and tax liability must first be examined.
+- For § 13b Abs. 1, tax basically arises in the period of service performance.
+- For § 13b Abs. 2, tax arises with invoice, at the latest in the following month.
+- The service provider does not separately state VAT in reverse charge.
+- Incorrect tax statement can result in additional tax liability under § 14c UStG.
+- Even small entrepreneurs can owe tax under § 13b UStG as recipients.
+- Tax liability and input VAT deduction must always be examined separately.
+- The standard rate is 19 percent.
+- The reduced rate is 7 percent.
+- From 2026, restaurant food is basically subject to 7 percent, beverages regularly to 19 percent.
+- VAT does not belong to the tax base.
+- Pass-through items require action in another's name and for another's account.
+- With barter, each supply must be examined separately.
+- For input VAT deduction, the intended use at the time of receiving the service is decisive.
+- With less than 10 percent business use, allocation to the enterprise is basically excluded.
+- Deductible input VAT is not automatically actually deductible.
+- Tax-exempt output supplies can exclude input VAT deduction.
+- For export supplies and similar supplies, input VAT deduction is frequently retained.
+- Input VAT amounts are first directly allocated.
+- Only if no direct allocation is possible is apportionment under § 15 Abs. 4 UStG performed.
+- A more precise economic apportionment key takes precedence over a turnover key.
+
+---
+
+END OF TRANSLATION
+
+This is the complete, patch-ready English translation of all required fields (titleEn, shortEn, keywordsEn, and the full bodyEn from sections 1-84).
+  `
 },
 {
   id: "umsatzsteuer-steuerentstehung-anzahlung-vorsteuerabzug-aufteilung",
@@ -8854,8 +11648,14 @@ Die Vorsteuer ist abzugsfähig, aber nicht abziehbar.
   title:
     "Steuerentstehung, Anzahlungen und Vorsteuerabzug nach §§ 13 und 15 UStG",
 
+  titleEn:
+    "Tax Arising, Advance Payments, and Input VAT Deduction under §§ 13 and 15 UStG",
+
   short:
     "Sollbesteuerung, Leistungszeitpunkt, Teil- und Anzahlungen, Voraussetzungen und Zeitpunkt des Vorsteuerabzugs sowie Aufteilung und besondere Vorsteuerausschlüsse.",
+
+  shortEn:
+    "Accrual basis taxation, time of performance, part-performances and advance payments, requirements and timing of input VAT deduction, apportionment, and special input VAT exclusions.",
 
   category: "Umsatzsteuer",
 
@@ -8864,6 +11664,9 @@ Die Vorsteuer ist abzugsfähig, aber nicht abziehbar.
 
   keywords:
     "§ 13 ustg|steuerentstehung|sollbesteuerung|vereinbarte entgelte|leistungszeitpunkt|teilleistung|anzahlung|teilentgelt|vorauszahlung|vereinnahmung|§ 15 ustg|vorsteuerabzug|rechnung|unternehmereigenschaft|leistungsbezug für das unternehmen|zuordnung unternehmensvermögen|gesetzlich geschuldete steuer|§ 14c ustg|zeitpunkt vorsteuerabzug|vorsteueraufteilung|§ 15 abs. 4 ustg|vorsteuerausschluss|§ 15 abs. 2 ustg|§ 15 abs. 3 ustg|§ 15 abs. 1a ustg|§ 15 abs. 1b ustg|einfuhrumsatzsteuer|innergemeinschaftlicher erwerb|reverse charge|§ 13b ustg",
+
+  keywordsEn:
+    "§ 13 ustg|tax arising|accrual basis taxation|agreed consideration|time of performance|part-performance|advance payment|part consideration|prepayment|receipt|§ 15 ustg|input vat deduction|invoice|entrepreneur status|supply for the enterprise|allocation to enterprise assets|legally owed tax|§ 14c ustg|timing of input vat deduction|input vat apportionment|§ 15 abs. 4 ustg|input vat exclusion|§ 15 abs. 2 ustg|§ 15 abs. 3 ustg|§ 15 abs. 1a ustg|§ 15 abs. 1b ustg|import vat|intra-community acquisition|reverse charge|§ 13b ustg",
 
   references: [
     "§ 2 UStG",
@@ -9944,7 +12747,1048 @@ Bei privater Mitverwendung begrenzt § 15 Abs. 1b UStG den Vorsteuerabzug.
 - Steuerfreie Umsätze können über § 15 Abs. 3 UStG dennoch zum Vorsteuerabzug berechtigen.
 - Einfuhrumsatzsteuer, innergemeinschaftlicher Erwerb und § 13b-Steuer besitzen eigene Vorsteuerabzugstatbestände.
 - Bei gemischt genutzten Grundstücken begrenzt § 15 Abs. 1b UStG den Vorsteuerabzug.
-`
+`,
+
+  bodyEn: `
+⇨ Tax Liability, Advance Payments and Input Tax Deduction
+
+► 1. Overview
+
+In a VAT case, tax liability and input VAT deduction must be examined separately.
+
+Examination sequence:
+
+1. What supply is involved?
+2. Where is the supply made?
+3. When is the supply made?
+4. Is the supply taxable?
+5. Is the supply exempt from tax or taxable?
+6. Who is liable for VAT?
+7. When does tax liability arise?
+8. Is the recipient of the supply entitled to input VAT deduction?
+9. When may input VAT be deducted?
+10. Are there input VAT exclusions or is apportionment required?
+
+Key principle:
+
+VAT is owed by the person making the supply; input VAT deduction is examined separately with respect to the recipient of the supply.
+
+---
+
+⇨ 2. Liability to Tax on Accruals Basis Based on Agreed Consideration
+
+► Principle
+
+Under the accruals basis of taxation, tax liability generally arises on expiry of the return period during which the supply was made.
+
+Legal basis:
+
+§ 13 Abs. 1 Nr. 1 Buchst. a Satz 1 UStG.
+
+The decisive factor is generally:
+
+- not the issue of an invoice,
+- not the payment,
+- but the performance of the supply.
+
+In short:
+
+Supply performed = Tax liability arises on expiry of that return period.
+
+---
+
+⇨ 3. Significance of the Time of Performance
+
+The time of performance depends on the type of supply in question.
+
+The following must be distinguished in particular:
+
+- moveable supply,
+- immovable supply,
+- work on goods,
+- other supply,
+- supply of services,
+- continuing supply,
+- part-performance.
+
+The time of performance must be determined already when examining taxability.
+
+Key principle:
+
+The time of performance determined for taxability purposes generally also determines the return period for tax liability.
+
+---
+
+⇨ 4. Movable Supply
+
+► Principle
+
+A moveable supply is generally performed on commencement of transport or despatch.
+
+This applies in particular to:
+
+- supplies consisting only of transport,
+- supplies consisting only of despatch,
+- moveable work on goods.
+
+Example:
+
+An entrepreneur delivers goods to a carrier on 28 March.
+
+The supply is generally considered performed on commencement of despatch on 28 March.
+
+Consequence:
+
+Tax liability arises on expiry of the March return period.
+
+---
+
+⇨ 5. Movable Supply in a Chain Transaction
+
+In a chain transaction, commencement of transport or despatch is likewise the decisive factor for the moveable supply.
+
+However, first it must be established:
+
+- which supply constitutes the moveable supply and
+- which entrepreneur is allocated the goods movement.
+
+Only then can the time of performance of each supply be determined.
+
+---
+
+⇨ 6. Immovable Supply
+
+► Principle
+
+For an immovable supply, the time of obtaining power of disposal over the goods is generally the decisive factor.
+
+For work on goods, the acceptance of the completed work often applies.
+
+Example:
+
+An entrepreneur constructs a conservatory firmly attached to the land.
+
+Acceptance:
+
+16 September.
+
+Consequence:
+
+The work on goods is performed on 16 September.
+
+VAT liability arises on expiry of the September return period.
+
+---
+
+⇨ 7. Immovable Supply in a Chain Transaction
+
+For immovable supplies in a chain transaction, the time of performance depends on the applicable place of supply rule.
+
+Depending on the circumstances, the decisive factor may be:
+
+- commencement of transport or despatch or
+- completion of transport or despatch.
+
+The specific allocation depends on § 3 Abs. 7 UStG.
+
+---
+
+⇨ 8. Other Supply and Supply of Services
+
+► Principle
+
+An other supply is generally performed when it is
+
+- completed and
+- fully supplied to the recipient
+
+Has been made.
+
+For a supply of services this is generally the case on completion of the agreed work.
+
+Example:
+
+A consultant completes his advisory service on 12 June.
+
+Consequence:
+
+The supply is performed in June.
+
+Tax liability arises on expiry of the June return period.
+
+---
+
+⇨ 9. Part-Performance
+
+► Concept
+
+A part-performance exists if
+
+- there is an economically divisible overall supply,
+- parts of the supply have been separately agreed and
+- separate billing of consideration is provided for these parts.
+
+Legal basis:
+
+§ 13 Abs. 1 Nr. 1 Buchst. a Sätze 2 and 3 UStG.
+
+Typical cases:
+
+- monthly leasing supplies,
+- monthly maintenance services,
+- separately accepted building sections,
+- individual performance phases of an overall project.
+
+► Tax Liability
+
+For part-performances, tax liability arises on expiry of the return period during which each part-performance was made.
+
+Example:
+
+A maintenance service is provided and invoiced monthly.
+
+Tax liability arises monthly.
+
+► Distinction from Installment Payment
+
+A mere installment payment does not automatically constitute a part-performance.
+
+The decisive factor is whether in fact
+
+- an economically identifiable part of the performance,
+- separately agreed and
+- separately owed
+
+is involved.
+
+---
+
+⇨ 10. Advance Payments
+
+► Concept
+
+An advance payment exists when
+
+- the supply or part-performance has not yet been made,
+- but consideration or part consideration is already received.
+
+Legal basis:
+
+§ 13 Abs. 1 Nr. 1 Buchst. a Satz 4 UStG.
+
+► Conditions
+
+1. Consideration or part consideration is received.
+2. Receipt occurs before the performance of the supply or part-performance.
+3. The later supply is sufficiently certain.
+
+► Tax Liability
+
+Tax liability arises insofar as on expiry of the return period of receipt of the advance payment.
+
+Formula:
+
+Gross consideration received  
+÷ 1.19 or 1.07  
+= Tax Base
+
+Tax Base  
+× Tax Rate  
+= VAT
+
+Key principle:
+
+For advance payments, the receipt of payment is decisive.
+
+---
+
+⇨ 11. Advance Payments for Part-Performances
+
+An advance payment may also be made before the performance of an agreed part-performance.
+
+Tax liability then arises before performance of the part-performance with receipt of the part consideration.
+
+Later, when the part-performance is made, only the not yet taxed balance amount need be recorded.
+
+---
+
+⇨ 12. Invoice for Advance Payments
+
+Tax liability for an advance payment generally does not depend on whether an invoice has already been issued.
+
+For the person making the supply, receipt of the consideration or part consideration is decisive.
+
+For the input VAT deduction of the recipient, however, a proper invoice is required.
+
+---
+
+⇨ 13. Advance Payments in Foreign Currency
+
+For advance payments in foreign currency, the conversion must generally be made according to the average exchange rate applicable in the month of receipt.
+
+Subsequent currency fluctuations do not affect the tax liability already arising from the advance payment.
+
+---
+
+⇨ 14. Non-Performance of the Supply for Which an Advance Payment Was Made
+
+If it is later established that the supply for which an advance payment was made will not be performed,
+
+- the VAT for the person making the supply and
+- the input VAT already deducted by the recipient
+
+must be adjusted under § 17 UStG.
+
+Key principle:
+
+If the supply is ultimately not performed, VAT and input VAT must be corrected.
+
+---
+
+⇨ 15. Exempt Supplies
+
+Even for exempt supplies, the time of performance must be determined.
+
+§ 13 Abs. 1 Nr. 1 Buchst. a UStG is applied accordingly or by analogy for the temporal allocation of the supply.
+
+Although no VAT is owed, the supply must be allocated to the correct tax period.
+
+---
+
+⇨ 16. Basic Conditions for Input Tax Deduction
+
+Input VAT deduction under § 15 Abs. 1 Satz 1 Nr. 1 UStG is subject to personal and substantive conditions.
+
+► Personal Condition
+
+The recipient of the supply must be an entrepreneur.
+
+► Substantive Conditions
+
+The following are basically required:
+
+1. legally due VAT,
+2. supply by another entrepreneur,
+3. supply relating to the enterprise,
+4. proper invoice under §§ 14 and 14a UStG.
+
+---
+
+⇨ 17. Entrepreneur Status of the Recipient
+
+The recipient of the supply must be an entrepreneur within the meaning of § 2 UStG.
+
+Entrepreneur status is generally independent of the location of the entrepreneur's establishment.
+
+A foreign entrepreneur may also be entitled to input VAT deduction.
+
+► Beginning of Entrepreneur Status
+
+Entrepreneur status may begin before the making of the first supplies.
+
+Examples:
+
+- start-up expenses,
+- lease of business premises,
+- acquisition of business assets,
+- advisory services before opening for business.
+
+The condition is that the intended business activity is evidenced by objective characteristics.
+
+► Unsuccessful Entrepreneur
+
+Even if the enterprise later generates no supplies, entrepreneur status may exist if the genuine intention to engage in business activity is objectively documented.
+
+---
+
+⇨ 18. Supply by Another Entrepreneur
+
+The person making the supply must make the supply as part of his enterprise.
+
+If the person making the supply is not an entrepreneur, there is generally no entitlement to input VAT deduction.
+
+There is no good faith protection for the recipient of the supply as a rule.
+
+Key principle:
+
+Without an entrepreneur on the supply side, generally no input VAT deduction.
+
+---
+
+⇨ 19. Legally Due Tax
+
+Generally, only legally due VAT can be deducted.
+
+In particular, the following cannot be deducted:
+
+- VAT improperly shown,
+- VAT shown in excess,
+- Tax under § 14c UStG insofar as it is not legally owed for the supply.
+
+► Lower Amount
+
+For input VAT deduction, the lower amount of the following generally applies:
+
+- legally due VAT and
+- VAT shown in the invoice.
+
+Example:
+
+Legally due tax:
+
+€1,900.
+
+Shown in the invoice:
+
+€2,100.
+
+The maximum deductible is:
+
+€1,900.
+
+---
+
+⇨ 20. Examination of the Input Transaction
+
+Before input VAT deduction, the input transaction on the part of the person making the supply must be examined.
+
+The following must be clarified:
+
+- Is the supply taxable?
+- Is it subject to tax?
+- What tax rate applies?
+- Who is liable for tax?
+- What is the legally due VAT?
+
+Key principle:
+
+The amount of input VAT can only be determined after complete examination of the output supply of the person making the supply.
+
+---
+
+⇨ 21. Invoices in Foreign Currency
+
+For invoices in foreign currency, VAT must be converted into euros under § 16 Abs. 6 UStG.
+
+Only the tax legally owed under German VAT provisions can be deducted.
+
+---
+
+⇨ 22. Supply Relating to the Enterprise
+
+A supply is supplied for the enterprise if it is intended to serve business activity.
+
+The intended use at the time of receipt of the supply is generally the decisive factor.
+
+Different actual use at a later date is initially not decisive.
+
+► Examination
+
+1. Which business activity should the input supply serve?
+2. Are the planned output supplies taxable or exempt?
+3. Is the supply allocated to the enterprise?
+4. Is there private use?
+
+---
+
+⇨ 23. Connection with Output Supplies
+
+Input VAT deduction depends on the direct and immediate connection between the input supply and the planned output supplies.
+
+► Taxable Output Supplies
+
+If the input supply relates exclusively to taxable output supplies, input VAT is generally deductible.
+
+► Exempt Exclusion Supplies
+
+If it relates exclusively to exempt supplies which exclude input VAT deduction under § 15 Abs. 2 UStG, input VAT is generally not deductible.
+
+► Mixed Use
+
+If the input supply serves both
+
+- deductible supplies and
+- exclusion supplies,
+
+input VAT must be apportioned under § 15 Abs. 4 UStG.
+
+---
+
+⇨ 24. Intended Use
+
+For the initial assessment of input VAT deduction, the intended use evidenced at the time of receipt of the supply is decisive.
+
+Examples:
+
+- planned taxable leasing,
+- planned exempt leasing,
+- use for taxable advisory supplies,
+- use for exempt medical treatment.
+
+A later change in actual use may trigger an input VAT adjustment under § 15a UStG.
+
+---
+
+⇨ 25. Enterprise Assets and Business Assets
+
+VAT enterprise assets and income tax business assets are not identical.
+
+► Business Assets
+
+Business assets include goods serving a business or liberal profession.
+
+► Enterprise Assets
+
+Enterprise assets include items serving the enterprise within the meaning of § 2 UStG.
+
+This means an item may be
+
+- income-tax private assets,
+- but VAT enterprise assets
+
+become.
+
+Example:
+
+A leased multi-family building may be private assets for income tax purposes but enterprise assets for VAT purposes.
+
+---
+
+⇨ 26. Allocation of Goods with Mixed Use
+
+For goods used in both business and private capacity, a choice of treatment may exist.
+
+Depending on the proportion of use, the following are possible:
+
+- complete allocation to the enterprise,
+- proportionate allocation,
+- complete allocation to private assets.
+
+The specific allocation must be documented promptly and clearly.
+
+For real estate, § 15 Abs. 1b UStG must also be observed.
+
+---
+
+⇨ 27. Proper Invoice
+
+For input VAT deduction under § 15 Abs. 1 Satz 1 Nr. 1 UStG, the recipient of the supply must generally be in possession of a proper invoice.
+
+The invoice must comply with the requirements of §§ 14 and 14a UStG.
+
+Essential mandatory details are in particular:
+
+- complete name and address of the person making the supply and recipient,
+- tax identification number or VAT identification number,
+- invoice date,
+- consecutive invoice number,
+- quantity and nature of the supply or extent and nature of the service,
+- time of performance,
+- consideration itemised by tax rate,
+- tax rate,
+- tax amount,
+- if applicable, indication of tax exemption or reverse charge.
+
+---
+
+⇨ 28. Missing Invoice Details
+
+If essential mandatory information under § 14 Abs. 4 UStG is missing, input VAT deduction is generally not permitted initially.
+
+A later invoice correction may make input VAT deduction possible.
+
+The correction must generally be made by the person issuing the invoice.
+
+---
+
+⇨ 29. VAT Shown in Excess in the Invoice
+
+If an invoice shows more VAT than is legally owed, the recipient of the supply may generally deduct only the legally owed tax as input VAT.
+
+The excessive amount is not deductible input VAT.
+
+Example:
+
+Legally due VAT:
+
+€700.
+
+Shown in the invoice:
+
+€900.
+
+Deductible:
+
+maximum €700.
+
+---
+
+⇨ 30. Timing of Input Tax Deduction
+
+► Principle
+
+Input VAT deduction is possible in the return period in which both conditions are met:
+
+1. The supply or part-performance was made.
+2. The recipient of the supply possesses a proper invoice.
+
+The timing of payment is generally immaterial.
+
+Key principle:
+
+Supply plus invoice matters — not payment.
+
+---
+
+⇨ 31. Example of Timing of Input Tax Deduction
+
+Performance of the supply:
+
+20 March.
+
+Receipt of invoice:
+
+8 April.
+
+Payment:
+
+30 April.
+
+Input VAT deduction is generally possible only in April, because only then
+
+- was the supply performed and
+- the invoice was available.
+
+---
+
+⇨ 32. Input Tax Deduction for Advance Payments
+
+For advance payments, input VAT deduction is possible even before performance of the supply.
+
+Conditions:
+
+1. The recipient of the supply has made the advance payment.
+2. He possesses a proper advance payment invoice.
+3. The supply or part-performance has not yet been made.
+4. The later supply is sufficiently certain.
+
+Legal basis:
+
+§ 15 Abs. 1 Satz 1 Nr. 1 Satz 3 UStG.
+
+► Timing
+
+Input VAT deduction takes place in the return period of payment, provided the proper invoice is available at that time.
+
+Key principle:
+
+For advance payments, payment is decisive for input VAT.
+
+---
+
+⇨ 33. Comparison of Tax Liability and Input Tax for Advance Payments
+
+► Person Making the Supply
+
+Tax liability on receipt of the advance payment.
+
+► Recipient of the Supply
+
+Input VAT deduction on payment of the advance payment and receipt of a proper invoice.
+
+The intention is that VAT and input VAT generally correspond in time.
+
+---
+
+⇨ 34. Input Tax Exclusion under § 15 Abs. 2 UStG
+
+Input VAT amounts are generally not deductible insofar as the input supplies are used for exempt output supplies.
+
+Typical exclusion supplies:
+
+- exempt real estate leasing,
+- exempt medical treatment,
+- exempt credit provision,
+- certain insurance supplies,
+- certain real estate disposals.
+
+The direct and immediate connection between input and output supplies is decisive.
+
+---
+
+⇨ 35. Exceptions under § 15 Abs. 3 UStG
+
+Certain exempt supplies do not lead to exclusion of input VAT deduction despite the exemption.
+
+In these cases, the exclusion of § 15 Abs. 2 UStG is reversed by § 15 Abs. 3 UStG.
+
+Typical cases may include in particular:
+
+- export supplies,
+- intra-community supplies,
+- certain cross-border supplies.
+
+Key principle:
+
+Exempt does not automatically mean: no input VAT.
+
+---
+
+⇨ 36. Apportionment of Input Tax Amounts
+
+► Principle
+
+Apportionment under § 15 Abs. 4 UStG is required when an input supply is used for both
+
+- deductible supplies and
+- input VAT exclusion supplies
+
+is used.
+
+► Priority of Direct Allocation
+
+First, it must always be examined whether input VAT can be allocated directly to a specific output supply.
+
+►  Direct connection with deductible supplies
+
+Input VAT fully deductible.
+
+►  Direct connection with exclusion supplies
+
+Input VAT generally not deductible, unless an exception under § 15 Abs. 3 UStG applies.
+
+►  Mixed connection
+
+Apportionment under § 15 Abs. 4 UStG.
+
+---
+
+⇨ 37. Examination Schema for Input Tax Apportionment
+
+1. Input supply for the enterprise?
+2. Direct allocation possible?
+3. Exclusive use for deductible supplies?
+    - Input VAT fully deductible.
+4. Exclusive use for exclusion supplies?
+    - Input VAT generally not deductible.
+5. Mixed use?
+    - Apportionment under § 15 Abs. 4 UStG.
+6. Determine an appropriate apportionment basis.
+7. Examine exceptions under § 15 Abs. 3 UStG.
+
+---
+
+⇨ 38. Apportionment Basis
+
+Apportionment must be made on the basis of an appropriate estimate.
+
+Possible bases:
+
+- floor area,
+- usable floor area,
+- time periods,
+- unit quantities,
+- personnel expenses,
+- actual use,
+- other economically comprehensible criteria.
+
+The turnover ratio is only permitted if no other economically more precise allocation is possible.
+
+Key principle:
+
+The turnover ratio is generally only a fallback solution.
+
+---
+
+⇨ 39. Apportionment for Buildings
+
+► Direct Allocation
+
+If an input supply can be allocated directly to a specific part of a building, apportionment is not required.
+
+Example:
+
+Renovation of only a building part that is taxably leased as a retail unit.
+
+Consequence:
+
+Input VAT is generally fully deductible.
+
+► No Direct Allocation
+
+For costs affecting the entire building, apportionment is required.
+
+Examples:
+
+- acquisition or construction costs of the entire building,
+- roof renovation,
+- façade renewal,
+- central heating system,
+- general maintenance expenses.
+
+For buildings, the ratio of usable floor areas is often an appropriate apportionment basis.
+
+---
+
+⇨ 40. Construction Costs of a Building
+
+For acquisition or construction costs of a mixed-use building, an overall assessment is generally required.
+
+If direct allocation to individual areas is not possible, input VAT is often apportioned according to the ratio of usable floor areas.
+
+An apportionment basis once chosen and appropriate may be binding for subsequent years.
+
+---
+
+⇨ 41. Maintenance Expenses
+
+For maintenance expenses, priority must be given to examining whether they can be allocated to a specific building part.
+
+Example:
+
+Repair in only one taxably leased office unit.
+
+Consequence:
+
+Input VAT fully deductible.
+
+---
+
+⇨ 42. Other Deductible Input Tax Amounts
+
+In addition to § 15 Abs. 1 Satz 1 Nr. 1 UStG, other input VAT deduction provisions exist.
+
+► Import Tax
+
+Under § 15 Abs. 1 Satz 1 Nr. 2 UStG, import tax paid on the import of a good may be deductible as input VAT.
+
+Condition:
+
+Import for the enterprise.
+
+► Intra-Community Acquisition
+
+Under § 15 Abs. 1 Satz 1 Nr. 3 UStG, tax on an intra-community acquisition may be deductible as input VAT.
+
+The condition is in particular that the intra-community acquisition is taxable in the domestic territory.
+
+► Reverse Charge
+
+Under § 15 Abs. 1 Satz 1 Nr. 4 UStG, VAT owed by the recipient of the supply under § 13b UStG may be deductible as input VAT.
+
+Condition:
+
+The supply is made for the enterprise and no input VAT exclusion applies.
+
+► Invoice Requirement
+
+In these cases, a proper invoice within the meaning of § 14 UStG is not always a condition for input VAT deduction, because the recipient is itself liable for tax or tax arises on import.
+
+---
+
+⇨ 43. Special Features under § 15 Abs. 1a UStG
+
+► Principle
+
+Input VAT amounts which relate to non-deductible operating expenses within the meaning of § 4 Abs. 5 EStG may be excluded from input VAT deduction.
+
+► Gifts
+
+Input VAT from non-deductible gifts may be completely excluded from input VAT deduction.
+
+► Hospitality Expenses
+
+For inappropriate hospitality expenses, input VAT deduction may be excluded insofar as the expenses are inappropriate.
+
+Examination:
+
+1. Is an operating expense under § 4 Abs. 5 EStG involved?
+2. Is this income-tax non-deductible?
+3. Does § 15 Abs. 1a UStG apply?
+4. What proportion of input VAT is not deductible?
+
+---
+
+⇨ 44. Real Estate with Private Use
+
+► § 15 Abs. 1b UStG
+
+If real estate is used both
+
+- for business purposes and
+- for purposes unrelated to the enterprise,
+
+input VAT deduction is limited to the part used for business purposes.
+
+This applies in particular to private use of a building part.
+
+► Example
+
+An entrepreneur constructs a building.
+
+Use:
+
+- 60% business use,
+- 40% private use.
+
+Input VAT deduction is generally limited to the part used for business purposes.
+
+Even if complete allocation to the enterprise is made, § 15 Abs. 1b UStG results in a limitation to the business use proportion.
+
+---
+
+⇨ 45. Private Use by Personnel
+
+Use for the private needs of personnel may also lead to a limitation of input VAT.
+
+It must be examined whether the input supply
+
+- actually serves business purposes or
+- serves private or purposes unrelated to the enterprise.
+
+---
+
+⇨ 46. Typical Examination Pitfalls
+
+► Error 1: Linking Tax Liability to Invoice Issue
+
+Under the accruals basis, performance of the supply is generally decisive.
+
+---
+
+► Error 2: Treating Payment as Decisive for Normal Performance
+
+The timing of payment is generally immaterial under the accruals basis.
+
+Exception:
+
+Advance payment before performance of the supply.
+
+---
+
+► Error 3: Confusing Installment Payment with Part-Performance
+
+Payment alone does not constitute part-performance.
+
+---
+
+► Error 4: Recognizing Advance Payment Tax Only at Invoice Issue
+
+For the person making the supply, tax liability generally arises with receipt of consideration.
+
+---
+
+► Error 5: Deducting Input Tax for Advance Payment Without Payment
+
+For input VAT deduction for an advance payment, the advance payment must actually have been made.
+
+---
+
+► Error 6: Deducting Input Tax Without an Invoice
+
+Under § 15 Abs. 1 Satz 1 Nr. 1 UStG, a proper invoice is generally required.
+
+---
+
+► Error 7: Fully Deducting Excessive Tax Shown
+
+The maximum deductible is generally the legally due tax.
+
+---
+
+► Error 8: Examining Only the Input Document
+
+Legally due tax can only be determined after examining the output supply of the person making the supply.
+
+---
+
+► Error 9: Using Later Actual Use for Initial Allocation
+
+The intended use at the time of receipt of the supply is generally decisive.
+
+---
+
+► Error 10: Immediately Applying a Turnover Ratio
+
+Direct allocation must always be examined first.
+
+---
+
+► Error 11: Fully Deducting Mixed Input Tax
+
+For use for both deductible and exclusion supplies, § 15 Abs. 4 UStG must be examined.
+
+---
+
+► Error 12: Automatically Treating Exempt Supplies as Input Tax Damaging
+
+Exceptions under § 15 Abs. 3 UStG must be examined.
+
+---
+
+► Error 13: Equating Business Assets and Enterprise Assets
+
+The terms belong to different types of tax and may diverge.
+
+---
+
+► Error 14: Fully Allocating Real Estate to the Enterprise and Deducting Full Input Tax
+
+For private use, § 15 Abs. 1b UStG limits input VAT deduction.
+
+---
+
+⇨ 47. Examination Schema for Tax Liability
+
+1. Determine type of supply.
+2. Determine place of supply.
+3. Determine time of performance.
+4. Examine taxability.
+5. Examine exemption.
+6. Determine tax rate.
+7. Calculate the basis of assessment.
+8. Determine person liable for tax.
+9. Part-performance present?
+10. Advance payment before performance of supply?
+11. Determine return period for tax liability.
+
+---
+
+⇨ 48. Examination Schema for Input Tax Deduction
+
+1. Recipient is an entrepreneur?
+2. Supply was made by another entrepreneur?
+3. Legally due VAT?
+4. Supply for the enterprise?
+5. Determine intended use.
+6. Proper invoice available?
+7. Determine timing of input VAT deduction.
+8. Input VAT exclusion under § 15 Abs. 2 UStG?
+9. Exception under § 15 Abs. 3 UStG?
+10. Mixed use and apportionment under § 15 Abs. 4 UStG?
+11. Special exclusions under § 15 Abs. 1a or Abs. 1b UStG?
+12. If necessary, examine input VAT adjustment under § 15a UStG.
+
+---
+
+⇨ 49. Key Principles
+
+- Under the accruals basis, tax liability generally arises with performance of the supply.
+- The invoice is generally not decisive for tax liability.
+- The timing of payment is immaterial for normal supplies.
+- For advance payments, tax liability arises on receipt.
+- Part-performance and installment payment are not the same.
+- For input VAT deduction, the recipient of the supply generally needs supply and invoice.
+- For advance payments, he needs payment and advance payment invoice.
+- Only legally due VAT is deductible.
+- Excessive tax shown is not fully deductible as input VAT.
+- The intended use at the time of receipt of the supply is decisive.
+- Direct allocation takes precedence over apportionment.
+- § 15 Abs. 4 UStG applies only for mixed use.
+- Exempt supplies may nonetheless entitle to input VAT deduction via § 15 Abs. 3 UStG.
+- Import tax, intra-community acquisition and § 13b tax have their own input VAT deduction provisions.
+- For mixed-use real estate, § 15 Abs. 1b UStG limits input VAT deduction.
+  `
 },
 {
   id: "umsatzsteuer-option-vermietung-veraeusserung-9-ustg",
@@ -11106,8 +14950,14 @@ Die Umsatzsteuer wird gemäß § 13b Abs. 2 Nr. 3 und Abs. 5 UStG vom Leistungse
   title:
     "Prüfung von Ausgangsumsätzen, Lieferort und Reihengeschäften",
 
+  titleEn:
+    "Examination of Output Supplies, Place of Supply, and Chain Transactions",
+
   short:
     "Umfassendes Prüfungsschema für umsatzsteuerliche Ausgangsumsätze: Leistungsart, Leistungsumfang, Ort, Zeitpunkt, Steuerbarkeit, Steuerbefreiung, Steuersatz, Bemessungsgrundlage, Verfügungsmacht sowie bewegte und unbewegte Lieferungen im Reihengeschäft.",
+
+  shortEn:
+    "Comprehensive examination scheme for VAT output supplies: type of supply, scope, place, timing, taxability, tax exemption, tax rate, taxable amount, disposal authority, and movable and stationary supplies in chain transactions.",
 
   category: "Umsatzsteuer",
 
@@ -11116,6 +14966,9 @@ Die Umsatzsteuer wird gemäß § 13b Abs. 2 Nr. 3 und Abs. 5 UStG vom Leistungse
 
   keywords:
     "ausgangsumsatz|prüfungsschema umsatzsteuer|lieferung|sonstige leistung|werklieferung|werkleistung|leistungsumfang|nebenleistung|teilleistung|lieferort|bewegte lieferung|unbewegte lieferung|beförderung|versendung|verfügungsmacht|wirtschaftliches eigentum|feststehender abnehmer|reihengeschäft|zwischenhändler|§ 3 abs. 6 ustg|§ 3 abs. 6a ustg|§ 3 abs. 7 ustg|§ 3 abs. 9 ustg|gebiet umsatzsteuer|inland|gemeinschaftsgebiet|drittland|ausland|steuerbarkeit|steuerbefreiung|steuerschuldner|steuersatz|bemessungsgrundlage|entstehung der steuer",
+
+  keywordsEn:
+    "output supply|vat examination scheme|supply|other supply|work supply|work service|scope of supply|ancillary supply|part-performance|place of supply|movable supply|stationary supply|transport|dispatch|disposal authority|economic ownership|identifiable recipient|chain transaction|intermediary|§ 3 abs. 6 ustg|§ 3 abs. 6a ustg|§ 3 abs. 7 ustg|§ 3 abs. 9 ustg|vat territory|domestic territory|community territory|third country territory|foreign territory|taxability|tax exemption|person liable for vat|tax rate|taxable amount|tax arising",
 
   references: [
     "§ 1 Abs. 1 Nr. 1 UStG",
@@ -12622,7 +16475,1462 @@ Eine Teilleistung ist bereits ein ausgeführter wirtschaftlich teilbarer Leistun
 - Unbewegte Lieferungen nach der bewegten Lieferung liegen am Ankunftsort.
 - Nach jeder Steuerbefreiung ist die Option nach § 9 UStG zu prüfen.
 - Erst nach der Steuerpflicht werden Steuerschuldner, Steuersatz und Bemessungsgrundlage bestimmt.
-`
+`,
+
+  bodyEn: `
+⇨ Examination of Output Supplies
+
+A VAT output transaction should always be examined in a fixed sequence.
+
+The examination does not begin immediately with the tax exemption or the tax rate.
+
+First, the following must be clarified:
+
+- What supply is involved?
+- What is the scope of the supply?
+- Where is it performed?
+- When is it performed?
+- Is there a supply for consideration?
+- Is it performed within the scope of the enterprise?
+
+Only thereafter do taxability, tax exemption, VAT liability, tax rate, taxable amount, and tax arising follow.
+
+---
+
+⇨ 1. Complete Examination Scheme for Output Supplies
+
+► Examination Sequence
+
+1. Type of supply,
+2. Scope of supply,
+3. Place of supply,
+4. Time of supply,
+5. Supply for consideration,
+6. Performance within the scope of the enterprise,
+7. Taxability,
+8. Tax exemption or VAT liability,
+9. if applicable, option under § 9 UStG,
+10. person liable for VAT,
+11. tax rate,
+12. taxable amount,
+13. arising of VAT.
+
+---
+
+⇨ 2. Type of Supply
+
+First, it must be determined which VAT supply is involved.
+
+The following are particularly relevant:
+
+- Supply,
+- Work on goods,
+- Other supply,
+- Work service,
+- Supply within a chain transaction.
+
+---
+
+⇨ 3. Supply pursuant to § 3 Abs. 1 UStG
+
+A supply exists when the supplying entrepreneur enables the recipient to dispose of an item in their own name.
+
+The crucial element is the transfer of disposal authority.
+
+It is not solely a matter of who owns the item under civil law.
+
+What matters is who can dispose of the item economically as an owner would.
+
+► Typical Supplies
+
+- Sale of goods,
+- Sale of a machine,
+- Sale of a vehicle,
+- Supply of construction materials,
+- Transfer of real property,
+- Supply of a building.
+
+► Key Principle
+
+A supply is the transfer of economic disposal authority over an item.
+
+---
+
+⇨ 4. Work on Goods pursuant to § 3 Abs. 4 UStG
+
+A work on goods exists when the entrepreneur
+
+- processes or refines a third-party item and
+- uses self-supplied principal materials.
+
+Work on goods is treated as a supply for VAT purposes.
+
+► Examples
+
+- An entrepreneur installs new windows it has supplied in a building.
+- A heating contractor supplies and installs a heating system it has procured.
+- A construction company erects a structure using its own principal materials on the client's property.
+
+► Distinction from Work Services
+
+If no self-supplied principal materials are used or only secondary materials are involved, a work service typically exists.
+
+---
+
+⇨ 5. Other Supply pursuant to § 3 Abs. 9 UStG
+
+Other supplies are supplies that are not goods supplies.
+
+Typical other supplies:
+
+- Consulting,
+- Rental,
+- Leasing,
+- Repair without the use of self-supplied principal materials,
+- Brokerage,
+- Transport service,
+- License granting,
+- Electronic service,
+- Medical or therapeutic treatment.
+
+---
+
+⇨ 6. Work Service
+
+A work service is another supply.
+
+It exists in particular when an entrepreneur processes an item without using self-supplied principal materials.
+
+► Examples
+
+- Repair of a machine using only minor auxiliary materials,
+- Maintenance of a vehicle,
+- Pure assembly of supplied components,
+- Cleaning of a building.
+
+► Key Principle
+
+Work on goods:
+
+Supply using self-supplied principal materials.
+
+Work service:
+
+Other supply without self-supplied principal materials.
+
+---
+
+⇨ 7. Scope of the Supply
+
+After determining the type of supply, it must be examined whether
+
+- a single uniform supply,
+- several independent supplies,
+- a principal supply with ancillary supplies, or
+- partial supplies
+
+exist.
+
+---
+
+⇨ 8. Principal Supply and Ancillary Supply
+
+Ancillary supplies generally follow the VAT treatment of the principal supply.
+
+An ancillary supply typically exists when it
+
+- has no independent purpose for the recipient,
+- economically complements the principal supply,
+- is secondary in relation to the principal supply, and
+- is customarily provided together with the principal supply.
+
+► Typical Ancillary Supplies
+
+- Transport,
+- Packaging,
+- Insurance,
+- Installation,
+- Connection charges,
+- Ancillary costs of rental.
+
+► Example
+
+An entrepreneur sells a machine and charges additional transport costs.
+
+If transport is merely a means of delivering the machine, it is an ancillary supply.
+
+Transport then shares in particular
+
+- the place of supply,
+- the VAT exemption,
+- the tax rate, and
+- the time
+
+of the machine supply.
+
+---
+
+⇨ 9. Mixed Supply
+
+A contract may contain several independent principal supplies.
+
+In such cases, each supply must be assessed separately for VAT purposes.
+
+► Example
+
+An entrepreneur rents
+
+- real property and
+- additionally an independently usable construction crane.
+
+The real property rental may be VAT-exempt under § 4 Nr. 12 Buchst. a UStG.
+
+The independent rental of the crane is generally subject to VAT.
+
+► Delimitation Question
+
+Is the additional supply merely a customary ancillary supply to the real property rental or does it have an independent economic purpose for the tenant?
+
+---
+
+⇨ 10. Partial Supplies
+
+Partial supplies are economically divisible parts of an overall supply for which the consideration is separately agreed.
+
+Prerequisites:
+
+- Economic divisibility of the overall supply,
+- Separate agreement of the partial consideration,
+- Separate performance of the partial supply.
+
+► Examples
+
+- Monthly rental supplies,
+- Phased construction services,
+- Ongoing maintenance agreements,
+- Monthly invoiced consulting services.
+
+VAT generally arises upon standard assessment at the end of the preliminary notification period in which the respective partial supply was performed.
+
+---
+
+⇨ 11. Place of Supply
+
+Only supplies with a place of supply in the domestic territory can be subject to VAT in the domestic territory pursuant to § 1 Abs. 1 Nr. 1 UStG.
+
+The place of supply depends on whether
+
+- a transported supply,
+- a stationary supply, or
+- another supply
+
+is involved.
+
+---
+
+⇨ 12. Place of a Transported Supply
+
+A transported supply exists when the item is transported or shipped in connection with the supply.
+
+Legal basis:
+
+§ 3 Abs. 6 UStG.
+
+The place of supply is generally where the transport or shipment begins.
+
+► Key Principle
+
+For transported supplies:
+
+Place = Beginning of goods movement.
+
+Time = Beginning of goods movement.
+
+---
+
+⇨ 13. Transport
+
+Transport exists when the item is conveyed by
+
+- the supplier,
+- the recipient,
+- an employee of the supplier, or
+- an employee of the recipient.
+
+The transport is thus carried out by an entrepreneur directly involved in the transaction or their employee.
+
+► Example
+
+The supplier delivers the goods to the customer using its own vehicle.
+
+A transport exists.
+
+---
+
+⇨ 14. Shipment
+
+Shipment exists when the item is transported by an independent third party.
+
+Typical independent transport persons:
+
+- Freight forwarder,
+- Haulier,
+- Parcel service,
+- Deutsche Post,
+- Railway company,
+- Independent courier service.
+
+The independent third party may be engaged by the supplier or the recipient.
+
+► Beginning of Shipment
+
+Shipment generally begins with the transfer of the item to the independent carrier.
+
+► Important
+
+An employee is not an independent third party.
+
+Transport by an employee is therefore a transport, not a shipment.
+
+---
+
+⇨ 15. Identifiable Recipient
+
+A transport or shipment supply requires that the recipient be identifiable at the beginning of the transport or shipment.
+
+If the recipient is not yet identifiable, transport alone does not yet constitute a supply to a specific recipient.
+
+It may initially be a non-contractual transfer.
+
+► Example
+
+An entrepreneur transports a carpet to Switzerland.
+
+A prospective buyer is initially to view the carpet and may purchase it later.
+
+At the beginning of transport, it is not yet clear whether the prospective buyer will purchase the carpet.
+
+Transport is not necessarily part of a supply to that prospective buyer.
+
+The place of the subsequent supply must be determined based on the actual circumstances.
+
+► Key Principle
+
+Without an identifiable recipient, no transported supply to that recipient.
+
+---
+
+⇨ 16. Place of a Stationary Supply
+
+A stationary supply exists when the item is not transported or shipped in connection with the supply.
+
+Legal basis:
+
+§ 3 Abs. 7 Sent. 1 UStG.
+
+The place is where the item is located at the time the disposal authority is transferred.
+
+► Key Principle
+
+Stationary supply:
+
+Place = Location of the item at the time of transfer of disposal authority.
+
+---
+
+⇨ 17. Time of the Stationary Supply
+
+The time is determined by the transfer of economic disposal authority.
+
+For movable items, this may generally coincide with the civil law transfer of ownership.
+
+For real property, the transfer of economic disposal authority often occurs upon the agreed transfer of benefits and burdens.
+
+---
+
+⇨ 18. Civil Law Transfer of Ownership of Movable Items
+
+The civil law transfer of ownership is not identical to the VAT supply but can be an important indication of the transfer of disposal authority.
+
+---
+
+⇨ 19. Agreement and Delivery pursuant to § 929 Satz 1 BGB
+
+The transfer of ownership of a movable item generally requires:
+
+1. Agreement on the transfer of ownership,
+2. Delivery of the item,
+3. Authority of the transferor.
+
+Delivery generally also transfers economic disposal authority.
+
+---
+
+⇨ 20. Delivery by Short Hand pursuant to § 929 Satz 2 BGB
+
+If the acquirer already possesses the item, actual redelivery is not required.
+
+Required are:
+
+- Agreement on the transfer of ownership,
+- Already existing possession of the acquirer,
+- Authority of the transferor.
+
+► Example
+
+An entrepreneur initially rented a vehicle.
+
+It later purchases the same vehicle from the lessor.
+
+Since the vehicle is already in its possession, no redelivery is required.
+
+---
+
+⇨ 21. Constitutum Possessorium pursuant to §§ 929, 930 BGB
+
+With constitutum possessorium, the transferor remains in direct possession of the item.
+
+Instead of actual delivery, a bailment relationship is established.
+
+The former owner can thereafter continue to possess the item as, for example
+
+- a lessee,
+- a tenant farmer,
+- a borrower, or
+- a bailee.
+
+The acquirer becomes an indirect possessor within the meaning of § 868 BGB.
+
+► Example
+
+An entrepreneur sells a machine and simultaneously leases it back from the buyer.
+
+---
+
+⇨ 22. Cession of the Right to Claim Delivery pursuant to §§ 929, 931 BGB
+
+If the item is held by a third party, delivery can be replaced by cession of the right to claim delivery.
+
+Prerequisites:
+
+- Agreement on the transfer of ownership,
+- Cession of the right to claim delivery against the third party,
+- Authority of the transferor.
+
+---
+
+⇨ 23. Transfer of Real Property
+
+The civil law transfer of ownership of real property generally requires:
+
+1. Disposition pursuant to § 925 BGB,
+2. Registration of the acquirer in the land register pursuant to § 873 BGB,
+3. Authority of the transferor.
+
+For VAT purposes, however, the land register entry is not necessarily the decisive time of supply.
+
+What matters is the transfer of economic disposal authority.
+
+---
+
+⇨ 24. Economic Ownership
+
+Economic ownership exists pursuant to § 39 Abs. 2 Nr. 1 AO when a person other than the civil law owner
+
+- exercises actual control over the item and
+- can economically exclude the legal owner for the ordinary useful life.
+
+For the VAT supply, what matters is when the acquirer can dispose of the item economically as an owner would.
+
+---
+
+⇨ 25. Transfer of Benefits and Burdens for Real Property
+
+For real property, economic disposal authority generally transfers with the contractually agreed transfer of benefits and burdens.
+
+Typical consequences of the transfer of benefits and burdens:
+
+- the acquirer receives rental income,
+- the acquirer bears ongoing costs,
+- the acquirer bears the risk of accidental loss,
+- the acquirer bears property tax and insurance,
+- the acquirer can economically use the property.
+
+► Example
+
+Notarial purchase agreement:
+
+December 15, 2025.
+
+Transfer of benefits and burdens:
+
+January 1, 2026.
+
+Land register entry:
+
+February 15, 2026.
+
+Economic disposal authority generally transfers on January 1, 2026.
+
+Real property supply is thus generally performed on January 1, 2026.
+
+---
+
+⇨ 26. Retention of Title
+
+In a sale with retention of title, the seller remains the civil law owner until full payment.
+
+Economic disposal authority may nevertheless transfer to the buyer upon delivery.
+
+The buyer may then be the economic owner although civil law ownership remains with the seller.
+
+► Key Principle
+
+Retention of title does not automatically prevent a VAT supply.
+
+---
+
+⇨ 27. Place of Other Supplies
+
+For other supplies, the following sequence must be followed:
+
+1. First, examine special place-of-supply provisions and exception catalogs.
+2. Only then apply general rules for B2B or B2C supplies.
+
+► B2B Basic Rule
+
+For supplies to an entrepreneur for that entrepreneur's business, the place of supply is generally with the recipient.
+
+► B2C Basic Rule
+
+For supplies to a non-entrepreneur, the place of supply is generally with the supplying entrepreneur.
+
+► Important
+
+Special provisions may particularly apply to:
+
+- Real property supplies,
+- Event supplies,
+- Passenger transport,
+- Restaurant and catering services,
+- Short-term rental of transport equipment,
+- Electronic services,
+- Services on movable items.
+
+---
+
+⇨ 28. Time of Supply
+
+► Transported Supply
+
+The time of supply is generally the beginning of the transport or shipment.
+
+► Stationary Supply
+
+The time is the transfer of disposal authority.
+
+For real property, the transfer of benefits and burdens is generally decisive.
+
+► Other Supply
+
+Another supply is generally performed upon
+
+- completion of the supply and
+- complete provision to the recipient.
+
+► Partial Supply
+
+A partial supply is performed at the end of the respective partial supply period.
+
+---
+
+⇨ 29. Consideration
+
+A taxable supply generally requires a consideration.
+
+A direct relationship is required between
+
+- the supply and
+- the counter-consideration.
+
+The counter-consideration may consist of:
+
+- Purchase price,
+- Rent,
+- Lease,
+- Fee,
+- Commission,
+- Supply of goods,
+- Other supply.
+
+► Important
+
+The designation of the payment is not decisive.
+
+Payments designated as
+
+- Subsidy,
+- Compensation,
+- Contribution, or
+- Premium
+
+can also be consideration if a direct relationship to a supply exists.
+
+---
+
+⇨ 30. Exchange and Exchange-Like Transaction
+
+► Exchange
+
+An exchange exists when the counter-consideration for a supply also consists of a supply.
+
+► Exchange-Like Transaction
+
+An exchange-like transaction exists when at least one of the exchanged supplies is another supply.
+
+► Exchange with Cash Adjustment
+
+A cash payment may additionally be agreed upon in connection with goods or service provision.
+
+This payment is termed a cash adjustment.
+
+For the taxable amount, the respective counter-consideration including any cash adjustment received or paid must be taken into account.
+
+---
+
+⇨ 31. Performance Within the Scope of the Enterprise
+
+The supply must be performed within the scope of the enterprise.
+
+► Principal Activities
+
+Principal activities are the ongoing and continuous supplies of the core business operations.
+
+► Ancillary Activities
+
+Ancillary activities are also performed within the scope of the enterprise, even though they do not occur continuously or regularly.
+
+A prerequisite is an economic connection with the principal business activity.
+
+► Examples
+
+- Sale of a business machine,
+- Disposition of a business vehicle,
+- Sale of office furniture,
+- Disposition of business real property.
+
+---
+
+⇨ 32. Taxability pursuant to § 1 Abs. 1 Nr. 1 UStG
+
+A supply is taxable when
+
+- a supply or other supply,
+- by an entrepreneur,
+- in the domestic territory,
+- for consideration,
+- within the scope of the entrepreneur's enterprise
+
+is performed.
+
+If all prerequisites are met, a taxable supply exists.
+
+Only thereafter is the VAT exemption examined.
+
+---
+
+⇨ 33. VAT Exemption
+
+After establishing taxability, it must be examined whether the supply is VAT-exempt pursuant to § 4 or § 4b UStG.
+
+Typical VAT exemptions:
+
+- Export supplies,
+- Intra-Community supplies,
+- Real property supplies,
+- Credit provision and credit brokerage,
+- Insurance transactions,
+- Real property rental,
+- Certain medical treatments.
+
+---
+
+⇨ 34. Export Supply
+
+An export supply may be VAT-exempt pursuant to § 4 Nr. 1 Buchst. a in connection with § 6 UStG.
+
+Prerequisites include in particular:
+
+- Taxable supply,
+- Transport or shipment into the third country territory,
+- Fulfillment of the requirements of § 6 UStG,
+- Proper book and document records.
+
+---
+
+⇨ 35. Intra-Community Supply
+
+An intra-Community supply may be VAT-exempt pursuant to § 4 Nr. 1 Buchst. b in connection with § 6a UStG.
+
+Typical prerequisites:
+
+- Supply of an item,
+- Goods movement from one EU member state to another member state,
+- Recipient category pursuant to § 6a UStG,
+- Acquisition taxation in the destination country,
+- Valid VAT identification number,
+- Proper documentation.
+
+---
+
+⇨ 36. Real Property Supply
+
+Supplies that fall within the real property transfer tax act are generally VAT-exempt pursuant to § 4 Nr. 9 Buchst. a UStG.
+
+It is not material whether real property transfer tax is actually assessed.
+
+What matters is whether the supply falls within the scope of the real property transfer tax act.
+
+An option for taxation pursuant to § 9 UStG may be possible under the statutory conditions.
+
+---
+
+⇨ 37. Real Property Rental
+
+The rental and leasing of real property is generally VAT-exempt pursuant to § 4 Nr. 12 Buchst. a UStG.
+
+Exceptions may apply in particular to:
+
+- Short-term accommodation,
+- Rental of parking spaces,
+- Rental of business installations,
+- Certain camping sites,
+- Short-term rental of residential and sleeping quarters.
+
+---
+
+⇨ 38. Option pursuant to § 9 UStG
+
+For every VAT exemption, it must be examined whether the exemption can be waived.
+
+Waiver results in the supply being treated as subject to VAT.
+
+This may enable otherwise excluded input VAT deduction.
+
+► Typical Prerequisites
+
+- Statutorily option-eligible supply,
+- Supply to another entrepreneur,
+- Use of the supply for that entrepreneur's business,
+- For real property rental additionally the requirements of § 9 Abs. 2 UStG.
+
+► Key Principle
+
+After every VAT exemption:
+
+Examine the option pursuant to § 9 UStG.
+
+---
+
+⇨ 39. VAT Liable Person
+
+► Basic Principle
+
+The VAT liable person is generally the supplying entrepreneur pursuant to § 13a Abs. 1 Nr. 1 UStG.
+
+► Other Cases
+
+Depending on the facts, the VAT liable person may particularly be:
+
+- The acquirer in an intra-Community acquisition,
+- The recipient pursuant to § 13b UStG,
+- The invoice issuer where the invoice is improper or incorrect pursuant to § 14c UStG,
+- The final customer in certain triangular transactions.
+
+► Reverse Charge
+
+Under § 13b UStG, the recipient, not the supplying entrepreneur, is the VAT liable person.
+
+---
+
+⇨ 40. Tax Rate
+
+► Standard Rate
+
+The standard rate is generally 19 percent pursuant to § 12 Abs. 1 UStG.
+
+► Reduced Rate
+
+The reduced rate is generally 7 percent.
+
+It applies only if the supply expressly falls within § 12 Abs. 2 UStG.
+
+Typical applications:
+
+- Certain items in Appendix 2,
+- Certain foodstuffs,
+- Books and certain printed matter,
+- Certain passenger transportation,
+- Short-term rental of residential and sleeping quarters.
+
+► Examination Rule
+
+First examine whether a VAT exemption applies.
+
+Only for a taxable supply is the tax rate determined.
+
+---
+
+⇨ 41. Taxable Amount
+
+The taxable amount is generally based on the consideration.
+
+Consideration is everything the recipient expends to receive the supply, less any VAT due by law.
+
+Legal basis:
+
+§ 10 Abs. 1 UStG.
+
+► Monetary Payment
+
+For a monetary payment, VAT must be calculated out from the gross amount.
+
+At 19 percent:
+
+Gross amount ÷ 1.19 = Net consideration.
+
+At 7 percent:
+
+Gross amount ÷ 1.07 = Net consideration.
+
+---
+
+⇨ 42. Pass-Through Items
+
+Pass-through items do not form part of the consideration.
+
+A prerequisite is in particular that the entrepreneur
+
+- in the name of and
+- for the account of
+
+another party receives or disburses amounts.
+
+Own costs of the entrepreneur are not pass-through items, even if they are recharged to the customer.
+
+---
+
+⇨ 43. Consideration from a Third Party
+
+A payment by a third party may also form part of the consideration.
+
+Prerequisites:
+
+- Supply by the entrepreneur to the recipient,
+- Payment by the third party to the entrepreneur,
+- Direct relationship between the payment and the specific supply,
+- The payment serves to promote or reduce the cost of the supply to the recipient.
+
+---
+
+⇨ 44. Foreign Currency
+
+If the consideration is agreed in a foreign currency, it must be converted into euros pursuant to § 16 Abs. 6 UStG.
+
+The average exchange rate for the period in which the supply is performed or payment is received generally applies.
+
+---
+
+⇨ 45. Arising of VAT upon Standard Assessment
+
+► General Case
+
+Under standard assessment, VAT generally arises at the end of the preliminary notification period in which the supply was performed.
+
+Legal basis:
+
+§ 13 Abs. 1 Nr. 1 Buchst. a UStG.
+
+► Partial Supply
+
+For partial supplies, VAT arises at the end of the preliminary notification period in which the respective partial supply was performed.
+
+► Advance Payment
+
+If the consideration or part of the consideration is received before performance of the supply, VAT arises at the end of the preliminary notification period of receipt.
+
+Prerequisites:
+
+- Payment before performance of the supply or partial supply,
+- Receipt of consideration or partial consideration.
+
+► Important
+
+An advance payment is not a partial supply.
+
+With an advance payment, no complete supply or partial supply has yet been performed.
+
+---
+
+⇨ 46. VAT-Exempt Supplies and Time of Supply
+
+For a VAT-exempt supply, no payable VAT arises.
+
+The time of supply must nevertheless be determined, for example for
+
+- the VAT exemption,
+- Documentation requirements,
+- Input VAT corrections,
+- Summary statements,
+- Bookkeeping and filing requirements.
+
+---
+
+⇨ 47. VAT Territory Concepts
+
+For the assessment of cross-border supplies, the VAT territory concepts are decisive.
+
+The following must be distinguished:
+
+- Domestic territory,
+- Rest of Community territory,
+- Community territory,
+- Third country territory,
+- Foreign territory.
+
+---
+
+⇨ 48. Domestic Territory
+
+The domestic territory is generally the territory of the Federal Republic of Germany.
+
+Certain territories are not part of the VAT domestic territory.
+
+These include in particular:
+
+- Büsingen,
+- The island of Heligoland,
+- Free trade zones of control type I under the statutory conditions.
+
+These territories are treated for VAT purposes like third country territory.
+
+---
+
+⇨ 49. Rest of Community Territory
+
+The rest of Community territory comprises the VAT territories of the other EU member states.
+
+Simplified:
+
+Rest of Community territory = Community territory less German domestic territory.
+
+Goods movements from domestic territory to the rest of Community territory may constitute intra-Community supplies.
+
+Goods movements from the rest of Community territory to domestic territory may trigger intra-Community acquisitions.
+
+---
+
+⇨ 50. Community Territory
+
+Community territory comprises the VAT domestic territory and the rest of Community territory.
+
+It is not necessarily identical to the political territories of EU member states.
+
+Certain special territories may be excluded for VAT purposes.
+
+---
+
+⇨ 51. Third Country Territory
+
+Third country territory generally comprises territories that are not part of the VAT Community territory.
+
+These include in particular:
+
+- States outside the European Union,
+- Büsingen,
+- The island of Heligoland,
+- Certain free trade zones.
+
+Goods movements from domestic territory to third country territory may constitute export supplies.
+
+Goods movements from third country territory to domestic territory may constitute imports.
+
+---
+
+⇨ 52. Foreign Territory
+
+Foreign territory comprises all territories that are not domestic territory.
+
+Foreign territory thus comprises:
+
+- the rest of Community territory and
+- third country territory.
+
+► Key Principle
+
+Foreign territory is not automatically third country territory.
+
+Another EU member state is, from a German perspective, foreign territory but not third country territory.
+
+---
+
+⇨ 53. Import Supply pursuant to § 3 Abs. 8 UStG
+
+For a supply from third country territory, the place of supply may shift to domestic territory pursuant to § 3 Abs. 8 UStG.
+
+A prerequisite is in particular that the supplier or its agent is liable for import VAT.
+
+The provision must be examined separately in import situations.
+
+---
+
+⇨ 54. Chain Transaction
+
+A chain transaction exists when
+
+- several entrepreneurs,
+- about the same item,
+- conclude supply transactions and
+- the item moves directly from the first entrepreneur to the final customer.
+
+► Example
+
+Entrepreneur A sells to Entrepreneur B.
+
+Entrepreneur B sells the same item to Entrepreneur C.
+
+The goods are transported directly from A to C.
+
+Two supplies exist:
+
+- A to B,
+- B to C.
+
+However, only one goods movement exists.
+
+---
+
+⇨ 55. Only One Transported Supply
+
+Within a chain transaction, only one supply can be a transported supply.
+
+Only this supply is assessed pursuant to § 3 Abs. 6 UStG.
+
+All other supplies are stationary supplies pursuant to § 3 Abs. 7 Sent. 2 UStG.
+
+► Key Principle
+
+Multiple supplies, but only one transported supply.
+
+---
+
+⇨ 56. Direct Goods Movement
+
+The item must move directly from the first entrepreneur to the final customer.
+
+A technically or organizationally necessary interim storage or overnight pause may be harmless if transport continues economically as a unit.
+
+An actual sale or free disposal of the goods during the interruption may, however, speak against a unified chain transaction.
+
+---
+
+⇨ 57. Goods Movement by the First Entrepreneur
+
+If the item is transported or shipped by the first entrepreneur in the chain, its supply is generally the transported supply.
+
+► Example
+
+A sells to B.
+
+B sells to C.
+
+A transports the goods directly to C.
+
+Transported supply:
+
+A to B.
+
+Stationary supply:
+
+B to C.
+
+The supply B to C follows the transported supply.
+
+Its place is generally where the goods movement ends.
+
+---
+
+⇨ 58. Goods Movement by the Final Customer
+
+If the item is transported or shipped by the final customer, the supply to it is generally the transported supply.
+
+► Example
+
+A sells to B.
+
+B sells to C.
+
+C collects the goods from A.
+
+Transported supply:
+
+B to C.
+
+Stationary supply:
+
+A to B.
+
+The supply A to B precedes the transported supply.
+
+Its place is generally where the goods movement begins.
+
+---
+
+⇨ 59. Goods Movement by an Intermediary
+
+An intermediary is an entrepreneur within the chain who is simultaneously
+
+- recipient of a supply and
+- supplier of the following supply.
+
+If the intermediary transports the goods, it must be determined to which of its two supplies the goods movement is allocated.
+
+► Basic Assumption
+
+Generally, the goods movement is allocated to the supply to the intermediary.
+
+► Alternative Allocation
+
+Under statutory conditions, the goods movement may be allocated to the supply by the intermediary to its customer.
+
+In particular, the use of a VAT identification number of the country of departure may be significant.
+
+► Examination
+
+1. Who organizes the transport?
+2. Does this person act as supplier or recipient?
+3. Is it an intermediary?
+4. Which VAT identification number was used?
+5. Is this an export or import situation?
+6. Which supply is the transported supply pursuant to § 3 Abs. 6a UStG?
+
+---
+
+⇨ 60. Stationary Supply Preceding the Transported Supply
+
+A stationary supply that precedes the transported supply is performed, pursuant to § 3 Abs. 7 Sent. 2 Nr. 1 UStG, where the transport or shipment begins.
+
+► Place
+
+Place of departure.
+
+► Time
+
+Beginning of the transport or shipment.
+
+► Example
+
+A sells to B.
+
+B sells to C.
+
+C collects the goods from A.
+
+The transported supply is B to C.
+
+The supply A to B precedes the transported supply.
+
+Place of supply A to B:
+
+Place of departure of the goods.
+
+---
+
+⇨ 61. Stationary Supply Following the Transported Supply
+
+A stationary supply that follows the transported supply is performed, pursuant to § 3 Abs. 7 Sent. 2 Nr. 2 UStG, where the transport or shipment ends.
+
+► Place
+
+Place of arrival.
+
+► Time
+
+End of the transport or shipment.
+
+► Example
+
+A sells to B.
+
+B sells to C.
+
+A transports the goods directly to C.
+
+The transported supply is A to B.
+
+The supply B to C follows the transported supply.
+
+Place of supply B to C:
+
+Place of arrival of the goods.
+
+---
+
+⇨ 62. Transport as Ancillary Supply
+
+For a goods supply, transport generally forms part of the supply as a dependent ancillary supply.
+
+In a fact scenario sketch, the carrier or shipper should therefore be entered directly on the arrow of the supply to which the goods movement is allocated.
+
+► Examination Tip
+
+The transport arrow often determines which supply is the transported supply.
+
+---
+
+⇨ 63. Sketch of a Chain Transaction
+
+A chain transaction should always be depicted graphically.
+
+Example:
+
+A → B → C
+
+Additionally enter:
+
+- Locations of the parties,
+- Invoicing relationships,
+- Actual goods flow,
+- Carrier or shipper,
+- VAT identification numbers used,
+- Beginning and end of transport.
+
+► Key Principle
+
+First draw the invoicing flow.
+
+Then enter the actual goods flow.
+
+Then allocate the transported supply.
+
+⇨ 64. Examination Scheme for Chain Transactions
+
+1. Do several entrepreneurs conclude transactions concerning the same item?
+2. Does the item pass directly from the first entrepreneur to the final recipient?
+3. Who transports or dispatches the item?
+4. Is the transporter the first entrepreneur?
+5. Is the transporter the final recipient?
+6. Is the transporter an intermediary?
+7. Which USt-IdNr. is used?
+8. Which supply is the movable supply?
+9. Which supplies are stationary supplies?
+10. Does the stationary supply precede the movable supply?
+11. Or does it follow the movable supply?
+12. Determine the place of each supply.
+13. Examine the taxability of each supply separately.
+14. Examine the tax exemption of each supply separately.
+
+---
+
+⇨ 65. Examination Scheme for the Movable Supply
+
+1. Supply under § 3 Abs. 1 UStG?
+2. Identifiable recipient?
+3. Transport or dispatch?
+4. Who carries out or arranges the transport?
+5. Beginning of the movement of goods?
+6. Place under § 3 Abs. 6 UStG?
+7. Time at the beginning of the movement of goods?
+8. Domestic territory, rest of Community territory, or third country territory?
+9. Taxability?
+10. Tax exemption as an export supply or intra-Community supply?
+11. Evidence available?
+
+---
+
+⇨ 66. Examination Scheme for the Stationary Supply
+
+1. Supply under § 3 Abs. 1 UStG?
+2. No movement of goods allocated to the supply?
+3. Time of transfer of disposal authority?
+4. Location of the item at that time?
+5. Place under § 3 Abs. 7 Satz 1 UStG?
+6. In the case of a chain transaction: § 3 Abs. 7 Satz 2 Nr. 1 or Nr. 2?
+7. Taxability?
+8. Tax exemption?
+9. Person liable for VAT?
+10. Tax rate and taxable amount?
+
+---
+
+⇨ 67. Drafting Aid for the Movable Supply
+
+A supply exists within the meaning of § 3 Abs. 1 UStG because the supplying entrepreneur transfers disposal authority over the item to the recipient.
+
+The item is transported or dispatched in connection with this supply.
+
+Under § 3 Abs. 6 Satz 1 UStG, the place of the supply is located where the transport or dispatch begins.
+
+The supply is performed at the beginning of the transport or dispatch.
+
+---
+
+⇨ 68. Drafting Aid for the Stationary Supply
+
+A stationary supply exists within the meaning of § 3 Abs. 1 UStG.
+
+Disposal authority is transferred without any transport or dispatch being allocated to this supply.
+
+Under § 3 Abs. 7 UStG, the place of the supply is located where the item is situated at the time disposal authority is transferred.
+
+---
+
+⇨ 69. Drafting Aid for the Chain Transaction
+
+Several entrepreneurs have concluded transactions concerning the same item.
+
+The item passes directly from the first entrepreneur to the final recipient.
+
+A chain transaction within the meaning of § 3 Abs. 6a UStG therefore exists.
+
+Since only one supply can be the movable supply, the movement of goods must be allocated to one supply on the basis of the transport responsibility.
+
+The other supplies are stationary supplies under § 3 Abs. 7 Satz 2 UStG.
+
+---
+
+⇨ 70. Typical Examination Pitfalls
+
+► Error 1: Starting immediately with the tax exemption
+
+The type of supply, the place of supply, and taxability must first be determined.
+
+A tax exemption can only be examined for a taxable supply.
+
+---
+
+► Error 2: Automatically treating transport as an independent supply
+
+Transport, packaging, or insurance are often ancillary supplies and share the VAT treatment of the principal supply.
+
+---
+
+► Error 3: Confusing a work supply with a work service
+
+Use of own principal materials:
+
+Work supply.
+
+No use of own principal materials:
+
+Work service.
+
+---
+
+► Error 4: Equating civil-law ownership with the transfer of disposal authority
+
+For the VAT supply, economic disposal authority is decisive.
+
+---
+
+► Error 5: Assuming a real property supply only upon entry in the land register
+
+Disposal authority can already transfer upon the transfer of benefits and burdens.
+
+---
+
+► Error 6: Treating retention of title as an obstacle to a supply
+
+Despite retention of title, the buyer may already be the economic owner.
+
+---
+
+► Error 7: Assuming a movable supply without an identifiable recipient
+
+If the recipient is not yet identifiable at the beginning of transport, an extracontractual transfer may initially exist.
+
+---
+
+► Error 8: Assuming multiple movable supplies in a chain transaction
+
+Within a chain transaction, there is only one movable supply.
+
+---
+
+► Error 9: Confusing the invoice flow and the goods flow
+
+The invoice flow runs between all contracting parties.
+
+The goods flow runs directly from the first entrepreneur to the final recipient.
+
+---
+
+► Error 10: Failing to examine stationary supplies in a chain transaction
+
+Each supply must have its own place.
+
+Supplies preceding the movable supply:
+
+Place of departure.
+
+Supplies following the movable supply:
+
+Place of arrival.
+
+---
+
+► Error 11: Treating every EU state as domestic territory
+
+From a German perspective, domestic territory is generally only the German VAT territory.
+
+Other EU member states belong to the rest of Community territory.
+
+---
+
+► Error 12: Equating foreign territory and third country territory
+
+Foreign territory comprises both
+
+- the rest of Community territory and
+- third country territory.
+
+---
+
+► Error 13: Forgetting the option under § 9 UStG
+
+For a generally VAT-exempt real property supply or real property lease, the option must always be examined.
+
+---
+
+► Error 14: Treating advance payments like part-performances
+
+An advance payment is a payment before performance.
+
+A part-performance is an already performed economically separable part of an overall supply.
+
+---
+
+⇨ 71. Key Principles
+
+- First determine the type of supply, then the place of supply, then taxability.
+- A supply requires the transfer of disposal authority.
+- Economic ownership is more important than mere civil-law terminology.
+- For real property, the transfer of benefits and burdens is often decisive.
+- For the movable supply, place and time are generally at the beginning of the movement of goods.
+- For the stationary supply, the place is the location at the time disposal authority is transferred.
+- Without an identifiable recipient, there is no movable supply to that recipient.
+- Ancillary supplies share the VAT treatment of the principal supply.
+- For other supplies, first examine special place-of-supply rules and only then the B2B or B2C basic rule.
+- Foreign territory is not the same as third country territory.
+- In a chain transaction there are several supplies but only one movable supply.
+- If the first entrepreneur transports, that entrepreneur’s supply is generally the movable supply.
+- If the final recipient transports, the supply to that recipient is generally the movable supply.
+- Where an intermediary transports, § 3 Abs. 6a UStG must be examined particularly carefully.
+- Stationary supplies preceding the movable supply are located at the place of departure.
+- Stationary supplies following the movable supply are located at the place of arrival.
+- After every tax exemption, examine the option under § 9 UStG.
+- Only after VAT liability has been established are the person liable for VAT, the tax rate, and the taxable amount determined.
+  `
 },
 {
   id: "rechnungswesen-buchfuehrung-inventur-jahresabschluss-bilanzierung",
@@ -15011,8 +20319,14 @@ Der Veräußerungsgewinn ist grundsätzlich im Kalenderjahr der Veräußerung an
   title:
     "Steuerbefreiungen: Ausfuhrlieferungen, Reihengeschäfte und Grundstücksumsätze",
 
+  titleEn:
+    "Tax Exemptions: Export Supplies, Chain Transactions, and Real Property Transactions",
+
   short:
     "Systematik der Umsatzsteuerbefreiungen, Ausfuhrlieferungen nach §§ 4 Nr. 1 Buchst. a, 6 UStG, Zuordnung der Beförderung im Reihengeschäft und Grundstücksumsätze nach § 4 Nr. 9 Buchst. a UStG.",
+
+  shortEn:
+    "Systematics of VAT exemptions, export supplies under §§ 4 Nr. 1 Buchst. a, 6 UStG, allocation of transport in chain transactions, and real property transactions under § 4 Nr. 9 Buchst. a UStG.",
 
   category: "Umsatzsteuer",
 
@@ -15021,6 +20335,9 @@ Der Veräußerungsgewinn ist grundsätzlich im Kalenderjahr der Veräußerung an
 
   keywords:
     "steuerbefreiung|§ 4 ustg|ausfuhrlieferung|§ 4 nr. 1 a ustg|§ 6 ustg|drittland|reihengeschäft|bewegte lieferung|ruhende lieferung|beförderung|versendung|ausländischer abnehmer|ausfuhrnachweis|buchnachweis|§ 6 abs. 4 ustg|§ 3 abs. 6a ustg|grundstück|grunderwerbsteuer|§ 4 nr. 9 a ustg|option|§ 9 ustg|vorsteuerabzug|§ 15 ustg",
+
+  keywordsEn:
+    "tax exemption|§ 4 ustg|export supply|§ 4 nr. 1 buchst. a ustg|§ 6 ustg|third country territory|chain transaction|movable supply|stationary supply|transport|shipment|foreign recipient|export evidence|book evidence|§ 6 abs. 4 ustg|§ 3 abs. 6a ustg|real property|real estate transfer tax|§ 4 nr. 9 buchst. a ustg|option|§ 9 ustg|input vat deduction|§ 15 ustg",
 
   references: [
     "§ 1 Abs. 1 Nr. 1 UStG",
@@ -15700,7 +21017,661 @@ Nach jeder Steuerbefreiung muss geprüft werden:
 - Betriebsvorrichtungen sind gesondert zu prüfen.
 - Steuerfreie Grundstücksumsätze schließen den Vorsteuerabzug regelmäßig aus.
 - Eine wirksame Option nach § 9 UStG kann den Vorsteuerabzug ermöglichen.
-`
+`,
+
+  bodyEn: `
+⇨ Tax Exemptions in VAT Law
+
+► 1. Starting Point
+
+A tax exemption is only examined after a taxable supply has been established.
+
+Basic Schema:
+
+1. Delivery or other service?
+2. Service by a trader?
+3. Within the scope of his undertaking?
+4. For consideration?
+5. Place of service in domestic territory?
+6. Tax exemption?
+7. Tax rate?
+8. Tax debtor?
+9. Emergence of tax?
+10. input VAT deduction?
+
+Memorandum:
+
+Only a taxable supply can be tax-exempt or taxable.
+
+---
+
+⇨ 2. Classification of Tax Exemptions
+
+Tax exemptions can be distinguished in particular by whether input VAT deduction is retained.
+
+► Tax Exemptions with Input VAT Recovery
+
+Certain tax-exempt supplies retain input VAT deduction.
+
+Important examples:
+
+- Export deliveries,
+- Intra-community deliveries,
+- Certain cross-border services.
+
+The tax exemption of the output supply does not lead to input VAT exclusion here.
+
+► Tax Exemptions without Input VAT Recovery
+
+Numerous tax exemptions lead to input VAT exclusion under § 15 Abs. 2 UStG.
+
+Typical examples:
+
+- Certain land transactions,
+- Rental and leasing,
+- Medical treatments,
+- Insurance and financial transactions.
+
+► Reversion according to § 15 Abs. 3 UStG
+
+For certain tax-exempt supplies, input VAT deduction is exceptionally retained.
+
+Therefore, after establishing a tax exemption, the following must always be examined:
+
+- Input VAT exclusion according to § 15 Abs. 2 UStG?
+- Reversion according to § 15 Abs. 3 UStG?
+
+---
+
+⇨ 3. Optional Election to Tax According to § 9 UStG
+
+For certain tax exemptions, the trader can waive the exemption.
+
+Typical applications:
+
+- Land transactions,
+- Rental transactions.
+
+Prerequisites include among others:
+
+- The recipient is a trader,
+- The supply is executed for his undertaking,
+- The special restrictions of § 9 Abs. 2 UStG are observed.
+
+Legal consequence:
+
+If a valid election to tax is made, the output supply becomes taxable.
+
+This can generally enable input VAT deduction.
+
+Memorandum:
+
+Election to tax can save input VAT.
+
+---
+
+⇨ 4. Export Deliveries
+
+► Legal Basis
+
+Export deliveries are tax-exempt according to
+
+§ 4 Nr. 1 Buchst. a UStG in conjunction with § 6 UStG
+
+The examination proceeds in two stages:
+
+1. Taxable delivery according to § 1 Abs. 1 Nr. 1 UStG,
+2. Export delivery according to § 6 UStG.
+
+---
+
+⇨ 5. General Prerequisites of an Export Delivery
+
+An export delivery generally requires:
+
+- A delivery,
+- An item,
+- A transportation or dispatch,
+- An actual movement of goods from domestic territory to third-country territory,
+- Fulfillment of the prerequisites of § 6 UStG,
+- Proper export verification.
+
+► Third-Country Territory
+
+Third-country territory is the territory that does not belong to the VAT community territory.
+
+Examples:
+
+- Turkey,
+- Switzerland,
+- USA,
+- United Kingdom, insofar as no special regulation applies.
+
+► Shipped Delivery
+
+The tax exemption can generally only cover the delivery assigned to the transportation or dispatch.
+
+A stationary or resting delivery is not tax-exempt as an export delivery.
+
+---
+
+⇨ 6. Export Delivery according to § 6 Abs. 1 Nr. 1 UStG
+
+► Basic Case
+
+§ 6 Abs. 1 Nr. 1 UStG concerns in particular the case where the supplying trader himself transports or dispatches the item to third-country territory.
+
+Prerequisites:
+
+1. Taxable delivery,
+2. Supplier transports or dispatches,
+3. Item actually reaches third-country territory,
+4. Export verification is present.
+
+► Seat of Recipient
+
+For § 6 Abs. 1 Nr. 1 UStG, it is generally not required that the recipient be established abroad.
+
+Decisive is above all:
+
+The item actually reaches third-country territory.
+
+► Examination Sentence
+
+The trader transports or dispatches the delivery item within a shipped delivery to third-country territory. With proper verification, this is a tax-exempt export delivery according to § 4 Nr. 1 Buchst. a UStG in conjunction with § 6 Abs. 1 Nr. 1 UStG.
+
+---
+
+⇨ 7. Export Delivery according to § 6 Abs. 1 Nr. 2 UStG
+
+► Basic Case
+
+§ 6 Abs. 1 Nr. 2 UStG concerns in particular the case where the recipient transports or dispatches the item to third-country territory.
+
+Prerequisites:
+
+1. Taxable delivery,
+2. Recipient transports or dispatches,
+3. Item actually reaches third-country territory,
+4. Recipient is foreign recipient,
+5. Export verification is present.
+
+► Foreign Recipient
+
+The recipient must fulfill the prerequisites of § 6 Abs. 2 UStG.
+
+Typically, this is a recipient with establishment or residence abroad.
+
+► Examination Sentence
+
+The recipient transports or dispatches the delivery item to third-country territory and is a foreign recipient within the meaning of § 6 Abs. 2 UStG. With proper verification, the delivery is tax-exempt according to § 4 Nr. 1 Buchst. a UStG in conjunction with § 6 Abs. 1 Nr. 2 UStG.
+
+---
+
+⇨ 8. Difference between § 6 Abs. 1 Nr. 1 and Nr. 2 UStG
+
+► § 6 Abs. 1 Nr. 1 UStG
+
+The supplier transports or dispatches.
+
+A foreign recipient is generally not required.
+
+► § 6 Abs. 1 Nr. 2 UStG
+
+The recipient transports or dispatches.
+
+The recipient must generally be a foreign recipient.
+
+► Memorandum
+
+- Supplier transports → Nr. 1
+- Recipient transports → Nr. 2
+- At Nr. 2, additionally examine foreign recipient
+
+---
+
+⇨ 9. Verification of Export
+
+The tax exemption requires proper verification.
+
+The trader must verify:
+
+- Which item was delivered,
+- Who were supplier and recipient,
+- Where the item reached,
+- That the item actually left community territory,
+- Which delivery the goods movement is assigned to.
+
+Typical verifications:
+
+- Export customs notation,
+- Transportation or dispatch documents,
+- Freight bill,
+- Freight forwarder's certificate,
+- Book verification,
+- Invoice documents,
+- Order and dispatch documentation.
+
+Memorandum:
+
+Without export verification, no tax exemption.
+
+---
+
+⇨ 10. Export Delivery in Chain Transaction
+
+► Concept of Chain Transaction
+
+A chain transaction exists when
+
+- Several traders conclude supply transactions over the same item and
+- The item reaches directly from the first trader to the final recipient.
+
+Example:
+
+Trader A in Dortmund
+
+sells to
+
+Trader B in Nordkirchen.
+
+Trader B sells onward to
+
+Recipient C in Istanbul.
+
+The item is transported directly from Dortmund to Istanbul.
+
+Although only one goods movement occurs, two deliveries exist:
+
+1. A to B
+2. B to C
+
+---
+
+⇨ 11. Only One Shipped Delivery
+
+In a chain transaction, there is only one goods movement.
+
+Therefore, only one delivery can be the shipped delivery.
+
+Only this delivery qualifies as tax-exempt export delivery.
+
+The other delivery is a stationary delivery.
+
+Memorandum:
+
+One goods movement = one shipped delivery = at most one export delivery.
+
+---
+
+⇨ 12. Assignment of Transportation or Dispatch
+
+The decisive question is:
+
+Who undertakes the transportation or dispatch?
+
+► Transportation by the First Trader
+
+If A transports or dispatches the item, the goods movement is generally assigned to the delivery A to B.
+
+Then the delivery A to B can be the tax-exempt export delivery.
+
+The delivery B to C is subsequently a stationary delivery.
+
+► Transportation by the Final Recipient
+
+If C transports or dispatches the item, the goods movement is generally assigned to the delivery B to C.
+
+Then the delivery B to C can be the tax-exempt export delivery.
+
+The delivery A to B is a stationary delivery.
+
+► Transportation by the Middleman
+
+If B transports or dispatches the item, § 3 Abs. 6a UStG must be examined particularly carefully.
+
+Generally, the transportation is assigned to the delivery to the middleman.
+
+Under the statutory prerequisites, a divergent assignment to the delivery by the middleman can occur.
+
+Decisive factors can be:
+
+- Conduct of the middleman,
+- VAT identification number used,
+- Beginning of transportation or dispatch,
+- Clear assignment of transport responsibility.
+
+---
+
+⇨ 13. Third-Country Case and VAT Identification Number
+
+Also in a chain transaction with third-country reference, the assignment of the shipped delivery must be examined closely.
+
+If the middleman uses a VAT identification number issued to him by the departure state until the beginning of transportation or dispatch, this can be significant for the assignment according to § 3 Abs. 6a UStG.
+
+Exam Hint:
+
+§ 3 Abs. 6a UStG in chain transactions must always be explicitly examined and cited.
+
+---
+
+⇨ 14. Examination Schema Export Delivery in Chain Transaction
+
+► Step 1: Establish Chain Transaction
+
+- Several supply transactions,
+- Same item,
+- Direct transportation from first supplier to final recipient.
+
+► Step 2: List Delivery Relationships
+
+Example:
+
+- Delivery A to B
+- Delivery B to C
+
+► Step 3: Determine Goods Movement
+
+Who transports or dispatches?
+
+- A?
+- B?
+- C?
+
+► Step 4: Assign Shipped Delivery
+
+Examine § 3 Abs. 6a UStG.
+
+► Step 5: Determine Place of Shipped Delivery
+
+Place is generally where the transportation or dispatch begins.
+
+► Step 6: Examine Taxability
+
+§ 1 Abs. 1 Nr. 1 UStG.
+
+► Step 7: Examine Export Delivery
+
+- § 6 Abs. 1 Nr. 1 UStG or
+- § 6 Abs. 1 Nr. 2 UStG.
+
+► Step 8: Examine Export Verification
+
+§ 6 Abs. 4 UStG and verification provisions.
+
+► Step 9: Assess Stationary Delivery
+
+Determine place according to § 3 Abs. 7 UStG and examine tax liability separately.
+
+---
+
+⇨ 15. Example: Chain Transaction Germany – Turkey
+
+A from Dortmund sells goods to B from Nordkirchen.
+
+B sells the same goods onward to C in Istanbul.
+
+The goods are transported directly from Dortmund to Istanbul.
+
+► Variant 1: A Transports
+
+The goods movement is generally assigned to the delivery A to B.
+
+This delivery can be tax-exempt as an export delivery.
+
+The delivery B to C is a stationary delivery.
+
+► Variant 2: C Transports
+
+The goods movement is generally assigned to the delivery B to C.
+
+This delivery can be tax-exempt as an export delivery.
+
+The delivery A to B is a stationary delivery.
+
+► Variant 3: B Transports
+
+B is a middleman.
+
+The assignment depends on § 3 Abs. 6a UStG.
+
+It must be examined in particular whether the goods movement
+
+- is assigned to the delivery A to B or
+- is assigned to the delivery B to C
+
+applies.
+
+Only the assigned shipped delivery can be tax-exempt as an export delivery.
+
+---
+
+⇨ 16. Land Transactions according to § 4 Nr. 9 Buchst. a UStG
+
+► Principle
+
+Supplies falling under the Land Transfer Tax Act are tax-exempt according to
+
+§ 4 Nr. 9 Buchst. a UStG
+
+The purpose is in particular to avoid double taxation through
+
+- VAT and
+- Land Transfer Tax
+
+It is not relevant whether Land Transfer Tax is actually assessed in the specific case.
+
+Decisive is whether the supply is subject to the Land Transfer Tax Act as a matter of type.
+
+---
+
+⇨ 17. Favored Land Transactions
+
+Favored are deliveries of
+
+- Developed land,
+- Undeveloped land,
+- Land-equivalent rights,
+- Certain co-ownership shares.
+
+A prerequisite is first a taxable delivery according to § 1 Abs. 1 Nr. 1 UStG.
+
+Subsequently, it is examined whether the supply falls under the Land Transfer Tax Act.
+
+Result:
+
+The delivery is generally tax-exempt according to § 4 Nr. 9 Buchst. a UStG.
+
+---
+
+⇨ 18. Land Concept and Operational Equipment
+
+The land concept is determined by the applicable statutory provisions.
+
+Not every item connected to land is necessarily covered by the land tax exemption for VAT purposes.
+
+In particular, operational equipment can be subject to separate examination.
+
+Typical exam question:
+
+If
+
+- Land and building as well as
+- Operational equipment
+
+are sold jointly, it must be examined whether several independent performances exist.
+
+The sale of operational equipment can be subject to VAT, even though the land delivery is tax-exempt.
+
+---
+
+⇨ 19. No Tax Exemption for Pure Construction Services
+
+The erection of a building on foreign land is generally not a land delivery falling under the Land Transfer Tax Act.
+
+A pure construction or work delivery is therefore not already tax-exempt under § 4 Nr. 9 Buchst. a UStG.
+
+Memorandum:
+
+Selling land is something different from building on foreign land.
+
+---
+
+⇨ 20. Option for Land Transactions
+
+For a land transaction tax-exempt under § 4 Nr. 9 Buchst. a UStG, an election to tax can be made under the prerequisites of § 9 UStG.
+
+Prerequisites:
+
+- Transaction to a trader,
+- Acquisition for his undertaking,
+- Valid exercise of the option,
+- Observance of formal requirements.
+
+The option is particularly relevant when the seller wants to avoid input VAT charges or prevent input VAT correction.
+
+For sale to private individuals, an option is generally not possible.
+
+---
+
+⇨ 21. Input VAT Consequences
+
+► Tax-Exempt Land Delivery
+
+If an input supply is directly connected to a tax-exempt land delivery, input VAT deduction is generally excluded under § 15 Abs. 2 UStG.
+
+► Tax-Exempt Export Delivery
+
+With a tax-exempt export delivery, input VAT deduction is generally retained.
+
+Therein lies a significant difference:
+
+- Export delivery: tax-exempt with input VAT deduction
+- Land delivery: generally tax-exempt without input VAT deduction
+
+---
+
+⇨ 22. Examination Overview
+
+► Export Delivery
+
+1. Delivery?
+2. Place in domestic territory?
+3. Shipped delivery?
+4. Who transports or dispatches?
+5. Third-country territory reached?
+6. § 6 Abs. 1 Nr. 1 or Nr. 2 UStG?
+7. Foreign recipient required?
+8. Export verification present?
+9. Tax exemption under § 4 Nr. 1 Buchst. a UStG?
+10. input VAT deduction retained?
+
+► Land Delivery
+
+1. Delivery?
+2. Land or land-equivalent right?
+3. Transaction falls under Land Transfer Tax Act?
+4. Tax exemption under § 4 Nr. 9 Buchst. a UStG?
+5. Operational equipment examined separately?
+6. Option under § 9 UStG possible?
+7. input VAT deduction or correction procedure?
+
+---
+
+⇨ 23. Typical Exam Pitfalls
+
+► Error 1: Examine tax exemption before taxability
+
+Wrong:
+
+Begin immediately with § 4 UStG.
+
+Correct:
+
+First examine whether a taxable supply under § 1 Abs. 1 Nr. 1 UStG even exists.
+
+---
+
+► Error 2: Treat every foreign-directed delivery as export delivery
+
+Wrong:
+
+The invoice goes to a foreign customer, so tax-exempt.
+
+Correct:
+
+The item must actually reach third-country territory.
+
+---
+
+► Error 3: Always require foreign recipient
+
+A foreign recipient is not mandatory in every export case.
+
+It must be examined in particular under § 6 Abs. 1 Nr. 2 UStG.
+
+---
+
+► Error 4: Assume multiple export deliveries in chain transaction
+
+Only one delivery can be the shipped delivery.
+
+Therefore, generally only one delivery can be tax-exempt as an export delivery.
+
+---
+
+► Error 5: Forget stationary delivery
+
+After assigning the goods movement, the other delivery must be examined as a stationary delivery.
+
+---
+
+► Error 6: Overlook export verification
+
+Even if the goods were actually exported, the trader must verify the prerequisites.
+
+---
+
+► Error 7: Confuse construction service and land delivery
+
+The erection of a building on foreign land is not automatically tax-exempt under § 4 Nr. 9 Buchst. a UStG.
+
+---
+
+► Error 8: Treat operational equipment the same as land
+
+Operational equipment can constitute an independently taxable supply.
+
+---
+
+► Error 9: Fail to examine input VAT consequence
+
+After each tax exemption, the following must be examined:
+
+- § 15 Abs. 2 UStG?
+- § 15 Abs. 3 UStG?
+- Option under § 9 UStG?
+
+---
+
+⇨ 24. Memoranda
+
+- First examine taxability, then tax exemption.
+- Export deliveries are tax-exempt; input VAT deduction is generally retained.
+- Only shipped deliveries can be export deliveries.
+- The item must actually reach third-country territory.
+- If the supplier transports, generally § 6 Abs. 1 Nr. 1 UStG applies.
+- If the recipient transports, generally § 6 Abs. 1 Nr. 2 UStG applies.
+- Under § 6 Abs. 1 Nr. 2 UStG, the foreign recipient is particularly important.
+- Without export verification, no tax exemption.
+- In chain transactions, only one shipped delivery exists.
+- Who undertakes transportation often decides on the assignment.
+- Land supplies falling under the Land Transfer Tax Act are generally tax-exempt.
+- Pure construction services are not tax-exempt land deliveries.
+- Operational equipment must be examined separately.
+- Tax-exempt land supplies generally exclude input VAT deduction.
+- A valid election under § 9 UStG can enable input VAT deduction.
+  `
 },
 {
   id: "estg-002-umfang-besteuerung-begriffsbestimmungen",
@@ -16384,8 +22355,14 @@ Die inländischen Einkünfte aus dem Zeitraum der beschränkten Steuerpflicht we
   title:
     "Vermietung, Option zur Steuerpflicht, Steuersatz, Bemessungsgrundlage und Tausch",
 
+  titleEn:
+    "Real Property Leasing, Option for Taxation, Tax Rate, Taxable Amount, and Barter",
+
   short:
     "Umsatzsteuerliche Behandlung der Grundstücksvermietung nach § 4 Nr. 12 UStG, Ausnahmen, Option nach § 9 UStG, ermäßigte Steuersätze, Entgelt sowie Tausch und tauschähnliche Umsätze.",
+
+  shortEn:
+    "VAT treatment of real property leasing under § 4 Nr. 12 UStG, exceptions, option under § 9 UStG, reduced tax rates, consideration, and barter and barter-like transactions.",
 
   category: "Umsatzsteuer",
 
@@ -16394,6 +22371,9 @@ Die inländischen Einkünfte aus dem Zeitraum der beschränkten Steuerpflicht we
 
   keywords:
     "§ 4 nr. 12 ustg|grundstücksvermietung|verpachtung|mietvertrag|pachtvertrag|nebenleistung|gemischter vertrag|garage|umlage|heizung|betriebsvorrichtung|baukran|kurzfristige vermietung|hotel|ferienwohnung|parkplatz|abstellplatz|campingplatz|option|§ 9 ustg|verzicht steuerbefreiung|§ 9 abs. 2 ustg|§ 9 abs. 3 ustg|vorsteuerabzug|§ 15 ustg|§ 27 ustg|ermäßigter steuersatz|§ 12 ustg|anlage 2 ustg|personenbeförderung|bemessungsgrundlage|§ 10 ustg|entgelt|entgelt von dritter seite|tausch|tauschähnlicher umsatz|baraufgabe|§ 3 abs. 12 ustg",
+
+  keywordsEn:
+    "§ 4 nr. 12 ustg|real property leasing|lease|lease agreement|ancillary supply|mixed contract|garage|service charge|heating|operating fixture|construction crane|short-term leasing|hotel|holiday apartment|parking space|parking lot|campsite|option|§ 9 ustg|waiver of tax exemption|§ 9 abs. 2 ustg|§ 9 abs. 3 ustg|input vat deduction|§ 15 ustg|§ 27 ustg|reduced tax rate|§ 12 ustg|anlage 2 ustg|passenger transport|taxable amount|§ 10 ustg|consideration|consideration from a third party|barter|barter-like transaction|cash balancing payment|§ 3 abs. 12 ustg",
 
   references: [
     "§ 1 Abs. 1 Nr. 1 UStG",
@@ -17445,19 +23425,1051 @@ Maßgeblich ist grundsätzlich der Wert der jeweils empfangenen Gegenleistung.
 - Beim tauschähnlichen Umsatz erbringt mindestens eine Seite eine sonstige Leistung.
 - Der Wert des jeweils anderen Umsatzes bildet grundsätzlich die Gegenleistung.
 - Die Umsatzsteuer gehört nicht zur Bemessungsgrundlage.
-`
+`,
+
+  bodyEn: `
+⇨ Real Property Leasing, Option for Taxation, Tax Rate, Tax Base, and Exchange of Consideration
+
+► 1. Overview
+
+In the VAT audit of leasing and real property matters, the following sequence must generally be observed:
+
+1. Is there a supply or other service provided?
+2. Is the service performed within the territory of the Member State?
+3. Is it taxable pursuant to § 1 Abs. 1 Nr. 1 UStG?
+4. Does a tax exemption apply?
+5. Is there an exception to the tax exemption?
+6. Can taxation be opted for pursuant to § 9 UStG?
+7. What tax rate applies?
+8. What is the tax base?
+9. Who is liable for tax payment?
+10. Is input VAT deduction permissible?
+
+Key principle:
+
+First assess taxability, then tax exemption, subsequently option for taxation, tax rate, and input VAT deduction.
+
+---
+
+⇨ 2. Tax Exemption for Real Property Leasing
+
+► Legal Basis
+
+Pursuant to § 4 Nr. 12 Buchst. a UStG, the following are generally tax-exempt:
+
+- leasing of real property,
+- leasing of land,
+- leasing and subleasing of parts of real property.
+
+The EU concept of real property includes in particular:
+
+- land and soil,
+- buildings permanently attached to the ground,
+- parts of buildings,
+- residential units,
+- individual rooms,
+- certain real property fixtures.
+
+► Nature of Service
+
+Leasing or subleasing is generally an other service within the meaning of § 3 Abs. 9 UStG.
+
+The lessor grants the lessee, in exchange for consideration, in particular the right to
+
+- use the real property or room and
+- exclude other persons from use.
+
+► Place of Supply
+
+For services relating to real property, the place of supply is generally determined by the location of the real property.
+
+Legal basis:
+
+§ 3a Abs. 3 Nr. 1 UStG.
+
+Example:
+
+An entrepreneur resident in Cologne leases a building in Düsseldorf.
+
+Place of leasing service:
+
+Düsseldorf.
+
+---
+
+⇨ 3. Unified Leasing Service with Ancillary Services
+
+► Principle
+
+Customary ancillary services generally follow the VAT treatment of real property leasing.
+
+Overall, there is a single other service.
+
+Typical ancillary services:
+
+- heating,
+- water supply,
+- cleaning of communal areas,
+- caretaking services,
+- general operating costs,
+- apportionments,
+- provision of an associated garage,
+- use of communal facilities.
+
+► Example
+
+Monthly charges:
+
+- Building rent: €10,000
+- Heating costs: €500
+
+The heating directly serves the use of the leased building.
+
+It is generally an ancillary service to real property leasing.
+
+Overall service:
+
+Leasing including heating.
+
+Consequence:
+
+Generally tax-exempt pursuant to § 4 Nr. 12 Buchst. a UStG.
+
+► Key Principle
+
+Customary ancillary services follow the principal service.
+
+---
+
+⇨ 4. Mixed Contract
+
+► Concept
+
+A mixed contract exists when, in addition to the provision of real property, another independent service is provided.
+
+VAT-wise, two services must be assessed separately.
+
+Example:
+
+An entrepreneur leases
+
+- an operating building and
+- additionally an independently usable construction crane.
+
+► Real Property Leasing
+
+The leasing of the building is generally tax-exempt pursuant to § 4 Nr. 12 Buchst. a UStG.
+
+► Construction Crane
+
+The provision of the construction crane is an independent other service within the meaning of § 3 Abs. 9 UStG.
+
+It is not automatically tax-exempt simply because it was agreed upon together with the real property.
+
+Consequence:
+
+The leasing of the construction crane is generally subject to taxation.
+
+► Examination Question
+
+Is the additional service
+
+- merely a dependent ancillary service or
+- an independent principal service?
+
+Decisive factors include in particular:
+
+- independent economic benefit,
+- separate agreement,
+- separate consideration,
+- separate usability,
+- independent interest of the service recipient.
+
+---
+
+⇨ 5. Example: Building, Heating, and Construction Crane
+
+An entrepreneur leases:
+
+- Building: €10,000
+- Heating: €500
+- Construction crane: €2,000
+
+► Building and Heating
+
+Building and heating generally form a unified leasing service.
+
+Tax base:
+
+€10,500
+
+Generally tax-exempt pursuant to § 4 Nr. 12 Buchst. a UStG.
+
+► Construction Crane
+
+The construction crane is an independently usable operational fixture or movable property.
+
+Tax base:
+
+€2,000
+
+Generally subject to taxation.
+
+► Result
+
+Two separate supplies exist:
+
+1. Real property leasing including heating,
+2. taxable leasing of the construction crane.
+
+---
+
+⇨ 6. Exceptions to Tax Exemption
+
+§ 4 Nr. 12 Sentence 2 UStG excludes certain leasing services from tax exemption.
+
+These supplies are therefore subject to taxation.
+
+---
+
+⇨ 7. Short-Term Accommodation of Guests
+
+Not tax-exempt is the leasing of residential and sleeping rooms that an entrepreneur provides for short-term accommodation of guests.
+
+Typical cases:
+
+- hotel,
+- pension,
+- holiday apartment,
+- guest room,
+- short-term leased apartments.
+
+The actual nature and duration of the provision is decisive.
+
+In examination matters, an actual lease term of up to six months is generally treated as an indication of short-term accommodation.
+
+► Consequence
+
+The service is not tax-exempt pursuant to § 4 Nr. 12 Buchst. a UStG.
+
+It is generally subject to taxation.
+
+For the pure short-term accommodation service, the reduced tax rate pursuant to § 12 Abs. 2 Nr. 11 UStG must be additionally reviewed.
+
+---
+
+⇨ 8. Parking Spaces for Vehicles
+
+Generally not tax-exempt is the leasing of spaces for parking vehicles.
+
+Typical cases:
+
+- parking lot,
+- underground parking space,
+- single garage,
+- boat berth,
+- space for trailer,
+- space for excavator or crane.
+
+The concept of vehicles is interpreted broadly.
+
+► Separately Leased Parking Space
+
+Where a parking lot or garage is leased independently, the service is generally subject to taxation.
+
+► Parking Space as Ancillary Service to Residential Leasing
+
+Where the parking space is provided together with a tax-exempt real property or residential leasing and constitutes a dependent ancillary service, it may follow the VAT treatment of the tax-exempt principal service.
+
+Examination points:
+
+- same lessor,
+- same lessee,
+- spatial connection,
+- economic connection,
+- unified lease agreement or recognizable unified service.
+
+Key principle:
+
+Separate parking lot subject to taxation – associated parking space may be ancillary service to tax-exempt leasing.
+
+---
+
+⇨ 9. Campsites
+
+Not tax-exempt is the short-term leasing of spaces at campsites.
+
+Typical cases:
+
+- tent site,
+- motor home space,
+- caravan space.
+
+The actual duration of the lease is generally decisive.
+
+---
+
+⇨ 10. Waiver of Tax Exemption
+
+► Purpose of Option
+
+Tax-exempt supplies frequently result in exclusion of input VAT deduction pursuant to § 15 Abs. 2 UStG.
+
+This can lead to an economic burden within an entrepreneur chain.
+
+Through the option pursuant to § 9 UStG, the entrepreneur may, under the statutory conditions, waive the tax exemption.
+
+Legal consequences:
+
+- the output supply becomes subject to taxation,
+- § 15 Abs. 2 UStG does not apply to this supply,
+- input VAT deduction may generally be allowed.
+
+► Restriction to Individual Supplies
+
+The entrepreneur may generally restrict the option to individual supplies.
+
+For a building, therefore, different options may be exercised for individual independent building components as appropriate.
+
+---
+
+⇨ 11. Basic Prerequisites of Option pursuant to § 9 Abs. 1 UStG
+
+The option applies in particular to certain tax-exempt supplies under:
+
+- § 4 Nr. 8 Buchst. a UStG,
+- § 4 Nr. 9 Buchst. a UStG,
+- § 4 Nr. 12 UStG.
+
+Further prerequisite:
+
+The supply must be provided to another entrepreneur for the latter's business.
+
+► Service Recipient
+
+The service recipient must be an entrepreneur within the meaning of § 2 UStG.
+
+Generally insufficient is a supply to:
+
+- a natural person,
+- a non-entrepreneur,
+- a legal entity under public law outside its business operations.
+
+► Business Connection
+
+The service recipient must receive the service for the recipient's business.
+
+► Legal Consequence
+
+If the prerequisites are met, the supplying entrepreneur may waive the tax exemption.
+
+The supply becomes subject to taxation.
+
+---
+
+⇨ 12. Exercise of Option
+
+The option may generally be exercised by unambiguous conduct.
+
+Typical cases:
+
+- open VAT statement,
+- treatment of the supply as subject to taxation in the VAT return,
+- treatment as subject to taxation in the VAT declaration,
+- express statement to the tax authority.
+
+Waiver is generally possible until material finality of the tax assessment.
+
+However, for real property disposals, the special form requirements of § 9 Abs. 3 UStG apply.
+
+---
+
+⇨ 13. Restriction on Leasing pursuant to § 9 Abs. 2 UStG
+
+► Principle
+
+For real property leasing, it is not sufficient that the lessee is an entrepreneur.
+
+The option is permissible only to the extent that the service recipient uses or intends to use the real property exclusively for supplies that do not exclude input VAT deduction.
+
+► Examination from Lessee's Perspective
+
+The output supplies that the lessee performs in the leased rooms must be investigated.
+
+► Case 1: Taxable Output Supplies
+
+The lessee performs taxable supplies.
+
+Consequence:
+
+No input VAT exclusion pursuant to § 15 Abs. 2 UStG.
+
+The option is generally permissible.
+
+► Case 2: Tax-Exempt Supplies with Reversal Exception
+
+The lessee performs tax-exempt supplies for which input VAT deduction remains available due to a reversal exception pursuant to § 15 Abs. 3 UStG.
+
+Consequence:
+
+The option may generally be permissible.
+
+Example:
+
+Certain export supplies.
+
+► Case 3: Tax-Exempt Supplies without Input Tax Deduction
+
+The lessee performs tax-exempt supplies that result in input VAT exclusion pursuant to § 15 Abs. 2 UStG and for which no reversal exception pursuant to § 15 Abs. 3 UStG applies.
+
+Consequence:
+
+The option is generally not permissible.
+
+Example:
+
+Medical treatment pursuant to § 4 Nr. 14 UStG.
+
+---
+
+⇨ 14. De Minimis Threshold for § 9 Abs. 2 UStG
+
+According to administrative practice, exclusive use for input VAT-neutral supplies is generally still assumed where input VAT-bearing use is only minimal.
+
+A practical tolerance threshold of generally no more than 5 percent of input VAT-bearing supplies is applied.
+
+Examination:
+
+1. Is option pursuant to § 9 Abs. 1 UStG generally possible?
+2. Restriction pursuant to § 9 Abs. 2 UStG?
+3. Does the lessee use the real property for input VAT-bearing supplies?
+4. Is only minimal input VAT-bearing use present?
+
+---
+
+⇨ 15. Example Regarding Option on Leasing
+
+A lessor provides practice rooms to a physician.
+
+The physician uses the rooms exclusively for tax-exempt medical treatment pursuant to § 4 Nr. 14 UStG.
+
+The medical treatments exclude input VAT deduction.
+
+Consequence:
+
+An option by the lessor pursuant to § 9 UStG is generally not permissible.
+
+---
+
+A lessor provides office rooms to a management consulting firm.
+
+The management consulting firm performs exclusively taxable consulting supplies.
+
+Consequence:
+
+The option is generally permissible.
+
+The rent is invoiced with VAT.
+
+---
+
+⇨ 16. Transitional Provisions pursuant to § 27 UStG
+
+For older buildings or existing contracts, transitional provisions may apply.
+
+Therefore, with corresponding factual circumstances, the following must be additionally examined:
+
+- date of construction,
+- date of commencement of construction,
+- date of contract conclusion,
+- initial use,
+- applicable transitional provisions of § 27 UStG.
+
+Key principle:
+
+For older buildings, do not forget § 27 UStG.
+
+---
+
+⇨ 17. Option on Real Property Disposals
+
+► Principle
+
+Even for real property disposals that are tax-exempt pursuant to § 4 Nr. 9 Buchst. a UStG, the entrepreneur may generally opt for taxation pursuant to § 9 Abs. 1 UStG.
+
+Prerequisite:
+
+Disposal to another entrepreneur for the latter's business.
+
+► Particularity pursuant to § 9 Abs. 3 UStG
+
+Special form and timing requirements apply to real property transactions.
+
+► Forced Sale
+
+For delivery in a forced sale proceeding, the special provisions of § 9 Abs. 3 Sentence 1 UStG apply.
+
+► Notarial Contract
+
+Outside of forced sale, waiver of tax exemption must generally be declared in the notarially executed contract.
+
+A later option outside of the notarial contract is generally not sufficient.
+
+► Legal Consequence of Effective Option
+
+- Real property supply becomes subject to taxation,
+- Input VAT exclusion pursuant to § 15 Abs. 2 UStG generally ceases,
+- for real property disposals, § 13b Abs. 2 Nr. 3 UStG must be additionally reviewed.
+
+---
+
+⇨ 18. Examination Schema: Option on Leasing
+
+1. Is there a tax-exempt leasing supply pursuant to § 4 Nr. 12 UStG?
+2. Is an exception pursuant to § 4 Nr. 12 Sentence 2 UStG applicable?
+3. Is the service recipient an entrepreneur?
+4. Does the recipient receive the service for the recipient's business?
+5. Is the option pursuant to § 9 Abs. 1 UStG generally possible?
+6. Does the lessee use the real property for input VAT-bearing supplies?
+7. Is § 9 Abs. 2 UStG satisfied?
+8. Must transitional provisions pursuant to § 27 UStG be observed?
+9. Was the option effectively exercised?
+10. Examine input VAT deduction of the lessor.
+
+---
+
+⇨ 19. Examination Schema: Option on Real Property Disposal
+
+1. Taxable real property supply?
+2. Tax exemption pursuant to § 4 Nr. 9 Buchst. a UStG?
+3. Purchaser is entrepreneur?
+4. Acquisition for the purchaser's business?
+5. Option pursuant to § 9 Abs. 1 UStG permissible?
+6. Form requirements of § 9 Abs. 3 UStG satisfied?
+7. Option declared in notarial contract?
+8. Supply subject to taxation?
+9. Examine § 13b Abs. 2 Nr. 3 UStG.
+10. Examine input VAT consequences.
+
+---
+
+⇨ 20. Reduced Tax Rate
+
+► Principle
+
+The standard tax rate is generally 19 percent pursuant to § 12 Abs. 1 UStG.
+
+For certain supplies designated by law, the reduced tax rate of 7 percent applies pursuant to § 12 Abs. 2 UStG.
+
+The exemption must be interpreted narrowly.
+
+Key principle:
+
+First determine the tax rate, then extract VAT from a gross amount.
+
+---
+
+⇨ 21. Items of Annex 2
+
+The reduced tax rate applies in particular to supplies of certain items designated in Annex 2 to UStG.
+
+Typical groups:
+
+- certain animals,
+- farm livestock,
+- guide dogs for the blind,
+- milk and certain milk products,
+- plants and flowers,
+- certain foodstuffs,
+- coffee, tea, and spices in the legally designated forms,
+- tap water,
+- certain forestry products,
+- certain books.
+
+► Distinctions
+
+Not every beverage is eligible for the reduced rate.
+
+Typically not eligible:
+
+- bottled drinking water,
+- alcoholic beverages,
+- coffee drinks,
+- other processed beverages.
+
+For coffee, tea, mate, and spices, attention must be paid to the specific position in Annex 2.
+
+---
+
+⇨ 22. Passenger Transportation
+
+Pursuant to § 12 Abs. 2 Nr. 10 UStG, the reduced tax rate may apply in particular to certain passenger transportation.
+
+► Rail Transport
+
+Passenger transportation by rail may be subject to reduced taxation under the statutory conditions.
+
+► Other Transport Media
+
+For transportation by
+
+- motor vehicles,
+- taxis,
+- ships,
+- cable cars
+
+it must be examined in particular whether
+
+- the transportation occurs within a municipality or
+- the transportation route is at most 50 kilometers.
+
+► Outbound and Return Trip
+
+Outbound and return trips are generally assessed separately.
+
+Exception:
+
+The return trip was agreed in advance and occurs without substantial time interruption.
+
+For cross-border transportation, the domestic route segment generally determines the treatment.
+
+---
+
+⇨ 23. Short-Term Accommodation and Tax Rate
+
+Short-term leasing of residential and sleeping rooms for the accommodation of guests is not tax-exempt pursuant to § 4 Nr. 12 Sentence 2 UStG.
+
+For the pure accommodation service, the reduced tax rate generally applies pursuant to § 12 Abs. 2 Nr. 11 UStG.
+
+Additional services are not automatically subject to the reduced rate.
+
+Typical separately examined services:
+
+- breakfast,
+- parking space,
+- wellness,
+- minibar,
+- telephone,
+- conference services.
+
+---
+
+⇨ 24. Tax Base pursuant to § 10 UStG
+
+► Principle
+
+Pursuant to § 10 Abs. 1 UStG, the supply is generally measured by the consideration.
+
+Consideration is everything that forms the value of the counter-performance that the supplying entrepreneur receives or is to receive from the recipient or a third party.
+
+The statutory VAT does not constitute consideration.
+
+Formula:
+
+Gross counter-performance  
+− contained VAT  
+= Consideration  
+= Tax base
+
+---
+
+⇨ 25. Extraction of VAT from Gross Amount
+
+► Standard Tax Rate 19%
+
+Gross amount ÷ 1.19  
+= Net consideration
+
+Net consideration × 19%  
+= VAT
+
+► Reduced Tax Rate 7%
+
+Gross amount ÷ 1.07  
+= Net consideration
+
+Net consideration × 7%  
+= VAT
+
+► Tax-Exempt Supply
+
+For a tax-exempt supply, no VAT is extracted from the consideration.
+
+Divisor:
+
+1.
+
+---
+
+⇨ 26. Example Regarding Tax Base
+
+An entrepreneur receives for a taxable supply in total:
+
+€2,380.
+
+Tax rate:
+
+19%.
+
+Calculation:
+
+€2,380 ÷ 1.19  
+= €2,000 consideration.
+
+VAT:
+
+€2,000 × 19%  
+= €380.
+
+Tax base:
+
+€2,000.
+
+Important:
+
+An incorrect or missing tax statement in the invoice generally does not change the statutory tax base.
+
+---
+
+⇨ 27. Designation of Payment
+
+The designation of a payment is not decisive.
+
+The following payments may also constitute consideration:
+
+- subsidy,
+- contribution,
+- premium,
+- compensation,
+- cost reimbursement,
+- expense reimbursement,
+- voluntary payment,
+- inadvertent overpayment.
+
+The economic connection with the service is decisive.
+
+Key principle:
+
+Not the designation, but the service connection decides.
+
+---
+
+⇨ 28. Consideration from Third Party
+
+Payments by a third party may constitute consideration.
+
+Prerequisites:
+
+1. The entrepreneur provides a service to the recipient.
+2. A third party pays the entrepreneur.
+3. The payment is made for this specific service.
+4. The payment economically serves the support or relief of the recipient.
+
+► Example
+
+Entrepreneur A supplies a machine to Entrepreneur B.
+
+B pays:
+
+€2,000.
+
+A funding provider additionally pays for this machine supply:
+
+€1,000 to A.
+
+Total counter-performance:
+
+€3,000 gross.
+
+The third-party payment may be part of the consideration.
+
+---
+
+⇨ 29. Shortened Payment Route
+
+A payment not made directly to the supplying entrepreneur may also constitute consideration.
+
+Decisive is whether it economically occurs on the account of the recipient to fulfill the counter-performance.
+
+---
+
+⇨ 30. Exchange of Consideration
+
+► Concept
+
+Exchange occurs where the counter-performance for a supply also consists of a supply.
+
+Legal basis:
+
+§ 3 Abs. 12 Sentence 1 UStG.
+
+Example:
+
+Entrepreneur A supplies a machine to Entrepreneur B.
+
+B supplies a different item to A in exchange.
+
+Two separately examined supplies exist.
+
+---
+
+⇨ 31. Barter-Like Transaction
+
+A barter-like transaction occurs where the counter-performance for a service consists of a supply or other service and at least one party provides an other service.
+
+Legal basis:
+
+§ 3 Abs. 12 Sentence 2 UStG.
+
+Examples:
+
+- consulting service for commodity supply,
+- architectural service for firewood delivery,
+- repair service for provision of an item,
+- work service for material supply.
+
+Independent supplies exist on both sides.
+
+Each supply must be examined separately with regard to:
+
+- type of service,
+- place of supply,
+- taxability,
+- tax exemption,
+- tax rate,
+- tax debtor,
+- tax base,
+- time of tax arising.
+
+---
+
+⇨ 32. Tax Base in Exchange of Consideration
+
+In an exchange, the value of each supply is deemed to be the consideration for the respective other supply.
+
+VAT does not constitute consideration.
+
+Basic formula:
+
+Value of other supply  
+− contained VAT  
+= Tax base
+
+The value of the other supply is generally the subjective value of the received counter-performance.
+
+The decisive factor is generally the amount that the recipient is willing to expend to receive this counter-performance.
+
+---
+
+⇨ 33. Exchange of Consideration with Cash Payment
+
+Where in addition to a commodity or service a monetary payment is provided, there is an exchange or barter-like transaction with cash payment.
+
+► Recipient of Cash Payment
+
+Calculation:
+
+Value of other supply  
++ received cash payment  
+= Gross counter-performance  
+− contained VAT  
+= Tax base
+
+► Provider of Cash Payment
+
+Calculation:
+
+Value of other supply  
+− provided cash payment  
+= Gross counter-performance  
+− contained VAT  
+= Tax base
+
+---
+
+⇨ 34. Example: Architectural Service for Firewood
+
+Entrepreneur A provides to Entrepreneur B an architectural service.
+
+Agreed value:
+
+€1,000.
+
+B delivers to A firewood valued at:
+
+€1,200.
+
+► Service of A
+
+A provides an other service within the meaning of § 3 Abs. 9 UStG.
+
+The counter-performance consists of the delivery of firewood.
+
+A barter-like transaction within the meaning of § 3 Abs. 12 Sentence 2 UStG exists.
+
+The following must be examined:
+
+- place of architectural service,
+- taxability,
+- tax exemption,
+- tax rate,
+- tax base,
+- time of tax arising.
+
+► Service of B
+
+B provides a supply of firewood pursuant to § 3 Abs. 1 UStG.
+
+The counter-performance consists of the architectural service.
+
+This supply must also be examined independently.
+
+► Important Principle
+
+The list or market value stated on one side is not automatically the tax base of both supplies.
+
+The value of the respectively received counter-performance is decisive.
+
+---
+
+⇨ 35. Examination Schema: Exchange and Barter-Like Transaction
+
+1. What services are exchanged?
+2. Supply for supply?
+   - Barter pursuant to § 3 Abs. 12 Sentence 1 UStG.
+3. At least one other service?
+   - Barter-like transaction pursuant to § 3 Abs. 12 Sentence 2 UStG.
+4. Is there also a cash payment?
+5. Examine each supply separately.
+6. Determine the value of the respectively received counter-performance.
+7. Add cash payment or subtract.
+8. Extract VAT.
+9. Determine tax base.
+10. Examine time of tax arising.
+
+---
+
+⇨ 36. Typical Examination Pitfalls
+
+► Error 1: Assess Each Ancillary Service Separately
+
+Heating and customary apportionments may be ancillary services to tax-exempt real property leasing.
+
+---
+
+► Error 2: Treat Every Leased Item as Tax-Exempt Real Property Leasing
+
+An independently usable construction crane or operational fixture may constitute an independent taxable service.
+
+---
+
+► Error 3: Treat Short-Term Accommodation as Tax-Exempt
+
+Short-term accommodation of guests is excluded from tax exemption.
+
+---
+
+► Error 4: Treat Separate Parking Space as Tax-Exempt
+
+Independent leasing of a parking space is generally subject to taxation.
+
+---
+
+► Error 5: Allow Option Solely on Basis of Lessee's Entrepreneur Status
+
+For leasing, § 9 Abs. 2 UStG must additionally be examined.
+
+---
+
+► Error 6: Fail to Examine Lessee's Output Supplies
+
+Decisive is whether the lessee performs input VAT-bearing supplies in the rooms.
+
+---
+
+► Error 7: Declare Option on Real Property Sale Outside Notarial Contract
+
+For real property disposals, § 9 Abs. 3 UStG must be observed.
+
+---
+
+► Error 8: Immediately Calculate with 19%
+
+First it must be examined whether the supply is:
+
+- tax-exempt,
+- 7% or
+- 19%.
+
+Only thereafter may VAT be extracted from a gross amount.
+
+---
+
+► Error 9: Overlook Third-Party Payments
+
+Payments by a third party may also constitute consideration.
+
+---
+
+► Error 10: Examine Only One Supply in Exchange
+
+In an exchange or barter-like transaction, two separate supplies generally exist.
+
+---
+
+► Error 11: Adopt Market Value Uncritically as Tax Base
+
+The value of the respectively received counter-performance is generally decisive.
+
+---
+
+► Error 12: Treat Cash Payment Incorrectly
+
+- received cash payment: add,
+- provided cash payment: subtract.
+
+---
+
+⇨ 37. Key Principles
+
+- Real property leasing is generally tax-exempt.
+- Customary ancillary services generally follow the treatment of leasing.
+- Independent supplementary services must be assessed separately.
+- Short-term accommodation is subject to taxation.
+- Separately leased parking spaces are generally subject to taxation.
+- Option pursuant to § 9 UStG requires an entrepreneurial service recipient.
+- For leasing, § 9 Abs. 2 UStG must additionally be examined.
+- Input VAT-bearing use by lessee determines the option.
+- For real property sales, the option must generally be declared in the notarial contract.
+- First determine the tax rate, then extract VAT.
+- Consideration is everything the entrepreneur receives for the service.
+- Third-party payments may also constitute consideration.
+- In an exchange, two services exist.
+- In a barter-like transaction, at least one party provides an other service.
+- The value of the respective other supply generally forms the counter-performance.
+- VAT does not belong to the tax base.
+  `
 },
 {
   id: "umsatzsteuer-gebaeude-verwendungsabsicht-vorsteueraufteilung-15a",
   title:
     "Gebäude: Vorsteuerabzug nach Verwendungsabsicht und Berichtigung nach § 15a UStG",
+
+  titleEn:
+    "Building: Input VAT Deduction Based on Intended Use and Adjustment under § 15a UStG",
   short:
     "Vorsteueraufteilung bei gemischt geplanter Gebäudevermietung und spätere Vorsteuerberichtigung bei abweichender tatsächlicher Erstverwendung.",
+
+  shortEn:
+    "Input VAT apportionment for a building intended for mixed leasing use and subsequent input VAT adjustment where actual first use deviates.",
   category: "Umsatzsteuer",
   source:
     "Interne Steuerstoff-Prüfungsvorbereitung – Grundstücke, Vorsteuerabzug und Vorsteuerberichtigung",
   keywords:
     "gebäude|anbau|herstellungskosten|vorsteuerabzug|verwendungsabsicht|erstmalige verwendung|§ 15 ustg|§ 15a ustg|vorsteuerberichtigung|vorsteueraufteilung|flächenschlüssel|vermietung|podologe|heilbehandlung|kosmetische leistungen|messehostel|kurzfristige vermietung|spedition|option § 9 ustg|steuerfreie vermietung|steuerpflichtige vermietung|berichtigungszeitraum",
+
+  keywordsEn:
+    "building|annex|construction costs|input vat deduction|intended use|first use|§ 15 ustg|§ 15a ustg|input vat adjustment|input vat apportionment|area-based key|leasing|podiatrist|medical treatment|cosmetic services|trade fair guests|short-term leasing|freight forwarder|option § 9 ustg|vat-exempt leasing|taxable leasing|adjustment period",
   references: [
     "§ 1 Abs. 1 Nr. 1 UStG",
     "§ 3 Abs. 4 UStG",
@@ -18133,7 +25145,645 @@ erfolgt sie nach § 44 Abs. 3 UStDV grundsätzlich erst in der Jahressteuerfests
 - Eine verbesserte vorsteuerunschädliche Nutzung führt zu einer Berichtigung zugunsten des Unternehmers.
 - Bei unterjähriger Nutzung ist monatsgenau zu rechnen.
 - Berichtigungen bis 6.000 € werden grundsätzlich in der Jahressteuerfestsetzung vorgenommen.
-`
+`,
+
+  bodyEn: `
+⇨ Building – Input VAT Deduction Based on Intended Use and § 15a UStG
+
+► 1. Initial Facts
+
+In 2025, a KG constructs a two-storey annex.
+
+Both storeys are of equal size.
+
+Construction costs:
+
+€400,000 net
+
+plus
+
+€76,000 VAT.
+
+Following acceptance on 30 October 2025, the building contractor issues a proper invoice.
+
+At that time, the KG demonstrably intends:
+
+- to lease the ground floor to a podiatrist,
+- to lease the upper floor on a short-term basis to trade fair guests.
+
+From a technical perspective, of the construction costs
+
+- 80% relate to the ground floor,
+- 20% relate to the upper floor.
+
+However, the floor areas are of equal size.
+
+---
+
+⇨ 2. Input Service of the Contractor
+
+► Nature of Service
+
+The contractor erects the annex using its own primary materials.
+
+This constitutes a work and materials contract within the meaning of § 3 Abs. 4 UStG.
+
+► Timing of Service
+
+The work and materials contract is performed upon acceptance of the completed structure.
+
+Timing:
+
+October 30, 2025.
+
+► Place of Supply
+
+The annex is permanently attached to the real property.
+
+Place of the immovable work and materials contract is the location of the real property.
+
+In the example:
+
+Düsseldorf.
+
+► Taxability and Tax Liability
+
+The work and materials contract is performed within the territory for consideration.
+
+It is taxable pursuant to § 1 Abs. 1 Nr. 1 UStG and, absent tax exemption, subject to taxation at 19 percent.
+
+VAT:
+
+€400,000 × 19%
+
+= €76,000.
+
+---
+
+⇨ 3. Basic Prerequisites of Input Tax Deduction
+
+The partnership may generally deduct the statutory VAT pursuant to
+
+§ 15 Abs. 1 Sentence 1 Nr. 1 UStG
+
+as input VAT.
+
+Prerequisites:
+
+- service provided by another entrepreneur,
+- receipt for the business,
+- properly formatted invoice,
+- separate VAT statement.
+
+These prerequisites are met.
+
+The annex is constructed entirely for the partnership's entrepreneurial leasing activity.
+
+---
+
+⇨ 4. Decisive Intended Use
+
+Where the building has not yet actually been used upon receipt of the service,
+
+input VAT deduction is initially determined by the demonstrated intended use.
+
+Decisive timing:
+
+Timing of service receipt.
+
+In the example:
+
+October 30, 2025.
+
+The partnership must be able to substantiate its intended use through objective evidence.
+
+Possible documentation:
+
+- partnership resolutions,
+- draft lease agreements,
+- broker assignments,
+- advertisements,
+- correspondence with prospective tenants,
+- construction and use concepts.
+
+A merely asserted, unsubstantiated intention is insufficient.
+
+---
+
+⇨ 5. Intended Use of Ground Floor
+
+► Leasing to a Podiatrist
+
+Leasing of real property and building components is generally tax-exempt pursuant to
+
+§ 4 Nr. 12 Sentence 1 Buchst. a UStG.
+
+► Potential Option pursuant to § 9 Abs. 1 UStG
+
+An option for taxation initially requires
+
+that the tenant is an entrepreneur and uses the rooms for the entrepreneur's business.
+
+The podiatrist uses the rooms for professional practice.
+
+Thus § 9 Abs. 1 UStG is generally satisfied.
+
+► Restriction pursuant to § 9 Abs. 2 UStG
+
+For real property leasing, however, the option is permissible only
+
+if the tenant uses the real property exclusively for supplies
+
+that do not exclude input VAT deduction.
+
+The podiatrist provides in the rooms both
+
+- tax-exempt medical treatment pursuant to § 4 Nr. 14 Buchst. a UStG
+- as well as taxable cosmetic services.
+
+Thus the tenant does not use the rooms exclusively for input VAT-neutral supplies.
+
+► Result for Ground Floor
+
+The option for taxation is excluded pursuant to § 9 Abs. 2 UStG.
+
+Leasing of the ground floor would be tax-exempt.
+
+The input services received for this purpose are therefore input-tax-bearing.
+
+---
+
+⇨ 6. Intended Use of Upper Floor
+
+► Short-Term Accommodation of Trade Fair Guests
+
+Short-term accommodation of guests does not fall within the tax exemption of
+
+§ 4 Nr. 12 Sentence 1 Buchst. a UStG.
+
+It is excluded from tax exemption pursuant to § 4 Nr. 12 Sentence 2 UStG.
+
+► Result for Upper Floor
+
+Short-term leasing to trade fair guests is subject to taxation.
+
+The input services used for this purpose are input-tax-neutral.
+
+---
+
+⇨ 7. Mixed Use of Building
+
+The annex is thus intended to be used in part for
+
+- tax-exempt, input-tax-bearing leasing supplies and
+- taxable, input-tax-neutral leasing supplies.
+
+Consequence:
+
+Input VAT must be apportioned pursuant to § 15 Abs. 4 UStG.
+
+---
+
+⇨ 8. Apportionment Method
+
+► No Direct Allocation of Construction Costs
+
+The overall construction costs concern the construction of a unified building.
+
+Direct individual allocation of input VAT amounts to ground floor and upper floor is not possible in the example.
+
+► Economic Allocation
+
+Input VAT must be apportioned using an appropriate method.
+
+For buildings, an area-based key is generally appropriate,
+
+provided that the differently used rooms are comparable.
+
+The two stories are equal in size.
+
+Apportionment:
+
+- Ground floor: 50%
+- Upper floor: 50%.
+
+► Significance of Cost Distribution
+
+Although 80% of construction costs are allocated to the ground floor and 20% to the upper floor,
+
+the combined input VAT is apportioned by area in the present case.
+
+Decisive is the appropriate economic allocation method,
+
+not automatically the internal cost distribution.
+
+---
+
+⇨ 9. Input Tax Deduction in 2025
+
+Total input VAT:
+
+€76,000.
+
+Input-tax-neutral intended use:
+
+50%.
+
+Deductible input VAT:
+
+€76,000 × 50%
+
+= €38,000.
+
+Non-deductible input VAT:
+
+€76,000 × 50%
+
+= €38,000.
+
+► Result
+
+The partnership may deduct input VAT in the advance return period of October 2025
+
+€38,000.
+
+---
+
+⇨ 10. Vacancy Following Completion
+
+Contrary to the original intention, the partnership initially finds no tenants.
+
+The annex stands vacant following completion.
+
+► Principle
+
+Temporary vacancy is not yet actual use.
+
+As long as actual use has not begun,
+
+the originally demonstrated intended use remains initially decisive for the original input VAT deduction.
+
+Vacancy alone thus does not yet result in input VAT adjustment.
+
+---
+
+⇨ 11. Actual Initial Use Beginning July 1, 2026
+
+On July 1, 2026, the partnership leases the entire annex to a freight forwarding company.
+
+Monthly rent:
+
+€5,000 net
+
+plus
+
+€950 VAT.
+
+The freight forwarding company uses the building for goods transportation to East Asia.
+
+---
+
+⇨ 12. VAT Treatment of Leasing to Freight Forwarder
+
+► Other Service
+
+Leasing is an other service within the meaning of § 3 Abs. 9 UStG.
+
+► Partial Supplies
+
+The monthly leasing periods generally constitute partial supplies.
+
+The respective supply is performed upon expiration of the month.
+
+► Place of Supply
+
+The location of a real property leasing is at the location where the real property is situated.
+
+In the example:
+
+Düsseldorf.
+
+► General Tax Exemption
+
+Leasing is generally tax-exempt pursuant to
+
+§ 4 Nr. 12 Sentence 1 Buchst. a UStG.
+
+---
+
+⇨ 13. Option for Taxation
+
+► Entrepreneurial Tenant
+
+The freight forwarding company is an entrepreneur and uses the building for its business.
+
+The prerequisite of § 9 Abs. 1 UStG is satisfied.
+
+► No Restriction pursuant to § 9 Abs. 2 UStG
+
+The freight forwarding company provides transportation services.
+
+To the extent certain cross-border transportation services are tax-exempt,
+
+they may nonetheless entitle to input VAT deduction under the conditions of § 15 Abs. 3 UStG.
+
+The freight forwarding company thus uses the rooms for supplies
+
+that do not exclude input VAT deduction.
+
+The option is permissible.
+
+► Exercise of Option
+
+The partnership treats the leasing supplies in the lease agreement under separate VAT statement as subject to taxation.
+
+Through this conduct, it effectively waives the tax exemption.
+
+► Result
+
+Leasing is subject to taxation at 19 percent.
+
+Monthly tax base:
+
+€5,000.
+
+Monthly VAT:
+
+€950.
+
+Tax debtor:
+
+Partnership pursuant to § 13a Abs. 1 Nr. 1 UStG.
+
+---
+
+⇨ 14. Adjustment Object pursuant to § 15a UStG
+
+The annex is an asset within the meaning of § 15a Abs. 1 UStG.
+
+For real property and buildings, the adjustment period is:
+
+10 years.
+
+The adjustment period begins with actual initial use.
+
+In the example:
+
+July 1, 2026.
+
+---
+
+⇨ 15. Change of Circumstances
+
+► Original Input Tax Deduction
+
+Based on intended use, the partnership was initially entitled to deduct input VAT only to
+
+50%
+
+Deducted input VAT:
+
+€38,000.
+
+► Actual Initial Use
+
+Beginning July 1, 2026, the entire building is leased subject to taxation.
+
+Input-tax-neutral actual use:
+
+100%.
+
+► Change
+
+Original assessment:
+
+50% input-tax-bearing.
+
+Actual initial use:
+
+100% input-tax-neutral.
+
+Change favorable to partnership:
+
+50 percentage points.
+
+Thus input VAT adjustment must be made pursuant to § 15a UStG.
+
+---
+
+⇨ 16. Calculation of Input Tax Adjustment 2026
+
+Total input VAT:
+
+€76,000.
+
+Adjustment period:
+
+10 years.
+
+Actual use in 2026:
+
+6 months from July through December.
+
+Change in circumstances:
+
+50%.
+
+Calculation:
+
+€76,000
+
+÷ 10 years
+
+× 6/12
+
+× 50%
+
+= €1,900.
+
+► Result
+
+The partnership receives for calendar year 2026 an input VAT adjustment in its favor in the amount of
+
+€1,900.
+
+---
+
+⇨ 17. Timing of Adjustment
+
+The adjustment amount for 2026 does not exceed €6,000.
+
+Pursuant to § 44 Abs. 3 UStDV, the adjustment is therefore not made continuously in an advance return,
+
+but rather in the framework of the VAT annual assessment 2026.
+
+Adjustment amount:
+
+€1,900.
+
+---
+
+⇨ 18. De Minimis Thresholds pursuant to § 44 UStDV
+
+► Input Tax Amount of Adjustment Object
+
+The input VAT allocated to the building amounts to
+
+€76,000.
+
+Thus the material minimum threshold is substantially exceeded.
+
+► Change in Circumstances
+
+The change amounts in the proportional calendar year to
+
+50% × 6/12
+
+= 25 percentage points.
+
+The change is thus not immaterial.
+
+Adjustment is not excluded by the de minimis provisions.
+
+---
+
+⇨ Examination Schema: Input Tax Deduction and Subsequent Adjustment
+
+► Phase 1: Original Input Tax Deduction
+
+1. Is there a service of another entrepreneur?
+
+2. Is the service received for the business?
+
+3. Is a properly formatted invoice present?
+
+4. How is the building to be used?
+
+5. Is the intended use objectively substantiated?
+
+6. Taxable or tax-exempt output supplies?
+
+7. May taxation be opted for pursuant to § 9 UStG?
+
+8. Does the restriction of § 9 Abs. 2 UStG apply?
+
+9. Mixed use?
+
+10. Apportion input VAT pursuant to § 15 Abs. 4 UStG.
+
+► Phase 2: Actual Use
+
+1. When does actual initial use begin?
+
+2. Does it correspond to the original intended use?
+
+3. Is there an adjustment object pursuant to § 15a UStG?
+
+4. What is the length of the adjustment period?
+
+5. How many months was the asset used in the calendar year?
+
+6. By how many percentage points have circumstances changed?
+
+7. Calculate adjustment amount.
+
+8. Examine de minimis thresholds pursuant to § 44 UStDV.
+
+9. Advance return or annual assessment?
+
+---
+
+⇨ Typical Examination Pitfalls
+
+► Error 1: Focus Solely on Concluded Lease Agreement
+
+Original input VAT deduction depends on demonstrated intention at timing of service receipt, where use has not yet occurred.
+
+---
+
+► Error 2: Allow Option Based Solely on Tenant's Entrepreneur Status
+
+Option pursuant to § 9 Abs. 1 UStG is insufficient.
+
+Additionally, for real property leasing, § 9 Abs. 2 UStG must be satisfied.
+
+The tenant must generally use the rooms exclusively for supplies
+
+that do not exclude input VAT deduction.
+
+---
+
+► Error 3: Fail to Distinguish Cosmetic and Medical Use
+
+Medical treatment may be tax-exempt.
+
+Cosmetic services without therapeutic purpose are generally subject to taxation.
+
+Mixed use may exclude the option pursuant to § 9 Abs. 2 UStG.
+
+---
+
+► Error 4: Treat Short-Term Leasing as Tax-Exempt
+
+Short-term accommodation of guests is excluded from real property tax exemption.
+
+It is generally subject to taxation.
+
+---
+
+► Error 5: Automatically Use Construction Cost Distribution as Input Tax Key
+
+Apportionment is determined by economic allocation.
+
+For equally sized and comparable stories, the area-based key may be appropriate,
+
+even where construction costs are distributed differently.
+
+---
+
+► Error 6: Treat Vacancy as Initial Use
+
+Mere vacancy is generally not actual use.
+
+---
+
+► Error 7: Begin Adjustment Period from Completion
+
+The adjustment period generally begins with actual initial use.
+
+---
+
+► Error 8: Calculate Full-Year Correction
+
+Where use begins during the year,
+
+the annual amount must be calculated on a prorated basis by month.
+
+---
+
+► Error 9: Record Adjustment Immediately in Advance Return
+
+Where annual adjustment does not exceed €6,000,
+
+it is generally made pursuant to § 44 Abs. 3 UStDV only in the annual tax assessment.
+
+---
+
+⇨ Key Principles
+
+- Before actual use, objectively demonstrated intended use determines input VAT deduction.
+- Tax-exempt leasing generally excludes input VAT deduction.
+- Option for taxation requires § 9 Abs. 2 UStG compliance for real property.
+- Short-term accommodation is generally subject to taxation.
+- Mixed building use leads to input VAT apportionment pursuant to § 15 Abs. 4 UStG.
+- For buildings, the area-based key is frequently appropriate.
+- An empty building has not yet been actually used.
+- The adjustment period for a building is ten years.
+- The period begins with actual initial use.
+- Improved input-tax-neutral use results in adjustment favorable to the entrepreneur.
+- Underutilized proportionate annual use requires month-precise calculation.
+- Adjustments not exceeding €6,000 are generally made in the annual assessment.
+  `
 },
 {
   id: "npo-ruecklagen-vermoegensbildung-62-ao",

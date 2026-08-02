@@ -20840,12 +20840,17 @@ Die Summe der steuerlichen Gewinnanteile muss dem steuerlichen Gesamtgewinn der 
 {
   id: "ust-dienstleistungen-eu-drittland-13b-grundfall-werkleistung",
   title: "§ 13b UStG – Werkleistung eines EU-Unternehmers",
+  titleEn: "§ 13b UStG – Supply of Services by an EU Entrepreneur",
   short:
     "Werkleistung eines Unternehmers aus dem EU-Ausland an einen deutschen Unternehmer (Reverse Charge).",
+  shortEn:
+    "Supply of services by an entrepreneur from another EU country to a German entrepreneur (reverse charge).",
   category: "Umsatzsteuer",
   source: "Interne Steuerstoff-Prüfungsvorbereitung",
   keywords:
     "13b|reverse charge|werkleistung|dienstleistung|österreich|eu|wartung|lkw|ort der leistung",
+  keywordsEn:
+    "13b|reverse charge|supply of services|service|Austria|EU|maintenance|truck|place of supply",
   references: [
     "§ 3a UStG",
     "§ 10 UStG",
@@ -21003,17 +21008,171 @@ Prüfungsfalle Nr.4
 Reverse Charge bedeutet nicht Steuerfreiheit.
 
 Die Umsatzsteuer entsteht weiterhin – sie wird nur vom Leistungsempfänger geschuldet.
+`,
+bodyEn: `
+⇨ Supply of Services by an EU Entrepreneur (§ 13b UStG)
+
+► Facts
+
+An entrepreneur from Austria performs maintenance on a truck used for business purposes by a German entrepreneur.
+
+The invoice amounts to 1.000 € without German VAT.
+
+---
+
+► Review
+
+⇶  1. Type of Supply
+
+This is a
+
+**supply of services (supply of services under a works contract).**
+
+---
+
+⇶  2. Place of Supply
+
+B2B rule
+
+§ 3a Abs. 2 UStG
+
+The place of supply is where
+
+the recipient operates its business.
+
+→ Germany
+
+---
+
+⇶  3. Taxability
+
+The service is performed in Germany.
+
+→ taxable (§ 1 Abs.1 Nr.1 UStG)
+
+---
+
+⇶  4. VAT Exemption
+
+No VAT exemption under § 4 UStG.
+
+---
+
+⇶  5. Reverse Charge (§ 13b)
+
+Since the supplying entrepreneur is established in another EU country,
+
+the VAT liability shifts to the German entrepreneur.
+
+Person liable for tax:
+
+recipient
+
+pursuant to § 13b UStG.
+
+---
+
+⇶  6. Taxable Amount
+
+Net consideration:
+
+1.000 €
+
+VAT:
+
+19 %
+
+= 190 €
+
+---
+
+⇶  7. Input Tax
+
+Since the service was obtained for the enterprise,
+
+the VAT owed under § 13b
+
+may be deducted as input tax
+
+in the same advance return period.
+
+Input tax:
+
+190 €
+
+---
+
+⇨ Variation (Switzerland)
+
+The entrepreneur is from Switzerland.
+
+The work is carried out there.
+
+The supply is
+
+not taxed in Germany under § 3a Abs. 8 UStG,
+
+because the work on movable tangible property
+
+is actually used or carried out in the third country.
+
+Result:
+
+→ not taxable in Germany.
+
+---
+
+⇨ Key Principles
+
+• B2B services → as a rule § 3a Abs.2 UStG.
+
+• EU entrepreneur → reverse charge under § 13b.
+
+• As a rule, the VAT is owed by the recipient.
+
+• At the same time, there is generally full input tax deduction.
+
+• For certain work in the third country, § 3a Abs.8 UStG may shift the place of supply.
+
+---
+
+⇨ Examination Traps
+
+Pitfall Nr.1
+
+Supply of services under a works contract ≠ work supply.
+
+Pitfall Nr.2
+
+Not every foreign service falls under § 13b.
+
+Always determine the place of supply first.
+
+Pitfall Nr.3
+
+§ 3a Abs.8 UStG is often overlooked.
+
+Pitfall Nr.4
+
+Reverse charge does not mean tax exemption.
+
+VAT still arises – it is merely owed by the recipient.
 `
 },
 {
   id: "ust-13b-grundstueckslieferung-option-steuerpflicht",
   title: "§ 13b UStG – Grundstückslieferung mit Option zur Steuerpflicht",
+  titleEn: "§ 13b UStG – Real Property Supply with Election for Taxability",
   short:
     "Verkauf eines Grundstücks mit Verzicht auf die Steuerbefreiung (§ 9 UStG) und Steuerschuld des Leistungsempfängers.",
+  shortEn:
+    "Sale of real property with waiver of the VAT exemption (§ 9 UStG) and VAT liability of the recipient.",
   category: "Umsatzsteuer",
   source: "Interne Steuerstoff-Prüfungsvorbereitung",
   keywords:
     "13b|grundstück|grundstückslieferung|option|§9|steuerbefreiung|reverse charge|4 nr 9a",
+  keywordsEn:
+    "13b|real property|real property supply|option|§9|VAT exemption|reverse charge|4 nr 9a",
   references: [
     "§ 3 UStG",
     "§ 4 Nr. 9a UStG",
@@ -21163,17 +21322,164 @@ Vorsteuerabzug setzt steuerpflichtige Ausgangsumsätze voraus.
 Prüfungsfalle Nr.4
 
 Option nach § 9 UStG und Reverse Charge sind zwei getrennte Prüfungsschritte.
+`,
+bodyEn: `
+⇨ Real Property Supply with Election for Taxability (§ 13b Abs.2 Nr.3 UStG)
+
+► Facts
+
+An entrepreneur sells real property used for business purposes.
+
+In the purchase agreement, she waives the VAT exemption under § 9 UStG.
+
+The buyer uses the real property exclusively for its enterprise.
+
+Purchase price:
+
+400.000 €
+
+---
+
+► Review
+
+⇶  1. Type of Supply
+
+Supply of real property.
+
+---
+
+⇶  2. Place of Supply
+
+Immovable item.
+
+Place of supply:
+
+location of the real property
+
+(§ 3 Abs.7 UStG).
+
+→ Germany.
+
+---
+
+⇶  3. Taxability
+
+Supply for consideration.
+
+→ taxable (§ 1 Abs.1 Nr.1 UStG)
+
+---
+
+⇶  4. VAT Exemption
+
+In principle
+
+§ 4 Nr.9a UStG
+
+(real property supply).
+
+Here:
+
+waiver under § 9 UStG.
+
+Therefore:
+
+subject to VAT.
+
+---
+
+⇶  5. VAT Liability
+
+Since § 13b Abs.2 Nr.3 UStG applies,
+
+the recipient
+
+owes
+
+the VAT.
+
+Reverse charge.
+
+---
+
+⇶  6. Taxable Amount
+
+400.000 €
+
+VAT 19 %
+
+=
+
+76.000 €
+
+---
+
+⇶  7. Input Tax
+
+The buyer may deduct
+
+the VAT owed under § 13b
+
+as input tax
+
+in the same advance return period
+
+if the real property is used exclusively
+
+for taxable transactions.
+
+---
+
+⇨ Key Principles
+
+• Real property supplies are generally VAT-exempt (§ 4 Nr.9a UStG).
+
+• By election (§ 9 UStG) they become subject to VAT.
+
+• In the case of entrepreneurs, VAT liability generally shifts to the buyer under § 13b.
+
+• Input tax deduction only in the case of business use.
+
+---
+
+⇨ Examination Traps
+
+Pitfall Nr.1
+
+Always examine first
+
+whether the VAT exemption was waived at all.
+
+Pitfall Nr.2
+
+§ 13b applies only
+
+if the requirements are met.
+
+Pitfall Nr.3
+
+Input tax deduction requires taxable output transactions.
+
+Pitfall Nr.4
+
+Election under § 9 UStG and reverse charge are two separate review steps.
 `
 },
 {
   id: "ust-binnenmarkt-holzanbau-ige-werkleistung",
   title: "Binnenmarkt: Holzanbau, innergemeinschaftlicher Erwerb und Werklieferung",
+  titleEn:
+    "Single Market: Timber Extension, Intra-Community Acquisition, and Work Supply",
   short:
     "Prüfung einer Werklieferung im Inland mit Anzahlung sowie innergemeinschaftlichem Erwerb von Material aus Belgien.",
+  shortEn:
+    "Review of a domestic work supply with advance payment and an intra-Community acquisition of materials from Belgium.",
   category: "Umsatzsteuer",
   source: "Interne Steuerstoff-Prüfungsvorbereitung",
   keywords:
     "binnenmarkt|innergemeinschaftlicher erwerb|i.g.e.|werklieferung|holzbau|anzahlung|§3 abs4 ustg|§3d ustg|§13 ustg|§15 ustg|transportleistung|rechnung",
+  keywordsEn:
+    "single market|intra-community acquisition|ICA|work supply|timber construction|advance payment|§3 abs4 ustg|§3d ustg|§13 ustg|§15 ustg|transport service|invoice",
   references: [
     "§ 1 Abs. 1 Nr. 1 UStG",
     "§ 1 Abs. 1 Nr. 5 UStG",
@@ -21609,6 +21915,428 @@ Prüfungsfalle Nr. 5:
 Vorsteuer aus innergemeinschaftlichem Erwerb vergessen.
 
 Bei Verwendung für steuerpflichtige Ausgangsumsätze ist der Vorsteuerabzug möglich.
+`,
+bodyEn: `
+⇨ Single Market: Timber Extension and Intra-Community Acquisition
+
+► Initial Facts
+
+A German entrepreneur, Rens, constructs a timber extension for a German customer, Thiesen.
+
+For the timber extension, Rens requires timber braces, which he orders from Huise in Belgium.
+
+Huise delivers the timber braces directly to the carrier Rabens, who transports them to Germany.
+
+All entrepreneurs use the VAT ID of their home country.
+
+---
+
+⇨ 1. Output Supply by Rens to Thiesen
+
+► Type of Supply
+
+Rens constructs a timber extension.
+
+Since Rens does not merely supply material, but manufactures and installs an item, there is a work supply.
+
+Legal basis:
+
+§ 3 Abs. 4 UStG
+
+A work supply includes in particular:
+
+- provision of material
+- construction
+- delivery
+- installation
+
+---
+
+► Place of the Work Supply
+
+In the case of an immovable work supply, the place is determined by § 3 Abs. 7 UStG.
+
+The place is where the item is located at the time the right to dispose is transferred.
+
+Here:
+
+Hünxe / Germany
+
+---
+
+► Taxability and Tax Liability
+
+The work supply is taxable pursuant to § 1 Abs. 1 Nr. 1 UStG.
+
+No VAT exemption under § 4 UStG applies.
+
+Therefore, the transaction is subject to VAT at the standard rate of 19 %.
+
+---
+
+► Taxable Amount
+
+Total price gross:
+
+11.900 €
+
+Taxable amount net:
+
+11.900 € / 1,19
+
+=
+
+10.000 €
+
+VAT:
+
+1.900 €
+
+Person liable for tax:
+
+Rens
+
+Legal basis:
+
+§ 13a Abs. 1 Nr. 1 UStG
+
+---
+
+⇨ 2. Tax Arising on Advance Payment
+
+On 21.01., Thiesen makes an advance payment of 1.000 € gross.
+
+In the case of advance payments, VAT already arises at the end of the advance return period in which the payment is received.
+
+Legal basis:
+
+§ 13 Abs. 1 Nr. 1 Buchst. a Satz 4 UStG
+
+► Calculation of Advance Payment
+
+Advance payment gross:
+
+1.000 €
+
+VAT:
+
+1.000 € / 1,19 × 19 %
+
+=
+
+159,66 €
+
+The VAT arises at the end of advance return period 01.
+
+---
+
+⇨ 3. Remaining VAT upon Performance
+
+Acceptance of the timber extension takes place on 20.03.
+
+The work supply is therefore performed.
+
+Remaining gross amount:
+
+11.900 € - 1.000 €
+
+=
+
+10.900 €
+
+VAT from remaining amount:
+
+10.900 € / 1,19 × 19 %
+
+=
+
+1.740,34 €
+
+The VAT arises at the end of advance return period 03.
+
+---
+
+⇨ 4. Transport Service of Rabens
+
+Rabens transports the timber braces from Brussels to Schermbeck.
+
+However, the invoice is not issued to Rens, but to Huise.
+
+► Consequence for Rens
+
+For Rens, the transport service is irrelevant for VAT purposes.
+
+In particular:
+
+- no input service to Rens
+- no invoice in the name of Rens
+- no separate VAT charged to Rens
+- no input tax deduction
+
+Key principle:
+
+Input tax deduction only if the service was supplied to the entrepreneur and a proper invoice exists.
+
+---
+
+⇨ 5. Input Supply by Huise to Rens
+
+Huise supplies timber braces from Belgium to Germany.
+
+The timber braces move from the rest of the Community territory into Germany.
+
+Therefore, Rens has an intra-Community acquisition.
+
+Legal basis:
+
+§ 1a UStG
+
+---
+
+► Requirements of the Intra-Community Acquisition
+
+An intra-Community acquisition exists where
+
+1. an item moves from one EU Member State to another EU Member State,
+
+2. the acquirer is an entrepreneur,
+
+3. the acquisition is made for the enterprise,
+
+4. the supplier is an entrepreneur,
+
+5. the supplier supplies within the scope of its enterprise,
+
+6. the supply is made for consideration.
+
+These requirements are fulfilled here.
+
+---
+
+► Place of the Intra-Community Acquisition
+
+The place of the intra-Community acquisition is determined by § 3d Satz 1 UStG.
+
+The acquisition is effected where the item is located at the end of the transport or dispatch.
+
+Here:
+
+Schermbeck / Germany
+
+§ 3d Satz 2 UStG does not apply because Rens uses his German VAT ID.
+
+---
+
+► Taxability
+
+The intra-Community acquisition is taxable under § 1 Abs. 1 Nr. 5 UStG.
+
+A VAT exemption under § 4b UStG does not apply.
+
+---
+
+► Tax Rate
+
+The standard rate is 19 %.
+
+The reduced rate does not apply.
+
+---
+
+► Person Liable for Tax
+
+Rens is the person liable for tax in respect of the intra-Community acquisition.
+
+Legal basis:
+
+§ 13a Abs. 1 Nr. 2 UStG
+
+---
+
+► Taxable Amount of the Intra-Community Acquisition
+
+Net consideration:
+
+5.000 €
+
+VAT:
+
+5.000 € × 19 %
+
+=
+
+950 €
+
+---
+
+► Tax Arising on the Intra-Community Acquisition
+
+The tax arises upon issuance of the invoice on 05.03.
+
+Legal basis:
+
+§ 13 Abs. 1 Nr. 6 UStG
+
+Advance return period:
+
+03
+
+---
+
+⇨ 6. Input Tax Deduction from the Intra-Community Acquisition
+
+Rens uses the timber braces for his taxable work supply to Thiesen.
+
+Rens is therefore entitled to deduct input tax from the intra-Community acquisition.
+
+Legal basis:
+
+§ 15 Abs. 1 Nr. 3 UStG
+
+Input tax:
+
+950 €
+
+---
+
+⇨ 7. Summary of the Amounts
+
+► Output Supply by Rens to Thiesen
+
+Net:
+
+10.000 €
+
+VAT:
+
+1.900 €
+
+Of which:
+
+- VAZ 01: 159,66 € from advance payment
+- VAZ 03: 1.740,34 € from remaining amount
+
+---
+
+► Intra-Community Acquisition by Rens from Huise
+
+Taxable amount:
+
+5.000 €
+
+VAT:
+
+950 €
+
+Input tax:
+
+950 €
+
+Advance return period:
+
+03
+
+---
+
+⇨ Review Structure for Work Supply
+
+1. Is there a supply of goods or a supply of services?
+
+2. Is third-party or own material being processed?
+
+3. Is a completed item produced or installed?
+
+4. Examine work supply under § 3 Abs. 4 UStG.
+
+5. Determine the place of the work supply.
+
+6. Examine taxability.
+
+7. Examine VAT exemption.
+
+8. Calculate taxable amount and VAT.
+
+9. Examine advance payment separately.
+
+---
+
+⇨ Review Structure for Intra-Community Acquisition
+
+1. Does the item move from another EU country into Germany?
+
+2. Is the acquirer an entrepreneur?
+
+3. Is the acquisition for the enterprise?
+
+4. Is the supplier an entrepreneur?
+
+5. Is the supply made for consideration?
+
+6. Determine the place under § 3d UStG.
+
+7. Taxability under § 1 Abs. 1 Nr. 5 UStG.
+
+8. Examine VAT exemption.
+
+9. Calculate the tax.
+
+10. Examine input tax deduction.
+
+---
+
+⇨ Key Principles
+
+Work supply:
+
+Material + installation + manufacture of an item.
+
+Advance payment:
+
+VAT already arises upon receipt.
+
+Intra-Community acquisition:
+
+Goods move from another EU country to Germany.
+
+Acquisition tax and input tax may offset each other if there is full entitlement.
+
+Transport invoice:
+
+Input tax deduction only if the invoice is issued to the entrepreneur and the service was supplied to it.
+
+---
+
+⇨ Examination Traps
+
+Pitfall No. 1:
+
+Not taxing the advance payment separately.
+
+In the case of advance payments, VAT already arises at the time of receipt.
+
+Pitfall No. 2:
+
+Automatically attributing the transport service to the German entrepreneur.
+
+The decisive factor is who is the customer and addressee of the invoice.
+
+Pitfall No. 3:
+
+Examining an intra-Community supply for the German acquirer.
+
+For the German acquirer there is no intra-Community supply, but an intra-Community acquisition.
+
+Pitfall No. 4:
+
+Forgetting acquisition tax.
+
+In the case of an intra-Community acquisition, acquisition tax arises for the acquirer.
+
+Pitfall No. 5:
+
+Forgetting input tax from the intra-Community acquisition.
+
+If used for taxable output transactions, input tax deduction is possible.
 `
 },
 {

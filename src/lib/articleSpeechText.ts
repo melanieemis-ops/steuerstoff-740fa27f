@@ -6,7 +6,12 @@
  * werden an das TTS-Modell durchgereicht.
  */
 
-import { magazineArticles, type MagazineArticle } from "@/data/magazineArticles";
+import {
+  getMagazineArticleContent,
+  magazineArticles,
+  type MagazineArticle,
+} from "@/data/magazineArticles";
+import type { UILanguage } from "./language";
 import { normalizeForSpeech } from "./speech-normalize";
 
 /** Whitelist erlaubter Artikel für TTS (nur diese IDs werden vertont). */
@@ -147,27 +152,37 @@ function blockToSpeech(block: MagazineArticle["blocks"][number]): string {
   }
 }
 
-export function buildArticleSpeechText(articleId: string): string | null {
+export function buildArticleSpeechText(
+  articleId: string,
+  language: UILanguage = "de",
+): string | null {
   if (!isAudioAllowed(articleId)) return null;
   const article = magazineArticles.find((a) => a.id === articleId);
   if (!article) return null;
+  const content = getMagazineArticleContent(article, language);
 
   // Kuratierter Sprechtext hat Vorrang: keine Quellenlisten, keine
   // UI-Blöcke, kein „Auf einen Blick" – nur der redigierte Vortragstext.
-  if (article.curatedSpeechText && article.curatedSpeechText.trim()) {
-    return finalizeCuratedSpeechText(article.curatedSpeechText);
+  if (content.curatedSpeechText && content.curatedSpeechText.trim()) {
+    return finalizeCuratedSpeechText(content.curatedSpeechText);
   }
 
   const parts: string[] = [];
-  parts.push(article.title + ".");
-  if (article.subtitle) parts.push(article.subtitle + ".");
-  if (article.author) parts.push(`Von ${article.author}.`);
-  parts.push(article.lead);
-  for (const b of article.blocks) {
+  parts.push(content.title + ".");
+  if (content.subtitle) parts.push(content.subtitle + ".");
+  if (content.author) {
+    parts.push(language === "en" ? `By ${content.author}.` : `Von ${content.author}.`);
+  }
+  parts.push(content.lead);
+  for (const b of content.blocks) {
     const s = blockToSpeech(b);
     if (s) parts.push(s);
   }
-  parts.push("Sie haben eine KI-generierte Audiofassung von steuerstoff gehört.");
+  parts.push(
+    language === "en"
+      ? "You have listened to an AI-generated audio version from steuerstoff."
+      : "Sie haben eine KI-generierte Audiofassung von steuerstoff gehört.",
+  );
 
   return normalizeForSpeech(parts.join("\n\n"));
 }

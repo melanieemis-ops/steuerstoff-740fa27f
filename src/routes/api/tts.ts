@@ -18,6 +18,7 @@ import {
   isAudioAllowed,
   segmentSpeechText,
 } from "@/lib/articleSpeechText";
+import { normalizeLanguage } from "@/lib/language";
 
 const PRIMARY_MODEL = "gpt-4o-mini-tts-2025-12-15";
 const SECONDARY_MODEL = "gpt-4o-mini-tts";
@@ -28,6 +29,8 @@ const FALLBACK_VOICE = "nova";
 
 const SPEECH_INSTRUCTIONS =
   "Sprich natürliches Hochdeutsch, warm, kompetent, souverän, ruhig und klar – wie die professionelle Sprecherin eines modernen steuerrechtlichen Fachmagazins. Nicht werblich, nicht übertrieben, sachlich präzise. Rechtsnormen wie Paragrafen, Absätze, Sätze, Nummern und Gesetzesnamen deutlich, langsam und klar artikulieren.";
+const SPEECH_INSTRUCTIONS_EN =
+  "Speak clear, natural English in a warm, competent, calm professional tone, like the narrator of a modern tax magazine. Do not sound promotional or exaggerated. Pronounce legal references, sections, subsections, sentence numbers, and statute names clearly and distinctly.";
 
 async function ttsCall(opts: {
   apiKey: string;
@@ -35,6 +38,7 @@ async function ttsCall(opts: {
   voice: string;
   input: string;
   useInstructions: boolean;
+  instructions: string;
   signal: AbortSignal;
 }): Promise<Response> {
   const body: Record<string, unknown> = {
@@ -43,7 +47,7 @@ async function ttsCall(opts: {
     input: opts.input,
     response_format: "mp3",
   };
-  if (opts.useInstructions) body.instructions = SPEECH_INSTRUCTIONS;
+  if (opts.useInstructions) body.instructions = opts.instructions;
   return fetch("https://api.openai.com/v1/audio/speech", {
     method: "POST",
     headers: {
@@ -65,6 +69,7 @@ function jsonError(status: number, message: string) {
 async function generateSegment(
   apiKey: string,
   input: string,
+  instructions: string,
   signal: AbortSignal,
 ): Promise<{ ok: true; bytes: Uint8Array; model: string; voice: string } | { ok: false; status: number; message: string }> {
   // Fallback-Kette identisch zur bisherigen Logik.
@@ -74,6 +79,7 @@ async function generateSegment(
     voice: PRIMARY_VOICE,
     input,
     useInstructions: true,
+    instructions,
     signal,
   });
   if (r.ok) {
@@ -87,6 +93,7 @@ async function generateSegment(
       voice: PRIMARY_VOICE,
       input,
       useInstructions: true,
+      instructions,
       signal,
     });
     if (r.ok) {
@@ -101,6 +108,7 @@ async function generateSegment(
         voice: FALLBACK_VOICE,
         input,
         useInstructions: true,
+        instructions,
         signal,
       });
       if (r.ok) {
@@ -114,6 +122,7 @@ async function generateSegment(
         voice: FALLBACK_VOICE,
         input,
         useInstructions: false,
+        instructions,
         signal,
       });
       if (r.ok) {
@@ -135,6 +144,7 @@ export const Route = createFileRoute("/api/tts")({
       GET: async ({ request }) => {
         const url = new URL(request.url);
         const articleId = (url.searchParams.get("articleId") ?? "").trim();
+        const language = normalizeLanguage(url.searchParams.get("language"));
         const v = (url.searchParams.get("v") ?? "").trim();
         const manifestFlag = url.searchParams.get("manifest") === "1";
         const hlsFlag = url.searchParams.get("hls") === "1";
@@ -147,16 +157,17 @@ export const Route = createFileRoute("/api/tts")({
           return jsonError(400, "Ungültige Audio-Version.");
         }
 
-        const speechText = buildArticleSpeechText(articleId);
+        const speechText = buildArticleSpeechText(articleId, language);
         if (!speechText) {
           return jsonError(404, "Kein Sprechtext verfügbar.");
         }
+        const instructions = language === "en" ? SPEECH_INSTRUCTIONS_EN : SPEECH_INSTRUCTIONS;
 
         const segments = segmentSpeechText(speechText);
 
         // Manifest-Modus – kein OpenAI-Aufruf.
         if (manifestFlag) {
-          const base = `/api/tts?articleId=${encodeURIComponent(articleId)}&v=${encodeURIComponent(v)}`;
+          const base = `/api/tts?articleId=${encodeURIComponent(articleId)}&language=${encodeURIComponent(language)}&v=${encodeURIComponent(v)}`;
           const manifest = {
             version: v,
             articleId,
@@ -186,7 +197,7 @@ export const Route = createFileRoute("/api/tts")({
         // Decoder pro Segment ermittelt, die Schätzung dient nur zur
         // initialen Playlist-Struktur (TARGETDURATION/EXTINF).
         if (hlsFlag) {
-          const base = `/api/tts?articleId=${encodeURIComponent(articleId)}&v=${encodeURIComponent(v)}`;
+          const base = `/api/tts?articleId=${encodeURIComponent(articleId)}&language=${encodeURIComponent(language)}&v=${encodeURIComponent(v)}`;
           const segDurations = segments.map((s) => {
             const d = estimateSpeechSeconds(s);
             return Number.isFinite(d) && d > 0 ? d : 1;
@@ -231,7 +242,7 @@ export const Route = createFileRoute("/api/tts")({
           const controller = new AbortController();
           request.signal?.addEventListener("abort", () => controller.abort());
 
-          const result = await generateSegment(apiKey, segments[idx], controller.signal);
+          const result = await generateSegment(apiKey, segments[idx], instructions, controller.signal);
           if (!result.ok) {
             if (request.signal?.aborted) return new Response(null, { status: 499 });
             return jsonError(result.status, result.message);

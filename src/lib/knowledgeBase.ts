@@ -5,6 +5,7 @@
 // Fließtext hinterlegt, damit die App Wissens- und Fallfragen beantworten kann.
 
 import { resolveTaxTypeFromText, type TaxType } from "./router/taxTypes";
+import type { UILanguage } from "./language";
 
 
 export type ScenarioType =
@@ -38,14 +39,18 @@ export interface KBExpectation {
 export interface KBEntry {
   id: string;
   title: string;
+  titleEn?: string;
   short?: string;
+  shortEn?: string;
   /** Kategorie — bewusst offen gehalten, damit neue Rechtsgebiete ohne Migration ergänzt werden können. */
   category: string;
   body: string;
+  bodyEn?: string;
   /** Interner Quellenhinweis (nicht öffentlich verlinkt). */
   source?: string;
   /** Trigger für Wissensfrage-Erkennung. Regex, Regex-Quelltext-String oder Liste von Strings/Regexen. */
   keywords?: RegExp | string | (RegExp | string)[];
+  keywordsEn?: RegExp | string | (RegExp | string)[];
   references?: string[];
   /** Umsatzsteuerlicher Sachverhaltstyp — für gezielte KB-Suche nach Klassifizierung. */
   scenarioType?: ScenarioType;
@@ -71,6 +76,27 @@ export function resolveTaxType(e: KBEntry): TaxType | null {
   if (e.taxType) return e.taxType;
   const hay = `${e.category} ${e.title} ${e.id}`;
   return resolveTaxTypeFromText(hay);
+}
+
+export function getKbTitle(entry: KBEntry, language: UILanguage): string {
+  return language === "en" ? entry.titleEn ?? entry.title : entry.title;
+}
+
+export function getKbShort(entry: KBEntry, language: UILanguage): string | undefined {
+  return language === "en" ? entry.shortEn ?? entry.short : entry.short;
+}
+
+export function getKbBody(entry: KBEntry, language: UILanguage): string {
+  return language === "en" ? entry.bodyEn ?? entry.body : entry.body;
+}
+
+export function getKbKeywords(
+  entry: KBEntry,
+  language: UILanguage,
+): KBEntry["keywords"] {
+  return language === "en"
+    ? entry.keywordsEn ?? entry.keywords
+    : entry.keywords;
 }
 
 

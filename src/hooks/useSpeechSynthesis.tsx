@@ -20,6 +20,7 @@ import {
   type ReactNode,
 } from "react";
 import { loadSpeechSettings, type SpeechSettings } from "@/lib/speech-storage";
+import { getSpeechLocale, type UILanguage } from "@/lib/language";
 import { prepareTextForSpeech, segmentTextForSpeech } from "@/lib/speech-utils";
 
 // ─── Typen ───────────────────────────────────────────────────────────────────
@@ -38,7 +39,7 @@ export type SpeechContextValue = {
   /** Verfügbare deutsche Stimmen */
   germanVoices: SpeechSynthesisVoice[];
   /** Vorlesen starten (oder andere Nachricht unterbrechen und neue starten) */
-  speak: (id: string, text: string) => void;
+  speak: (id: string, text: string, language?: UILanguage) => void;
   /** Pause */
   pause: () => void;
   /** Fortsetzen */
@@ -77,6 +78,7 @@ export function SpeechProvider({ children }: { children: ReactNode }) {
   const segmentIndexRef = useRef(0);
   const activeIdRef = useRef<string | null>(null);
   const settingsRef = useRef<SpeechSettings>(settings);
+  const languageRef = useRef<UILanguage>("de");
   const pausedRef = useRef(false);
   const cancelledRef = useRef(false);
 
@@ -109,7 +111,7 @@ export function SpeechProvider({ children }: { children: ReactNode }) {
   }, [isSupported]);
 
   /** Beste verfügbare Stimme ermitteln */
-  function selectVoice(voiceURI?: string): SpeechSynthesisVoice | null {
+  function selectVoice(language: UILanguage, voiceURI?: string): SpeechSynthesisVoice | null {
     const all = window.speechSynthesis.getVoices();
     if (!all.length) return null;
 
@@ -120,12 +122,12 @@ export function SpeechProvider({ children }: { children: ReactNode }) {
     }
 
     // 1. de-DE
-    const deDE = all.find((v) => v.lang === "de-DE");
-    if (deDE) return deDE;
+    const exact = all.find((v) => v.lang === getSpeechLocale(language));
+    if (exact) return exact;
 
-    // 2. de (any)
-    const de = all.find((v) => v.lang.startsWith("de"));
-    if (de) return de;
+    const prefix = language === "en" ? "en" : "de";
+    const byPrefix = all.find((v) => v.lang.toLowerCase().startsWith(prefix));
+    if (byPrefix) return byPrefix;
 
     // 3. Gerätestandardstimme
     const def = all.find((v) => v.default);
@@ -150,10 +152,10 @@ export function SpeechProvider({ children }: { children: ReactNode }) {
     }
 
     const utterance = new SpeechSynthesisUtterance(segmentText);
-    utterance.lang = "de-DE";
+    utterance.lang = getSpeechLocale(languageRef.current);
     utterance.rate = settingsRef.current.rate;
 
-    const voice = selectVoice(settingsRef.current.voiceURI);
+    const voice = selectVoice(languageRef.current, settingsRef.current.voiceURI);
     if (voice) utterance.voice = voice;
 
     utterance.onend = () => {
@@ -177,7 +179,7 @@ export function SpeechProvider({ children }: { children: ReactNode }) {
   }
 
   const speak = useCallback(
-    (id: string, rawText: string) => {
+    (id: string, rawText: string, language: UILanguage = "de") => {
       if (!isSupported) return;
 
       // Laufende Ausgabe stoppen
@@ -193,6 +195,7 @@ export function SpeechProvider({ children }: { children: ReactNode }) {
       queueRef.current = segments;
       segmentIndexRef.current = 0;
       activeIdRef.current = id;
+      languageRef.current = language;
       cancelledRef.current = false;
 
       setActiveId(id);

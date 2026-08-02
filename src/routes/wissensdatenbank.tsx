@@ -6,10 +6,17 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { BookOpen, Search, X, Copy, Check, ClipboardList, FileText, Upload } from "lucide-react";
-import { KNOWLEDGE_BASE } from "@/lib/knowledgeBase";
+import {
+  getKbBody,
+  getKbShort,
+  getKbTitle,
+  KNOWLEDGE_BASE,
+  type KBEntry,
+} from "@/lib/knowledgeBase";
 import { HandoutsManager } from "@/components/HandoutsManager";
 import { listHandouts, type Handout } from "@/lib/knowledgeTopics";
 import { useIsAdmin } from "@/hooks/useIsAdmin";
+import { useUiLanguage, type UILanguage } from "@/lib/language";
 
 export const Route = createFileRoute("/wissensdatenbank")({
   component: Wissensdatenbank,
@@ -118,16 +125,64 @@ function articleMatchesCategory(a: Article, c: Category): boolean {
 interface Article {
   id: string;
   title: string;
+  titleEn?: string;
   short: string;
+  shortEn?: string;
   category: Category;
   categoryId?: CategoryId;
   body: string;
+  bodyEn?: string;
   checklist?: string[];
+  checklistEn?: string[];
   commonMistakes?: string[];
+  commonMistakesEn?: string[];
   questions?: string[];
+  questionsEn?: string[];
   relatedModules?: { label: string; to: string }[];
+  relatedModulesEn?: { label: string; to: string }[];
   tags?: string[];
+  tagsEn?: string[];
+  sourceEn?: string;
+  keywordsEn?: string[];
   source?: string;
+}
+
+function articleTitle(article: Article, language: UILanguage): string {
+  return language === "en" ? article.titleEn ?? article.title : article.title;
+}
+
+function articleShort(article: Article, language: UILanguage): string {
+  return language === "en" ? article.shortEn ?? article.short : article.short;
+}
+
+function articleBody(article: Article, language: UILanguage) {
+  const body = (language === "en" ? article.bodyEn ?? article.body : article.body)?.trim();
+  if (body) return body;
+  return `${articleTitle(article, language)}\n\n${articleShort(article, language)}\n\nDieser Wissenseintrag gehört zur Kategorie ${article.category}. Prüfe den Sachverhalt anhand der Kurzbeschreibung, der Prüfpunkte und der passenden Module.`;
+}
+
+function articleChecklist(article: Article, language: UILanguage): string[] | undefined {
+  return language === "en" ? article.checklistEn ?? article.checklist : article.checklist;
+}
+
+function articleCommonMistakes(article: Article, language: UILanguage): string[] | undefined {
+  return language === "en" ? article.commonMistakesEn ?? article.commonMistakes : article.commonMistakes;
+}
+
+function articleQuestions(article: Article, language: UILanguage): string[] | undefined {
+  return language === "en" ? article.questionsEn ?? article.questions : article.questions;
+}
+
+function articleRelatedModules(article: Article, language: UILanguage) {
+  return language === "en" ? article.relatedModulesEn ?? article.relatedModules : article.relatedModules;
+}
+
+function articleSource(article: Article, language: UILanguage): string | undefined {
+  return language === "en" ? article.sourceEn ?? article.source : article.source;
+}
+
+function articleHasEnglishBody(article: Article): boolean {
+  return Boolean(article.bodyEn?.trim());
 }
 
 const ARTICLES: Article[] = [
@@ -561,16 +616,24 @@ Bei NPO zusätzlich
 ];
 
 // Aus interner Wissensbasis (Kanzlei-Arbeitspapiere) ergänzte Einträge.
-const KB_ARTICLES: Article[] = KNOWLEDGE_BASE.map((e) => ({
+const KB_ARTICLES: Article[] = KNOWLEDGE_BASE.map((e: KBEntry) => ({
   id: `kb-${e.id}`,
   title: e.title,
+  titleEn: e.titleEn,
   short: e.short ?? e.title,
+  shortEn: getKbShort(e, "en"),
   category: e.category as Category,
   body: `${e.body}${
     e.references?.length ? `\n\nRechtsgrundlagen: ${e.references.join(", ")}` : ""
   }`,
+  bodyEn: e.bodyEn
+    ? `${getKbBody(e, "en")}${
+        e.references?.length ? `\n\nLegal references: ${e.references.join(", ")}` : ""
+      }`
+    : undefined,
   source: e.source,
   tags: [e.category],
+  keywordsEn: e.titleEn ? [e.titleEn, e.shortEn ?? "", e.bodyEn ?? ""] : undefined,
 }));
 
 // Dedupe nach ID — KNOWLEDGE_BASE enthält teilweise doppelte Einträge
@@ -606,14 +669,9 @@ function matchHandouts(article: Article): Handout[] {
   });
 }
 
-function articleBody(article: Article) {
-  const body = article.body?.trim();
-  if (body) return body;
-  return `${article.title}\n\n${article.short}\n\nDieser Wissenseintrag gehört zur Kategorie ${article.category}. Prüfe den Sachverhalt anhand der Kurzbeschreibung, der Prüfpunkte und der passenden Module.`;
-}
-
 function ArticleDetails({
   article,
+  language,
   copied,
   notice,
   onCopy,
@@ -621,6 +679,7 @@ function ArticleDetails({
   onClose,
 }: {
   article: Article;
+  language: UILanguage;
   copied: boolean;
   notice: string | null;
   onCopy: (article: Article) => void;
@@ -628,6 +687,11 @@ function ArticleDetails({
   onClose: () => void;
 }) {
   const handouts = matchHandouts(article);
+  const checklist = articleChecklist(article, language);
+  const commonMistakes = articleCommonMistakes(article, language);
+  const questions = articleQuestions(article, language);
+  const relatedModules = articleRelatedModules(article, language);
+  const source = articleSource(article, language);
 
   return (
     <>
@@ -636,8 +700,8 @@ function ArticleDetails({
           <span className="inline-block rounded border border-border bg-background px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted-foreground">
             {getCategoryLabel(article)}
           </span>
-          <h3 className="mt-2 text-lg font-semibold text-foreground">{article.title}</h3>
-          <p className="mt-1 text-xs text-muted-foreground">{article.short}</p>
+          <h3 className="mt-2 text-lg font-semibold text-foreground">{articleTitle(article, language)}</h3>
+          <p className="mt-1 text-xs text-muted-foreground">{articleShort(article, language)}</p>
         </div>
         <button
           type="button"
@@ -651,60 +715,65 @@ function ArticleDetails({
 
       <div className="flex-1 overflow-y-auto p-4 pb-6">
         <section>
+          {language === "en" && !articleHasEnglishBody(article) ? (
+            <p className="mb-3 rounded-lg border border-amber-300 bg-amber-50 px-3 py-2 text-xs text-amber-900">
+              This article is currently available in German.
+            </p>
+          ) : null}
           <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
             Inhalt
           </h4>
           <pre className="mt-2 whitespace-pre-wrap font-sans text-sm leading-relaxed text-foreground">
-            {articleBody(article)}
+            {articleBody(article, language)}
           </pre>
         </section>
 
-        {article.checklist && article.checklist.length > 0 && (
+        {checklist && checklist.length > 0 && (
           <section className="mt-5">
             <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
               Prüfpunkte
             </h4>
             <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-foreground">
-              {article.checklist.map((c, i) => (
+              {checklist.map((c, i) => (
                 <li key={i}>{c}</li>
               ))}
             </ul>
           </section>
         )}
 
-        {article.commonMistakes && article.commonMistakes.length > 0 && (
+        {commonMistakes && commonMistakes.length > 0 && (
           <section className="mt-5">
             <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
               Typische Fehler
             </h4>
             <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-foreground">
-              {article.commonMistakes.map((c, i) => (
+              {commonMistakes.map((c, i) => (
                 <li key={i}>{c}</li>
               ))}
             </ul>
           </section>
         )}
 
-        {article.questions && article.questions.length > 0 && (
+        {questions && questions.length > 0 && (
           <section className="mt-5">
             <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
               Rückfragen
             </h4>
             <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-foreground">
-              {article.questions.map((c, i) => (
+              {questions.map((c, i) => (
                 <li key={i}>{c}</li>
               ))}
             </ul>
           </section>
         )}
 
-        {article.relatedModules && article.relatedModules.length > 0 && (
+        {relatedModules && relatedModules.length > 0 && (
           <section className="mt-5">
             <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
               Passende Module
             </h4>
             <div className="mt-2 flex flex-wrap gap-2">
-              {article.relatedModules.map((m, i) => (
+              {relatedModules.map((m, i) => (
                 <a
                   key={i}
                   href={m.to}
@@ -742,9 +811,9 @@ function ArticleDetails({
           )}
         </section>
 
-        {article.source && (
+        {source && (
           <p className="mt-5 text-[11px] text-muted-foreground">
-            Quelle (intern): {article.source}
+            Quelle (intern): {source}
           </p>
         )}
       </div>
@@ -784,6 +853,7 @@ function ArticleDetails({
 
 function KnowledgeDetailPortal({
   article,
+  language,
   copied,
   notice,
   onCopy,
@@ -791,13 +861,14 @@ function KnowledgeDetailPortal({
   onClose,
 }: {
   article: Article;
+  language: UILanguage;
   copied: boolean;
   notice: string | null;
   onCopy: (article: Article) => void;
   onPruefnotiz: (article: Article) => void;
   onClose: () => void;
 }) {
-  if (typeof document === "undefined" || !document.body || !articleBody(article).trim()) return null;
+  if (typeof document === "undefined" || !document.body || !articleBody(article, language).trim()) return null;
 
   return createPortal(
     <>
@@ -815,6 +886,7 @@ function KnowledgeDetailPortal({
       >
         <ArticleDetails
           article={article}
+          language={language}
           copied={copied}
           notice={notice}
           onCopy={onCopy}
@@ -828,6 +900,7 @@ function KnowledgeDetailPortal({
 }
 
 function Wissensdatenbank() {
+  const language = useUiLanguage();
   const [query, setQuery] = useState("");
   const [cat, setCat] = useState<Category>("Alle");
   const [open, setOpen] = useState<Article | null>(null);
@@ -840,10 +913,26 @@ function Wissensdatenbank() {
 
   // Einzige Quelle der Wahrheit: gleiche Liste für Count UND Karten.
   const finalVisibleItems = useMemo(() => {
+    const q = query.trim().toLowerCase();
     return ALL_ARTICLES.filter((a) => {
-      return activeCategoryId === "all" || getCategoryId(a) === activeCategoryId;
+      if (activeCategoryId !== "all" && getCategoryId(a) !== activeCategoryId) return false;
+      if (!q) return true;
+      const hay = [
+        articleTitle(a, language),
+        articleShort(a, language),
+        articleBody(a, language),
+        a.title,
+        a.short,
+        a.body,
+        ...(a.tags ?? []),
+        ...(a.tagsEn ?? []),
+        ...(a.keywordsEn ?? []),
+      ]
+        .join(" ")
+        .toLowerCase();
+      return hay.includes(q);
     });
-  }, [activeCategoryId]);
+  }, [activeCategoryId, language, query]);
 
   const counts = useMemo(() => {
     const m: Record<string, number> = {};
@@ -876,28 +965,32 @@ function Wissensdatenbank() {
   }, []);
 
   const buildFullText = (a: Article) => {
+    const checklist = articleChecklist(a, language);
+    const commonMistakes = articleCommonMistakes(a, language);
+    const questions = articleQuestions(a, language);
+    const source = articleSource(a, language);
     const lines = [
-      `${getCategoryLabel(a)} — ${a.title}`,
+      `${getCategoryLabel(a)} — ${articleTitle(a, language)}`,
       "",
-      a.short,
+      articleShort(a, language),
       "",
-      articleBody(a),
+      articleBody(a, language),
     ];
-    if (a.checklist?.length) {
-      lines.push("", "Prüfpunkte:", ...a.checklist.map((c) => `- ${c}`));
+    if (checklist?.length) {
+      lines.push("", "Prüfpunkte:", ...checklist.map((c) => `- ${c}`));
     }
-    if (a.commonMistakes?.length) {
-      lines.push("", "Typische Fehler:", ...a.commonMistakes.map((c) => `- ${c}`));
+    if (commonMistakes?.length) {
+      lines.push("", "Typische Fehler:", ...commonMistakes.map((c) => `- ${c}`));
     }
-    if (a.questions?.length) {
-      lines.push("", "Rückfragen:", ...a.questions.map((c) => `- ${c}`));
+    if (questions?.length) {
+      lines.push("", "Rückfragen:", ...questions.map((c) => `- ${c}`));
     }
-    if (a.source) lines.push("", `Quelle (intern): ${a.source}`);
+    if (source) lines.push("", `Quelle (intern): ${source}`);
     return lines.join("\n");
   };
 
   const openArticle = (article: Article) => {
-    if (!articleBody(article).trim()) {
+    if (!articleBody(article, language).trim()) {
       setOpen(null);
       setInlineOpenId(article.id);
       return;
@@ -952,9 +1045,9 @@ function Wissensdatenbank() {
           <BookOpen className="h-3 w-3" />
           {getCategoryLabel(a)}
         </span>
-        <h2 className="mt-3 text-sm font-semibold text-foreground">{a.title}</h2>
+        <h2 className="mt-3 text-sm font-semibold text-foreground">{articleTitle(a, language)}</h2>
         <p className="mt-1 line-clamp-3 flex-1 text-xs leading-relaxed text-muted-foreground">
-          {a.short}
+          {articleShort(a, language)}
         </p>
         <Button
           type="button"
@@ -973,6 +1066,7 @@ function Wissensdatenbank() {
         <div className="mt-3 flex max-h-[75vh] flex-col overflow-hidden rounded-2xl border border-border bg-card text-card-foreground shadow-card-soft sm:col-span-2 lg:col-span-3">
           <ArticleDetails
             article={a}
+            language={language}
             copied={copied}
             notice={notice}
             onCopy={handleCopy}
@@ -1092,9 +1186,10 @@ function Wissensdatenbank() {
         </div>
       </main>
 
-      {open && canUsePortal && articleBody(open).trim() && (
+      {open && canUsePortal && articleBody(open, language).trim() && (
         <KnowledgeDetailPortal
           article={open}
+          language={language}
           copied={copied}
           notice={notice}
           onCopy={handleCopy}

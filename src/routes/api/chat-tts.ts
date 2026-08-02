@@ -14,6 +14,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { normalizeForSpeech } from "@/lib/speech-normalize";
 import { mapWithConcurrency, pcmChunksToWav } from "@/lib/audioWav";
+import { normalizeLanguage } from "@/lib/language";
 
 const PRIMARY_MODEL = "gpt-4o-mini-tts-2025-12-15";
 const SECONDARY_MODEL = "gpt-4o-mini-tts";
@@ -23,6 +24,8 @@ const FALLBACK_VOICE = "nova";
 
 const SPEECH_INSTRUCTIONS =
   "Sprich natürliches Hochdeutsch, warm, kompetent, souverän, ruhig und klar – wie die professionelle Sprecherin eines modernen steuerrechtlichen Fachmagazins. Rechtsnormen wie Paragrafen, Absätze, Sätze, Nummern und Gesetzesnamen deutlich und klar artikulieren.";
+const SPEECH_INSTRUCTIONS_EN =
+  "Speak clear, natural English in a warm, competent, calm professional tone. Pronounce legal references, sections, subsections, sentence numbers, and statute names clearly and distinctly.";
 
 const MAX_TEXT_LENGTH = 8000;
 const CHUNK_TARGET = 2500;
@@ -83,6 +86,7 @@ async function ttsChunk(opts: {
   voice: string;
   input: string;
   useInstructions: boolean;
+  instructions: string;
   signal: AbortSignal;
 }): Promise<Response> {
   const body: Record<string, unknown> = {
@@ -91,7 +95,7 @@ async function ttsChunk(opts: {
     input: opts.input,
     response_format: "pcm",
   };
-  if (opts.useInstructions) body.instructions = SPEECH_INSTRUCTIONS;
+  if (opts.useInstructions) body.instructions = opts.instructions;
   return fetch("https://api.openai.com/v1/audio/speech", {
     method: "POST",
     headers: {
@@ -140,6 +144,7 @@ export const Route = createFileRoute("/api/chat-tts")({
           return new Response("Ungültiger Body.", { status: 400 });
         }
         const rawText = (parsed as { text?: unknown }).text;
+        const language = normalizeLanguage((parsed as { language?: unknown }).language);
         if (typeof rawText !== "string") {
           return new Response("text fehlt.", { status: 400 });
         }
@@ -170,6 +175,7 @@ export const Route = createFileRoute("/api/chat-tts")({
         const chunks = chunkText(cleaned, CHUNK_TARGET);
         const controller = new AbortController();
         request.signal?.addEventListener("abort", () => controller.abort());
+        const instructions = language === "en" ? SPEECH_INSTRUCTIONS_EN : SPEECH_INSTRUCTIONS;
 
         let modelUsed = PRIMARY_MODEL;
         let voiceUsed = PRIMARY_VOICE;
@@ -182,6 +188,7 @@ export const Route = createFileRoute("/api/chat-tts")({
             voice: PRIMARY_VOICE,
             input,
             useInstructions: true,
+            instructions,
             signal: controller.signal,
           });
           if (r.ok) return r;
@@ -193,6 +200,7 @@ export const Route = createFileRoute("/api/chat-tts")({
               voice: PRIMARY_VOICE,
               input,
               useInstructions: true,
+              instructions,
               signal: controller.signal,
             });
             if (r.ok) {
@@ -207,6 +215,7 @@ export const Route = createFileRoute("/api/chat-tts")({
                 voice: FALLBACK_VOICE,
                 input,
                 useInstructions: true,
+                instructions,
                 signal: controller.signal,
               });
               if (r.ok) {
@@ -221,6 +230,7 @@ export const Route = createFileRoute("/api/chat-tts")({
               voice: FALLBACK_VOICE,
               input,
               useInstructions: false,
+              instructions,
               signal: controller.signal,
             });
             if (r.ok) {
@@ -256,6 +266,7 @@ export const Route = createFileRoute("/api/chat-tts")({
                 voice: voiceUsed,
                 input,
                 useInstructions,
+                instructions,
                 signal: controller.signal,
               });
               if (!r.ok) {

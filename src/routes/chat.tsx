@@ -44,6 +44,7 @@ import {
   type PersistedAttachment,
 } from "@/lib/chatAttachments";
 import { apiUrl } from "@/lib/api";
+import { useUiLanguage } from "@/lib/language";
 
 
 
@@ -149,6 +150,7 @@ type Phase = "welcome" | "starting" | "active";
 const GREETING_TEXT = "Wie kann ich dir helfen?";
 
 function ChatPage() {
+  const language = useUiLanguage();
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
@@ -371,13 +373,14 @@ function ChatPage() {
         const fd = new FormData();
         fd.set("message", trimmed);
         fd.set("history", JSON.stringify(history));
+        fd.set("language", language);
         for (const a of usedAttachments) fd.append("attachment", a.file, a.name);
         resp = await fetch(apiUrl("/api/chat"), { method: "POST", body: fd });
       } else {
         resp = await fetch(apiUrl("/api/chat"), {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ message: trimmed, history }),
+          body: JSON.stringify({ message: trimmed, history, language }),
         });
       }
       if (!resp.ok || !resp.body) {

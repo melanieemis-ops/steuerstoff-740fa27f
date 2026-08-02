@@ -10,6 +10,7 @@
 
 import { createFileRoute } from "@tanstack/react-router";
 import { searchKb, formatKbContext, type KbHit } from "@/lib/ai/kbSearch";
+import { normalizeLanguage, type UILanguage } from "@/lib/language";
 
 const PRIMARY_MODEL = "gpt-5-mini";
 const FALLBACK_MODEL = "gpt-4.1-mini";
@@ -41,10 +42,10 @@ const DOC_EXT = new Set([
 const IMPLICIT_ATTACHMENT_PROMPT =
   "Analysiere die beigefügten Inhalte und beantworte die naheliegende steuerliche Frage dazu präzise und praxisnah.";
 
-const SYSTEM_PROMPT = `Du bist "steuerstoff", ein deutschsprachiger steuerlicher Arbeitsassistent für Steuerkanzleien in Deutschland.
+const SYSTEM_PROMPT = `Du bist "steuerstoff", ein steuerlicher Arbeitsassistent für Steuerkanzleien in Deutschland.
 
 Antwortstil (verbindlich):
-- Antworte ausschließlich auf Deutsch, fachlich präzise und ENTSCHEIDUNGSFREUDIG.
+- Antworte fachlich präzise und ENTSCHEIDUNGSFREUDIG.
 - Der ERSTE SATZ nennt das Ergebnis direkt (z. B. "Abgefüllte Cola im Einzelhandel unterliegt 19 % Umsatzsteuer."). Danach maximal 1–3 kurze Begründungssätze mit der einschlägigen Norm (z. B. § 12 Abs. 1 UStG). Keine lange Vorrede, keine Wiederholung der Frage.
 - Bekannte Standardregeln des deutschen Steuerrechts (z. B. USt-Sätze 19 %/7 %, § 12 UStG, Anlage 2 UStG, § 4 UStG, § 15 UStG, § 13b UStG, §§ 4/9 EStG, §§ 55/62 AO, § 250 HGB) darfst und sollst du direkt anwenden — auch ohne interne Fundstelle im Wissenskontext.
 - Der Wissenskontext hat Vorrang, wenn er einen einschlägigen Baustein enthält. Er ist aber KEINE Voraussetzung: verweigere NIE eine Antwort mit Formulierungen wie „aus dem Wissenskontext nicht ableitbar“ oder „keine belegte Grundlage“. Wenn kein passender Baustein vorhanden ist, antworte trotzdem auf Basis des allgemein anerkannten deutschen Steuerrechts.
@@ -58,6 +59,12 @@ Sonderregel Grundstücksvermietung / Option nach § 9 UStG:
 - Fehlt eine dieser Angaben und ist sie ergebnisrelevant, gib KEIN endgültiges Ergebnis aus. Nenne kurz die vorläufige Einordnung (grds. steuerfrei nach § 4 Nr. 12 UStG, Option nach § 9 UStG nur unter Voraussetzungen des § 9 Abs. 2 UStG) und stelle GENAU EINE gezielte Rückfrage nach der wichtigsten fehlenden Angabe.
 
 Format: kompakter, gut lesbarer Fließtext (ggf. sehr kurze Bullet-Liste), OHNE JSON, OHNE Code-Blöcke. Paragraphen inline nennen. Antworten zu Standardfragen sollen typischerweise unter 120 Wörtern bleiben.`;
+
+function languagePrompt(language: UILanguage): string {
+  return language === "en"
+    ? "Respond in English by default unless the user explicitly requests another language."
+    : "Antworte grundsätzlich auf Deutsch, sofern der Nutzer nicht ausdrücklich eine andere Sprache verlangt.";
+}
 
 type IncomingMsg = { role: "user" | "assistant"; content: string };
 
@@ -313,6 +320,7 @@ export const Route = createFileRoute("/api/chat")({
         let message = "";
         let history: IncomingMsg[] = [];
         let attachments: NormalizedAttachment[] = [];
+        let language: UILanguage = "de";
 
         if (contentType.includes("multipart/form-data")) {
           let form: FormData;
@@ -323,6 +331,7 @@ export const Route = createFileRoute("/api/chat")({
           }
           const msgVal = form.get("message");
           message = typeof msgVal === "string" ? msgVal.trim() : "";
+          language = normalizeLanguage(form.get("language"));
           const histVal = form.get("history");
           if (typeof histVal === "string" && histVal) {
             history = normalizeHistory(safeJson(histVal));
@@ -347,9 +356,10 @@ export const Route = createFileRoute("/api/chat")({
           }
         } else {
           const body = (await request.json().catch(() => null)) as
-            | { message?: unknown; history?: unknown }
+            | { message?: unknown; history?: unknown; language?: unknown }
             | null;
           message = typeof body?.message === "string" ? body.message.trim() : "";
+          language = normalizeLanguage(body?.language);
           if (!message || message.length > 4000) {
             return jsonError(400, "Ungültige Nachricht.");
           }
@@ -362,7 +372,7 @@ export const Route = createFileRoute("/api/chat")({
 
         // Lokale KB-Suche auf Basis des Nutzertextes (nicht auf Datei-Inhalten).
         const kbQuery = message || attachments.map((a) => a.filename).join(" ");
-        const hits: KbHit[] = kbQuery ? searchKb(kbQuery, 6, 10) : [];
+        const hits: KbHit[] = kbQuery ? searchKb(kbQuery, language, 6, 10) : [];
         const kbBlock = formatKbContext(hits);
         const attachmentSummary =
           attachments.length > 0
@@ -398,7 +408,7 @@ export const Route = createFileRoute("/api/chat")({
               ];
 
         const input: InputMsg[] = [
-          { role: "system", content: SYSTEM_PROMPT },
+          { role: "system", content: `${SYSTEM_PROMPT}\n\nSprachvorgabe:\n- ${languagePrompt(language)}` },
           ...history,
           { role: "user", content: userContent },
         ];

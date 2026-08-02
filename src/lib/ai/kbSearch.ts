@@ -3,7 +3,16 @@
 // damit sie serverseitig als Kontext an das KI-Modell übergeben werden
 // können. Es gibt bewusst KEINEN Vektorstore/API-Aufruf – alles lokal.
 
-import { KNOWLEDGE_BASE, kbKeywordsToRegExp, type KBEntry } from "@/lib/knowledgeBase";
+import {
+  KNOWLEDGE_BASE,
+  getKbBody,
+  getKbKeywords,
+  getKbShort,
+  getKbTitle,
+  kbKeywordsToRegExp,
+  type KBEntry,
+} from "@/lib/knowledgeBase";
+import type { UILanguage } from "@/lib/language";
 
 import { INTERNAL_KNOWLEDGE_BASE } from "@/lib/expertSystem/internalKnowledge";
 
@@ -41,25 +50,38 @@ function referenceOf(e: KBEntry): string | null {
   return null;
 }
 
-function excerptOf(e: KBEntry, maxChars = 900): string {
-  const body = (e.body ?? "").trim();
-  const short = (e.short ?? "").trim();
+function excerptOf(e: KBEntry, language: UILanguage, maxChars = 900): string {
+  const body = getKbBody(e, language).trim();
+  const short = (getKbShort(e, language) ?? "").trim();
   const base = body || short;
   const cleaned = base.replace(/\s+/g, " ").trim();
   if (cleaned.length <= maxChars) return cleaned;
   return cleaned.slice(0, maxChars).replace(/\s+\S*$/, "") + " …";
 }
 
-function scoreEntry(e: KBEntry, tokens: string[], rawLower: string): number {
+function scoreEntry(
+  e: KBEntry,
+  tokens: string[],
+  rawLower: string,
+  language: UILanguage,
+): number {
   if (tokens.length === 0) return 0;
   let score = 0;
-  const hay = `${e.title} ${e.short ?? ""} ${e.body ?? ""} ${e.category ?? ""} ${e.id}`.toLowerCase();
-  const titleHay = `${e.title} ${e.id}`.toLowerCase();
+  const title = getKbTitle(e, language);
+  const short = getKbShort(e, language) ?? "";
+  const body = getKbBody(e, language);
+  const fallbackHay =
+    language === "en"
+      ? `${e.title} ${e.short ?? ""} ${e.body ?? ""}`
+      : "";
+  const hay = `${title} ${short} ${body} ${fallbackHay} ${e.category ?? ""} ${e.id}`.toLowerCase();
+  const titleHay = `${title} ${e.title} ${e.id}`.toLowerCase();
 
   // Keyword-Regex Treffer haben höchstes Gewicht.
-  if (e.keywords) {
+  const keywords = getKbKeywords(e, language);
+  if (keywords) {
     try {
-      if (kbKeywordsToRegExp(e.keywords).test(rawLower)) score += 8;
+      if (kbKeywordsToRegExp(keywords).test(rawLower)) score += 8;
     } catch { /* noop */ }
   }
 
@@ -84,7 +106,12 @@ function scoreEntry(e: KBEntry, tokens: string[], rawLower: string): number {
 }
 
 /** Findet 6–10 relevante KB-Einträge für die Anfrage. */
-export function searchKb(query: string, min = 6, max = 10): KbHit[] {
+export function searchKb(
+  query: string,
+  language: UILanguage = "de",
+  min = 6,
+  max = 10,
+): KbHit[] {
   const rawLower = query.toLowerCase();
   const tokens = Array.from(new Set(tokenize(query)));
 
@@ -94,7 +121,7 @@ export function searchKb(query: string, min = 6, max = 10): KbHit[] {
   ];
 
   const scored = all
-    .map((e) => ({ entry: e, score: scoreEntry(e, tokens, rawLower) }))
+    .map((e) => ({ entry: e, score: scoreEntry(e, tokens, rawLower, language) }))
     .filter((x) => x.score > 0)
     .sort((a, b) => b.score - a.score);
 
@@ -104,9 +131,9 @@ export function searchKb(query: string, min = 6, max = 10): KbHit[] {
   // Wenn zu wenige echte Treffer, mit besten (auch schwachen) auffüllen bis min – aber niemals unter Score 0.
   return top.map(({ entry, score }) => ({
     id: entry.id,
-    title: entry.title,
+    title: getKbTitle(entry, language),
     reference: referenceOf(entry),
-    excerpt: excerptOf(entry),
+    excerpt: excerptOf(entry, language),
     score,
   }));
 }

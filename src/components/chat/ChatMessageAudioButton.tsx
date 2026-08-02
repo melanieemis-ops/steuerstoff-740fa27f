@@ -18,12 +18,14 @@ import {
   setCachedAudioUrl,
 } from "@/lib/chatTtsClient";
 import { apiUrl } from "@/lib/api";
+import { useUiLanguage } from "@/lib/language";
 import { useSpeechContext } from "@/hooks/useSpeechSynthesis";
 
 type Props = {
   messageId: string;
   text: string;
   isStreaming?: boolean;
+  language?: "de" | "en";
 };
 
 const SPEEDS = [1, 1.25, 1.5] as const;
@@ -31,7 +33,7 @@ type Speed = (typeof SPEEDS)[number];
 
 type Status = "idle" | "loading" | "ready" | "error";
 
-export function ChatMessageAudioButton({ messageId, text, isStreaming = false }: Props) {
+export function ChatMessageAudioButton({ messageId, text, isStreaming = false, language }: Props) {
   const trimmed = text.trim();
   const cacheKey = useMemo(() => hashText(trimmed), [trimmed]);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -43,6 +45,8 @@ export function ChatMessageAudioButton({ messageId, text, isStreaming = false }:
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   const speech = useSpeechContext();
+  const uiLanguage = useUiLanguage();
+  const effectiveLanguage = language ?? uiLanguage;
 
   const stopThisAudio = useCallback(() => {
     const el = audioRef.current;
@@ -128,7 +132,7 @@ export function ChatMessageAudioButton({ messageId, text, isStreaming = false }:
       const res = await fetch(apiUrl("/api/chat-tts"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: trimmed }),
+        body: JSON.stringify({ text: trimmed, language: effectiveLanguage }),
       });
       if (!res.ok) {
         const msg = await res.text().catch(() => "");
@@ -167,8 +171,8 @@ export function ChatMessageAudioButton({ messageId, text, isStreaming = false }:
     setStatus("idle");
     setErrorMsg(null);
     requestStopAllAudio(instanceId);
-    speech.speak(messageId, trimmed);
-  }, [instanceId, messageId, speech, trimmed]);
+    speech.speak(messageId, trimmed, effectiveLanguage);
+  }, [effectiveLanguage, instanceId, messageId, speech, trimmed]);
 
   const disabled = isStreaming || !trimmed;
   const isLoading = status === "loading";

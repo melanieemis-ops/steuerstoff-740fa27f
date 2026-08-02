@@ -25,6 +25,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AUDIO_CONTENT_VERSION } from "@/lib/articleSpeechText";
 import { apiUrl } from "@/lib/api";
 import { onAudioStop, requestStopAllAudio } from "@/lib/chatTtsClient";
+import { getSpeechLocale, type UILanguage } from "@/lib/language";
 import { normalizeForSpeech } from "@/lib/speech-normalize";
 
 type BrowserSpeakContext = {
@@ -43,6 +44,7 @@ type BrowserSpeakContext = {
 
 type Props = {
   articleId: string;
+  language: UILanguage;
   browserSpeakContext: BrowserSpeakContext;
 };
 
@@ -193,7 +195,7 @@ function updatePositionState(audio: HTMLAudioElement) {
   }
 }
 
-export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
+export function ArticleAudioPlayer({ articleId, language, browserSpeakContext }: Props) {
   const sourceId = `magazine-article:${articleId}`;
 
   // Feature-Detection einmalig client-seitig.
@@ -206,6 +208,7 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
     return (
       <HlsPlayer
         articleId={articleId}
+        language={language}
         sourceId={sourceId}
         browserSpeakContext={browserSpeakContext}
       />
@@ -214,6 +217,7 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
   return (
     <PlaylistPlayer
       articleId={articleId}
+      language={language}
       sourceId={sourceId}
       browserSpeakContext={browserSpeakContext}
     />
@@ -226,10 +230,12 @@ export function ArticleAudioPlayer({ articleId, browserSpeakContext }: Props) {
 
 function HlsPlayer({
   articleId,
+  language,
   sourceId,
   browserSpeakContext,
 }: {
   articleId: string;
+  language: UILanguage;
   sourceId: string;
   browserSpeakContext: BrowserSpeakContext;
 }) {
@@ -249,17 +255,17 @@ function HlsPlayer({
 
   const hlsUrl = useMemo(
     () =>
-      apiUrl(`/api/tts?articleId=${encodeURIComponent(articleId)}&v=${encodeURIComponent(
+      apiUrl(`/api/tts?articleId=${encodeURIComponent(articleId)}&language=${encodeURIComponent(language)}&v=${encodeURIComponent(
         AUDIO_CONTENT_VERSION,
       )}&hls=1`),
-    [articleId],
+    [articleId, language],
   );
   const manifestUrl = useMemo(
     () =>
-      apiUrl(`/api/tts?articleId=${encodeURIComponent(articleId)}&v=${encodeURIComponent(
+      apiUrl(`/api/tts?articleId=${encodeURIComponent(articleId)}&language=${encodeURIComponent(language)}&v=${encodeURIComponent(
         AUDIO_CONTENT_VERSION,
       )}&manifest=1`),
-    [articleId],
+    [articleId, language],
   );
 
   // Manifest still im Hintergrund für Dauer-Schätzung laden (kein OpenAI-Call).
@@ -534,14 +540,14 @@ function HlsPlayer({
     setBrowserFallbackActive(true);
     chunks.forEach((c, idx) => {
       const u = new SpeechSynthesisUtterance(c.trim());
-      u.lang = "de-DE";
+      u.lang = getSpeechLocale(language);
       u.rate = 1;
       if (idx === chunks.length - 1) {
         u.onend = () => setBrowserFallbackActive(false);
       }
       synth.speak(u);
     });
-  }, [browserSpeakContext, sourceId]);
+  }, [browserSpeakContext, language, sourceId]);
 
   // Media Session – lokal in HLS-Modus, steuert dasselbe Audio-Element.
   useMediaSession(true, browserSpeakContext.title, browserSpeakContext.subtitle, {
@@ -616,10 +622,12 @@ function HlsPlayer({
 
 function PlaylistPlayer({
   articleId,
+  language,
   sourceId,
   browserSpeakContext,
 }: {
   articleId: string;
+  language: UILanguage;
   sourceId: string;
   browserSpeakContext: BrowserSpeakContext;
 }) {
@@ -643,10 +651,10 @@ function PlaylistPlayer({
 
   const manifestUrl = useMemo(
     () =>
-      apiUrl(`/api/tts?articleId=${encodeURIComponent(articleId)}&v=${encodeURIComponent(
+      apiUrl(`/api/tts?articleId=${encodeURIComponent(articleId)}&language=${encodeURIComponent(language)}&v=${encodeURIComponent(
         AUDIO_CONTENT_VERSION,
       )}&manifest=1`),
-    [articleId],
+    [articleId, language],
   );
 
   const loadManifest = useCallback((): Promise<Manifest | null> => {
@@ -1049,14 +1057,14 @@ function PlaylistPlayer({
     setBrowserFallbackActive(true);
     chunks.forEach((c, idx) => {
       const u = new SpeechSynthesisUtterance(c.trim());
-      u.lang = "de-DE";
+      u.lang = getSpeechLocale(language);
       u.rate = 1;
       if (idx === chunks.length - 1) {
         u.onend = () => setBrowserFallbackActive(false);
       }
       synth.speak(u);
     });
-  }, [browserSpeakContext, disposeAudio, sourceId]);
+  }, [browserSpeakContext, disposeAudio, language, sourceId]);
 
   const isLoading = status === "loading";
   const hasManifest = !!manifest;

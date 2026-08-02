@@ -9,9 +9,11 @@ import {
 } from "react";
 import { createPortal } from "react-dom";
 
-import { magazineArticles, type MagazineArticle } from "@/data/magazineArticles";
+import { getMagazineArticleContent,
+magazineArticles, type MagazineArticle } from "@/data/magazineArticles";
 import { ArticleAudioPlayer } from "@/components/magazine/ArticleAudioPlayer";
 import { finalizeCuratedSpeechText, isAudioAllowed } from "@/lib/articleSpeechText";
+import { getSpeechLocale, useUiLanguage, type UILanguage } from "@/lib/language";
 
 type MagazinePage =
   | {
@@ -91,8 +93,9 @@ const issueCoverIndex = (issueId: string) =>
 
 type FlipDirection = "next" | "previous";
 
-function ArticleTeaser({ article }: { article: MagazineArticle }) {
-  const leadFirst = article.lead.split(/\n\n+/)[0] ?? article.lead;
+function ArticleTeaser({ article, language }: { article: MagazineArticle; language: UILanguage }) {
+  const content = getMagazineArticleContent(article, language);
+  const leadFirst = content.lead.split(/\n\n+/)[0] ?? content.lead;
   const isSpecial = article.format === "special";
   return (
     <div
@@ -106,17 +109,17 @@ function ArticleTeaser({ article }: { article: MagazineArticle }) {
         {isSpecial ? (
           <div className="flex flex-wrap items-center gap-1.5">
             <span className="rounded-sm bg-gradient-to-r from-[#22d3ee] to-[#ec4899] px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.22em] text-[#0b1220]">
-              {article.specialtyLabel ?? "steuerstoff SPEZIAL"}
+              {content.specialtyLabel ?? "steuerstoff SPEZIAL"}
             </span>
-            {article.statusLabel ? (
+            {content.statusLabel ? (
               <span className="rounded-sm border border-[#22d3ee]/40 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-[0.18em] text-[#22d3ee]">
-                {article.statusLabel}
+               {content.statusLabel}
               </span>
             ) : null}
           </div>
         ) : (
           <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#8a6b3a]">
-            {article.issueLabel}
+            {content.issueLabel}
           </p>
         )}
         <h3
@@ -124,11 +127,11 @@ function ArticleTeaser({ article }: { article: MagazineArticle }) {
             isSpecial ? "text-[#f5efe1]" : ""
           }`}
         >
-          {article.title}
+          {content.title}
         </h3>
-        {isSpecial && article.subtitle ? (
+        {isSpecial && content.subtitle ? (
           <p className="mt-1 text-[11.5px] leading-snug text-[#c8d3ea]">
-            {article.subtitle}
+            {content.subtitle}
           </p>
         ) : null}
         <p
@@ -141,7 +144,7 @@ function ArticleTeaser({ article }: { article: MagazineArticle }) {
       </div>
 
       <div className="grid grid-cols-2 gap-2">
-        {article.highlights.map((h) => (
+        {content.highlights.map((h) => (
           <div
             key={h.label}
             className={`min-w-0 rounded-lg px-2.5 py-2 ${
@@ -173,7 +176,7 @@ function ArticleTeaser({ article }: { article: MagazineArticle }) {
           isSpecial ? "text-[#22d3ee]" : "text-[#8a6b3a]"
         }`}
       >
-        Im Vollbild vollständig lesen
+        {language === "en" ? "Read in full screen" : "Im Vollbild vollständig lesen"}
       </p>
     </div>
   );
@@ -185,7 +188,7 @@ const NOTICE_LABEL: Record<"wichtig" | "merke" | "praxistipp", string> = {
   praxistipp: "Praxistipp",
 };
 
-function renderPageContent(page: MagazinePage): ReactNode {
+function renderPageContent(page: MagazinePage, language: UILanguage): ReactNode {
   if (page.kind === "cover") {
     return (
       <img
@@ -198,13 +201,13 @@ function renderPageContent(page: MagazinePage): ReactNode {
   }
   return (
     <div className="absolute inset-0 h-full w-full overflow-hidden">
-      <ArticleTeaser article={page.article} />
+    <ArticleTeaser article={page.article} language={language} />
     </div>
   );
 }
 
-function pageAltText(page: MagazinePage): string {
-  return page.kind === "cover" ? page.alt : page.article.title;
+function pageAltText(page: MagazinePage, language: UILanguage): string {
+  return page.kind === "cover" ? page.alt : getMagazineArticleContent(page.article, language).title;
 }
 
 function pageBackgroundColor(page: MagazinePage): string {
@@ -274,7 +277,16 @@ function blockToPlainText(block: ArticleBlockLike): string {
 // Local alias to make blockToPlainText typing simple
 type ArticleBlockLike = MagazineArticle["blocks"][number];
 
-function ArticleToolbar({ article, hideSpeak = false }: { article: MagazineArticle; hideSpeak?: boolean }) {
+function ArticleToolbar({
+  article,
+  language,
+  hideSpeak = false,
+}: {
+  article: MagazineArticle;
+  language: UILanguage;
+  hideSpeak?: boolean;
+}) {
+  const content = getMagazineArticleContent(article, language);
   const bookmarkKey = `steuerstoff-magazin-bookmark-${article.id}`;
   const [bookmarked, setBookmarked] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
@@ -308,8 +320,8 @@ function ArticleToolbar({ article, hideSpeak = false }: { article: MagazineArtic
 
   const share = async () => {
     const shareData = {
-      title: article.title,
-      text: article.subtitle ?? article.lead.slice(0, 140),
+      title: content.title,
+      text: content.subtitle ?? content.lead.slice(0, 140),
       url: typeof window !== "undefined" ? window.location.href : "",
     };
     try {
@@ -336,10 +348,10 @@ function ArticleToolbar({ article, hideSpeak = false }: { article: MagazineArtic
       return;
     }
     const parts: string[] = [
-      article.title,
-      article.subtitle ?? "",
-      article.lead,
-      ...article.blocks.map(blockToPlainText),
+      content.title,
+      content.subtitle ?? "",
+      content.lead,
+      ...content.blocks.map(blockToPlainText),
     ];
     const full = normalizeForSpeech(parts.filter(Boolean).join(". "));
     // Chunk to avoid engine limits
@@ -347,7 +359,7 @@ function ArticleToolbar({ article, hideSpeak = false }: { article: MagazineArtic
     synth.cancel();
     chunks.forEach((c, idx) => {
       const u = new SpeechSynthesisUtterance(c.trim());
-      u.lang = "de-DE";
+      u.lang = getSpeechLocale(language);
       u.rate = 1;
       if (idx === chunks.length - 1) {
         u.onend = () => setIsSpeaking(false);
@@ -365,7 +377,7 @@ function ArticleToolbar({ article, hideSpeak = false }: { article: MagazineArtic
         aria-pressed={bookmarked}
         className="inline-flex items-center gap-1.5 rounded-full border border-[#22d3ee]/30 bg-[#0b1220]/5 px-3 py-1.5 text-[12px] font-medium text-[#0b1220] transition hover:bg-[#0b1220]/10"
       >
-        {bookmarked ? "★ Gemerkt" : "☆ Merken"}
+        {bookmarked ? (language === "en" ? "★ Saved" : "★ Gemerkt") : language === "en" ? "☆ Save" : "☆ Merken"}
       </button>
       {hideSpeak ? null : (
         <button
@@ -374,7 +386,7 @@ function ArticleToolbar({ article, hideSpeak = false }: { article: MagazineArtic
           aria-pressed={isSpeaking}
           className="inline-flex items-center gap-1.5 rounded-full border border-[#22d3ee]/30 bg-[#0b1220]/5 px-3 py-1.5 text-[12px] font-medium text-[#0b1220] transition hover:bg-[#0b1220]/10"
         >
-          {isSpeaking ? "⏹ Stoppen" : "▶ Vorlesen"}
+          {isSpeaking ? (language === "en" ? "⏹ Stop" : "⏹ Stoppen") : language === "en" ? "▶ Read aloud" : "▶ Vorlesen"}
         </button>
       )}
       <button
@@ -382,7 +394,7 @@ function ArticleToolbar({ article, hideSpeak = false }: { article: MagazineArtic
         onClick={share}
         className="inline-flex items-center gap-1.5 rounded-full border border-[#22d3ee]/30 bg-[#0b1220]/5 px-3 py-1.5 text-[12px] font-medium text-[#0b1220] transition hover:bg-[#0b1220]/10"
       >
-        Teilen
+        {language === "en" ? "Share" : "Teilen"}
       </button>
     </div>
   );
@@ -472,7 +484,8 @@ function ChecklistBlock({
   );
 }
 
-function FullArticle({ article }: { article: MagazineArticle }) {
+function FullArticle({ article, language }: { article: MagazineArticle; language: UILanguage }) {
+  const content = getMagazineArticleContent(article, language);
   const isSpecial = article.format === "special";
   const containerClass = isSpecial
     ? "mx-auto w-full max-w-[780px] overflow-hidden rounded-2xl bg-[#faf5ea] text-[#1c160e] shadow-[0_20px_60px_-24px_rgba(0,0,0,0.6)] ring-1 ring-white/10"
@@ -504,16 +517,16 @@ function FullArticle({ article }: { article: MagazineArticle }) {
           />
           <div className="flex flex-wrap items-center gap-2">
             <span className="rounded-sm bg-gradient-to-r from-[#22d3ee] to-[#ec4899] px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.24em] text-[#0b1220]">
-              {article.specialtyLabel ?? "steuerstoff SPEZIAL"}
+              {content.specialtyLabel ?? "steuerstoff SPEZIAL"}
             </span>
-            {article.statusLabel ? (
+            {content.statusLabel ? (
               <span className="rounded-sm border border-[#22d3ee]/40 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#22d3ee]">
-                {article.statusLabel}
+                {content.statusLabel}
               </span>
             ) : null}
-            {article.category ? (
+            {content.category ? (
               <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-[#c8d3ea]">
-                · {article.category}
+                · {content.category}
               </span>
             ) : null}
           </div>
@@ -521,32 +534,32 @@ function FullArticle({ article }: { article: MagazineArticle }) {
             className="mt-4 font-semibold leading-[1.1] tracking-tight text-[#f5efe1]"
             style={{ fontSize: "clamp(1.75rem, 1.15rem + 2.4vw, 2.75rem)" }}
           >
-            {article.title}
+            {content.title}
           </h1>
-          {article.subtitle ? (
+          {content.subtitle ? (
             <p
               className="mt-3 max-w-[62ch] leading-snug text-[#c8d3ea]"
               style={{ fontSize: "clamp(1rem, 0.95rem + 0.4vw, 1.2rem)" }}
             >
-              {article.subtitle}
+              {content.subtitle}
             </p>
           ) : null}
           <dl className="mt-6 grid grid-cols-2 gap-x-4 gap-y-2 text-[12px] text-[#c8d3ea] sm:grid-cols-4">
-            {article.author ? (
+            {content.author ? (
               <div>
-                <dt className="text-[10px] uppercase tracking-wider text-[#22d3ee]">Autorin</dt>
-                <dd className="mt-0.5 font-medium text-[#f5efe1]">{article.author}</dd>
+                <dt className="text-[10px] uppercase tracking-wider text-[#22d3ee]">{language === "en" ? "Author" : "Autorin"}</dt>
+                <dd className="mt-0.5 font-medium text-[#f5efe1]">{content.author}</dd>
               </div>
             ) : null}
             {article.readingTime ? (
               <div>
-                <dt className="text-[10px] uppercase tracking-wider text-[#22d3ee]">Lesezeit</dt>
-                <dd className="mt-0.5 font-medium text-[#f5efe1]">ca. {article.readingTime} Min.</dd>
+                <dt className="text-[10px] uppercase tracking-wider text-[#22d3ee]">{language === "en" ? "Reading time" : "Lesezeit"}</dt>
+                <dd className="mt-0.5 font-medium text-[#f5efe1]">{language === "en" ? "approx." : "ca."} {article.readingTime} {language === "en" ? "min." : "Min."}</dd>
               </div>
             ) : null}
             {article.legalStatusDate ? (
               <div>
-                <dt className="text-[10px] uppercase tracking-wider text-[#22d3ee]">Rechtsstand</dt>
+                <dt className="text-[10px] uppercase tracking-wider text-[#22d3ee]">{language === "en" ? "Legal status" : "Rechtsstand"}</dt>
                 <dd className="mt-0.5 font-medium text-[#f5efe1]">
                   {formatGermanDate(article.legalStatusDate)}
                 </dd>
@@ -554,7 +567,7 @@ function FullArticle({ article }: { article: MagazineArticle }) {
             ) : null}
             {article.publishedAt ? (
               <div>
-                <dt className="text-[10px] uppercase tracking-wider text-[#22d3ee]">Veröffentlicht</dt>
+                <dt className="text-[10px] uppercase tracking-wider text-[#22d3ee]">{language === "en" ? "Published" : "Veröffentlicht"}</dt>
                 <dd className="mt-0.5 font-medium text-[#f5efe1]">
                   {formatGermanDate(article.publishedAt)}
                 </dd>
@@ -565,15 +578,15 @@ function FullArticle({ article }: { article: MagazineArticle }) {
       ) : (
         <header>
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8a6b3a]">
-            steuerstoff Magazin · {article.issueLabel.replace(/^Ausgabe\s+/, "Ausgabe ")}
+          steuerstoff Magazin · {content.issueLabel.replace(/^Ausgabe\s+/, "Ausgabe ")}
           </p>
           <h1
             className="mt-3 font-semibold leading-tight tracking-tight"
             style={{ fontSize: "clamp(1.5rem, 1.15rem + 1.8vw, 2.25rem)" }}
           >
-            {article.title}
+            {content.title}
           </h1>
-          {article.lead.split(/\n\n+/).map((para, i) => (
+          {content.lead.split(/\n\n+/).map((para, i) => (
             <p
               key={i}
               className="mt-5 font-medium leading-[1.65] text-[#3a2f20]"
@@ -602,36 +615,42 @@ function FullArticle({ article }: { article: MagazineArticle }) {
         {isAudioAllowed(article.id) ? (
           <ArticleAudioPlayer
             articleId={article.id}
+            language={language}
             browserSpeakContext={
-              article.curatedSpeechText && article.curatedSpeechText.trim()
+              content.curatedSpeechText && content.curatedSpeechText.trim()
                 ? {
-                    title: article.title,
-                    subtitle: article.subtitle,
+                    title: content.title,
+                    subtitle: content.subtitle,
                     lead: "",
                     bodyText: "",
-                    speechOverride: finalizeCuratedSpeechText(article.curatedSpeechText),
+                    speechOverride: finalizeCuratedSpeechText(content.curatedSpeechText),
                   }
                 : {
-                    title: article.title,
-                    subtitle: article.subtitle,
-                    lead: article.lead,
-                    bodyText: article.blocks.map(blockToPlainText).filter(Boolean).join(". "),
+                    title: content.title,
+                    subtitle: content.subtitle,
+                    lead: content.lead,
+                    bodyText: content.blocks.map(blockToPlainText).filter(Boolean).join(". "),
                   }
             }
           />
         ) : null}
         {isSpecial || isAudioAllowed(article.id) ? (
-          <ArticleToolbar article={article} hideSpeak={isAudioAllowed(article.id)} />
+          <ArticleToolbar article={article} language={language} hideSpeak={isAudioAllowed(article.id)} />
+        ) : null}
+        {language === "en" && content.missingEnglishBody ? (
+          <p className="rounded-lg border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+            This article is currently available in German.
+          </p>
         ) : null}
         {isSpecial ? (
           <p
             className="font-medium leading-[1.65] text-[#3a2f20]"
             style={{ fontSize: "clamp(1.075rem, 1rem + 0.45vw, 1.235rem)" }}
           >
-            {article.lead}
+            {content.lead}
           </p>
         ) : null}
-        {article.blocks.map((block, i) => {
+        {content.blocks.map((block, i) => {
           if (block.type === "heading") {
             return (
               <h2
@@ -882,6 +901,7 @@ function formatGermanDate(iso: string): string {
 
 
 export function MagazineFlipbook() {
+  const language = useUiLanguage();
   const [pageIndex, setPageIndex] = useState(0);
   const [targetIndex, setTargetIndex] = useState(0);
   const [isFlipping, setIsFlipping] = useState(false);
@@ -989,11 +1009,11 @@ export function MagazineFlipbook() {
       {magazineIssues.length > 1 ? (
         <div className="mb-3">
           <p className="mb-1.5 text-center text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
-            Ausgabe wählen · <span className="text-foreground">Neu: Ausgabe 02</span>
+            {language === "en" ? "Choose issue" : "Ausgabe wählen"} · <span className="text-foreground">{language === "en" ? "New: Issue 02" : "Neu: Ausgabe 02"}</span>
           </p>
           <div
             role="tablist"
-            aria-label="Magazin-Ausgaben"
+            aria-label={language === "en" ? "Magazine issues" : "Magazin-Ausgaben"}
             className="flex items-center justify-center gap-1.5 rounded-full border border-border/70 bg-card/60 p-1 shadow-sm"
           >
             {magazineIssues.map((issue) => {
@@ -1019,7 +1039,7 @@ export function MagazineFlipbook() {
                       aria-hidden="true"
                       className="ml-1.5 inline-flex items-center rounded-full bg-rose-500/15 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-rose-500"
                     >
-                      Neu
+                      {language === "en" ? "New" : "Neu"}
                     </span>
                   ) : null}
                 </button>
@@ -1043,13 +1063,13 @@ export function MagazineFlipbook() {
           }}
         >
           {/* Nächste Seite darunter */}
-          {renderPageContent(magazinePages[targetIndex])}
+          {renderPageContent(magazinePages[targetIndex], language)}
 
           <button
             type="button"
             onClick={() => setIsFullscreen(true)}
             className="absolute inset-0 z-10 cursor-zoom-in"
-            aria-label={`Seite ${pageIndex + 1} im Vollbild öffnen`}
+            aria-label={language === "en" ? `Open page ${pageIndex + 1} in full screen` : `Seite ${pageIndex + 1} im Vollbild öffnen`}
           >
             <div
               className="absolute inset-0 transition-transform duration-700 ease-in-out"
@@ -1062,7 +1082,7 @@ export function MagazineFlipbook() {
                 willChange: "transform",
               }}
               onTransitionEnd={handleFlipEnd}
-              aria-label={pageAltText(magazinePages[pageIndex])}
+              aria-label={pageAltText(magazinePages[pageIndex], language)}
             >
               <div
                 className="absolute inset-0"
@@ -1072,12 +1092,12 @@ export function MagazineFlipbook() {
                   ),
                 }}
               >
-                {renderPageContent(magazinePages[pageIndex])}
+                {renderPageContent(magazinePages[pageIndex], language)}
               </div>
             </div>
 
             <span className="pointer-events-none absolute bottom-4 right-4 rounded-full bg-background/90 px-3 py-1.5 text-[11px] font-medium text-foreground shadow-sm backdrop-blur">
-              Vollbild
+              {language === "en" ? "Full screen" : "Vollbild"}
             </span>
           </button>
 
@@ -1088,7 +1108,7 @@ export function MagazineFlipbook() {
               type="button"
               onClick={showPreviousPage}
               disabled={isFlipping}
-              aria-label="Vorherige Magazinseite"
+              aria-label={language === "en" ? "Previous magazine page" : "Vorherige Magazinseite"}
               className="absolute left-2 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/50 bg-background/85 text-foreground shadow-lg backdrop-blur transition hover:scale-105 disabled:opacity-40"
             >
               <ChevronLeft className="h-5 w-5" aria-hidden="true" />
@@ -1100,7 +1120,7 @@ export function MagazineFlipbook() {
               type="button"
               onClick={showNextPage}
               disabled={isFlipping}
-              aria-label="Nächste Magazinseite"
+              aria-label={language === "en" ? "Next magazine page" : "Nächste Magazinseite"}
               className="absolute right-2 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/50 bg-background/85 text-foreground shadow-lg backdrop-blur transition hover:scale-105 disabled:opacity-40"
             >
               <ChevronRight className="h-5 w-5" aria-hidden="true" />
@@ -1116,7 +1136,7 @@ export function MagazineFlipbook() {
             type="button"
             onClick={() => turnToPage(index)}
             disabled={isFlipping}
-            aria-label={`Magazinseite ${index + 1} öffnen`}
+            aria-label={language === "en" ? `Open magazine page ${index + 1}` : `Magazinseite ${index + 1} öffnen`}
             className={`h-2 rounded-full transition-all ${
               index === pageIndex
                 ? "w-7 bg-foreground"
@@ -1130,8 +1150,8 @@ export function MagazineFlipbook() {
         className="mt-2 text-center text-xs text-muted-foreground"
         aria-live="polite"
       >
-        Seite {pageIndex + 1} von {magazinePages.length}
-        <span className="ml-2">· Zum Umblättern wischen</span>
+        {language === "en" ? "Page" : "Seite"} {pageIndex + 1} {language === "en" ? "of" : "von"} {magazinePages.length}
+        <span className="ml-2">· {language === "en" ? "Swipe to turn pages" : "Zum Umblättern wischen"}</span>
       </p>
 
       {isFullscreen && typeof document !== "undefined"
@@ -1140,7 +1160,7 @@ export function MagazineFlipbook() {
               className="fixed inset-0 z-[100] bg-neutral-900/95"
               role="dialog"
               aria-modal="true"
-              aria-label="steuerstoff Magazin – Vollbild-Leseansicht"
+              aria-label={language === "en" ? "steuerstoff magazine full-screen reading view" : "steuerstoff Magazin – Vollbild-Leseansicht"}
               data-scroll-lock-owner="magazine-fullscreen"
             >
               <div
@@ -1169,7 +1189,7 @@ export function MagazineFlipbook() {
                       type="button"
                       onClick={() => setIsFullscreen(false)}
                       className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white shadow-lg backdrop-blur transition hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
-                      aria-label="Vollbild schließen"
+                      aria-label={language === "en" ? "Close full screen" : "Vollbild schließen"}
                     >
                       <X className="h-5 w-5" aria-hidden="true" />
                     </button>
@@ -1228,7 +1248,7 @@ export function MagazineFlipbook() {
                                 aria-hidden="true"
                               />
                             ) : null}
-                            <FullArticle article={a} />
+                            <FullArticle article={a} language={language} />
                           </div>
                         ))}
                       </section>

@@ -1,3 +1,5 @@
+import type { UILanguage } from "@/lib/language";
+
 export type ArticleBlock =
   | { type: "paragraph"; text: string }
   | { type: "heading"; text: string }
@@ -43,22 +45,32 @@ export interface MagazineArticle {
   id: string;
   slug?: string;
   category: string;
+  categoryEn?: string;
   issueLabel: string;
+  issueLabelEn?: string;
   /** Ausgabe-ID (z.B. "01", "02"), zur Zuordnung im Flipbook. */
   issue?: string;
   title: string;
+  titleEn?: string;
   subtitle?: string;
+  subtitleEn?: string;
   lead: string;
+  leadEn?: string;
   highlights: { label: string; value: string }[];
+  highlightsEn?: { label: string; value: string }[];
   blocks: ArticleBlock[];
+  blocksEn?: ArticleBlock[];
   format?: ArticleFormat;
   status?: string;
   statusLabel?: string;
+  statusLabelEn?: string;
   specialtyLabel?: string;
+  specialtyLabelEn?: string;
   pinned?: boolean;
   legalStatusDate?: string;
   publishedAt?: string;
   author?: string;
+  authorEn?: string;
   readingTime?: number;
   tags?: string[];
   /**
@@ -68,6 +80,44 @@ export interface MagazineArticle {
    * sichtbaren Artikelblöcken. Keine Quellenlisten oder UI-Texte.
    */
   curatedSpeechText?: string;
+  curatedSpeechTextEn?: string;
+}
+
+export function getMagazineArticleContent(
+  article: MagazineArticle,
+  language: UILanguage,
+) {
+  if (language === "en") {
+    return {
+      category: article.categoryEn ?? article.category,
+      issueLabel: article.issueLabelEn ?? article.issueLabel,
+      title: article.titleEn ?? article.title,
+      subtitle: article.subtitleEn ?? article.subtitle,
+      lead: article.leadEn ?? article.lead,
+      highlights: article.highlightsEn ?? article.highlights,
+      blocks: article.blocksEn ?? article.blocks,
+      statusLabel: article.statusLabelEn ?? article.statusLabel,
+      specialtyLabel: article.specialtyLabelEn ?? article.specialtyLabel,
+      author: article.authorEn ?? article.author,
+      curatedSpeechText: article.curatedSpeechTextEn ?? article.curatedSpeechText,
+      missingEnglishBody: !article.blocksEn || article.blocksEn.length === 0,
+    };
+  }
+
+  return {
+    category: article.category,
+    issueLabel: article.issueLabel,
+    title: article.title,
+    subtitle: article.subtitle,
+    lead: article.lead,
+    highlights: article.highlights,
+    blocks: article.blocks,
+    statusLabel: article.statusLabel,
+    specialtyLabel: article.specialtyLabel,
+    author: article.author,
+    curatedSpeechText: article.curatedSpeechText,
+    missingEnglishBody: false,
+  };
 }
 
 export const magazineArticles: MagazineArticle[] = [

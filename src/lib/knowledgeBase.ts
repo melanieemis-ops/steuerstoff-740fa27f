@@ -25736,6 +25736,8 @@ Vor jeder steuerlichen Beratung den neuesten Gesetzesstand prüfen.
   source: "Interne Steuerstoff-Prüfungsvorbereitung",
   keywords:
     "familienstiftung|§ 24 kstg|freibetrag|§ 20 estg|kapitalvermögen|gewinnausschüttung|vermögensverwaltung|stiftung|kapitalgesellschaft|verdeckte gewinnausschüttung|liquidation|steuerliches einlagekonto",
+  keywordsEn:
+    "family foundation|§ 24 kstg|allowance|§ 20 estg|capital assets|profit distribution|asset management|foundation|corporation|hidden profit distribution|vga|liquidation|tax contribution account",
   references: [
     "§ 24 KStG",
     "§ 20 Abs. 1 Nr. 1 EStG",

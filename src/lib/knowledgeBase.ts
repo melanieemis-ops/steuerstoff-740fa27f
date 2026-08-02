@@ -25364,12 +25364,18 @@ sondern der lückenlose Nachweis der gemeinnützigen Nutzung.
 {
   id: "tagesmuetter-gewinnermittlung-pauschalen",
   title: "Tagesmütter: Gewinnermittlung, Betriebsausgabenpauschale und Kleinunternehmerregelung",
+  titleEn:
+    "Childminders: profit determination, flat-rate operating expense deduction, and the small business scheme",
   short:
     "Steuerliche Behandlung von Tagesmüttern: Betriebsausgabenpauschalen, Freihalteplätze und umsatzsteuerliche Kleinunternehmerregelung.",
+  shortEn:
+    "Tax treatment of childminders: flat-rate operating expense deductions, reserved childcare places, and the VAT small business scheme.",
   category: "Einkommensteuer",
   source: "Interne Steuerstoff-Prüfungsvorbereitung",
   keywords:
     "tagesmutter|kindertagespflege|betriebsausgabenpauschale|freihalteplatz|kleinunternehmer|§ 19 ustg|§ 18 estg|gewinnermittlung|eür|umsatzsteuer|bmf 2023",
+  keywordsEn:
+    "childminder|day care|profit determination|flat-rate operating expense deduction|reserved childcare place|small business scheme|§ 19 ustg|§ 18 estg|cash basis accounting|vat|bmf 2023",
   references: [
     "§ 18 EStG",
     "§ 19 UStG",
@@ -25516,9 +25522,151 @@ Freihalteplatz = 50 Euro.
 
 Höhere tatsächliche Kosten = Einzelnachweis.
 `
+,
+bodyEn: `
+⇨ Childminders – income tax and VAT
+
+► Principle
+
+Childminders generally derive income from self-employment (§ 18 EStG).
+
+Profit is generally determined using cash basis accounting (EÜR).
+
+For typical expenses, the tax authorities’ flat-rate operating expense deduction may be used.
+
+► Flat-rate operating expense deduction
+
+For childcare places actually occupied, the following generally applies:
+
+400 euros of operating expenses per child cared for per month
+
+for childcare of 40 hours per week.
+
+If the childcare time is shorter, the flat rate must be reduced pro rata.
+
+The flat rate replaces individual proof of ordinary operating expenses.
+
+Proof of higher actual operating expenses remains possible.
+
+► Reserved childcare places
+
+Reserved childcare places are places
+
+that are reserved for children
+
+but are temporarily not occupied.
+
+If the childminder receives payments for them,
+
+a flat-rate operating expense deduction may be applied for simplification purposes.
+
+Flat rate:
+
+50 euros per reserved childcare place per month.
+
+However, this flat rate may only be taken into account up to the amount of the income received for it.
+
+If the actual expenses are higher,
+
+they may be claimed by individual proof.
+
+► Proof of actual operating expenses
+
+The flat-rate operating expense deduction is not mandatory.
+
+Instead, all actual operating expenses may be claimed
+
+if they are fully substantiated.
+
+This can be particularly useful
+
+if exceptionally high expenses were incurred.
+
+► VAT
+
+For childminders, the general provisions of the Umsatzsteuergesetz generally apply.
+
+Since 2025, the following applies:
+
+In the year of establishment, projected annual turnover is no longer extrapolated.
+
+Only the turnover actually achieved is decisive.
+
+The small business scheme under § 19 UStG may be applied
+
+if the statutory turnover thresholds are met.
+
+Under the current law, the relevant turnover threshold is:
+
+100,000 euros.
+
+If this threshold is exceeded during the current calendar year,
+
+the supplies become subject to regular taxation from that point onward.
+
+► Review structure
+
+1. Is there self-employed child day care?
+
+2. Profit determination under § 18 EStG?
+
+3. Flat-rate operating expense deduction or individual proof?
+
+4. Actually occupied places or reserved childcare places?
+
+5. Review the small business scheme under § 19 UStG.
+
+6. Turnover threshold complied with?
+
+► Legal consequences
+
+Occupied places:
+
+400 euros flat-rate operating expense deduction per child and month
+(for 40 hours per week).
+
+Reserved childcare places:
+
+50 euros flat-rate operating expense deduction per place and month,
+
+up to the amount of the income paid for it.
+
+Alternatively:
+
+Individual proof of the actual operating expenses.
+
+► Review key points
+
+Childminders generally derive income under § 18 EStG.
+
+The flat-rate operating expense deduction is an option.
+
+For occupied places, the higher flat rate generally applies.
+
+For reserved childcare places, a separate flat rate of 50 euros per month applies.
+
+The actual operating expenses may always be claimed by individual proof.
+
+► Exam tip
+
+Typical exam traps:
+
+- Reserved childcare places are often confused with occupied places.
+- The 400-euro flat rate generally applies only to childcare places that are actually occupied.
+- For reserved childcare places, only the 50-euro flat rate applies, and only to the extent income is earned for them.
+- The flat-rate operating expense deduction is not mandatory – individual proof always remains possible.
+
+Key phrase:
+
+Occupied place = 400 euros.
+
+Reserved childcare place = 50 euros.
+
+Higher actual costs = individual proof.
+`
 },
 {
-  id: "altersvorsorgedepot-ab-2027",
+id: "altersvorsorgedepot-ab-2027",
   title: "Altersvorsorgedepot ab 2027",
   short:
     "Geplantes steuerlich gefördertes Altersvorsorgedepot als Nachfolgemodell der Riester-Rente.",
@@ -26047,12 +26195,17 @@ sondern die unangemessene Begünstigung eines Mitglieds.
 {
   id: "zweitwohnsitz-doppelte-haushaltsfuehrung",
   title: "Zweitwohnsitz und doppelte Haushaltsführung",
+  titleEn: "Second residence and maintaining two households",
   short:
     "Steuerliche Folgen eines Zweitwohnsitzes bei Einkommensteuer, Erbschaftsteuer und Zweitwohnungsteuer.",
+  shortEn:
+    "Tax consequences of a second residence for income tax, inheritance tax, and second-home tax.",
   category: "Einkommensteuer",
   source: "Interne Steuerstoff-Prüfungsvorbereitung",
   keywords:
     "zweitwohnsitz|doppelte haushaltsführung|betriebsausgaben|werbungskosten|betriebsstätte|erbschaftsteuer|zweitwohnungsteuer",
+  keywordsEn:
+    "second residence|double household|maintaining two households|operating expenses|income-related expenses|place of business|inheritance tax|second-home tax",
   references: [
     "§ 4 EStG",
     "§ 9 EStG",
@@ -26112,6 +26265,61 @@ mögliche doppelte Haushaltsführung.
 Privater Zweitwohnsitz:
 
 regelmäßig kein Werbungskosten- oder Betriebsausgabenabzug.
+`,
+bodyEn: `
+⇨ Second residence
+
+► Income tax
+
+Maintaining two households requires:
+
+- the primary residence remains in place.
+- the second dwelling is used for work-related purposes.
+- there is a professional reason.
+
+In that case, the expenses may be tax-deductible.
+
+► Private reasons
+
+If the second residence is established exclusively for private reasons (e.g. with an aunt),
+
+there is no case of maintaining two households.
+
+The costs are then generally not deductible.
+
+► Place of business
+
+If there is another place of business at the second residence,
+
+travel between the places of business may constitute operating expenses.
+
+► Inheritance tax
+
+Residence affects tax liability.
+
+Unlimited tax liability:
+
+residence in Germany.
+
+Limited tax liability:
+
+no residence in Germany.
+
+► Second-home tax
+
+Municipal expense tax.
+
+Irrespective of the family relationship.
+
+► Review key point
+
+Work-related second residence:
+
+possible case of maintaining two households.
+
+Private second residence:
+
+generally no deduction as income-related expenses or operating expenses.
 `
 },
 {
@@ -26573,12 +26781,18 @@ Steuerfrei vom Arbeitgeber ersetzt = kein Werbungskostenabzug beim Arbeitnehmer.
 {
   id: "betriebsveraeusserung-erbe-16-34-estg",
   title: "Betriebsveräußerung durch Erben (§ 16 Abs. 4 und § 34 Abs. 3 EStG)",
+  titleEn:
+    "Sale of a business by heirs (§ 16 Abs. 4 and § 34 Abs. 3 EStG)",
   short:
     "Steuerliche Begünstigungen bei der Veräußerung eines geerbten Betriebs oder Mitunternehmeranteils durch den Erben.",
+  shortEn:
+    "Tax relief for the sale by an heir of an inherited business or co-entrepreneur interest.",
   category: "Einkommensteuer",
   source: "Interne Steuerstoff-Prüfungsvorbereitung",
   keywords:
     "§ 16 estg|§ 34 estg|betriebsveräußerung|mitunternehmer|erbfall|erbe|freibetrag|tarifermäßigung|außerordentliche einkünfte|praxisverkauf|mitunternehmeranteil",
+  keywordsEn:
+    "§ 16 estg|§ 34 estg|sale of a business|co-entrepreneur|inheritance|heir|allowance|reduced tax rate|extraordinary income|sale of a practice|co-entrepreneur interest",
   references: [
     "§ 16 Abs. 4 EStG",
     "§ 34 Abs. 3 EStG",
@@ -26678,6 +26892,98 @@ Viele gehen davon aus, dass der Erbe bereits vor dem Erbfall Mitunternehmer gewe
 Das ist falsch.
 
 Entscheidend ist allein, dass der Erbe durch den Erbfall Mitunternehmer wird und anschließend den Betrieb oder Mitunternehmeranteil im Ganzen veräußert.
+`,
+bodyEn: `
+⇨ Sale of a business by heirs
+
+► Principle
+
+If an heir acquires a business or a co-entrepreneur interest by inheritance and subsequently sells it, the heir may claim the tax relief under § 16 Abs. 4 EStG and § 34 Abs. 3 EStG.
+
+A prior status as a co-entrepreneur is not required.
+
+The decisive factor is that the heir personally becomes a co-entrepreneur by virtue of the inheritance.
+
+► Allowance under § 16 Abs. 4 EStG
+
+The allowance may also be available to an heir.
+
+Requirements:
+
+- acquisition of the business or co-entrepreneur interest by succession upon death.
+- sale of the entire business or entire co-entrepreneur interest.
+- the personal requirements of § 16 Abs. 4 EStG are met (e.g. reaching the relevant age threshold or permanent occupational disability).
+
+Prior participation in the business is not required.
+
+► Reduced tax rate under § 34 Abs. 3 EStG
+
+The reduced tax rate may likewise be claimed by the heir.
+
+Requirements:
+
+- extraordinary income is present.
+- the business or co-entrepreneur interest is sold in its entirety.
+- the personal requirements of § 34 Abs. 3 EStG are met.
+
+For tax purposes, the heir is treated as if the heir had sold the business personally.
+
+► Co-entrepreneur status of the heir
+
+The heir only needs to be a co-entrepreneur at the time of the sale.
+
+It is not necessary for the heir to have already been a co-entrepreneur before the inheritance event.
+
+Entry into co-entrepreneur status occurs by virtue of the inheritance event.
+
+► Prevailing view
+
+Case law, academic literature, and the tax authorities uniformly take the view that the relief also applies to heirs.
+
+There is no limitation to co-entrepreneurs who already held an interest before the inheritance event.
+
+► Review structure
+
+1. Is there an inheritance event?
+
+2. Did the heir thereby acquire a business or a co-entrepreneur interest?
+
+3. Is the business or co-entrepreneur interest being sold in its entirety?
+
+4. Are the personal requirements of § 16 Abs. 4 EStG met?
+
+5. Is there extraordinary income under § 34 Abs. 3 EStG?
+
+6. Review the allowance and the reduced tax rate.
+
+► Legal consequence
+
+If all requirements are met,
+
+the heir may claim
+
+- the allowance under § 16 Abs. 4 EStG and
+- the reduced tax rate under § 34 Abs. 3 EStG.
+
+► Review key points
+
+Prior status as a co-entrepreneur is not required.
+
+The heir becomes a co-entrepreneur by virtue of the inheritance event.
+
+The tax relief also applies to heirs.
+
+What matters is the sale of the entire business or co-entrepreneur interest.
+
+► Exam tip
+
+Typical exam trap:
+
+Many assume that the heir must already have been a co-entrepreneur before the inheritance event.
+
+That is incorrect.
+
+The only decisive factor is that the heir becomes a co-entrepreneur by virtue of the inheritance event and subsequently sells the business or co-entrepreneur interest in its entirety.
 `
 },
 {
@@ -26780,12 +27086,18 @@ Freiberufliche Einkünfte nach § 18 EStG.
 {
   id: "praxisveraeusserung-freibetrag-tarifermaessigung",
   title: "Praxisveräußerung: Freibetrag (§ 16 Abs. 4 EStG) und Tarifermäßigung (§ 34 Abs. 3 EStG)",
+  titleEn:
+    "Sale of a professional practice: allowance (§ 16 Abs. 4 EStG) and reduced tax rate (§ 34 Abs. 3 EStG)",
   short:
     "Steuerliche Begünstigungen bei der Veräußerung einer freiberuflichen Praxis: Freibetrag, Tarifermäßigung und Prüfungsschema.",
+  shortEn:
+    "Tax relief on the sale of a professional practice: allowance, reduced tax rate, and review structure.",
   category: "Einkommensteuer",
   source: "Interne Steuerstoff-Prüfungsvorbereitung",
   keywords:
     "§ 16 abs. 4 estg|§ 34 abs. 3 estg|praxisverkauf|praxisveräußerung|veräußerungsgewinn|freibetrag|tarifermäßigung|außerordentliche einkünfte|freiberufler|§ 18 estg|56 prozent|14 prozent|55 lebensjahr",
+  keywordsEn:
+    "§ 16 abs. 4 estg|§ 34 abs. 3 estg|sale of a practice|sale of a professional practice|capital gain on disposal|allowance|reduced tax rate|extraordinary income|self-employed professional|§ 18 estg|56 percent|14 percent|55 years of age",
   references: [
     "§ 16 Abs. 4 EStG",
     "§ 18 Abs. 3 EStG",
@@ -26978,6 +27290,193 @@ Richtig ist:
 Merksatz:
 
 Erst Freibetrag – dann Tarifermäßigung.
+`,
+bodyEn: `
+⇨ Sale of a professional practice: allowance and reduced tax rate
+
+► Principle
+
+If a self-employed professional sells the entire practice, two tax reliefs may be claimed under certain conditions:
+
+- allowance under § 16 Abs. 4 EStG
+- reduced tax rate under § 34 Abs. 3 EStG
+
+Both reliefs serve to reduce the tax burden on the one-off capital gain on disposal.
+
+► Allowance under § 16 Abs. 4 EStG
+
+The allowance generally amounts to:
+
+45,000 euros.
+
+Requirements:
+
+- sale or cessation of the entire business or co-entrepreneur interest,
+- reaching the age of 55 or permanent occupational disability,
+- personal entitlement (only once in a lifetime).
+
+The allowance also applies to the sale of a professional practice (§ 18 Abs. 3 EStG).
+
+► Reduction of the allowance
+
+The allowance is reduced
+
+if the capital gain on disposal
+
+exceeds 136,000 euros.
+
+Reduction formula:
+
+45,000 euros
+minus
+
+(capital gain on disposal
+minus
+136,000 euros)
+
+Example:
+
+Capital gain on disposal:
+150,000 euros
+
+Excess amount:
+
+150,000
+-
+136,000
+=
+14,000 euros
+
+Allowance:
+
+45,000
+-
+14,000
+=
+31,000 euros
+
+From a capital gain on disposal of 181,000 euros, the allowance no longer applies in full.
+
+► Reduced tax rate under § 34 Abs. 3 EStG
+
+In addition, the reduced tax rate under § 34 Abs. 3 EStG may be claimed upon application.
+
+Requirements:
+
+- reaching the age of 55 or permanent occupational disability,
+- extraordinary income under § 34 Abs. 2 Nr. 1 EStG,
+- sale of an entire business or an entire professional practice,
+- application by the taxpayer.
+
+The reduced tax rate may only be claimed once in a lifetime.
+
+► Calculation
+
+First:
+
+capital gain on disposal
+
+minus
+
+allowance under § 16 Abs. 4 EStG.
+
+The remaining gain is then taxed at a reduced rate.
+
+Reduced rate:
+
+56 % of the average tax rate,
+
+but at least
+
+14 %.
+
+► Purpose of the reduced tax rate
+
+The reduced tax rate is intended to avoid the progression effect
+
+that arises
+
+when a high capital gain on disposal is received in a single assessment period.
+
+► Review structure
+
+1. Is there a business sale or sale of a practice?
+
+2. Is it extraordinary income (§ 34 Abs. 2 Nr. 1 EStG)?
+
+3. Is the taxpayer at least 55 years old or permanently occupationally disabled?
+
+4. Review the allowance under § 16 Abs. 4 EStG.
+
+5. If applicable, reduce the allowance because the 136,000-euro threshold is exceeded.
+
+6. Has the reduced tax rate under § 34 Abs. 3 EStG been applied for?
+
+7. Apply the reduced tax rate.
+
+► Example
+
+Sale of a practice:
+
+Capital gain on disposal:
+150,000 euros
+
+Allowance:
+
+31,000 euros
+
+Tax-relieved gain:
+
+119,000 euros
+
+This gain is then taxed at the reduced rate under § 34 Abs. 3 EStG.
+
+► Legal consequences
+
+Allowance:
+
+45,000 euros,
+possibly reduced.
+
+Reduced tax rate:
+
+56 % of the average tax rate,
+
+at least 14 %.
+
+Both reliefs may generally be combined.
+
+► Review key points
+
+The allowance generally amounts to 45,000 euros.
+
+From a capital gain on disposal of 136,000 euros, a reduction is made.
+
+From a capital gain on disposal of 181,000 euros, the allowance no longer applies in full.
+
+The reduced tax rate is 56 % of the average tax rate,
+
+but at least 14 %.
+
+Both reliefs may only be claimed once in a lifetime.
+
+► Exam tip
+
+Typical exam trap:
+
+Many apply the reduced tax rate directly to the entire capital gain on disposal.
+
+The correct approach is:
+
+1. Determine the capital gain on disposal.
+
+2. Deduct the allowance under § 16 Abs. 4 EStG.
+
+3. Only then tax the remaining gain at the reduced rate under § 34 Abs. 3 EStG.
+
+Key phrase:
+
+First the allowance – then the reduced tax rate.
 `
 },
 {

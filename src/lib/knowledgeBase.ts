@@ -21614,12 +21614,17 @@ Bei Verwendung für steuerpflichtige Ausgangsumsätze ist der Vorsteuerabzug mö
 {
   id: "ust-binnenmarkt-tueren-innergemeinschaftlicher-erwerb-vorsteuer",
   title: "Binnenmarkt: Innergemeinschaftlicher Erwerb von Türen und Vorsteueraufteilung",
+  titleEn:"Single Market: Intra-Community Acquisition of Doors and Input Tax Apportionment",
   short:
     "Innergemeinschaftlicher Erwerb mit teilweisem Vorsteuerabzug bei gemischt verwendeten Wirtschaftsgütern.",
+  shortEn:
+    "Intra-Community acquisition with partial input tax deduction for assets used for mixed purposes.",
   category: "Umsatzsteuer",
   source: "Interne Steuerstoff-Prüfungsvorbereitung",
   keywords:
     "binnenmarkt|innergemeinschaftlicher erwerb|türen|vorsteuer|steuerfreie vermietung|§1a ustg|§15 ustg|§4b ustg|vermietung|aufteilung vorsteuer",
+  keywordsEn:
+    "single market|intra-community acquisition|doors|input tax|VAT-exempt rental|§1a ustg|§15 ustg|§4b ustg|rental|input tax apportionment",
   references: [
     "§ 1 Abs. 1 Nr. 5 UStG",
     "§ 1a UStG",
@@ -21873,17 +21878,264 @@ Prüfungsfalle Nr. 4:
 § 4b UStG betrifft nur bestimmte innergemeinschaftliche Erwerbe.
 
 Im Regelfall ist der Erwerb steuerpflichtig.
+`,
+ bodyEn: `
+⇨ Intra-Community Acquisition of Doors
+
+► Initial Facts
+
+Entrepreneur Becker from Germany purchases ten doors from an entrepreneur in the Netherlands.
+
+The doors are delivered directly from Amsterdam to Borken.
+
+Total price:
+
+10,000 €
+
+The invoice is issued on 03.05.
+
+Of the ten doors,
+
+- three doors are sold in taxable transactions,
+- seven doors are installed in a multi-family building rented out VAT-exempt.
+
+---
+
+⇨ 1. Intra-Community Acquisition
+
+The doors move from the Netherlands to Germany.
+
+Therefore, there is an intra-Community acquisition pursuant to § 1a UStG.
+
+Requirements:
+
+- item moves from an EU Member State into the domestic territory
+- acquirer is an entrepreneur
+- acquisition is made for the enterprise
+- supplier is an entrepreneur
+- supply is effected for consideration
+
+All requirements are met.
+
+---
+
+⇨ 2. Place of the Intra-Community Acquisition
+
+The place is determined by § 3d sentence 1 UStG.
+
+The acquisition is effected where the transport ends.
+
+Here:
+
+Borken (Germany)
+
+§ 3d sentence 2 UStG does not apply because Becker uses his German VAT ID number.
+
+---
+
+⇨ 3. Taxability
+
+The intra-Community acquisition is taxable pursuant to
+
+§ 1 Abs. 1 Nr. 5 UStG.
+
+---
+
+⇨ 4. Tax Exemption
+
+A tax exemption under § 4b UStG does not apply.
+
+The acquisitions are therefore subject to VAT.
+
+Tax rate:
+
+19 %
+
+---
+
+⇨ 5. Taxable Amount
+
+Net consideration:
+
+10,000 €
+
+VAT:
+
+10,000 €
+
+× 19 %
+
+=
+
+1,900 €
+
+Tax debtor:
+
+Becker
+
+pursuant to § 13a Abs. 1 Nr. 2 UStG.
+
+---
+
+⇨ 6. Tax Arises
+
+The invoice is issued on 03.05.
+
+The acquisition tax arises pursuant to
+
+§ 13 Abs. 1 Nr. 6 UStG
+
+upon issuance of the invoice.
+
+Advance return period:
+
+May
+
+---
+
+⇨ 7. Input Tax Deduction
+
+In principle, Becker is entitled to deduct input tax from the intra-Community acquisition pursuant to
+
+§ 15 Abs. 1 Satz 1 Nr. 3 UStG
+
+.
+
+However, the doors are used differently.
+
+---
+
+► Three Doors
+
+The three doors are used for taxable transactions.
+
+Here, full input tax deduction is available.
+
+Input tax:
+
+3 × 1,000 €
+
+=
+
+3,000 €
+
+VAT:
+
+570 €
+
+Input tax deduction:
+
+570 €
+
+---
+
+► Seven Doors
+
+Seven doors are installed in a multi-family building rented out VAT-exempt.
+
+The rental is VAT-exempt pursuant to § 4 Nr. 12 Buchst. a UStG.
+
+Since these transactions exclude input tax deduction, there is no input tax deduction in this respect.
+
+Input tax:
+
+0 €
+
+---
+
+⇨ 8. Result
+
+Acquisition tax:
+
+1,900 €
+
+Input tax:
+
+570 €
+
+Non-deductible input tax:
+
+1,330 €
+
+---
+
+⇨ Examination Schema
+
+1. Does an item move from an EU Member State to Germany?
+
+2. Entrepreneur as acquirer?
+
+3. Acquisition for the enterprise?
+
+4. Place of acquisition (§ 3d UStG)
+
+5. Taxability (§ 1 Abs. 1 Nr. 5 UStG)
+
+6. Check tax exemption
+
+7. Determine taxable amount
+
+8. Calculate acquisition tax
+
+9. Check input tax deduction under § 15 UStG
+
+10. Observe exclusion of input tax deduction
+
+---
+
+⇨ Key Principles
+
+The intra-Community acquisition generally triggers acquisition tax.
+
+However, the entrepreneur receives input tax only to the extent that the acquired items are used for transactions that entitle to input tax deduction.
+
+VAT-exempt rental transactions (§ 4 Nr. 12 UStG) regularly exclude input tax deduction.
+
+In the case of mixed use, the input tax must be apportioned.
+
+---
+
+⇨ Examination Traps
+
+Pitfall No. 1:
+
+Acquisition tax and input tax are often treated as identical.
+
+That is incorrect.
+
+Acquisition tax always arises.
+
+Input tax deduction must be examined separately.
+
+Pitfall No. 2:
+
+VAT-exempt rental generally does not entitle to input tax deduction.
+
+Pitfall No. 3:
+
+In the case of mixed use, the input tax must be apportioned.
+
+Pitfall No. 4:
+
+§ 4b UStG only concerns certain intra-Community acquisitions.
+
+As a rule, the acquisition is subject to VAT.
 `
 },
 {
-  id: "ust-binnenmarkt-reihengeschaeft-beistelltische-ausfuhrlieferung",
-  title: "Binnenmarkt: Reihengeschäft mit Beistelltischen und Ausfuhrlieferung",
-  short:
-    "Reihengeschäft mit Ausfuhrlieferung nach Norwegen, Zuordnung der Warenbewegung, Lieferort, § 14c UStG und Vorsteuerabzug.",
-  category: "Umsatzsteuer",
-  source: "Interne Steuerstoff-Prüfungsvorbereitung",
-  keywords:
-    "reihengeschäft|beistelltische|ausfuhrlieferung|norwegen|lieferort|§3 abs6|§3 abs7|§4 nr1a|§6 ustg|§14c|vorsteuer",
+ id: "ust-binnenmarkt-reihengeschaeft-beistelltische-ausfuhrlieferung",
+ title: "Binnenmarkt: Reihengeschäft mit Beistelltischen und Ausfuhrlieferung",
+ titleEn:"Single Market: Chain Transaction with Side Tables and Export Supply",
+ short:
+   "Reihengeschäft mit Ausfuhrlieferung nach Norwegen, Zuordnung der Warenbewegung, Lieferort, § 14c UStG und Vorsteuerabzug.",
+ shortEn:
+   "Chain transaction with export supply to Norway, allocation of the movement of goods, place of supply, § 14c UStG, and input tax deduction.",
+ category: "Umsatzsteuer",
+ source: "Interne Steuerstoff-Prüfungsvorbereitung",
+ keywords:
+   "reihengeschäft|beistelltische|ausfuhrlieferung|norwegen|lieferort|§3 abs6|§3 abs7|§4 nr1a|§6 ustg|§14c|vorsteuer",
+ keywordsEn:
+   "chain transaction|side tables|export supply|Norway|place of supply|§3 abs6|§3 abs7|§4 nr1a|§6 ustg|§14c|input tax",
   references: [
     "§ 1 UStG",
     "§ 3 Abs. 6 UStG",
@@ -22103,17 +22355,231 @@ Bei Reihengeschäften darf die Warenbewegung nur einer Lieferung zugeordnet werd
 Prüfungsfalle Nr. 4:
 
 Die unbewegte Lieferung richtet sich nach § 3 Abs. 7 UStG und kann im Ausland ausgeführt werden.
+`,
+ bodyEn: `
+⇨ Chain Transaction – Side Tables
+
+► Initial Facts
+
+Furniture dealer G sells three side tables to Norwegian dealer K.
+
+Since G no longer has suitable tables in stock, he orders them from intermediary F.
+
+F dispatches the tables directly to K in Oslo.
+
+This therefore constitutes a chain transaction involving three entrepreneurs:
+
+F → G → K
+
+---
+
+⇨ 1. Preliminary Consideration – Chain Transaction
+
+Several entrepreneurs conclude purchase contracts regarding the same item.
+
+The item moves directly from the first supplier to the last acquirer.
+
+Therefore, there is a chain transaction pursuant to § 3 Abs. 6a UStG.
+
+---
+
+⇨ 2. Allocation of the Movement of Goods
+
+The transport is arranged by F.
+
+Therefore, the movement of goods must be allocated to the supply
+
+F → G
+
+.
+
+This supply is the moving supply.
+
+Place of supply:
+
+Beginning of the transport
+
+=
+
+Cologne
+
+pursuant to § 3 Abs. 6 UStG.
+
+The supply
+
+G → K
+
+is the non-moving supply.
+
+Place of supply:
+
+End of the transport
+
+=
+
+Oslo
+
+pursuant to § 3 Abs. 7 sentence 2 no. 2 UStG.
+
+---
+
+⇨ 3. Supply by F to G
+
+F supplies the tables to G.
+
+The transport is an ancillary service and shares the fate of the principal supply.
+
+Since F, as supplier, dispatches the items directly to the third-country territory, this is an export supply.
+
+Legal bases:
+
+§ 4 Nr. 1a UStG
+
+in conjunction with
+
+§ 6 UStG
+
+Result:
+
+- taxable
+- VAT-exempt
+
+Taxable amount:
+
+9,000 €
+
+The transaction must be declared in the advance return period for February.
+
+---
+
+⇨ 4. Incorrect Invoice of F
+
+F shows
+
+1,710 €
+
+VAT in the invoice.
+
+Since the supply is VAT-exempt, this is an incorrect VAT disclosure.
+
+Legal basis:
+
+§ 14c Abs. 1 UStG
+
+Consequences:
+
+- F owes the disclosed VAT.
+- An invoice correction is possible.
+
+---
+
+⇨ 5. Supply by G to K
+
+This supply is the non-moving supply.
+
+The place of supply is in
+
+Oslo.
+
+Therefore, the supply is not carried out in the domestic territory.
+
+Result:
+
+- not taxable in Germany
+
+Taxable amount:
+
+12,000 €
+
+---
+
+⇨ 6. Input Tax Deduction of G
+
+In principle, input tax deduction requires
+
+that there is VAT legally owed.
+
+However, the supply by F is VAT-exempt.
+
+The VAT shown arises only from § 14c UStG.
+
+VAT owed pursuant to § 14c does not entitle the recipient to input tax deduction.
+
+Result:
+
+No input tax deduction for G.
+
+---
+
+⇨ Examination Schema
+
+1. Is there a chain transaction?
+
+2. Who arranges the transport?
+
+3. Which supply is the moving supply?
+
+4. Determine the place of supply of the moving supply.
+
+5. Determine the place of supply of the non-moving supply.
+
+6. Check VAT exemption (export supply).
+
+7. Check incorrect VAT disclosure (§ 14c UStG).
+
+8. Check input tax deduction.
+
+---
+
+⇨ Key Principles
+
+In a chain transaction, the movement of goods can be allocated to only one supply.
+
+The moving supply is generally determined by § 3 Abs. 6 UStG.
+
+The subsequent supply is generally the non-moving supply (§ 3 Abs. 7 UStG).
+
+An export supply is VAT-exempt.
+
+An incorrect VAT disclosure pursuant to § 14c UStG does give rise to a tax liability,
+
+but does not entitle the service recipient to input tax deduction.
+
+---
+
+⇨ Examination Traps
+
+Pitfall No. 1:
+
+Not every invoice showing VAT entitles to input tax deduction.
+
+Pitfall No. 2:
+
+§ 14c UStG merely creates a tax liability of the invoice issuer.
+
+Pitfall No. 3:
+
+In chain transactions, the movement of goods may be allocated to only one supply.
+
+Pitfall No. 4:
+
+The non-moving supply is governed by § 3 Abs. 7 UStG and may be carried out abroad.
 `
 },
 {
-  id: "ust-vorsteuerberichtigung-billigkeitsgruende",
-  title: "Vorsteuerberichtigung aus Billigkeitsgründen (§ 15a UStG)",
-  short:
-    "Vorsteuerberichtigung aus Billigkeitsgründen bei teilunternehmerischer Nutzung eines Wirtschaftsguts und späterer Nutzungsänderung bzw. Veräußerung.",
-  category: "Umsatzsteuer",
-  source: "Interne Steuerstoff-Prüfungsvorbereitung",
-  keywords:
-    "vorsteuerberichtigung|billigkeitsgruende|§15a|§44ustdv|teilunternehmerisch|pkw|vereine|veraeusserung|vorsteuer",
+ id: "ust-vorsteuerberichtigung-billigkeitsgruende",
+ title: "Vorsteuerberichtigung aus Billigkeitsgründen (§ 15a UStG)",
+ titleEn:"Input Tax Adjustment on Grounds of Equity (§ 15a UStG)",
+ short:
+   "Vorsteuerberichtigung aus Billigkeitsgründen bei teilunternehmerischer Nutzung eines Wirtschaftsguts und späterer Nutzungsänderung bzw. Veräußerung.",
+ shortEn:
+   "Input tax adjustment on grounds of equity in the case of partial business use of an asset and a later change in use or disposition.",
+ category: "Umsatzsteuer",
+ source: "Interne Steuerstoff-Prüfungsvorbereitung",
+ keywords:
+   "vorsteuerberichtigung|billigkeitsgruende|§15a|§44ustdv|teilunternehmerisch|pkw|vereine|veraeusserung|vorsteuer",
+ keywordsEn:
+   "input tax adjustment|grounds of equity|§15a|§44ustdv|partial business use|motor vehicle|associations|disposition|input tax",
   references: [
     "§ 15 Abs. 1 UStG",
     "§ 15a UStG",
@@ -22335,17 +22801,237 @@ Immer zuerst feststellen:
 - verbleibende Berichtigungsjahre
 
 Erst danach wird der Berichtigungsbetrag berechnet.
+`,
+ bodyEn: `
+⇨ Input Tax Adjustment on Grounds of Equity
+
+► Principle
+
+If an asset is used only partially for business purposes, in principle only the portion used for business purposes is entitled to input tax deduction.
+
+If the business use changes within the adjustment period, an input tax adjustment pursuant to § 15a UStG may be made on grounds of equity.
+
+The de minimis thresholds of § 44 UStDV must be exceeded.
+
+---
+
+► Initial Case
+
+Purchase of a Motor Vehicle
+
+Purchase price:
+30,000 €
+
+VAT:
+5,700 €
+
+Business use:
+
+50 %
+
+Ideological sphere:
+
+50 %
+
+Input tax deduction:
+
+5,700 € × 50 %
+
+=
+2,850 €
+
+---
+
+► Year 03 – Increase in Business Use
+
+The business use increases from
+
+50 %
+
+to
+
+70 %.
+
+Since the use entitling to input tax deduction increases, there is a change in circumstances pursuant to § 15a UStG.
+
+Adjustment period:
+
+5 years
+
+Total input tax:
+
+5,700 €
+
+Change:
+
+20 percentage points
+
+Calculation:
+
+5,700 € ÷ 5
+
+=
+1,140 €
+
+1,140 € × 20 %
+
+=
+228 €
+
+Result:
+
+Input tax adjustment
+
+228 €
+
+in favor of the entrepreneur.
+
+---
+
+► Year 04 – Sale of the Motor Vehicle
+
+The motor vehicle is sold for
+
+10,000 € net
+
+.
+
+Since the motor vehicle was last used
+
+70 %
+
+for business purposes,
+
+that portion is taxable.
+
+VAT:
+
+10,000 €
+
+× 70 %
+
+× 19 %
+
+=
+1,330 €
+
+---
+
+► Further Input Tax Adjustment
+
+The disposition also constitutes a change in circumstances.
+
+Another input tax adjustment takes place pursuant to § 15a UStG.
+
+Total input tax:
+
+5,700 €
+
+Adjustment period:
+
+5 years
+
+Change:
+
+20 percentage points
+
+Annual adjustment amount:
+
+5,700 € ÷ 5 × 20 %
+
+=
+228 €
+
+Remaining term:
+
+2 years
+
+Total adjustment:
+
+228 €
+
+× 2
+
+=
+456 €
+
+This adjustment is made in favor of the entrepreneur.
+
+---
+
+⇨ Examination Schema
+
+1. Is there an asset with an adjustment period?
+
+2. Determine the original input tax deduction.
+
+3. Change in use within the adjustment period?
+
+4. De minimis thresholds (§ 44 UStDV) exceeded?
+
+5. Determine the new input tax percentage.
+
+6. Calculate the difference in the usage percentage.
+
+7. Carry out the input tax adjustment for each remaining year.
+
+---
+
+⇨ Calculation Formula
+
+Total input tax
+
+÷ adjustment years
+
+× change in use
+
+× remaining years
+
+=
+
+input tax adjustment
+
+---
+
+⇨ Key Principles
+
+An increase in business use regularly leads to an input tax adjustment in favor of the entrepreneur.
+
+A decrease in business use regularly leads to an input tax adjustment to the detriment of the entrepreneur.
+
+A disposition within the adjustment period can also trigger an input tax adjustment.
+
+The adjustment is made only if the de minimis thresholds of § 44 UStDV are exceeded.
+
+---
+
+⇨ Examination Tip
+
+Always determine first:
+
+- original input tax deduction
+- adjustment period (5 or 10 years)
+- old usage percentage
+- new usage percentage
+- remaining adjustment years
+
+Only afterwards is the adjustment amount calculated.
 `
 },
 {
   id: "ust-unternehmer-rahmen-des-unternehmens",
   title: "Unternehmer und Rahmen des Unternehmens (§ 2 UStG)",
+  titleEn: "Entrepreneur and Scope of the Business (§ 2 UStG)",
   short:
     "Bestimmung der Unternehmereigenschaft, des Unternehmensumfangs sowie der Abgrenzung zwischen selbständiger und nichtselbständiger Tätigkeit.",
+  shortEn:
+    "Determination of entrepreneur status, scope of the business, and the distinction between independent and dependent activity.",
   category: "Umsatzsteuer",
   source: "Interne Steuerstoff-Prüfungsvorbereitung",
   keywords:
     "unternehmer|§2 ustg|selbständig|nichtselbständig|vorbereitungshandlungen|hilfsgeschäft|vermietung|grundgeschäft|geschäftsführer|ohg|gmbh",
+  keywordsEn:
+    "entrepreneur|§2 ustg|independent|dependent|preliminary activities|auxiliary business|rental|principal business|manager|ohg|gmbh",
   references: [
     "§ 2 Abs. 1 UStG",
     "§ 2 Abs. 2 Nr. 1 UStG",
@@ -22644,19 +23330,317 @@ Prüfungsfalle Nr. 3:
 Mehrere völlig unterschiedliche Tätigkeiten können umsatzsteuerlich ein einziges Unternehmen bilden.
 
 Prüfungsfalle Nr. 4:
-
+ 
 Bereits Vorbereitungshandlungen können den Unternehmerstatus begründen, auch wenn niemals Umsätze ausgeführt werden.
+`,
+ bodyEn: `
+
+⇨ Entrepreneur (§ 2 UStG)
+
+An entrepreneur is whoever
+
+- carries out a commercial or professional activity
+- independently
+- on a sustained basis
+- for the purpose of generating income
+
+.
+
+The enterprise generally comprises the entire commercial or professional activity.
+
+---
+
+⇨ Case 1 – Tax Official as Lecturer
+
+► Facts
+
+A tax official teaches on Saturdays at the tax adviser academy.
+
+His activity at the tax office is subject to instructions.
+
+► Solution
+
+⇶ Activity at the Tax Office
+
+No independence.
+
+→ not an entrepreneur
+
+Legal basis:
+
+§ 2 Abs. 2 Nr. 1 UStG
+
+⇶ Teaching at the Tax Adviser Academy
+
+The teaching activity is carried out independently.
+
+It constitutes an independent activity.
+
+Result:
+
+- entrepreneur
+- independent activity
+- own enterprise
+
+Key principle:
+
+A person may simultaneously be an employee and an entrepreneur.
+
+---
+
+⇨ Case 2 – Employee Issues Invoices to Employer
+
+► Facts
+
+An employee additionally works for the employer on Sundays and issues invoices for this.
+
+► Solution
+
+The invoice is not decisive,
+
+but rather the actual circumstances.
+
+Since the activity continues to be
+
+- subject to instructions
+- organizationally integrated
+
+,
+
+there is overall no independence.
+
+Result:
+
+- not an entrepreneur
+- no VAT
+- employment income
+
+Key principle:
+
+Wage tax and VAT exclude each other for the same activity.
+
+---
+
+⇨ Case 3 – Sports Shop, Tanning Studio, and Rental
+
+► Facts
+
+Benno Ohm operates
+
+- a sports shop
+- a tanning studio
+- rental of unbuilt real property
+
+In addition, he owns a self-occupied single-family house.
+
+► Solution
+
+Ohm is an entrepreneur with regard to
+
+- sports retail
+- tanning studio
+- real property rental
+
+All activities together form
+
+one enterprise.
+
+Legal basis:
+
+§ 2 Abs. 1 UStG
+
+Each activity constitutes a separate principal business,
+
+but nevertheless belongs to the same enterprise.
+
+⇶ Not Part of the Enterprise
+
+The privately used single-family house.
+
+It does not serve to generate income.
+
+Therefore, it does not belong to the enterprise.
+
+---
+
+⇨ Case 4 – Furniture Dealer with Several Activities
+
+► Facts
+
+Jab operates
+
+- furniture trade
+- rental
+- lectures on ornithology
+- publication of books
+
+In addition
+
+- he sells a Porsche previously used for business purposes,
+- is a partner in an OHG,
+- is managing director of a GmbH.
+
+► Solution
+
+⇶ Entrepreneurial Activities
+
+The enterprise includes
+
+- furniture trade
+- rental
+- ornithology
+
+Lectures and books together form the principal business "ornithology."
+
+---
+
+⇶ Sale of the Porsche
+
+The sale of an asset previously used for business purposes constitutes
+
+an auxiliary business.
+
+Auxiliary businesses also belong to the enterprise.
+
+Sustained activity is not required for this.
+
+---
+
+⇶ Participation in the OHG
+
+The OHG
+
+is itself an entrepreneur.
+
+Participation alone does not establish a separate entrepreneur status.
+
+---
+
+⇶ Managing Director of the GmbH
+
+As managing director, Jab acts
+
+subject to instructions.
+
+Therefore, vis-à-vis the GmbH
+
+there is no independent activity.
+
+Result:
+
+- not an entrepreneur vis-à-vis the GmbH
+
+Legal basis:
+
+§ 2 Abs. 2 Nr. 1 UStG
+
+---
+
+⇨ Case 5 – Preliminary Activities
+
+► Facts
+
+An employed lawyer wishes to become self-employed.
+
+He
+
+- rents office space,
+- orders a computer,
+
+but abandons the intention to establish the business before commencing activity.
+
+► Solution
+
+Serious preliminary activities alone can already
+
+establish entrepreneur status.
+
+Actually carried out transactions
+
+are not required for this.
+
+The prerequisite is
+
+that the services received
+
+were objectively
+
+intended for a later entrepreneurial activity.
+
+Result:
+
+Entrepreneur status already arises during the preliminary phase.
+
+---
+
+⇨ Examination Schema for Entrepreneur Status
+
+1. Is there an activity?
+
+2. Is it carried out independently?
+
+3. Is it carried out on a sustained basis?
+
+4. Does it serve to generate income?
+
+5. Does it belong to the existing enterprise?
+
+6. Is it merely an auxiliary business?
+
+---
+
+⇨ Key Principles
+
+The enterprise generally comprises the entire commercial and professional activity.
+
+Several different activities can belong to one enterprise.
+
+Auxiliary businesses likewise belong to the enterprise.
+
+Employees subject to instructions are not entrepreneurs.
+
+Preliminary activities can already establish entrepreneur status.
+
+Partners in a partnership do not become entrepreneurs solely by virtue of their participation.
+
+Managing directors of a GmbH generally do not act independently.
+
+---
+
+⇨ Examination Tips
+
+Pitfall No. 1:
+
+Invoices do not automatically make an employee an entrepreneur.
+
+Pitfall No. 2:
+
+Auxiliary businesses (e.g. sale of fixed assets) always belong to the enterprise.
+
+Pitfall No. 3:
+
+Several completely different activities can form a single enterprise for VAT purposes.
+
+Pitfall No. 4:
+
+Preliminary activities can already establish entrepreneur status, even if no transactions are ever carried out.
 `
 },
 {
-  id: "ust-unentgeltliche-wertabgabe-grundfaelle",
-  title: "Unentgeltliche Wertabgaben – Grundfälle (§ 3 Abs. 1b und 3 Abs. 9a UStG)",
-  short:
-    "Systematische Prüfung der unentgeltlichen Wertabgabe bei Entnahmen, Schenkungen, Privatverwendungen und unentgeltlichen Dienstleistungen.",
-  category: "Umsatzsteuer",
-  source: "Interne Steuerstoff-Prüfungsvorbereitung",
-  keywords:
-    "unentgeltliche wertabgabe|entnahme|privatentnahme|schenkung|eigenverbrauch|§3 abs1b|§3 abs9a|dienstleistung|werkleistung|iPad|Armband|Garten|Mietwohnung",
+ id: "ust-unentgeltliche-wertabgabe-grundfaelle",
+ title: "Unentgeltliche Wertabgaben – Grundfälle (§ 3 Abs. 1b und 3 Abs. 9a UStG)",
+ titleEn:
+   "Gratuitous Transfers of Value – Basic Cases (§ 3 Abs. 1b and 3 Abs. 9a UStG)",
+ short:
+   "Systematische Prüfung der unentgeltlichen Wertabgabe bei Entnahmen, Schenkungen, Privatverwendungen und unentgeltlichen Dienstleistungen.",
+ shortEn:
+   "Systematic examination of gratuitous transfers of value in the case of withdrawals, gifts, private uses, and gratuitous services.",
+ category: "Umsatzsteuer",
+ source: "Interne Steuerstoff-Prüfungsvorbereitung",
+ keywords:
+   "unentgeltliche wertabgabe|entnahme|privatentnahme|schenkung|eigenverbrauch|§3 abs1b|§3 abs9a|dienstleistung|werkleistung|iPad|Armband|Garten|Mietwohnung",
+ keywordsEn:
+   "gratuitous transfer of value|withdrawal|private withdrawal|gift|private use|§3 abs1b|§3 abs9a|service|work service|iPad|bracelet|garden|rental apartment",
   references: [
     "§ 3 Abs. 1b UStG",
     "§ 3 Abs. 9a UStG",
@@ -22907,19 +23891,269 @@ Prüfungsfalle Nr. 3:
 Bei Dienstleistungen (§ 3 Abs. 9a UStG) ist ein Vorsteuerabzug häufig keine Voraussetzung.
 
 Prüfungsfalle Nr. 4:
-
+ 
 Bei Werkleistungen ist regelmäßig § 10 Abs. 4 UStG für die Bemessungsgrundlage maßgeblich.
+`,
+ bodyEn: `
+⇨ Gratuitous Transfers of Value
+
+The gratuitous transfer of value serves to offset input tax deduction previously granted if items or services are subsequently used privately or outside the enterprise.
+
+A distinction is made between:
+
+- gratuitous supply (§ 3 Abs. 1b UStG)
+- gratuitous other service (§ 3 Abs. 9a UStG)
+
+---
+
+⇨ Case 1a – Materials for Own Rental Property
+
+An electrician withdraws cables and plugs from inventory and uses them for a rental residential building assigned to private assets for income tax purposes.
+
+► Solution
+
+For VAT purposes, the rental residential building still belongs to the enterprise (§ 2 UStG), since it serves to generate income.
+
+The materials therefore continue to be used for entrepreneurial purposes.
+
+Result:
+
+- no withdrawal
+- no gratuitous transfer of value
+- no VAT
+
+Key principle:
+
+Private assets for income tax purposes do not automatically mean private assets for VAT purposes.
+
+---
+
+⇨ Case 1b – iPad for Private Use
+
+An iPad allocated 100 % to the enterprise is used
+
+80 %
+
+for entrepreneurial purposes
+
+20 %
+
+for private purposes.
+
+Upon purchase, the full input tax was deducted.
+
+► Solution
+
+The private use constitutes a gratuitous transfer of value pursuant to
+
+§ 3 Abs. 9a Nr. 1 UStG
+
+.
+
+Requirements:
+
+- item belongs to the enterprise
+- input tax deduction was made
+- private use
+
+Result:
+
+- taxable
+- subject to VAT
+- standard tax rate 19 %
+
+---
+
+⇨ Case 1c – Garden Planning by Employees
+
+Employees plan, free of charge, the garden of the private single-family house of their employer.
+
+► Solution
+
+This constitutes a gratuitous other service.
+
+Legal basis:
+
+§ 3 Abs. 9a Nr. 2 UStG
+
+Input tax deduction is not required for this.
+
+Result:
+
+- taxable
+- subject to VAT
+- 19 %
+
+---
+
+⇨ Case 1d – Gift of a Gold Bracelet
+
+A jeweler gives a gold bracelet to his daughter.
+
+► Solution
+
+The gift constitutes a gratuitous supply.
+
+Legal basis:
+
+§ 3 Abs. 1b Nr. 1 UStG
+
+The place of supply is determined by § 3 Abs. 6 UStG.
+
+Result:
+
+- taxable
+- subject to VAT
+- 19 %
+
+---
+
+⇨ Case 2 – Gratuitous Roofing Work
+
+A roofer covers, free of charge, the rental residential building of his wife.
+
+The materials are provided by the wife.
+
+The enterprise bears only:
+
+- wages
+- social security contributions
+- manufacturing overheads
+
+Total costs:
+
+6,500 €
+
+► Solution
+
+This is a gratuitous work service.
+
+Legal basis:
+
+§ 3 Abs. 9a Nr. 2 UStG
+
+Taxable amount:
+
+§ 10 Abs. 4 UStG
+
+=
+
+incurred costs
+
+=
+
+6,500 €
+
+VAT:
+
+6,500 €
+
+× 19 %
+
+=
+
+1,235 €
+
+---
+
+⇨ Case 3 – Employment Anniversary
+
+An employee receives
+
+- a new motor vehicle
+- plus 600 € cash.
+
+► New Motor Vehicle
+
+The vehicle is given away exclusively.
+
+Therefore, already upon purchase there was no intention to carry out taxable output transactions.
+
+Result:
+
+- no input tax deduction
+- no transfer-of-value taxation
+
+► Cash
+
+The giving of money constitutes neither a supply nor an other service.
+
+Result:
+
+- no VAT
+
+---
+
+⇨ Examination Schema
+
+1. Supply or other service?
+
+2. Gratuitous?
+
+3. Private or outside the enterprise?
+
+4. Input tax deduction present or required?
+
+5. Is § 3 Abs. 1b or § 3 Abs. 9a UStG applicable?
+
+6. Taxable amount (§ 10 Abs. 4 UStG)
+
+7. Determine tax rate.
+
+---
+
+⇨ Key Principles
+
+§ 3 Abs. 1b UStG
+
+→ items
+
+§ 3 Abs. 9a UStG
+
+→ services and uses
+
+Gratuitous services regularly do not require prior input tax deduction.
+
+For items, input tax deduction is often decisive.
+
+The taxable amount generally consists of cost of production or expenses incurred.
+
+---
+
+⇨ Examination Tips
+
+Pitfall No. 1:
+
+Private assets for income tax purposes are not automatically private assets for VAT purposes.
+
+Pitfall No. 2:
+
+Cash is never subject to VAT.
+
+Pitfall No. 3:
+
+In the case of services (§ 3 Abs. 9a UStG), input tax deduction is often not a prerequisite.
+
+Pitfall No. 4:
+
+For work services, § 10 Abs. 4 UStG is regularly decisive for the taxable amount.
 `
 },
 {
-  id: "ust-kommission-vermittlung-rahmen-des-unternehmens",
-  title: "Kommission, Vermittlung und Hilfsgeschäfte im Rahmen des Unternehmens",
-  short:
-    "Umsatzsteuerliche Behandlung von Kommissionsgeschäften, Vermittlungsleistungen, Lieferungen, Gutschriften und Vorsteuerabzug.",
-  category: "Umsatzsteuer",
-  source: "Interne Steuerstoff-Prüfungsvorbereitung",
-  keywords:
-    "kommission|vermittlung|kommissionär|kommittent|§3 abs3 ustg|§3 abs6 ustg|§3 abs7 ustg|gutschrift|vorsteuerabzug|bemessungsgrundlage|provision|rahmen des unternehmens",
+ id: "ust-kommission-vermittlung-rahmen-des-unternehmens",
+ title: "Kommission, Vermittlung und Hilfsgeschäfte im Rahmen des Unternehmens",
+ titleEn:
+   "Commission, Brokerage, and Auxiliary Transactions within the Scope of the Enterprise",
+ short:
+   "Umsatzsteuerliche Behandlung von Kommissionsgeschäften, Vermittlungsleistungen, Lieferungen, Gutschriften und Vorsteuerabzug.",
+ shortEn:
+   "VAT treatment of commission transactions, brokerage services, supplies, credit notes, and input tax deduction.",
+ category: "Umsatzsteuer",
+ source: "Interne Steuerstoff-Prüfungsvorbereitung",
+ keywords:
+   "kommission|vermittlung|kommissionär|kommittent|§3 abs3 ustg|§3 abs6 ustg|§3 abs7 ustg|gutschrift|vorsteuerabzug|bemessungsgrundlage|provision|rahmen des unternehmens",
+ keywordsEn:
+   "commission|brokerage|commission agent|principal|§3 abs3 ustg|§3 abs6 ustg|§3 abs7 ustg|credit note|input tax deduction|taxable amount|commission|scope of enterprise",
   references: [
     "§ 1 Abs. 1 Nr. 1 UStG",
     "§ 3 Abs. 1 UStG",
@@ -23441,18 +24675,529 @@ Prüfungsfalle Nr. 4:
 Vorsteuerabzug ohne Rechnung annehmen.
 
 Eine ordnungsgemäße Rechnung oder Gutschrift ist zwingend erforderlich.
+`,
+ bodyEn: `
+⇨ Commission and Brokerage
 
+In the case of commission and brokerage, the following must first be distinguished:
+
+- genuine supply
+- commission transaction
+- brokerage service
+- own transaction
+- auxiliary transaction
+
+---
+
+⇨ Case 6 – Commercial Agent Brokers Machine
+
+► Facts
+
+Commercial agent Ferter brokers a construction machine.
+
+Dast acquires the machine from Fastu.
+
+Purchase price of machine:
+
+100,000 € net
+
+Dast cannot present an invoice for the purchase.
+
+Ferter receives a commission of 10 % of the net selling price.
+
+Settlement is by credit note.
+
+► Output Side – Supply of the Machine from Dast to Fastu
+
+Dast supplies the machine to Fastu.
+
+The supply is taxable and subject to VAT.
+
+Place of supply:
+
+Duisburg
+
+Legal basis:
+
+§ 3 Abs. 6 UStG
+
+Taxable amount:
+
+100,000 €
+
+VAT:
+
+19,000 €
+
+Tax debtor:
+
+Dast
+
+► Input Side – Purchase of the Machine
+
+Since Dast cannot present a proper invoice pursuant to § 14 UStG,
+
+no input tax deduction is possible.
+
+Legal basis:
+
+§ 15 Abs. 1 Nr. 1 UStG
+
+Key principle:
+
+Without a proper invoice, no input tax deduction.
+
+► Brokerage Service of Ferter
+
+Ferter provides an other service to Dast.
+
+This is a brokerage service.
+
+Place of service:
+
+Duisburg
+
+Legal basis:
+
+§ 3a Abs. 2 UStG
+
+The service is taxable and subject to VAT.
+
+Commission:
+
+10,000 € gross
+
+Taxable amount:
+
+10,000 € / 1.19
+
+=
+8,403.36 €
+
+VAT:
+
+1,596.64 €
+
+► Input Tax Deduction from the Credit Note
+
+If there is a proper credit note,
+
+Dast may deduct the VAT from the brokerage service as input tax.
+
+Requirements:
+
+- service for the enterprise
+- proper credit note
+- no exclusion under § 15 Abs. 2 UStG
+
+Result:
+
+Input tax deduction:
+
+1,596.64 €
+
+---
+
+⇨ Case 7 – Sales Commission for Wine
+
+► Facts
+
+Kleber takes over 10,000 liters of wine from winemaker Pander.
+
+He sells the wine in his own name for the account of Pander.
+
+Commission:
+
+15 % of the sale price
+
+Sale:
+
+15.06. = 8,000 liters
+
+17.06. = 2,000 liters
+
+► Preliminary Consideration
+
+This is a sales commission.
+
+Pander is the principal.
+
+Kleber is the commission agent.
+
+In the case of a commission transaction, supplies are deemed for VAT purposes.
+
+Legal basis:
+
+§ 3 Abs. 3 UStG
+
+At the same time, the following supplies exist:
+
+1. Supply from the principal to the commission agent
+2. Supply from the commission agent to the purchaser
+
+The mere transfer of the wine into storage is not yet decisive.
+
+► Supply by Kleber to the Wholesalers
+
+Kleber supplies to the wholesalers.
+
+Place:
+
+Koblenz
+
+The supplies are taxable and subject to VAT.
+
+Taxable amount:
+
+20,000 € / 1.19
+
+=
+16,806.72 €
+
+VAT:
+
+3,193.28 €
+
+Tax debtor:
+
+Kleber
+
+► Supply by Pander to Kleber
+
+For VAT purposes, Pander supplies to Kleber.
+
+Taxable amount:
+
+17,000 € / 1.19
+
+=
+14,285.71 €
+
+VAT:
+
+2,714.29 €
+
+Tax debtor:
+
+Pander
+
+► Input Tax Deduction of Kleber
+
+Kleber may deduct input tax from Pander's proper invoice.
+
+Input tax:
+
+2,714.29 €
+
+Requirements:
+
+- service for the enterprise
+- proper invoice
+- no exclusion under § 15 Abs. 2 UStG
+
+► Key Principle
+
+In a sales commission, there are two supplies for VAT purposes.
+
+Principal to commission agent.
+
+Commission agent to purchaser.
+
+---
+
+⇨ Case 8 – Commission for Measuring Instruments
+
+► Facts
+
+Klein sells measuring instruments as commission agent for Jung-OHG.
+
+The OHG brings the instruments to Klein in February.
+
+Klein sells 11 instruments to various customers in March.
+
+Settlement:
+
+Supplies to customers:
+
+12,000 €
+
+./. Commission:
+
+1,800 €
+
+To be remitted to the OHG:
+
+10,200 €
+
+► Solution
+
+Between the OHG and Klein there is a commission transaction.
+
+The OHG is the principal.
+
+Klein is the commission agent.
+
+Legal basis:
+
+§ 3 Abs. 3 UStG
+
+Supplies are deemed for VAT purposes.
+
+► Supply by the OHG to Klein
+
+The OHG supplies to Klein.
+
+Place of supply:
+
+Solingen
+
+The supply is taxable and subject to VAT.
+
+Taxable amount:
+
+10,200 € / 1.19
+
+=
+8,571.43 €
+
+VAT:
+
+1,628.57 €
+
+Tax debtor:
+
+OHG
+
+► Supply by Klein to the Customers
+
+Klein supplies to the customers.
+
+These supplies must be assessed separately.
+
+► Credit Note
+
+In order for Klein to obtain input tax deduction,
+
+the settlement can be structured as follows:
+
+Supplies to customers:
+
+12,000 €
+
+./. Commission:
+
+1,800 €
+
+= remittance to OHG:
+
+10,200 €
+
+Included supply by the OHG to Klein:
+
+8,571.43 €
+
+plus 19 % VAT:
+
+1,628.57 €
+
+total:
+
+10,200 €
+
+► Key Principle
+
+In commission, the settlement is economically often only a commission statement.
+
+For VAT purposes, there is nevertheless a supply from the principal to the commission agent.
+
+---
+
+⇨ Case 9 – Brokerage of a Mini Excavator
+
+► Facts
+
+Jabes brokers the sale of a mini excavator.
+
+Rosen sells to Greifen.
+
+Jabes receives a commission from Rosen of gross 500 €.
+
+Settlement is by credit note.
+
+► Solution
+
+Jabes provides a brokerage service to Rosen.
+
+This is an other service.
+
+Legal basis:
+
+§ 3 Abs. 9 UStG
+
+Place of service:
+
+Wuppertal
+
+Legal basis:
+
+§ 3a Abs. 2 UStG
+
+The service is taxable and subject to VAT.
+
+► Taxable Amount
+
+Gross commission:
+
+500 €
+
+Taxable amount:
+
+500 € / 1.19
+
+=
+420.17 €
+
+VAT:
+
+79.83 €
+
+Tax debtor:
+
+Jabes
+
+► Credit Note
+
+The credit note by Rosen does not lead to any further VAT consequences for Jabes,
+
+provided that it is issued properly.
+
+► Key Principle
+
+Brokerage is not a supply.
+
+Brokerage is an other service.
+
+The commission is the consideration.
+
+---
+
+⇨ Examination Schema Commission
+
+1. Does someone act in their own name?
+
+2. Do they act for another's account?
+
+3. Is there a commission transaction?
+
+4. Apply § 3 Abs. 3 UStG.
+
+5. Examine the deemed supply from the principal to the commission agent.
+
+6. Examine the supply from the commission agent to the purchaser.
+
+7. Calculate taxable amount and VAT.
+
+8. Examine credit note / invoice.
+
+9. Examine input tax deduction.
+
+---
+
+⇨ Examination Schema Brokerage
+
+1. Broker brings about a contract.
+
+2. Broker does not supply the item themselves.
+
+3. There is an other service.
+
+4. Determine the place under § 3a UStG.
+
+5. Examine the commission as consideration.
+
+6. Extract VAT from the commission.
+
+7. Examine invoice or credit note.
+
+8. Examine input tax deduction on the part of the recipient.
+
+---
+
+⇨ Key Principles
+
+Commission:
+
+own name
+
+another's account
+
+= two supplies
+
+Brokerage:
+
+another's contract
+
+commission
+
+= other service
+
+In commission, § 3 Abs. 3 UStG is central.
+
+In brokerage, § 3 Abs. 9 UStG is central.
+
+A credit note can replace an invoice.
+
+Without a proper invoice, no input tax deduction.
+
+---
+
+⇨ Examination Tips
+
+Pitfall No. 1:
+
+Confusing commission and brokerage.
+
+In commission, the commission agent sells in their own name.
+
+In brokerage, they merely broker the contract.
+
+Pitfall No. 2:
+
+Taxing only the commission in the case of commission.
+
+This is incorrect.
+
+For VAT purposes, supplies exist.
+
+Pitfall No. 3:
+
+Failing to extract tax from gross amounts.
+
+For gross prices:
+
+Taxable amount = gross amount / 1.19.
+
+Pitfall No. 4:
+
+Assuming input tax deduction without an invoice.
+
+A proper invoice or credit note is mandatory.
 `
 },
 {
   id: "ust-preisausschreiben-verlosung-werbegeschenke",
   title: "Preisausschreiben und Verlosung: Vorsteuer und unentgeltliche Wertabgabe",
+  titleEn:"Sweepstakes and Lottery: Input Tax and Gratuitous Transfer of Value",
   short:
     "Umsatzsteuerliche Behandlung von Preisen aus Werbeaktionen: Vorsteuerabzug, Geschenke geringen Werts und unentgeltliche Wertabgabe.",
+  shortEn:
+    "VAT treatment of prizes from promotional activities: input tax deduction, gifts of low value, and gratuitous transfer of value.",
   category: "Umsatzsteuer",
   source: "Interne Steuerstoff-Prüfungsvorbereitung",
   keywords:
     "preisausschreiben|verlosung|werbegeschenk|geschenk geringen werts|unentgeltliche wertabgabe|§ 3 abs. 1b ustg|§ 15 ustg|§ 15 abs. 1a ustg|vorsteuerabzug|werbemaßnahme|roller|bücher|7 prozent",
+  keywordsEn:
+    "sweepstakes|lottery|promotional gift|gift of low value|gratuitous transfer of value|§ 3 abs. 1b ustg|§ 15 ustg|§ 15 abs. 1a ustg|input tax deduction|promotional measure|scooter|books|7 percent",
   references: [
     "§ 3 Abs. 1b UStG",
     "§ 15 Abs. 1 UStG",
@@ -23603,19 +25348,168 @@ Hochwertiger Verlosungsgewinn:
 Vorsteuer prüfen.
 
 Geringwertiges Werbegeschenk:
-
+ 
 Vorsteuer meist möglich, keine Wertabgabe.
+`,
+bodyEn: `
+⇨ Sweepstakes and Lottery
+
+► Principle
+
+In a sweepstakes or lottery within a promotional measure, the following must be examined for VAT purposes:
+
+1. Does the purchase of the prizes entitle to input tax deduction?
+2. Does the later transfer to the winners lead to a gratuitous transfer of value?
+
+► Promotional Measure
+
+A sweepstakes can be an entrepreneurially motivated promotional measure.
+
+The transfer of the prizes then generally does not fall under the income-tax deduction prohibition for gifts pursuant to § 4 Abs. 5 Nr. 1 EStG.
+
+An input tax exclusion pursuant to § 15 Abs. 1a UStG then generally does not apply.
+
+► 1st Prize: High-Value Prize
+
+Example:
+
+Electric city scooter
+
+Purchase:
+
+3.000 euros plus 570 euros VAT
+
+The scooter is acquired from the outset with the intention of raffling it off as part of the promotional campaign.
+
+► Input Tax Deduction for the High-Value Prize
+
+If it is already established at the time of receipt of the supply that the item is to be raffled off, the purchase does not generally entitle to input tax deduction if the requirements for later taxation of a transfer of value are not fulfilled.
+
+The item is not used for output transactions entitling to input tax deduction, but for gratuitous onward transfer to the winner.
+
+► Gratuitous Transfer of Value in the Case of the High-Value Prize
+
+The transfer of the scooter takes place for entrepreneurial reasons.
+
+By its nature, the transaction falls under § 3 Abs. 1b Nr. 3 UStG.
+
+However, since no input tax deduction from the acquisition was possible, taxation of a gratuitous transfer of value does not take place.
+
+Key principle:
+
+No input tax upon purchase
+
+=
+no taxation of a transfer of value upon transfer.
+
+► Gifts of Low Value
+
+In the case of gifts of low value, there is no taxable gratuitous transfer of value pursuant to § 3 Abs. 1b Nr. 3 UStG.
+
+► 2nd to 10th Prize: Books
+
+Example:
+
+Illustrated books
+
+Purchase per book:
+
+30 euros plus 2.10 euros VAT
+
+The books constitute gifts of low value.
+
+The transfer to the winners is therefore not taxable pursuant to § 3 Abs. 1b Nr. 3 UStG.
+
+► Input Tax Deduction for Books
+
+Since the books are used as part of a promotional measure and serve the entrepreneurial transactions, input tax deduction is generally possible.
+
+The input tax depends on the proper invoice.
+
+Books are subject to the reduced tax rate of 7 %.
+
+Example:
+
+30 euros × 7 %
+
+=
+2.10 euros input tax per book
+
+The input tax is deductible in the advance return period of receipt of the supply.
+
+► Examination Schema
+
+1. Is there a promotional measure?
+
+2. Was the item acquired for entrepreneurial purposes?
+
+3. Is the item a gift of low value?
+
+4. Can the input supply be directly and immediately attributed to the output transactions?
+
+5. Is there an input tax exclusion pursuant to § 15 Abs. 1a UStG?
+
+6. Was input tax deducted on acquisition?
+
+7. Upon transfer, is there a gratuitous transfer of value pursuant to § 3 Abs. 1b UStG?
+
+► Legal Consequences
+
+High-value prize:
+
+- no input tax if the raffle was intended from the outset and no taxable transfer of value follows
+- no taxation of a transfer of value upon transfer if no input tax deduction was possible
+
+Gift of low value:
+
+- input tax deduction generally possible
+- transfer not taxable pursuant to § 3 Abs. 1b Nr. 3 UStG
+
+► Examination Key Principles
+
+Sweepstakes regularly constitute a promotional measure.
+
+Gifts of low value do not lead to a gratuitous transfer of value.
+
+In the case of high-value prizes, input tax deduction is critical.
+
+A gratuitous transfer of value regularly requires that the item or its components entitled to input tax deduction.
+
+► Examination Tip
+
+Typical examination trap:
+
+Many automatically deduct input tax on the high-value raffle prize.
+
+This is incorrect if it is already clear at the time of purchase that the item will be raffled off free of charge and no taxable output transaction arises.
+
+In the case of low-value promotional gifts, input tax deduction is regularly possible.
+
+Key principle:
+
+High-value raffle prize:
+
+Check input tax.
+
+Gift of low value:
+
+Input tax usually possible, no transfer of value.
 `
 },
 {
-  id: "ust-vorsteuerberichtigung-gemischt-genutztes-gebaeude",
-  title: "Vorsteuerberichtigung bei gemischt genutzten Gebäuden (§ 15a UStG)",
-  short:
-    "Vorsteuerberichtigung bei Änderung der unternehmerischen oder privaten Nutzung sowie bei späterer Grundstücksveräußerung.",
-  category: "Umsatzsteuer",
-  source: "Interne Steuerstoff-Prüfungsvorbereitung",
-  keywords:
-    "§ 15a ustg|vorsteuerberichtigung|gemischt genutztes gebäude|privatnutzung|unternehmerische nutzung|§ 44 ustdv|grundstücksveräußerung|steuerfreie veräußerung|steuerpflichtige veräußerung|berichtigungszeitraum",
+id: "ust-vorsteuerberichtigung-gemischt-genutztes-gebaeude",
+title: "Vorsteuerberichtigung bei gemischt genutzten Gebäuden (§ 15a UStG)",
+titleEn:"Input Tax Adjustment for Mixed-Use Buildings (§ 15a UStG)",
+short:
+  "Vorsteuerberichtigung bei Änderung der unternehmerischen oder privaten Nutzung sowie bei späterer Grundstücksveräußerung.",
+shortEn:
+  "Input tax adjustment in the event of a change in business or private use and in the event of a later real property sale.",
+category: "Umsatzsteuer",
+source: "Interne Steuerstoff-Prüfungsvorbereitung",
+keywords:
+  "§ 15a ustg|vorsteuerberichtigung|gemischt genutztes gebäude|privatnutzung|unternehmerische nutzung|§ 44 ustdv|grundstücksveräußerung|steuerfreie veräußerung|steuerpflichtige veräußerung|berichtigungszeitraum",
+keywordsEn:
+  "§15a ustg|input tax adjustment|mixed-use building|private use|business use|§ 44 ustdv|real property sale|VAT-exempt sale|taxable sale|adjustment period",
   references: [
     "§ 15a UStG",
     "§ 15a Abs. 6a UStG",
@@ -23901,17 +25795,300 @@ Typische Prüfungsfalle:
 Bei einer steuerpflichtigen Grundstücksveräußerung wird oft vergessen, dass diese für § 15a UStG als 100-%-Verwendung für zum Vorsteuerabzug berechtigende Umsätze gilt.
 
 Merksatz:
-
+ 
 Steuerfrei verkauft = 0 %.
-
+ 
 Steuerpflichtig verkauft = 100 %.
+`,
+bodyEn: `
+⇨ Input Tax Adjustment for Mixed-Use Buildings
+
+► Principle
+
+If a building is used both for business and private purposes, the decisive factor for input tax deduction is the extent to which the building has been allocated to the enterprise and the extent to which the use entitles to input tax deduction.
+
+If the actual use later changes, an input tax adjustment pursuant to § 15a UStG may be necessary.
+
+► Adjustment Period
+
+For real property and buildings, the adjustment period is 10 years.
+
+The period begins with the first use of the building.
+
+Example:
+
+First use:
+01.01.02
+
+Adjustment period:
+01.01.02 to 31.12.11
+
+► Change in Circumstances
+
+A change in circumstances exists when the extent of use entitling to input tax deduction changes.
+
+Examples:
+
+- business use increases
+- business use decreases
+- private use increases
+- taxable use becomes VAT-exempt
+- VAT-exempt sale
+- taxable sale
+
+► Increase in Business Use
+
+If business use increases, an adjustment in favor of the entrepreneur may occur.
+
+Example:
+
+Original input tax deduction:
+40 %
+
+Actual use entitling to input tax deduction:
+52 %
+
+Change:
++12 percentage points
+
+Calculation:
+
+57.000 euros input tax
+x 1/10
+x 12 %
+
+=
+684 euros
+
+Result:
+
+684 euros must be adjusted in favor of the entrepreneur.
+
+► Increase in Private Use
+
+If private use increases, business use decreases.
+
+Then an adjustment to the detriment of the entrepreneur must be made.
+
+Example:
+
+Original input tax deduction:
+40 %
+
+New use entitling to input tax deduction:
+25 %
+
+Change:
+-15 percentage points
+
+Calculation:
+
+57.000 euros input tax
+x 1/10
+x 15 %
+
+=
+855 euros
+
+Result:
+
+855 euros must be adjusted to the detriment of the entrepreneur.
+
+► Sale of the Building
+
+If a building is sold during the adjustment period, § 15a UStG must also be examined.
+
+The decisive factor is whether the sale is VAT-exempt or taxable.
+
+► VAT-Exempt Real Property Sale
+
+A VAT-exempt sale pursuant to § 4 Nr. 9 Buchst. a UStG results in 0 % use entitling to input tax deduction for the remaining adjustment period.
+
+Example:
+
+Original input tax deduction:
+40 %
+
+From sale:
+0 %
+
+Change:
+40 percentage points
+
+Annual amount:
+
+57.000 euros / 10 years = 5.700 euros
+
+Adjustment per year:
+
+5.700 euros x 40 %
+
+=
+2.280 euros
+
+If years 09 through 11 are still affected:
+
+3 years x 2.280 euros
+
+=
+6.840 euros
+
+The adjustment is made to the detriment of the entrepreneur.
+
+► Taxable Real Property Sale
+
+If taxability is elected, the sale is deemed, for the remaining adjustment period, to be a use of 100 % for transactions not harmful to input tax deduction.
+
+Example:
+
+Original input tax deduction:
+40 %
+
+From sale:
+100 %
+
+Change:
+60 percentage points
+
+Annual amount:
+
+57.000 euros / 10 years = 5.700 euros
+
+Adjustment per year:
+
+5.700 euros x 60 %
+
+=
+3.420 euros
+
+If years 09 through 11 are still affected:
+
+3 years x 3.420 euros
+
+=
+10.260 euros
+
+The adjustment is made in favor of the entrepreneur.
+
+► Summary of the Examples
+
+Case 1:
+
+Business use increases from 40 % to 52 %.
+
+Adjustment:
+
+57.000 euros x 1/10 x 12 %
+
+=
+684 euros in favor of the entrepreneur.
+
+Case 2:
+
+Business use decreases from 40 % to 25 %.
+
+Adjustment:
+
+57.000 euros x 1/10 x 15 %
+
+=
+855 euros to the detriment of the entrepreneur.
+
+Case 3:
+
+VAT-exempt sale:
+
+0 % instead of 40 %
+
+=
+40 percentage point change to the detriment.
+
+Case 4:
+
+Taxable sale:
+
+100 % instead of 40 %
+
+=
+60 percentage point change in favor.
+
+► De Minimis Thresholds pursuant to § 44 UStDV
+
+The de minimis thresholds of § 44 UStDV must be examined.
+
+If the threshold is exceeded, the input tax adjustment must be carried out.
+
+In the case of real property sales, the adjustment amounts for the remaining years are aggregated.
+
+► Examination Schema
+
+1. Was input tax originally deducted?
+
+2. Is there an adjustment object?
+
+3. Real property or building?
+
+4. Determine the 10-year adjustment period.
+
+5. Determine the original use entitling to input tax deduction.
+
+6. Determine the actual later use.
+
+7. Calculate the change in percentage points.
+
+8. Determine the annual amount:
+
+Input tax / 10
+
+9. Annual amount x change ratio.
+
+10. In the event of a sale:
+
+Aggregate the remaining period.
+
+► Examination Key Principles
+
+Buildings have a 10-year adjustment period.
+
+The decisive factor is the difference between the original input tax deduction and the later actual use.
+
+More business use:
+
+Adjustment in favor.
+
+More private or VAT-exempt use:
+
+Adjustment to the detriment.
+
+VAT-exempt sale:
+
+0 % input-tax use.
+
+Taxable sale:
+
+100 % input-tax use.
+
+► Examination Tip
+
+Typical examination trap:
+
+In the case of a taxable sale of real property, it is often forgotten that this is deemed for § 15a UStG to be 100 % use for transactions entitling to input tax deduction.
+
+Key principle:
+
+Sold VAT-exempt = 0 %.
+
+Sold taxable = 100 %.
 `
 },
 {
 id:"ust-reverse-charge-grundstueck",
 title:"Reverse-Charge bei Grundstückslieferungen",
+titleEn:"Reverse Charge for Real Property Supplies",
+shortEn:"Reverse charge mechanism for certain real property supplies where the recipient, rather than the supplier, owes VAT.",
 category:"Umsatzsteuer",
-
+keywordsEn:"reverse charge|real property supply|tax debtor|recipient|§13b ustg|§13b abs. 2 nr. 3 ustg|real estate transfer tax|taxable amount",
+ 
 references:[
 "§13b Abs.2 Nr.3 UStG",
 "§13b Abs.5 UStG"
@@ -23942,15 +26119,47 @@ Die Grunderwerbsteuer gehört nicht zum Entgelt.
 Immer prüfen,
 
 ob §13b UStG einschlägig ist.
+ 
+`,
+bodyEn:`
+
+⇨ Reverse Charge
+
+In the case of certain real property supplies, it is not the seller,
+
+but the recipient,
+
+who owes the VAT.
+
+---
+
+► Taxable Amount
+
+Purchase price
+
+excluding VAT.
+
+Real estate transfer tax does not form part of the consideration.
+
+---
+
+► Examination Note
+
+Always examine,
+
+whether §13b UStG is applicable.
 
 `
 },
 {
 id:"ust-uneinbringliche-forderung",
 title:"Uneinbringliche Forderungen (§17 UStG)",
+titleEn:"Uncollectible Receivables (§17 UStG)",
+shortEn:"Examination of uncollectible receivables and input tax adjustment pursuant to §17 UStG.",
 category:"Umsatzsteuer",
 
 keywords:"17 ustg|insolvenz|uneinbringlich|berichtigung",
+keywordsEn:"17 ustg|insolvency|uncollectible|adjustment",
 
 references:[
 "§17 UStG"
@@ -23995,11 +26204,54 @@ soweit die Forderung uneinbringlich geworden ist.
 3. Berichtigung nach §17 UStG.
 
 `
+,
+bodyEn:`
+
+⇨ Uncollectible Receivables
+
+If a receivable becomes uncollectible,
+
+the taxable amount must be adjusted pursuant to §17 UStG.
+
+---
+
+► Typical Case
+
+Commencement of insolvency proceedings.
+
+From this point in time, outstanding receivables are generally considered uncollectible.
+
+---
+
+► Consequence
+
+The VAT is adjusted.
+
+VAT already reported
+
+→ Correction to 0,
+
+to the extent the receivable has become uncollectible.
+
+---
+
+► Examination
+
+1. Has a receivable arisen?
+
+2. Uncollectibility?
+
+3. Adjustment pursuant to §17 UStG.
+
+`
 },
 {
 id:"ust-vollzuordnung-gebaeude",
 title:"Vollständige Zuordnung eines gemischt genutzten Gebäudes",
+titleEn:"Complete Allocation of a Mixed-Use Building",
+shortEn:"Complete allocation of a mixed-use building to the enterprise does not permit full input tax deduction.",
 category:"Umsatzsteuer",
+keywordsEn:"§15 abs 1b ustg|input tax deduction|building|allocation",
 
 references:[
 "§15 Abs.1b UStG"
@@ -24034,11 +26286,44 @@ Vollständige Zuordnung
 vollständiger Vorsteuerabzug.
 
 `
+,
+bodyEn:`
+
+⇨ Complete Allocation
+
+If the entrepreneur allocates the entire building to the enterprise,
+
+input tax deduction is nevertheless permitted only to the extent
+
+that the building is used for taxable supplies.
+
+---
+
+► Ongoing Costs
+
+If the expenses cannot be clearly allocated,
+
+the apportionment is generally made according to the ratio of usable floor areas.
+
+---
+
+► Key Principle
+
+Complete allocation
+
+≠
+
+full input tax deduction.
+
+`
 },
 {
 id:"ust-vorsteuer-grundstueckserwerb",
 title:"Vorsteuerabzug beim Grundstückserwerb",
+titleEn:"Input Tax Deduction on Acquisition of Real Property",
+shortEn:"Input tax deduction on acquisition of real property used for taxable supplies.",
 category:"Umsatzsteuer",
+keywordsEn:"§15 abs 1 nr 4 ustg|input tax deduction|real property|acquisition",
 
 references:[
 "§15 Abs.1 Nr.4 UStG"
@@ -24065,11 +26350,37 @@ und
 Vorsteuerabzug in voller Höhe möglich.
 
 `
+,
+bodyEn:`
+
+⇨ Input Tax Deduction
+
+The recipient may deduct the VAT owed pursuant to §13b simultaneously as input tax,
+
+if
+
+- the real property is used for taxable supplies,
+
+and
+
+- no exclusion criterion pursuant to §15 Abs.2 UStG exists.
+
+---
+
+► Consequence
+
+Input tax deduction in full is possible.
+
+`
 },
 {
   id: "ust-grundstuecksveraeusserung-gi",
   title: "Geschäftsveräußerung im Ganzen bei Grundstücken",
+  titleEn: "Transfer of a Business as a Whole Involving Real Property",
+  shortEn:
+    "Transfer of a business as a whole requires continuation of the previous business activity; a change in use precludes this classification.",
   category: "Umsatzsteuer",
+  keywordsEn:"1 abs 1a ustg|transfer of business|real property|going concern",
 
   references:[
     "§1 Abs.1a UStG"
@@ -24106,12 +26417,47 @@ Andere Nutzung
 keine Geschäftsveräußerung.
 
 `
+,
+bodyEn:`
+
+⇨ Examination
+
+A non-taxable transfer of a business as a whole exists only if
+
+- an enterprise or branch of business is transferred
+
+and
+
+- the acquirer continues the previous activity.
+
+---
+
+► No Transfer of a Business as a Whole
+
+If the acquirer uses the real property in the future for a different purpose,
+
+there is no transfer of a business as a whole.
+
+---
+
+► Key Principle
+
+Different use
+
+=
+
+no transfer of a business as a whole.
+
+`
 },
 {
-  id: "ust-grundstuecksveraeusserung-option",
-  title: "Veräußerung eines unbebauten Grundstücks mit Option zur Steuerpflicht",
-  short: "Umsatzsteuerliche Behandlung einer Grundstückslieferung mit Verzicht auf die Steuerbefreiung.",
-  category: "Umsatzsteuer",
+id: "ust-grundstuecksveraeusserung-option",
+title: "Veräußerung eines unbebauten Grundstücks mit Option zur Steuerpflicht",
+titleEn: "Transfer of Unbuilt Real Property with Option for Taxability",
+short: "Umsatzsteuerliche Behandlung einer Grundstückslieferung mit Verzicht auf die Steuerbefreiung.",
+shortEn:
+  "VAT treatment of a real property supply with waiver of the tax exemption.",
+category: "Umsatzsteuer",
   keywords: [
     "Grundstück",
     "§4 Nr9a",
@@ -24119,6 +26465,7 @@ keine Geschäftsveräußerung.
     "Option",
     "Steuerbefreiung"
   ],
+  keywordsEn:"real property|§4 nr.9a|§9 UStG|option|tax exemption",
 
   references: [
     "§3 Abs.1 UStG",
@@ -24149,15 +26496,44 @@ Voraussetzungen:
 ⇨ Folge
 
 Die Grundstückslieferung wird steuerpflichtig.
-
 Regelsteuersatz: 19 %
+
+`
+,
+bodyEn: `
+⇨ Principle
+
+The supply of unbuilt real property is generally VAT-exempt pursuant to §4 Nr.9 Buchst. a UStG.
+
+---
+
+⇨ Option for Taxability
+
+If the entrepreneur sells to another entrepreneur for the latter's enterprise, the tax exemption may be waived (§9 UStG).
+
+Conditions:
+
+- Supply to an entrepreneur
+- Use for the latter's enterprise
+- Waiver declared in the notarial purchase agreement
+
+---
+
+⇨ Consequence
+
+The real property supply becomes subject to VAT.
+
+Standard tax rate: 19 %
 
 `
 },
 {
 id:"ust-nebenleistung-betriebsvorrichtung",
 title:"Nebenleistung oder eigenständige Betriebsvorrichtung?",
+titleEn:"Ancillary Service or Autonomous Operating Fixture?",
+shortEn:"Ancillary services and autonomous operating fixtures are distinguished based on whether the recipient is an end consumer or an entrepreneur.",
 category:"Umsatzsteuer",
+keywordsEn:"operating fixture|ancillary service|operating facilities|allocation",
 
 body:`
 
@@ -24190,13 +26566,48 @@ Entscheidend ist,
 wer Leistungsempfänger ist.
 
 `
+,
+bodyEn:`
+
+⇨ Examination
+
+► End Consumer
+
+Operating fixtures
+
+generally share the fate of the principal supply.
+
+→ Ancillary service
+
+---
+
+► Entrepreneur (Sub-letting)
+
+Operating fixtures may be independently subject to VAT.
+
+An apportionment of the supplies must be examined.
+
+---
+
+► Typical Examination Trap
+
+Not every lighting system is automatically an ancillary service.
+
+The decisive factor is
+
+who the recipient is.
+
+`
 },
 {
 id:"ust-tennishalle-zwischenvermietung",
 title:"Zwischenvermietung einer Tennishalle an Unternehmer",
+titleEn:"Sub-letting of a Tennis Hall to an Entrepreneur",
+shortEn:"Sub-lease of a tennis hall to an entrepreneur requires allocation between VAT-exempt real property rental and taxable operating fixtures.",
 category:"Umsatzsteuer",
 
 keywords:"zwischenvermietung|betriebsvorrichtung|sportanlage|4 nr 12 ustg",
+keywordsEn:"sub-letting|operating fixture|sports facility|4 nr 12 ustg",
 
 references:[
 "§4 Nr.12 UStG",
@@ -24250,13 +26661,65 @@ Endverbraucher.
 Hier erfolgt regelmäßig eine Aufteilung.
 
 `
+,
+bodyEn:`
+
+⇨ Lease to Operator
+
+If the tennis hall is leased to an entrepreneur
+
+who in turn sub-lets it,
+
+there is a sub-letting.
+
+---
+
+► Allocation
+
+The supply must be divided into
+
+✓ VAT-exempt real property rental (§4 Nr.12 UStG)
+
+and
+
+✓ taxable rental of the operating fixtures.
+
+---
+
+► Operating Fixtures
+
+Examples
+
+- Lighting system
+
+- Technical equipment
+
+- Sports facilities
+
+---
+
+► Examination Note
+
+Sub-letting
+
+≠
+
+End consumer.
+
+Here, an allocation is regularly made.
+
+`
 },
 {
   id: "ust-tennishalle-endverbraucher",
   title: "Vermietung einer Tennishalle an Endverbraucher",
+  titleEn: "Lease of a Tennis Hall to End Consumers",
   short: "Umsatzsteuerliche Behandlung der kurzfristigen Vermietung einer Sportanlage an Privatpersonen.",
+  shortEn:
+    "VAT treatment of the short-term rental of a sports facility to private individuals.",
   category: "Umsatzsteuer",
   keywords: "tennishalle|sportanlage|endverbraucher|grundstück|betriebsvorrichtung|19%",
+  keywordsEn:"tennis hall|sports facility|end consumer|real property|operating fixture|19%",
 
   references: [
     "§ 3 Abs. 9 UStG",
@@ -24310,15 +26773,66 @@ Endverbraucher
 → einheitliche steuerpflichtige Leistung.
 
 `
+,
+bodyEn: `
+
+⇨ Short-Term Hall Rental
+
+The rental of a tennis hall to end consumers constitutes an other service (§3 Abs.9 UStG).
+
+---
+
+► Place of Supply
+
+Real-property-related service
+
+→ Place where the real property is located (§3a Abs.3 Nr.1 UStG)
+
+---
+
+► Lighting System
+
+The provision of lighting is an ancillary service.
+
+It shares the VAT treatment of the hall rental.
+
+No separate assessment.
+
+---
+
+► VAT
+
+The entire supply is subject to the standard tax rate of 19 %.
+
+An allocation into
+
+- VAT-exempt real property rental
+- taxable operating fixture
+
+does not take place in the case of rental to end consumers.
+
+---
+
+► Key Principle
+
+End consumer
+
+→ unified taxable supply.
+
+`
 },
 {
-  id: "ust-vorsteuerberichtigung-gebaeude-15a",
-  title: "Vorsteuerberichtigung bei Gebäuden (§ 15a UStG)",
-  short:
-    "Prüfung einer Vorsteuerberichtigung bei Änderung der Verwendung eines Gebäudes oder Gebäudebestandteils.",
-  category: "Umsatzsteuer",
-  keywords:
-    "§15a ustg|vorsteuerberichtigung|gebäude|fenster|änderung der verhältnisse",
+id: "ust-vorsteuerberichtigung-gebaeude-15a",
+title: "Vorsteuerberichtigung bei Gebäuden (§ 15a UStG)",
+titleEn: "Input Tax Adjustment for Buildings (§ 15a UStG)",
+short:
+  "Prüfung einer Vorsteuerberichtigung bei Änderung der Verwendung eines Gebäudes oder Gebäudebestandteils.",
+shortEn:
+  "Examination of an input tax adjustment upon a change in the use of a building or part of a building.",
+category: "Umsatzsteuer",
+keywords:
+  "§15a ustg|vorsteuerberichtigung|gebäude|fenster|änderung der verhältnisse",
+keywordsEn:"§15a ustg|input tax adjustment|building|windows|change in circumstances",
   references: [
     "§ 15a UStG",
     "§ 15 UStG",
@@ -24374,6 +26888,58 @@ anteilige Monate berücksichtigen.
 Entscheidend ist nicht die geplante,
 
 sondern die tatsächliche Verwendung.
+
+`,
+bodyEn: `
+
+⇨ Examination Schema §15a UStG
+
+► 1. Original Input Tax Deduction
+
+- Proper invoice (§15 UStG)
+- Original input tax deduction was permitted
+
+---
+
+► 2. Change in Circumstances
+
+Examine:
+
+Has the actual use changed compared with the original use?
+
+Examples
+
+- Taxable → VAT-exempt
+- Private → business use
+- Mixed use
+
+---
+
+► 3. Object of Adjustment
+
+For buildings, installed components (windows, doors, heating systems, etc.) generally become part of the building upon installation.
+
+Independent adjustment period:
+
+10 years (§15a Abs.1 UStG)
+
+---
+
+► 4. Adjustment
+
+Adjustment annually
+
+Input tax × change in use × 1/10
+
+Proportionate months must be taken into account.
+
+---
+
+► Key Principle
+
+The decisive factor is not the intended,
+
+but the actual use.
 
 `
 },
@@ -26991,12 +29557,18 @@ The only decisive factor is that the heir becomes a co-entrepreneur by virtue of
 {
   id: "heilberufe-umsatzsteuer-freiberuflichkeit",
   title: "Ärzte und Psychotherapeuten: Umsatzsteuer und Freiberuflichkeit",
+  titleEn:
+    "Doctors and Psychotherapists: VAT and Self-Employed Professional Status",
   short:
     "Aktuelle Rechtsprechung zur Umsatzsteuerbefreiung, § 18 EStG und Abgrenzung freiberuflicher Tätigkeiten.",
+  shortEn:
+    "Current case law on VAT exemption, § 18 EStG, and the delimitation of self-employed professional activities.",
   category: "Umsatzsteuer",
   source: "Interne Steuerstoff-Prüfungsvorbereitung",
   keywords:
     "arzt|ärzte|psychotherapeut|heilberufe|heilbehandlung|§ 4 nr. 14 ustg|§ 18 estg|gemeinschaftspraxis|freiberuflich|gewerblich|umsatzsteuerbefreiung|heilberuf",
+  keywordsEn:
+    "doctor|doctors|psychotherapist|medical professions|medical treatment|§ 4 nr. 14 ustg|§ 18 estg|group practice|self-employed professional|commercial|VAT exemption|medical profession",
   references: [
     "§ 4 Nr. 14 UStG",
     "§ 18 EStG",
@@ -27083,6 +29655,87 @@ Umsatzsteuerpflicht.
 Eigenverantwortliche Berufsausübung
 =
 Freiberufliche Einkünfte nach § 18 EStG.
+`,
+bodyEn: `
+⇨ Doctors and Psychotherapists
+
+► VAT Exemption
+
+Medical professional services are VAT-exempt under § 4 Nr. 14 UStG,
+
+if
+
+- there is a therapeutic purpose,
+- the service serves diagnosis, treatment, or prevention,
+- it is provided by appropriately qualified persons.
+
+The legal form is irrelevant.
+
+The VAT exemption therefore also applies to:
+
+- group practices
+- professional practice partnerships
+- GmbH & Co. KG
+
+► Not VAT-Exempt
+
+There is, in particular, no VAT exemption in the case of
+
+- sale of practice inventory
+- purely organisational services
+- services without a therapeutic purpose
+
+► Medicines
+
+The supply of medicines may be an ancillary supply,
+
+if it is necessary for the medical treatment.
+
+► Family-doctor Contracts
+
+Services under
+
+- § 73b SGB V
+- § 73c SGB V
+
+may also fall under the VAT exemption.
+
+► Income Tax
+
+Doctors and psychotherapists generally generate income from self-employed work (§ 18 EStG).
+
+Requirement:
+
+The activity is carried out
+
+- on own responsibility,
+- personally,
+- professionally independently
+
+.
+
+► Current Review Focus
+
+- delimitation self-employed professional / commercial
+- partnership status in group practices
+- delegation of medical activities
+- use of professionally qualified employees
+
+► Review Takeaways
+
+Medical treatment + therapeutic purpose + qualification
+=
+VAT-exempt under § 4 Nr. 14 UStG.
+
+Legal form is irrelevant.
+
+No therapeutic purpose
+=
+subject to VAT.
+
+Professional activity carried out on own responsibility
+=
+self-employed professional income under § 18 EStG.
 `
 },
 {
@@ -29152,11 +31805,16 @@ Dokumentation: schriftlicher Vertrag mit Laufzeit, Tilgung, Verzinsung; Beschlus
   {
     id: "reverse-charge-npo",
     title: "Reverse Charge bei gemeinnützigen Körperschaften (§ 13b UStG)",
+    titleEn: "Reverse Charge for Charitable Entities (§ 13b UStG)",
     short:
       "Auch ideeller Bereich, Kleinunternehmer und ausschließlich steuerfreie NPOs schulden die USt — Vorsteuerabzug meist ausgeschlossen.",
+    shortEn:
+      "The ideal sphere, small businesses, and exclusively VAT-exempt NPOs also owe VAT — input tax deduction is usually excluded.",
     category: "Umsatzsteuer",
     source: "Beitrag von Maydell, npoR 2022, 190 — interne Verarbeitung.",
     keywords: /reverse[\s-]?charge|§\s*13b|ausländische[rn]?\s+(dienstleister|unternehmer|leistung)|leistung\s+aus\s+dem\s+ausland/i,
+    keywordsEn:
+      "reverse charge|§ 13b|foreign service provider|foreign entrepreneur|service from abroad|recipient owes VAT|charitable entity|NPO",
     references: ["§ 13b UStG", "§ 3a Abs. 2 UStG", "§ 15 Abs. 2 UStG", "§ 19 UStG"],
     body: `Reverse Charge ist für gemeinnützige Körperschaften eine besondere Falle, weil:
 
@@ -29171,15 +31829,34 @@ Dokumentation: schriftlicher Vertrag mit Laufzeit, Tilgung, Verzinsung; Beschlus
 Typische Risikofälle: Werbeleistungen großer Tech-Anbieter mit Sitz in Irland/USA, Freelancer im Ausland, Webentwicklung, SaaS, Beratungsleistungen, Hilfspersonen bei Auslands­projekten (§ 57 Abs. 1 S. 2 AO). Achtung: Eine USt-IdNr. löst auch bei nichtunternehmerisch tätigen Körperschaften die Ortsverlagerung ins Inland aus (§ 3a Abs. 2 S. 3 UStG) — daher nicht unüberlegt beantragen.
 
 Ausnahmen vom Empfängerort: grundstücksbezogene Leistungen (§ 3a Abs. 3 Nr. 1 UStG) — Ort liegt dort, wo das Grundstück liegt; ausländische Bauleistung am inländischen Grundstück löst stets deutsche USt aus.`,
+bodyEn: `Reverse charge is a particular trap for charitable entities because:
+
+1) Since 2011, the place-of-supply rule of § 3a Abs. 2 UStG also applies where the service is obtained exclusively for the non-business / ideal sphere. A supply of services by a foreign entrepreneur to an NPO with a VAT ID or to an NPO that is otherwise an entrepreneur is generally taxable in Germany.
+
+2) Small businesses (§ 19 UStG) and NPOs carrying on exclusively VAT-exempt activities also owe VAT under § 13b UStG. The small-business scheme does not apply to foreign suppliers.
+
+3) Foreign VAT already charged on the invoice does not reduce the taxable amount — according to the prevailing view, it increases it because it is part of the consideration.
+
+4) Input tax deduction is generally excluded because the input services are used for the ideal sphere, VAT-exempt transactions, or the gratuitous purpose operation (§ 15 Abs. 2 UStG). Reverse charge therefore becomes an actual cost burden for NPOs in practice.
+
+Typical risk cases: advertising services from major tech providers seated in Ireland/USA, freelancers abroad, web development, SaaS, consulting services, auxiliary persons in foreign projects (§ 57 Abs. 1 S. 2 AO). Caution: A VAT ID also triggers a shift of the place of supply into Germany for non-business entities (§ 3a Abs. 2 S. 3 UStG) — therefore do not apply for it without careful consideration.
+
+Exceptions to the recipient location: supplies connected with real property (§ 3a Abs. 3 Nr. 1 UStG) — the place is where the property is situated; foreign construction work on domestic real property always triggers German VAT.`,
   },
   {
-    id: "vermietung-vv-wgb",
-    title: "Vermietung: Vermögensverwaltung vs. wirtschaftlicher Geschäftsbetrieb",
-    short:
-      "Langfristige Raumvermietung = VV; Kurzfristigkeit, Sonderleistungen oder Inventardominanz kippen in den wGB.",
-    category: "Umsatzsteuer",
-    source: "Internes Arbeitspapier — Vermietung von Immobilien und Mobilien.",
-    keywords: /vermiet|verpacht|co[-\s]?working|betriebsvorrichtung|§\s*4\s*nr\.?\s*12|§\s*9\s*ustg/i,
+id: "vermietung-vv-wgb",
+title: "Vermietung: Vermögensverwaltung vs. wirtschaftlicher Geschäftsbetrieb",
+titleEn:
+  "Letting: Asset Management vs. Economic Business Operation",
+short:
+  "Langfristige Raumvermietung = VV; Kurzfristigkeit, Sonderleistungen oder Inventardominanz kippen in den wGB.",
+shortEn:
+  "Long-term letting of premises = asset management; short duration, special services, or dominant inventory shift it into an economic business operation.",
+category: "Umsatzsteuer",
+source: "Internes Arbeitspapier — Vermietung von Immobilien und Mobilien.",
+keywords: /vermiet|verpacht|co[-\s]?working|betriebsvorrichtung|§\s*4\s*nr\.?\s*12|§\s*9\s*ustg/i,
+keywordsEn:
+  "letting|leasing|co-working|fixtures|§ 4 nr. 12 ustg|§ 9 ustg|asset management|economic business operation",
     references: ["§ 14 AO", "§ 4 Nr. 12 UStG", "§ 9 UStG", "§ 12 Abs. 2 Nr. 8a UStG", "§ 15a UStG"],
     body: `Ertragsteuerliche Einordnung:
 - Vermögensverwaltung (§ 14 S. 3 AO): langfristige Vermietung unbeweglichen Vermögens ohne wesentliche Nebenleistungen.
@@ -29203,6 +31880,28 @@ Steuersatz bei NPOs:
 Betriebsvorrichtungen: nach neuer Rechtsprechung kann die Überlassung gemeinsam mit dem Gebäude als einheitliche Nebenleistung steuerfrei werden — mit Folge, dass die Vorsteuer aus deren Anschaffung verloren geht. Bei Inventar­dominanz: sonstige Leistung eigener Art, 19 %.
 
 § 15a UStG: Nutzungsänderung (z. B. Wechsel zu steuerfreiem Mieter) löst Vorsteuer­berichtigung über 10 Jahre aus.`,
+bodyEn: `Income-tax classification:
+- Asset management (§ 14 S. 3 AO): long-term letting of immovable property without significant ancillary services.
+- Economic business operation (§ 14 S. 1 AO): short duration, constant tenant turnover, special services (cleaning during the rental period, provision of staff, catering), or separate letting of movable assets.
+- A composite asset (furnished rooms / fully equipped office) remains asset management as long as no active additional services are provided.
+
+Co-working:
+- Service packages, reception, IT, community → economic business operation (19 % VAT).
+- Pure long-term provision of furnished rooms including incidental costs may be asset management.
+
+VAT:
+- Principle: VAT-exempt under § 4 Nr. 12 Buchst. a UStG.
+- Mandatorily taxable: short-term accommodation, vehicle parking spaces, fixtures.
+- Election under § 9 UStG only if the tenant is an entrepreneur and uses the property (at least 95 %, de minimis threshold) for transactions entitling to input tax deduction. Partial election for separable parts of a building is permissible.
+- Transitional rule § 27 Abs. 2 UStG: if construction began before 11.11.1993, the restriction of § 9 Abs. 2 UStG does not apply — election is also possible for letting to doctors/NPOs. This ceases in the case of a renovation-related “new building”.
+
+Tax rate for NPOs:
+- Asset management and purpose operation: reduced rate of 7 % (§ 12 Abs. 2 Nr. 8a UStG).
+- Economic business operation: regular 19 %.
+
+Fixtures: according to recent case law, provision together with the building may become a single VAT-exempt ancillary supply — with the consequence that input tax on their acquisition is lost. If inventory is dominant: supply of services of a special kind, 19 %.
+
+§ 15a UStG: change of use (e.g. switch to a VAT-exempt tenant) triggers input tax adjustment over 10 years.`,
   },
   {
     id: "57-abs-3-ao",
@@ -30278,11 +32977,16 @@ Hinweis: GoBD-Verstöße können zur Verwerfung der Buchführung und zu Hinzusch
   {
     id: "reverse-charge-grundschema",
     title: "Reverse Charge (§ 13b UStG) — Grundschema & Anwendungsfälle",
+    titleEn: "Reverse Charge (§ 13b UStG) — Basic Scheme & Cases of Application",
     short:
       "Leistender stellt netto, Empfänger schuldet die USt; Vorsteuerabzug gleichzeitig möglich.",
+    shortEn:
+      "Supplier invoices net, recipient owes the VAT; input tax deduction may be possible at the same time.",
     category: "Umsatzsteuer",
     source: "Internes Handout — Rückstellungen / USt / Mitunternehmerschaft.",
     keywords: /§\s*13b|reverse[\s-]?charge|bauleistung\b|werklieferung\s+ausland|schrott|altgold|co2[\s-]?zertifikat|§\s*25b/i,
+    keywordsEn:
+      "§ 13b|reverse charge|construction service|works supply abroad|scrap|old gold|co2 certificate|§ 25b",
     references: [
       "§ 13b Abs. 1, 2 UStG",
       "§ 15 UStG",
@@ -30303,15 +33007,34 @@ Hinweis: GoBD-Verstöße können zur Verwerfung der Buchführung und zu Hinzusch
 3) Beispiel Bauleistung
 - Subunternehmer (Ausland) berechnet 50.000 € netto an deutschen Generalunternehmer (Bauleistender).
 - Empfänger schuldet 9.500 € USt (§ 13b UStG) und zieht sie als Vorsteuer (§ 15 UStG) → liquiditätsneutral.`,
+    bodyEn: `1) Basic scheme
+- Supplier entrepreneur issues a net invoice with the note "Steuerschuldnerschaft des Leistungsempfängers".
+- The recipient owes the VAT and may deduct it at the same time if entitled to input tax deduction (§ 15 UStG) → in principle cash-flow neutral.
+
+2) Cases of application (§ 13b Abs. 2 UStG)
+- Nr. 1: works supplies / supplies of services by an entrepreneur established abroad (in conjunction with § 13b Abs. 1 UStG for intra-Community supplies of services under § 3a Abs. 2 UStG).
+- Nr. 4: construction services, if the recipient itself sustainably provides construction services.
+- Nr. 5: gas, electricity, heat/cooling under special conditions.
+- Nr. 7–11: scrap, certain metals, old gold, mobile phones/tablets above the threshold, CO₂ certificates.
+- Triangulation transactions: examine simplification under § 25b UStG.
+
+3) Example construction service
+- Subcontractor (abroad) charges 50,000 euros net to German general contractor (provider of construction services).
+- Recipient owes 9,500 euros VAT (§ 13b UStG) and deducts it as input tax (§ 15 UStG) → cash-flow neutral.`,
   },
   {
     id: "reihengeschaeft",
     title: "Reihengeschäft (§ 3 Abs. 6, 7 UStG)",
+    titleEn: "Chain Transaction (§ 3 Abs. 6, 7 UStG)",
     short:
       "Mehrere Umsatzgeschäfte, eine Warenbewegung; nur eine Lieferung ist die bewegte, alle anderen ruhen.",
+    shortEn:
+      "Several sales transactions, one movement of goods; only one supply is the moving supply, all others are static supplies.",
     category: "Umsatzsteuer",
     source: "Internes Handout — Reihengeschäft (UStAE 3.14).",
     keywords: /reihengeschäft|bewegte lieferung|ruhende lieferung|ustae 3\.14|§\s*3\s*abs\.?\s*6|§\s*3\s*abs\.?\s*7/i,
+    keywordsEn:
+      "chain transaction|moving supply|static supply|ustae 3.14|§ 3 abs. 6|§ 3 abs. 7",
     references: [
       "§ 3 Abs. 6, 7 UStG",
       "§ 6a UStG",
@@ -30338,6 +33061,27 @@ Hinweis: GoBD-Verstöße können zur Verwerfung der Buchführung und zu Hinzusch
 5) Beispiel A → B → C, Transport durch B ins EU-Ausland
 - A → B: bewegte Lieferung, Ort DE, ig. Lieferung (§ 6a UStG).
 - B → C: ruhende Lieferung, Ort im EU-Bestimmungsland, dort steuerbar.`,
+    bodyEn: `1) Requirement
+- Several entrepreneurs conclude sales transactions concerning the same item; only one movement of goods.
+
+2) Allocation of the moving supply (UStAE 3.14)
+- Only one supply is the moving supply (§ 3 Abs. 6 UStG); all others are static supplies (§ 3 Abs. 7 UStG).
+- The decisive factor is who arranges the transport:
+  • Transport by first supplier (A) → A→B is moving.
+  • Transport by intermediary trader (B) → in principle A→B is moving (presumption); B can shift the moving supply to B→C by using the VAT ID of the state of dispatch.
+  • Transport by final customer (C) → B→C is moving.
+
+3) Determination of place of supply
+- Moving supply: beginning of transport/shipment.
+- Static supply: place where the right to dispose is transferred.
+
+4) VAT exemption
+- The moving supply may be VAT-exempt as an intra-Community supply (§ 6a UStG) if the requirements (VAT ID, documentary evidence, EC Sales List) are met.
+- The static supply is generally taxable in the respective state where it is situated.
+
+5) Example A → B → C, transport by B to another EU country
+- A → B: moving supply, place Germany, intra-Community supply (§ 6a UStG).
+- B → C: static supply, place in the EU country of destination, taxable there.`,
   },
   {
     id: "mitunternehmerschaft",
@@ -30420,11 +33164,16 @@ Hinweis: GoBD-Verstöße können zur Verwerfung der Buchführung und zu Hinzusch
   {
     id: "reverse-charge-npo",
     title: "Reverse Charge bei gemeinnützigen Körperschaften (§ 13b UStG)",
+    titleEn: "Reverse Charge for Charitable Entities (§ 13b UStG)",
     short:
       "Steuerfalle für NPOs bei Leistungsbezug aus dem Ausland — Zusammenspiel §§ 2, 3a, 13b UStG; auch ideeller Bereich betroffen.",
+    shortEn:
+      "VAT trap for NPOs when obtaining services from abroad — interplay of §§ 2, 3a, 13b UStG; the ideal sphere is also affected.",
     category: "Umsatzsteuer",
     source: "von Maydell, npoR 2022, 190 — kanzleiintern aufbereitet.",
     keywords: /reverse[-\s]?charge.*(verein|gemeinn|npo|ggmbh|stiftung)|gemeinn.*reverse|§\s*13b.*(verein|gemeinn|ideell)|ust[-\s]?idnr.*verein|leistung.*ausland.*verein/i,
+    keywordsEn:
+      "reverse charge charitable association npo ggmbh foundation|charitable reverse charge|§ 13b charitable ideal sphere|VAT ID association|service from abroad association",
     references: [
       "§ 13b UStG",
       "§ 3a Abs. 1, 2 UStG",
@@ -30459,6 +33208,32 @@ Hinweis: GoBD-Verstöße können zur Verwerfung der Buchführung und zu Hinzusch
 - Bei nicht-unternehmerischen Körperschaften löst die bloße Verwendung der USt-IdNr. die Ortsverlagerung ins Inland und damit § 13b aus (§ 3a Abs. 2 S. 3 Hs. 1 UStG).
 
 Merksatz: Gemeinnützigkeit schützt nicht vor § 13b UStG. Bei jedem Leistungsbezug aus dem Ausland prüfen: Wer ist Leistender? Ist die NPO Unternehmer / hat sie USt-IdNr.? Greift Reverse Charge? Vorsteuer möglich?`,
+bodyEn: `1) Core idea
+- In the case of supplies of services by an entrepreneur established abroad to a domestic entrepreneur, § 3a Abs. 2 UStG shifts the place of supply to Germany; § 13b UStG shifts the VAT liability to the recipient (reverse charge).
+- Since 2011, this also expressly applies where the service is obtained for the non-business / ideal sphere of a charitable entity, provided the entity is otherwise an entrepreneur or uses a VAT ID (§ 3a Abs. 2 S. 3 UStG).
+
+2) Entrepreneur status of the NPO (§ 2 UStG)
+- Entrepreneurial activity generally exists in the taxable economic business operation, in the purpose operation, and partly in asset management.
+- Even a minor entrepreneurial activity is sufficient for status as an entrepreneur and thus for § 3a Abs. 2 UStG.
+
+3) Frequent misjudgments
+- "We are charitable, so no VAT" — incorrect. § 13b also applies to VAT-exempt transactions and to domestic NPOs using the small-business regime (§ 19 UStG).
+- The small-business regime does not apply to suppliers established abroad (§ 13b Abs. 5 S. 8 UStG refers only to domestic persons).
+- If the foreign entrepreneur incorrectly charges foreign VAT, the German VAT liability remains; according to the prevailing view, the foreign VAT even increases the taxable amount.
+
+4) Input tax problem
+- Input tax deduction under § 15 UStG only exists insofar as the input service is used for taxable transactions.
+- In the case of NPOs there is typically a (partial) exclusion → the VAT owed under § 13b becomes a real additional burden.
+
+5) Typical risk cases
+- Advertising services from major tech groups (e.g. Ireland), website/agency services from third countries, cloud/SaaS services, freelancers abroad.
+- Construction services by foreign entrepreneurs relating to domestic real property (§ 3a Abs. 3 Nr. 1 UStG) — always VAT in Germany.
+- Project partner / auxiliary person abroad (§ 57 Abs. 1 S. 2 AO) — exchange of supplies may trigger reverse charge.
+
+6) Do not apply for a VAT ID lightly
+- For non-business entities, mere use of the VAT ID triggers the shift of the place of supply to Germany and thus § 13b (§ 3a Abs. 2 S. 3 Hs. 1 UStG).
+
+Key takeaway: Charitable status does not protect against § 13b UStG. For every service obtained from abroad, examine: Who is the supplier? Is the NPO an entrepreneur / does it have a VAT ID? Does reverse charge apply? Is input tax possible?`,
   },
   {
     id: "kooperation-57-abs-3-ao",
@@ -30539,11 +33314,16 @@ Merksatz: Darlehen zur unmittelbaren Zweckverwirklichung → zinsgünstig/zinslo
   {
     id: "ust-grundpruefung",
     title: "Umsatzsteuer — Grundprüfung (Steuerbarkeit, Ort, Steuerschuldner)",
+    titleEn: "VAT — Basic Review (Taxability, Place, Person Liable for Tax)",
     short:
       "Prüffolge: Leistungsaustausch → Leistungsort → Steuerbefreiung → Bemessungsgrundlage → Steuersatz → Steuerschuldner → Entstehungszeitpunkt.",
+    shortEn:
+      "Review sequence: supply for consideration → place of supply → VAT exemption → taxable amount → tax rate → person liable for tax → time the tax arises.",
     category: "Umsatzsteuer",
     source: "Internes Handout — USt-Grundprüfung.",
     keywords: /ust[-\s]?grundpr|umsatzsteuer.*pr(üfung|uefung)|steuerbarkeit|leistungsort|sollversteuerung|ort der lieferung/i,
+    keywordsEn:
+      "VAT basic review|VAT review|taxability|place of supply|accrual taxation|place of supply of goods",
     references: [
       "§ 1 Abs. 1 Nr. 1 UStG",
       "§ 3 Abs. 6, 7 UStG",
@@ -30563,6 +33343,14 @@ Merksatz: Darlehen zur unmittelbaren Zweckverwirklichung → zinsgünstig/zinslo
 5) Steuersatz — 19 % Regelsatz (§ 12 Abs. 1 UStG); 7 % ermäßigt (§ 12 Abs. 2 UStG).
 6) Steuerschuldner — grundsätzlich der leistende Unternehmer (§ 13a Abs. 1 Nr. 1 UStG); Übergang bei § 13b UStG.
 7) Entstehungszeitpunkt — bei Sollversteuerung: Ablauf des Voranmeldungszeitraums der Leistungsausführung (§ 13 Abs. 1 Nr. 1 a S. 1 UStG).`,
+    bodyEn: `Review sequence:
+1) Supply for consideration — supply and consideration are internally linked (§ 1 Abs. 1 Nr. 1 UStG).
+2) Place of supply in Germany — moving supply of goods: beginning of transport/shipment (§ 3 Abs. 6 S. 1 UStG); static supply: place where the right to dispose is transferred (§ 3 Abs. 7 S. 1 UStG); supplies of services: § 3a UStG.
+3) VAT exemption — § 4 UStG (e.g. intra-Community supply, medical treatments, banking transactions).
+4) Taxable amount — consideration (§ 10 Abs. 1 UStG).
+5) Tax rate — 19 % standard rate (§ 12 Abs. 1 UStG); 7 % reduced rate (§ 12 Abs. 2 UStG).
+6) Person liable for tax — as a rule the supplying entrepreneur (§ 13a Abs. 1 Nr. 1 UStG); transfer under § 13b UStG.
+7) Time the tax arises — in the case of accrual taxation: expiry of the advance return period in which the supply is carried out (§ 13 Abs. 1 Nr. 1 a S. 1 UStG).`,
   },
   {
     id: "forderungen-ewb-pwb",
@@ -30660,11 +33448,16 @@ Merksatz: § 173a AO korrigiert Schreib-/Rechenfehler — aber nur, wenn rechtse
   {
     id: "ust-karussell-gutglaube",
     title: "Umsatzsteuerkarussell & Vertrauensschutz beim Vorsteuerabzug",
+    titleEn: "VAT Carousel & Protection of Legitimate Expectations for Input Tax Deduction",
     short:
       "Vorsteuerabzug bleibt für gutgläubige Unternehmer erhalten — entfällt bei Wissen/Wissen-müssen um Einbeziehung in MwSt-Betrug.",
+    shortEn:
+      "Input tax deduction remains available for good-faith entrepreneurs — it is lost if they knew or should have known of involvement in VAT fraud.",
     category: "Umsatzsteuer",
     source: "Weimann, Umsatzsteuer in der Praxis, 15. Aufl. — kanzleiintern aufbereitet.",
     keywords: /karussell|missing trader|gutglaubensschutz|gutgläubig|vertrauensschutz.*vorsteuer|mwst[-\s]?betrug|wissen müssen.*umsatz/i,
+    keywordsEn:
+      "carousel|missing trader|good-faith protection|good faith|protection of legitimate expectations input tax|VAT fraud|should have known VAT",
     references: [
       "§ 15 UStG",
       "EuGH 12.01.2006, C-354/03 u. a. (Optigen)",
@@ -30686,6 +33479,21 @@ Merksatz: § 173a AO korrigiert Schreib-/Rechenfehler — aber nur, wenn rechtse
 - Identitätsprüfung des Geschäftspartners (HR-Auszug, USt-IdNr.-Bestätigung qualifiziert nach § 18e UStG, Gewerbeanmeldung).
 - Plausibilitätsprüfung bei ungewöhnlichen Preisen, neuen Lieferanten, Bar-/Drittlandzahlungen, häufig wechselnden Vorlieferanten.
 - Belegnachweise (z. B. Gelangensbestätigung bei ig. Lieferungen, Ausfuhrnachweis).`,
+    bodyEn: `1) Principle
+- Each transaction in a supply chain is a separate economic activity (Optigen).
+- The input tax deduction of an honest entrepreneur remains in place even if an upstream or downstream transaction is affected by VAT fraud, provided the entrepreneur neither knew nor could have known this.
+
+2) Denial in the Case of Knowledge / Should-have-known (Kittel)
+- Input tax deduction must be denied if objective circumstances prove that the taxable person knew or should have known that, through the acquisition, it was participating in a transaction connected with VAT evasion.
+
+3) Requirements for "Good Faith" (BFH V R 48/04)
+- The entrepreneur must take all measures that can reasonably be required to ensure that its transactions are not involved in fraud.
+- The burden of establishing the requirements for input tax deduction is borne by the person claiming the deduction — including the absence of knowledge of the fraudulent plan.
+
+4) Practical Documentation
+- Identity check of the business partner (commercial register extract, qualified VAT ID confirmation under § 18e UStG, trade registration).
+- Plausibility checks in the case of unusual prices, new suppliers, cash / third-country payments, and frequently changing upstream suppliers.
+- Documentary evidence (e.g. confirmation of arrival for intra-Community supplies, export evidence).`,
   },
 ];
 

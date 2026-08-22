@@ -1,4 +1,5 @@
 import { KNOWLEDGE_BASE, type KBEntry } from "@/lib/knowledgeBase";
+import "@/lib/knowledgeBaseExtensions/erbschaftsteuer-miterben-steuererklaerung-mitwirkung";
 
 export const erbschaftsteuerFestsetzungsverjaehrung: KBEntry = {
   id: "erbschaftsteuer-festsetzungsverjaehrung",

@@ -42,7 +42,6 @@ const CATEGORIES = [
   "Alle",
   "Umsatzsteuer",
   "Einkommensteuer",
-  "Ertragsteuer",
   "Lohnsteuer",
   "Sozialversicherung",
   "Erbschaftsteuer",
@@ -67,7 +66,6 @@ type CategoryId =
   | "all"
   | "umsatzsteuer"
   | "einkommensteuer"
-  | "ertragsteuer"
   | "lohnsteuer"
   | "sozialversicherung"
   | "grunderwerbsteuer"
@@ -91,7 +89,6 @@ const CATEGORY_ID_BY_LABEL: Record<Category, CategoryId> = {
   Alle: "all",
   Umsatzsteuer: "umsatzsteuer",
   Einkommensteuer: "einkommensteuer",
-  Ertragsteuer: "ertragsteuer",
   Lohnsteuer: "lohnsteuer",
   Sozialversicherung: "sozialversicherung",
   Grunderwerbsteuer: "grunderwerbsteuer",
@@ -1061,7 +1058,7 @@ function Wissensdatenbank() {
           (article) => articleMatchesCategory(article, category) && articleMatchesQuery(article, query),
         ),
       }))
-      .filter((group) => group.articles.length > 0 || (group.category === "Ertragsteuer" && !query.trim()));
+      .filter((group) => group.articles.length > 0);
   }, [query]);
 
   useEffect(() => {
@@ -1318,11 +1315,6 @@ function Wissensdatenbank() {
                     </button>
 
                     <div className="mt-3 divide-y divide-border overflow-hidden rounded-xl border border-border bg-background/50">
-                      {articles.length === 0 && (
-                        <p className="px-3 py-3 text-sm text-muted-foreground">
-                          Noch keine Beiträge in dieser Kategorie.
-                        </p>
-                      )}
                       {articles.map((article) => (
                         <button
                           key={article.id}
